@@ -1,0 +1,9 @@
+{
+  "content": "inductive PanelWidgetsExtEntry where\n  | \u00abglobal\u00bb (n : Name)\n  | \u00ablocal\u00bb (wi : WidgetInstance)\nprivate abbrev PanelWidgetsExt := SimpleScopedEnvExtension\n  (UInt64 \u00d7 Name)\n  (RBMap UInt64 (List PanelWidgetsExtEntry) compare)\nbuiltin_initialize panelWidgetsExt : PanelWidgetsExt \u2190\n  registerSimpleScopedEnvExtension {\n    addEntry := fun s (h, n) => s.insert h (.global n :: s.findD h [])\n    initial  := .empty\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/UserWidget.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/UserWidget.lean",
+    "definition_name": "PanelWidgetsExtEntry"
+  }
+}

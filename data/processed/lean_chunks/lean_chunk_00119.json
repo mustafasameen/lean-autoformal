@@ -1,0 +1,9 @@
+{
+  "content": "class Foo (\u03b1 \u03b2 : Type) :=\n  (f : \u03b1 \u2192 \u03b2)\nexport Foo (f)\n@[default_instance]\ninstance : Foo Nat Nat := {\n  f := id\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/defaultInstance.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/defaultInstance.lean",
+    "definition_name": "Foo"
+  }
+}

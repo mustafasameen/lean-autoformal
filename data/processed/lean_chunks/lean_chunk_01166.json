@@ -1,0 +1,9 @@
+{
+  "content": "class G (A : outParam Nat) where Z : Type u\nexport G (Z)\nabbrev f (a : Nat) : Nat := 2 ^ a\nvariable [G (f 0)]\nexample {s : Z}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4947.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4947.lean",
+    "definition_name": "G"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getNumHeadLambdas : Expr \u2192 Nat\n  | .lam _ _ b _ => getNumHeadLambdas b + 1\n  | .mdata _ b => getNumHeadLambdas b\n  | _ => 0\ndef isHeadBetaTargetFn (useZeta : Bool) : Expr \u2192 Bool\n  | Expr.lam ..         => true\n  | Expr.letE _ _ _ b _ => useZeta && isHeadBetaTargetFn useZeta b\n  | Expr.mdata _ b      => isHeadBetaTargetFn useZeta b\n  | _                   => false\ndef isHeadBetaTarget (e : Expr) (useZeta := false) : Bool :=\n  e.isApp && e.getAppFn.isHeadBetaTargetFn useZeta\nprivate def etaExpandedBody : Expr \u2192 Nat \u2192 Nat \u2192 Option Expr\n  | app f (bvar j), n+1, i => if j == i then etaExpandedBody f n (i+1) else none\n  | _,              _+1, _ => none\n  | f,              0,   _ => if f.hasLooseBVars then none else some f\nprivate def etaExpandedAux : Expr \u2192 Nat \u2192 Option Expr\n  | lam _ _ b _, n => etaExpandedAux b (n+1)\n  | e,           n => etaExpandedBody e n 0\ndef etaExpanded? (e : Expr) : Option Expr :=\n  etaExpandedAux e 0\ndef getOptParamDefault? (e : Expr) : Option Expr :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "ExprStructEq"
+  }
+}

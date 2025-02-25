@@ -1,0 +1,9 @@
+{
+  "content": "match n with\n  | 0 => 0\n  | n+1 =>\n    match a, h: b, c % 2, h : d % 2 with\n    | 0, _, _, _ => 0\n    | a+1, x, y, z => with_mixed_match_tailrec2 n a x y z\ntermination_by n => n\n#guard_msgs in\n#check with_mixed_match_tailrec2.induct\nset_option linter.unusedVariables false in\ndef with_match_non_tailrec : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n  Nat.succ <|\n    match n % 2 with\n    | 0 => with_match_non_tailrec n\n    | _ => with_match_non_tailrec n\ntermination_by n => n\n#guard_msgs in\n#check with_match_non_tailrec.induct\nset_option linter.unusedVariables false in\ndef with_match_non_tailrec_refining : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n  Nat.succ <|\n    match n with\n    | 0 => with_match_non_tailrec_refining 0\n    | m => with_match_non_tailrec_refining m\ntermination_by n => n\n#guard_msgs in\n#check with_match_non_tailrec_refining.induct\ndef with_overlap : Nat \u2192 Nat\n  | 0 => 0\n  | 1 => 1\n  | 2 => 2\n  | 3 => 3\n  | n+1 => with_overlap n\ntermination_by n => n\n#guard_msgs in\n#check with_overlap.induct",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "Tree"
+  }
+}

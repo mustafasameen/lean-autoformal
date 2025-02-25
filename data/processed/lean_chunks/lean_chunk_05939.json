@@ -1,0 +1,10 @@
+{
+  "content": "theorem bmod_add_cancel_right (i : Int) : bmod (x + i) n = bmod (y + i) n \u2194 bmod x n = bmod y n :=\n  \u27e8fun H => by\n    have := add_bmod_eq_add_bmod_right (-i) H\n    rwa [Int.add_neg_cancel_right, Int.add_neg_cancel_right] at this,\n  fun H => by rw [\u2190 bmod_add_bmod_congr, H, bmod_add_bmod_congr]\u27e9\n@[simp] theorem add_bmod_bmod : Int.bmod (x + Int.bmod y n) n = Int.bmod (x + y) n := by\n  rw [Int.add_comm x, Int.bmod_add_bmod_congr, Int.add_comm y]\n@[simp] theorem sub_bmod_bmod : Int.bmod (x - Int.bmod y n) n = Int.bmod (x - y) n := by\n  apply (bmod_add_cancel_right (bmod y n)).mp\n  rw [Int.sub_add_cancel, add_bmod_bmod, Int.sub_add_cancel]\n@[simp]\ntheorem bmod_mul_bmod : Int.bmod (Int.bmod x n * y) n = Int.bmod (x * y) n := by\n  rw [bmod_def x n]\n  split\n  next p =>\n    simp\n  next p =>\n    rw [Int.sub_mul, Int.sub_eq_add_neg, \u2190 Int.mul_neg, bmod_add_mul_cancel, emod_mul_bmod_congr]\n@[simp] theorem mul_bmod_bmod : Int.bmod (x * Int.bmod y n) n = Int.bmod (x * y) n := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "emod_bmod_congr",
+    "has_proof": true
+  }
+}

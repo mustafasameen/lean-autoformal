@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_alter_of_beq_eq_false [EquivBEq \u03b1] [LawfulHashable \u03b1] {k k' : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_name": "mem_alter_of_beq_eq_false",
+    "has_proof": false
+  }
+}

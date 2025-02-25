@@ -1,0 +1,9 @@
+{
+  "content": "class FunLike (F : Sort _) (\u03b1 : outParam (Sort _)) (\u03b2 : outParam <| \u03b1 \u2192 Sort _) where\n  coe : F \u2192 \u2200 a : \u03b1, \u03b2 a\nvariable (F \u03b1 : Sort _) (\u03b2 : \u03b1 \u2192 Sort _)\nnamespace FunLike\nvariable {F \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "FunLike"
+  }
+}

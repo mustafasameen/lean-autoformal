@@ -1,0 +1,9 @@
+{
+  "content": "section Unverified\n@[inline] def partition (f : (a : \u03b1) \u2192 \u03b2 a \u2192 Bool)\n    (m : DHashMap \u03b1 \u03b2) : DHashMap \u03b1 \u03b2 \u00d7 DHashMap \u03b1 \u03b2 :=\n  m.fold (init := (\u2205, \u2205)) fun \u27e8l, r\u27e9  a b =>\n    if f a b then\n      (l.insert a b, r)\n    else\n      (l, r.insert a b)\n@[inline, inherit_doc Raw.toArray] def toArray (m : DHashMap \u03b1 \u03b2) :\n    Array ((a : \u03b1) \u00d7 \u03b2 a) :=\n  m.1.toArray\n@[inline, inherit_doc Raw.Const.toArray] def Const.toArray {\u03b2 : Type v}\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) : Array (\u03b1 \u00d7 \u03b2) :=\n  Raw.Const.toArray m.1\n@[inline, inherit_doc Raw.keysArray] def keysArray (m : DHashMap \u03b1 \u03b2) :\n    Array \u03b1 :=\n  m.1.keysArray\n@[inline, inherit_doc Raw.values] def values {\u03b2 : Type v}\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) : List \u03b2 :=\n  m.1.values\n@[inline, inherit_doc Raw.valuesArray] def valuesArray {\u03b2 : Type v}\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) : Array \u03b2 :=\n  m.1.valuesArray\n@[inline] def modify [LawfulBEq \u03b1] (m : DHashMap \u03b1 \u03b2) (a : \u03b1) (f : \u03b2 a \u2192 \u03b2 a) : DHashMap \u03b1 \u03b2 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_name": "empty"
+  }
+}

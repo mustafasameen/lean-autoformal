@@ -1,0 +1,10 @@
+{
+  "content": "theorem erase_replicate [LawfulBEq \u03b1] (n : Nat) (a b : \u03b1) :\n    (replicate n a).erase b = if b == a then replicate (n - 1) a else replicate n a := by\n  rw [erase_eq_eraseP]\n  simp [eraseP_replicate]\ntheorem erase_comm [LawfulBEq \u03b1] (a b : \u03b1) (l : List \u03b1) :\n    (l.erase a).erase b = (l.erase b).erase a := by\n  if ab : a == b then rw [eq_of_beq ab] else ?_\n  if ha : a \u2208 l then ?_ else\n    simp only [erase_of_not_mem ha, erase_of_not_mem (mt mem_of_mem_erase ha)]\n  if hb : b \u2208 l then ?_ else\n    simp only [erase_of_not_mem hb, erase_of_not_mem (mt mem_of_mem_erase hb)]\n  match l, l.erase a, exists_erase_eq ha with\n  | _, _, \u27e8l\u2081, l\u2082, ha', rfl, rfl\u27e9 =>\n    if h\u2081 : b \u2208 l\u2081 then\n      rw [erase_append_left _ h\u2081, erase_append_left _ h\u2081,\n          erase_append_right _ (mt mem_of_mem_erase ha'), erase_cons_head]\n    else\n      rw [erase_append_right _ h\u2081, erase_append_right _ h\u2081, erase_append_right _ ha',\n          erase_cons_tail ab, erase_cons_head]\ntheorem erase_eq_iff [LawfulBEq \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_name": "erase_replicate",
+    "has_proof": true
+  }
+}

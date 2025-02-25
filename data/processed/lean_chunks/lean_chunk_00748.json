@@ -1,0 +1,9 @@
+{
+  "content": "structure S :=\n(a : Nat) (h : a > 0) (b : Nat)\ndef f (s : S) :=\ns.b - s.a\n#guard_msgs in\n#eval! f {a := 5, b := 30, h := sorry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/compiler_proj_bug.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/compiler_proj_bug.lean",
+    "definition_name": "S"
+  }
+}

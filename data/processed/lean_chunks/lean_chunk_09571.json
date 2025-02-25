@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEmpty_insertIfNew [TransCmp cmp] (h : t.WF) {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/RawLemmas.lean",
+    "definition_name": "isEmpty_insertIfNew",
+    "has_proof": false
+  }
+}

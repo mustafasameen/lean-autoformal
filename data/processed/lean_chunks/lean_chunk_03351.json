@@ -1,0 +1,10 @@
+{
+  "content": "theorem iff_eq (p q : Prop) : (p \u2194 q) = (p = q) := by\n  by_cases p <;> by_cases q <;> simp [*]\ntheorem eq_true_eq (p : Prop) : (p = True) = p := by simp\ntheorem eq_false_eq (p : Prop) : (p = False) = \u00acp := by simp\ntheorem not_eq_prop (p q : Prop) : (\u00ac(p = q)) = (p = \u00acq) := by\n  by_cases p <;> by_cases q <;> simp [*]\ntheorem imp_eq (p q : Prop) : (p \u2192 q) = (\u00ac p \u2228 q) := by\n  by_cases p <;> by_cases q <;> simp [*]\ntheorem true_imp_eq (p : Prop) : (True \u2192 p) = p := by simp\ntheorem false_imp_eq (p : Prop) : (False \u2192 p) = True := by simp\ntheorem imp_true_eq (p : Prop) : (p \u2192 True) = True := by simp\ntheorem imp_false_eq (p : Prop) : (p \u2192 False) = \u00acp := by simp\ntheorem imp_self_eq (p : Prop) : (p \u2192 p) = True := by simp\ntheorem not_and (p q : Prop) : (\u00ac(p \u2227 q)) = (\u00acp \u2228 \u00acq) := by\n  by_cases p <;> by_cases q <;> simp [*]\ntheorem not_ite {_ : Decidable p}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Norm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Norm.lean",
+    "definition_name": "iff_eq",
+    "has_proof": true
+  }
+}

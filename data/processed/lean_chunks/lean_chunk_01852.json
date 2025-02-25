@@ -1,0 +1,9 @@
+{
+  "content": "structure Person :=\n  firstName : String\n  lastName : String\n  age : Nat\nderiving Ord\nexample : compare { firstName := \"A\", lastName := \"B\", age := 10 : Person }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/Ord.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/Ord.lean",
+    "definition_name": "Person"
+  }
+}

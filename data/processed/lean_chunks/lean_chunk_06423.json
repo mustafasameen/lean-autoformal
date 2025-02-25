@@ -1,0 +1,9 @@
+{
+  "content": "| .nestedBC        => ``(Pure.pure (DoResultBC.\u00abcontinue\u00bb $u))\n  | .nestedPR        => unreachable!\n  | .nestedSBC       => ``(Pure.pure (DoResultSBC.\u00abcontinue\u00bb $u))\n  | .nestedPRBC      => ``(Pure.pure (DoResultPRBC.\u00abcontinue\u00bb $u))\ndef breakToTerm : M Syntax := do\n  let ctx \u2190 read\n  let u \u2190 mkUVarTuple\n  match ctx.kind with\n  | .regular         => unreachable!\n  | .forIn           => ``(Pure.pure (ForInStep.done $u))\n  | .forInWithReturn => ``(Pure.pure (ForInStep.done (MProd.mk none $u)))\n  | .nestedBC        => ``(Pure.pure (DoResultBC.\u00abbreak\u00bb $u))\n  | .nestedPR        => unreachable!\n  | .nestedSBC       => ``(Pure.pure (DoResultSBC.\u00abbreak\u00bb $u))\n  | .nestedPRBC      => ``(Pure.pure (DoResultPRBC.\u00abbreak\u00bb $u))\ndef actionTerminalToTerm (action : Syntax) : M Syntax := withRef action <| withFreshMacroScope do\n  let ctx \u2190 read\n  let u \u2190 mkUVarTuple\n  match ctx.kind with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "DoIfView"
+  }
+}

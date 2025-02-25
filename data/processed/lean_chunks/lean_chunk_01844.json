@@ -1,0 +1,9 @@
+{
+  "content": "class has_note (M : Type) where\n  note : M\nnotation \"\u2669\" => has_note.note\nclass has_note2 (M : Type) extends has_note M\nvariable {\u03b9 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/509.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/509.lean",
+    "definition_name": "has_note"
+  }
+}

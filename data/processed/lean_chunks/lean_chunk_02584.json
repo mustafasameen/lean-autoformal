@@ -1,0 +1,10 @@
+{
+  "content": "(\" [\" (simpStar <|> simpErase <|> simpLemma),* \"]\")? (location)? : tactic\nsyntax (name := normCastAddElim) \"norm_cast_add_elim\" ident : command\nmacro \"ac_nf\" loc:(location)? : tactic =>\n  `(tactic| ac_nf0 $[$loc]? <;> try trivial)\nsyntax (name := symm) \"symm\" (location)? : tactic\nsyntax (name := symmSaturate) \"symm_saturate\" : tactic\nnamespace SolveByElim\nsyntax star := \"*\"\nsyntax args := \" [\" SolveByElim.arg,* \"]\"\nsyntax (name := solveByElim)\n  \"solve_by_elim\" \"*\"? optConfig (&\" only\")? (args)? (using_)? : tactic\nsyntax (name := applyAssumption)\n  \"apply_assumption\" optConfig (&\" only\")? (args)? (using_)? : tactic\nsyntax (name := applyRules) \"apply_rules\" optConfig (&\" only\")? (args)? (using_)? : tactic\nend SolveByElim\nsyntax (name := exact?) \"exact?\" (\" using \" (colGt ident),+)? : tactic\nsyntax (name := apply?) \"apply?\" (\" using \" (colGt term),+)? : tactic\nsyntax rewrites_forbidden := \" [\" ((\"-\" ident),*,?) \"]\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "DecideConfig",
+    "imports": "Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\""
+  }
+}

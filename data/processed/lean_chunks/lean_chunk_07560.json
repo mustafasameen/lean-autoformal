@@ -1,0 +1,9 @@
+{
+  "content": "weeks.mul 604800000000000\n@[inline]\ndef ofNanoseconds (nanos : Nanosecond.Offset) : Week.Offset :=\n  nanos.ediv 604800000000000\n@[inline]\ndef toSeconds (weeks : Week.Offset) : Second.Offset :=\n  weeks.mul 604800\n@[inline]\ndef ofSeconds (secs : Second.Offset) : Week.Offset :=\n  secs.ediv 604800\n@[inline]\ndef toMinutes (weeks : Week.Offset) : Minute.Offset :=\n  weeks.mul 10080\n@[inline]\ndef ofMinutes (minutes : Minute.Offset) : Week.Offset :=\n  minutes.ediv 10080\n@[inline]\ndef toHours (weeks : Week.Offset) : Hour.Offset :=\n  weeks.mul 168\n@[inline]\ndef ofHours (hours : Hour.Offset) : Week.Offset :=\n  hours.ediv 168\n@[inline]\ndef toDays (weeks : Week.Offset) : Day.Offset :=\n  weeks.mul 7\n@[inline]\ndef ofDays (days : Day.Offset) : Week.Offset :=\n  days.ediv 7\nend Offset\nend Week\nend Time\nend Std",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Week.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Week.lean",
+    "definition_name": "Ordinal"
+  }
+}

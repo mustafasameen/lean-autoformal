@@ -1,0 +1,10 @@
+{
+  "content": "theorem Even.add : Even n \u2192 Even m \u2192 Even (n+m) := by\n  intro h1 h2\n  induction h2 with\n  | zero => exact h1\n  | ss h2 ih => exact ss ih\ntheorem Even.add' : Even n \u2192 Even m \u2192 Even (n+m)\n  | h1, zero  => h1\n| h1, ss h2 => ss (add' h1 h2)\ntheorem mul_left_comm (n m o : Nat) : n * (m * o) = m * (n * o) := by\n  rw [\u2190 Nat.mul_assoc, Nat.mul_comm n m, Nat.mul_assoc]\ninductive Power2 : Nat \u2192 Prop\n  | base : Power2 1\n| ind  : Power2 n \u2192 Power2 (2*n)\ntheorem Power2_brecOn : typeOf @Power2.brecOn = \u2200 {motive : (a : Nat) \u2192 Power2 a \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_name": "Even",
+    "has_proof": true
+  }
+}

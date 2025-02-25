@@ -1,0 +1,9 @@
+{
+  "content": "| mk : (arrow (myPair tst2 Bool) tst2) \u2192 tst1\ninductive tst2\n| mk : tst1 \u2192 tst2\nend\n#check @tst1.casesOn\n#check @tst2.casesOn\n#check @tst1.recOn\nnamespace test\ninductive Rbnode (\u03b1 : Type u)\n| leaf                                                        : Rbnode \u03b1\n| redNode   (lchild : Rbnode \u03b1) (val : \u03b1) (rchild : Rbnode \u03b1) : Rbnode \u03b1\n| blackNode (lchild : Rbnode \u03b1) (val : \u03b1) (rchild : Rbnode \u03b1) : Rbnode \u03b1\n#reduce sizeOf <| Rbnode.redNode Rbnode.leaf 10 Rbnode.leaf\n#check @Rbnode.brecOn\nnamespace Rbnode\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/new_inductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/new_inductive.lean",
+    "definition_name": "myList"
+  }
+}

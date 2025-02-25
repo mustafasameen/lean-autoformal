@@ -1,0 +1,9 @@
+{
+  "content": "structure Equation where\n  id     : Nat\n  coeffs : HashMap Nat Int\n  const  : Int\n  deriving Inhabited\ndef gcd (coeffs : HashMap Nat Int) : Nat :=\n  let coeffs := coeffs.mapVals (\u00b7.natAbs)\n  let coeffsContent := coeffs.toArray\n  match coeffsContent with\n  | #[]           => panic! \"Cannot calculate GCD of empty list of coefficients\"\n  | #[(i, x)]     => x\n  | coeffsContent =>\n    coeffsContent[0]!.2.gcd coeffsContent[1]!.2\n      |> coeffs.fold fun acc k v => acc.gcd v\nnamespace Equation\n  def preprocess? (e : Equation) : Option Equation := Id.run <| do\n    let gcd : Int := gcd e.coeffs\n    if e.const % gcd \u2260 0 then\n      return none\n    return some { e with\n      coeffs := e.coeffs.fastMapVals fun _ coeff => coeff / gcd\n      const  := e.const / gcd }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_name": "Equation"
+  }
+}

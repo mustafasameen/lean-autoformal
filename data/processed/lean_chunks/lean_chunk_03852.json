@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_eq_extract (xs : Array \u03b1) (i : Nat) : xs.take i = xs.extract 0 i := rfl\n@[inline] unsafe def forIn'Unsafe {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_name": "take_eq_extract",
+    "has_proof": false
+  }
+}

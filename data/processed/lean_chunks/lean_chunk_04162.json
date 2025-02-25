@@ -1,0 +1,10 @@
+{
+  "content": "theorem smtUDiv_eq (x y : BitVec w) : smtUDiv x y = if y = 0#w then allOnes w else x / y := by\n  simp [smtUDiv]\n@[simp]\ntheorem smtUDiv_zero {x : BitVec n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "smtUDiv_eq",
+    "has_proof": true
+  }
+}

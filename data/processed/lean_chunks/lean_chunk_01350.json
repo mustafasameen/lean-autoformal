@@ -1,0 +1,9 @@
+{
+  "content": "structure Submodule (R : Type) (M : Type) [Zero R] [Zero M] [Module R M] : Type where\nclass HasQuotient (A : outParam <| Type) (B : Type) where\n  quotient' : B \u2192 Type\ninstance Submodule.hasQuotient {R : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3313.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3313.lean",
+    "definition_name": "Submodule"
+  }
+}

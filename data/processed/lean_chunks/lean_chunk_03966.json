@@ -1,0 +1,10 @@
+{
+  "content": "theorem get_find?_mkArray (n : Nat) (a : \u03b1) (p : \u03b1 \u2192 Bool) (h) :\n    ((mkArray n a).find? p).get h = a := by\n  simp [\u2190 List.toArray_replicate]\ntheorem find?_pmap {P : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_name": "get_find",
+    "has_proof": true
+  }
+}

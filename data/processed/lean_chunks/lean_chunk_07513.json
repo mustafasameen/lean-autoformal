@@ -1,0 +1,9 @@
+{
+  "content": "structure PlainDateTime where\n  date : PlainDate\n  time : PlainTime\n  deriving Inhabited, BEq, Repr\nnamespace PlainDateTime\ndef toTimestampAssumingUTC (dt : PlainDateTime) : Timestamp :=\n  let days := dt.date.toDaysSinceUNIXEpoch\n  let nanos := days.toSeconds + dt.time.toSeconds |>.mul 1000000000\n  let nanos := nanos.val + dt.time.nanosecond.val\n  Timestamp.ofNanosecondsSinceUnixEpoch (Nanosecond.Offset.ofInt nanos)\ndef ofTimestampAssumingUTC (stamp : Timestamp) : PlainDateTime := Id.run do\n  let leapYearEpoch := 11017\n  let daysPer400Y := 365 * 400 + 97\n  let daysPer100Y := 365 * 100 + 24\n  let daysPer4Y := 365 * 4 + 1\n  let nanos := stamp.toNanosecondsSinceUnixEpoch\n  let secs : Second.Offset := nanos.ediv 1000000000\n  let daysSinceEpoch : Day.Offset := secs.tdiv 86400\n  let boundedDaysSinceEpoch := daysSinceEpoch\n  let mut rawDays := boundedDaysSinceEpoch - leapYearEpoch\n  let mut rem := Bounded.LE.byMod secs.val 86400 (by decide)\n  let \u27e8remSecs, days\u27e9 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/PlainDateTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/PlainDateTime.lean",
+    "definition_name": "PlainDateTime"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure AddMonoidHom (M : Type _) (N : Type _) [Add M] [Add N] where\n  protected toFun : M \u2192 N\ninfixr:25 \" \u2192+ \" => AddMonoidHom\nstructure MonoidHom (M : Type _) (N : Type _) [Mul M] [Mul N] where\n  protected toFun : M \u2192 N\ninfixr:25 \" \u2192* \" => MonoidHom\ninstance MonoidHom.instFunLike [Mul M] [Mul N] : FunLike (M \u2192* N) M N where\n  coe f := f.toFun\ninstance AddMonoidHom.instFunLike [Add A] [Add B] : FunLike (A \u2192+ B) A B where\n  coe f := f.toFun\nend Mathlib.Algebra.Group.Hom.Defs\nsection Mathlib.GroupTheory.GroupAction.Defs\nvariable {M N \u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "AddMonoidHom"
+  }
+}

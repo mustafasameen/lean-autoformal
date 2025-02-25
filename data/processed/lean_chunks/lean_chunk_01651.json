@@ -1,0 +1,10 @@
+{
+  "content": "def Ctx := String \u2192 Type\nabbrev State (\u0393 : Ctx) := {x : String} \u2192 \u0393 x\nopaque p {\u0393 : Ctx} (s : State \u0393) : Prop\ntheorem ex {\u0393 : Ctx} (s : State \u0393) (h : (a : State \u0393) \u2192 @p \u0393 a) : @p \u0393 s :=\n  h \u2039_\u203a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeAscImp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeAscImp.lean",
+    "definition_name": "Ctx",
+    "has_proof": false
+  }
+}

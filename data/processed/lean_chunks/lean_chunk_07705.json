@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkAtomCached_miss_aig (aig : AIG \u03b1) (hcache : aig.cache.get? (.atom var) = none) :\n    (aig.mkAtomCached var).aig.decls = aig.decls.push (.atom var) := by\n  simp only [mkAtomCached]\n  split <;> simp_all\ntheorem mkAtomCached_decl_eq (aig : AIG \u03b1) (var : \u03b1) (idx : Nat) {h : idx < aig.decls.size}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_name": "mkAtomCached_miss_aig",
+    "has_proof": true
+  }
+}

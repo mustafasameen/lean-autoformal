@@ -1,0 +1,10 @@
+{
+  "content": "structure MyFun (\u03b1 \u03b2 : Type _) where\n  toFun : \u03b1 \u2192 \u03b2\n@[ext]\ntheorem MyFun.ext {\u03b1 \u03b2 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ext.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ext.lean",
+    "definition_name": "MyFun",
+    "has_proof": false
+  }
+}

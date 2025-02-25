@@ -1,0 +1,10 @@
+{
+  "content": "congr 1; rw [extract_loop_succ]\n    rw [heq]\n    if hi : ys.size = i then\n      cases hi\n      have h\u2081 : ys.size < (ys.push xs[start]).size := by rw [size_push]; exact Nat.lt_succ_self ..\n      have h\u2082 : ys.size < (extract.loop xs size (start+1) (ys.push xs[start])).size := by\n        rw [size_extract_loop]; apply Nat.lt_of_lt_of_le h\u2081; exact Nat.le_add_right ..\n      have h : (extract.loop xs size (start + 1) (ys.push xs[start]))[ys.size] = xs[start] := by\n        rw [getElem_extract_loop_lt xs (ys.push xs[start]) size (start+1) h\u2081 h\u2082, getElem_push_eq]\n      rw [h]; congr; rw [Nat.add_sub_cancel]\n    else\n      have hge : ys.size + 1 \u2264 i := Nat.lt_of_le_of_ne hge hi\n      rw [ih (ys.push xs[start]) (start+1) ((size_push ..).symm \u25b8 hge)]\n      congr 1; rw [size_push, Nat.add_right_comm, Nat.add_sub_add_right]\ntheorem getElem_extract_aux {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "filter_reverse",
+    "has_proof": true
+  }
+}

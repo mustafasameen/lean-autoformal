@@ -1,0 +1,10 @@
+{
+  "content": "| (x, v) :: \u03c3\u2081 =>\n    simp\n    have : (erase \u03c3\u2081 x).length < \u03c3\u2081.length.succ := length_erase_lt ..\n    have ih := join_le_left (State.erase \u03c3\u2081 x) \u03c3\u2082\n    split\n    next y w h =>\n      split\n      next => apply cons_le_cons; apply le_trans ih (erase_le _)\n      next => apply le_trans ih (erase_le_cons (le_refl _))\n    next h => apply le_trans ih (erase_le_cons (le_refl _))\ntermination_by \u03c3\u2081.length\ntheorem State.join_le_left_of (h : \u03c3\u2081 \u227c \u03c3\u2082) (\u03c3\u2083 : State) : \u03c3\u2081.join \u03c3\u2083 \u227c \u03c3\u2082 :=\n  le_trans (join_le_left \u03c3\u2081 \u03c3\u2083) h\ntheorem State.join_le_right (\u03c3\u2081 \u03c3\u2082 : State) : \u03c3\u2081.join \u03c3\u2082 \u227c \u03c3\u2082 := by\n  match \u03c3\u2081 with\n  | [] => simp; apply bot_le\n  | (x, v) :: \u03c3\u2081 =>\n    simp\n    have : (erase \u03c3\u2081 x).length < \u03c3\u2081.length.succ := length_erase_lt ..\n    have ih := join_le_right (erase \u03c3\u2081 x) \u03c3\u2082\n    split\n    next y w h =>\n      split <;> simp [*]\n      next => apply cons_le_of_eq ih h\n    next h => assumption\ntermination_by \u03c3\u2081.length\ntheorem State.join_le_right_of (h : \u03c3\u2081 \u227c \u03c3\u2082) (\u03c3\u2083 : State) : \u03c3\u2083.join \u03c3\u2081 \u227c \u03c3\u2082 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Stmt",
+    "has_proof": true
+  }
+}

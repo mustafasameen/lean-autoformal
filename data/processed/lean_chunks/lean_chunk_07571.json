@@ -1,0 +1,9 @@
+{
+  "content": "Bounded.LE.mk data h\n@[inline]\ndef ofNat (data : Nat) (h : data \u2264 59) : Ordinal :=\n  Bounded.LE.ofNat data h\n@[inline]\ndef ofFin (data : Fin 60) : Ordinal :=\n  Bounded.LE.ofFin data\n@[inline]\ndef toOffset (ordinal : Ordinal) : Offset :=\n  UnitVal.ofInt ordinal.val\nend Ordinal\nnamespace Offset\n@[inline]\ndef ofNat (data : Nat) : Offset :=\n  UnitVal.ofInt data\n@[inline]\ndef ofInt (data : Int) : Offset :=\n  UnitVal.ofInt data\nend Offset\nend Minute\nend Time\nend Std",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Minute.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Minute.lean",
+    "definition_name": "Ordinal"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "apply ext'\n  simp [h]\ntheorem _root_.List.filterMap_toArray (f : \u03b1 \u2192 Option \u03b2) (l : List \u03b1) :\n    l.toArray.filterMap f = (l.filterMap f).toArray := by\n  simp\n@[simp] theorem filterMap_push_none {f : \u03b1 \u2192 Option \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_filterMap",
+    "has_proof": true
+  }
+}

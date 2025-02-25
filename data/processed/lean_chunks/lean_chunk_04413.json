@@ -1,0 +1,10 @@
+{
+  "content": "theorem or_exists_add_one : p 0 \u2228 (Exists fun n => p (n + 1)) \u2194 Exists p :=\n  \u27e8fun h => h.elim (fun h0 => \u27e80, h0\u27e9) fun \u27e8n, hn\u27e9 => \u27e8n + 1, hn\u27e9,\n    fun \u27e8n, h\u27e9 => match n with | 0 => Or.inl h | n+1 => Or.inr \u27e8n, h\u27e9\u27e9\n@[simp] theorem beq_refl (a : Nat) : Nat.beq a a = true := by\n  induction a with simp [Nat.beq]\n  | succ a ih => simp [ih]\n@[simp] theorem beq_eq : (Nat.beq x y = true) = (x = y) := propext <| Iff.intro Nat.eq_of_beq_eq_true (fun h => h \u25b8 (Nat.beq_refl x))\n@[simp] theorem ble_eq : (Nat.ble x y = true) = (x \u2264 y) := propext <| Iff.intro Nat.le_of_ble_eq_true Nat.ble_eq_true_of_le\n@[simp] theorem blt_eq : (Nat.blt x y = true) = (x < y) := propext <| Iff.intro Nat.le_of_ble_eq_true Nat.ble_eq_true_of_le\ninstance : LawfulBEq Nat where\n  eq_of_beq h := by simpa using h\n  rfl := by simp [BEq.beq]\ntheorem beq_eq_true_eq (a b : Nat) : ((a == b) = true) = (a = b) := by simp\ntheorem not_beq_eq_true_eq (a b : Nat) : ((!(a == b)) = true) = \u00ac(a = b) := by simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "or_exists_add_one",
+    "has_proof": true
+  }
+}

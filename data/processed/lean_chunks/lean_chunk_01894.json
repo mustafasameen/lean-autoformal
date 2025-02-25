@@ -1,0 +1,10 @@
+{
+  "content": "class StarRing' (R : Type _) [NonUnitalSemiring R]\ndef starGizmo [CommSemiring R] [StarRing' R] : R \u2192 R := id\ntheorem starGizmo_foo [CommRing R] [StarRing' R] (x : R) : starGizmo x = x := rfl\nnamespace ReidMWE\nclass A (\u03b1 : Type u)\nclass B (\u03b1 : Type u) extends A \u03b1\nclass C (\u03b1 : Type u) extends B \u03b1\nclass D (\u03b1 : Type u) extends B \u03b1\nclass E (\u03b1 : Type u) extends C \u03b1, D \u03b1\nclass F (\u03b1 : Type u) extends A \u03b1\nclass G (\u03b1 : Type u) extends F \u03b1, B \u03b1\nclass H (\u03b1 : Type u) extends C \u03b1\nclass I (\u03b1 : Type u) extends G \u03b1, D \u03b1\nclass J (\u03b1 : Type u) extends H \u03b1, I \u03b1, E \u03b1\nclass StarRing' (R : Type 0) [B R]\ndef starGizmo [E R] [StarRing' R] : R \u2192 R := id\ntheorem starGizmo_foo [J R] [StarRing' R] (x : R) : starGizmo x = x := rfl\ntheorem T (i : J R) : (@D.toB.{0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2074.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2074.lean",
+    "definition_name": "StarRing",
+    "has_proof": false
+  }
+}

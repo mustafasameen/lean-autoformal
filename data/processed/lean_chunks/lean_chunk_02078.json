@@ -1,0 +1,10 @@
+{
+  "content": "def Prod.mk := 1\n  #check (\u27e82, 3\u27e9 : Prod _ _)\nend Foo\ntheorem simple10 (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z :=\nby {\n  intro h1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_name": "Prod",
+    "has_proof": true
+  }
+}

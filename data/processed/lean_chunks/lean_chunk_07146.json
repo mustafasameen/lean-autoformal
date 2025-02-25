@@ -1,0 +1,9 @@
+{
+  "content": "def mkFreshBinderName (binderName := `_x): CompilerM Name := do\n  let declName := .num binderName (\u2190 get).nextIdx\n  modify fun s => { s with nextIdx := s.nextIdx + 1 }\n  return declName\ndef ensureNotAnonymous (binderName : Name) (baseName : Name) : CompilerM Name :=\n  if binderName.isAnonymous then\n    mkFreshBinderName baseName\n  else\n    return binderName\ndef mkParam (binderName : Name) (type : Expr) (borrow : Bool) : CompilerM Param := do\n  let fvarId \u2190 mkFreshFVarId\n  let binderName \u2190 ensureNotAnonymous binderName `_y\n  let param := { fvarId, binderName, type, borrow }\n  modifyLCtx fun lctx => lctx.addParam param\n  return param\ndef mkLetDecl (binderName : Name) (type : Expr) (value : LetValue) : CompilerM LetDecl := do\n  let fvarId \u2190 mkFreshFVarId\n  let binderName \u2190 ensureNotAnonymous binderName `_x\n  let decl := { fvarId, binderName, type, value }\n  modifyLCtx fun lctx => lctx.addLetDecl decl\n  return decl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "mkFreshBinderName"
+  }
+}

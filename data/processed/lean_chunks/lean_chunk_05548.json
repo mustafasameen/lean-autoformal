@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkVector_zero : mkVector 0 a = #v[] := rfl\ntheorem mkVector_succ : mkVector (n + 1) a = (mkVector n a).push a := by\n  simp [mkVector, Array.mkArray_succ]\n@[simp] theorem mkVector_inj : mkVector n a = mkVector n b \u2194 n = 0 \u2228 a = b := by\n  simp [\u2190 toArray_inj, toArray_mkVector, Array.mkArray_inj]\n@[simp] theorem _root_.Array.mk_mkArray (a : \u03b1) (n : Nat) (h : (mkArray n a).size = m) :\n    mk (Array.mkArray n a) h = (mkVector n a).cast (by simpa using h) := rfl\ntheorem mkVector_eq_mk_mkArray (a : \u03b1) (n : Nat) :\n    mkVector n a = mk (mkArray n a) (by simp) := by\n  simp\n@[simp] theorem getElem_mem {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "mkVector_zero",
+    "has_proof": true
+  }
+}

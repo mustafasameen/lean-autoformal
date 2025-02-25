@@ -1,0 +1,9 @@
+{
+  "content": "let todo \u2190 if noIndexAtArgs then\n        pure <| pushWildcards nargs todo\n      else\n        pushArgsAux info.paramInfo (nargs-1) e todo\n      return (k, todo)\n    match fn with\n    | .lit v     =>\n      return (.lit v, todo)\n    | .const c _ =>\n      unless root do\n        if let some v := toNatLit? e then\n          return (.lit v, todo)\n        if (\u2190 shouldAddAsStar c e) then\n          return (.star, todo)\n      let nargs := e.getAppNumArgs\n      push (.const c nargs) nargs todo\n    | .proj s i a =>\n      let a := if isClass (\u2190 getEnv) s then mkNoindexAnnotation a else a\n      let nargs := e.getAppNumArgs\n      push (.proj s i nargs) nargs (todo.push a)\n    | .fvar fvarId   =>\n      let nargs := e.getAppNumArgs\n      push (.fvar fvarId nargs) nargs todo\n    | .mvar mvarId   =>\n      if mvarId == tmpMVarId then\n        return (.star, todo)\n      else if (\u2190 mvarId.isReadOnlyOrSyntheticOpaque) then\n        return (.other, todo)\n      else\n        return (.star, todo)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_name": "tmpStar"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem rotate_inv' {F : LazyList \u03c4}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyListRotateUnfoldProof.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyListRotateUnfoldProof.lean",
+    "definition_name": "rotate_inv",
+    "has_proof": false
+  }
+}

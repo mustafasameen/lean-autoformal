@@ -1,0 +1,9 @@
+{
+  "content": "inductive is_nat_T : Nat -> Type\n| Z : is_nat_T 0\n| S {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralRec1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralRec1.lean",
+    "definition_name": "is_nat_T"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class PartialOrder (\u03b1 : Type u) extends Preorder \u03b1 where\n  le_antisymm : \u2200 a b : \u03b1, a \u2264 b \u2192 b \u2264 a \u2192 a = b\nend Mathlib.Init.Order.Defs\nsection Mathlib.Init.ZeroOne\nset_option autoImplicit true\nclass One (\u03b1 : Type u) where\n  one : \u03b1\ninstance (priority := 300) One.toOfNat1 {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "PartialOrder"
+  }
+}

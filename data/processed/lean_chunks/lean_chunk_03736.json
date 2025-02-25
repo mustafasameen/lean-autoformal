@@ -1,0 +1,10 @@
+{
+  "content": "split <;> rename_i h\u2083\n        \u00b7 simp only [\u2190 h\u2083, Nat.not_le.2 (Nat.lt_succ_self _), Nat.le_refl, false_and]\n          exact (List.getElem?_reverse' i (j+1) (Eq.trans (by simp +arith) h)).symm\n        simp only [Nat.succ_le, Nat.lt_iff_le_and_ne.trans (and_iff_left h\u2083),\n          Nat.lt_succ.symm.trans (Nat.lt_iff_le_and_ne.trans (and_iff_left (Ne.symm h\u2082)))]\n    \u00b7 rw [H]; split <;> rename_i h\u2082\n      \u00b7 cases Nat.le_antisymm (Nat.not_lt.1 h\u2081) (Nat.le_trans h\u2082.1 h\u2082.2)\n        cases Nat.le_antisymm h\u2082.1 h\u2082.2\n        exact (List.getElem?_reverse' _ _ h).symm\n      \u00b7 rfl\n    termination_by j - i\n  simp only [reverse]\n  split\n  \u00b7 match xs with | \u27e8[]\u27e9 | \u27e8[_]\u27e9 => rfl\n  \u00b7 have := Nat.sub_add_cancel (Nat.le_of_not_le \u2039_\u203a)\n    refine List.ext_getElem? <| go _ _ _ _ (by simp [this]) rfl fun k => ?_\n    split\n    \u00b7 rfl\n    \u00b7 rename_i h\n      simp only [\u2190 show k < _ + 1 \u2194 _ from Nat.lt_succ (n := xs.size - 1), this, Nat.zero_le,\n        true_and, Nat.not_lt] at h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "isEmpty_mkArray",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "inductive A\n  | self : A \u2192 A\n  | other : B \u2192 A\n  | empty\ninductive B\n  | self : B \u2192 B\n  | other : A \u2192 B\n  | empty\nend\nmutual\ndef A.size : A \u2192 Nat\n  | .self a => a.size + 1\n  | .other b => b.size + 1\n  | .empty => 0\ntermination_by structural x => x\ndef B.size : B \u2192 Nat\n  | .self b => b.size + 1\n  | .other a => a.size + 1\n  | .empty => 0\nend\ntheorem A_size_eq1 (a : A) : (A.self a).size = a.size + 1 := rfl\ntheorem A_size_eq2 (b : B) : (A.other b).size = b.size + 1 := rfl\ntheorem A_size_eq3 : A.empty.size = 0  := rfl\ntheorem B_size_eq1 (b : B) : (B.self b).size = b.size + 1 := rfl\ntheorem B_size_eq2 (a : A) : (B.other a).size = a.size + 1 := rfl\ntheorem B_size_eq3 : B.empty.size = 0  := rfl\n#guard_msgs in\n#check A.size.eq_2\n#guard_msgs in\n#check B.size.eq_1\n#guard_msgs in\n#check B.size.eq_3\n#guard_msgs in\ntheorem ex1 (a : A) (h : (A.other (B.other a)).size = 2) : a.size = 0 := by\n  injection h with h\ntrace_state\n  injection h with h\nmutual\ndef A.subs : (a : A) \u2192 (Fin a.size \u2192 A \u2295 B)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_name": "A",
+    "has_proof": true
+  }
+}

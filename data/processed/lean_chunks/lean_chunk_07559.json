@@ -1,0 +1,9 @@
+{
+  "content": "Bounded.LE.mk data h\ndef OfMonth := Bounded.LE 1 6\n  deriving Repr\n@[inline]\ndef ofNat (data : Nat) (h : data \u2265 1 \u2227 data \u2264 53 := by decide) : Ordinal :=\n  Bounded.LE.ofNat' data h\n@[inline]\ndef ofFin (data : Fin 54) : Ordinal :=\n  Bounded.LE.ofFin' data (by decide)\n@[inline]\ndef toOffset (ordinal : Ordinal) : Offset :=\n  UnitVal.ofInt ordinal.val\nend Ordinal\nnamespace Offset\n@[inline]\ndef ofNat (data : Nat) : Week.Offset :=\n  UnitVal.ofInt data\n@[inline]\ndef ofInt (data : Int) : Week.Offset :=\n  UnitVal.ofInt data\n@[inline]\ndef toMilliseconds (weeks : Week.Offset) : Millisecond.Offset :=\n  weeks.mul 604800000\n@[inline]\ndef ofMilliseconds (millis : Millisecond.Offset) : Week.Offset :=\n  millis.ediv 604800000\n@[inline]\ndef toNanoseconds (weeks : Week.Offset) : Nanosecond.Offset :=\n  weeks.mul 604800000000000\n@[inline]\ndef ofNanoseconds (nanos : Nanosecond.Offset) : Week.Offset :=\n  nanos.ediv 604800000000000\n@[inline]\ndef toSeconds (weeks : Week.Offset) : Second.Offset :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Week.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Week.lean",
+    "definition_name": "Ordinal"
+  }
+}

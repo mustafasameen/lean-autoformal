@@ -1,0 +1,9 @@
+{
+  "content": "go (i+1) source target\n    else target\n  termination_by source.size - i\n@[inline] def insert [BEq \u03b1] [Hashable \u03b1] (m : Raw\u2080 \u03b1 \u03b2) (a : \u03b1) (b : \u03b2 a) : Raw\u2080 \u03b1 \u03b2 :=\n  let \u27e8\u27e8size, buckets\u27e9, hm\u27e9 := m\n  let \u27e8i, h\u27e9 := mkIdx buckets.size hm (hash a)\n  let bkt := buckets[i]\n  if bkt.contains a then\n    let buckets' := buckets.uset i .nil h\n    \u27e8\u27e8size, buckets'.uset i (bkt.replace a b) (by simpa [buckets'])\u27e9, by simpa [buckets']\u27e9\n  else\n    let size'    := size + 1\n    let buckets' := buckets.uset i (AssocList.cons a b bkt) h\n    expandIfNecessary \u27e8\u27e8size', buckets'\u27e9, by simpa [buckets']\u27e9\n@[inline] def Const.modify [BEq \u03b1] {\u03b2 : Type v} [Hashable \u03b1] (m : Raw\u2080 \u03b1 (fun _ => \u03b2)) (a : \u03b1)\n    (f : \u03b2 \u2192 \u03b2) : Raw\u2080 \u03b1 (fun _ => \u03b2) :=\n  let \u27e8\u27e8size, buckets\u27e9, hm\u27e9 := m\n  let size' := size\n  let \u27e8i, hi\u27e9 := mkIdx buckets.size hm (hash a)\n  let bucket := buckets[i]\n  if bucket.contains a then\n    let buckets := buckets.uset i .nil hi\n    let bucket := AssocList.Const.modify a f bucket",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_name": "empty"
+  }
+}

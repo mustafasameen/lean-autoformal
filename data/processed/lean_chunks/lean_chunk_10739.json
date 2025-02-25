@@ -1,0 +1,9 @@
+{
+  "content": "def dynlibSuffix := \"-1\"\n@[inline] def dynlibName (self : Module) : String :=\n  self.name.mangle \"\"\n@[inline] def dynlibFile (self : Module) : FilePath :=\n  self.pkg.leanLibDir / s!\"{self.dynlibName}.{sharedLibExt}\"\n@[inline] def serverOptions (self : Module) : Array LeanOption :=\n  self.lib.serverOptions\n@[inline] def buildType (self : Module) : BuildType :=\n  self.lib.buildType\n@[inline] def backend (self : Module) : Backend :=\n  self.lib.backend\n@[inline] def dynlibs (self : Module) : TargetArray Dynlib :=\n  self.lib.dynlibs\n@[inline] def plugins (self : Module) : TargetArray Dynlib :=\n  self.lib.plugins\n@[inline] def leanArgs (self : Module) : Array String :=\n  self.lib.leanArgs\n@[inline] def weakLeanArgs (self : Module) : Array String :=\n  self.lib.weakLeanArgs\n@[inline] def leancArgs (self : Module) : Array String :=\n  self.lib.leancArgs\n@[inline] def weakLeancArgs (self : Module) : Array String :=\n  self.lib.weakLeancArgs\n@[inline] def linkArgs (self : Module) : Array String :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Module.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Module.lean",
+    "definition_name": "dynlibSuffix"
+  }
+}

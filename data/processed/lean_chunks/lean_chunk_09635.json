@@ -1,0 +1,9 @@
+{
+  "content": "@[inline, inherit_doc DTreeMap.getEntryLT?]\ndef getEntryLT? (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : Option ((a : \u03b1) \u00d7 \u03b2 a) :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getEntryLT? k t.inner\n@[inline, inherit_doc DTreeMap.getEntryGE!]\ndef getEntryGE! [Inhabited ((a : \u03b1) \u00d7 \u03b2 a)] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : (a : \u03b1) \u00d7 \u03b2 a :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getEntryGE! k t.inner\n@[inline, inherit_doc DTreeMap.getEntryGT!]\ndef getEntryGT! [Inhabited ((a : \u03b1) \u00d7 \u03b2 a)] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : (a : \u03b1) \u00d7 \u03b2 a :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getEntryGT! k t.inner\n@[inline, inherit_doc DTreeMap.getEntryLE!]\ndef getEntryLE! [Inhabited ((a : \u03b1) \u00d7 \u03b2 a)] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : (a : \u03b1) \u00d7 \u03b2 a :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getEntryLE! k t.inner\n@[inline, inherit_doc DTreeMap.getEntryLT!]\ndef getEntryLT! [Inhabited ((a : \u03b1) \u00d7 \u03b2 a)] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : (a : \u03b1) \u00d7 \u03b2 a :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getEntryLT! k t.inner\n@[inline, inherit_doc DTreeMap.getEntryGED]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Raw.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Raw.lean",
+    "definition_name": "Raw"
+  }
+}

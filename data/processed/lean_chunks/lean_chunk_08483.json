@@ -1,0 +1,9 @@
+{
+  "content": "let m' := Raw\u2080.getThenInsertIfNew? \u27e8m.1, m.2.size_buckets_pos\u27e9 a b\n  \u27e8m'.1, \u27e8m'.2.1, .getThenInsertIfNew?\u2080 m.2\u27e9\u27e9\n@[inline, inherit_doc Raw.get?] def get? [LawfulBEq \u03b1] (m : DHashMap \u03b1 \u03b2)\n    (a : \u03b1) : Option (\u03b2 a) :=\n  Raw\u2080.get? \u27e8m.1, m.2.size_buckets_pos\u27e9 a\n@[inline, inherit_doc Raw.contains] def contains (m : DHashMap \u03b1 \u03b2) (a : \u03b1) :\n    Bool :=\n  Raw\u2080.contains \u27e8m.1, m.2.size_buckets_pos\u27e9 a\ninstance [BEq \u03b1] [Hashable \u03b1] : Membership \u03b1 (DHashMap \u03b1 \u03b2) where\n  mem m a := m.contains a\ninstance [BEq \u03b1] [Hashable \u03b1] {m : DHashMap \u03b1 \u03b2} {a : \u03b1} : Decidable (a \u2208 m) :=\n  inferInstanceAs <| Decidable (m.contains a)\n@[inline, inherit_doc Raw.get] def get [LawfulBEq \u03b1] (m : DHashMap \u03b1 \u03b2) (a : \u03b1)\n    (h : a \u2208 m) : \u03b2 a :=\n  Raw\u2080.get \u27e8m.1, m.2.size_buckets_pos\u27e9 a h\n@[inline, inherit_doc Raw.get!] def get! [LawfulBEq \u03b1] (m : DHashMap \u03b1 \u03b2)\n    (a : \u03b1) [Inhabited (\u03b2 a)] : \u03b2 a :=\n  Raw\u2080.get! \u27e8m.1, m.2.size_buckets_pos\u27e9 a\n@[inline, inherit_doc Raw.getD] def getD [LawfulBEq \u03b1] (m : DHashMap \u03b1 \u03b2)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_name": "empty"
+  }
+}

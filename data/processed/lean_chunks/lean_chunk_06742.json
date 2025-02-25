@@ -1,0 +1,9 @@
+{
+  "content": "inductive type expected\") fun val _ => do\n      unless val.numIndices > 0 do throwTacticEx `generalizeIndices mvarId \"indexed inductive type expected\"\n      unless args.size == val.numIndices + val.numParams do throwTacticEx `generalizeIndices mvarId \"ill-formed inductive datatype\"\n      let indices := args.extract (args.size - val.numIndices) args.size\nlet IA := mkAppN f (args.extract 0 val.numParams)\n      let IAType \u2190 inferType IA\n      forallTelescopeReducing IAType fun newIndices _ => do\n      let newType := mkAppN IA newIndices\n      let varName \u2190 if let some varName := varName? then pure varName else mkFreshUserName `x\n      withLocalDeclD varName newType fun h' =>\n      withNewEqs indices newIndices fun newEqs newRefls => do\n      let (newEqType, newRefl) \u2190 mkEqAndProof e h'\n      let newRefls := newRefls.push newRefl\n      withLocalDeclD `h newEqType fun newEq => do\n      let newEqs := newEqs.push newEq\n      mvarId.assign (mkAppN (mkApp (mkAppN newMVar indices) e) newRefls)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_name": "type"
+  }
+}

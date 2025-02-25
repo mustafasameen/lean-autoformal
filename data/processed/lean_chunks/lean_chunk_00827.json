@@ -1,0 +1,10 @@
+{
+  "content": "Expr.eq_of_flat\n    { op      := Nat.add\n      assoc   := Nat.add_assoc\n      comm    := Nat.add_comm\n      vars    := [x\u2081, x\u2082, x\u2083, x\u2084],\n      someVal := x\u2081 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

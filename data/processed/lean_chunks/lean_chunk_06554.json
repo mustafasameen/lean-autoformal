@@ -1,0 +1,9 @@
+{
+  "content": "let ll : LocationLink := {\n      originSelectionRange? := originRange?\n      targetUri := modUri\n      targetRange := ranges.range.toLspRange\n      targetSelectionRange := ranges.selectionRange.toLspRange\n    }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/GoTo.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/GoTo.lean",
+    "definition_name": "GoToKind"
+  }
+}

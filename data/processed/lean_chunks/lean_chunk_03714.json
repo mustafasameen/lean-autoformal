@@ -1,0 +1,10 @@
+{
+  "content": "theorem flatten_map_toArray (L : List (List \u03b1)) :\n    (L.toArray.map List.toArray).flatten = L.flatten.toArray := by\n  apply ext'\n  simp [Function.comp_def]\n@[simp] theorem flatten_toArray_map (L : List (List \u03b1)) :\n    (L.map List.toArray).toArray.flatten = L.flatten.toArray := by\n  rw [\u2190 flatten_map_toArray]\n  simp\n@[simp 500] theorem flatten_toArray (l : List (Array \u03b1)) :\n    l.toArray.flatten = (l.map Array.toList).flatten.toArray := by\n  apply ext'\n  simp\n@[simp] theorem size_flatten (xss : Array (Array \u03b1)) : xss.flatten.size = (xss.map size).sum := by\n  cases xss using array\u2082_induction\n  simp [Function.comp_def]\n@[simp] theorem flatten_singleton (xs : Array \u03b1) : #[xs].flatten = xs := by simp [flatten]; rfl\ntheorem mem_flatten : \u2200 {xss : Array (Array \u03b1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "flatten_map_toArray",
+    "has_proof": true
+  }
+}

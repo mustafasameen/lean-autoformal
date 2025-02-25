@@ -1,0 +1,10 @@
+{
+  "content": "theorem dite_some_none_eq_some [Decidable P] {x : P \u2192 \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/ByCases.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/ByCases.lean",
+    "definition_name": "dite_some_none_eq_some",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Entails (\u03b1 : Type u) (\u03b2 : Type v) where\n  eval : (\u03b1 \u2192 Bool) \u2192 \u03b2 \u2192 Prop\nscoped infix:25 \" \u22a8 \" => Entails.eval\nscoped notation:25 a:25 \" \u22ad \" f:30 => \u00ac(Entails.eval a f)\ndef Unsatisfiable (\u03b1 : Type u) {\u03c3 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Entails.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Entails.lean",
+    "definition_name": "Entails"
+  }
+}

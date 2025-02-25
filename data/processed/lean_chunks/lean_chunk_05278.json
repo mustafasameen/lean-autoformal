@@ -1,0 +1,10 @@
+{
+  "content": "| [], _, acc | _::_, [], acc => by simp [zipWithTR.go, zipWith]\n    | a::as, b::bs, acc => by simp [zipWithTR.go, zipWith, go as bs]\n  exact (go as bs #[]).symm\ndef intercalateTR (sep : List \u03b1) : List (List \u03b1) \u2192 List \u03b1\n  | [] => []\n  | [x] => x\n  | x::xs => go sep.toArray x xs #[]\nwhere\n  go (sep : Array \u03b1) : List \u03b1 \u2192 List (List \u03b1) \u2192 Array \u03b1 \u2192 List \u03b1\n  | x, [], acc => acc.toListAppend x\n  | x, y::xs, acc => go sep y xs (acc ++ x ++ sep)\nset_option linter.listVariables false in\n@[csimp] theorem intercalate_eq_intercalateTR : @intercalate = @intercalateTR := by\n  funext \u03b1 sep l; simp [intercalate, intercalateTR]\n  match l with\n  | [] => rfl\n  | [_] => simp\n  | x::y::xs =>\n    let rec go {acc x}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_name": "eraseIdx_eq_eraseIdxTR",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "| none  , none   => none\n  | some x, none   => some x\n  | none  , some y => some y\n  | some x, some y => some <| fn x y\n@[simp] theorem getD_none : getD none a = a := rfl\n@[simp] theorem getD_some : getD (some a) b = a := rfl\n@[simp] theorem map_none' (f : \u03b1 \u2192 \u03b2) : none.map f = none := rfl\n@[simp] theorem map_some' (a) (f : \u03b1 \u2192 \u03b2) : (some a).map f = some (f a) := rfl\n@[simp] theorem none_bind (f : \u03b1 \u2192 Option \u03b2) : none.bind f = none := rfl\n@[simp] theorem some_bind (a) (f : \u03b1 \u2192 Option \u03b2) : (some a).bind f = f a := rfl\n@[inline] def get {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_name": "DecidableEq",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "simp [norm_dvd_gcd_cert, dvd_coeff_cert]\n  intro h\u2081 h\u2082 h\u2083\n  replace h\u2083 := congrArg (Poly.denote ctx) h\u2083\n  simp at h\u2083\n  simp [*]\ntheorem dvd_coeff (ctx : Context) (k\u2081 : Int) (p\u2081 : Poly) (k\u2082 : Int) (p\u2082 : Poly) (g : Int)\n    : dvd_coeff_cert k\u2081 p\u2081 k\u2082 p\u2082 g \u2192 k\u2081 \u2223 p\u2081.denote' ctx \u2192 k\u2082 \u2223 p\u2082.denote' ctx := by\n  simp [dvd_coeff_cert]\n  intro h\u2081 h\u2082 h\u2083\n  replace h\u2083 := congrArg (Poly.denote ctx) h\u2083\n  simp at h\u2083\n  simp [*]\nprivate theorem dvd_gcd_of_dvd (d a x p : Int) (h : d \u2223 a * x + p) : gcd d a \u2223 p := by\n  rcases h with \u27e8k, h\u27e9\n  simp [Int.Linear.gcd]\n  replace h := congrArg (\u00b7 - a*x) h\n  simp at h\n  rcases @Int.gcd_dvd_left d a with \u27e8k\u2081, h\u2081\u27e9\n  rcases @Int.gcd_dvd_right d a with \u27e8k\u2082, h\u2082\u27e9\n  conv at h => enter [2, 1]; rw [h\u2081]\n  conv at h => enter [2, 2]; rw [h\u2082]\n  rw [Int.mul_assoc, Int.mul_assoc, \u2190 Int.mul_sub] at h\n  exists k\u2081 * k - k\u2082 * x\ndef dvd_elim_cert (k\u2081 : Int) (p\u2081 : Poly) (k\u2082 : Int) (p\u2082 : Poly) : Bool :=\n  match p\u2081 with\n  | .add a _ p => k\u2082 == gcd k\u2081 a && p\u2082 == p\n  | _ => false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "norm_dvd",
+    "has_proof": true
+  }
+}

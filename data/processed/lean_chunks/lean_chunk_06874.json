@@ -1,0 +1,9 @@
+{
+  "content": "structure Result where\n  failures : List Goal\n  skipped  : List Goal\n  issues   : List MessageData\n  config   : Grind.Config\n  trace    : Trace\n  counters : Counters\n  simp     : Simp.Stats\nprivate def countersToMessageData (header : String) (cls : Name) (data : Array (Name \u00d7 Nat)) : MetaM MessageData := do\n  let data := data.qsort fun (d\u2081, c\u2081) (d\u2082, c\u2082) => if c\u2081 == c\u2082 then Name.lt d\u2081 d\u2082 else c\u2081 > c\u2082\n  let data \u2190 data.mapM fun (declName, counter) =>\n    return .trace { cls }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Main.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Main.lean",
+    "definition_name": "Result"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "for i in [:info.numParams] do\n        let tArg := tArgs[i]!\n        let dArg := dArgs[i]!\n        unless (\u2190 isDefEq tArg dArg) do\n          return i :: (\u2190 goType tArg dArg)\n      for h : i in [info.numParams : tArgs.size] do\n        let tArg := tArgs[i]\n        let dArg := dArgs[i]!\n        unless (\u2190 isDefEq tArg dArg) do\n          return i :: (\u2190 goIndex tArg dArg)\n      failure\n  goIndex (t d : Expr) : OptionT MetaM (List Nat) := do\n    let t \u2190 whnfD t\n    let d \u2190 whnfD d\n    if t.isFVar || d.isFVar then\nreturn []\n    else\n      checkCompatibleApps t d\n      matchConstCtor t.getAppFn (fun _ => failure) fun info _ => do\n        let tArgs := t.getAppArgs\n        let dArgs := d.getAppArgs\n        for i in [:info.numParams] do\n          let tArg := tArgs[i]!\n          let dArg := dArgs[i]!\n          unless (\u2190 isDefEq tArg dArg) do\n            failure\n        for i in [info.numParams : tArgs.size] do\n          let tArg := tArgs[i]!\n          let dArg := dArgs[i]!",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_name": "PatternElabException"
+  }
+}

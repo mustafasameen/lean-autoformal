@@ -1,0 +1,9 @@
+{
+  "content": "abbrev LevelSet := Std.HashSet Level\nabbrev PersistentLevelSet := PHashSet Level\nabbrev PLevelSet := PersistentLevelSet\ndef Level.collectMVars (u : Level) (s : LMVarIdSet := {}) : LMVarIdSet :=\n  match u with\n  | succ v   => collectMVars v s\n  | max u v  => collectMVars u (collectMVars v s)\n  | imax u v => collectMVars u (collectMVars v s)\n  | mvar n   => s.insert n\n  | _        => s\ndef Level.find? (u : Level) (p : Level \u2192 Bool) : Option Level :=\n  let rec visit (u : Level) : Option Level :=\n    if p u then\n      return u\n    else match u with\n      | succ v   => visit v\n      | max u v  => visit u <|> visit v\n      | imax u v => visit u <|> visit v\n      | _          => failure\n  visit u\ndef Level.any (u : Level) (p : Level \u2192 Bool) : Bool :=\n  u.find? p |>.isSome\nend Lean\nabbrev Nat.toLevel (n : Nat) : Lean.Level :=\n  Lean.Level.ofNat n",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

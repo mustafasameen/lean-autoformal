@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem true_iff (p : Prop) : (True \u2194 p) = p := propext \u27e8(\u00b7.1 trivial), fun h => \u27e8fun _ => h, fun _ => trivial\u27e9\u27e9\n@[simp] theorem iff_false (p : Prop) : (p \u2194 False) = \u00acp := propext \u27e8(\u00b7.1), (\u27e8\u00b7, False.elim\u27e9)\u27e9\n@[simp] theorem false_iff (p : Prop) : (False \u2194 p) = \u00acp := propext \u27e8(\u00b7.2), (\u27e8False.elim, \u00b7\u27e9)\u27e9\n@[simp] theorem false_implies (p : Prop) : (False \u2192 p) = True := eq_true False.elim\n@[simp] theorem forall_false (p : False \u2192 Prop) : (\u2200 h : False, p h) = True := eq_true (False.elim \u00b7)\n@[simp] theorem implies_true (\u03b1 : Sort u) : (\u03b1 \u2192 True) = True := eq_true fun _ => trivial\n@[simp] theorem true_implies (p : Prop) : (True \u2192 p) = p := propext \u27e8(\u00b7 trivial), (fun _ => \u00b7)\u27e9\n@[simp] theorem not_false_eq_true : (\u00ac False) = True := eq_true False.elim\n@[simp] theorem not_true_eq_false : (\u00ac True) = False := by decide\n@[simp] theorem not_iff_self : \u00ac(\u00aca \u2194 a) | H => iff_not_self H.symm\nattribute [simp] iff_not_self",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "and_true",
+    "has_proof": true
+  }
+}

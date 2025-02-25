@@ -1,0 +1,9 @@
+{
+  "content": "structure Equiv (\u03b1 : Sort _) (\u03b2 : Sort _) where\n  protected toFun : \u03b1 \u2192 \u03b2\n  protected invFun : \u03b2 \u2192 \u03b1\ninfixl:25 \" \u2243 \" => Equiv\nnamespace Equiv\nprotected def symm (e : \u03b1 \u2243 \u03b2) : \u03b2 \u2243 \u03b1 := \u27e8e.invFun, e.toFun\u27e9\nend Equiv\nend Mathlib.Logic.Equiv.Defs\nsection Mathlib.Data.Subtype\nvariable {\u03b1 : Sort _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "Equiv"
+  }
+}

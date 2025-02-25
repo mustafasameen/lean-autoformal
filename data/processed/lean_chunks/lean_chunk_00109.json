@@ -1,0 +1,9 @@
+{
+  "content": "structure P (a: Type) where\n   runP: String -> Maybe (String \u00d7 a)\ndef ppure {a: Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/697.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/697.lean",
+    "definition_name": "P"
+  }
+}

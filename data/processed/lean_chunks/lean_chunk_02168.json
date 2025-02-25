@@ -1,0 +1,9 @@
+{
+  "content": "class Zip (\u03b1 : Type)\nclass SMul (R : Type) (\u03b1 : Type) where\n  smul : R \u2192 \u03b1 \u2192 \u03b1\ninfixr:73 \" \u2022 \" => SMul.smul\nclass MulAction (R : Type) (\u03b2 : Type) extends SMul R \u03b2\nclass SMulZeroClass (R \u03b1 : Type) extends SMul R \u03b1 where\n  smul_zero : \u2200 r : R, \u2200 a : \u03b1, r \u2022 a = a\nclass MulActionWithZero (R \u03b1 : Type) extends MulAction R \u03b1, SMulZeroClass R \u03b1\nclass SMulWithZero (R \u03b1 : Type) [Zip R] [Zip \u03b1] extends SMulZeroClass R \u03b1\ninstance MulActionWithZero.toSMulWithZero (R M : Type)\n    [Zip R] [Zip M] [m : MulActionWithZero R M] :\n    SMulWithZero R M :=\n  { m with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedtc.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedtc.lean",
+    "definition_name": "Zip"
+  }
+}

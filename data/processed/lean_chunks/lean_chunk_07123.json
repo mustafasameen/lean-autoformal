@@ -1,0 +1,9 @@
+{
+  "content": "getNatConstant : Value \u2192 Nat\n  | .ctor `Nat.zero #[] .. => 0\n  | .ctor `Nat.succ #[val] .. => getNatConstant val + 1\n  | _ => panic! \"Not a well formed Nat constant Value\"\nend Value\nabbrev FunctionSummaries := PHashMap Name Value\nprivate abbrev decLt (a b : Name \u00d7 Value) : Bool :=\n  Name.quickLt a.fst b.fst\nprivate abbrev findAtSorted? (entries : Array (Name \u00d7 Value)) (fid : Name) : Option Value :=\n  entries.binSearch (fid, default) decLt |>.map Prod.snd\nbuiltin_initialize functionSummariesExt : SimplePersistentEnvExtension (Name \u00d7 Value) FunctionSummaries \u2190\n  registerSimplePersistentEnvExtension {\n    addImportedFn := fun _ => {}\n    addEntryFn := fun s \u27e8e, n\u27e9 => s.insert e n\n    toArrayFn := fun s => s.toArray.qsort decLt\nasyncMode := .sync\n  }\ndef addFunctionSummary (env : Environment) (fid : Name) (v : Value) : Environment :=\n  functionSummariesExt.addEntry (env.addExtraName fid) (fid, v)\ndef getFunctionSummary? (env : Environment) (fid : Name) : Option Value :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure UnitVal (\u03b1 : Rat) where\n  ofInt ::\n  val : Int\n  deriving Inhabited, BEq\ninstance : LE (UnitVal x) where\n  le x y := x.val \u2264 y.val\ninstance { x y : UnitVal z }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Internal/UnitVal.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Internal/UnitVal.lean",
+    "definition_name": "UnitVal"
+  }
+}

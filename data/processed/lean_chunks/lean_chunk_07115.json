@@ -1,0 +1,9 @@
+{
+  "content": "return code.updateAlts! alts\n  | .return .. | .unreach .. | .jmp .. => return code\nend\nend PullFunDecls\nopen PullFunDecls\ndef Decl.pullFunDecls (decl : Decl) : CompilerM Decl := do\n  let (value, ps) \u2190 decl.value.mapCodeM pull |>.run []\n  let value := value.mapCode (attach ps.toArray)\n  return { decl with value }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_name": "ToPull"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_self (a : \u03b1) : (a = a) = True := eq_true rfl\ntheorem implies_congr {p\u2081 p\u2082 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "eq_self",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class MonoidalCategoryStruct (C : Type u) [\ud835\udc9e : Category.{v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "MonoidalCategoryStruct"
+  }
+}

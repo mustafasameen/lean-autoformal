@@ -1,0 +1,9 @@
+{
+  "content": "def _root_.Lean.MVarId.getKind (mvarId : MVarId) : MetaM MetavarKind :=\n  return (\u2190 mvarId.getDecl).kind\ndef _root_.Lean.MVarId.setKind (mvarId : MVarId) (kind : MetavarKind) : MetaM Unit :=\n  modifyMCtx fun mctx => mctx.setMVarKind mvarId kind\ndef _root_.Lean.MVarId.setType (mvarId : MVarId) (type : Expr) : MetaM Unit := do\n  modifyMCtx fun mctx => mctx.setMVarType mvarId type\ndef _root_.Lean.MVarId.isReadOnly (mvarId : MVarId) : MetaM Bool := do\n  return (\u2190 mvarId.getDecl).depth != (\u2190 getMCtx).depth\ndef _root_.Lean.MVarId.isReadOnlyOrSyntheticOpaque (mvarId : MVarId) : MetaM Bool := do\n  let mvarDecl \u2190 mvarId.getDecl\n  if mvarDecl.depth != (\u2190 getMCtx).depth then\n    return true\n  else\n    match mvarDecl.kind with\n    | MetavarKind.syntheticOpaque => return !(\u2190 getConfig).assignSyntheticOpaque\n    | _ => return false\ndef _root_.Lean.LMVarId.getLevel (mvarId : LMVarId) : MetaM Nat := do\n  match (\u2190 getMCtx).findLevelDepth? mvarId with\n  | some depth => return depth",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

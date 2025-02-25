@@ -1,0 +1,10 @@
+{
+  "content": "rw [Int.add_comm _ n, \u2190 Int.add_assoc, \u2190 Int.add_assoc,\n      Int.subNatNat_eq_coe, Int.sub_add_cancel]\n    exact congrArg (ofNat \u00b7 + 1) <| Nat.mod_add_div ..\n  | -[_+1], 0 => by rw [fmod_zero]; rfl\n  | -[m+1], succ n => by\n    show subNatNat .. - (\u2191(succ n * (m / succ n)) + \u2191(succ n)) = -\u2191(succ m)\n    rw [Int.subNatNat_eq_coe, \u2190 Int.sub_sub, \u2190 Int.neg_sub, Int.sub_sub, Int.sub_sub_self]\n    exact congrArg (-ofNat \u00b7) <| Nat.succ_add .. \u25b8 Nat.mod_add_div .. \u25b8 rfl\n  | -[m+1], -[n+1] => by\n    show -(\u2191(succ m % succ n) : Int) + -\u2191(succ n * (succ m / succ n)) = -\u2191(succ m)\n    rw [\u2190 Int.neg_add]; exact congrArg (-ofNat \u00b7) <| Nat.mod_add_div ..\ntheorem fdiv_add_fmod (a b : Int) : b * a.fdiv b + a.fmod b = a := by\n  rw [Int.add_comm]; exact fmod_add_fdiv ..\ntheorem fmod_def (a b : Int) : a.fmod b = a - b * a.fdiv b := by\n  rw [\u2190 Int.add_sub_cancel (a.fmod b), fmod_add_fdiv]\ntheorem ediv_neg' {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "ediv_add_emod",
+    "has_proof": true
+  }
+}

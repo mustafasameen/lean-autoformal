@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_le_iff_le_sub {a b c : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_name": "add_le_iff_le_sub",
+    "has_proof": false
+  }
+}

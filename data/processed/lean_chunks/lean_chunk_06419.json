@@ -1,0 +1,9 @@
+{
+  "content": "| .reassign _ _ k         => loop k\n    | .joinpoint _ _ b k      => loop b || loop k\n    | .seq _ k                => loop k\n    | .ite _ _ _ _ t e        => loop t || loop e\n    | .match _ _ _ _ alts     => alts.any (loop \u00b7.rhs)\n    | .matchExpr _ _ _ alts e => alts.any (loop \u00b7.rhs) || loop e\n    | .jmp ..                 => false\n    | c                       => p c\n  loop c\ndef hasExitPoint (c : Code) : Bool :=\n  hasExitPointPred c fun _ => true\ndef hasReturn (c : Code) : Bool :=\n  hasExitPointPred c fun\n    | .return .. => true\n    | _ => false\ndef hasTerminalAction (c : Code) : Bool :=\n  hasExitPointPred c fun\n    | .action _ => true\n    | _ => false\ndef hasBreakContinue (c : Code) : Bool :=\n  hasExitPointPred c fun\n    | .break _    => true\n    | .continue _ => true\n    | _ => false\ndef hasBreakContinueReturn (c : Code) : Bool :=\n  hasExitPointPred c fun\n    | .break _    => true\n    | .continue _ => true\n    | .return _ _ => true\n    | _ => false\ndef mkAuxDeclFor {m}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "AltExpr"
+  }
+}

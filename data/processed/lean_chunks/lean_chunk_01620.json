@@ -1,0 +1,9 @@
+{
+  "content": "#guard_msgs in\n#eval zoned\u2084.format \"Z ZZ ZZZ ZZZZ ZZZZZ\"\n#guard_msgs in\n#eval datetime\u2084.format \"G GG GGG GGGG GGGGG\"\n#guard_msgs in\n#eval datetime\u2084.format \"yy yyyy yyyyyyyyy\"\n#guard_msgs in\n#eval datetime\u2084.format \"uu uuuu uuuuuuuuu\"\n#guard_msgs in\n#eval datetime\u2084.format \"D DD DDD\"\n#guard_msgs in\n#eval datetime\u2084.format \"M MM MMM MMMMM\"\n#guard_msgs in\n#eval datetime\u2084.format \"d dd ddd dddd ddddd\"\n#guard_msgs in\n#eval datetime\u2084.format \"M MM MMM MMMM MMMMM\"\n#guard_msgs in\n#eval datetime\u2084.format \"d dd dddd dddd\"\n#guard_msgs in\n#eval datetime\u2084.format \"Q QQ QQQQ QQQQQ\"\n#guard_msgs in\n#eval datetime\u2084.format \"w ww www wwww\"\n#guard_msgs in\n#eval datetime\u2084.format \"W WW WWW WWWW\"\n#guard_msgs in\n#eval datetime\u2084.format \"E EE EEE EEEE EEEEE\"\n#guard_msgs in\n#eval datetime\u2084.format \"e ee eee eeee eeeee\"\n#guard_msgs in\n#eval datetime\u2084.format \"F FF FFF FFFF\"\n#guard_msgs in\n#eval datetime\u2084.format \"h hh hhh hhhh hhhh\"\n#guard_msgs in\n#eval datetime\u2084.format \"K KK KKK KKKK KKKKKK\"\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_name": "date\u2081"
+  }
+}

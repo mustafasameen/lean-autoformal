@@ -1,0 +1,9 @@
+{
+  "content": "inductive hlevel\n| minusTwo\n| succ : hlevel \u2192 hlevel\nnotation \"\u2115\u208b\u2082\" => hlevel\nnotation \"\u22122\" => hlevel.minusTwo\nnotation \"\u22121\" => hlevel.succ hlevel.minusTwo\ndef hlevel.ofNat : Nat \u2192 \u2115\u208b\u2082\n| Nat.zero   => succ (succ \u22122)\n| Nat.succ n => hlevel.succ (ofNat n)\ninstance (n : Nat) : OfNat \u2115\u208b\u2082 n := \u27e8hlevel.ofNat n\u27e9\ndef contr (A : Type u) := \u03a3 (a : A), \u2200 b, a = b\ndef prop (A : Type u) := \u2200 (a b : A), a = b\ndef hset (A : Type u) := \u2200 (a b : A) (p q : a = b), p = q\ndef propset := \u03a3 (A : Type u), prop A\nnotation \"\u2126\" => propset\ndef isNType : hlevel \u2192 Type u \u2192 Type u\n| \u22122            => contr\n| hlevel.succ n => \u03bb A => \u2200 (x y : A), isNType n (x = y)\nnotation \"is-\" n \"-type\" => isNType n\ndef nType (n : hlevel) : Type (u + 1) :=\n\u03a3 (A : Type u), is-n-type A\nnotation n \"-Type\" => nType n\ninductive Unit : Type u\n| star : Unit\nattribute [cases_eliminator] Unit.casesOn\ndef Homotopy {A : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "hlevel"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "instance for inductive types and structures\"\n}\nregister_builtin_option genSizeOfSpec : Bool := {\n  defValue := true\n  descr    := \"generate `SizeOf` specification theorems for automatically generated instances\"\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SizeOf.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SizeOf.lean",
+    "definition_name": "for",
+    "has_proof": false
+  }
+}

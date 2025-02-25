@@ -1,0 +1,9 @@
+{
+  "content": "def y := c.5",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1707.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1707.lean",
+    "definition_name": "y"
+  }
+}

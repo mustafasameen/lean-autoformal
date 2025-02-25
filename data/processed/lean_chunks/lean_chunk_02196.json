@@ -1,0 +1,9 @@
+{
+  "content": "instance lt [LT \u03b1] {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "lt"
+  }
+}

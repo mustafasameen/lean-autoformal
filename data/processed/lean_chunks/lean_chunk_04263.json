@@ -1,0 +1,10 @@
+{
+  "content": "theorem divRec_zero (qr : DivModState w) :\n    divRec 0 args qr = qr := rfl\n@[simp]\ntheorem divRec_succ (m : Nat) (args : DivModArgs w) (qr : DivModState w) :\n    divRec (m + 1) args qr =\n      divRec m args (divSubtractShift args qr) := rfl\n@[simp]\ntheorem wn_divRec (args : DivModArgs w) (qr : DivModState w) :\n    (divRec qr.wn args qr).wn = 0 := by\n  induction hm : qr.wn generalizing qr with\n  | zero =>\n    assumption\n  | succ wn' ih =>\n    apply ih\n    simp only [divSubtractShift, hm]\n    split <;> rfl\ntheorem umod_eq_divRec (hd : 0#w < d) :\n    let out := divRec w {n, d}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "divRec_zero",
+    "has_proof": true
+  }
+}

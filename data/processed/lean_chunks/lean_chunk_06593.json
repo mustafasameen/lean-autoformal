@@ -1,0 +1,10 @@
+{
+  "content": "\"]\" >> many1 (ppSpace >> ident)\n@[builtin_command_parser] def \u00abexport\u00bb       := leading_parser\n  \"export \" >> ident >> \" (\" >> many1 ident >> \")\"\n@[builtin_command_parser] def \u00abimport\u00bb       := leading_parser\n\"import\"\ndef openHiding       := leading_parser\n  ppSpace >> atomic (ident >> \" hiding\") >> many1 (ppSpace >> checkColGt >> ident)\ndef openRenamingItem := leading_parser\n  ident >> unicodeSymbol \" \u2192 \" \" -> \" >> checkColGt >> ident\ndef openRenaming     := leading_parser\n  ppSpace >> atomic (ident >> \" renaming \") >> sepBy1 openRenamingItem \", \"\ndef openOnly         := leading_parser\n  ppSpace >> atomic (ident >> \" (\") >> many1 ident >> \")\"\ndef openSimple       := leading_parser\n  many1 (ppSpace >> checkColGt >> ident)\ndef openScoped       := leading_parser\n  \" scoped\" >> many1 (ppSpace >> checkColGt >> ident)\nnamespace Combinator.Calculus\n  def I (a : \u03b1) : \u03b1 := a\n  def K (a : \u03b1) : \u03b2 \u2192 \u03b1 := fun _ => a\n  def S (x : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (y : \u03b1 \u2192 \u03b2) (z : \u03b1) : \u03b3 := x z (y z)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

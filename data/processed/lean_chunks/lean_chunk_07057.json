@@ -1,0 +1,9 @@
+{
+  "content": "def ModuleRefs := Std.HashMap RefIdent RefInfo\ninstance : ToJson ModuleRefs where\n  toJson m := Json.mkObj <| m.toList.map fun (ident, info) => (ident.toJson.compress, toJson info)\ninstance : FromJson ModuleRefs where\n  fromJson? j := do\n    let node \u2190 j.getObj?\n    node.foldM (init := Std.HashMap.empty) fun m k v =>\n      return m.insert (\u2190 RefIdent.fromJson? (\u2190 Json.parse k)) (\u2190 fromJson? v)\nstructure LeanIleanInfoParams where\n  references : ModuleRefs\n  deriving FromJson, ToJson\nstructure LeanImportClosureParams where\nstructure LeanStaleDependencyParams where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Internal.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Internal.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem enumFrom_singleton (x : \u03b1) (n : Nat) : enumFrom n [x] = [(n, x)] :=\n  rfl\n@[deprecated head?_zipIdx (since := \"2025-01-21\"), simp]\ntheorem head?_enumFrom (n : Nat) (l : List \u03b1) :\n    (enumFrom n l).head? = l.head?.map fun a => (n, a) := by\n  simp [head?_eq_getElem?]\n@[deprecated getLast?_zipIdx (since := \"2025-01-21\"), simp]\ntheorem getLast?_enumFrom (n : Nat) (l : List \u03b1) :\n    (enumFrom n l).getLast? = l.getLast?.map fun a => (n + l.length - 1, a) := by\n  simp [getLast?_eq_getElem?]\n  cases l <;> simp; omega\n@[deprecated mk_add_mem_zipIdx_iff_getElem? (since := \"2025-01-21\")]\ntheorem mk_add_mem_enumFrom_iff_getElem? {n i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "enumFrom_singleton",
+    "has_proof": true
+  }
+}

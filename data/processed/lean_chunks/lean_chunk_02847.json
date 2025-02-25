@@ -1,0 +1,9 @@
+{
+  "content": "def neutralConfig : Simp.Config := {\n  zeta              := false\n  beta              := false\n  eta               := false\n  iota              := false\n  proj              := false\n  decide            := false\n  arith             := false\n  autoUnfold        := false\n  ground            := false\n  zetaDelta         := false\n  zetaUnused        := false\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/MetaTypes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/MetaTypes.lean",
+    "definition_name": "NameGenerator"
+  }
+}

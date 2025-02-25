@@ -1,0 +1,9 @@
+{
+  "content": "| matchExpr    (ref : Syntax) (meta : Bool) (discr : Syntax) (alts : Array (AltExpr Code)) (elseBranch : Code)\n  | jmp          (ref : Syntax) (jpName : Name) (args : Array Syntax)\n  deriving Inhabited\ndef Code.getRef? : Code \u2192 Option Syntax\n  | .decl _ doElem _     => doElem\n  | .reassign _ doElem _ => doElem\n  | .joinpoint ..        => none\n  | .seq a _             => a\n  | .action a            => a\n  | .break ref           => ref\n  | .continue ref        => ref\n  | .return ref _        => ref\n  | .ite ref ..          => ref\n  | .match ref ..        => ref\n  | .matchExpr ref ..    => ref\n  | .jmp ref ..          => ref\nabbrev VarSet := RBMap Name Syntax Name.cmp\npartial def hasExitPointPred (c : Code) (p : Code \u2192 Bool) : Bool :=\n  let rec loop : Code \u2192 Bool\n    | .decl _ _ k             => loop k\n    | .reassign _ _ k         => loop k\n    | .joinpoint _ _ b k      => loop b || loop k\n    | .seq _ k                => loop k\n    | .ite _ _ _ _ t e        => loop t || loop e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "AltExpr"
+  }
+}

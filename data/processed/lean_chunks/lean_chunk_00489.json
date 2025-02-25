@@ -1,0 +1,9 @@
+{
+  "content": "end LazyList\ndef fib : LazyList Nat :=\n  LazyList.iterate\u2082 (\u00b7 + \u00b7) 0 1\ndef iota (i : Nat := 0) : LazyList Nat :=\n  LazyList.iterate Nat.succ i\ndef tst : LazyList String := do\n  let x \u2190 [1, 2, 3].toLazy\n  let y \u2190 [2, 3, 4].toLazy\n  guard (x + y > 5)\n  pure s!\"{x}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/lazylist.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/lazylist.lean",
+    "definition_name": "isMonad"
+  }
+}

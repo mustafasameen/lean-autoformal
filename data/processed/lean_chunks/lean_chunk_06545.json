@@ -1,0 +1,9 @@
+{
+  "content": "let merged := refs.fold (init := current.snd) fun m ident info =>\n        m.getD ident Lsp.RefInfo.empty |>.merge info |> m.insert ident\n      return { self with workers := self.workers.insert name (version, merged) }\n  return self\ndef finalizeWorkerRefs (self : References) (name : Name) (version : Nat) (refs : Lsp.ModuleRefs) : References := Id.run do\n  if let some (currVersion, _) := self.workers[name]? then\n    if version < currVersion then\n      return self\n  return { self with workers := self.workers.insert name (version, refs) }\ndef allRefs (self : References) : Std.HashMap Name Lsp.ModuleRefs :=\n  let ileanRefs := self.ileans.toArray.foldl (init := Std.HashMap.empty) fun m (name, _, refs) => m.insert name refs\n  self.workers.toArray.foldl (init := ileanRefs) fun m (name, _, refs) => m.insert name refs\ndef allRefsFor\n    (self          : References)\n    (srcSearchPath : SearchPath)\n    (ident         : RefIdent)\n    : IO (Array (DocumentUri \u00d7 Lsp.RefInfo)) := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

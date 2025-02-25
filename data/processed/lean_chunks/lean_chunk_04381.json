@@ -1,0 +1,10 @@
+{
+  "content": "theorem Poly.denote_reverse (ctx : Context) (p : Poly) : denote ctx (List.reverse p) = denote ctx p := by\n  simp [List.reverse]\nattribute [local simp] Poly.denote_reverse\nprivate theorem eq_of_not_blt_eq_true (h\u2081 : \u00ac (Nat.blt x y = true)) (h\u2082 : \u00ac (Nat.blt y x = true)) : x = y :=\n  have h\u2081 : \u00ac x < y := fun h => h\u2081 (Nat.blt_eq.mpr h)\n  have h\u2082 : \u00ac y < x := fun h => h\u2082 (Nat.blt_eq.mpr h)\n  Nat.le_antisymm (Nat.ge_of_not_lt h\u2082) (Nat.ge_of_not_lt h\u2081)\ntheorem Poly.denote_eq_cancelAux (ctx : Context) (fuel : Nat) (m\u2081 m\u2082 r\u2081 r\u2082 : Poly)\n    (h : denote_eq ctx (r\u2081.reverse ++ m\u2081, r\u2082.reverse ++ m\u2082)) : denote_eq ctx (cancelAux fuel m\u2081 m\u2082 r\u2081 r\u2082) := by\n  induction fuel generalizing m\u2081 m\u2082 r\u2081 r\u2082 with\n  | zero => assumption\n  | succ fuel ih =>\n    simp\n    split <;> try (simp at h; try assumption)\n    rename_i k\u2081 v\u2081 m\u2081 k\u2082 v\u2082 m\u2082\n    by_cases hltv : Nat.blt v\u2081 v\u2082 <;> simp [hltv]\n    \u00b7 apply ih; simp [denote_eq] at h |-; assumption\n    \u00b7 by_cases hgtv : Nat.blt v\u2082 v\u2081 <;> simp [hgtv]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

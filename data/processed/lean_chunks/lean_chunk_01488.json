@@ -1,0 +1,9 @@
+{
+  "content": "instance SupSet {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_name": "SupSet"
+  }
+}

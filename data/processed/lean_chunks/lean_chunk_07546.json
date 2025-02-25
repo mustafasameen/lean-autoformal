@@ -1,0 +1,9 @@
+{
+  "content": "| .bce => \"B\"\n  | .ce  => \"C\"\nprivate def formatQuarterNumber : Month.Quarter \u2192 String\n  |\u27e81, _\u27e9 => \"1\"\n  |\u27e82, _\u27e9 => \"2\"\n  |\u27e83, _\u27e9 => \"3\"\n  |\u27e84, _\u27e9 => \"4\"\nprivate def formatQuarterShort : Month.Quarter \u2192 String\n  | \u27e81, _\u27e9 => \"Q1\"\n  | \u27e82, _\u27e9 => \"Q2\"\n  | \u27e83, _\u27e9 => \"Q3\"\n  | \u27e84, _\u27e9 => \"Q4\"\nprivate def formatQuarterLong : Month.Quarter \u2192 String\n  | \u27e81, _\u27e9 => \"1st quarter\"\n  | \u27e82, _\u27e9 => \"2nd quarter\"\n  | \u27e83, _\u27e9 => \"3rd quarter\"\n  | \u27e84, _\u27e9 => \"4th quarter\"\nprivate def formatMarkerShort (marker : HourMarker) : String :=\n  match marker with\n  | .am => \"AM\"\n  | .pm => \"PM\"\nprivate def formatMarkerLong (marker : HourMarker) : String :=\n  match marker with\n  | .am => \"Ante Meridiem\"\n  | .pm => \"Post Meridiem\"\nprivate def formatMarkerNarrow (marker : HourMarker) : String :=\n  match marker with\n  | .am => \"A\"\n  | .pm => \"P\"\nprivate def toSigned (data : Int) : String :=\n  if data < 0 then toString data else \"+\" ++ toString data",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "FormatPart"
+  }
+}

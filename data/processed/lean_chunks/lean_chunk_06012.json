@@ -1,0 +1,10 @@
+{
+  "content": "theorem suffix_iff_eq_drop : l\u2081 <:+ l\u2082 \u2194 l\u2081 = drop (length l\u2082 - length l\u2081) l\u2082 :=\n  \u27e8fun h => append_cancel_left <| (suffix_iff_eq_append.1 h).trans (take_append_drop _ _).symm,\n    fun e => e.symm \u25b8 drop_suffix _ _\u27e9\ntheorem prefix_take_le_iff {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Sublist.lean",
+    "definition_name": "suffix_iff_eq_drop",
+    "has_proof": false
+  }
+}

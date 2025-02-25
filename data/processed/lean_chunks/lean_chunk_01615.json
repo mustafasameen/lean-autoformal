@@ -1,0 +1,9 @@
+{
+  "content": "def dateUTC\u2081 := DateTime.ofPlainDateTime PlainDate .UTC\n#guard_msgs in\n#eval FullDayTimeZone.format dateBR\u2081\n#guard_msgs in\n#eval FullDayTimeZone.format dateJP\u2081\n#guard_msgs in\n#eval FullDayTimeZone.format (dateUTC\u2081.convertTimeZone jpTZ)\n#guard_msgs in\n#eval FullDayTimeZone.format (dateBR\u2081.convertTimeZone jpTZ)\n#guard_msgs in\n#eval FullDayTimeZone.format (dateJP\u2081.convertTimeZone jpTZ)\n#guard_msgs in\n#eval FullDayTimeZone.format date\u2082\n#guard_msgs in\n#eval Time24Hour.formatBuilder time\u2081.hour time\u2081.minute time\u2081.second\ndef l := Time12Hour.formatBuilder time\u2081.hour.toRelative time\u2081.minute time\u2081.second (if time\u2081.hour.val > 12 then HourMarker.pm else HourMarker.am)\n#guard_msgs in\n#eval l\n#guard_msgs in\n#eval Time12Hour.formatBuilder time\u2082.hour.toRelative time\u2082.minute time\u2082.second (if time\u2082.hour.val > 12 then HourMarker.pm else HourMarker.am)\n#guard_msgs in\n#eval ShortDate.formatBuilder date\u2081.month date\u2081.day date\u2081.year\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_name": "date\u2081"
+  }
+}

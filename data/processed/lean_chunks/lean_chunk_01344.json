@@ -1,0 +1,9 @@
+{
+  "content": "bottomDom   := @bottomCod \ud835\udc9e \u03b7,\n  bottomCod   := @bottomDom \ud835\udc9e \u03b7,\n  domComp     := @codComp \ud835\udc9e \u03b7,\n  codComp     := @domComp \ud835\udc9e \u03b7,\n  mulDom      := \u03bb _ _ \u03b4 => @mulCod \ud835\udc9e \u03b7 _ _ \u03b4,\n  mulCod      := \u03bb _ _ \u03b4 => @mulDom \ud835\udc9e \u03b7 _ _ \u03b4,\n  domCod      := @codDom \ud835\udc9e \u03b7,\n  codDom      := @domCod \ud835\udc9e \u03b7,\n  mulAssoc    := \u03bb _ _ _ => Id.symm (@mulAssoc \ud835\udc9e \u03b7 _ _ _),\n  mulDef      := \u03bb a b \u03b1 \u03b2 => Iff.comp (@mulDef \ud835\udc9e \u03b7 b a \u03b2 \u03b1) (Id.symm, Id.symm)\n}\nend MWE\nend",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "Alg"
+  }
+}

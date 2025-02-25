@@ -1,0 +1,9 @@
+{
+  "content": "| not\nmutual\n  inductive Lambda\n    | mk : (l : NEList String) \u2192 l.noDup \u2192 Program \u2192 Lambda\n  inductive Expression\n    | lit   : Literal \u2192 Expression\n    | var   : String \u2192 Expression\n    | lam   : Lambda \u2192 Expression\n    | list  : List Literal \u2192 Expression\n    | app   : Expression \u2192 NEList Expression \u2192 Expression\n    | unOp  : UnOp  \u2192 Expression \u2192 Expression\n    | binOp : BinOp \u2192 Expression \u2192 Expression \u2192 Expression\n  inductive Program\n    | skip  : Program\n    | eval  : Expression \u2192 Program\n    | decl  : String  \u2192 Program \u2192 Program\n    | seq   : Program \u2192 Program \u2192 Program\n    | fork  : Expression \u2192 Program \u2192 Program \u2192 Program\n    | loop  : Expression \u2192 Program \u2192 Program\n    | print : Expression \u2192 Program\n    deriving Inhabited\nend\ninductive Value\n  | nil  : Value\n  | lit  : Literal \u2192 Value\n  | list : List Literal \u2192 Value\n  | lam  : Lambda \u2192 Value\n  deriving Inhabited\nabbrev Context := Lean.HashMap String Value\ninductive ErrorType\n  | name | type | runTime",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_name": "NEList"
+  }
+}

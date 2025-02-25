@@ -1,0 +1,9 @@
+{
+  "content": "structure FooS where\n  x : Nat\n  y : Nat\n  h : x = y\nstructure BarS extends FooS where\n  h' : x = y\n  h  := h'\ndef f (x : Nat) : BarS :=\n  { x,  y := x, h' := rfl }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/461b.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/461b.lean",
+    "definition_name": "FooS"
+  }
+}

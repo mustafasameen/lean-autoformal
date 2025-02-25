@@ -1,0 +1,10 @@
+{
+  "content": "instance instDiv : Div Nat := \u27e8Nat.div\u27e9\ntheorem div_eq (x y : Nat) : x / y = if 0 < y \u2227 y \u2264 x then (x - y) / y + 1 else 0 := by\n  show Nat.div x y = _\n  rw [Nat.div]\n  rfl\ndef div.inductionOn.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "instDiv",
+    "has_proof": true
+  }
+}

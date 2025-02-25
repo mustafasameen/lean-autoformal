@@ -1,0 +1,9 @@
+{
+  "content": "inductive Key where\n  | decl (name : FunId)\n  | jp   (name : FunId) (jpid : JoinPointId)\n  deriving BEq\ndef getHash : Key \u2192 UInt64\n  | Key.decl n  => hash n\n  | Key.jp n id => mixHash (hash n) (hash id)\ninstance : Hashable Key := \u27e8getHash\u27e9\nend ParamMap\nopen ParamMap (Key)\nabbrev ParamMap := Std.HashMap Key (Array Param)\ndef ParamMap.fmt (map : ParamMap) : Format :=\n  let fmts := map.fold (fun fmt k ps =>\n    let k := match k with\n      | ParamMap.Key.decl n  => format n\n      | ParamMap.Key.jp n id => format n ++ \":\" ++ format id\n    fmt ++ Format.line ++ k ++ \" -> \" ++ formatParams ps)\n   Format.nil\n  \"{\" ++ (Format.nest 1 fmts) ++ \"}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Borrow.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Borrow.lean",
+    "definition_name": "Key"
+  }
+}

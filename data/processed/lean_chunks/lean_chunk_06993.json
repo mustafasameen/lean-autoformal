@@ -1,0 +1,9 @@
+{
+  "content": "inductive predicates is not supported\"\n    trace[Elab.definition.structural] \"Using mkIndPred construction\"\n    let preDef := preDefs[0]!\n    let recArgInfo := recArgInfos[0]!\n    let value := values[0]!\n    let valueNew \u2190 mkIndPredBRecOn recArgInfo value\n    let valueNew \u2190 mkLambdaFVars xs valueNew\n    trace[Elab.definition.structural] \"Nonrecursive value:{indentExpr valueNew}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Structural/Main.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Structural/Main.lean",
+    "definition_name": "predicates"
+  }
+}

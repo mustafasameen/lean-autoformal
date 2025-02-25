@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo : Nat \u2192 Type\n| foo : Foo 0\ninductive Bar: Foo n \u2192 Prop\n| bar {t: Foo n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1192.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1192.lean",
+    "definition_name": "Foo"
+  }
+}

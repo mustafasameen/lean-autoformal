@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem findSome?_toArray (f : \u03b1 \u2192 Option \u03b2) (l : List \u03b1) :\n    l.toArray.findSome? f = l.findSome? f := by\n  rw [Array.findSome?, \u2190 findSomeM?_id, findSomeM?_toArray, Id.run]\n@[simp] theorem find?_toArray (f : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    l.toArray.find? f = l.find? f := by\n  rw [Array.find?]\n  simp only [Id.run, Id, Id.pure_eq, Id.bind_eq, forIn_toArray]\n  induction l with\n  | nil => simp\n  | cons a l ih =>\n    simp only [forIn_cons, Id.pure_eq, Id.bind_eq, find?]\n    by_cases f a <;> simp_all\nprivate theorem findFinIdx?_loop_toArray (w : l' = l.drop j) :\n    Array.findFinIdx?.loop p l.toArray j = List.findFinIdx?.go p l l' j h := by\n  unfold findFinIdx?.loop\n  unfold findFinIdx?.go\n  split <;> rename_i h'\n  \u00b7 cases l' with\n    | nil =>\n      simp at h h'\n      omega\n    | cons a l' =>\n      have : l[j] = a := by\n        rw [drop_eq_getElem_cons] at w\n        simp only [cons.injEq] at w\n        exact w.1.symm\n      simp only [getElem_toArray, this]\n      split\n      \u00b7 rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "findSomeM",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertManyIfNewUnit_empty_list_nil :\n    insertManyIfNewUnit (empty : Raw\u2080 \u03b1 (fun _ => Unit)) ([] : List \u03b1) =\n      (empty : Raw\u2080 \u03b1 (fun _ => Unit)) := by\n  simp\n@[simp]\ntheorem insertManyIfNewUnit_empty_list_singleton {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_name": "insertManyIfNewUnit_empty_list_nil",
+    "has_proof": true
+  }
+}

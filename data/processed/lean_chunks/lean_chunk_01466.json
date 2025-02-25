@@ -1,0 +1,10 @@
+{
+  "content": "theorem Weekday.nextOfPrevious (d : Weekday) : next (previous d) = d := by\n  cases d\n  all_goals rfl\ntheorem Weekday.nextOfPrevious' (d : Weekday) : previous (next d) = d \u2227 next (previous d) = d := by\n  apply And.intro\n  cases d <;> rfl\n  cases d <;> rfl\ntheorem Weekday.nextOfPrevious'' (d : Weekday) : previous (next d) = d \u2227 next (previous d) = d := by\n  apply And.intro <;> cases d <;> rfl\nopen Lean.Parser.Tactic in\nmacro \"rwd \" x:term : tactic => `(tactic| (rw [$x:term]; done))\ntheorem ex (a b c : \u03b1) (h\u2081 : a = b) (h\u2082 : a = c) : b = a \u2227 c = a := by\n  apply And.intro <;> first | rwd h\u2081 | rwd h\u2082\ntheorem idEq (a : \u03b1) : id a = a :=\n  rfl\n#guard_msgs in\ntheorem Weekday.test (d : Weekday) : next (previous d) = id d := by\n  cases d\n  trace_state\n  all_goals rw [idEq]\n  trace_state\n  all_goals rfl\n#guard_msgs in\ntheorem Weekday.test2 (d : Weekday) : next (previous d) = id d := by\n  cases d <;> rw [idEq]\n  trace_state\n  all_goals rfl\ndef bug {a b c : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/allGoals.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/allGoals.lean",
+    "definition_name": "Weekday",
+    "has_proof": true
+  }
+}

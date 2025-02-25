@@ -1,0 +1,10 @@
+{
+  "content": "theorem some_get! [Inhabited \u03b1] : (o : Option \u03b1) \u2192 o.isSome \u2192 some (o.get!) = o\n  | some _, _ => rfl\ntheorem get!_eq_getD [Inhabited \u03b1] (o : Option \u03b1) : o.get! = o.getD default := rfl\n@[deprecated get!_eq_getD (since := \"2024-11-18\")] abbrev get!_eq_getD_default := @get!_eq_getD\ntheorem mem_unique {o : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "some_get",
+    "has_proof": false
+  }
+}

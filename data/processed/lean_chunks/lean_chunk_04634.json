@@ -1,0 +1,10 @@
+{
+  "content": "theorem norm_le_coeff_tight (ctx : Context) (lhs rhs : Expr) (p : Poly) (k : Int)\n    : norm_le_coeff_tight_cert lhs rhs p k \u2192 (lhs.denote ctx \u2264 rhs.denote ctx) = (p.denote' ctx \u2264 0) := by\n  simp [norm_le_coeff_tight_cert]\n  rw [norm_le ctx lhs rhs (lhs.sub rhs).norm BEq.refl, Poly.denote'_eq_denote]\n  apply eq_of_norm_eq_of_divCoeffs\ndef Poly.isUnsatEq (p : Poly) : Bool :=\n  match p with\n  | .num k => k != 0\n  | _ => false\ndef Poly.isValidEq (p : Poly) : Bool :=\n  match p with\n  | .num k => k == 0\n  | _ => false\ntheorem eq_eq_false (ctx : Context) (lhs rhs : Expr) : (lhs.sub rhs).norm.isUnsatEq \u2192 (lhs.denote ctx = rhs.denote ctx) = False := by\n  simp [Poly.isUnsatEq] <;> split <;> simp\n  next p k h =>\n    intro h'\n    replace h := congrArg (Poly.denote ctx) h\n    simp at h\n    rw [\u2190 Int.sub_eq_zero, h]\n    assumption\ntheorem eq_eq_true (ctx : Context) (lhs rhs : Expr) : (lhs.sub rhs).norm.isValidEq \u2192 (lhs.denote ctx = rhs.denote ctx) = True := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "norm_le_coeff_tight",
+    "has_proof": true
+  }
+}

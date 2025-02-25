@@ -1,0 +1,9 @@
+{
+  "content": "optional (\", \" >> many1 syntaxParser) >> optional (\", \" >> nonReservedSymbol \"allowTrailingSep\")) >> \")\"\n@[builtin_syntax_parser] def sepBy1          := leading_parser\n  \"sepBy1(\" >> withoutPosition (many1 syntaxParser >> \", \" >> strLit >>\n    optional (\", \" >> many1 syntaxParser) >> optional (\", \" >> nonReservedSymbol \"allowTrailingSep\")) >> \")\"\n@[builtin_syntax_parser] def atom            := leading_parser\n  strLit\n@[builtin_syntax_parser] def nonReserved     := leading_parser\n  \"&\" >> strLit\nend Syntax\nnamespace Command\ndef namedName := leading_parser\n  atomic (\" (\" >> nonReservedSymbol \"name\") >> \" := \" >> ident >> \")\"\ndef optNamedName := optional namedName\ndef \u00abprefix\u00bb   := leading_parser \"prefix\"\ndef \u00abinfix\u00bb    := leading_parser \"infix\"\ndef \u00abinfixl\u00bb   := leading_parser \"infixl\"\ndef \u00abinfixr\u00bb   := leading_parser \"infixr\"\ndef \u00abpostfix\u00bb  := leading_parser \"postfix\"\ndef mixfixKind := \u00abprefix\u00bb <|> \u00abinfix\u00bb <|> \u00abinfixl\u00bb <|> \u00abinfixr\u00bb <|> \u00abpostfix\u00bb",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_name": "optPrecedence"
+  }
+}

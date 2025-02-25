@@ -1,0 +1,9 @@
+{
+  "content": "match (\u2190 @loop stx init \u27e8init\u27e9) with\n    | ForInStep.yield b => return b\n    | ForInStep.done b  => return b\npartial def reprint (stx : Syntax) : Option String := do\n  let mut s := \"\"\n  for stx in stx.topDown (firstChoiceOnly := true) do\n    match stx with\n    | atom info val           => s := s ++ reprintLeaf info val\n    | ident info rawVal _ _   => s := s ++ reprintLeaf info rawVal.toString\n    | node _    kind args     =>\n      if kind == choiceKind then\n        let s0 \u2190 reprint args[0]!\n        for arg in args[1:] do\n          let s' \u2190 reprint arg\n          guard (s0 == s')\n    | _ => pure ()\n  return s\nwhere\n  reprintLeaf (info : SourceInfo) (val : String) : String :=\n    match info with\n    | SourceInfo.original lead _ trail _ => s!\"{lead}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "TopDown"
+  }
+}

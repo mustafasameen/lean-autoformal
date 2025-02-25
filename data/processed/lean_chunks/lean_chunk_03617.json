@@ -1,0 +1,10 @@
+{
+  "content": "theorem zip_eq_zip_take_min (as : Array \u03b1) (bs : Array \u03b2) :\n    zip as bs = zip (as.take (min as.size bs.size)) (bs.take (min as.size bs.size)) := by\n  cases as\n  cases bs\n  simp only [List.zip_toArray, List.size_toArray, List.take_toArray, mk.injEq]\n  rw [List.zip_eq_zip_take_min]\n@[simp] theorem unzip_fst : (unzip l).fst = l.map Prod.fst := by\n  induction l <;> simp_all\n@[simp] theorem unzip_snd : (unzip l).snd = l.map Prod.snd := by\n  induction l <;> simp_all\ntheorem unzip_eq_map (xs : Array (\u03b1 \u00d7 \u03b2)) : unzip xs = (xs.map Prod.fst, xs.map Prod.snd) := by\n  cases xs\n  simp [List.unzip_eq_map]\ntheorem zip_unzip (xs : Array (\u03b1 \u00d7 \u03b2)) : zip (unzip xs).1 (unzip xs).2 = xs := by\n  cases xs\n  simp only [List.unzip_toArray, Prod.map_fst, Prod.map_snd, List.zip_toArray, List.zip_unzip]\ntheorem unzip_zip_left {as : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_name": "zip_eq_zip_take_min",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "withParents view rs r.indFVar fun parentFieldInfos parents =>\n        withFields parents view.fields parentFieldInfos fun fieldInfos => do\n        withRef view.ref do\n          Term.synthesizeSyntheticMVarsNoPostponing\n          let lctx \u2190 getLCtx\n          let localInsts \u2190 getLocalInstances\n          let ctor \u2190 mkCtor view r params fieldInfos\n          return {\n            ctors := [ctor]\n            collectUsedFVars := collectUsedFVars lctx localInsts fieldInfos\n            checkUniverses := fun _ u => withLCtx lctx localInsts do checkResultingUniversesForFields fieldInfos u\n            finalizeTermElab := withLCtx lctx localInsts do checkDefaults fieldInfos\n            prefinalize := fun _ _ _ => do\n              withLCtx lctx localInsts do\n                addProjections r fieldInfos\n                registerStructure view.declName fieldInfos\nwithSaveInfoContext do\n                for field in view.fields do\n                  if (\u2190 getEnv).contains field.declName then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

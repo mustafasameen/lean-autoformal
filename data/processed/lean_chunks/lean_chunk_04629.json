@@ -1,0 +1,10 @@
+{
+  "content": "theorem Expr.eq_of_norm_eq (ctx : Context) (e : Expr) (p : Poly) (h : e.norm == p) : e.denote ctx = p.denote' ctx := by\n  have h := congrArg (Poly.denote ctx) (eq_of_beq h)\n  simp [Poly.norm] at h\n  simp [*]\ndef norm_eq_cert (lhs rhs : Expr) (p : Poly) : Bool :=\n  p == (lhs.sub rhs).norm\ntheorem norm_eq (ctx : Context) (lhs rhs : Expr) (p : Poly) (h : norm_eq_cert lhs rhs p) : (lhs.denote ctx = rhs.denote ctx) = (p.denote' ctx = 0) := by\n  simp [norm_eq_cert] at h; subst p\n  simp\n  rw [Int.sub_eq_zero]\ntheorem norm_le (ctx : Context) (lhs rhs : Expr) (p : Poly) (h : norm_eq_cert lhs rhs p) : (lhs.denote ctx \u2264 rhs.denote ctx) = (p.denote' ctx \u2264 0) := by\n  simp [norm_eq_cert] at h; subst p\n  simp\n  constructor\n  \u00b7 exact Int.sub_nonpos_of_le\n  \u00b7 exact Int.le_of_sub_nonpos\ndef norm_eq_var_cert (lhs rhs : Expr) (x y : Var) : Bool :=\n  (lhs.sub rhs).norm == .add 1 x (.add (-1) y (.num 0))\ntheorem norm_eq_var (ctx : Context) (lhs rhs : Expr) (x y : Var) (h : norm_eq_var_cert lhs rhs x y)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

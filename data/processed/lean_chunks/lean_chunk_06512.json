@@ -1,0 +1,9 @@
+{
+  "content": "instance whenever the binder annotation `[...]` is used\"\n}\ndef elabBindersEx (binders : Array Syntax) (k : Array (Syntax \u00d7 Expr) \u2192 TermElabM \u03b1) : TermElabM \u03b1 :=\n  universeConstraintsCheckpoint do\n    if binders.isEmpty then\n      k #[]\n    else\n      elabBindersAux binders k\ndef elabBinders (binders : Array Syntax) (k : Array Expr \u2192 TermElabM \u03b1) : TermElabM \u03b1 :=\n  elabBindersEx binders (fun fvars => k (fvars.map (\u00b7.2)))\ndef expandSimpleBinderWithType (type : Term) (binder : Syntax) : MacroM Syntax :=\n  if binder.isOfKind ``hole || binder.isIdent then\n    `(bracketedBinderF| ($binder : $type))\n  else\n    Macro.throwErrorAt type \"unexpected type ascription\"\n@[builtin_macro Lean.Parser.Term.forall] def expandForall : Macro\n  | `(forall $binders* : $ty, $term) => do\n    let binders \u2190 binders.mapM (expandSimpleBinderWithType ty)\n    `(forall $binders*, $term)\n  | _ => Macro.throwUnsupported\n@[builtin_term_elab \u00abforall\u00bb] def elabForall : TermElab := fun stx _ =>\n  match stx with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_name": "whenever"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance FooInt : Foo Int := {x:=()}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/leaky_tmp_metavars2.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/leaky_tmp_metavars2.lean",
+    "definition_name": "FooInt"
+  }
+}

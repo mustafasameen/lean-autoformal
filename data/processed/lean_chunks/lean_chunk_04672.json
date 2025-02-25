@@ -1,0 +1,10 @@
+{
+  "content": "theorem negSucc_not_pos (n : Nat) : 0 < -[n+1] \u2194 False := by\n  simp only [Int.not_lt, iff_false]; constructor\ntheorem eq_negSucc_of_lt_zero : \u2200 {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "negSucc_not_pos",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "else if key < k then\n      node left key value (right.insert k v)\n    else\n      node left k v right\ndef Tree.toList (t : Tree \u03b2) : List (Nat \u00d7 \u03b2) :=\n  match t with\n  | leaf => []\n  | node l k v r => l.toList ++ [(k, v)] ++ r.toList\n#eval Tree.leaf.insert 2 \"two\"\n      |>.insert 3 \"three\"\n      |>.insert 1 \"one\"\n#eval Tree.leaf.insert 2 \"two\"\n      |>.insert 3 \"three\"\n      |>.insert 1 \"one\"\n      |>.toList\ndef Tree.toListTR (t : Tree \u03b2) : List (Nat \u00d7 \u03b2) :=\n  go t []\nwhere\n  go (t : Tree \u03b2) (acc : List (Nat \u00d7 \u03b2)) : List (Nat \u00d7 \u03b2) :=\n    match t with\n    | leaf => acc\n    | node l k v r => go l ((k, v) :: go r acc)\ntheorem Tree.toList_eq_toListTR (t : Tree \u03b2)\n        : t.toList = t.toListTR := by\n  simp [toListTR, go t []]\nwhere\n  go (t : Tree \u03b2) (acc : List (Nat \u00d7 \u03b2))\n     : toListTR.go t acc = t.toList ++ acc := by\n    induction t generalizing acc <;>\n      simp [toListTR.go, toList, *, List.append_assoc]\n@[csimp] theorem Tree.toList_eq_toListTR_csimp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/bintree.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/bintree.lean",
+    "definition_name": "Tree",
+    "has_proof": true
+  }
+}

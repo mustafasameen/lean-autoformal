@@ -1,0 +1,9 @@
+{
+  "content": "def appendCore : Name \u2192 Name \u2192 Name\n  | n, .anonymous => n\n  | n, .str p s => .str (appendCore n p) s\n  | n, .num p d => .num (appendCore n p) d\nend Name\ndef maxRecDepthErrorMessage : String :=\n  \"maximum recursion depth has been reached\\nuse `set_option maxRecDepth <num>` to increase limit\\nuse `set_option diagnostics true` to get diagnostic information\"\ninductive SourceInfo where\n  | original (leading : Substring) (pos : String.Pos) (trailing : Substring) (endPos : String.Pos)\n  | synthetic (pos : String.Pos) (endPos : String.Pos) (canonical := false)\ndef getPos? (info : SourceInfo) (canonicalOnly := false) : Option String.Pos :=\n  match info, canonicalOnly with\n  | original (pos := pos) ..,  _\n  | synthetic (pos := pos) (canonical := true) .., _\n  | synthetic (pos := pos) .., false => some pos\n  | _,                         _     => none\ndef getTailPos? (info : SourceInfo) (canonicalOnly := false) : Option String.Pos :=\n  match info, canonicalOnly with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "nonBacktrackable"
+  }
+}

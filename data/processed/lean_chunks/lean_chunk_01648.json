@@ -1,0 +1,10 @@
+{
+  "content": "theorem tst (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z :=\nby {\n  intro h1; intro h2; intro h3;\n  apply @Eq.trans;\ntry exact h1;\n  trace_state;\n  try exact h3;\n  trace_state;\n  try exact h1;\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/elab_cmd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/elab_cmd.lean",
+    "definition_name": "tst",
+    "has_proof": true
+  }
+}

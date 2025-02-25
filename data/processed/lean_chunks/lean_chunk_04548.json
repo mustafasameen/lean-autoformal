@@ -1,0 +1,10 @@
+{
+  "content": "theorem max_none_some [Max \u03b1] {b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_name": "max_none_some",
+    "has_proof": false
+  }
+}

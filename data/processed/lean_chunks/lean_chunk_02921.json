@@ -1,0 +1,9 @@
+{
+  "content": "mainEnv : Environment\n  asyncEnv : Environment\n  private checkedEnvPromise : IO.Promise Kernel.Environment\ndef promiseChecked (env : Environment) : BaseIO PromiseCheckedResult := do\n  let checkedEnvPromise \u2190 IO.Promise.new\n  return {\n    mainEnv := { env with\n      checked := checkedEnvPromise.result?.bind (sync := true) fun\n        | some kenv => .pure kenv\n        | none      => env.checked }\n    asyncEnv := { env with\n      asyncCtx? := some { declPrefix := `__reserved__Environment_promiseChecked }\n    }\n    checkedEnvPromise\n  }\nstructure AddConstAsyncResult where\n  mainEnv : Environment\n  asyncEnv : Environment\n  private constName : Name\n  private kind : ConstantKind\n  private sigPromise : IO.Promise ConstantVal\n  private infoPromise : IO.Promise ConstantInfo\n  private extensionsPromise : IO.Promise (Array EnvExtensionState)\n  private checkedEnvPromise : IO.Promise Kernel.Environment",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem for '{declName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_name": "for",
+    "has_proof": false
+  }
+}

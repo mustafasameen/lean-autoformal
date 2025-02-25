@@ -1,0 +1,10 @@
+{
+  "content": "theorem Ref.gate_cast {aig1 aig2 : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_name": "Ref",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\n  todo     : List Goal\n  failures : List Goal := []\n  stop     : Bool := false\nprivate abbrev M := StateRefT State GrindM\ndef getNext? : M (Option Goal) := do\n  let goal::todo := (\u2190 get).todo | return none\n  modify fun s => { s with todo }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Solve.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Solve.lean",
+    "definition_name": "State"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "def ins (x : \u03b1) (vx : \u03b2 x) : Rbnode \u03b1 \u03b2 \u2192 Rbnode \u03b1 \u03b2\n| leaf             => Node red leaf x vx leaf\n| Node c l k v r   =>\n  if lt x k then fixup (Node c (ins l) k v r) (fun h => Rbnode.noConfusion h)\n  else if lt k x then fixup (Node c l k v (ins r)) (fun h => Rbnode.noConfusion h)\n  else Node c l x vx r\ndef insert (t : Rbnode \u03b1 \u03b2) (k : \u03b1) (v : \u03b2 k) : Rbnode \u03b1 \u03b2 :=\nsetBlack (ins lt k v t)\nend insert\nsection membership\nvariable (lt : \u03b1 \u2192 \u03b1 \u2192 Prop)\nvariable [DecidableRel lt]\ndef findCore : Rbnode \u03b1 \u03b2 \u2192 \u2200 (k : \u03b1), Option (Sigma (fun k => \u03b2 k))\n| leaf,                 x => none\n| Node _ a ky vy b,   x =>\n  (match cmpUsing lt x ky with\n   | Ordering.lt => findCore a x\n   | Ordering.Eq => some \u27e8ky, vy\u27e9\n   | Ordering.gt => findCore b x)\ndef find {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap3.lean",
+    "definition_name": "rotateLeftNeLeaf",
+    "has_proof": false
+  }
+}

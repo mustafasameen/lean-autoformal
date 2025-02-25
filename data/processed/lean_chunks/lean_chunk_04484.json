@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_map (h : \u03b2 \u2192 \u03b3) (g : \u03b1 \u2192 \u03b2) (x : Option \u03b1) :\n    (x.map g).map h = x.map (h \u2218 g) := by\n  cases x <;> simp only [map_none', map_some', \u00b7\u2218\u00b7]\ntheorem comp_map (h : \u03b2 \u2192 \u03b3) (g : \u03b1 \u2192 \u03b2) (x : Option \u03b1) : x.map (h \u2218 g) = (x.map g).map h :=\n  (map_map ..).symm\n@[simp] theorem map_comp_map (f : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 \u03b3) :\n    Option.map g \u2218 Option.map f = Option.map (g \u2218 f) := by funext x; simp\ntheorem mem_map_of_mem (g : \u03b1 \u2192 \u03b2) (h : a \u2208 x) : g a \u2208 Option.map g x := h.symm \u25b8 map_some' ..\ntheorem map_inj_right {f : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "map_map",
+    "has_proof": true
+  }
+}

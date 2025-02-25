@@ -1,0 +1,10 @@
+{
+  "content": "theorem Ne.intro (h : a = b \u2192 False) : a \u2260 b := h\ntheorem Ne.elim (h : a \u2260 b) : a = b \u2192 False := h\ntheorem Ne.irrefl (h : a \u2260 a) : False := h rfl\n@[symm] theorem Ne.symm (h : a \u2260 b) : b \u2260 a := fun h\u2081 => h (h\u2081.symm)\ntheorem ne_comm {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "Ne",
+    "has_proof": false
+  }
+}

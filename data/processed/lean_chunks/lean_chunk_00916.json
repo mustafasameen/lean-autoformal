@@ -1,0 +1,9 @@
+{
+  "content": "instance Bar0 : Bar Unit Int (List Int) := {u:=()}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals4.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals4.lean",
+    "definition_name": "Bar0"
+  }
+}

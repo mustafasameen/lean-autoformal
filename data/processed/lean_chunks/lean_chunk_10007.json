@@ -1,0 +1,10 @@
+{
+  "content": "theorem getKey?_alter (h : m.1.WF) {k k' : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_name": "getKey",
+    "has_proof": false
+  }
+}

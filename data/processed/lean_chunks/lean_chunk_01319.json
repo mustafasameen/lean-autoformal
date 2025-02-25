@@ -1,0 +1,10 @@
+{
+  "content": "theorem foo (_: \u00ac Fin.mk v\u2082 hv\u2082 = Fin.mk v\u2081 hv\u2081 ): True := trivial\n#guard_msgs in\nset_option trace.Meta.Tactic.simp true in\nexample (hv: v\u2081 < v\u2082) : True := foo n v\u2081 v\u2082 \u2039_\u203a \u2039_\u203a (by simp (config := { decide := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1380.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1380.lean",
+    "definition_name": "foo",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance DecidableEq for ByteArray\ntest_extern String.toUTF8 \"\"\ntest_extern String.toUTF8 \"\\x00\"\ntest_extern String.toUTF8 \"$\u00a3\u20ac\ud800\udf48\"\nmacro \"test_extern'\" t:term \" => \" v:term : command =>\n  `(test_extern $t\n    #guard $t == $v)\ndef checkGet (s : String) (arr : Array UInt8) :=\n  (List.range s.utf8ByteSize).all fun i =>\n    let c := if h : _ then s.getUtf8Byte i h else unreachable!\n    c == arr.get! i\nmacro \"validate\" arr:term \" => \" \"\u21af\" : command =>\n  `(test_extern' String.validateUTF8 $arr => false)\nmacro \"validate\" arr:term \" => \" str:term : command =>\n  `(test_extern' String.validateUTF8 $arr => true\n    test_extern' String.fromUTF8 $arr (with_decl_name% _validate by native_decide) => $str\n    test_extern' String.toUTF8 $str => $arr\n    #guard checkGet $str ($arr : ByteArray).data)\nvalidate \u27e8#[]\u27e9 => \"\"\nvalidate \u27e8#[0]\u27e9 => \"\\x00\"\nvalidate \u27e8#[0x80]\u27e9 => \u21af\nvalidate \u27e8#[0x80, 0x1]\u27e9 => \u21af\nvalidate \u27e8#[0xc0, 0x81]\u27e9 => \u21af\nvalidate \u27e8#[0xc8, 0x81]\u27e9 => \"\u0201\"\nvalidate \u27e8#[0xc8, 0x81, 0xc8, 0x81]\u27e9 => \"\u0201\u0201\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/utf8\u82f1\u8a9e.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/utf8\u82f1\u8a9e.lean",
+    "definition_name": "DecidableEq"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance MonoidHom.instFunLike [Mul M] [Mul N] : FunLike (M \u2192* N) M N where\n  coe f := f.toFun\ninstance AddMonoidHom.instFunLike [Add A] [Add B] : FunLike (A \u2192+ B) A B where\n  coe f := f.toFun\nend Mathlib.Algebra.Group.Hom.Defs\nsection Mathlib.GroupTheory.GroupAction.Defs\nvariable {M N \u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "MonoidHom"
+  }
+}

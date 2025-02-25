@@ -1,0 +1,10 @@
+{
+  "content": "theorem mk_mem_enumFrom_iff_le_and_getElem?_sub {n i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "mk_mem_enumFrom_iff_le_and_getElem",
+    "has_proof": false
+  }
+}

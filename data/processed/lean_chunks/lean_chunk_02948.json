@@ -1,0 +1,10 @@
+{
+  "content": "| _ => throwUnexpectedType typeName constName\ndef hasUnsafe (env : Environment) (e : Expr) : Bool :=\n  let c? := e.find? fun e => match e with\n    | Expr.const c _ =>\n      match env.find? c with\n      | some cinfo => cinfo.isUnsafe\n      | none       => false\n    | _ => false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

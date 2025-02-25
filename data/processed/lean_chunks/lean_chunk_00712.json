@@ -1,0 +1,9 @@
+{
+  "content": "structure A\nstructure B extends A\ndef Common.A.x (_ : A) : Nat := 0\nexport Common (A.x)\ndef Common.String.parse (_ : String) : List Nat := []\nnamespace ExOpen1\n#guard_msgs in #check \"\".parse\nsection\nopen Common\n#guard_msgs in #check \"\".parse\nend\nend ExOpen1\nnamespace Ex2\nclass A (n : Nat) where\n  x : Nat\ndef A.x' {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3031.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3031.lean",
+    "definition_name": "A"
+  }
+}

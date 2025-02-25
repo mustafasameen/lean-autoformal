@@ -1,0 +1,10 @@
+{
+  "content": "xs.dropLast.head h = xs.head (by rintro rfl; simp at h) := by\n  cases xs with\n  | nil => rfl\n  | cons x xs =>\n    cases xs with\n    | nil => simp at h\n    | cons y ys => rfl\ntheorem head?_dropLast (xs : List \u03b1) : xs.dropLast.head? = if 1 < xs.length then xs.head? else none := by\n  cases xs with\n  | nil => rfl\n  | cons x xs =>\n    cases xs with\n    | nil => rfl\n    | cons y ys => simp [Nat.succ_lt_succ_iff]\ntheorem getLast_dropLast {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "mem_partition",
+    "has_proof": true
+  }
+}

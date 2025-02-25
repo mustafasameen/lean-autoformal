@@ -1,0 +1,9 @@
+{
+  "content": "structure Ctx where\n  root : TSyntax `tactic\n  terminal : Bool\n  config : Try.Config\nabbrev M := ReaderT Ctx TacticM\ninstance : MonadBacktrack SavedState M where\n  saveState := fun _ => saveState\n  restoreState s := fun _ => restoreState s\nabbrev withNonTerminal (x : M \u03b1) : M \u03b1 :=\n  withReader (fun c => { c with terminal := false}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Try.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Try.lean",
+    "definition_name": "Ctx"
+  }
+}

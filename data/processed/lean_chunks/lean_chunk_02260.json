@@ -1,0 +1,9 @@
+{
+  "content": "def a [C] := C.f Nat\ndef b [D] := D.toC.f Nat\ndef c [D] := C.f Nat\nend Ex2\nnamespace Ex3\nsection\nvariable (N : Type _)\nclass Zero where\n  zero : N\nexport Zero (zero)\nclass Succ where\n  succ : N \u2192 N\nexport Succ (succ)\nclass Succ_Not_Zero [Zero N] [Succ N] where\n  succ_not_zero {n : N} : succ n \u2260 zero\nexport Succ_Not_Zero (succ_not_zero)\nclass Eq_Of_Succ_Eq_Succ [Succ N] where\n  eq_of_succ_eq_succ {n m : N} (h : succ n = succ m) : n = m\nexport Eq_Of_Succ_Eq_Succ (eq_of_succ_eq_succ)\nclass Nat_Induction [Zero N] [Succ N] where\n  nat_induction {P : N \u2192 Sort _}\n    (P0 : P zero)\n    (ih : (k : N) \u2192 P k \u2192 P (succ k))\n    (n : N) : P n\nexport Nat_Induction (nat_induction)\nend\nsection\nvariable (N : Type _)\nclass Natural\nextends Zero N, Succ N, Succ_Not_Zero N, Eq_Of_Succ_Eq_Succ N, Nat_Induction N\nend\nsection\nvariable {\u2115} [Natural \u2115]\ndef pred_with_proof (n : \u2115) (h : n \u2260 zero) : \u03a3' m, n = succ m :=\n  by\n  revert h\n  let P (k : \u2115) := k \u2260 zero \u2192 \u03a3' m, k = succ m",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_name": "a"
+  }
+}

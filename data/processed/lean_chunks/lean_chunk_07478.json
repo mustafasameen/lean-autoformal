@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertUnitInvariant_insertUnit {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_name": "insertUnitInvariant_insertUnit",
+    "has_proof": false
+  }
+}

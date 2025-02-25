@@ -1,0 +1,9 @@
+{
+  "content": "`@[test_driver]`. A definition in a dependency can be used as a test driver\nby using the `<pkg>/<name>` syntax for the 'testDriver' configuration option.\nA script test driver will be run with the  package configuration's\n`testDriverArgs` plus the CLI `args`. An executable test driver will be\nbuilt and then run like a script. A library test driver will just be built.\n\"\ndef helpCheckTest :=\n\"Check if there is a properly configured test driver\nUSAGE:\n  lake check-test\nExits with code 0 if the workspace's root package has a properly\nconfigured lint driver. Errors (with code 1) otherwise.\nDoes NOT verify that the configured test driver actually exists in the\npackage or its dependencies. It merely verifies that one is specified.\n\"\ndef helpLint :=\n\"Lint the workspace's root package using its configured lint driver\nUSAGE:\nlake lint [\nA lint driver can be configured by either setting the `lintDriver` package\nconfiguration option by tagging a script or executable `@[lint_driver]`.",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

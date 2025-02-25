@@ -1,0 +1,9 @@
+{
+  "content": "@[inline]\nprivate def updateLeadingAux : Syntax \u2192 StateM String.Pos (Option Syntax)\n  | atom info@(SourceInfo.original _ _ trail _) val => do\n    let trailStop := chooseNiceTrailStop trail\n    let newInfo := updateInfo info (\u2190 get) trailStop\n    set trailStop\n    return some (atom newInfo val)\n  | ident info@(SourceInfo.original _ _ trail _) rawVal val pre => do\n    let trailStop := chooseNiceTrailStop trail\n    let newInfo := updateInfo info (\u2190 get) trailStop\n    set trailStop\n    return some (ident newInfo rawVal val pre)\n  | _ => pure none\ndef updateLeading : Syntax \u2192 Syntax :=\n  fun stx => (replaceM updateLeadingAux stx).run' 0\npartial def updateTrailing (trailing : Substring) : Syntax \u2192 Syntax\n  | Syntax.atom info val               => Syntax.atom (info.updateTrailing trailing) val\n  | Syntax.ident info rawVal val pre   => Syntax.ident (info.updateTrailing trailing) rawVal val pre\n  | n@(Syntax.node info k args)        =>\n    if h : args.size = 0 then n\n    else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "SourceInfo"
+  }
+}

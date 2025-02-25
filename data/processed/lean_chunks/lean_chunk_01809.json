@@ -1,0 +1,10 @@
+{
+  "content": "theorem RedRed.of_red : RedRed p (node red a x b) n \u2192\n    \u2203 c\u2081 c\u2082, Balanced a c\u2081 n \u2227 Balanced b c\u2082 n\n  | .balanced (.red ha hb) | .redred _ ha hb => \u27e8_, _, ha, hb\u27e9\nprotected theorem RedRed.balance2 {l : RBNode \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_name": "RedRed",
+    "has_proof": false
+  }
+}

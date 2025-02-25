@@ -1,0 +1,9 @@
+{
+  "content": "@[implemented_by updateConst!Impl]\ndef updateConst! (e : Expr) (newLevels : List Level) : Expr :=\n  match e with\n  | const n _ => mkConst n newLevels\n  | _         => panic! \"constant expected\"\n@[inline] private unsafe def updateSort!Impl (e : Expr) (u' : Level) : Expr :=\n  match e with\n  | sort u => if ptrEq u u' then e else mkSort u'\n  | _      => panic! \"level expected\"\n@[implemented_by updateSort!Impl]\ndef updateSort! (e : Expr) (newLevel : Level) : Expr :=\n  match e with\n  | sort _ => mkSort newLevel\n  | _      => panic! \"level expected\"\n@[inline] private unsafe def updateMData!Impl (e : Expr) (newExpr : Expr) : Expr :=\n  match e with\n  | mdata d a => if ptrEq a newExpr then e else mkMData d newExpr\n  | _         => panic! \"mdata expected\"\n@[implemented_by updateMData!Impl]\ndef updateMData! (e : Expr) (newExpr : Expr) : Expr :=\n  match e with\n  | mdata d _ => mkMData d newExpr\n  | _         => panic! \"mdata expected\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

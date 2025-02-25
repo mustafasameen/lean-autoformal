@@ -1,0 +1,10 @@
+{
+  "content": "theorem modifyTailIdx_eq_take_drop (f : List \u03b1 \u2192 List \u03b1) (H : f [] = []) :\n    \u2200 i l, modifyTailIdx f i l = take i l ++ f (drop i l)\n  | 0, _ => rfl\n  | _ + 1, [] => H.symm\n  | n + 1, b :: l => congrArg (cons b) (modifyTailIdx_eq_take_drop f H n l)\ntheorem exists_of_modifyTailIdx (f : List \u03b1 \u2192 List \u03b1) {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Modify.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Modify.lean",
+    "definition_name": "modifyTailIdx_id",
+    "has_proof": true
+  }
+}

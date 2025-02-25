@@ -1,0 +1,9 @@
+{
+  "content": "let fnName :=  \"lean_box\"\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let argtys := #[ \u2190 LLVM.size_tType llvmctx ]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  LLVM.buildCall2 builder fnty fn  #[arg] name\ndef callLeanMarkPersistentFn (builder : LLVM.Builder llvmctx) (arg : LLVM.Value llvmctx) : M llvmctx  Unit := do\n  let fnName :=  \"lean_mark_persistent\"\n  let retty \u2190 LLVM.voidType llvmctx\n  let argtys := #[ \u2190 LLVM.voidPtrType llvmctx ]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  let _ \u2190   LLVM.buildCall2 builder fnty fn  #[arg]\ninductive RefcountKind where\n  | inc | dec\ninstance : ToString RefcountKind where\n  toString\n    | .inc => \"inc\"\n    | .dec => \"dec\"\ndef callLeanRefcountFn (builder : LLVM.Builder llvmctx)\n    (kind : RefcountKind) (checkRef? : Bool) (arg : LLVM.Value llvmctx)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

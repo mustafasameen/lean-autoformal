@@ -1,0 +1,9 @@
+{
+  "content": "structure SimpleScopedEnvExtension.Descr (\u03b1 : Type) (\u03c3 : Type) where\n  name           : Name := by exact decl_name%\n  addEntry       : \u03c3 \u2192 \u03b1 \u2192 \u03c3\n  initial        : \u03c3\n  finalizeImport : \u03c3 \u2192 \u03c3 := id\ndef registerSimpleScopedEnvExtension (descr : SimpleScopedEnvExtension.Descr \u03b1 \u03c3) : IO (SimpleScopedEnvExtension \u03b1 \u03c3) := do\n  registerScopedEnvExtension {\n    name           := descr.name\n    mkInitial      := return descr.initial\n    addEntry       := descr.addEntry\n    toOLeanEntry   := id\n    ofOLeanEntry   := fun _ a => return a\n    finalizeImport := descr.finalizeImport\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ScopedEnvExtension.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ScopedEnvExtension.lean",
+    "definition_name": "SimpleScopedEnvExtension"
+  }
+}

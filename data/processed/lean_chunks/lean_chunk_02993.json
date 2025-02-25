@@ -1,0 +1,9 @@
+{
+  "content": "@[export lean_level_mk_imax] def mkLevelIMaxEx : Level \u2192 Level \u2192 Level := mkLevelIMax\nnamespace Level\ndef isZero : Level \u2192 Bool\n  | zero   => true\n  | _      => false\ndef isSucc : Level \u2192 Bool\n  | succ .. => true\n  | _       => false\ndef isMax : Level \u2192 Bool\n  | max .. => true\n  | _      => false\ndef isIMax : Level \u2192 Bool\n  | imax .. => true\n  | _       => false\ndef isMaxIMax : Level \u2192 Bool\n  | max ..  => true\n  | imax .. => true\n  | _       => false\ndef isParam : Level \u2192 Bool\n  | param .. => true\n  | _        => false\ndef isMVar : Level \u2192 Bool\n  | mvar .. => true\n  | _       => false\ndef mvarId! : Level \u2192 LMVarId\n  | mvar mvarId => mvarId\n  | _           => panic! \"metavariable expected\"\ndef isNeverZero : Level \u2192 Bool\n  | zero         => false\n  | param ..     => false\n  | mvar ..      => false\n  | succ ..      => true\n  | max l\u2081 l\u2082    => isNeverZero l\u2081 || isNeverZero l\u2082\n  | imax _  l\u2082   => isNeverZero l\u2082\ndef ofNat : Nat \u2192 Level\n  | 0   => levelZero\n  | n+1 => mkLevelSucc (ofNat n)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

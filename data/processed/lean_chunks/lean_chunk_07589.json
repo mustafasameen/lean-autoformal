@@ -1,0 +1,10 @@
+{
+  "content": "theorem State.Inv_nil : State.Inv ([] : CNF (CNFVar aig)) := by\n  simp [State.Inv]\ntheorem State.Inv_append (h1 : State.Inv cnf1) (h2 : State.Inv cnf2) :\n    State.Inv (cnf1 ++ cnf2) := by\n  intro assign1\n  specialize h1 assign1\n  specialize h2 assign1\n  simp [CNF.sat_def] at h1 h2 \u22a2\n  constructor <;> assumption\ntheorem State.Inv_constToCNF (heq : aig.decls[upper] = .const b) :\n    State.Inv (aig := aig) (Decl.constToCNF (.inr \u27e8upper, h\u27e9) b) := by\n  intro assign1\n  simp [CNF.sat_def, denote_idx_const heq]\ntheorem State.Inv_atomToCNF (heq : aig.decls[upper] = .atom a) :\n    State.Inv (aig := aig) (Decl.atomToCNF (.inr \u27e8upper, h\u27e9) (.inl a)) := by\n  intro assign1\n  simp [CNF.sat_def, denote_idx_atom heq]\ntheorem State.Inv_gateToCNF {aig : AIG Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "State",
+    "has_proof": true
+  }
+}

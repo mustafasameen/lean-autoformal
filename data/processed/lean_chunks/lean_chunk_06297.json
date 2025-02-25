@@ -1,0 +1,9 @@
+{
+  "content": "else\n    let f := e.getAppFn\n    if !f.isConst then false\n    else\n      let fName := f.constName!\n      if fName == ``Nat.succ && e.getAppNumArgs == 1 then isNumeral e.appArg!\n      else if fName == ``OfNat.ofNat && e.getAppNumArgs == 3 then isNumeral (e.getArg! 1)\n      else if fName == ``Nat.zero && e.getAppNumArgs == 0 then true\n      else false\nprivate partial def toNatLit? (e : Expr) : Option Literal :=\n  if isNumeral e then\n    if let some n := loop e then\n      some (.natVal n)\n    else\n      none\n  else\n    none\nwhere\n  loop (e : Expr) : OptionT Id Nat := do\n    let f := e.getAppFn\n    match f with\n    | .lit (.natVal n) => return n\n    | .const fName .. =>\n      if fName == ``Nat.succ && e.getAppNumArgs == 1 then\n        let r \u2190 loop e.appArg!\n        return r+1\n      else if fName == ``OfNat.ofNat && e.getAppNumArgs == 3 then\n        loop (e.getArg! 1)\n      else if fName == ``Nat.zero && e.getAppNumArgs == 0 then\n        return 0\n      else\n        failure",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_name": "tmpStar"
+  }
+}

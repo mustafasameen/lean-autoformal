@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_nil (x : BitVec 0) : x = nil := Subsingleton.allEq ..\nend subsingleton\nsection zero_allOnes\ndef allOnes (n : Nat) : BitVec n :=\n  .ofNatLT (2^n - 1) (Nat.le_of_eq (Nat.sub_add_cancel (Nat.two_pow_pos n)))\nend zero_allOnes\nsection getXsb\n@[inline] def getLsb' (x : BitVec w) (i : Fin w) : Bool := x.toNat.testBit i\n@[inline] def getMsb' (x : BitVec w) (i : Fin w) : Bool := x.getLsb' \u27e8w-1-i, by omega\u27e9\n@[inline] def getLsbD (x : BitVec w) (i : Nat) : Bool :=\n  x.toNat.testBit i\n@[deprecated getLsbD (since := \"2024-08-29\"), inherit_doc getLsbD]\ndef getLsb (x : BitVec w) (i : Nat) : Bool := x.getLsbD i\n@[inline] protected def msb (x : BitVec n) : Bool := getMsbD x 0\nend getXsb\nsection getElem\ninstance : GetElem (BitVec w) Nat Bool fun _ i => i < w where\n  getElem xs i h := xs.getLsb' \u27e8i, h\u27e9\n@[simp] theorem getLsb?_eq_getElem? (x : BitVec w) (i : Nat) :\n    x.getLsb? i = x[i]? := rfl\ntheorem getElem_eq_testBit_toNat (x : BitVec w) (i : Nat) (h : i < w) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Basic.lean",
+    "definition_name": "eq_nil",
+    "has_proof": true
+  }
+}

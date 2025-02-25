@@ -1,0 +1,9 @@
+{
+  "content": "def platformTrace := pureHash System.Platform.target\n@[inline] def addPlatformTrace : JobM PUnit :=\n  addTrace platformTrace\n@[inline] def addPureTrace [ComputeHash \u03b1 Id] (a : \u03b1) : JobM PUnit := do\n  addTrace (pureHash a)\nstructure BuildMetadata where\n  depHash : Hash\n  log : Log\n  deriving ToJson\ndef BuildMetadata.ofHash (h : Hash) : BuildMetadata :=\n  {depHash := h, log := {}}\ndef BuildMetadata.fromJson? (json : Json) : Except String BuildMetadata := do\n  let obj \u2190 JsonObject.fromJson? json\n  let depHash \u2190 obj.get \"depHash\"\n  let log \u2190 obj.getD \"log\" {}\n  return {depHash, log}\ninstance : FromJson BuildMetadata := \u27e8BuildMetadata.fromJson?\u27e9\ndef writeTraceFile (path : FilePath) (depTrace : BuildTrace) (log : Log) := do\n  createParentDirs path\n  let data := {log, depHash := depTrace.hash : BuildMetadata}\n  IO.FS.writeFile path (toJson data).pretty\n@[specialize] def checkHashUpToDate\n  [CheckExists \u03b9] [GetMTime \u03b9]\n  (info : \u03b9) (depTrace : BuildTrace) (depHash : Option Hash)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "platformTrace"
+  }
+}

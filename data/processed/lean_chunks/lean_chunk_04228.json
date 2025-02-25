@@ -1,0 +1,10 @@
+{
+  "content": "theorem testBit_limit {x i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "testBit_limit",
+    "has_proof": false
+  }
+}

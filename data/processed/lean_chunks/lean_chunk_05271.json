@@ -1,0 +1,10 @@
+{
+  "content": "theorem set_eq_setTR : @set = @setTR := by\n  funext \u03b1 l n a; simp [setTR]\n  let rec go (acc) : \u2200 xs i, l = acc.toList ++ xs \u2192\n    setTR.go l a xs i acc = acc.toList ++ xs.set i a\n  | [], _ => fun h => by simp [setTR.go, set, h]\n  | x::xs, 0 => by simp [setTR.go, set]\n  | x::xs, n+1 => fun h => by simp only [setTR.go, set]; rw [go _ xs] <;> simp [h]\n  exact (go #[] _ _ rfl).symm\n@[inline] def filterMapTR (f : \u03b1 \u2192 Option \u03b2) (l : List \u03b1) : List \u03b2 := go l #[] where\n  @[specialize] go : List \u03b1 \u2192 Array \u03b2 \u2192 List \u03b2\n  | [], acc => acc.toList\n  | x::xs, acc => go xs (acc ++ f x)\n@[csimp] theorem flatMap_eq_flatMapTR : @List.flatMap = @flatMapTR := by\n  funext \u03b1 \u03b2 f as\n  let rec go : \u2200 as acc, flatMapTR.go f as acc = acc.toList ++ as.flatMap f\n    | [], acc => by simp [flatMapTR.go, flatMap]\n    | x::xs, acc => by simp [flatMapTR.go, flatMap, go xs]\n  exact (go as #[]).symm\n@[inline] def flattenTR (l : List (List \u03b1)) : List \u03b1 := l.flatMapTR id",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_name": "set_eq_setTR",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "fail\n@[simp]\ntheorem List.mapIdx_eq_map (l : List \u03b1) (f : \u03b1 \u2192 \u03b2) : (l.mapIdx fun _ x => f x) = l.map f := by\n  induction l <;> simp_all\nset_option linter.unusedVariables false in\ntheorem zipWith_eq_map_idx_zipWith (l1 : List \u03b1) (l2 : List \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) :\n    List.zipWith f l1 l2 = (List.zip l1 l2).mapIdx\n      (fun i \u27e8a, b\u27e9 => binderNameHint a f <| binderNameHint b (f a) <| f a b)\n  := by simp [List.zip_eq_zipWith, List.map_zipWith]\n#guard_msgs in\nexample (l1 l2 : List Nat) :\n  (List.zipWith  (fun x y => x + y) l1 l2).isEmpty := by\n  rw [zipWith_eq_map_idx_zipWith]\n  fail\ntheorem myAll_eq_not_any_not_iff {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binderNameHint.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binderNameHint.lean",
+    "definition_name": "all_eq_not_any_not",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def foo := 1\n#guard_msgs in\nexample (t : Tree \u03b1) : True := by\n  fun_induction Tree.size\nend Mutual",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funinduction_ident.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funinduction_ident.lean",
+    "definition_name": "foo"
+  }
+}

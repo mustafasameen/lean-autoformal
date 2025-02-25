@@ -1,0 +1,10 @@
+{
+  "content": "theorem Expr.eval_constProp_of_sub (e : Expr) (h : State.le \u03c3' \u03c3) : (e.constProp \u03c3').eval \u03c3 = e.eval \u03c3 :=\n  sorry\n#guard_msgs (info) in\nset_option trace.grind.ematch.pattern true in\n@[grind =>] theorem Expr.eval_constProp_of_eq_of_sub {e : Expr}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_attrs.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_attrs.lean",
+    "definition_name": "Expr",
+    "has_proof": false
+  }
+}

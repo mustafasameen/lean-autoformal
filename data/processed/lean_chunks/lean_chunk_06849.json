@@ -1,0 +1,10 @@
+{
+  "content": "for arg in pattern.getAppArgs do\n          r := r ++ \" \" ++ ppArg arg\n        return r\nwhere\n  ppArg (arg : Expr) : MessageData :=\n    if isAtomicPattern arg then\n      ppPattern arg\n    else\n      .paren (ppPattern arg)\nnamespace NormalizePattern\nstructure State where\n  symbols    : Array HeadIndex := #[]\n  symbolSet  : Std.HashSet HeadIndex := {}\n  bvarsFound : Std.HashSet Nat := {}\nabbrev M := StateRefT State MetaM\nprivate def saveSymbol (h : HeadIndex) : M Unit := do\n  unless (\u2190 get).symbolSet.contains h do\n    modify fun s => { s with symbols := s.symbols.push h, symbolSet := s.symbolSet.insert h }\nprivate def foundBVar (idx : Nat) : M Bool :=\n  return (\u2190 get).bvarsFound.contains idx\nprivate def saveBVar (idx : Nat) : M Unit := do\n  modify fun s => { s with bvarsFound := s.bvarsFound.insert idx }\nprivate def getPatternFn? (pattern : Expr) : Option Expr :=\n  if !pattern.isApp then\n    none\n  else match pattern.getAppFn with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

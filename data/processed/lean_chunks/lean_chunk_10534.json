@@ -1,0 +1,10 @@
+{
+  "content": "theorem toListModel_leaf : (.leaf : Impl \u03b1 \u03b2).toListModel = [] := rfl\n@[simp] theorem toListModel_inner {sz k v l r}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Def.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Def.lean",
+    "definition_name": "toListModel_leaf",
+    "has_proof": false
+  }
+}

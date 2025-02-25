@@ -1,0 +1,10 @@
+{
+  "content": "structure Cell (\u03b1 : Type u) [Ord \u03b1] (\u03b2 : \u03b1 \u2192 Type v) (k : \u03b1 \u2192 Ordering) where\n  property : \u2200 [OrientedOrd \u03b1], \u2200 p, inner = some p \u2192 k p.1 = .eq\nnamespace Cell\ndef of [Ord \u03b1] (k : \u03b1) (v : \u03b2 k) : Cell \u03b1 \u03b2 (compare k) :=\n  .ofEq k v (by intro; simp)\n@[simp]\ntheorem ofEq_inner [Ord \u03b1] {k : \u03b1 \u2192 Ordering}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Cell.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Cell.lean",
+    "definition_name": "Cell",
+    "has_proof": true
+  }
+}

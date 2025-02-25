@@ -1,0 +1,9 @@
+{
+  "content": "structure Boo1 (\u03b1 : Type) extends Baz \u03b1 where\n  x1 : \u03b1\nstructure Boo2 (\u03b1 : Type) extends Boo1 \u03b1 where\n  x2 : \u03b1\nstructure Foo2 (\u03b1 : Type) extends Bar (\u03b1 \u2192 \u03b1), Boo2 \u03b1\n#check Foo2.mk\ndef f2 (v : Nat) : Foo2 Nat :=\n  { a  := id\n    x  := (\u00b7 + \u00b7)\n    b  := fun _ => \"\"\n    x1 := 1\n    x2 := v }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond2.lean",
+    "definition_name": "Boo1"
+  }
+}

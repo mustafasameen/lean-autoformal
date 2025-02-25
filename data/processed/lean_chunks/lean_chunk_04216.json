@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem getLsb?_eq_getElem? (x : BitVec w) (i : Nat) :\n    x.getLsb? i = x[i]? := rfl\ntheorem getElem_eq_testBit_toNat (x : BitVec w) (i : Nat) (h : i < w) :\n  x[i] = x.toNat.testBit i := rfl\n@[simp]\ntheorem getLsbD_eq_getElem {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Basic.lean",
+    "definition_name": "eq_nil",
+    "has_proof": true
+  }
+}

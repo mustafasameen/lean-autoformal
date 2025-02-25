@@ -1,0 +1,9 @@
+{
+  "content": "structure WorkspaceFolder where\n  uri : DocumentUri\n  name : String\n  deriving ToJson, FromJson\nstructure FileSystemWatcher where\n  globPattern : String\n  kind : Option Nat := none\n  deriving FromJson, ToJson\nnamespace FileSystemWatcher\ndef create := 1\ndef change := 2\ndef delete := 4\nend FileSystemWatcher\nstructure DidChangeWatchedFilesRegistrationOptions where\n  watchers : Array FileSystemWatcher\n  deriving FromJson, ToJson\ninductive FileChangeType\n  | Created\n  | Changed\n  | Deleted\ninstance : FromJson FileChangeType where\n  fromJson? j := do\n    match (\u2190 fromJson? j : Nat) with\n      | 1 => return FileChangeType.Created\n      | 2 => return FileChangeType.Changed\n      | 3 => return FileChangeType.Deleted\n      | _ => throw s!\"expected 1, 2, or 3, got {j}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Workspace.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Workspace.lean",
+    "definition_name": "WorkspaceFolder"
+  }
+}

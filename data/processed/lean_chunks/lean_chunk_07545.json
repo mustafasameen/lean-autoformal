@@ -1,0 +1,9 @@
+{
+  "content": "| .sunday => \"Sunday\"\n  | .monday => \"Monday\"\n  | .tuesday => \"Tuesday\"\n  | .wednesday => \"Wednesday\"\n  | .thursday => \"Thursday\"\n  | .friday => \"Friday\"\n  | .saturday => \"Saturday\"\nprivate def formatWeekdayShort : Weekday \u2192 String\n  | .sunday => \"Sun\"\n  | .monday => \"Mon\"\n  | .tuesday => \"Tue\"\n  | .wednesday => \"Wed\"\n  | .thursday => \"Thu\"\n  | .friday => \"Fri\"\n  | .saturday => \"Sat\"\nprivate def formatWeekdayNarrow : Weekday \u2192 String\n  | .sunday => \"S\"\n  | .monday => \"M\"\n  | .tuesday => \"T\"\n  | .wednesday => \"W\"\n  | .thursday => \"T\"\n  | .friday => \"F\"\n  | .saturday => \"S\"\nprivate def formatEraShort : Year.Era \u2192 String\n  | .bce => \"BCE\"\n  | .ce  => \"CE\"\nprivate def formatEraLong : Year.Era \u2192 String\n  | .bce => \"Before Common Era\"\n  | .ce  => \"Common Era\"\nprivate def formatEraNarrow : Year.Era \u2192 String\n  | .bce => \"B\"\n  | .ce  => \"C\"\nprivate def formatQuarterNumber : Month.Quarter \u2192 String\n  |\u27e81, _\u27e9 => \"1\"\n  |\u27e82, _\u27e9 => \"2\"\n  |\u27e83, _\u27e9 => \"3\"\n  |\u27e84, _\u27e9 => \"4\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "FormatPart"
+  }
+}

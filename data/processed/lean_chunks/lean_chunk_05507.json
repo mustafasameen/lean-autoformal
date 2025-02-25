@@ -1,0 +1,10 @@
+{
+  "content": "| it, i+1 => prevn it.prev i\nend Iterator\ndef offsetOfPosAux (s : String) (pos : Pos) (i : Pos) (offset : Nat) : Nat :=\n  if i >= pos then offset\n  else if h : s.atEnd i then\n    offset\n  else\n    have := Nat.sub_lt_sub_left (Nat.gt_of_not_le (mt decide_eq_true h)) (lt_next s _)\n    offsetOfPosAux s pos (s.next i) (offset+1)\ntermination_by s.endPos.1 - i.1\n@[inline] def offsetOfPos (s : String) (pos : Pos) : Nat :=\n  offsetOfPosAux s pos 0 0\n@[specialize] def foldlAux {\u03b1 : Type u} (f : \u03b1 \u2192 Char \u2192 \u03b1) (s : String) (stopPos : Pos) (i : Pos) (a : \u03b1) : \u03b1 :=\n  if h : i < stopPos then\n    have := Nat.sub_lt_sub_left h (lt_next s i)\n    foldlAux f s stopPos (s.next i) (f a (s.get i))\n  else a\ntermination_by stopPos.1 - i.1\n@[inline] def foldl {\u03b1 : Type u} (f : \u03b1 \u2192 Char \u2192 \u03b1) (init : \u03b1) (s : String) : \u03b1 :=\n  foldlAux f s s.endPos 0 init\n@[specialize] def foldrAux {\u03b1 : Type u} (f : Char \u2192 \u03b1 \u2192 \u03b1) (a : \u03b1) (s : String) (i begPos : Pos) : \u03b1 :=\n  if h : begPos < i then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "toString",
+    "has_proof": true
+  }
+}

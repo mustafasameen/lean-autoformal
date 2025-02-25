@@ -1,0 +1,10 @@
+{
+  "content": "structure Context (\u03b1 : Type u) where\n  op    : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n  unit  : \u03b1\n  assoc : (a b c : \u03b1) \u2192 op (op a b) c = op a (op b c)\n  vars  : List \u03b1\ndef Expr.denote (ctx : Context \u03b1) : Expr \u2192 \u03b1\n  | Expr.op a b => ctx.op (denote ctx a) (denote ctx b)\n  | Expr.var i  => ctx.vars.getIdx i ctx.unit\ntheorem Expr.denote_op (ctx : Context \u03b1) (a b : Expr) : denote ctx (Expr.op a b) = ctx.op (denote ctx a) (denote ctx b) :=\n  rfl\ntheorem Expr.denote_var (ctx : Context \u03b1) (i : Nat) : denote ctx (Expr.var i) = ctx.vars.getIdx i ctx.unit :=\n  rfl\ndef Expr.concat : Expr \u2192 Expr \u2192 Expr\n  | Expr.op a b, c => Expr.op a (concat b c)\n  | Expr.var i, c  => Expr.op (Expr.var i) c\ntheorem Expr.concat_op (a b c : Expr) : concat (Expr.op a b) c = Expr.op a (concat b c) :=\n  rfl\ntheorem Expr.concat_var (i : Nat) (c : Expr) : concat (Expr.var i) c = Expr.op (Expr.var i) c :=\n  rfl\ntheorem Expr.denote_concat (ctx : Context \u03b1) (a b : Expr) : denote ctx (concat a b) = denote ctx (Expr.op a b) := by\n  induction a with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/flat_expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/flat_expr.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

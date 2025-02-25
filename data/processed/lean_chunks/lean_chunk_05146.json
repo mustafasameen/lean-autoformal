@@ -1,0 +1,10 @@
+{
+  "content": "instance isSetoid (\u03b1) : Setoid (List \u03b1) := .mk Perm (Perm.eqv \u03b1)\ntheorem Perm.mem_iff {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_name": "isSetoid",
+    "has_proof": false
+  }
+}

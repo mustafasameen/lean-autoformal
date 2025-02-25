@@ -1,0 +1,10 @@
+{
+  "content": "backward := backward.insert l\n    else\n      if \u00ac forward.contains l then\n        deduped := deduped.push (l, s, w)\n        forward := forward.insert l\n  trace[Tactic.rewrites.lemmas] m!\"Candidate rewrite lemmas:\\n{deduped}\"\n  let hyps := hyps.map fun \u27e8hyp, symm, weight\u27e9 => (Sum.inl hyp, symm, weight)\n  let lemmas := deduped.map fun \u27e8lem, symm, weight\u27e9 => (Sum.inr lem, symm, weight)\n  pure <| hyps ++ lemmas\ndef RewriteResult.newGoal (r : RewriteResult) : Option Expr :=\n  if r.rfl? = true then\n    some (Expr.lit (.strVal \"no goals\"))\n  else\n    some r.result.eNew\ndef RewriteResult.addSuggestion (ref : Syntax) (r : RewriteResult) : Elab.TermElabM Unit := do\n  withMCtx r.mctx do\n    Tactic.TryThis.addRewriteSuggestion ref [(r.expr, r.symm)] (type? := r.newGoal) (origSpan? := \u2190 getRef)\nstructure RewriteResultConfig where\n  stopAtRfl : Bool\n  max : Nat\n  minHeartbeats : Nat\n  goal : MVarId\n  target : Expr\n  side : SideConditions := .solveByElim\n  mctx : MetavarContext",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "forwardWeight",
+    "has_proof": false
+  }
+}

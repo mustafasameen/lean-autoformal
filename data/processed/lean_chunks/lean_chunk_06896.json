@@ -1,0 +1,9 @@
+{
+  "content": "register_builtin_option tactic.simp.trace : Bool := {\n  defValue := false\n  descr    := \"When tracing is enabled, calls to `simp` or `dsimp` will print an equivalent `simp only` call.\"\n}\ndef mkSimpOnly (stx : Syntax) (usedSimps : Simp.UsedSimps) : MetaM Syntax := do\n  let isSimpAll := stx.isOfKind ``Parser.Tactic.simpAll\n  let mut stx := stx\n  if stx[3].isNone then\n    stx := stx.setArg 3 (mkNullNode #[mkAtom \"only\"])\n  let mut args := #[]\n  let mut localsOrStar := some #[]\n  let lctx \u2190 getLCtx\n  let env \u2190 getEnv\n  for thm in usedSimps.toArray do\n    match thm with\n| .decl declName post inv =>\n      if env.contains declName\n         && (inv || !simpOnlyBuiltins.contains declName)\n         && !Match.isMatchEqnTheorem env declName then\n        let decl : Term \u2190 `($(mkIdent (\u2190 unresolveNameGlobalAvoidingLocals declName)):ident)\n        let arg \u2190 match post, inv with\n          | true,  true  => `(Parser.Tactic.simpLemma| \u2190 $decl:term)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "simpParamsPos"
+  }
+}

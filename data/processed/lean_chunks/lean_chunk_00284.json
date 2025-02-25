@@ -1,0 +1,9 @@
+{
+  "content": "def T1.bla := 10\ninductive T1 : Type\n| bla : T1\ndef T1 := 20\ninductive T1 : Type\n| bla : T1\nend Boo\npartial inductive T1 : Type\nnoncomputable inductive T1 : Type\n@[inline] inductive T1' : Type\nprivate inductive T1 : Type\n| private mk : T1\nmutual\ninductive T1 : Type\nunsafe inductive T2 : Type\nend\ninductive T1 : Nat \u2192 Type\n| z1 : T1 0\n| z2\ninductive T1 : Nat \u2192 Type\n| z1 : T1\ninductive T1 : Nat \u2192 Type\n| z1 : Nat\ninductive A (\u03b1 : Type u) (\u03b2 : Type v)\n| nil\n| protected cons : \u03b1 \u2192 \u03b2 \u2192 A \u03b1 \u03b2 \u2192 A \u03b1 \u03b2\nopen A\n#check cons",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/inductive1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/inductive1.lean",
+    "definition_name": "T1"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ediv_le_of_le_mul {a b c : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "ediv_le_of_le_mul",
+    "has_proof": false
+  }
+}

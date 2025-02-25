@@ -1,0 +1,10 @@
+{
+  "content": "def dividend := 2^65\ndef divisor := 2^33+1\ndef correctQuot := 2^32-1\ndef correctRem := 2^32+1\ndef wrongRem := 1\ntheorem correct\u2081 : dividend / divisor = correctQuot := rfl\ntheorem correct\u2082 : dividend = divisor * correctQuot + correctRem := rfl\ntheorem wrong : dividend % divisor = wrongRem := rfl\ntheorem unsound : False := by\n  have : wrongRem = correctRem := by\n    have h := Nat.div_add_mod dividend divisor\n    rw [wrong, correct\u2081, correct\u2082] at h\n    apply Nat.add_left_cancel h\n  contradiction",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1433.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1433.lean",
+    "definition_name": "dividend",
+    "has_proof": true
+  }
+}

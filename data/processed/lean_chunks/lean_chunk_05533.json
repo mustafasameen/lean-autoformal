@@ -1,0 +1,10 @@
+{
+  "content": "(xs.insertIdx i x h).toArray = xs.toArray.insertIdx i x (by simp [h]) := rfl\n@[simp] theorem toArray_insertIdx! (xs : Vector \u03b1 n) (i x) (hi : i \u2264 n) :\n    (xs.insertIdx! i x).toArray = xs.toArray.insertIdx! i x := by\n  cases xs; simp_all [Array.insertIdx!]\n@[simp] theorem toArray_cast (xs : Vector \u03b1 n) (h : n = m) :\n    (xs.cast h).toArray = xs.toArray := rfl\n@[simp] theorem toArray_extract (xs : Vector \u03b1 n) (start stop) :\n    (xs.extract start stop).toArray = xs.toArray.extract start stop := rfl\n@[simp] theorem toArray_map (f : \u03b1 \u2192 \u03b2) (xs : Vector \u03b1 n) :\n    (xs.map f).toArray = xs.toArray.map f := rfl\n@[simp] theorem toArray_mapIdx (f : Nat \u2192 \u03b1 \u2192 \u03b2) (xs : Vector \u03b1 n) :\n    (xs.mapIdx f).toArray = xs.toArray.mapIdx f := rfl\n@[simp] theorem toArray_mapFinIdx (f : (i : Nat) \u2192 \u03b1 \u2192 (h : i < n) \u2192 \u03b2) (xs : Vector \u03b1 n) :\n    (xs.mapFinIdx f).toArray =\n      xs.toArray.mapFinIdx (fun i a h => f i a (by simpa [xs.size_toArray] using h)) :=\n  rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "toArray_append",
+    "has_proof": true
+  }
+}

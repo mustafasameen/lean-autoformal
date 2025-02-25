@@ -1,0 +1,9 @@
+{
+  "content": "mem m a := a \u2208 m.inner\ninstance [BEq \u03b1] [Hashable \u03b1] {m : Raw \u03b1} {a : \u03b1} : Decidable (a \u2208 m) :=\n  inferInstanceAs (Decidable (a \u2208 m.inner))\n@[inline] def size (m : Raw \u03b1) : Nat :=\n  m.inner.size\n@[inline] def get? [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1) (a : \u03b1) : Option \u03b1 :=\n  m.inner.getKey? a\n@[inline] def get [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1) (a : \u03b1) (h : a \u2208 m) : \u03b1 :=\n  m.inner.getKey a h\n@[inline] def getD [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1) (a : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  m.inner.getKeyD a fallback\n@[inline] def get! [BEq \u03b1] [Hashable \u03b1] [Inhabited \u03b1] (m : Raw \u03b1) (a : \u03b1) : \u03b1 :=\n  m.inner.getKey! a\n@[inline] def isEmpty (m : Raw \u03b1) : Bool :=\n  m.inner.isEmpty\n@[inline] def ofList [BEq \u03b1] [Hashable \u03b1] (l : List \u03b1) : Raw \u03b1 :=\n  \u27e8HashMap.Raw.unitOfList l\u27e9\n@[inline] def foldM {m : Type v \u2192 Type v} [Monad m] {\u03b2 : Type v} (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (init : \u03b2)\n    (b : Raw \u03b1) : m \u03b2 :=\n  b.inner.foldM (fun b a _ => f b a) init",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Raw.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Raw.lean",
+    "definition_name": "empty"
+  }
+}

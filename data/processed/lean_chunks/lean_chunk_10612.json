@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_eq_length (t : Impl \u03b1 \u03b2) (htb : t.Balanced) : t.size = t.toListModel.length := by\n  induction t <;> simp [Impl.size]\n  rename_i ihl ihr\n  cases htb\n  rename_i htb\n  rw [htb]\n  simp only [*]\n  ac_rfl\ntheorem contains\u2098_eq_containsKey [Ord \u03b1] [TransOrd \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_name": "size_eq_length",
+    "has_proof": true
+  }
+}

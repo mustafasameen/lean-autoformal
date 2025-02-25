@@ -1,0 +1,10 @@
+{
+  "content": "theorem mod_zero (a : Nat) : a % 0 = a :=\n  have : (if 0 < 0 \u2227 0 \u2264 a then (a - 0) % 0 else a) = a :=\n    have h : \u00ac (0 < 0 \u2227 0 \u2264 a) := fun \u27e8h\u2081, _\u27e9 => absurd h\u2081 (Nat.lt_irrefl _)\n    if_neg h\n  (mod_eq a 0).symm \u25b8 this\ntheorem mod_eq_of_lt {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "mod_zero",
+    "has_proof": false
+  }
+}

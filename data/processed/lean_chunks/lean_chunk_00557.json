@@ -1,0 +1,10 @@
+{
+  "content": "theorem callsOn_lam\n  {\u03b3\u2081 : Sort uu}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wfWithSidecondition.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wfWithSidecondition.lean",
+    "definition_name": "callsOn_lam",
+    "has_proof": false
+  }
+}

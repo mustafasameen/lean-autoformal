@@ -1,0 +1,9 @@
+{
+  "content": "def catBehaviorSymbol := leading_parser nonReservedSymbol \"symbol\"\ndef catBehavior := optional (\" (\" >> nonReservedSymbol \"behavior\" >> \" := \" >> (catBehaviorBoth <|> catBehaviorSymbol) >> \")\")\n@[builtin_command_parser] def syntaxCat := leading_parser\n  optional docComment >> \"declare_syntax_cat \" >> ident >> catBehavior\ndef macroArg  := leading_parser\n  optional (atomic (ident >> checkNoWsBefore \"no space before ':'\" >> \":\")) >> syntaxParser argPrec\ndef macroRhs : Parser := leading_parser withPosition termParser\ndef macroTail := leading_parser atomic (\" : \" >> ident) >> darrow >> macroRhs\n@[builtin_command_parser] def \u00abmacro\u00bb       := leading_parser suppressInsideQuot <|\n  optional docComment >> optional Term.\u00abattributes\u00bb >> Term.attrKind >>\n  \"macro\" >> optPrecedence >> optNamedName >> optNamedPrio >> many1 (ppSpace >> macroArg) >> macroTail\n@[builtin_command_parser] def \u00abelab_rules\u00bb := leading_parser suppressInsideQuot <|",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_name": "optPrecedence"
+  }
+}

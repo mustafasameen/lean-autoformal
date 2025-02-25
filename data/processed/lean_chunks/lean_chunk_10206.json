@@ -1,0 +1,9 @@
+{
+  "content": "structure DistinctKeys [BEq \u03b1] (l : List ((a : \u03b1) \u00d7 \u03b2 a)) : Prop where\ndef values {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Defs.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Defs.lean",
+    "definition_name": "DistinctKeys"
+  }
+}

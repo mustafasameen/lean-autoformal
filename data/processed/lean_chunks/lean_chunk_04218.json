@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem or_eq (x y : BitVec w)                    : BitVec.or x y = x ||| y           := rfl\n@[simp] theorem xor_eq (x y : BitVec w)                   : BitVec.xor x y = x ^^^ y          := rfl\n@[simp] theorem neg_eq (x : BitVec w)                     : BitVec.neg x = -x                 := rfl\n@[simp] theorem add_eq (x y : BitVec w)                   : BitVec.add x y = x + y            := rfl\n@[simp] theorem sub_eq (x y : BitVec w)                   : BitVec.sub x y = x - y            := rfl\n@[simp] theorem mul_eq (x y : BitVec w)                   : BitVec.mul x y = x * y            := rfl\n@[simp] theorem udiv_eq (x y : BitVec w)                  : BitVec.udiv x y = x / y           := rfl\n@[simp] theorem umod_eq (x y : BitVec w)                  : BitVec.umod x y = x % y           := rfl\n@[simp] theorem zero_eq                                   : BitVec.zero n = 0#n               := rfl\nend normalization_eqs\ndef ofBoolListLE : (bs : List Bool) \u2192 BitVec bs.length\n| [] => 0#0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Basic.lean",
+    "definition_name": "append_ofBool",
+    "has_proof": false
+  }
+}

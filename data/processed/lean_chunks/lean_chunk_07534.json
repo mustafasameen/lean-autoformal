@@ -1,0 +1,9 @@
+{
+  "content": "structure DateBuilder where\n  G : Option Year.Era := none\n  y : Option Year.Offset := none\n  u : Option Year.Offset := none\n  D : Option (Sigma Day.Ordinal.OfYear) := none\n  MorL : Option Month.Ordinal := none\n  d : Option Day.Ordinal := none\n  Qorq : Option Month.Quarter := none\n  w : Option Week.Ordinal := none\n  W : Option Week.Ordinal.OfMonth := none\n  E : Option Weekday := none\n  eorc : Option Weekday := none\n  F : Option (Bounded.LE 1 5) := none\n  a : Option HourMarker := none\n  h : Option (Bounded.LE 1 12) := none\n  K : Option (Bounded.LE 0 11) := none\n  k : Option (Bounded.LE 1 24) := none\n  H : Option Hour.Ordinal := none\n  m : Option Minute.Ordinal := none\n  s : Option (Second.Ordinal true) := none\n  S : Option Nanosecond.Ordinal := none\n  A : Option Millisecond.Offset := none\n  n : Option Nanosecond.Ordinal := none\n  N : Option Nanosecond.Offset := none\n  V : Option String := none\n  z : Option String := none\n  zabbrev : Option String := none\n  O : Option Offset := none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "DateBuilder"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive iterates (f : \u03b1 \u2192 \u03b1) : \u03b1 \u2192 Prop where\n  | step : iterates f x \u2192 iterates f (f x)\n  | sup {c : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "iterates"
+  }
+}

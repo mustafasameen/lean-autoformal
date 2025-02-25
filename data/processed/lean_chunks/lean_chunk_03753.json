@@ -1,0 +1,10 @@
+{
+  "content": "theorem extract_empty (start stop : Nat) : (#[] : Array \u03b1).extract start stop = #[] :=\n  extract_empty_of_size_le_start _ (Nat.zero_le _)\n@[simp] theorem _root_.List.extract_toArray (l : List \u03b1) (start stop : Nat) :\n    l.toArray.extract start stop = (l.extract start stop).toArray := by\n  apply ext'\n  simp\n@[simp] theorem foldlM_append' [Monad m] [LawfulMonad m] (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b) (xs xs' : Array \u03b1)\n    (w : stop = xs.size + xs'.size) :\n    (xs ++ xs').foldlM f b 0 stop = xs.foldlM f b >>= xs'.foldlM f := by\n  subst w\n  rcases xs with \u27e8xs\u27e9\n  rcases xs' with \u27e8xs'\u27e9\n  simp\ntheorem foldlM_append [Monad m] [LawfulMonad m] (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b) (xs xs' : Array \u03b1) :\n    (xs ++ xs').foldlM f b = xs.foldlM f b >>= xs'.foldlM f := by\n  simp\n@[simp] theorem foldlM_loop_empty [Monad m] (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (init : \u03b2) (i j : Nat) :\n    foldlM.loop f #[] s h i j init = pure init := by\n  unfold foldlM.loop; split\n  \u00b7 split\n    \u00b7 rfl\n    \u00b7 simp at h\n      omega\n  \u00b7 rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "extract_empty",
+    "has_proof": true
+  }
+}

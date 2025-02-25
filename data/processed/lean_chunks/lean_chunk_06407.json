@@ -1,0 +1,9 @@
+{
+  "content": "inductive types\",\n    valueTypeName := ``InductiveElabDescr\n  }\ndef isInductiveCommand [Monad m] [MonadEnv m] (stx : Syntax) : m Bool := do\n  let env \u2190 getEnv\n  return !(inductiveElabAttr.getEntries env stx.getKind).isEmpty\ndef mkInductiveView (modifiers : Modifiers) (stx : Syntax) : TermElabM InductiveElabStep1 := do\n  let handlers := inductiveElabAttr.getValues (\u2190 getEnv) stx.getKind\n  if handlers.isEmpty then\n    throwErrorAt stx \"no '@[inductive_elab]' for '{.ofConstName stx.getKind}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "types"
+  }
+}

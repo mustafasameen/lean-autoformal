@@ -1,0 +1,9 @@
+{
+  "content": "\u27e8HashMap.Raw.unitOfList l\u27e9\n@[inline] def foldM {m : Type v \u2192 Type v} [Monad m] {\u03b2 : Type v} (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (init : \u03b2)\n    (b : Raw \u03b1) : m \u03b2 :=\n  b.inner.foldM (fun b a _ => f b a) init\n@[inline] def forM {m : Type v \u2192 Type v} [Monad m] (f : \u03b1 \u2192 m PUnit) (b : Raw \u03b1) : m PUnit :=\n  b.inner.forM (fun a _ => f a)\n@[inline] def all (m : Raw \u03b1) (p : \u03b1 \u2192 Bool) : Bool := Id.run do\n  for a in m do\n    if \u00ac p a then return false\n  return true\n@[inline] def toArray (m : Raw \u03b1) : Array \u03b1 :=\n  m.inner.keysArray\n@[inline] def insertMany [BEq \u03b1] [Hashable \u03b1] {\u03c1 : Type v} [ForIn Id \u03c1 \u03b1] (m : Raw \u03b1) (l : \u03c1) :\n    Raw \u03b1 :=\n  \u27e8m.inner.insertManyIfNewUnit l\u27e9\n@[inline] def ofArray [BEq \u03b1] [Hashable \u03b1] (l : Array \u03b1) : Raw \u03b1 :=\n  \u27e8HashMap.Raw.unitOfArray l\u27e9\ndef Internal.numBuckets (m : Raw \u03b1) : Nat :=\n  HashMap.Raw.Internal.numBuckets m.inner\ninstance [Repr \u03b1] : Repr (Raw \u03b1) where\n  reprPrec m prec := Repr.addAppParen (\"Std.HashSet.Raw.ofList \" ++ reprArg m.toList) prec\nend Unverified",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Raw.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Raw.lean",
+    "definition_name": "empty"
+  }
+}

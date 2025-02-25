@@ -1,0 +1,10 @@
+{
+  "content": "theorem toList_extract (xs : Array \u03b1) (start stop : Nat) :\n    (xs.extract start stop).toList = xs.toList.extract start stop := by\n  apply List.ext_getElem\n  \u00b7 simp only [length_toList, size_extract, List.length_take, List.length_drop]\n    omega\n  \u00b7 intros n h\u2081 h\u2082\n    simp\n@[simp] theorem extract_size (xs : Array \u03b1) : xs.extract 0 xs.size = xs := by\n  apply ext\n  \u00b7 rw [size_extract, Nat.min_self, Nat.sub_zero]\n  \u00b7 intros; rw [getElem_extract]; congr; rw [Nat.zero_add]\n@[deprecated extract_size (since := \"2025-01-19\")]\nabbrev extract_all := @extract_size\ntheorem extract_empty_of_stop_le_start (xs : Array \u03b1) {start stop : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_extract",
+    "has_proof": true
+  }
+}

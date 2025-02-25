@@ -1,0 +1,9 @@
+{
+  "content": "def f1 :=\nfun n i => if n == i then forceNat n else forceInt i\ndef f2 :=\nfun n i => if coe n == i then forceInt i else forceNat n\n#check f1\n#check f2\ndef f3 :=\nfun n i => if n == i then forceInt i else forceNat n",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/issues8.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/issues8.lean",
+    "definition_name": "f1"
+  }
+}

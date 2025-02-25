@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  private mk ::\n    num : Int\n    den : Nat := 1\ndef Foo.normalize (a : Foo) : Foo :=\n  let n := Nat.gcd a.num.natAbs a.den\n  if n == 1 then a else { num := a.num / n, den := a.den / n }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/privateCtor.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/privateCtor.lean",
+    "definition_name": "Foo"
+  }
+}

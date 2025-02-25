@@ -1,0 +1,9 @@
+{
+  "content": "def val := get_config? val |>.getD \"0\"\npackage leaf where\n  moreLeanArgs := #[s!\"-DmaxHeartbeats={val}\"]\nlean_lib Z",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/order/leaf/lakefile.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/order/leaf/lakefile.lean",
+    "definition_name": "val"
+  }
+}

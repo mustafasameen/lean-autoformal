@@ -1,0 +1,9 @@
+{
+  "content": "class HasDistribNeg (\u03b1 : Type _) [Mul \u03b1] extends InvolutiveNeg \u03b1 where\n  neg_mul : \u2200 x y : \u03b1, -x * y = -(x * y)\n  mul_neg : \u2200 x y : \u03b1, x * -y = -(x * y)\nsection Mul\nvariable [Mul \u03b1] [HasDistribNeg \u03b1]\nend Mul\nsection MulZeroClass\nvariable [MulZeroClass \u03b1] [HasDistribNeg \u03b1]\ninstance (priority := 100) MulZeroClass.negZeroClass : NegZeroClass \u03b1 :=\n  { inferInstanceAs (Zero \u03b1), inferInstanceAs (InvolutiveNeg \u03b1) with\n    neg_zero := sorry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "HasDistribNeg"
+  }
+}

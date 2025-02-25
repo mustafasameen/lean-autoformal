@@ -1,0 +1,9 @@
+{
+  "content": "def boolToPropOp := mkOp [.bool] prop fun a => boolToProp (a[0]!)\ndef propToBoolOp := mkOp [prop] bool fun a => BoolVal.decide (a[0]!)\ndef notOp (tp : BoolType) := mkOp [tp] tp fun a => not (a[0]!) tp\ndef andOp (tp : BoolType) := mkOp [tp, tp] tp fun a => and (a[0]!) (a[1]!) tp\ndef orOp  (tp : BoolType) := mkOp [tp, tp] tp fun a => or  (a[0]!) (a[1]!) tp\ndef impliesOp := mkOp [.prop, .prop] prop fun a => implies  (a[0]!) (a[1]!)\ndef eqOp  (op : EqOp)  :=\n  mkOp [op.argType, op.argType] op.resultType fun a => eq (a[0]!) (a[1]!) op\ndef neOp  (op : NeOp)  :=\n  mkOp [op.argType, op.argType] op.resultType fun a => ne (a[0]!) (a[1]!) op\ndef iteOp (op : IteOp) :=\n  let rtp := op.resultType\n  mkOp [op.condType, rtp, rtp] rtp fun a => ite (a[0]!) (a[1]!) (a[2]!) op\nend\ndef mkBoolDecl : CoreM Command := `(variable (b : Bool))\ndef mkDecidablePropDecl : CoreM Command := `(variable (p : Prop) [Decidable p])\nsyntax:lead (name := boolTestElab) \"#boolTest\" : command\n@[command_elab boolTestElab]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "boolToPropOp"
+  }
+}

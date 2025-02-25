@@ -1,0 +1,9 @@
+{
+  "content": "grind\nexample (a b : String) : a = \"hello\" \u2192 b = \"world\" \u2192 a = b \u2192 False := by\n  grind\nexample (a b c : String) : a = c \u2192 a = \"hello\" \u2192 c = \"world\" \u2192 c = b \u2192 False := by\n  grind\nexample (a b c : BitVec 32) : a = c \u2192 a = 1#32 \u2192 c = 2#32 \u2192 c = b \u2192 False := by\n  grind\nexample (a b c : UInt32) : a = c \u2192 a = 1 \u2192 c = 200 \u2192 c = b \u2192 False := by\n  grind\nstructure Boo (\u03b1 : Type) where\n  a : \u03b1\n  b : \u03b1\n  c : \u03b1\nexample (a b d : Nat) (f : Nat \u2192 Boo Nat) : (f d).1 \u2260 a \u2192 f d = \u27e8b, v\u2081, v\u2082\u27e9 \u2192 b = a \u2192 False := by\n  grind\ndef ex (a b c d : Nat) (f : Nat \u2192 Boo Nat) : (f d).2 \u2260 a \u2192 f d = \u27e8b, c, v\u2082\u27e9 \u2192 c = a \u2192 False := by\n  grind\nexample (a b c : Nat) (f : Nat \u2192 Nat) : { a := f b, c, b := 4 : Boo Nat }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_t1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_t1.lean",
+    "definition_name": "Foo"
+  }
+}

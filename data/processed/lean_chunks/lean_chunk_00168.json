@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo (\u03b2 : \u03b1 \u2192 Type v) where\n  a : \u03b1\n  b : \u03b2 a\n#print Foo\nvariable (\u03b1 : Type u)\nstructure Bla.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structAutoBound.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structAutoBound.lean",
+    "definition_name": "Foo"
+  }
+}

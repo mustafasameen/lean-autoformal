@@ -1,0 +1,10 @@
+{
+  "content": "rcases xs with \u27e8xs, rfl\u27e9\n  simp\ntheorem boole_getElem_le_count (a : \u03b1) (xs : Vector \u03b1 n) (i : Nat) (h : i < n) :\n    (if xs[i] == a then 1 else 0) \u2264 xs.count a := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.boole_getElem_le_count, h]\ntheorem count_set (a b : \u03b1) (xs : Vector \u03b1 n) (i : Nat) (h : i < n) :\n    (xs.set i a).count b = xs.count b - (if xs[i] == b then 1 else 0) + (if a == b then 1 else 0) := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.count_set, h]\n@[simp] theorem count_cast (xs : Vector \u03b1 n) : (xs.cast h).count a = xs.count a := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\nvariable [LawfulBEq \u03b1]\n@[simp] theorem count_push_self (a : \u03b1) (xs : Vector \u03b1 n) : count a (xs.push a) = count a xs + 1 := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.count_push_self]\n@[simp] theorem count_push_of_ne (h : b \u2260 a) (xs : Vector \u03b1 n) : count a (xs.push b) = count a xs := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.count_push_of_ne, h]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Count.lean",
+    "definition_name": "count_le_size",
+    "has_proof": true
+  }
+}

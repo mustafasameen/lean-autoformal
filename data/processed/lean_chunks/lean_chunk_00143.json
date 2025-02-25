@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo : Type u \u2192 Type u \u2192 Type (u+1)\n  | foo {as bs cs: Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1050.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1050.lean",
+    "definition_name": "Foo"
+  }
+}

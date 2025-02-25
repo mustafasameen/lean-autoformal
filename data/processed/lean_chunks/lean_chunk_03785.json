@@ -1,0 +1,10 @@
+{
+  "content": "theorem toList_ofFn (f : Fin n \u2192 \u03b1) : (Array.ofFn f).toList = List.ofFn f := by\n  apply List.ext_getElem <;> simp\n@[simp] theorem toList_takeWhile (p : \u03b1 \u2192 Bool) (as : Array \u03b1) :\n    (as.takeWhile p).toList = as.toList.takeWhile p := by\n  induction as; simp\n@[simp] theorem toList_eraseIdx (xs : Array \u03b1) (i : Nat) (h : i < xs.size) :\n    (xs.eraseIdx i h).toList = xs.toList.eraseIdx i := by\n  induction xs\n  simp\n@[simp] theorem toList_eraseIdxIfInBounds (xs : Array \u03b1) (i : Nat) :\n    (xs.eraseIdxIfInBounds i).toList = xs.toList.eraseIdx i := by\n  induction xs\n  simp\n@[simp] theorem findSomeRevM?_eq_findSomeM?_reverse\n    [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m (Option \u03b2)) (xs : Array \u03b1) :\n    xs.findSomeRevM? f = xs.reverse.findSomeM? f := by\n  cases xs\n  rw [List.findSomeRevM?_toArray]\n  simp\n@[simp] theorem findRevM?_eq_findM?_reverse\n    [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m Bool) (xs : Array \u03b1) :\n    xs.findRevM? f = xs.reverse.findM? f := by\n  cases xs\n  rw [List.findRevM?_toArray]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_ofFn",
+    "has_proof": true
+  }
+}

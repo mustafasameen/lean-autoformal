@@ -1,0 +1,9 @@
+{
+  "content": "structure ProofRecord  (nt : Type) where\n  leftnonterminal : nt\n  success : Bool\n  position : Nat\n  lengthofspan : Nat\n  subproof1index : Nat\n  subproof2index : Nat\nnamespace ProofRecord\ndef endposition {nt:Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_name": "ProofRecord"
+  }
+}

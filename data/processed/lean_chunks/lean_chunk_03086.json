@@ -1,0 +1,9 @@
+{
+  "content": "structure RecursorVal extends ConstantVal where\n  numParams : Nat\n  numMotives : Nat\n  rules : List RecursorRule\n  k : Bool\n  isUnsafe : Bool\n  deriving Inhabited, BEq\n@[export lean_mk_recursor_val]\ndef mkRecursorValEx (name : Name) (levelParams : List Name) (type : Expr) (all : List Name) (numParams numIndices numMotives numMinors : Nat)\n    (rules : List RecursorRule) (k isUnsafe : Bool) : RecursorVal := {\n  name, levelParams, type, all, numParams, numIndices,\n  numMotives, numMinors, rules, k, isUnsafe\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_name": "RecursorVal"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def foo : Nat \u2192 Nat \u2192 (k : Nat) \u2192 Fin k \u2192 Nat\n  | 0, _, _, _ => 0\n  | _, 0, _, _ => 0\n  | _, _, 0, _ => 0\n  | _, _, 1, _ => 0\n  | n+1, m+1, k+2, _ => foo n m (k+1) \u27e80, Nat.zero_lt_succ _\u27e9\ntermination_by n => n\n#guard_msgs in\n#check foo.induct\nend Nary\nnamespace Dite\ndef foo (n : Nat) : Nat :=\n  let j := n - 1\n  if _h : j < n then\n    foo j\n  else\n    42\n#guard_msgs in\n#check Dite.foo.induct\nend Dite\nnamespace PreserveParams\ndef foo (a : Nat) : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n    if a = 23 then 23 else\n    if a = n then 42 else\n    foo a n\ntermination_by n => n\n#guard_msgs in\n#check foo.induct\nend PreserveParams\nnamespace Mutual_Induct\n#guard_msgs in\n#check even.mutual_induct\n#guard_msgs in\nopen Lean Lean.Elab in\nrun_meta\n  logInfo m!\"{Lean.Tactic.FunInd.isFunInductName (\u2190 getEnv) `Mutual_Induct.odd.mutual_induct}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "Tree"
+  }
+}

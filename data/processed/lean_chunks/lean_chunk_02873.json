@@ -1,0 +1,9 @@
+{
+  "content": "inductive Lex : PSigma \u03b2 \u2192 PSigma \u03b2 \u2192 Prop where\n  | left  : \u2200 {a\u2081 : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_name": "Lex"
+  }
+}

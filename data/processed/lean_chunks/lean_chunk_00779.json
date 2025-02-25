@@ -1,0 +1,10 @@
+{
+  "content": "theorem Comon_to_Mon_op_op_obj'_X (A : Comon_ C) : (Comon_to_Mon_op_op_obj' C A).X = op A.X := rfl\n@[simp] def Comon_to_Mon_op_op : Comon_ C \u2964 (Mon_ (C\u1d52\u1d56))\u1d52\u1d56 where\n  obj A := op (Comon_to_Mon_op_op_obj' C A)\n  map := fun f => op <| { hom := f.hom.op }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "Comon_to_Mon_op_op_obj",
+    "has_proof": false
+  }
+}

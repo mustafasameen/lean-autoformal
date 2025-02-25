@@ -1,0 +1,9 @@
+{
+  "content": "structure AtMostOnceData where\n  found : Bool\n  result : Bool\ndef Visitor := AtMostOnceData \u2192 AtMostOnceData\n@[inline] def seq (f g : Visitor) : Visitor := fun d =>\n  match f d with\n  | \u27e8found, false\u27e9 => \u27e8found, false\u27e9\n  | other          => g other\ninstance : AndThen Visitor where\n  andThen a b := seq a (b ())\n@[inline] def skip : Visitor := id\n@[inline] def visitFVar (x y : FVarId) : Visitor\n  | d@{result := false, ..}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/AtMostOnce.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/AtMostOnce.lean",
+    "definition_name": "AtMostOnceData"
+  }
+}

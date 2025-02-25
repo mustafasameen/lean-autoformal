@@ -1,0 +1,9 @@
+{
+  "content": "inductive Step where\n  | done (r : Result)\n  | visit (e : Result)\n  | continue (e? : Option Result := none)\n  deriving Inhabited\nabbrev Simproc := Expr \u2192 SimpM Step\nabbrev DStep := TransformStep\nabbrev DSimproc := Expr \u2192 SimpM DStep\ndef _root_.Lean.TransformStep.toStep (s : TransformStep) : Step :=\n  match s with\n  | .done e            => .done { expr := e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Types.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Types.lean",
+    "definition_name": "Step"
+  }
+}

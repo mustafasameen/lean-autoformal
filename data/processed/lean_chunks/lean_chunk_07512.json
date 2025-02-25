@@ -1,0 +1,9 @@
+{
+  "content": "structure Timestamp where\n  val : Duration\n  deriving Repr, BEq, Inhabited\ninstance : LE Timestamp where\n  le x y := x.val \u2264 y.val\ninstance { x y : Timestamp }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/Timestamp.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/Timestamp.lean",
+    "definition_name": "Timestamp"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem last_add_one : \u2200 n, last n + 1 = 0\n  | 0 => rfl\n  | n + 1 => by ext; rw [val_add, val_zero, val_last, val_one, Nat.mod_self]\ntheorem val_add_one {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "last_add_one",
+    "has_proof": true
+  }
+}

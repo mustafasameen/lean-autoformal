@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_eq_extract (xs : Vector \u03b1 n) (i : Nat) : xs.take i = xs.extract 0 i := rfl\n@[inline] def drop (xs : Vector \u03b1 n) (i : Nat) : Vector \u03b1 (n - i) :=\n  \u27e8xs.toArray.drop i, by simp\u27e9\nset_option linter.indexVariables false in\n@[simp] theorem drop_eq_cast_extract (xs : Vector \u03b1 n) (i : Nat) :\n    xs.drop i = (xs.extract i n).cast (by simp) := by\n  simp [drop, extract, Vector.cast]\n@[inline] def map (f : \u03b1 \u2192 \u03b2) (xs : Vector \u03b1 n) : Vector \u03b2 n :=\n  \u27e8xs.toArray.map f, by simp\u27e9\n@[inline] def mapFinIdx (xs : Vector \u03b1 n) (f : (i : Nat) \u2192 \u03b1 \u2192 (h : i < n) \u2192 \u03b2) : Vector \u03b2 n :=\n  \u27e8xs.toArray.mapFinIdx (fun i a h => f i a (by simpa [xs.size_toArray] using h)), by simp\u27e9\n@[inline]\ndef mapFinIdxM {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Basic.lean",
+    "definition_name": "take_eq_extract",
+    "has_proof": true
+  }
+}

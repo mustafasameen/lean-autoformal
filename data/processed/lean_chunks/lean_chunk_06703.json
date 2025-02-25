@@ -1,0 +1,9 @@
+{
+  "content": "def withInPattern [MonadWithOptions m] (x : m \u03b1) : m \u03b1 :=\n  withOptions (fun o => o.setBool `_inPattern true) x\ndef Options.getInPattern (o : Options) : Bool :=\n  o.getBool `_inPattern\nprotected def setIfNotSet [KVMap.Value \u03b1] (opts : Options) (opt : Lean.Option \u03b1) (val : \u03b1) : Options :=\n  if opts.contains opt.name then opts else opt.set opts val\nprotected def register [KVMap.Value \u03b1] (name : Name) (decl : Lean.Option.Decl \u03b1) (ref : Name := by exact decl_name%) : IO (Lean.Option \u03b1) := do\n  registerOption name {\n    declName := ref\n    defValue := KVMap.Value.toDataValue decl.defValue\n    group := decl.group\n    descr := decl.descr\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_name": "MonadOptions"
+  }
+}

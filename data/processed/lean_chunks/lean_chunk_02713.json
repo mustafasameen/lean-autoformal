@@ -1,0 +1,9 @@
+{
+  "content": "| false => noncanonical ref\ndef mkAtomFrom (src : Syntax) (val : String) (canonical := false) : Syntax :=\n  Syntax.atom (SourceInfo.fromRef src canonical) val\ninductive ParserDescr where\n  | unary  (name : Name) (p : ParserDescr)\n  | binary (name : Name) (p\u2081 p\u2082 : ParserDescr)\n  | node (kind : SyntaxNodeKind) (prec : Nat) (p : ParserDescr)\n  | trailingNode (kind : SyntaxNodeKind) (prec lhsPrec : Nat) (p : ParserDescr)\n  | symbol (val : String)\n  | nonReservedSymbol (val : String) (includeIdent : Bool)\n  | cat (catName : Name) (rbp : Nat)\n  | parser (declName : Name)\n  | nodeWithAntiquot (name : String) (kind : SyntaxNodeKind) (p : ParserDescr)\n  | sepBy  (p : ParserDescr) (sep : String) (psep : ParserDescr) (allowTrailingSep : Bool := false)\n  | sepBy1 (p : ParserDescr) (sep : String) (psep : ParserDescr) (allowTrailingSep : Bool := false)\ninstance : Inhabited ParserDescr where\n  default := ParserDescr.symbol \"\"\nabbrev TrailingParserDescr := ParserDescr\nabbrev MacroScope := Nat",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "TSyntax"
+  }
+}

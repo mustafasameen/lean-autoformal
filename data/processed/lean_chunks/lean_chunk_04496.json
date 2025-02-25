@@ -1,0 +1,10 @@
+{
+  "content": "theorem some_orElse (a : \u03b1) (x : Option \u03b1) : (some a <|> x) = some a := rfl\n@[simp] theorem none_orElse (x : Option \u03b1) : (none <|> x) = x := rfl\n@[simp] theorem orElse_none (x : Option \u03b1) : (x <|> none) = x := by cases x <;> rfl\ntheorem map_orElse {x y : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "some_orElse",
+    "has_proof": true
+  }
+}

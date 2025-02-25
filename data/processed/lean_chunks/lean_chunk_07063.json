@@ -1,0 +1,9 @@
+{
+  "content": "inductive DocumentChange where\n  | create : CreateFile       \u2192 DocumentChange\n  | rename : RenameFile       \u2192 DocumentChange\n  | delete : DeleteFile       \u2192 DocumentChange\n  | edit   : TextDocumentEdit \u2192 DocumentChange\ninstance : ToJson DocumentChange := \u27e8fun\n  | .create x => Json.setObjVal! (toJson x) \"kind\" \"create\"\n  | .rename x => Json.setObjVal! (toJson x) \"kind\" \"rename\"\n  | .delete x => Json.setObjVal! (toJson x) \"kind\" \"delete\"\n  | .edit   x => toJson x\n\u27e9\ninstance : FromJson DocumentChange where\n  fromJson? j := (do\n    let kind \u2190 j.getObjVal? \"kind\"\n    match kind with\n      | \"create\" => return DocumentChange.create <|\u2190 fromJson? j\n      | \"rename\" => return DocumentChange.rename <|\u2190 fromJson? j\n      | \"delete\" => return DocumentChange.delete <|\u2190 fromJson? j\n      | kind => throw s!\"Unrecognized kind: {kind}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_name": "DocumentChange"
+  }
+}

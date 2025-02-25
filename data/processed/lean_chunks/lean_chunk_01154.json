@@ -1,0 +1,9 @@
+{
+  "content": "| lit  : Literal \u2192 Value\n  | list : List Literal \u2192 Value\n  | lam  : Lambda \u2192 Value\n  deriving Inhabited\nabbrev Context := Lean.HashMap String Value\ninductive ErrorType\n  | name | type | runTime\ndef Literal.typeStr : Literal \u2192 String\n  | bool  _ => \"bool\"\n  | int   _ => \"int\"\n  | float _ => \"float\"\n  | str   _ => \"str\"\ndef removeRightmostZeros (s : String) : String :=\n  let rec aux (buff res : List Char) : List Char \u2192 List Char\n    | []      => res.reverse\n    | a :: as =>\n      if a != '0'\n        then aux [] (a :: (buff ++ res)) as\n        else aux (a :: buff) res as\n  \u27e8aux [] [] s.data\u27e9\nprotected def Literal.toString : Literal \u2192 String\n  | bool  b => toString b\n  | int   i => toString i\n  | float f => removeRightmostZeros $ toString f\n  | str   s => s\ndef Lambda.typeStr : Lambda \u2192 String\n  | mk l .. => (l.foldl (init := \"\") fun acc _ => acc ++ \"_ \u2192 \") ++ \"_\"\ndef Value.typeStr : Value \u2192 String\n  | nil    => \"nil\"\n  | lit  l => l.typeStr\n  | list _ => \"list\"\n  | lam  l => l.typeStr",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_name": "NEList"
+  }
+}

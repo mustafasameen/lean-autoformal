@@ -1,0 +1,9 @@
+{
+  "content": "bif Nat.blt v v' then\n      (k, v) :: (k', v') :: p\n    else bif Nat.beq v v' then\n      (k + k', v') :: p\n    else\n      (k', v') :: insert k v p\ndef Poly.norm (p : Poly) : Poly := go p []\nwhere\n  go (p : Poly) (r : Poly) : Poly :=\n    match p with\n    | [] => r\n    | (k, v) :: p => go p (r.insert k v)\ndef Poly.cancelAux (fuel : Nat) (m\u2081 m\u2082 r\u2081 r\u2082 : Poly) : Poly \u00d7 Poly :=\n  match fuel with\n  | 0 => (r\u2081.reverse ++ m\u2081, r\u2082.reverse ++ m\u2082)\n  | fuel + 1 =>\n    match m\u2081, m\u2082 with\n    | m\u2081, [] => (r\u2081.reverse ++ m\u2081, r\u2082.reverse)\n    | [], m\u2082 => (r\u2081.reverse, r\u2082.reverse ++ m\u2082)\n    | (k\u2081, v\u2081) :: m\u2081, (k\u2082, v\u2082) :: m\u2082 =>\n      bif Nat.blt v\u2081 v\u2082 then\n        cancelAux fuel m\u2081 ((k\u2082, v\u2082) :: m\u2082) ((k\u2081, v\u2081) :: r\u2081) r\u2082\n      else bif Nat.blt v\u2082 v\u2081 then\n        cancelAux fuel ((k\u2081, v\u2081) :: m\u2081) m\u2082 r\u2081 ((k\u2082, v\u2082) :: r\u2082)\n      else bif Nat.blt k\u2081 k\u2082 then\n        cancelAux fuel m\u2081 m\u2082 r\u2081 ((Nat.sub k\u2082 k\u2081, v\u2081) :: r\u2082)\n      else bif Nat.blt k\u2082 k\u2081 then\n        cancelAux fuel m\u2081 m\u2082 ((Nat.sub k\u2081 k\u2082, v\u2081) :: r\u2081) r\u2082",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "fixedVar"
+  }
+}

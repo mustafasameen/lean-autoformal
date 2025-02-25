@@ -1,0 +1,10 @@
+{
+  "content": "theorem IsInfix.length_le (h : l\u2081 <:+: l\u2082) : l\u2081.length \u2264 l\u2082.length :=\n  h.sublist.length_le\ntheorem IsPrefix.length_le (h : l\u2081 <+: l\u2082) : l\u2081.length \u2264 l\u2082.length :=\n  h.sublist.length_le\ntheorem IsSuffix.length_le (h : l\u2081 <:+ l\u2082) : l\u2081.length \u2264 l\u2082.length :=\n  h.sublist.length_le\ntheorem IsPrefix.getElem {xs ys : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "IsInfix",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem apply_dite (f : \u03b1 \u2192 \u03b2) (P : Prop) [Decidable P] (x : P \u2192 \u03b1) (y : \u00acP \u2192 \u03b1) :\n    f (dite P x y) = dite P (fun h => f (x h)) (fun h => f (y h)) := by\n  by_cases h : P <;> simp [h]\n@[simp] theorem dite_eq_ite [Decidable P] :\n  (dite P (fun _ => a) (fun _ => b)) = ite P a b := rfl\n@[deprecated \"Use `ite_eq_right_iff`\" (since := \"2024-09-18\")]\ntheorem ite_some_none_eq_none [Decidable P] :\n    (if P then some x else none) = none \u2194 \u00ac P := by\n  simp only [ite_eq_right_iff, reduceCtorEq]\n  rfl\n@[deprecated \"Use `Option.ite_none_right_eq_some`\" (since := \"2024-09-18\")]\ntheorem ite_some_none_eq_some [Decidable P] :\n    (if P then some x else none) = some y \u2194 P \u2227 x = y := by\n  split <;> simp_all\n@[deprecated \"Use `dite_eq_right_iff\" (since := \"2024-09-18\")]\ntheorem dite_some_none_eq_none [Decidable P] {x : P \u2192 \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/ByCases.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/ByCases.lean",
+    "definition_name": "apply_dite",
+    "has_proof": true
+  }
+}

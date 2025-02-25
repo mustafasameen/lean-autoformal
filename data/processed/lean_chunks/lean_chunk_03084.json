@@ -1,0 +1,9 @@
+{
+  "content": "structure InductiveVal extends ConstantVal where\n  numParams : Nat\n  numIndices : Nat\n  ctors : List Name\n  numNested : Nat\n  isUnsafe : Bool\n  isReflexive : Bool\n  deriving Inhabited\n@[export lean_mk_inductive_val]\ndef mkInductiveValEx (name : Name) (levelParams : List Name) (type : Expr) (numParams numIndices : Nat)\n    (all ctors : List Name) (numNested : Nat) (isRec isUnsafe isReflexive : Bool) : InductiveVal := {\n  name := name\n  levelParams := levelParams\n  type := type\n  numParams := numParams\n  numIndices := numIndices\n  all := all\n  ctors := ctors\n  numNested := numNested\n  isRec := isRec\n  isUnsafe := isUnsafe\n  isReflexive := isReflexive\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_name": "InductiveVal"
+  }
+}

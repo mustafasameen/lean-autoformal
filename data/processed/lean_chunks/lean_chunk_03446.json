@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_total (a b : $typeName) : a \u2264 b \u2228 b \u2264 a := BitVec.le_total ..\n  protected theorem lt_asymm {a b : $typeName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_name": "le_total",
+    "has_proof": false
+  }
+}

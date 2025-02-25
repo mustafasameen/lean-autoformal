@@ -1,0 +1,9 @@
+{
+  "content": "class LawfulOperator (\u03b1 : Type) [Hashable \u03b1] [DecidableEq \u03b1]\n    (\u03b2 : AIG \u03b1 \u2192 Type) (f : (aig : AIG \u03b1) \u2192 \u03b2 aig \u2192 Entrypoint \u03b1)  where\n  le_size : \u2200 (aig : AIG \u03b1) (input : \u03b2 aig), aig.decls.size \u2264 (f aig input).aig.decls.size\n  decl_eq : \u2200 (aig : AIG \u03b1) (input : \u03b2 aig) (idx : Nat) (h1 : idx < aig.decls.size) (h2),\n    (f aig input).aig.decls[idx]'h2 = aig.decls[idx]'h1\nnamespace LawfulOperator\nvariable {\u03b2 : AIG \u03b1 \u2192 Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_name": "LawfulOperator"
+  }
+}

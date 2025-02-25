@@ -1,0 +1,10 @@
+{
+  "content": "theorem ext : \u2200 {a1 a2 : { x // p x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Subtype.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Subtype.lean",
+    "definition_name": "ext",
+    "has_proof": false
+  }
+}

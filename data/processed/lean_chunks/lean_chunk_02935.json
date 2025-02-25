@@ -1,0 +1,9 @@
+{
+  "content": "name := default,\n     addImportedFn := fun _ => default,\n     addEntryFn := fun s _ => s,\n     exportEntriesFn := fun _ => #[],\n     statsFn := fun _ => Format.nil\n  }\nnamespace PersistentEnvExtension\ndef getModuleEntries {\u03b1 \u03b2 \u03c3 : Type} [Inhabited \u03c3] (ext : PersistentEnvExtension \u03b1 \u03b2 \u03c3) (env : Environment) (m : ModuleIdx) : Array \u03b1 :=\n  (ext.toEnvExtension.getState (asyncMode := .local) env).importedEntries[m]!\ndef addEntry {\u03b1 \u03b2 \u03c3 : Type} (ext : PersistentEnvExtension \u03b1 \u03b2 \u03c3) (env : Environment) (b : \u03b2) : Environment :=\n  ext.toEnvExtension.modifyState env fun s =>\n    let state   := ext.addEntryFn s.state b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

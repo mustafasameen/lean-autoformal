@@ -1,0 +1,9 @@
+{
+  "content": "structure S where\n  x : Nat\n  y : Nat\ndef f (x : Nat) : S :=\n  { x, y := ack 10 20 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/proj_delta_issue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/proj_delta_issue.lean",
+    "definition_name": "S"
+  }
+}

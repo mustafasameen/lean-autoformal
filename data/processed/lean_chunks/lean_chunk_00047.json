@@ -1,0 +1,9 @@
+{
+  "content": "structure Node : Type where\n  id\u2081 : Nat\n  id\u2082 : Nat\n  o   : Op id\u2081 id\u2082\ndef h1 (x : List Node) : Bool :=\n  match x with\n  | _ :: Node.mk 0 _ (Op.mk _) :: _  => true\n  | _                                => false\ndef mkNode (n : Nat) : Node := { id\u2081 := n, id\u2082 := n, o := Op.mk _ }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match2.lean",
+    "definition_name": "Node"
+  }
+}

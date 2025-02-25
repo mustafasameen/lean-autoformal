@@ -1,0 +1,10 @@
+{
+  "content": "theorem has_well_formed_record (p:Proof g s) (i:Fin p.size) :\n  well_formed_record g s p.val i.val i.isLt (p i) :=\n    Nat.forallRangeImplies p.property (Nat.zero_le i.val) i.isLt\nend Proof\nsection correctness\nvariable {g:Grammar t nt}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_name": "has_well_formed_record",
+    "has_proof": false
+  }
+}

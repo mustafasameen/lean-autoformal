@@ -1,0 +1,10 @@
+{
+  "content": "structure A (n : Nat) where\n  a : Nat\nexample (a b : A n) : a = b \u2228 True := by\n  fail_if_success\n    apply Or.inl; ext\n  exact Or.inr trivial\nstructure B (n) extends A n where\n  b : Nat\n  h : b > 0\n  i : Fin b\n@[ext] structure C (n) extends B n where\n  c : Nat\nexample (a b : C n) : a = b := by\n  ext\n  guard_target = a.a = b.a; exact mySorry\n  guard_target = a.b = b.b; exact mySorry\n  guard_target = HEq a.i b.i; exact mySorry\n  guard_target = a.c = b.c; exact mySorry\n@[ext (flat := false)] structure C' (n) extends B n where\n  c : Nat\nexample (a b : C' n) : a = b := by\n  ext\n  guard_target = a.toB = b.toB; exact mySorry\n  guard_target = a.c = b.c; exact mySorry\nexample (f g : Nat \u00d7 Nat \u2192 Nat) : f = g := by\n  ext \u27e8x, y\u27e9\n  guard_target = f (x, y) = g (x, y); exact mySorry\n#guard_msgs in\nexample (f g : Nat \u2192 Nat) (h : f = g) : f = g := by\n  ext i j\n  exact h \u25b8 rfl\n@[ext high] theorem Fin.zero_ext (a b : Fin 0) : True \u2192 a = b := by cases a.isLt",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ext.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ext.lean",
+    "definition_name": "A",
+    "has_proof": true
+  }
+}

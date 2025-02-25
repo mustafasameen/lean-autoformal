@@ -1,0 +1,9 @@
+{
+  "content": "def biDef           := BinderInfo.default\ndef exprNat         := mkConst `Nat []\ndef TypeArrowType   := mkForall `\u03b1 biDef exprType exprType\ndef TypeArrowType2  := mkForall `\u03b2 biDef exprType exprType\ndef exprT1          := mkLambda `x biDef exprNat (mkBVar 0)\ndef exprT2          := mkLambda `y biDef exprNat (mkBVar 0)\ndef exprT3          := mkLambda `x biDef exprNat (mkApp (mkConst `f []) (mkBVar 0))\ndef exprT4          := mkLambda `x BinderInfo.implicit exprNat (mkApp (mkConst `f []) (mkBVar 0))\ndef check (b : Bool) : IO Unit :=\nunless b do throw $ IO.userError \"failed\"\ndef tst1 : IO Unit :=\ndo IO.println TypeArrowType",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/expr_maps.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/expr_maps.lean",
+    "definition_name": "biDef"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class HasMem (\u03b1 : outParam $ Type u) (\u03b2 : Type v) where\n    mem : \u03b1 \u2192 \u03b2 \u2192 Prop\ninfix:50 \" \u2208 \" => HasMem.mem\ninstance {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/implicitApplyIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/implicitApplyIssue.lean",
+    "definition_name": "HasMem"
+  }
+}

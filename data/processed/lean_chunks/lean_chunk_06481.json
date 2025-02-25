@@ -1,0 +1,9 @@
+{
+  "content": "(lhs, rhs) := (rhs, lhs)\n    unless found.contains (lhs, rhs) do\n      found := found.insert (lhs, rhs)\n      uniqueEntries := uniqueEntries.push entry\n  for h : i in [1:uniqueEntries.size] do\n    logErrorAt uniqueEntries[i].ref (\u2190 mkLevelStuckErrorMessage uniqueEntries[i]!)\n  throwErrorAt uniqueEntries[0]!.ref (\u2190 mkLevelStuckErrorMessage uniqueEntries[0]!)\nprivate def processPostponedUniverseContraints : TermElabM Unit := do\n  unless (\u2190 processPostponed (mayPostpone := false) (exceptionOnFailure := true)) do\n    throwStuckAtUniverseCnstr\nprivate def markAsResolved (mvarId : MVarId) : TermElabM Unit :=\n  modify fun s => { s with syntheticMVars := s.syntheticMVars.erase mvarId }\ninductive PostponeBehavior where\n  | yes\n  | no\n  | \u00abpartial\u00bb\n  deriving Inhabited, Repr, BEq\ndef PostponeBehavior.ofBool : Bool \u2192 PostponeBehavior\n  | true  => .yes\n  | false => .no\nprivate def TacticMVarKind.logError (tacticCode : Syntax) (kind : TacticMVarKind) : TermElabM Unit := do\n  match kind with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "reportStuckSyntheticMVars"
+  }
+}

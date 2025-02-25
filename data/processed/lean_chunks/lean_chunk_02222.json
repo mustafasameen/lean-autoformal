@@ -1,0 +1,10 @@
+{
+  "content": "theorem step_deterministic' : deterministic step := \u03bb x y\u2081 y\u2082 hy\u2081 hy\u2082 =>\n  @step.brecOn (\u03bb s t st => \u2200 y\u2082, s ==> y\u2082 \u2192 t = y\u2082) _ _ hy\u2081 (\u03bb s t st hy\u2081 y\u2082 hy\u2082 =>\n    match hy\u2081, hy\u2082 with\n    | step.below.ST_PlusConstConst _ _, step.ST_PlusConstConst _ _ => rfl\n    | step.below.ST_Plus1 _ _ _ hy\u2081 ih, step.ST_Plus1 _ t\u2081' _ _ => by rw [\u2190ih t\u2081']; assumption\n    | step.below.ST_Plus1 _ _ _ hy\u2081 ih, step.ST_Plus2 _ _ _ _ => by cases hy\u2081\n    | step.below.ST_Plus2 _ _ _ _ ih, step.ST_Plus2 _ _ t\u2082 _ => by rw [\u2190ih t\u2082]; assumption\n    | step.below.ST_Plus2 _ _ _ hy\u2081 _, step.ST_PlusConstConst _ _ => by cases hy\u2081\n    ) y\u2082 hy\u2082\nsection NestedRecursion\naxiom f : Nat \u2192 Nat\ninductive is_nat : Nat -> Prop\n| Z : is_nat 0\n| S {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_name": "step_deterministic",
+    "has_proof": true
+  }
+}

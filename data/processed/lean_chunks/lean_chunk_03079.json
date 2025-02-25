@@ -1,0 +1,9 @@
+{
+  "content": "structure ProjectionFunctionInfo where\n  numParams : Nat\n  fromClass : Bool\n  deriving Inhabited, Repr\n@[export lean_mk_projection_info]\ndef mkProjectionInfoEx (ctorName : Name) (numParams : Nat) (i : Nat) (fromClass : Bool) : ProjectionFunctionInfo :=\n  { ctorName, numParams, i, fromClass }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ProjFns.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ProjFns.lean",
+    "definition_name": "ProjectionFunctionInfo"
+  }
+}

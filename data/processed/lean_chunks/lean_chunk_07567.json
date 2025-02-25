@@ -1,0 +1,9 @@
+{
+  "content": "inductive Era\n  | ce\n  deriving Repr, Inhabited\ninstance : ToString Era where\n  toString\n    | .bce => \"BCE\"\n    | .ce => \"CE\"\ndef Offset : Type := Int\n  deriving Repr, BEq, Inhabited, Add, Sub, Neg, LE, LT, ToString\ninstance {x y : Offset}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Year.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Year.lean",
+    "definition_name": "Era"
+  }
+}

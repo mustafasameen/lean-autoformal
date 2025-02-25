@@ -1,0 +1,10 @@
+{
+  "content": "theorem cases_zero {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "cases_zero",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure S1 where\nstructure S2 where\n  h : True\nstructure S3 (\u03b1 : Type) where\n  h : \u2200 a : \u03b1, a = a\nclass inductive Decidable' (p : Prop) where\n  | isFalse (h : Not p) : Decidable' p\n  | isTrue (h : p) : Decidable' p\ninductive WellFounded' {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2690.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2690.lean",
+    "definition_name": "S1"
+  }
+}

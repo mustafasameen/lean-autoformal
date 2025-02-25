@@ -1,0 +1,9 @@
+{
+  "content": "inductive SimpleInd\n  | A\n  | B\nderiving Ord\nmutual\ninductive Foo\n  | A : Int \u2192 (3 = 3) \u2192 String \u2192 Foo\n  | B : Bar \u2192 Foo\nderiving Ord\ninductive Bar\n  | C\n  | D : Foo \u2192 Bar\nderiving Ord\nend\ninductive ManyConstructors | A | B | C | D | E | F | G | H | I | J | K | L\n  | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z\nderiving Ord\nstructure Person :=\n  firstName : String\n  lastName : String\n  age : Nat\nderiving Ord\nexample : compare { firstName := \"A\", lastName := \"B\", age := 10 : Person }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/Ord.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/Ord.lean",
+    "definition_name": "SimpleInd"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| n+2 =>\n    Nat.succ <|\n      if n % 2 = 0 then\n        with_ite_non_tailrec (n+1)\n      else\n        with_ite_non_tailrec n\ntermination_by n => n\n#guard_msgs in\n#check with_ite_non_tailrec.induct\nset_option linter.unusedVariables false in\ndef with_dite_non_tailrec (n : Nat) : Nat :=\n  Nat.succ <|\n    if h : n - 1 < n then\n      with_dite_non_tailrec (n-1)\n    else\n      0\ntermination_by n\n#guard_msgs in\n#check with_dite_non_tailrec.induct\nset_option linter.unusedVariables false in\ndef with_dite_tailrec (n : Nat) : Nat :=\n    if h : n - 1 < n then\n      with_dite_tailrec (n-1)\n    else\n      0\ntermination_by n\n#guard_msgs in\n#check with_dite_tailrec.induct\nset_option linter.unusedVariables false in\ndef with_bif_tailrec : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n    bif n % 2 == 0 then\n      with_bif_tailrec n\n    else\n      with_bif_tailrec (n-1)\ntermination_by n => n\n#guard_msgs in\n#check with_bif_tailrec.induct\nset_option linter.unusedVariables false in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "Tree"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "modifyGet fun s => s.shareCommon a\n@[specialize] def PShareCommonT.withShareCommon [Monad m] (a : \u03b1) : PShareCommonT m \u03b1 :=\n  modifyGet fun s => s.shareCommon a\ninstance ShareCommonT.monadShareCommon [Monad m] : MonadShareCommon (ShareCommonT m) where\n  withShareCommon := ShareCommonT.withShareCommon\ninstance PShareCommonT.monadShareCommon [Monad m] : MonadShareCommon (PShareCommonT m) where\n  withShareCommon := PShareCommonT.withShareCommon\n@[inline] def ShareCommonT.run [Monad m] : ShareCommonT m \u03b1 \u2192 m \u03b1 := _root_.ShareCommonT.run\n@[inline] def PShareCommonT.run [Monad m] : PShareCommonT m \u03b1 \u2192 m \u03b1 := _root_.ShareCommonT.run\n@[inline] def ShareCommonM.run : ShareCommonM \u03b1 \u2192 \u03b1 := ShareCommonT.run\n@[inline] def PShareCommonM.run : PShareCommonM \u03b1 \u2192 \u03b1 := PShareCommonT.run\ndef shareCommon (a : \u03b1) : \u03b1 := (withShareCommon a : ShareCommonM \u03b1).run",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/ShareCommon.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/ShareCommon.lean",
+    "definition_name": "objectFactory"
+  }
+}

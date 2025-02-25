@@ -1,0 +1,10 @@
+{
+  "content": "theorem go_denote_mem_prefix :\n    \u27e6\n      (go aig expr atomHandler).val.aig,\n      \u27e8start, by apply Nat.lt_of_lt_of_le; exact hstart; apply go_le_size\u27e9,\n      assign\n    \u27e7\n      =\n    \u27e6aig, \u27e8start, hstart\u27e9, assign\u27e7 := by\n  apply denote.eq_of_isPrefix (entry := \u27e8aig, start,hstart\u27e9)\n  apply go_isPrefix_aig\n@[simp]\ntheorem go_denote_entry (entry : Entrypoint \u03b2) {h}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Circuit.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Circuit.lean",
+    "definition_name": "go_denote_mem_prefix",
+    "has_proof": true
+  }
+}

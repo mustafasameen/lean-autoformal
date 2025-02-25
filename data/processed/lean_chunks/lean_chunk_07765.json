@@ -1,0 +1,10 @@
+{
+  "content": "theorem fold_le_size {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Fold.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Fold.lean",
+    "definition_name": "fold_le_size",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "| succ n, succ m, h\u2081, h\u2082 =>\n    have : Eq (beq n m) false := h\u2081\n    Nat.noConfusion h\u2082 (fun h\u2082 => absurd h\u2082 (ne_of_beq_eq_false this))\n@[reducible, extern \"lean_nat_dec_eq\"]\nprotected def Nat.decEq (n m : @& Nat) : Decidable (Eq n m) :=\n  match h:beq n m with\n  | true  => isTrue (eq_of_beq_eq_true h)\n  | false => isFalse (ne_of_beq_eq_false h)\n@[inline] instance : DecidableEq Nat := Nat.decEq\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_nat_dec_le\"]\ndef Nat.ble : @& Nat \u2192 @& Nat \u2192 Bool\n  | zero,   zero   => true\n  | zero,   succ _ => true\n  | succ _, zero   => false\n  | succ n, succ m => ble n m\nprotected inductive Nat.le (n : Nat) : Nat \u2192 Prop\n  | step {m} : Nat.le n m \u2192 Nat.le n (succ m)\ninstance instLENat : LE Nat where\n  le := Nat.le\n@[extern \"lean_nat_pred\"]\ndef Nat.pred : (@& Nat) \u2192 Nat\n  | 0      => 0\n  | succ a => a\ntheorem Nat.pred_le_pred : {n m : Nat} \u2192 LE.le n m \u2192 LE.le (pred n) (pred m)\n  | _,           _, Nat.le.refl   => Nat.le.refl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

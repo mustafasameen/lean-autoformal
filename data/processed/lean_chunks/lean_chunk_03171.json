@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem cons_add_cons (x) (xs : IntList) (y) (ys : IntList) :\n    (x :: xs) + (y :: ys) = (x + y) :: (xs + ys) := by simp [add_def]\ndef neg (xs : IntList) : IntList := xs.map fun x => -x\ninstance : Neg IntList := \u27e8neg\u27e9\ntheorem neg_def (xs : IntList) : - xs = xs.map fun x => -x := rfl\n@[simp] theorem neg_get (xs : IntList) (i : Nat) : (- xs).get i = - xs.get i := by\n  simp only [get, neg_def, List.getElem?_map]\n  cases xs[i]? <;> simp\n@[simp] theorem neg_nil : (- ([] : IntList)) = [] := rfl\n@[simp] theorem neg_cons : (- (x::xs : IntList)) = -x :: -xs := rfl\ndef smul (xs : IntList) (i : Int) : IntList :=\n  xs.map fun x => i * x\ninstance : HMul Int IntList IntList where\n  hMul i xs := xs.smul i\ntheorem smul_def (xs : IntList) (i : Int) : i * xs = xs.map fun x => i * x := rfl\n@[simp] theorem smul_get (xs : IntList) (a : Int) (i : Nat) : (a * xs).get i = a * xs.get i := by\n  simp only [get, smul_def, List.getElem?_map]\n  cases xs[i]? <;> simp\n@[simp] theorem smul_nil {i : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/IntList.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/IntList.lean",
+    "definition_name": "set_nil_zero",
+    "has_proof": true
+  }
+}

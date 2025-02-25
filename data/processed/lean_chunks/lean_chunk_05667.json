@@ -1,0 +1,10 @@
+{
+  "content": "simp [Array.foldlM_reverse]\n@[simp] theorem foldrM_reverse [Monad m] (xs : Vector \u03b1 n) (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (b) :\n    xs.reverse.foldrM f b = xs.foldlM (fun x y => f y x) b := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\n@[simp] theorem foldrM_push [Monad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (init : \u03b2) (xs : Vector \u03b1 n) (a : \u03b1) :\n    (xs.push a).foldrM f init = f a init >>= xs.foldrM f := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.foldrM_push]\ntheorem foldl_rel {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "reverse_mkVector",
+    "has_proof": true
+  }
+}

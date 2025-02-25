@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem pos_lt_eq (p\u2081 p\u2082 : Pos) : (p\u2081 < p\u2082) = (p\u2081.1 < p\u2082.1) := rfl\n@[simp] theorem pos_add_char (p : Pos) (c : Char) : (p + c).byteIdx = p.byteIdx + c.utf8Size := rfl\nprotected theorem Pos.ne_zero_of_lt : {a b : Pos}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "decidableLT",
+    "has_proof": true
+  }
+}

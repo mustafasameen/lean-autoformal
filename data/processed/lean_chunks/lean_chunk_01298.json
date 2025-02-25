@@ -1,0 +1,9 @@
+{
+  "content": "class ZeroMul (\u03b1 : Type u) [Mul \u03b1] [Zero \u03b1] : Prop where\n    zeroMul : {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_name": "ZeroMul"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem cmod_eq_zero_iff_emod_eq_zero (a b : Int) : cmod a b = 0 \u2194 a%b = 0 := by\n  unfold cmod\n  have := @Int.emod_eq_emod_iff_emod_sub_eq_zero  b b a\n  simp at this\n  simp [Int.neg_emod, \u2190 this, Eq.comm]\nprivate abbrev div_mul_cancel_of_mod_zero :=\n  @Int.ediv_mul_cancel_of_emod_eq_zero\ntheorem cdiv_eq_div_of_divides {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "cmod_eq_zero_iff_emod_eq_zero",
+    "has_proof": true
+  }
+}

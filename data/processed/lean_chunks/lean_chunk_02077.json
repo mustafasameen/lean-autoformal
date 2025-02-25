@@ -1,0 +1,10 @@
+{
+  "content": "def apply := \"hello\"\n#check apply\ntheorem simple1 (x y : Nat) (h : x = y) : x = y :=\nby {\n  assumption\n}\ntheorem simple2 (x y : Nat) : x = y \u2192 x = y :=\nby {\n  intro h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_name": "apply",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure InsertReplaceEdit where\n  newText : String\n  insert  : Range\n  replace : Range\n  deriving FromJson, ToJson, BEq, Hashable\ninductive CompletionItemTag where\n  | deprecated\n  deriving Inhabited, DecidableEq, Repr, Hashable\ninstance : ToJson CompletionItemTag where\n  toJson t := toJson (t.toCtorIdx + 1)\ninstance : FromJson CompletionItemTag where\n  fromJson? v := do\n    let i : Nat \u2190 fromJson? v\n    return CompletionItemTag.ofNat (i-1)\nstructure CompletionItem where\n  label          : String\n  detail?        : Option String := none\n  documentation? : Option MarkupContent := none\n  kind?          : Option CompletionItemKind := none\n  textEdit?      : Option InsertReplaceEdit := none\n  sortText?      : Option String := none\n  data?          : Option Json := none\n  tags?          : Option (Array CompletionItemTag) := none\n  deriving FromJson, ToJson, Inhabited, BEq, Hashable\nstructure CompletionList where\n  isIncomplete : Bool\n  items        : Array CompletionItem",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "CompletionOptions"
+  }
+}

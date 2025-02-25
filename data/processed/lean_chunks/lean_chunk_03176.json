@@ -1,0 +1,10 @@
+{
+  "content": "rw [Int.sub_neg, \u2190 Int.add_ediv_of_dvd_left h, \u2190 ge_iff_le,\n      Int.div_nonneg_iff_of_pos n]\n    exact Int.sub_nonneg_of_le w\n  \u00b7 simp [sat, div] at w \u22a2\n    constructor\n    \u00b7 apply Int.le_of_sub_nonneg\n      rw [Int.sub_neg, \u2190 Int.add_ediv_of_dvd_left h, \u2190 ge_iff_le,\n        Int.div_nonneg_iff_of_pos n]\n      exact Int.sub_nonneg_of_le w.1\n    \u00b7 apply Int.le_of_sub_nonneg\n      rw [\u2190 Int.sub_ediv_of_dvd _ h, \u2190 ge_iff_le, Int.div_nonneg_iff_of_pos n]\n      exact Int.sub_nonneg_of_le w.2\nabbrev sat' (c : Constraint) (x y : Coeffs) := c.sat (Coeffs.dot x y)\ntheorem combine_sat' {s t : Constraint}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_name": "combo_sat",
+    "has_proof": true
+  }
+}

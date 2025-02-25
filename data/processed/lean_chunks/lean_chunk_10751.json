@@ -1,0 +1,9 @@
+{
+  "content": "USAGE:\nlake lint [\nA lint driver can be configured by either setting the `lintDriver` package\nconfiguration option by tagging a script or executable `@[lint_driver]`.\nA definition in dependency can be used as a test driver by using the\n`<pkg>/<name>` syntax for the 'testDriver' configuration option.\nA script lint driver will be run with the  package configuration's\n`lintDriverArgs` plus the CLI `args`. An executable lint driver will be\nbuilt and then run like a script.\n\"\ndef helpCheckLint :=\n\"Check if there is a properly configured lint driver\nUSAGE:\n  lake check-lint\nExits with code 0 if the workspace's root package has a properly\nconfigured lint driver. Errors (with code 1) otherwise.\nDoes NOT verify that the configured lint driver actually exists in the\npackage or its dependencies. It merely verifies that one is specified.\n\"\ndef helpPack :=\n\"Pack build artifacts into a archive for distribution\nUSAGE:\n  lake pack [<file.tgz>]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "definition",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "in"
+  }
+}

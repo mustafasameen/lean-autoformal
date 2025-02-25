@@ -1,0 +1,10 @@
+{
+  "content": "theorem haveWithSubgoals2 {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/269.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/269.lean",
+    "definition_name": "haveWithSubgoals2",
+    "has_proof": false
+  }
+}

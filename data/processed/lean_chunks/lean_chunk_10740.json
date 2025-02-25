@@ -1,0 +1,9 @@
+{
+  "content": "self.lib.leancArgs\n@[inline] def weakLeancArgs (self : Module) : Array String :=\n  self.lib.weakLeancArgs\n@[inline] def linkArgs (self : Module) : Array String :=\n  self.lib.linkArgs\n@[inline] def weakLinkArgs (self : Module) : Array String :=\n  self.lib.weakLinkArgs\n@[inline] def platformIndependent (self : Module) : Option Bool :=\n  self.lib.platformIndependent\n@[inline] def shouldPrecompile (self : Module) : Bool :=\n  self.lib.precompileModules\n@[inline] def nativeFacets (self : Module) (shouldExport : Bool) : Array (ModuleFacet FilePath) :=\n  self.lib.nativeFacets shouldExport",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Module.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Module.lean",
+    "definition_name": "dynlibSuffix"
+  }
+}

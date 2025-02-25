@@ -1,0 +1,10 @@
+{
+  "content": "let p := t.inner.containsThenInsertIfNew a ()\n  (p.1, \u27e8p.2\u27e9)\n@[inline]\ndef contains (l : TreeSet \u03b1 cmp) (a : \u03b1) : Bool :=\n  l.inner.contains a\ninstance : Membership \u03b1 (TreeSet \u03b1 cmp) where\n  mem m a := m.contains a\ninstance {m : TreeSet \u03b1 cmp}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Basic.lean",
+    "definition_name": "TreeSet",
+    "has_proof": true
+  }
+}

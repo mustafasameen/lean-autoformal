@@ -1,0 +1,10 @@
+{
+  "content": "syntax (name := exact?) \"exact?\" (\" using \" (colGt ident),+)? : tactic\nsyntax (name := apply?) \"apply?\" (\" using \" (colGt term),+)? : tactic\nsyntax rewrites_forbidden := \" [\" ((\"-\" ident),*,?) \"]\"\nsyntax (name := rewrites?) \"rw?\" (ppSpace location)? (rewrites_forbidden)? : tactic\nsyntax (name := showTerm) \"show_term \" tacticSeq : tactic\nmacro (name := showTermElab) tk:\"show_term \" t:term : term =>\n  `(term| no_implicit_lambda% (show_term_elab%$tk $t))\nmacro (name := by?) tk:\"by?\" t:tacticSeq : term => `(show_term%$tk by%$tk $t)\nsyntax (name := exposeNames) \"expose_names\" : tactic\nsyntax (name := suggestPremises) \"suggest_premises\" : tactic\nmacro (name := bvDecideMacro) (priority:=low) \"bv_decide\" optConfig : tactic =>\n  Macro.throwError \"to use `bv_decide`, please include `import Std.Tactic.BVDecide`\"\nmacro (name := bvTraceMacro) (priority:=low) \"bv_decide?\" optConfig : tactic =>\n  Macro.throwError \"to use `bv_decide?`, please include `import Std.Tactic.BVDecide`\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "DecideConfig",
+    "imports": "Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\""
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Testable (p : Prop) where\n  run (cfg : Configuration) (minimize : Bool) : Gen (TestResult p)\ndef NamedBinder (_n : String) (p : Prop) : Prop := p\nnamespace TestResult\ndef isFailure : TestResult p \u2192 Bool\n  | failure _ _ _ => true\n  | _ => false\nend TestResult\nnamespace Testable\nopen TestResult\ndef runProp (p : Prop) [Testable p] : Configuration \u2192 Bool \u2192 Gen (TestResult p) := Testable.run\nvariable {var : String}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeOccursCheckIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeOccursCheckIssue.lean",
+    "definition_name": "Testable"
+  }
+}

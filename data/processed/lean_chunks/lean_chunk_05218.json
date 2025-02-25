@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_nil : [].foldl f b = b := rfl\n@[simp] theorem foldl_cons (l : List \u03b1) (b : \u03b2) : (a :: l).foldl f b = l.foldl f (f b a) := rfl\nprotected def beq [BEq \u03b1] : List \u03b1 \u2192 List \u03b1 \u2192 Bool\n  | [],    []    => true\n  | a::as, b::bs => a == b && List.beq as bs\n  | _,     _     => false\n@[simp] theorem beq_nil_nil [BEq \u03b1] : List.beq ([] : List \u03b1) ([] : List \u03b1) = true := rfl\n@[simp] theorem beq_cons_nil [BEq \u03b1] (a : \u03b1) (as : List \u03b1) : List.beq (a::as) [] = false := rfl\n@[simp] theorem beq_nil_cons [BEq \u03b1] (a : \u03b1) (as : List \u03b1) : List.beq [] (a::as) = false := rfl\ntheorem beq_cons\u2082 [BEq \u03b1] (a b : \u03b1) (as bs : List \u03b1) : List.beq (a::as) (b::bs) = (a == b && List.beq as bs) := rfl\ninstance [BEq \u03b1] : BEq (List \u03b1) := \u27e8List.beq\u27e9\ninstance [BEq \u03b1] [LawfulBEq \u03b1] : LawfulBEq (List \u03b1) where\n  eq_of_beq {as bs}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "foldl_nil",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "(.app (.const ``UInt32.instOfNat []) r)\ninstance : ToExpr UInt64 where\n  toTypeExpr := mkConst ``UInt64\n  toExpr a :=\n    let r := mkRawNatLit a.toNat\n    mkApp3 (.const ``OfNat.ofNat [0]) (mkConst ``UInt64) r\n      (.app (.const ``UInt64.instOfNat []) r)\ninstance : ToExpr USize where\n  toTypeExpr := mkConst ``USize\n  toExpr a :=\n    let r := mkRawNatLit a.toNat\n    mkApp3 (.const ``OfNat.ofNat [0]) (mkConst ``USize) r\n      (.app (.const ``USize.instOfNat []) r)\ninstance : ToExpr Bool where\n  toExpr     := fun b => if b then mkConst ``Bool.true else mkConst ``Bool.false\n  toTypeExpr := mkConst ``Bool\ninstance : ToExpr Char where\n  toExpr     := fun c => mkApp (mkConst ``Char.ofNat) (mkRawNatLit c.toNat)\n  toTypeExpr := mkConst ``Char\ninstance : ToExpr String where\n  toExpr     := mkStrLit\n  toTypeExpr := mkConst ``String\ninstance : ToExpr Unit where\n  toExpr     := fun _ => mkConst `Unit.unit\n  toTypeExpr := mkConst ``Unit\ninstance : ToExpr System.FilePath where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_name": "ToExpr"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "content": "-- Print the list of greetings\n  for greeting in greetings do\n    IO.println greeting\n\nLean has numerous features, including:\n\nType inference\nFirst-class functions\nPowerful data types\nPattern matching\nType classes\nMonads\nExtensible syntax\nHygienic macros\nDependent types\nMetaprogramming\nMultithreading\nVerification: you can prove properties of your functions using Lean itself",
+  "metadata": {
+    "source": "https://lean-lang.org/lean4/doc",
+    "title": "Untitled"
+  }
+}

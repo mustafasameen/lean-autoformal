@@ -1,0 +1,9 @@
+{
+  "content": "instance\n  add_comp : \u2200 (P Q R : C) (f f' : P \u27f6 Q) (g : Q \u27f6 R), (f + f') \u226b g = f \u226b g + f' \u226b g\n  comp_add : \u2200 (P Q R : C) (f : P \u27f6 Q) (g g' : Q \u27f6 R), f \u226b (g + g') = f \u226b g + f \u226b g'\nattribute [instance] Preadditive.homGroup\nend CategoryTheory\nnamespace CategoryTheory\nnamespace Preadditive\nopen AddMonoidHom\nvariable {C : Type u\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "add_comp"
+  }
+}

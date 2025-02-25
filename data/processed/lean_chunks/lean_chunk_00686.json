@@ -1,0 +1,9 @@
+{
+  "content": "instance Add.toHasOppositeVAdd [Add \u03b1] : VAdd \u03b1\u1d43\u1d52\u1d56 \u03b1 :=\n  \u27e8fun c x => x + c.unop\u27e9\ninstance AddMonoid.toOppositeVAdd [AddMonoid \u03b1] : VAdd \u03b1\u1d43\u1d52\u1d56 \u03b1 where\n  vadd := (\u00b7 +\u1d65 \u00b7)\nend Mathlib.GroupTheory.GroupAction.Opposite\nsection Mathlib.GroupTheory.Subgroup.Basic\nvariable {A : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Add"
+  }
+}

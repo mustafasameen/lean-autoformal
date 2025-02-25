@@ -1,0 +1,9 @@
+{
+  "content": "e.updateLambdaE! d b'\n    | _ => e.updateLambdaE! d b'\n  | _ => e\ndef setOption (e : Expr) (optionName : Name) [KVMap.Value \u03b1] (val : \u03b1) : Expr :=\n  mkMData (MData.empty.set optionName val) e\ndef setPPExplicit (e : Expr) (flag : Bool) :=\n  e.setOption `pp.explicit flag\ndef setPPUniverses (e : Expr) (flag : Bool) :=\n  e.setOption `pp.universes flag\ndef setPPPiBinderTypes (e : Expr) (flag : Bool) :=\n  e.setOption `pp.piBinderTypes flag\ndef setPPFunBinderTypes (e : Expr) (flag : Bool) :=\n  e.setOption `pp.funBinderTypes flag\ndef setPPNumericTypes (e : Expr) (flag : Bool) :=\n  e.setOption `pp.numericTypes flag\ndef setAppPPExplicit (e : Expr) : Expr :=\n  match e with\n  | app .. =>\n    let f    := e.getAppFn.setPPExplicit false\n    let args := e.getAppArgs.map (\u00b7.setPPExplicit false)\n    mkAppN f args |>.setPPExplicit true\n  | _      => e\ndef setAppPPExplicitForExposingMVars (e : Expr) : Expr :=\n  match e with\n  | app .. =>\n    let f    := e.getAppFn.setPPExplicit false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "ExprStructEq"
+  }
+}

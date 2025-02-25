@@ -1,0 +1,10 @@
+{
+  "content": "structure RewriteResultConfig where\n  stopAtRfl : Bool\n  max : Nat\n  minHeartbeats : Nat\n  goal : MVarId\n  target : Expr\n  side : SideConditions := .solveByElim\n  mctx : MetavarContext\ndef takeListAux (cfg : RewriteResultConfig) (seen : Std.HashMap String Unit) (acc : Array RewriteResult)\n    (xs : List ((Expr \u2295 Name) \u00d7 Bool \u00d7 Nat)) : MetaM (Array RewriteResult) := do\n  let mut seen := seen\n  let mut acc := acc\n  for (lem, symm, weight) in xs do\n    if (\u2190 getRemainingHeartbeats) < cfg.minHeartbeats then\n      return acc\n    if acc.size \u2265 cfg.max then\n      return acc\n    let res \u2190\n          withoutModifyingState <| withMCtx cfg.mctx do\n            rwLemma cfg.mctx cfg.goal cfg.target cfg.side lem symm weight\n    match res with\n    | none => continue\n    | some r =>\n      let s \u2190 withoutModifyingState <| withMCtx r.mctx r.ppResult\n      if seen.contains s then\n        continue\n      let rfl? \u2190 dischargableWithRfl? r.mctx r.result.eNew\n      if cfg.stopAtRfl then\n        if rfl? then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "forwardWeight",
+    "has_proof": false
+  }
+}

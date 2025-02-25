@@ -1,0 +1,10 @@
+{
+  "content": "theorem Int.eq_zero_of_sign_eq_zero' : \u2200 {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match_int_lit_issue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match_int_lit_issue.lean",
+    "definition_name": "Int",
+    "has_proof": false
+  }
+}

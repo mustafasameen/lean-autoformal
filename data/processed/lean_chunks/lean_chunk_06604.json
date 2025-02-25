@@ -1,0 +1,10 @@
+{
+  "content": "else none\ndef parseHeader (inputCtx : InputContext) : IO (Syntax \u00d7 ModuleParserState \u00d7 MessageLog) := do\n  let dummyEnv \u2190 mkEmptyEnvironment\n  let p   := andthenFn whitespace Module.header.fn\n  let tokens := Module.updateTokens (getTokenTable dummyEnv)\n  let s   := p.run inputCtx { env := dummyEnv, options := {} } tokens (mkParserState inputCtx.input)\n  let stx := if s.stxStack.isEmpty then .missing else s.stxStack.back\n  let mut messages : MessageLog := {}\n  for (pos, stk, err) in s.allErrors do\n    messages := messages.add <| mkErrorMessage inputCtx pos stk err\n  pure (stx, {pos := s.pos, recovering := s.hasError}, messages)\nprivate def mkEOI (pos : String.Pos) : Syntax :=\n  let atom := mkAtom (SourceInfo.original \"\".toSubstring pos \"\".toSubstring pos) \"\"\n  mkNode ``Command.eoi #[atom]\ndef isTerminalCommand (s : Syntax) : Bool :=\n  s.isOfKind ``Command.exit || s.isOfKind ``Command.import || s.isOfKind ``Command.eoi",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_name": "header",
+    "imports": "|| s.isOfKind ``Command.eoi"
+  }
+}

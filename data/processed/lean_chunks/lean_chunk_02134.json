@@ -1,0 +1,10 @@
+{
+  "content": "theorem monotone_fun {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/monotone.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/monotone.lean",
+    "definition_name": "monotone_fun",
+    "has_proof": false
+  }
+}

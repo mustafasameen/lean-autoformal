@@ -1,0 +1,9 @@
+{
+  "content": "class Clause (\u03b1 : outParam (Type u)) (\u03b2 : Type v) where\n  toList : \u03b2 \u2192 CNF.Clause \u03b1\n  not_tautology : \u2200 c : \u03b2, \u2200 l : Literal \u03b1, l \u2209 toList c \u2228 Literal.negate l \u2209 toList c\n  insert : \u03b2 \u2192 Literal \u03b1 \u2192 Option \u03b2\n  delete : \u03b2 \u2192 Literal \u03b1 \u2192 \u03b2\n  delete_iff : \u2200 c : \u03b2, \u2200 l : Literal \u03b1, \u2200 l' : Literal \u03b1,\n    l' \u2208 toList (delete c l) \u2194 l' \u2260 l \u2227 l' \u2208 toList c\n  contains : \u03b2 \u2192 Literal \u03b1 \u2192 Bool\n  contains_iff : \u2200 c : \u03b2, \u2200 l : Literal \u03b1, contains c l \u2194 l \u2208 toList c\n@[ext] structure DefaultClause (numVarsSucc : Nat) where\n  clause : CNF.Clause (PosFin numVarsSucc)\n  nodupkey : \u2200 l : PosFin numVarsSucc, (l, true) \u2209 clause \u2228 (l, false) \u2209 clause\n  nodup : List.Nodup clause\n  deriving BEq\ninstance : ToString (DefaultClause n) where\n  toString c := s!\"{c.clause.reverse}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Clause.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Clause.lean",
+    "definition_name": "Clause"
+  }
+}

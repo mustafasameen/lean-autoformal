@@ -1,0 +1,9 @@
+{
+  "content": "inductive IPAddr where\n  | v4 (addr : IPv4Addr)\n  | v6 (addr : IPv6Addr)\n  deriving Inhabited, DecidableEq\ninductive SocketAddress where\n  | v4 (addr : SocketAddressV4)\n  | v6 (addr : SocketAddressV6)\n  deriving Inhabited, DecidableEq\ninductive AddressFamily where\n  | ipv4\n  | ipv6\n  deriving Inhabited, DecidableEq\nnamespace IPv4Addr\ndef ofParts (a b c d : UInt8) : IPv4Addr :=\n  { octets := #v[a, b, c, d] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Net/Addr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Net/Addr.lean",
+    "definition_name": "IPAddr"
+  }
+}

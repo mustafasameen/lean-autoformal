@@ -1,0 +1,10 @@
+{
+  "content": "assumption\n  | ite discr lhs rhs dih lih rih =>\n    have := go_le_size atomHandler discr aig\n    have := go_le_size atomHandler lhs (go aig discr atomHandler).val.aig\n    have := go_le_size atomHandler rhs (go (go aig discr atomHandler).val.aig lhs atomHandler).val.aig\n    specialize dih aig (by omega) (by omega)\n    specialize lih (go aig discr atomHandler).val.aig (by omega) (by omega)\n    specialize rih (go (go aig discr atomHandler).val.aig lhs atomHandler).val.aig (by omega) (by omega)\n    simp only [go]\n    rw [AIG.LawfulOperator.decl_eq (f := mkIfCached), rih, lih, dih]\n  | gate g lhs rhs lih rih =>\n    have := go_le_size atomHandler lhs aig\n    have := go_le_size atomHandler rhs (go aig lhs atomHandler).val.aig\n    specialize lih aig (by omega) (by omega)\n    specialize rih (go aig lhs atomHandler).val.aig (by omega) (by omega)\n    cases g with\n    | and =>\n      simp only [go]\n      rw [AIG.LawfulOperator.decl_eq (f := mkAndCached), rih, lih]\n    | xor =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Circuit.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Circuit.lean",
+    "definition_name": "go_le_size",
+    "has_proof": true
+  }
+}

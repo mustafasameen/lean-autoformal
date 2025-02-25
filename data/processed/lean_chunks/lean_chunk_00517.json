@@ -1,0 +1,10 @@
+{
+  "content": "def Foo.aaaaaaaa := 1\n#eval ([1,2,3].map \u03bb c => Foo.aaaaaaa).length\nstructure Bar where\n  foobar : Nat\nstructure Foo where\n  x : Bar\nexample (f : Foo) : Nat \u00d7 Nat :=\n  \u27e8f.x.foobar, f.x.f\u27e9\nexample (b : Bar) : Nat \u00d7 Nat :=\n  \u27e8b.foobar, b.f\u27e9\nstructure ContinuousSMul (M X : Type) : Prop where\nstructure ContinuousAdd (X : Type) : Prop where\ntheorem Prod.continuousSMul {M X Y : Type} : ContinuousSMul M (X \u00d7 Y) := \u27e8\u27e9\ntheorem Prod.continuousAdd {X Y : Type} : ContinuousAdd (X \u00d7 Y) := \u27e8\u27e9\nexample : (ContinuousSMul Nat (Nat \u00d7 Nat)) \u2227 (ContinuousAdd (Nat \u00d7 Nat)) := by\n  exact \u27e8Prod.continuousSMul, Prod.continuous\u27e9\nexample : True \u2227 True := by\n  exact \u27e8trivial, True.in\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/travellingCompletions.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/travellingCompletions.lean",
+    "definition_name": "Foo",
+    "has_proof": true
+  }
+}

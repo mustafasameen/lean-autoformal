@@ -1,0 +1,9 @@
+{
+  "content": "inductive AliasValue (\u03b1 : Type) where\n  | const  (p : \u03b1)\n  | unary  (p : \u03b1 \u2192 \u03b1)\n  | binary (p : \u03b1 \u2192 \u03b1 \u2192 \u03b1)\nabbrev AliasTable (\u03b1) := NameMap (AliasValue \u03b1)\ndef registerAliasCore {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_name": "AliasValue"
+  }
+}

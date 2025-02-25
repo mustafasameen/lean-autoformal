@@ -1,0 +1,9 @@
+{
+  "content": "class IsLocalizedModule (S : Submonoid R) (f : M \u2192\u2097[R] M') : Prop where\nnamespace IsLocalizedModule\nvariable [IsLocalizedModule S f]\nnoncomputable def fromLocalizedModule (f : M \u2192\u2097[R] M') [IsLocalizedModule S f] :\n    LocalizedModule S M \u2192\u2097[R] M' :=\n  sorry\nvariable {S}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "IsLocalizedModule"
+  }
+}

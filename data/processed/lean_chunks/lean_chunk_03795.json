@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEqv_iff_rel {xs ys : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/DecidableEq.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/DecidableEq.lean",
+    "definition_name": "isEqv_iff_rel",
+    "has_proof": false
+  }
+}

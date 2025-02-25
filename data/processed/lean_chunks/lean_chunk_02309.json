@@ -1,0 +1,9 @@
+{
+  "content": "structure S where\n  f : Nat \u2192 Nat\nexample (h : g 1 = x) : { f := g : S }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3395.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3395.lean",
+    "definition_name": "S"
+  }
+}

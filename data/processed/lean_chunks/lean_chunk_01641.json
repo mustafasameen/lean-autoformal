@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_mul [Mul R] [Add R] [RightDistribClass R] (a b c : R) :\n    (a + b) * c = a * c + b * c :=\n  RightDistribClass.right_distrib a b c\ntheorem add_one_mul [Add \u03b1] [MulOneClass \u03b1] [RightDistribClass \u03b1] (a b : \u03b1) :\n    (a + 1) * b = a * b + b := by\n  rw [add_mul, one_mul]\nclass Semiring (R : Type) extends Distrib R, MulOneClass R\nend Mathlib.Algebra.Ring.Defs\nsection Mathlib.Data.Nat.Basic\ninstance : Semiring Nat where\n  add := Nat.add\n  mul := Nat.mul\n  one := Nat.succ Nat.zero\n  one_mul := sorry\n  right_distrib := sorry\nend Mathlib.Data.Nat.Basic\n#synth MulOneClass Nat\n#synth RightDistribClass Nat\ntheorem ex1 [Add \u03b1] [MulOneClass \u03b1] [RightDistribClass \u03b1] (a b : \u03b1) :\n    (a + 1) * b = a * b + b := by\n  sorry\n#check (ex1)\n#check (add_one_mul)\n#check @add_one_mul\nexample {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2736.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2736.lean",
+    "definition_name": "add_mul",
+    "has_proof": true
+  }
+}

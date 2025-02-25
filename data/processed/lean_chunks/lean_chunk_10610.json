@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 rw [containsKey_eq_false_iff_forall_mem_keys, keys_eq_map]\n    simp only [List.map_append, List.mem_append, List.mem_map, List.mem_filter, beq_iff_eq, beq_eq,\n      beq_eq_false_iff_ne, ne_eq]\n    rintro a (\u27e8p, \u27e8\u27e8-, hp\u27e9, rfl\u27e9\u27e9|\u27e8p, \u27e8\u27e8-, hp\u27e9, rfl\u27e9\u27e9) <;> simp_all\ntheorem Ordered.distinctKeys [Ord \u03b1] {l : Impl \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_name": "exists_cell_of_updateAtKey",
+    "has_proof": true
+  }
+}

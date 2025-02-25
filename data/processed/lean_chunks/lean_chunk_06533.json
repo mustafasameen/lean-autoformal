@@ -1,0 +1,9 @@
+{
+  "content": "structure Reference where\n  aliases  : Array RefIdent := #[]\n  stx      : Syntax\n  info     : Info\nstructure RefInfo where\n  definition : Option Reference\ndef empty : RefInfo := \u27e8none, #[]\u27e9\ndef addRef (i : RefInfo) (ref : Reference) : RefInfo :=\n  match i, ref with\n  | { definition := none, .. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "Reference"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_of_mem_map (h : b \u2208 map f xs) : \u2203 a, a \u2208 xs \u2227 f a = b := mem_map.1 h\ntheorem mem_map_of_mem (f : \u03b1 \u2192 \u03b2) (h : a \u2208 xs) : f a \u2208 map f xs := mem_map.2 \u27e8_, h, rfl\u27e9\ntheorem forall_mem_map {f : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "exists_of_mem_map",
+    "has_proof": false
+  }
+}

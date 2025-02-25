@@ -1,0 +1,9 @@
+{
+  "content": "inductive AmbientList' (\u03b1 : Type u)\n  | cons (a : \u03b1) (as : List' \u03b1)\n  | nil\n  deriving ToExpr\nuniverse u in\nstructure ExplicitAmbientPair.{v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingToExpr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingToExpr.lean",
+    "definition_name": "AmbientList"
+  }
+}

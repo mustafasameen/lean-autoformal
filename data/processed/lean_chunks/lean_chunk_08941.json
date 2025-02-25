@@ -1,0 +1,10 @@
+{
+  "content": "theorem distinct_keys [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.keys.Pairwise (fun a b => (a == b) = false) :=\n  DHashMap.distinct_keys\n@[simp]\ntheorem map_prod_fst_toList_eq_keys [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.toList.map Prod.fst = m.keys :=\n  DHashMap.Const.map_prod_fst_toList_eq_keys\n@[simp]\ntheorem length_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.toList.length = m.size :=\n  DHashMap.Const.length_toList\n@[simp]\ntheorem isEmpty_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.toList.isEmpty = m.isEmpty :=\n  DHashMap.Const.isEmpty_toList\n@[simp]\ntheorem mem_toList_iff_getElem?_eq_some [LawfulBEq \u03b1]\n    {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_name": "distinct_keys",
+    "has_proof": false
+  }
+}

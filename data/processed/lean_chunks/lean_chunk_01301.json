@@ -1,0 +1,10 @@
+{
+  "content": "class abbrev Semigroup (\u03b1 : Type u) := Mul \u03b1, MulAssoc \u03b1\nclass abbrev AddSemigroup (\u03b1 : Type u) := Add \u03b1, AddAssoc \u03b1\nclass abbrev Monoid (\u03b1 : Type u) := Semigroup \u03b1, One \u03b1, OneUnit \u03b1\nclass abbrev AddMonoid (\u03b1 : Type u) := AddSemigroup \u03b1, Zero \u03b1, ZeroUnit \u03b1\nclass abbrev CommSemigroup (\u03b1 : Type u) := Semigroup \u03b1, MulComm \u03b1\nclass abbrev CommMonoid (\u03b1 : Type u) := Monoid \u03b1, MulComm \u03b1\nclass abbrev Group (\u03b1 : Type u) := Monoid \u03b1, Inv \u03b1, InvMul \u03b1\nclass abbrev AddGroup (\u03b1 : Type u) := AddMonoid \u03b1, Neg \u03b1, NegAdd \u03b1\nclass abbrev Semiring (\u03b1 : Type u) := AddMonoid \u03b1, Monoid \u03b1, AddComm \u03b1, ZeroMul \u03b1, Distrib \u03b1\nclass abbrev Ring (\u03b1 : Type u) := AddGroup \u03b1, Monoid \u03b1, AddComm \u03b1, Distrib \u03b1\nclass abbrev CommRing (\u03b1 : Type u) := Ring \u03b1, MulComm \u03b1\nclass abbrev IntegralDomain (\u03b1 : Type u) := CommRing \u03b1, Domain \u03b1\nsection test1\nvariable (\u03b1 : Type u) [h : CommMonoid \u03b1]\nexample : Semigroup \u03b1 := inferInstance\nexample : Monoid \u03b1 := inferInstance\nexample : CommSemigroup \u03b1 := inferInstance\nend test1\nsection test2",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_name": "abbrev",
+    "has_proof": true
+  }
+}

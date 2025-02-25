@@ -1,0 +1,9 @@
+{
+  "content": "return (\u2190 get).2[i]!\n  visit (i : Nat) : StateM (Code \u00d7 Array Bool) Unit := do\n    unless (\u2190 visited i) do\n      modify fun (k, visited) => (k, visited.set! i true)\n      let pi := ps[i]!\n      for h : j in [:ps.size] do\n        unless (\u2190 visited j) do\n          let pj := ps[j]\n          if pj.used.contains pi.decl.fvarId then\n            visit j\n      modify fun (k, visited) => (pi.attach k, visited)\npartial def attachFVarDeps (fvarId : FVarId) (k : Code) : PullM Code := do\n  let ps \u2190 findFVarDeps fvarId\n  return attach ps k\ndef attachParamsDeps (params : Array Param) (k : Code) : PullM Code := do\n  let ps \u2190 findParamsDeps params\n  return attach ps k\ndef attachJps (k : Code) : PullM Code := do\n  let jps := (\u2190 get).filter fun info => !info.isFun\n  modify fun s => s.filter fun info => info.isFun\n  let jps \u2190 findFVarDepsFixpoint jps\n  return attach jps k\nmutual\npartial def addToPull (isFun : Bool) (decl : FunDecl) : PullM Unit := do\n  let saved \u2190 get\n  modify fun _ => []",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_name": "ToPull"
+  }
+}

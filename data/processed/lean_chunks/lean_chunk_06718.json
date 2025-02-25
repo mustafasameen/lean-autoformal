@@ -1,0 +1,9 @@
+{
+  "content": "inductive SpecializeAttributeKind where\n  | specialize | nospecialize\n  deriving Inhabited, BEq\nbuiltin_initialize nospecializeAttr : TagAttribute \u2190\n  registerTagAttribute `nospecialize \"mark definition to never be specialized\"\nprivate def elabSpecArgs (declName : Name) (args : Array Syntax) : MetaM (Array Nat) := do\n  if args.isEmpty then return #[]\n  let info \u2190 getConstInfo declName\n  Meta.forallTelescopeReducing info.type fun xs _ => do\n    let argNames \u2190 xs.mapM fun x => x.fvarId!.getUserName\n    let mut result := #[]\n    for arg in args do\n      if let some idx := arg.isNatLit? then\n        if idx == 0 then throwErrorAt arg \"invalid specialization argument index, index must be greater than 0\"\n        let idx := idx - 1\n        if h : idx >= argNames.size then\n          throwErrorAt arg \"invalid argument index, `{declName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/Specialize.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/Specialize.lean",
+    "definition_name": "SpecializeAttributeKind"
+  }
+}

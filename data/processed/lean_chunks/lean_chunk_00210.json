@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex2a (x y z) (h\u2081 : 0 + x = y) (h\u2082 : 0 + y = z) : x = z := by\nrewrite [zeroAdd] at h\u2081 h\u2082;\ntrace_state;\nsubst x;\nsubst y;\nexact rfl\ntheorem ex3 (x y z) (h\u2081 : 0 + x = y) (h\u2082 : 0 + y = z) : x = z := by\nrewrite [zeroAdd] at *;\nsubst x;\nsubst y;\nexact rfl\ntheorem ex4 (x y z) (h\u2081 : 0 + x = y) (h\u2082 : 0 + y = z) : x = z := by\nrewrite [appendAssoc] at *;\ndone\ntheorem ex5 (m n k : Nat) (h : 0 + n = m) (h : k = m) : k = n := by\nrw [zeroAdd] at *;\ntrace_state;\nrefine Eq.trans h ?hole;\napply Eq.symm;\nassumption\ntheorem ex6 (p q r : Prop) (h\u2081 : q \u2192 r) (h\u2082 : p \u2194 q) (h\u2083 : p) : r := by\nrw [\u2190h\u2082] at h\u2081;\nexact h\u2081 h\u2083\ntheorem ex7 (p q r : Prop) (h\u2081 : q \u2192 r) (h\u2082 : p \u2194 q) (h\u2083 : p) : r := by\nrw [h\u2082] at h\u2083;\nexact h\u2081 h\u2083\nexample (\u03b1 : Type) (p : Prop) (a b c : \u03b1) (h : p \u2192 a = b) : a = c := by\nrw [h _]\nvariable (f : Nat \u2192 Nat) (w : \u2200 n, f n = 0)\nexample : [f 1, f 2, f 1, f 2] = [0, 0, 0, 0] := by\n  rw (config := {occs := .pos [2]}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/rewrite.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/rewrite.lean",
+    "definition_name": "ex2a",
+    "has_proof": true
+  }
+}

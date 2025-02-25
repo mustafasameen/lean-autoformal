@@ -1,0 +1,10 @@
+{
+  "content": "theorem t (n : Nat) : f n = f 0 := rfl\ntheorem s (n m : Nat) : f n = f m := rfl\nexample : f 1 = f 2 := by\nrw [s 1 2]\nexample : f 1 = f 2 := by\nrw [t]\n  rfl\nexample (h : f (f 1) = 0) : f (g 1) = 0 := by\nfail_if_success rw [h]\nerw [h]\nexample (h : f (f 1) = 0) : f (g 1) = 0 := by\nrw (config := {transparency := .default}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rewrite.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rewrite.lean",
+    "definition_name": "t",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "@[combinator_formatter ppHardLineUnlessUngrouped] def ppHardLineUnlessUngrouped.formatter : Formatter := do\n  if (\u2190 get).isUngrouped then\n    Formatter.pushLine\n  else\n    ppLine.formatter\nend\nnamespace Parser\nattribute [run_builtin_parser_attribute_hooks]\n  ppHardSpace ppSpace ppLine ppGroup ppRealGroup ppRealFill ppIndent ppDedent\n  ppAllowUngrouped ppDedentIfGrouped ppHardLineUnlessUngrouped\nsyntax \"register_parser_alias \" group(\"(\" &\"kind\" \" := \" term \") \")? (strLit ppSpace)? ident (ppSpace colGt term)? : term\nmacro_rules\n  | `(register_parser_alias $[(kind := $kind?)]? $(aliasName?)? $declName $(info?)?) => do\n    let [(fullDeclName, [])] \u2190 Macro.resolveGlobalName declName.getId |\n      Macro.throwError \"expected non-overloaded constant name\"\n    let aliasName := match aliasName? with\n      | some n => quote (Name.mkSimple n.getString)\n      | none => quote declName.getId",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_name": "identWithPartialTrailingDot"
+  }
+}

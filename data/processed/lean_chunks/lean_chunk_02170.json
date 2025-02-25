@@ -1,0 +1,9 @@
+{
+  "content": "instance instZero [\u2200 i, Zip (f i)] : Zip (\u2200 i : I, f i) := \u27e8\u27e9\ninstance instSMul [\u2200 i, SMul R (f i)] : SMul R (\u2200 i : I, f i) :=\n  \u27e8fun s x => fun i => s \u2022 x i\u27e9\ninstance smulWithZero (R) [Zip R] [\u2200 i, Zip (f i)] [\u2200 i, SMulWithZero R (f i)] :\n    SMulWithZero R (\u2200 i, f i) :=\n  { pi.instSMul with\n    smul_zero := sorry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedtc.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedtc.lean",
+    "definition_name": "instZero"
+  }
+}

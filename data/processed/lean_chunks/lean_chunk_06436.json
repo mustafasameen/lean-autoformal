@@ -1,0 +1,9 @@
+{
+  "content": "else\n          `(do let%$doLetArrow __discr \u2190 $doElem; let%$doLetArrow $pattern:term := __discr)\n        doSeqToCode <| getDoSeqElems (getDoSeq auxDo) ++ doElems\n      else\n        let contSeq \u2190 if isMutableLet doLetArrow then\n          let vars \u2190 (\u2190 getPatternVarsEx pattern).mapM fun var => `(doElem| let mut $var := $var)\n          pure (vars ++ doElems.toArray)\n        else\n          pure doElems.toArray\n        let contSeq := mkDoSeq contSeq\n        let elseSeq := optElse[1]\n        let auxDo \u2190 `(do let%$doLetArrow __discr \u2190 $doElem; match%$doLetArrow __discr with | $pattern:term => $contSeq | _ => $elseSeq)\n        doSeqToCode <| getDoSeqElems (getDoSeq auxDo)\n    else\n      throwError \"unexpected kind of `do` declaration\"\n  partial def doLetElseToCode (doLetElse : Syntax) (doElems : List Syntax) : M CodeBlock := do\n    let pattern := doLetElse[2]\n    let val     := doLetElse[4]\n    let elseSeq := doLetElse[6]\n    let contSeq \u2190 if isMutableLet doLetElse then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

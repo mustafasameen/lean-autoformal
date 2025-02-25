@@ -1,0 +1,10 @@
+{
+  "content": "theorem find?_singleton (a : \u03b1) (p : \u03b1 \u2192 Bool) :\n    #v[a].find? p = if p a then some a else none := by\n  simp\n@[simp] theorem findRev?_push_of_pos (xs : Vector \u03b1 n) (h : p a) :\n    findRev? p (xs.push a) = some a := by\n  cases xs; simp [h]\n@[simp] theorem findRev?_cons_of_neg (xs : Vector \u03b1 n) (h : \u00acp a) :\n    findRev? p (xs.push a) = findRev? p xs := by\n  cases xs; simp [h]\n@[simp] theorem find?_eq_none : find? p l = none \u2194 \u2200 x \u2208 l, \u00ac p x := by\n  cases l; simp\ntheorem find?_eq_some_iff_append {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem zipWith_nil_right {f : \u03b1 \u2192 \u03b2 \u2192 \u03b3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "zipWith_nil_right",
+    "has_proof": false
+  }
+}

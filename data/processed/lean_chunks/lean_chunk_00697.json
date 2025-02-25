@@ -1,0 +1,9 @@
+{
+  "content": "{ (Function.Surjective.addSemigroup _ Quotient.surjective_Quotient_mk'' sorry :\n      AddSemigroup c.Quotient) with\n    toAdd := AddCon.hasAdd _ }\ninstance addMonoid {M : Type _} [AddMonoid M] (c : AddCon M) : AddMonoid c.Quotient :=\n  { (Function.Surjective.addMonoid _ Quotient.surjective_Quotient_mk'' sorry sorry sorry : AddMonoid c.Quotient) with\n    toAddSemigroup := AddCon.addSemigroup _\n    toZero := AddCon.zero _ }\nend Monoids\nvariable [AddGroup M] [AddGroup N] [AddGroup P] (c : AddCon M)\ninstance hasNeg : Neg c.Quotient :=\n  \u27e8(Quotient.map' Neg.neg) sorry\u27e9\ninstance hasSub : Sub c.Quotient :=\n  \u27e8(Quotient.map\u2082' (\u00b7 - \u00b7)) sorry\u27e9\ninstance _root_.AddCon.Quotient.zsmul {M : Type _} [AddGroup M] (c : AddCon M) :\n    SMul Int c.Quotient :=\n  \u27e8fun z => (Quotient.map' (z \u2022 \u00b7)) sorry\u27e9\ninstance addGroup : AddGroup c.Quotient :=\n  { (Function.Surjective.addGroup Quotient.mk''\n      Quotient.surjective_Quotient_mk'' sorry sorry sorry : AddGroup c.Quotient) with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 rw [\u2190 hres]\n            dsimp only\n            intro idx h1 h2\n            rw [Array.getElem_push]\n            simp [h2]\ntheorem mkGateCached_decl_eq (aig : AIG \u03b1) (input : GateInput aig) :\n    \u2200 (idx : Nat) (h1) (h2), (aig.mkGateCached input).aig.decls[idx]'h1 = aig.decls[idx]'h2 := by\n    generalize hres : mkGateCached aig input = res\n    unfold mkGateCached at hres\n    dsimp only at hres\n    split at hres\n    all_goals\n      rw [\u2190 hres]\n      intros\n      rw [mkGateCached.go_decl_eq]\ninstance : LawfulOperator \u03b1 GateInput mkGateCached where\n  le_size := mkGateCached_le_size\n  decl_eq := by\n    intros\n    apply mkGateCached_decl_eq\ntheorem mkGateCached.go_eval_eq_mkGate_eval {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_name": "mkGateCached",
+    "has_proof": true
+  }
+}

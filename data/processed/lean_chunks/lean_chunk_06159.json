@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\nvisited : Array Expr\n  checked : Std.HashSet Expr\nunsafe def initCache : State := {\n  visited := mkArray cacheSize.toNat (cast lcProof ())\n  checked := {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/ForEachExprWhere.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/ForEachExprWhere.lean",
+    "definition_name": "State"
+  }
+}

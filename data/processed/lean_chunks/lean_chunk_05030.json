@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_antisymm [DecidableEq \u03b1] [LT \u03b1] [DecidableLT \u03b1]\n    [i : Std.Antisymm (\u00ac \u00b7 < \u00b7 : \u03b1 \u2192 \u03b1 \u2192 Prop)]\n    {as bs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_name": "le_antisymm",
+    "has_proof": false
+  }
+}

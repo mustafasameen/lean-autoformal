@@ -1,0 +1,9 @@
+{
+  "content": "def f := Exp.hash (.app (.var 10) .a4)\ndef g : Exp \u2192 Bool\n  | .a3 => true\n  | _ => false\ndef hash' : Exp \u2192 Nat\n  | .var i => i.toNat\n  | .app a b => hash' a + hash' b\n  | _ => 42\ndef getAppFn : Exp \u2192 Exp\n  | .app f _ => getAppFn f\n  | e => e\ndef Exp.f (e : Exp) : Exp :=\n   match app e e with\n   | var _ => e\n   | app a _ => getAppFn a\n   | e => e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/computedFieldsCode.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/computedFieldsCode.lean",
+    "definition_name": "f"
+  }
+}

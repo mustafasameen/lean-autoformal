@@ -1,0 +1,10 @@
+{
+  "content": "theorem getKeyD_modify_self (h : m.1.WF) [Inhabited \u03b1] {k fallback : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_name": "getKeyD_modify_self",
+    "has_proof": false
+  }
+}

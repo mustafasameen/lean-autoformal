@@ -1,0 +1,9 @@
+{
+  "content": "match n.hasMacroScopes with\n  | true  => extractMacroScopesAux n List.nil\n  | false => { name := n, scopes := List.nil, imported := Name.anonymous, mainModule := Name.anonymous }\ndef Name.append (a b : Name) : Name :=\n  match a.hasMacroScopes, b.hasMacroScopes with\n  | true, true  =>\n    panic \"Error: invalid `Name.append`, both arguments have macro scopes, consider using `eraseMacroScopes`\"\n  | true, false =>\n    let view := extractMacroScopes a\n    { view with name := appendCore view.name b }.review\n  | false, true =>\n    let view := extractMacroScopes b\n    { view with name := appendCore a view.name }.review\n  | false, false => appendCore a b\ninstance : Append Name where\n  append := Name.append\n@[inline] def MonadQuotation.addMacroScope {m : Type \u2192 Type} [MonadQuotation m] [Monad m] (n : Name) : m Name :=\n  bind getMainModule     fun mainModule =>\n  bind getCurrMacroScope fun scp =>\n  pure (Lean.addMacroScope mainModule n scp)\nnamespace Syntax",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "firstFrontendMacroScope"
+  }
+}

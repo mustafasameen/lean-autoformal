@@ -1,0 +1,9 @@
+{
+  "content": "let fn \u2190  getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty \"lean_mk_string\" argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  LLVM.buildCall2 builder fnty fn #[strPtr] name\ndef callLeanCStrToNatFn (builder : LLVM.Builder llvmctx)\n    (n : Nat) (name : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let fnName :=  \"lean_cstr_to_nat\"\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let argtys :=  #[\u2190 LLVM.voidPtrType llvmctx]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  let s \u2190 LLVM.buildGlobalString builder (value := toString n)\n  LLVM.buildCall2 builder fnty fn #[s] name\ndef callLeanIOMkWorld (builder : LLVM.Builder llvmctx) : M llvmctx (LLVM.Value llvmctx) := do\n  let fnName :=  \"lean_io_mk_world\"\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let argtys :=  #[]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

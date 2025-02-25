@@ -1,0 +1,10 @@
+{
+  "content": "theorem Prod.map_apply (f : \u03b1 \u2192 \u03b2) (g : \u03b3 \u2192 \u03b4) (x) (y) :\n    Prod.map f g (x, y) = (f x, g y) := rfl\n@[simp] theorem Prod.map_fst (f : \u03b1 \u2192 \u03b2) (g : \u03b3 \u2192 \u03b4) (x) : (Prod.map f g x).1 = f x.1 := rfl\n@[simp] theorem Prod.map_snd (f : \u03b1 \u2192 \u03b2) (g : \u03b3 \u2192 \u03b4) (x) : (Prod.map f g x).2 = g x.2 := rfl\ntheorem PUnit.subsingleton (a b : PUnit) : a = b := by\n  cases a; cases b; exact rfl\ntheorem PUnit.eq_punit (a : PUnit) : a = \u27e8\u27e9 :=\n  PUnit.subsingleton a \u27e8\u27e9\ninstance : Subsingleton PUnit :=\n  Subsingleton.intro PUnit.subsingleton\ninstance : Inhabited PUnit where\n  default := \u27e8\u27e9\ninstance : DecidableEq PUnit :=\n  fun a b => isTrue (PUnit.subsingleton a b)\nclass Setoid (\u03b1 : Sort u) where\n  iseqv : Equivalence r\ninstance {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "Prod",
+    "has_proof": true
+  }
+}

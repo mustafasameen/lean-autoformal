@@ -1,0 +1,9 @@
+{
+  "content": "def T := Trie String \u00d7 Array String\ndef T.empty : T := (.empty, .empty)\ndef T.insert : T \u2192 String \u2192 T := fun (t,a) s =>\n  (t.insert s s, if a.contains s then a else a.push s)\ndef Array.findPrefix : Array String \u2192 String \u2192 Array String := fun a s =>\n  a.filter (fun s' => s.isPrefixOf s')",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/trie.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/trie.lean",
+    "definition_name": "T"
+  }
+}

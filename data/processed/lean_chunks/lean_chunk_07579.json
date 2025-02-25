@@ -1,0 +1,9 @@
+{
+  "content": "manyN (n.toNat) size\nprivate def parseTransitionIndices (n : UInt32) : Parser (Array UInt8) :=\n  manyN (n.toNat) pu8\nprivate def parseLocalTimeTypes (n : UInt32) : Parser (Array LocalTimeType) :=\n  manyN (n.toNat) parseLocalTimeType\nprivate def parseAbbreviations (times : Array LocalTimeType) (n : UInt32) : Parser (Array String) := do\n  let mut strings := #[]\n  let mut current := \"\"\n  let mut chars \u2190 manyN n.toNat pu8\n  for time in times do\n    for indx in [time.abbreviationIndex.toNat:n.toNat] do\n      let char := chars[indx]!\n      if char = 0 then\n        strings := strings.push current\n        current := \"\"\n        break\n      else\n        current := current.push (Char.ofUInt8 char)\n  return strings\nprivate def parseLeapSeconds (size : Parser Int) (n : UInt32) : Parser (Array LeapSecond) :=\n  manyN (n.toNat) (parseLeapSecond size)\nprivate def parseIndicators (n : UInt32) : Parser (Array Bool) :=\n  manyN (n.toNat) pbool\nprivate def parseTZifV1 : Parser TZifV1 := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_name": "Header"
+  }
+}

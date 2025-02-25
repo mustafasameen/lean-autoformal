@@ -1,0 +1,9 @@
+{
+  "content": "inductive Secret\n  def Wrapper := Secret\n  inductive Bla | z\n  instance : FunLike Bla (fun _ => Wrapper) := sorry\n  instance (priority := 100) {F \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1891.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1891.lean",
+    "definition_name": "Secret"
+  }
+}

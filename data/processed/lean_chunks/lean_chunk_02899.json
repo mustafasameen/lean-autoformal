@@ -1,0 +1,9 @@
+{
+  "content": "class MonadResolveName (m : Type \u2192 Type) where\n  getCurrNamespace   : m Name\n  getOpenDecls       : m (List OpenDecl)\nexport MonadResolveName (getCurrNamespace getOpenDecls)\ninstance (m n) [MonadLift m n] [MonadResolveName m] : MonadResolveName n where\n  getCurrNamespace := liftM (m:=m) getCurrNamespace\n  getOpenDecls     := liftM (m:=m) getOpenDecls\ndef resolveGlobalName [Monad m] [MonadResolveName m] [MonadEnv m] (id : Name) : m (List (Name \u00d7 List String)) := do\n  return ResolveName.resolveGlobalName (\u2190 getEnv) (\u2190 getCurrNamespace) (\u2190 getOpenDecls) id\ndef resolveNamespaceCore [Monad m] [MonadResolveName m] [MonadEnv m] [MonadError m] (id : Name) (allowEmpty := false) : m (List Name) := do\n  let nss := ResolveName.resolveNamespace (\u2190 getEnv) (\u2190 getCurrNamespace) (\u2190 getOpenDecls) id\n  if !allowEmpty && nss.isEmpty then\n    throwError s!\"unknown namespace '{id}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ResolveName.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ResolveName.lean",
+    "definition_name": "MonadResolveName"
+  }
+}

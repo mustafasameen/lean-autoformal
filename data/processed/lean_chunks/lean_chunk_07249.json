@@ -1,0 +1,9 @@
+{
+  "content": "| irrelevant, irrelevant => true\n  | _,          _          => false\ninstance : BEq Arg := \u27e8Arg.beq\u27e9\n@[export lean_ir_mk_var_arg] def mkVarArg (id : VarId) : Arg := Arg.var id\ninductive LitVal where\n  | num (v : Nat)\n  | str (v : String)\ndef LitVal.beq : LitVal \u2192 LitVal \u2192 Bool\n  | num v\u2081, num v\u2082 => v\u2081 == v\u2082\n  | str v\u2081, str v\u2082 => v\u2081 == v\u2082\n  | _,      _      => false\ninstance : BEq LitVal := \u27e8LitVal.beq\u27e9\nstructure CtorInfo where\n  name : Name\n  cidx : Nat\n  size : Nat\n  usize : Nat\n  ssize : Nat\n  deriving Repr\ndef CtorInfo.beq : CtorInfo \u2192 CtorInfo \u2192 Bool\n  | \u27e8n\u2081, cidx\u2081, size\u2081, usize\u2081, ssize\u2081\u27e9, \u27e8n\u2082, cidx\u2082, size\u2082, usize\u2082, ssize\u2082\u27e9 =>\n    n\u2081 == n\u2082 && cidx\u2081 == cidx\u2082 && size\u2081 == size\u2082 && usize\u2081 == usize\u2082 && ssize\u2081 == ssize\u2082\ninstance : BEq CtorInfo := \u27e8CtorInfo.beq\u27e9\ndef CtorInfo.isRef (info : CtorInfo) : Bool :=\n  info.size > 0 || info.usize > 0 || info.ssize > 0\ndef CtorInfo.isScalar (info : CtorInfo) : Bool :=\n  !info.isRef\ninductive Expr where\n  | ctor (i : CtorInfo) (ys : Array Arg)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_name": "IRType"
+  }
+}

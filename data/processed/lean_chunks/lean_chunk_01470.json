@@ -1,0 +1,10 @@
+{
+  "content": "theorem t1 {x y : BitVec 64}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_bitblast_stress.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_bitblast_stress.lean",
+    "definition_name": "t1",
+    "has_proof": false
+  }
+}

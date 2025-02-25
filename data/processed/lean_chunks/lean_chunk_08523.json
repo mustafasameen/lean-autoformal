@@ -1,0 +1,10 @@
+{
+  "content": "theorem find?_toList_eq_some_iff_getKey?_eq_some_and_get?_eq_some\n    [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.WF) {k k' : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_name": "find",
+    "has_proof": false
+  }
+}

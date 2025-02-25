@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex (h : (f a && (b || f (f c))) = true) (h' : p \u2227 q) : b && a := by\n  grind\nsection\nattribute [local grind cases eager] Or\n#guard_msgs (error) in\ntheorem ex2 (h : (f a && (b || f (f c))) = true) (h' : p \u2227 q) : b && a := by\n  grind\nend\ndef g (i : Nat) (j : Nat) (_ : i > j := by omega) := i + j\n#guard_msgs (error) in\nexample (i j : Nat) (h : i + 1 > j + 1) : g (i+1) j = f ((fun x => x) i) + f j + 1 := by\n  grind\nstructure Point where\n  x : Nat\n  y : Int\n#guard_msgs (error) in\ntheorem ex3 (h : a\u2081 :: { x := a\u2082, y := a\u2083 : Point }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_pre.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_pre.lean",
+    "definition_name": "ex",
+    "has_proof": true
+  }
+}

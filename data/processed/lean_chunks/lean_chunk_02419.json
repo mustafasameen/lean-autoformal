@@ -1,0 +1,10 @@
+{
+  "content": "theorem Tree.toList_eq_toListTR (t : Tree \u03b2)\n        : t.toList = t.toListTR := by\n  simp [toListTR, go t []]\nwhere\n  go (t : Tree \u03b2) (acc : List (Nat \u00d7 \u03b2))\n     : toListTR.go t acc = t.toList ++ acc := by\n    induction t generalizing acc <;>\n      simp [toListTR.go, toList, *, List.append_assoc]\n@[csimp] theorem Tree.toList_eq_toListTR_csimp\n                 : @Tree.toList = @Tree.toListTR := by\n  funext \u03b2 t\n  apply toList_eq_toListTR\ninductive ForallTree (p : Nat \u2192 \u03b2 \u2192 Prop) : Tree \u03b2 \u2192 Prop\n  | leaf : ForallTree p .leaf\n  | node :\n     ForallTree p left \u2192\n     p key value \u2192\n     ForallTree p right \u2192\n     ForallTree p (.node left key value right)\ninductive BST : Tree \u03b2 \u2192 Prop\n  | leaf : BST .leaf\n  | node :\n     ForallTree (fun k v => k < key) left \u2192\n     ForallTree (fun k v => key < k) right \u2192\n     BST left \u2192 BST right \u2192\n     BST (.node left key value right)\nlocal macro \"have_eq \" lhs:term:max rhs:term:max : tactic =>\n  `(tactic|\n    (have h : $lhs = $rhs :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/bintree.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/bintree.lean",
+    "definition_name": "Tree",
+    "has_proof": true
+  }
+}

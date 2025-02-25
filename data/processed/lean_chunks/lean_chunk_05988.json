@@ -1,0 +1,10 @@
+{
+  "content": "theorem mergeSortTR\u2082_run'_eq_mergeSort : {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Impl.lean",
+    "definition_name": "mergeSortTR\u2082_run",
+    "has_proof": false
+  }
+}

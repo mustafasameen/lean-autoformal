@@ -1,0 +1,9 @@
+{
+  "content": "class FamilyDef {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Family.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Family.lean",
+    "definition_name": "FamilyDef"
+  }
+}

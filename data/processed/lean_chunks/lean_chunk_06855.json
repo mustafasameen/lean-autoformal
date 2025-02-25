@@ -1,0 +1,10 @@
+{
+  "content": "if thmVars.contains fvarId then s.insert fvarId else s\n    let mut fvarsFound : FVarIdSet := RBTree.ofList patternVars\n    for patternVar in patternVars do\n      let type \u2190 patternVar.getType\n      fvarsFound := update fvarsFound type\n    if fvarsFound.size == numParams then return .ok\n    let mut processed : FVarIdSet := RBTree.ofList patternVars\n    let mut modified := false\n    repeat\n      modified := false\n      for x in xs do\n        let fvarId := x.fvarId!\n        unless processed.contains fvarId do\n          let xType \u2190 inferType x\n          if fvarsFound.contains fvarId then\n            fvarsFound := update fvarsFound xType\n            processed := processed.insert fvarId\n            modified := true\n          else if (\u2190 isProp xType) then\n            if checkTypeFVars thmVars fvarsFound xType then\n              fvarsFound := fvarsFound.insert fvarId\n              processed := processed.insert fvarId\n              modified := true",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

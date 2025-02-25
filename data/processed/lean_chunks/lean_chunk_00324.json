@@ -1,0 +1,9 @@
+{
+  "content": "| 0, _             => []\n| _, Parity.even j => false :: natToBin j\n| _, Parity.odd  j => true  :: natToBin j\npartial def natToBin2 (n : Nat) : List Bool :=\nmatch n, parity n with\n| _, Parity.even 0 => []\n| _, Parity.even j => false :: natToBin j\n| _, Parity.odd  j => true  :: natToBin j\n#eval natToBin2 6\npartial def natToBin2' (n : Nat) : List Bool :=\nmatch parity n with\n| Parity.even 0 => []\n| Parity.even j => false :: natToBin j\n| Parity.odd  j => true  :: natToBin j\n#check fun (a, b) => a\n#check fun (a, b) => (a:Nat) + b\n#check fun (a, b) => a && b\n#check fun ((a : Nat), (b : Nat)) => a + b\n#check fun\n  | some a, some b => some (a + b : Nat)\n  | _,      _      => none\n#check fun x => (match x with | 0 => id | x+1 => id) x\n#check fun\n  | #[1, 2]    => 2\n  | #[]        => 0\n  | #[3, 4, 5] => 3\n  | _          => 4\ndef g {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match1.lean",
+    "definition_name": "Parity"
+  }
+}

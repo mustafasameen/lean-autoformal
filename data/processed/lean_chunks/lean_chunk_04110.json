@@ -1,0 +1,10 @@
+{
+  "content": "split <;> rename_i h\n  \u00b7 simp [BitVec.msb, getMsbD, h]\n  \u00b7 by_cases h' : i < w\n    \u00b7 simp_all\n    \u00b7 omega\n@[deprecated \"Use the reverse direction of `cons_msb_setWidth`\" (since := \"2024-09-23\")]\ntheorem eq_msb_cons_setWidth (x : BitVec (w+1)) : x = (cons x.msb (x.setWidth w)) := by\n  simp\n@[simp] theorem not_cons (x : BitVec w) (b : Bool) : ~~~(cons b x) = cons (!b) (~~~x) := by\n  simp [cons]\n@[simp] theorem cons_or_cons (x y : BitVec w) (a b : Bool) :\n    (cons a x) ||| (cons b y) = cons (a || b) (x ||| y) := by\n  ext i\n  simp [cons]\n@[simp] theorem cons_and_cons (x y : BitVec w) (a b : Bool) :\n    (cons a x) &&& (cons b y) = cons (a && b) (x &&& y) := by\n  ext i\n  simp [cons]\n@[simp] theorem cons_xor_cons (x y : BitVec w) (a b : Bool) :\n    (cons a x) ^^^ (cons b y) = cons (a ^^ b) (x ^^^ y) := by\n  ext i\n  simp [cons]\ntheorem cons_append (x : BitVec w\u2081) (y : BitVec w\u2082) (a : Bool) :\n    (cons a x) ++ y = (cons a (x ++ y)).cast (by omega) := by\n  apply eq_of_toNat_eq",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "msb_cons",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_ofFn {\u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/OfFn.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/OfFn.lean",
+    "definition_name": "getElem_ofFn",
+    "has_proof": false
+  }
+}

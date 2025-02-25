@@ -1,0 +1,9 @@
+{
+  "content": "inductive Val where\n  | int  (i : Int)\n  | bool (b : Bool)\n  deriving DecidableEq, Repr\ninstance : Coe Bool Val where\n  coe b := .bool b\ninstance : NatCast Val where\n  natCast i := .int i\ninstance : IntCast Val where\n  intCast i := .int i\ninstance : OfNat Val n where\n  ofNat := .int n\n#check (true : Val)\n#check (0 : Val)\ninductive BinOp where\n  | eq | and | lt | add | sub\n  deriving Repr\ninductive UnaryOp where\n  | not\n  deriving Repr\ninductive Expr where\n  | val (v : Val)\n  | var (x : Var)\n  | bin (lhs : Expr) (op : BinOp) (rhs : Expr)\n  | una (op : UnaryOp) (arg : Expr)\n  deriving Repr\ninstance : Coe Val Expr where\n  coe v := .val v\ninstance : Coe Var Expr where\n  coe x := .var x\ninstance : OfNat Expr n where\n  ofNat := .val n\n@[simp] def BinOp.eval : BinOp \u2192 Val \u2192 Val \u2192 Option Val\n  | .eq,  v\u2081,        v\u2082      => some (.bool (v\u2081 = v\u2082))\n  | .and, .bool b\u2081, .bool b\u2082 => some (.bool (b\u2081 && b\u2082))\n  | .lt,  .int i\u2081,  .int i\u2082  => some (.bool (i\u2081 < i\u2082))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Val"
+  }
+}

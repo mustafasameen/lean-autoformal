@@ -1,0 +1,9 @@
+{
+  "content": "structure InlayHintLabelPart where\n  value     : String\n  tooltip?  : Option InlayHintTooltip := none\n  location? : Option Location := none\n  command?  : Option Command := none\n  deriving FromJson, ToJson\ninductive InlayHintLabel\n  | name (n : String)\n  | parts (p : Array InlayHintLabelPart)\ninstance : FromJson InlayHintLabel where\n  fromJson?\n    | .str s => .ok <| .name s\n    | j@(.arr _) => do return .parts (\u2190 fromJson? j)\n    | j => .error s!\"invalid inlay hint label {j}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "InlayHintLabelPart"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "structure State (aig : AIG Nat) where\n  cnf : CNF (CNFVar aig)\n  cache : Cache aig cnf\n  inv : State.Inv cnf\ndef State.empty (aig : AIG Nat) : State aig where\n  cnf := []\n  cache := Cache.init aig\n  inv := State.Inv_nil\nabbrev State.IsExtensionBy (state1 : State aig) (state2 : State aig) (new : Nat)\n    (hnew : new < aig.decls.size) : Prop :=\n  Cache.IsExtensionBy state1.cache state2.cache new hnew\ntheorem State.IsExtensionBy_trans_left (state1 : State aig) (state2 : State aig)\n    (state3 : State aig) (h12 : IsExtensionBy state1 state2 new1 hnew1)\n    (h23 : IsExtensionBy state2 state3 new2 hnew2) : IsExtensionBy state1 state3 new1 hnew1 := by\n  apply  Cache.IsExtensionBy_trans_left\n  \u00b7 exact h12\n  \u00b7 exact h23\ntheorem State.IsExtensionBy_trans_right (state1 : State aig) (state2 : State aig)\n    (state3 : State aig) (h12 : IsExtensionBy state1 state2 new1 hnew1)\n    (h23 : IsExtensionBy state2 state3 new2 hnew2) : IsExtensionBy state1 state3 new2 hnew2 := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "State",
+    "has_proof": true
+  }
+}

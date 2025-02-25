@@ -1,0 +1,9 @@
+{
+  "content": "def f1.g := 10\ndef f1 (x : Nat) : Nat :=\nlet rec g : Nat \u2192 Nat\n  | 0   => x\n  | y+1 => 2 * g y",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/letrec1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/letrec1.lean",
+    "definition_name": "f1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| default (b : FnBody) : AltCore FnBody\ninductive FnBody where\n  | jdecl (j : JoinPointId) (xs : Array Param) (v : FnBody) (b : FnBody)\n  | set (x : VarId) (i : Nat) (y : Arg) (b : FnBody)\n  | setTag (x : VarId) (cidx : Nat) (b : FnBody)\n  | sset (x : VarId) (i : Nat) (offset : Nat) (y : VarId) (ty : IRType) (b : FnBody)\n  | inc (x : VarId) (n : Nat) (c : Bool) (persistent : Bool) (b : FnBody)\n  | dec (x : VarId) (n : Nat) (c : Bool) (persistent : Bool) (b : FnBody)\n  | del (x : VarId) (b : FnBody)\n  | mdata (d : MData) (b : FnBody)\n  | case (tid : Name) (x : VarId) (xType : IRType) (cs : Array (AltCore FnBody))\n  | ret (x : Arg)\n@[inline] def FnBody.split (b : FnBody) : FnBody \u00d7 FnBody :=\n  let b' := b.body\n  let c  := b.resetBody\n  (c, b')\ndef AltCore.body : Alt \u2192 FnBody\n  | Alt.ctor _ b  => b\n  | Alt.default b => b\ndef AltCore.setBody : Alt \u2192 FnBody \u2192 Alt\n  | Alt.ctor c _, b  => Alt.ctor c b\n  | Alt.default _, b => Alt.default b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_name": "IRType"
+  }
+}

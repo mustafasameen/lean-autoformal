@@ -1,0 +1,9 @@
+{
+  "content": "instance natToBool : Coe Nat Bool :=\n{ coe := fun n => match n with\n  | 0 => false\n  | _ => true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/CoeNew.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/CoeNew.lean",
+    "definition_name": "natToBool"
+  }
+}

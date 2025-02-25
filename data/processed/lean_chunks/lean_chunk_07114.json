@@ -1,0 +1,9 @@
+{
+  "content": "let jps \u2190 findFVarDepsFixpoint jps\n  return attach jps k\nmutual\npartial def addToPull (isFun : Bool) (decl : FunDecl) : PullM Unit := do\n  let saved \u2190 get\n  modify fun _ => []\n  let mut value \u2190 pull decl.value\n  value \u2190 attachParamsDeps decl.params value\n  if isFun then\npartial def pull (code : Code) : PullM Code := do\n  match code with\n  | .let decl k =>\n    let k \u2190 pull k\n    let k \u2190 attachFVarDeps decl.fvarId k\n    return code.updateLet! decl k\n  | .fun decl k => addToPull true decl; pull k\n  | .jp decl k => addToPull false decl; pull k\n  | .cases c =>\n    let alts \u2190 c.alts.mapMonoM fun alt => do\n      match alt with\n      | .default k => return alt.updateCode (\u2190 pull k)\n      | .alt _ ps k =>\n        let k \u2190 pull k\n        let k \u2190 attachParamsDeps ps k\n        return alt.updateCode k\n    return code.updateAlts! alts\n  | .return .. | .unreach .. | .jmp .. => return code\nend\nend PullFunDecls\nopen PullFunDecls\ndef Decl.pullFunDecls (decl : Decl) : CompilerM Decl := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_name": "ToPull"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class C2 (x : outParam Nat) (y : outParam { n : Nat // n > x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/classBadOutParam.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/classBadOutParam.lean",
+    "definition_name": "C2"
+  }
+}

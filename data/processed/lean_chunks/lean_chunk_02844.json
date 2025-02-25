@@ -1,0 +1,9 @@
+{
+  "content": "class TypeName (\u03b1 : Type u) where private mk' ::\n  private data : (TypeNameData \u03b1).type\ninstance : Nonempty (TypeName \u03b1) := (TypeNameData \u03b1).property.elim (\u27e8\u27e8\u00b7\u27e9\u27e9)\nunsafe def TypeName.mk (\u03b1 : Type u) (typeName : Name) : TypeName \u03b1 :=\n  \u27e8unsafeCast typeName\u27e9\nprivate unsafe def TypeName.typeNameImpl (\u03b1) [TypeName \u03b1] : Name :=\n  unsafeCast (@TypeName.data \u03b1 _)\n@[implemented_by TypeName.typeNameImpl]\nopaque TypeName.typeName (\u03b1) [TypeName \u03b1] : Name\nprivate opaque DynamicPointed : NonemptyType.{0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Dynamic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Dynamic.lean",
+    "definition_name": "TypeName"
+  }
+}

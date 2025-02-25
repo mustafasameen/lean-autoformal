@@ -1,0 +1,9 @@
+{
+  "content": "def propset := \u03a3 (A : Type u), prop A\nnotation \"\u2126\" => propset\ndef isNType : hlevel \u2192 Type u \u2192 Type u\n| \u22122            => contr\n| hlevel.succ n => \u03bb A => \u2200 (x y : A), isNType n (x = y)\nnotation \"is-\" n \"-type\" => isNType n\ndef nType (n : hlevel) : Type (u + 1) :=\n\u03a3 (A : Type u), is-n-type A\nnotation n \"-Type\" => nType n\ninductive Unit : Type u\n| star : Unit\nattribute [cases_eliminator] Unit.casesOn\ndef Homotopy {A : Type u} {B : A \u2192 Type v} (f g : \u2200 x, B x) :=\n\u2200 (x : A), f x = g x\ninfix:80 \" ~ \" => Homotopy\ndef linv {A : Type u} {B : Type v} (f : A \u2192 B) :=\n\u03a3 (g : B \u2192 A), g \u2218 f ~ id\ndef rinv {A : Type u} {B : Type v} (f : A \u2192 B) :=\n\u03a3 (g : B \u2192 A), f \u2218 g ~ id\ndef biinv {A : Type u} {B : Type v} (f : A \u2192 B) :=\nlinv f \u00d7 rinv f\ndef Equiv (A : Type u) (B : Type v) : Type (max u v) :=\n\u03a3 (f : A \u2192 B), biinv f\ninfix:25 \" \u2243 \" => Equiv\nnamespace Equiv\n  def forward {A : Type u} {B : Type v} (e : A \u2243 B) : A \u2192 B := e.fst\n  def left {A : Type u} {B : Type v} (e : A \u2243 B) : B \u2192 A := e.2.1.1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "propset"
+  }
+}

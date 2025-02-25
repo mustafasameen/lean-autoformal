@@ -1,0 +1,9 @@
+{
+  "content": "withOptions (pp.mvars.set \u00b7 false) do\n  let stx \u2190 delabToRefinableSyntax e\n  let mvars \u2190 getMVars e\n  let suggestion \u2190 if mvars.isEmpty then `(tactic| exact $stx) else `(tactic| refine $stx)\n  let pp \u2190 ppExpr e\n  let messageData? := if mvars.isEmpty then m!\"exact {pp}\" else m!\"refine {pp}\"\n  let postInfo? \u2190 if !addSubgoalsMsg || mvars.isEmpty then pure none else\n    let mut str := \"\\nRemaining subgoals:\"\n    for g in mvars do\n      let e \u2190 PrettyPrinter.ppExpr (\u2190 instantiateMVars (\u2190 g.getType))\n      str := str ++ Format.pretty (\"\\n\u22a2 \" ++ e)\n    pure str\n  pure { suggestion, postInfo?, messageData? }\ndef addExactSuggestion (ref : Syntax) (e : Expr)\n    (origSpan? : Option Syntax := none) (addSubgoalsMsg := false)\n    (codeActionPrefix? : Option String := none): MetaM Unit := do\n  addSuggestion ref (\u2190 addExactSuggestionCore addSubgoalsMsg e)\n    (origSpan? := origSpan?) (codeActionPrefix? := codeActionPrefix?)\ndef addExactSuggestions (ref : Syntax) (es : Array Expr)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "SuggestionStyle"
+  }
+}

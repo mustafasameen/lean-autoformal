@@ -1,0 +1,10 @@
+{
+  "content": "theorem Context.mergeIdem_nonEmpty (e : List Nat) (h : e \u2260 []) : mergeIdem e \u2260 [] := by\n  induction e using List.two_step_induction with\n  | empty => simp_all\n  | single => simp [mergeIdem, mergeIdem.loop]\n  | step => simp [mergeIdem, mergeIdem.loop] at *; split <;> simp_all\ntheorem Context.mergeIdem_head : mergeIdem (x :: x :: xs) = mergeIdem (x :: xs) := by\n  simp [mergeIdem, mergeIdem.loop]\ntheorem Context.mergeIdem_head2 (h : x \u2260 y) : mergeIdem (x :: y :: ys) = x :: mergeIdem (y :: ys) := by\n  simp [mergeIdem, mergeIdem.loop, h]\ntheorem Context.evalList_mergeIdem (ctx : Context \u03b1) (h : ContextInformation.isIdem ctx) (e : List Nat) : evalList \u03b1 ctx (mergeIdem e) = evalList \u03b1 ctx e := by\n  have h : IdempotentOp ctx.op := by\n    simp [ContextInformation.isIdem, Option.isSome] at h;\n    match h\u2082 : ctx.idem with\n    | none =>\n      simp [h\u2082] at h\n    | some val =>\n      simp [h\u2082] at h\n      exact val.down\n  induction e using List.two_step_induction with\n  | empty => rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

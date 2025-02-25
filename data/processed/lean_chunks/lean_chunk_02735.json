@@ -1,0 +1,9 @@
+{
+  "content": "abbrev identKind : SyntaxNodeKind := `ident\nabbrev charLitKind : SyntaxNodeKind := `char\nabbrev scientificLitKind : SyntaxNodeKind := `scientific\nabbrev fieldIdxKind : SyntaxNodeKind := `fieldIdx\nabbrev hygieneInfoKind : SyntaxNodeKind := `hygieneInfo\nabbrev interpolatedStrLitKind : SyntaxNodeKind := `interpolatedStrLitKind\nabbrev interpolatedStrKind : SyntaxNodeKind := `interpolatedStrKind\n@[inline] def mkNullNode (args : Array Syntax := Array.empty) : Syntax :=\n  mkNode nullKind args |>.raw\nnamespace Syntax\ndef getKind (stx : Syntax) : SyntaxNodeKind :=\n  match stx with\n  | Syntax.node _ k _    => k\n  | Syntax.missing     => `missing\n  | Syntax.atom _ v    => Name.mkSimple v\n  | Syntax.ident ..    => identKind\ndef setKind (stx : Syntax) (k : SyntaxNodeKind) : Syntax :=\n  match stx with\n  | Syntax.node info _ args => Syntax.node info k args\n  | _                       => stx\ndef getArg (stx : Syntax) (i : Nat) : Syntax :=\n  match stx with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Name"
+  }
+}

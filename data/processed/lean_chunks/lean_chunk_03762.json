@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldr_append (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b) (xs ys : Array \u03b1) :\n    (xs ++ ys).foldr f b = xs.foldr f (ys.foldr f b) := by\n  simp [foldr_eq_foldrM]\n@[simp] theorem foldl_flatten' (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b : \u03b2) (xss : Array (Array \u03b1))\n    (w : stop = xss.flatten.size) :\n    (flatten xss).foldl f b 0 stop = xss.foldl (fun b xs => xs.foldl f b) b := by\n  subst w\n  cases xss using array\u2082_induction\n  simp [List.foldl_flatten, List.foldl_map]\n@[simp] theorem foldr_flatten' (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b : \u03b2) (xss : Array (Array \u03b1))\n    (w : start = xss.flatten.size) :\n    (flatten xss).foldr f b start 0 = xss.foldr (fun xs b => xs.foldr f b) b := by\n  subst w\n  cases xss using array\u2082_induction\n  simp [List.foldr_flatten, List.foldr_map]\ntheorem foldl_flatten (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b : \u03b2) (xss : Array (Array \u03b1)) :\n    (flatten xss).foldl f b = xss.foldl (fun b xs => xs.foldl f b) b := by\n  cases xss using array\u2082_induction\n  simp [List.foldl_flatten, List.foldl_map]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "foldr_append",
+    "has_proof": true
+  }
+}

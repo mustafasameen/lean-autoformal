@@ -1,0 +1,10 @@
+{
+  "content": "inductive Tree (\u03b2 : Type v) where\n  | leaf\n  | node (left : Tree \u03b2) (key : Nat) (value : \u03b2) (right : Tree \u03b2)\n  deriving Repr\ndef Tree.contains (t : Tree \u03b2) (k : Nat) : Bool :=\n  match t with\n  | leaf => false\n  | node left key value right =>\n    if k < key then\n      left.contains k\n    else if key < k then\n      right.contains k\n    else\n      true\ndef Tree.find? (t : Tree \u03b2) (k : Nat) : Option \u03b2 :=\n  match t with\n  | leaf => none\n  | node left key value right =>\n    if k < key then\n      left.find? k\n    else if key < k then\n      right.find? k\n    else\n      some value\ndef Tree.insert (t : Tree \u03b2) (k : Nat) (v : \u03b2) : Tree \u03b2 :=\n  match t with\n  | leaf => node leaf k v leaf\n  | node left key value right =>\n    if k < key then\n      node (left.insert k v) key value right\n    else if key < k then\n      node left key value (right.insert k v)\n    else\n      node left k v right\ndef Tree.toList (t : Tree \u03b2) : List (Nat \u00d7 \u03b2) :=\n  match t with\n  | leaf => []",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/bintree.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/bintree.lean",
+    "definition_name": "Tree",
+    "has_proof": true
+  }
+}

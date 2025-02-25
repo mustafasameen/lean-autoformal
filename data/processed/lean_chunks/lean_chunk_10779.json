@@ -1,0 +1,9 @@
+{
+  "content": "}\n      setupOptions := \u27e8\u2205\u27e9\n      : FileSetupInfo\n    }\n  else\n    if let some errLog := (\u2190 IO.getEnv invalidConfigEnvVar) then\n      IO.eprint errLog\n      IO.eprintln s!\"Failed to configure the Lake workspace. Please restart the server after fixing the error above.\"\n      exit 1\n    let outLv := buildConfig.verbosity.minLogLv\n    let ws \u2190 MainM.runLoggerIO (minLv := outLv) (ansiMode := .noAnsi) do\n      loadWorkspace loadConfig\n    let usesLake := imports.any (\u00b7.startsWith \"Lake\")\n    let imports := imports.foldl (init := #[]) fun imps imp =>\n      if let some mod := ws.findModule? imp.toName then imps.push mod else imps\n    let {dynlibs, plugins} \u2190\n      MainM.runLogIO (minLv := outLv) (ansiMode := .noAnsi) do\n        ws.runBuild (buildImportsAndDeps path imports) buildConfig\n    let plugins :=\n      if usesLake then plugins.push ws.lakeEnv.lake.sharedLib else plugins\n    let paths : LeanPaths := {\n      oleanPath := ws.leanPath\n      srcPath := ws.leanSrcPath",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Serve.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Serve.lean",
+    "definition_name": "invalidConfigEnvVar"
+  }
+}

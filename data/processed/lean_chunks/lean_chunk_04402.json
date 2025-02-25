@@ -1,0 +1,9 @@
+{
+  "content": "structure ExprCnstr where\n  eq  : Bool\n  lhs : Expr\n  rhs : Expr\ndef PolyCnstr.denote (ctx : Context) (c : PolyCnstr) : Prop :=\n  bif c.eq then\n    Poly.denote_eq ctx (c.lhs, c.rhs)\n  else\n    Poly.denote_le ctx (c.lhs, c.rhs)\ndef PolyCnstr.norm (c : PolyCnstr) : PolyCnstr :=\n  let (lhs, rhs) := Poly.cancel c.lhs.norm c.rhs.norm\n  { eq := c.eq, lhs, rhs }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "ExprCnstr"
+  }
+}

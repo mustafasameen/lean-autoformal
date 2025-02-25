@@ -1,0 +1,10 @@
+{
+  "content": "theorem toArray_cons (a : \u03b1) (l : List \u03b1) : (a :: l).toArray = #[a] ++ l.toArray := by\n  apply ext'\n  simp\n@[simp] theorem push_toArray (l : List \u03b1) (a : \u03b1) : l.toArray.push a = (l ++ [a]).toArray := by\n  apply ext'\n  simp\n@[simp] theorem foldrM_toArray' [Monad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (init : \u03b2) (l : List \u03b1)\n    (h : start = l.toArray.size) :\n    l.toArray.foldrM f init start 0 = l.foldrM f init := by\n  subst h\n  rw [foldrM_eq_reverse_foldlM_toList]\n  simp\n@[simp] theorem forM_toArray' [Monad m] (l : List \u03b1) (f : \u03b1 \u2192 m PUnit) (h : stop = l.toArray.size) :\n    (l.toArray.forM f 0 stop) = l.forM f := by\n  subst h\n  rw [Array.forM]\n  simp only [size_toArray, foldlM_toArray']\n  induction l <;> simp_all\n@[simp]\ntheorem forM_toArray [Monad m] (l : List \u03b1) (f : \u03b1 \u2192 m PUnit) :\n    (forM l.toArray f) = l.forM f :=\n  forM_toArray' l f rfl\n@[simp] theorem foldl_toArray' (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (init : \u03b2) (l : List \u03b1)\n    (h : stop = l.toArray.size) :\n    l.toArray.foldl f init 0 stop = l.foldl f init := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "toArray_cons",
+    "has_proof": true
+  }
+}

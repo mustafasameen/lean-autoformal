@@ -1,0 +1,10 @@
+{
+  "content": "have := Poly.denote_eq_cancel_eq ctx a.toNormPoly b.toNormPoly\n  rw [h] at this\n  simp [toNormPoly, Poly.norm, Poly.denote_eq, -eq_iff_iff] at this\n  exact this.symm\ntheorem Expr.of_cancel_le (ctx : Context) (a b c d : Expr) (h : Poly.cancel a.toNormPoly b.toNormPoly = (c.toPoly, d.toPoly)) : (a.denote ctx \u2264 b.denote ctx) = (c.denote ctx \u2264 d.denote ctx) := by\n  have := Poly.denote_le_cancel_eq ctx a.toNormPoly b.toNormPoly\n  rw [h] at this\n  simp [toNormPoly, Poly.norm,Poly.denote_le, -eq_iff_iff] at this\n  exact this.symm\ntheorem Expr.of_cancel_lt (ctx : Context) (a b c d : Expr) (h : Poly.cancel a.inc.toNormPoly b.toNormPoly = (c.inc.toPoly, d.toPoly)) : (a.denote ctx < b.denote ctx) = (c.denote ctx < d.denote ctx) :=\n  of_cancel_le ctx a.inc b c.inc d h\ntheorem ExprCnstr.toPoly_norm_eq (c : ExprCnstr) : c.toPoly.norm = c.toNormPoly :=\n  rfl\ntheorem ExprCnstr.denote_toPoly (ctx : Context) (c : ExprCnstr) : c.toPoly.denote ctx = c.denote ctx := by\n  cases c; rename_i eq lhs rhs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

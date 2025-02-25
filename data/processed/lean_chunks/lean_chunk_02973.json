@@ -1,0 +1,9 @@
+{
+  "content": "inductive MessageSeverity where\n  | information | warning | error\n  deriving Inhabited, BEq, ToJson, FromJson\nstructure MessageDataContext where\n  env  : Environment\n  mctx : MetavarContext\n  lctx : LocalContext\n  opts : Options\nstructure NamingContext where\n  currNamespace : Name\n  openDecls : List OpenDecl\nstructure TraceData where\n  startTime : Float := 0\n  collapsed : Bool := true\ninductive MessageData where\n  | ofFormatWithInfos : FormatWithInfos \u2192 MessageData\n  | ofGoal            : MVarId \u2192 MessageData\n  | ofWidget          : Widget.WidgetInstance \u2192 MessageData \u2192 MessageData\n  | nest              : Nat \u2192 MessageData \u2192 MessageData\n  | compose           : MessageData \u2192 MessageData \u2192 MessageData\n  | tagged            : Name \u2192 MessageData \u2192 MessageData\n  | trace (data : TraceData) (msg : MessageData) (children : Array MessageData)\n  | ofLazy (f : Option PPContext \u2192 BaseIO Dynamic) (hasSyntheticSorry : MetavarContext \u2192 Bool)\n  deriving Inhabited, TypeName\nnamespace MessageData",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_name": "MessageSeverity"
+  }
+}

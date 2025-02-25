@@ -1,0 +1,9 @@
+{
+  "content": "structure ISignature (I : Type u) : Type (max u v + 1) where\n  symbols : I \u2192 Type v\n  indices : {i : I}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3458_2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3458_2.lean",
+    "definition_name": "ISignature"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "(tactic : List MVarId \u2192 MetaM (List MVarId))\n    (allowFailure : MVarId \u2192 MetaM Bool)\n    (leavePercentHeartbeats : Nat) :\n    MetaM (Option (Array (List MVarId \u00d7 MetavarContext))) := do\n  withTraceNode `Tactic.librarySearch (return m!\"{librarySearchEmoji \u00b7} {\u2190 goal.getType}\") do\n  profileitM Exception \"librarySearch\" (\u2190 getOptions) do\n    let candidates \u2190 librarySearchSymm libSearchFindDecls goal\n    let cfg : ApplyConfig := { allowSynthFailures := true }\n    let shouldAbort \u2190 mkHeartbeatCheck leavePercentHeartbeats\n    let act := fun cand => do\n        if \u2190shouldAbort then\n          abortSpeculation\n        librarySearchLemma cfg tactic allowFailure cand\n    tryOnEach act candidates\ndef librarySearch (goal : MVarId)\n    (tactic : Bool \u2192 List MVarId \u2192 MetaM (List MVarId) :=\n      fun initial g => solveByElim [] (maxDepth := 6) (exfalso := initial) g)\n    (allowFailure : MVarId \u2192 MetaM Bool := fun _ => pure true)\n    (leavePercentHeartbeats : Nat := 10) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_name": "CandidateFinder"
+  }
+}

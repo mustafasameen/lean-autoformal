@@ -1,0 +1,9 @@
+{
+  "content": "adaptExpander $ fun stx => match stx with\n | `((|| $e ||)) => `($e + 1)\n | _             => throwUnsupportedSyntax\n#guard_msgs in\n#eval runCore \"#check (| id 1 |)\"\n#guard_msgs in\n#eval runCore \"#check (| id 1 |)\"\n#guard_msgs in\n#check FOO \u27e8| id 1 |\u27e9\n#guard_msgs in\n#check FOO 1 >>> 2",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/termParserAttr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/termParserAttr.lean",
+    "definition_name": "tst"
+  }
+}

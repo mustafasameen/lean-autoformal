@@ -1,0 +1,10 @@
+{
+  "content": "theorem count_nil (a : \u03b1) : count a [] = 0 := rfl\ntheorem count_cons (a b : \u03b1) (l : List \u03b1) :\n    count a (b :: l) = count a l + if b == a then 1 else 0 := by\n  simp [count, countP_cons]\ntheorem count_eq_countP (a : \u03b1) (l : List \u03b1) : count a l = countP (\u00b7 == a) l := rfl\ntheorem count_eq_countP' {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Count.lean",
+    "definition_name": "count_nil",
+    "has_proof": true
+  }
+}

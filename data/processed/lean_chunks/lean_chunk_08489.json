@@ -1,0 +1,9 @@
+{
+  "content": "(m : DHashMap \u03b1 (fun _ => \u03b2)) : Array \u03b2 :=\n  m.1.valuesArray\n@[inline] def modify [LawfulBEq \u03b1] (m : DHashMap \u03b1 \u03b2) (a : \u03b1) (f : \u03b2 a \u2192 \u03b2 a) : DHashMap \u03b1 \u03b2 :=\n  \u27e8Raw\u2080.modify \u27e8m.1, m.2.size_buckets_pos\u27e9 a f, Raw.WF.modify\u2080 m.2\u27e9\n@[inline, inherit_doc DHashMap.modify] def Const.modify {\u03b2 : Type v} (m : DHashMap \u03b1 (fun _ => \u03b2))\n    (a : \u03b1) (f : \u03b2 \u2192 \u03b2) : DHashMap \u03b1 (fun _ => \u03b2) :=\n  \u27e8Raw\u2080.Const.modify \u27e8m.1, m.2.size_buckets_pos\u27e9 a f, Raw.WF.constModify\u2080 m.2\u27e9\n@[inline] def alter [LawfulBEq \u03b1] (m : DHashMap \u03b1 \u03b2)\n    (a : \u03b1) (f : Option (\u03b2 a) \u2192 Option (\u03b2 a)) : DHashMap \u03b1 \u03b2 :=\n  \u27e8Raw\u2080.alter \u27e8m.1, m.2.size_buckets_pos\u27e9 a f, Raw.WF.alter\u2080 m.2\u27e9\n@[inline, inherit_doc DHashMap.alter] def Const.alter {\u03b2 : Type v}\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) (a : \u03b1) (f : Option \u03b2 \u2192 Option \u03b2) : DHashMap \u03b1 (fun _ => \u03b2) :=\n  \u27e8Raw\u2080.Const.alter \u27e8m.1, m.2.size_buckets_pos\u27e9 a f, Raw.WF.constAlter\u2080 m.2\u27e9\n@[inline, inherit_doc Raw.insertMany] def insertMany {\u03c1 : Type w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_name": "empty"
+  }
+}

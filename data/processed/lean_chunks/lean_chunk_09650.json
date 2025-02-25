@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEmpty_eq_false_iff_exists_contains_eq_true [TransCmp cmp] :\n    t.isEmpty = false \u2194 \u2203 a, t.contains a = true :=\n  DTreeMap.isEmpty_eq_false_iff_exists_contains_eq_true\ntheorem isEmpty_eq_false_iff_exists_mem [TransCmp cmp] :\n    t.isEmpty = false \u2194 \u2203 a, a \u2208 t :=\n  DTreeMap.isEmpty_eq_false_iff_exists_mem\ntheorem isEmpty_iff_forall_contains [TransCmp cmp] :\n    t.isEmpty = true \u2194 \u2200 a, t.contains a = false :=\n  DTreeMap.isEmpty_iff_forall_contains\ntheorem isEmpty_iff_forall_not_mem [TransCmp cmp] :\n    t.isEmpty = true \u2194 \u2200 a, \u00aca \u2208 t :=\n  DTreeMap.isEmpty_iff_forall_not_mem\n@[simp]\ntheorem insert_eq_insert {p : \u03b1 \u00d7 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Lemmas.lean",
+    "definition_name": "isEmpty_eq_false_iff_exists_contains_eq_true",
+    "has_proof": false
+  }
+}

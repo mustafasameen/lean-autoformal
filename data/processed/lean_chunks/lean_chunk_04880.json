@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_id_fun : map (id : \u03b1 \u2192 \u03b1) = id := by\n  funext l\n  induction l <;> simp_all\ntheorem map_id' (l : List \u03b1) : map (fun (a : \u03b1) => a) l = l := map_id l\n@[simp] theorem filter_cons_of_pos {p : \u03b1 \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "map_id_fun",
+    "has_proof": true
+  }
+}

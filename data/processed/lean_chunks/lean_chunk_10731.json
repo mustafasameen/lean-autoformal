@@ -1,0 +1,9 @@
+{
+  "content": "class MonadLog (m : Type u \u2192 Type v) where\n  logEntry (e : LogEntry) : m PUnit\nexport MonadLog (logEntry)\n@[inline] def logVerbose [Monad m] [MonadLog m] (message : String) : m PUnit := do\n  logEntry (.trace message)\n@[inline] def logInfo [Monad m] [MonadLog m] (message : String) : m PUnit := do\n  logEntry (.info message)\n@[inline] def logWarning [MonadLog m] (message : String) : m PUnit :=\n  logEntry (.warning message)\n@[inline] def logError [MonadLog m] (message : String) : m PUnit :=\n  logEntry (.error message)\n@[specialize] def logSerialMessage (msg : SerialMessage) [MonadLog m] : m PUnit :=\n  let str := if msg.caption.trim.isEmpty then\n     msg.data.trim else s!\"{msg.caption.trim}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Log.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Log.lean",
+    "definition_name": "MonadLog"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "let testDir := (\u2190 getWorkspace).dir / \"test\"\n  try\n    IO.FS.removeDirAll (testDir / test)\n  catch\n    | .noFileOrDirectory .. => pure ()\n    | e => throw e\n  IO.FS.createDirAll (testDir / test)\n  for layer in [:layers] do\n    for idx in [:width] do\n      IO.FS.writeFile (testDir / test / s!\"{num2letters layer}{idx}.lean\") <|\n        mkImportsAt layer\n  IO.FS.writeFile (testDir / s!\"{test}.lean\") (mkImportsAt layers)\n  return 0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/inundation/lakefile.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/inundation/lakefile.lean",
+    "definition_name": "test",
+    "imports": "{test}.{num2letters layer}{idx}\\n\""
+  }
+}

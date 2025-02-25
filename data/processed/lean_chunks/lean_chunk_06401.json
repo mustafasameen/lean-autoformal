@@ -1,0 +1,9 @@
+{
+  "content": "| `ident => `(Syntax.matchesIdent __discr $(quote quoted.getId))\n            | _     => `(Syntax.isOfKind __discr $(quote kind))\n            let newDiscrs \u2190 (List.range argPats.size).mapM fun i => `(Syntax.getArg __discr $(quote i))\n            pure (cond, newDiscrs)\n          `(ite (Eq $cond true) $(\u2190 yes newDiscrs) $(\u2190 no))\n      }\n  else match pat with\n    | `(_)              => unconditionally pure\n    | `($id:ident)      => unconditionally (`(have $id := __discr",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_name": "ArrayStxBuilder"
+  }
+}

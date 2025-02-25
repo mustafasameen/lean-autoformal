@@ -1,0 +1,10 @@
+{
+  "content": "| cons z zs => simp [evalList, \u2190h\u2082, ih]\ntheorem Context.toList_nonEmpty (e : Expr) : e.toList \u2260 [] := by\n  induction e with\n  | var => simp [Expr.toList]\n  | op l r ih\u2081 _   =>\n    simp [Expr.toList]\n    cases h : l.toList with\n    | nil => contradiction\n    | cons => simp [List.append]\ntheorem Context.unwrap_isNeutral\n  {ctx : Context \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

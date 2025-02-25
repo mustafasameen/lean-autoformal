@@ -1,0 +1,9 @@
+{
+  "content": "inductive Reason\n  | yes\n  | no\n  | optional\nprivate def parseOffset (withMinutes : Reason) (withSeconds : Reason) (withColon : Bool) : Parser Offset := do\n  let sign \u2190 (pchar '+' *> pure 1) <|> (pchar '-' *> pure (-1))\n  let hours : Hour.Offset \u2190 UnitVal.ofInt <$> parseNum 2\n  let colon := if withColon then pchar ':' else pure ':'\n  let parseUnit {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "Reason"
+  }
+}

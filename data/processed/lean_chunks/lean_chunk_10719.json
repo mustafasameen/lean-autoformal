@@ -1,0 +1,9 @@
+{
+  "content": "class LawfulCmpEq (\u03b1 : Type u) (cmp : \u03b1 \u2192 \u03b1 \u2192 Ordering) extends EqOfCmp \u03b1 cmp where\n  cmp_rfl {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Compare.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Compare.lean",
+    "definition_name": "LawfulCmpEq"
+  }
+}

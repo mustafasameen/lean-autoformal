@@ -1,0 +1,9 @@
+{
+  "content": "def mkLambdaFVars (xs : Array Expr) (e : Expr) (usedOnly : Bool := false) (usedLetOnly : Bool := true) (etaReduce : Bool := false) (binderInfoForMVars := BinderInfo.implicit) : MetaM Expr :=\n  if xs.isEmpty then return e else liftMkBindingM <| MetavarContext.mkLambda xs e usedOnly usedLetOnly etaReduce binderInfoForMVars\ndef mkLetFVars (xs : Array Expr) (e : Expr) (usedLetOnly := true) (binderInfoForMVars := BinderInfo.implicit) : MetaM Expr :=\n  mkLambdaFVars xs e (usedLetOnly := usedLetOnly) (binderInfoForMVars := binderInfoForMVars)\n@[inline] def withConfig (f : Config \u2192 Config) : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM <| withReader fun ctx =>\n    let config := f ctx.config\n    let configKey := config.toKey\n    { ctx with config, configKey }\n@[inline] def withConfigWithKey (c : ConfigWithKey) : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM <| withReader fun ctx =>\n    let config := c.config\n    let configKey := c.key\n    { ctx with config, configKey }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

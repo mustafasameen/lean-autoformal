@@ -1,0 +1,9 @@
+{
+  "content": "let suffixDiscrs \u2190 (List.range numSuffix).mapM fun i =>\n            `(Syntax.getArg __discr (Nat.sub __discr.getNumArgs $(quote (numSuffix - i))))\n          `(ite (GE.ge __discr.getNumArgs $(quote (quoted.getNumArgs - 1)))\n              $(\u2190 yes (prefixDiscrs ++ sliceDiscr :: suffixDiscrs))\n              $(\u2190 no))\n      }\n    else\n      let quoted  := unescapeAntiquot quoted\n      let kind := quoted.getKind\n      let lit := isLitKind kind\n      let argPats := quoted.getArgs.map fun arg => Unhygienic.run `(`($(arg)))\n      pure {\n        check :=\n          if quoted.isIdent || lit then\n            other quoted\n          else\n            shape [kind] argPats.size,\n        onMatch := fun\n          | other stx' =>\n            if quoted.isIdent || lit then\n              if quoted == stx' then\n                covered pure (exhaustive := true)\n              else\n                uncovered\n            else\n              undecided\n          | shape ks sz =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_name": "ArrayStxBuilder"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| app f _  , n => go f (n + 1)\n    | _        , n => n\ndef getBoundedAppFn : (maxArgs : Nat) \u2192 Expr \u2192 Expr\n  | maxArgs' + 1, .app f _ => getBoundedAppFn maxArgs' f\n  | _, e => e\nprivate def getAppArgsAux : Expr \u2192 Array Expr \u2192 Nat \u2192 Array Expr\n  | app f a, as, i => getAppArgsAux f (as.set! i a) (i-1)\n  | _,       as, _ => as\n@[inline] def getBoundedAppArgs (maxArgs : Nat) (e : Expr) : Array Expr :=\n  let dummy := mkSort levelZero\n  let nargs := min maxArgs e.getAppNumArgs\n  getBoundedAppArgsAux e (mkArray nargs dummy) nargs\nprivate def getAppRevArgsAux : Expr \u2192 Array Expr \u2192 Array Expr\n  | app f a, as => getAppRevArgsAux f (as.push a)\n  | _,       as => as\n@[inline] def withApp (e : Expr) (k : Expr \u2192 Array Expr \u2192 \u03b1) : \u03b1 :=\n  let dummy := mkSort levelZero\n  let nargs := e.getAppNumArgs\n  withAppAux k e (mkArray nargs dummy) (nargs-1)\n@[inline] def getAppArgsN (e : Expr) (n : Nat) : Array Expr :=\n  let dummy := mkSort levelZero\n  loop n e (mkArray n dummy)\nwhere",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

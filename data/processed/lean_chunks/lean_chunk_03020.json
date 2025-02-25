@@ -1,0 +1,9 @@
+{
+  "content": "match e with\n  | letE n t v b nonDep =>\n    if ptrEq t newType && ptrEq v newVal && ptrEq b newBody then\n      e\n    else\n      letE n newType newVal newBody nonDep\n  | _              => panic! \"let expression expected\"\n@[implemented_by updateLet!Impl]\ndef updateLet! (e : Expr) (newType : Expr) (newVal : Expr) (newBody : Expr) : Expr :=\n  match e with\n  | letE n _ _ _ c => letE n newType newVal newBody c\n  | _              => panic! \"let expression expected\"\ndef updateFn : Expr \u2192 Expr \u2192 Expr\n  | e@(app f a), g => e.updateApp! (updateFn f g) a\n  | _,           g => g\npartial def eta (e : Expr) : Expr :=\n  match e with\n  | Expr.lam _ d b _ =>\n    let b' := b.eta\n    match b' with\n    | .app f (.bvar 0) =>\n      if !f.hasLooseBVar 0 then\n        f.lowerLooseBVars 1 1\n      else\n        e.updateLambdaE! d b'\n    | _ => e.updateLambdaE! d b'\n  | _ => e\ndef setOption (e : Expr) (optionName : Name) [KVMap.Value \u03b1] (val : \u03b1) : Expr :=\n  mkMData (MData.empty.set optionName val) e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "ExprStructEq"
+  }
+}

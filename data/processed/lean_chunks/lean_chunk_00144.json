@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : p \u2228 q \u2192 q \u2228 p := by\n  intro h\n  cases h\n  trace_state\n  apply Or.inr\n  assumption\n  apply Or.inl\n  assumption\n  done\ntheorem ex2 : {p : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/hidingInaccessibleNames.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/hidingInaccessibleNames.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

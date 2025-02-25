@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  declName : Name\n  auxDeclName : Name\n  paramMask : Array Bool\nabbrev ReduceM := ReaderT Context CompilerM\npartial def reduce (code : Code) : ReduceM Code := do\n  match code with\n  | .let decl k =>\n    let .const declName _ args := decl.value | do return code.updateLet! decl (\u2190 reduce k)\n    unless declName == (\u2190 read).declName do return code.updateLet! decl (\u2190 reduce k)\n    let mut argsNew := #[]\n    for used in (\u2190 read).paramMask, arg in args do\n      if used then\n        argsNew := argsNew.push arg\n    let decl \u2190 decl.updateValue (.const (\u2190 read).auxDeclName [] argsNew)\n    return code.updateLet! decl (\u2190 reduce k)\n  | .fun decl k | .jp decl k =>\n    let decl \u2190 decl.updateValue (\u2190 reduce decl.value)\n    return code.updateFun! decl (\u2190 reduce k)\n  | .cases c =>\n    let alts \u2190 c.alts.mapMonoM fun alt => return alt.updateCode (\u2190 reduce alt.getCode)\n    return code.updateAlts! alts\n  | .unreach .. | .jmp .. | .return .. => return code\nend ReduceArity",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ReduceArity.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ReduceArity.lean",
+    "definition_name": "Context"
+  }
+}

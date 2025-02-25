@@ -1,0 +1,9 @@
+{
+  "content": "match e.getAppFn with\n        | .mvar mvarId => return some mvarId\n        | _ => getStuckMVar? e\n      | .const fName _ =>\n        match (\u2190 getEnv).find? fName with\n        | some <| .recInfo recVal  => isRecStuck? recVal e.getAppArgs\n        | some <| .quotInfo recVal => isQuotRecStuck? recVal e.getAppArgs\n        | _  =>\n          unless e.hasExprMVar do return none\n          let some projInfo \u2190 getProjectionFnInfo? fName | return none\n          unless projInfo.fromClass do return none\n          let args := e.getAppArgs\n          if let some major := args[projInfo.numParams]? then\n            if let some mvarId \u2190 getStuckMVar? major then\n              return mvarId\n          let info \u2190 getFunInfo f\n          for pinfo in info.paramInfo, arg in args do\n            if pinfo.isExplicit then\n              if let some mvarId \u2190 getStuckMVar? arg then\n                return some mvarId\n          return none\n      | .proj _ _ e => getStuckMVar? (\u2190 whnf e)\n      | _ => return none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

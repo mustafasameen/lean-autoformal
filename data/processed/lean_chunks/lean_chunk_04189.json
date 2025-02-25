@@ -1,0 +1,10 @@
+{
+  "content": "theorem setWidth_setWidth_succ_eq_setWidth_setWidth_of_getLsbD_false\n  {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "setWidth_setWidth_succ_eq_setWidth_setWidth_of_getLsbD_false",
+    "has_proof": false
+  }
+}

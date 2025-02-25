@@ -1,0 +1,9 @@
+{
+  "content": "let indVal       := ctx.typeInfos[i]\n    let auxFunName   := ctx.auxFunNames[i]!\n    let currArgNames \u2190 mkInductArgNames indVal\n    let numParams    := indVal.numParams\n    let currIndices  := currArgNames[numParams:]\n    let binders      \u2190 mkImplicitBinders currIndices\n    let argNamesNew  := argNames[:numParams] ++ currIndices\n    let indType      \u2190 mkInductiveApp indVal argNamesNew\n    let type         \u2190 `($(mkCIdent className) $indType)\n    let val          \u2190 `(\u27e8$(mkIdent auxFunName)\u27e9)\n    let instName     \u2190 mkFreshUserName `localinst\n    let letDecl      \u2190 `(Parser.Term.letDecl| $(mkIdent instName):ident $binders:implicitBinder* : $type := $val)\n    letDecls := letDecls.push letDecl\n  return letDecls\ndef mkLet (letDecls : Array (TSyntax ``Parser.Term.letDecl)) (body : Term) : TermElabM Term :=\n  letDecls.foldrM (init := body) fun letDecl body =>\n    `(let $letDecl:letDecl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem getElem!_fin [GetElem? Cont Nat Elem Dom] (a : Cont) (i : Fin n) [Inhabited Elem] : a[i]! = a[i.1]! := rfl\nmacro_rules\n  | `(tactic| get_elem_tactic_trivial) => `(tactic| (with_reducible apply Fin.val_lt_of_le); get_elem_tactic_trivial; done)\nend Fin\nnamespace List\ninstance : GetElem (List \u03b1) Nat \u03b1 fun as i => i < as.length where\n  getElem as i h := as.get \u27e8i, h\u27e9\n@[simp] theorem getElem_cons_zero (a : \u03b1) (as : List \u03b1) (h : 0 < (a :: as).length) : getElem (a :: as) 0 h = a := by\n  rfl\n@[simp] theorem getElem_cons_succ (a : \u03b1) (as : List \u03b1) (i : Nat) (h : i + 1 < (a :: as).length) : getElem (a :: as) (i+1) h = getElem as i (Nat.lt_of_succ_lt_succ h) := by\n  rfl\n@[simp] theorem getElem_mem : \u2200 {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "instGetElemFinVal",
+    "has_proof": true
+  }
+}

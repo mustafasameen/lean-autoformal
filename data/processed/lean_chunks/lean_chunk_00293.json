@@ -1,0 +1,10 @@
+{
+  "content": "theorem LE.le.trans {P : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/implicitLambdaIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/implicitLambdaIssue.lean",
+    "definition_name": "LE",
+    "has_proof": false
+  }
+}

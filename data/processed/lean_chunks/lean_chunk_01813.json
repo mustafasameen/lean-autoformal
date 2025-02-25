@@ -1,0 +1,10 @@
+{
+  "content": "theorem Balanced.del {t : RBNode \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_name": "Balanced",
+    "has_proof": false
+  }
+}

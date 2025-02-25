@@ -1,0 +1,9 @@
+{
+  "content": "addSuggestionCore ref #[s] header (isInline := true) origSpan?\n    (codeActionPrefix? := codeActionPrefix?)\ndef addSuggestions (ref : Syntax) (suggestions : Array Suggestion)\n    (origSpan? : Option Syntax := none) (header : String := \"Try these:\")\n    (style? : Option SuggestionStyle := none)\n    (codeActionPrefix? : Option String := none) : MetaM Unit := do\n  if suggestions.isEmpty then throwErrorAt ref \"no suggestions available\"\n  let msgs := suggestions.map toMessageData\n  let msgs := msgs.foldl (init := MessageData.nil) (fun msg m => msg ++ m!\"\\n\u2022 \" ++ m)\n  logInfoAt ref m!\"{header}{msgs}\"\n  addSuggestionCore ref suggestions header (isInline := false) origSpan? style? codeActionPrefix?\nprivate def addExactSuggestionCore (addSubgoalsMsg : Bool) (e : Expr) : MetaM Suggestion :=\n  withOptions (pp.mvars.set \u00b7 false) do\n  let stx \u2190 delabToRefinableSyntax e\n  let mvars \u2190 getMVars e\n  let suggestion \u2190 if mvars.isEmpty then `(tactic| exact $stx) else `(tactic| refine $stx)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "SuggestionStyle"
+  }
+}

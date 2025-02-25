@@ -1,0 +1,10 @@
+{
+  "content": "\u03c3.find? x |>.getD (.int 0)\n@[simp] def State.erase (\u03c3 : State) (x : Var) : State :=\n  match \u03c3 with\n  | [] => []\n  | (y, v) :: \u03c3 => if x = y then erase \u03c3 x else (y, v) :: erase \u03c3 x\n@[simp] theorem State.find?_update_self (\u03c3 : State) (x : Var) (v : Val) : (\u03c3.update x v).find? x = some v := by\nmatch \u03c3 with\n  | [] => simp\n  | (y, w) :: s =>\n    simp\n    split <;> simp [*]\n    apply find?_update_self\n@[simp] theorem State.find?_update (\u03c3 : State) (v : Val) (h : x \u2260 z) : (\u03c3.update x v).find? z = \u03c3.find? z := by\nmatch \u03c3 with\n  | [] => simp [h.symm]\n  | (y, w) :: \u03c3 =>\n    simp\n    split <;> simp [*]\n    next hc => split <;> simp_all\n    next =>\n      split\n      next => rfl\n      next => exact find?_update \u03c3 v h\n@[simp] theorem State.find?_update' (\u03c3 : State) (v : Val) (h : z \u2260 x) : (\u03c3.update x v).find? z = \u03c3.find? z :=\n  State.find?_update \u03c3 v h.symm\ntheorem State.get_of_find? {\u03c3 : State}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/no_grind_constProp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/no_grind_constProp.lean",
+    "definition_name": "Val",
+    "has_proof": true
+  }
+}

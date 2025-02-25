@@ -1,0 +1,9 @@
+{
+  "content": "structure Bar where\n  (p : Prop)\n  (q : Prop)\n  [inst0 : Decidable p]\n  [inst1 : Decidable q]\nexample : Bar := {\n  p := True\n  q := False\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1305.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1305.lean",
+    "definition_name": "Bar"
+  }
+}

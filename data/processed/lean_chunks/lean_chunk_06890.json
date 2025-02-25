@@ -1,0 +1,9 @@
+{
+  "content": "structure ElabSimpArgsResult where\n  ctx      : Simp.Context\n  simprocs : Simp.SimprocsArray\n  starArg  : Bool := false\ninductive ResolveSimpIdResult where\n  | none\n  | expr (e : Expr)\n  | simproc (declName : Name)\n  | ext  (ext\u2081? : Option SimpExtension) (ext\u2082? : Option Simp.SimprocExtension) (h : ext\u2081?.isSome || ext\u2082?.isSome)\ndef elabSimpArgs (stx : Syntax) (ctx : Simp.Context) (simprocs : Simp.SimprocsArray) (eraseLocal : Bool) (kind : SimpKind) : TacticM ElabSimpArgsResult := do\n  if stx.isNone then\n    return { ctx, simprocs }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "ElabSimpArgsResult"
+  }
+}

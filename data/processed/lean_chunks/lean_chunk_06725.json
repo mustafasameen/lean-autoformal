@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_delab forallE]\ndef delabForall : Delab := do\n  delabForallBinders fun curNames dependent stxBody => do\n    let e \u2190 getExpr\n    let prop \u2190 try isProp e catch _ => pure false\n    let stxT \u2190 withBindingDomain delab\n    let group \u2190 match e.binderInfo with\n    | BinderInfo.implicit       => `(bracketedBinderF|{$curNames* : $stxT})\n    | BinderInfo.strictImplicit => `(bracketedBinderF|\u2983$curNames* : $stxT\u2984)\n    | BinderInfo.instImplicit   => `(bracketedBinderF|[$curNames.back! : $stxT])\n    | _                         =>\n      if dependent then\n        if prop && !(\u2190 getPPOption getPPPiBinderTypes) then\n          return \u2190 `(\u2200 $curNames:ident*, $stxBody)\n        else\n          `(bracketedBinderF|($curNames* : $stxT))\n      else\n        return \u2190 curNames.foldrM (fun _ stxBody => `($stxT \u2192 $stxBody)) stxBody\n    if prop then\n      match stxBody with\n      | `(\u2200 $groups*, $stxBody) => `(\u2200 $group $groups*, $stxBody)\n      | _                       => `(\u2200 $group, $stxBody)\n    else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Builtins.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Builtins.lean",
+    "definition_name": "ppPiBinderNames"
+  }
+}

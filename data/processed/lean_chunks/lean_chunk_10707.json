@@ -1,0 +1,9 @@
+{
+  "content": "let id := expandOptIdent stx[1]\n    let type := stx[2]\n    return #[{id := \u2190 expandBinderIdent id, type := \u27e8type\u27e9, info := .instImplicit}]\n  else\n    Macro.throwUnsupported\ndef BinderSyntaxView.mkBinder : BinderSyntaxView \u2192 MacroM Binder\n| {id, type, info, modifier?} => do\n  match info with\n  | .default        => `(binder| ($id : $type $[$modifier?]?))\n  | .implicit       => `(binder| {$id : $type})\n  | .strictImplicit => `(binder| \u2983$id : $type\u2984)\n  | .instImplicit   => `(binder| [$id : $type])\ndef BinderSyntaxView.mkArgument : BinderSyntaxView \u2192 MacroM NamedArgument\n| {id, ..} => `(Term.namedArgument| ($id := $id))\ndef expandBinders (dbs : Array Binder) : MacroM (Array Binder \u00d7 Array Term) := do\n  let mut bs := #[]\n  let mut args : Array Term := #[]\n  for db in dbs do\n    let views \u2190 matchBinder db.raw\n    for view in views do\n      bs := bs.push (\u2190 view.mkBinder)\n      args := args.push \u27e8(\u2190 view.mkArgument).raw\u27e9\n  return (bs, args)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_name": "binder"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem count_empty (a : \u03b1) : count a #[] = 0 := rfl\ntheorem count_push (a b : \u03b1) (xs : Array \u03b1) :\n    count a (xs.push b) = count a xs + if b == a then 1 else 0 := by\n  simp [count, countP_push]\ntheorem count_eq_countP (a : \u03b1) (xs : Array \u03b1) : count a xs = countP (\u00b7 == a) xs := rfl\ntheorem count_eq_countP' {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_name": "count_empty",
+    "has_proof": true
+  }
+}

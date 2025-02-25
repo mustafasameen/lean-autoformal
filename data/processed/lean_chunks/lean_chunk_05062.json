@@ -1,0 +1,10 @@
+{
+  "content": "rw [Array.zipWith]\n  simp [zipWithAux_toArray_zero]\n@[simp] theorem zip_toArray (as : List \u03b1) (bs : List \u03b2) :\n    Array.zip as.toArray bs.toArray = (List.zip as bs).toArray := by\n  simp [Array.zip, zipWith_toArray, zip]\ntheorem zipWithAll_go_toArray (as : List \u03b1) (bs : List \u03b2) (f : Option \u03b1 \u2192 Option \u03b2 \u2192 \u03b3) (i : Nat) (xs : Array \u03b3) :\n    zipWithAll.go f as.toArray bs.toArray i xs = xs ++ (List.zipWithAll f (as.drop i) (bs.drop i)).toArray := by\n  unfold zipWithAll.go\n  split <;> rename_i h\n  \u00b7 rw [zipWithAll_go_toArray]\n    simp at h\n    simp only [getElem?_toArray, push_append_toArray]\n    if ha : i < as.length then\n      if hb : i < bs.length then\n        rw [List.drop_eq_getElem_cons ha, List.drop_eq_getElem_cons hb]\n        simp only [ha, hb, getElem?_eq_getElem, zipWithAll_cons_cons]\n      else\n        simp only [Nat.not_lt] at hb\n        rw [List.drop_eq_getElem_cons ha]\n        rw [(drop_eq_nil_iff (l := bs)).mpr (by omega), (drop_eq_nil_iff (l := bs)).mpr (by omega)]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

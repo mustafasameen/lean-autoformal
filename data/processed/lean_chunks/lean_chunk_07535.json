@@ -1,0 +1,9 @@
+{
+  "content": "n : Option Nanosecond.Ordinal := none\n  N : Option Nanosecond.Offset := none\n  V : Option String := none\n  z : Option String := none\n  zabbrev : Option String := none\n  O : Option Offset := none\n  X : Option Offset := none\n  x : Option Offset := none\n  Z : Option Offset := none\nnamespace DateBuilder\nprivate def insert (date : DateBuilder) (modifier : Modifier) (data : TypeFormat modifier) : DateBuilder :=\n  match modifier with\n  | .G _ => { date with G := some data }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "DateBuilder"
+  }
+}

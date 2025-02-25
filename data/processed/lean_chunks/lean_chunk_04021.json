@@ -1,0 +1,10 @@
+{
+  "content": "theorem truncate_eq_setWidth {v : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "truncate_eq_setWidth",
+    "has_proof": false
+  }
+}

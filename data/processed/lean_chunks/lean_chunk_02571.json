@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem not_true_eq_false : (\u00ac True) = False := by decide\n@[simp] theorem not_iff_self : \u00ac(\u00aca \u2194 a) | H => iff_not_self H.symm\nattribute [simp] iff_not_self\ntheorem Or.imp (f : a \u2192 c) (g : b \u2192 d) (h : a \u2228 b) : c \u2228 d := h.elim (inl \u2218 f) (inr \u2218 g)\ntheorem Or.imp_left (f : a \u2192 b) : a \u2228 c \u2192 b \u2228 c := .imp f id\ntheorem Or.imp_right (f : b \u2192 c) : a \u2228 b \u2192 a \u2228 c := .imp id f\ntheorem or_assoc : (a \u2228 b) \u2228 c \u2194 a \u2228 (b \u2228 c) :=\n  Iff.intro (.rec (.imp_right .inl) (.inr \u2218 .inr))\n            (.rec (.inl \u2218 .inl) (.imp_left .inr))\ninstance : Std.Associative Or := \u27e8fun _ _ _ => propext or_assoc\u27e9\n@[simp] theorem or_self_left  : a \u2228 (a \u2228 b) \u2194 a \u2228 b := by rw [\u2190propext or_assoc, or_self]\n@[simp] theorem or_self_right : (a \u2228 b) \u2228 b \u2194 a \u2228 b := by rw [ propext or_assoc, or_self]\ntheorem or_iff_right_of_imp (ha : a \u2192 b) : (a \u2228 b) \u2194 b := Iff.intro (Or.rec ha id) .inr\ntheorem or_iff_left_of_imp  (hb : b \u2192 a) : (a \u2228 b) \u2194 a  := Iff.intro (Or.rec id hb) .inl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "and_true",
+    "has_proof": true
+  }
+}

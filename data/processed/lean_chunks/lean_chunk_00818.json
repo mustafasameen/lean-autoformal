@@ -1,0 +1,10 @@
+{
+  "content": "if i > j then\n        let (e\u2081, e\u2082) := swap (Expr.var j) e\n        (e\u2081, Expr.op (Expr.var i) e\u2082)\n      else\n        let (e\u2081, e\u2082) := swap (Expr.var i) e\n        (e\u2081, Expr.op (Expr.var j) e\u2082)\n    | Expr.var i, Expr.var j =>\n      if i > j then\n        (Expr.var j, Expr.var i)\n      else\n        (Expr.var i, Expr.var j)\n    | e\u2081, e\u2082 => (e\u2081, e\u2082)\ntheorem Expr.denote_sort (ctx : Context \u03b1) (e : Expr) : denote ctx (sort e) = denote ctx e := by\n  apply denote_loop\nwhere\n  denote_loop (n : Nat) (e : Expr) : denote ctx (sort.loop n e) = denote ctx e := by\n    induction n generalizing e with\n    | zero => rfl\n    | succ n ih =>\n      match e with\n      | var _  => rfl\n      | op a b =>\n        simp [denote, sort.loop]\n        match h:sort.swap a b with\n        | (r\u2081, r\u2082) =>\n          have hs := denote_swap a b\n          rw [h] at hs\n          simp [denote] at hs\n          simp [denote, ih]\n          assumption",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

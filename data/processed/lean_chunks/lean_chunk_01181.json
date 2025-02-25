@@ -1,0 +1,9 @@
+{
+  "content": "structure Ord (Self : Type) where\n    cmp : Self \u2192 Self \u2192 Result Ordering\n  inductive Node (T : Type) where\n  | mk : T \u2192 Option (Node T) \u2192 Option (Node T) \u2192 Isize \u2192 Node T\n  @[reducible]\n  def Node.value {T : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_name": "Ord"
+  }
+}

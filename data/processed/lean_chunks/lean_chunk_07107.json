@@ -1,0 +1,9 @@
+{
+  "content": "inductive CompressWorkItem\n  | json (j : Json)\n  | arrayElem (j : Json)\n  | arrayEnd\n  | objectField (k : String) (j : Json)\n  | objectEnd\n  | comma\nopen Json.CompressWorkItem in\npartial def compress (j : Json) : String :=\n  go \"\" [json j]\nwhere go (acc : String) : List Json.CompressWorkItem \u2192 String\n  | []               => acc\n  | json j :: is =>\n    match j with\n    | null       => go (acc ++ \"null\") is\n    | bool true  => go (acc ++ \"true\") is\n    | bool false => go (acc ++ \"false\") is\n    | num s      => go (acc ++ s.toString) is\n    | str s      => go (renderString s acc) is\n    | arr elems  => go (acc ++ \"[\") ((elems.map arrayElem).toListAppend (arrayEnd :: is))\n    | obj kvs    => go (acc ++ \"{\") (kvs.fold (init := []) (fun acc k j => objectField k j :: acc) ++ [objectEnd] ++ is)\n  | arrayElem j :: arrayEnd :: is      => go acc (json j :: arrayEnd :: is)\n  | arrayElem j :: is                  => go acc (json j :: comma :: is)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Printer.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Printer.lean",
+    "definition_name": "CompressWorkItem"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem pmap_eq_map (p : \u03b1 \u2192 Prop) (f : \u03b1 \u2192 \u03b2) (o : Option \u03b1) (H) :\n    @pmap _ _ p (fun a _ => f a) o H = Option.map f o := by\n  cases o <;> simp\ntheorem map_pmap {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "pmap_eq_map",
+    "has_proof": true
+  }
+}

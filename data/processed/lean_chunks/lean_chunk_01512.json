@@ -1,0 +1,10 @@
+{
+  "content": "theorem s (a b : Unit) : a = b := rfl\ndef op (_ _ : Unit) : Unit := ()\ndef i (a : Unit) : op a a = a := s _ a\ndef c (a b : Unit) : op a b = op b a := s _ _\ndef d : D Unit := have := s; have := i; have := ()\n                  { op }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1158.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1158.lean",
+    "definition_name": "s",
+    "has_proof": false
+  }
+}

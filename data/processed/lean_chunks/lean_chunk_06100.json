@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_eraseIdx (l : List \u03b1) (i : Nat) (j : Nat) :\n    (l.eraseIdx i)[j]? = if j < i then l[j]? else l[j + 1]? := by\n  rw [eraseIdx_eq_take_drop_succ, getElem?_append]\n  split <;> rename_i h\n  \u00b7 rw [getElem?_take]\n    split\n    \u00b7 rfl\n    \u00b7 simp_all\n      omega\n  \u00b7 rw [getElem?_drop]\n    split <;> rename_i h'\n    \u00b7 simp only [length_take, Nat.min_def, Nat.not_lt] at h\n      split at h\n      \u00b7 omega\n      \u00b7 simp_all [getElem?_eq_none]\n        omega\n    \u00b7 simp only [length_take]\n      simp only [length_take, Nat.min_def, Nat.not_lt] at h\n      split at h\n      \u00b7 congr 1\n        omega\n      \u00b7 rw [getElem?_eq_none, getElem?_eq_none] <;> omega\ntheorem getElem?_eraseIdx_of_lt (l : List \u03b1) (i : Nat) (j : Nat) (h : j < i) :\n    (l.eraseIdx i)[j]? = l[j]? := by\n  rw [getElem?_eraseIdx]\n  simp [h]\ntheorem getElem?_eraseIdx_of_ge (l : List \u03b1) (i : Nat) (j : Nat) (h : i \u2264 j) :\n    (l.eraseIdx i)[j]? = l[j + 1]? := by\n  rw [getElem?_eraseIdx]\n  simp only [dite_eq_ite, ite_eq_right_iff]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Erase.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

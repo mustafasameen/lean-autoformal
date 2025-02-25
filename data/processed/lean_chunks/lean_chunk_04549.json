@@ -1,0 +1,9 @@
+{
+  "content": "inductive Rel (r : \u03b1 \u2192 \u03b2 \u2192 Prop) : Option \u03b1 \u2192 Option \u03b2 \u2192 Prop\n  | none : Rel r none none\n@[inline] protected def mapA [Applicative m] {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_name": "Rel"
+  }
+}

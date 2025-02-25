@@ -1,0 +1,10 @@
+{
+  "content": "theorem get_find?_mem (xs : List \u03b1) (p : \u03b1 \u2192 Bool) (h) : (xs.find? p).get h \u2208 xs := by\n  induction xs with\n  | nil => simp at h\n  | cons x xs ih =>\n    simp only [find?_cons]\n    by_cases h : p x\n    \u00b7 simp [h]\n    \u00b7 simp only [h]\n      right\n      apply ih\n@[simp] theorem find?_filter (xs : List \u03b1) (p : \u03b1 \u2192 Bool) (q : \u03b1 \u2192 Bool) :\n    (xs.filter p).find? q = xs.find? (fun a => p a \u2227 q a) := by\n  induction xs with\n  | nil => simp\n  | cons x xs ih =>\n    simp only [filter_cons]\n    split <;>\n    \u00b7 simp only [find?_cons]\n      split <;> simp_all\n@[simp] theorem head?_filter (p : \u03b1 \u2192 Bool) (l : List \u03b1) : (l.filter p).head? = l.find? p := by\n  rw [\u2190 filterMap_eq_filter, head?_filterMap, findSome?_guard]\n@[simp] theorem head_filter (p : \u03b1 \u2192 Bool) (l : List \u03b1) (h) :\n    (l.filter p).head h = (l.find? p).get (by simp_all [Option.isSome_iff_ne_none]) := by\n  simp [head_eq_iff_head?_eq_some]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "get_find",
+    "has_proof": true
+  }
+}

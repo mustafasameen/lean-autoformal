@@ -1,0 +1,9 @@
+{
+  "content": "#eval zoned(\"2002-07-14T14:13:12+09:00\")\n#guard_msgs in\n#eval zoned(\"2002-07-14T14:13:12+09:00\").format \"uuuu-MM-dd\"\n#guard_msgs in\n#eval zoned(\"2002-07-14T14:13:12+09:00\").format \"HH-mm-ss\"\ndef time\u2084 := time(\"23:13:12.324354679\")\ndef date\u2084 := date(\"2002-07-14\")\ndef datetime\u2085 := PlainDateTime.mk (PlainDate.ofYearMonthDayClip (-2000) 3 4) (PlainTime.mk 12 23 12 0)\ndef datetime\u2084 := datetime(\"2002-07-14T23:13:12.324354679\")\ndef zoned\u2084 := zoned(\"2002-07-14T23:13:12.324354679+09:00\")\ndef zoned\u2085 := zoned(\"2002-07-14T23:13:12.324354679+00:00\")\ndef tz : TimeZone := { offset := { second := -3600 }, name := \"America/Sao_Paulo\", abbreviation := \"BRT\", isDST := false}\ndef zoned\u2086 := ZonedDateTime.ofPlainDateTime (zoned\u2084.toPlainDateTime) (TimeZone.ZoneRules.ofTimeZone tz)\n#guard_msgs in\n#eval zoned\u2084.format \"G GG GGG GGGG GGGGG\"\n#guard_msgs in\n#eval zoned\u2084.format \"yy yyyy yyyyyyyyy\"\n#guard_msgs in\n#eval zoned\u2084.format \"uu uuuu uuuuuuuuu\"\n#guard_msgs in\n#eval zoned\u2084.format \"D DD DDD\"\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_name": "date\u2081"
+  }
+}

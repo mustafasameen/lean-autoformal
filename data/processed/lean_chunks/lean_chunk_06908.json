@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_tactic guardExpr]\ndef evalGuardExpr : Tactic := fun\n  | `(tactic| guard_expr $r $eq:equal $p)\n  | `(conv| guard_expr $r $eq:equal $p) => withMainContext do\n    let some mk := equal.toMatchKind eq | throwUnsupportedSyntax\n    let res \u2190 elabAndEvalMatchKind mk r p\n    unless res do throwError \"failed: {r}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Guard.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Guard.lean",
+    "definition_name": "MatchKind"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure AddSubgroup (G : Type _) [AddGroup G] extends AddSubmonoid G where\nnamespace AddSubgroup\ninstance : SetLike (AddSubgroup A) A where\n  coe s := s.carrier\nend AddSubgroup\nend Mathlib.GroupTheory.Subgroup.Basic\nsection Mathlib.GroupTheory.GroupAction.Basic\nuniverse u v\nnamespace VAdd\nvariable (M : Type u) [AddMonoid M] {\u03b1 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "AddSubgroup"
+  }
+}

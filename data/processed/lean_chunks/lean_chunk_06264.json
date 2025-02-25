@@ -1,0 +1,9 @@
+{
+  "content": "match (\u2190 getLCtx).findFromUserName? userName with\n  | some d => pure d\n  | none   => throwError \"unknown local declaration '{userName}'\"\n@[inline] def liftMkBindingM (x : MetavarContext.MkBindingM \u03b1) : MetaM \u03b1 := do\n  match x { lctx := (\u2190 getLCtx), mainModule := (\u2190 getEnv).mainModule } { mctx := (\u2190 getMCtx), ngen := (\u2190 getNGen), nextMacroScope := (\u2190 getThe Core.State).nextMacroScope } with\n  | .ok e sNew => do\n    setMCtx sNew.mctx\n    modifyThe Core.State fun s => { s with ngen := sNew.ngen, nextMacroScope := sNew.nextMacroScope }\n    pure e\n  | .error (.revertFailure ..) sNew => do\n    setMCtx sNew.mctx\n    modifyThe Core.State fun s => { s with ngen := sNew.ngen, nextMacroScope := sNew.nextMacroScope }\n    throwError \"failed to create binder due to failure when reverting variable dependencies\"\ndef _root_.Lean.Expr.abstractRangeM (e : Expr) (n : Nat) (xs : Array Expr) : MetaM Expr :=\n  liftMkBindingM <| MetavarContext.abstractRange e n xs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

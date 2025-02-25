@@ -1,0 +1,9 @@
+{
+  "content": "match (\u2190 getEnv).find? constName with\n  | some (info@(ConstantInfo.thmInfo _))  => getTheoremInfo info\n  | some (info@(ConstantInfo.defnInfo _)) => getDefInfoTemp info\n  | some info                             => pure (some info)\n  | none                                  => throwUnknownConstant constName\nprivate def isClassQuickConst? (constName : Name) : MetaM (LOption Name) := do\n  if isClass (\u2190 getEnv) constName then\n    return .some constName\n  else\n    match (\u2190 getConstTemp? constName) with\n| some (.defnInfo ..) => return .undef\n    | _ => return .none\nprivate partial def isClassQuick? : Expr \u2192 MetaM (LOption Name)\n  | .bvar ..         => return .none\n  | .lit ..          => return .none\n  | .fvar ..         => return .none\n  | .sort ..         => return .none\n  | .lam ..          => return .none\n  | .letE ..         => return .undef\n  | .proj ..         => return .undef\n  | .forallE _ _ b _ => isClassQuick? b\n  | .mdata _ e       => isClassQuick? e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

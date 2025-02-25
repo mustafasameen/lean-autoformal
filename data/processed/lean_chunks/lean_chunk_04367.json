@@ -1,0 +1,10 @@
+{
+  "content": "theorem pos_of_dvd_of_pos {m n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_name": "pos_of_dvd_of_pos",
+    "has_proof": false
+  }
+}

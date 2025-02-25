@@ -1,0 +1,10 @@
+{
+  "content": "def Set := Nat \u2192 Prop\nnamespace Set\ndef singleton (a : Nat) : Set := fun b \u21a6 b = a\ndef compl (s : Set) : Set := fun x \u21a6 \u00ac s x\n@[simp]\ntheorem compl_iff (s : Set) (x : Nat) : s.compl x \u2194 \u00ac s x := Iff.rfl\n@[simp]\ntheorem singleton_iff {a b : Nat} : singleton b a \u2194 a = b := Iff.rfl\nopen Classical\nnoncomputable def indicator (s : Set) (x : Nat) : Nat := if s x then 1 else 0\n@[simp]\ntheorem indicator_of {s : Set} {a : Nat} (h : s a) : indicator s a = 1 := if_pos h\n@[simp]\ntheorem indicator_of_not {s : Set} {a : Nat} (h : \u00ac s a) : indicator s a = 0 := if_neg h\n#guard_msgs in\ntheorem test : indicator (compl <| singleton 0) 0 = 0 := by\nsimp?\ntheorem test' : indicator (compl <| singleton 0) 0 = 0 := by\n  simp only [compl_iff, singleton_iff, not_true_eq_false, not_false_eq_true, indicator_of_not]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3710.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3710.lean",
+    "definition_name": "Set",
+    "has_proof": true
+  }
+}

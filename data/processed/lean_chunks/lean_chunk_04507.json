@@ -1,0 +1,10 @@
+{
+  "content": "theorem or_self : or o o = o := by\n  cases o <;> rfl\ninstance : Std.IdempotentOp (or (\u03b1 := \u03b1)) := \u27e8@or_self _\u27e9\ntheorem or_eq_orElse : or o o' = o.orElse (fun _ => o') := by\n  cases o <;> rfl\ntheorem map_or : f <$> or o o' = (f <$> o).or (f <$> o') := by\n  cases o <;> rfl\ntheorem map_or' : (or o o').map f = (o.map f).or (o'.map f) := by\n  cases o <;> rfl\ntheorem or_of_isSome {o o' : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "or_self",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure RequestError where\n  code    : JsonRpc.ErrorCode\n  message : String\n  deriving Inhabited\nnamespace RequestError\nopen JsonRpc\ndef fileChanged : RequestError :=\n  { code := ErrorCode.contentModified\n    message := \"File changed.\" }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Requests.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Requests.lean",
+    "definition_name": "RequestError"
+  }
+}

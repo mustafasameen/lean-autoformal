@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex9 (xs : List \u03b1) (h : xs = [] \u2192 False) : Nonempty \u03b1 := by\n  cases xs using List.rec with\n  | nil      => contradiction\n  | cons x _ => apply Nonempty.intro; assumption\ntheorem modLt (x : Nat) {y : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/casesUsing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/casesUsing.lean",
+    "definition_name": "ex9",
+    "has_proof": true
+  }
+}

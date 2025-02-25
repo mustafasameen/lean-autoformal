@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote_go_and {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Fold.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Fold.lean",
+    "definition_name": "denote_go_and",
+    "has_proof": false
+  }
+}

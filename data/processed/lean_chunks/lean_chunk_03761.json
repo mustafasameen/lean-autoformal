@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldr_append' (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b) (xs ys : Array \u03b1)\n    (w : start = xs.size + ys.size) :\n    (xs ++ ys).foldr f b start 0 = xs.foldr f (ys.foldr f b) := by\n  subst w\n  simp [foldr_eq_foldrM]\ntheorem foldl_append {\u03b2 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "foldr_append",
+    "has_proof": true
+  }
+}

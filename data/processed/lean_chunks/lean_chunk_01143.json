@@ -1,0 +1,9 @@
+{
+  "content": "inductive Lex (ra : \u03b1 \u2192 \u03b1 \u2192 Prop) (rb : \u03b2 \u2192 \u03b2 \u2192 Prop) : \u03b1 \u00d7 \u03b2 \u2192 \u03b1 \u00d7 \u03b2 \u2192 Prop where\n  | left  {a\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductionAltExplicit.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductionAltExplicit.lean",
+    "definition_name": "Lex"
+  }
+}

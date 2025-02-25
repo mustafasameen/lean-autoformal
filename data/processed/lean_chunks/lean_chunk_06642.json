@@ -1,0 +1,9 @@
+{
+  "content": "def matchAlt (rhsParser : Parser := termParser) : Parser :=\n  leading_parser (withAnonymousAntiquot := false)\n    \"| \" >> ppIndent (\n      sepBy1 (sepBy1 termParser \", \") \" | \" >> darrow >>\n      checkColGe \"alternative right-hand-side to start in a column greater than or equal to the corresponding '|'\" >>\n      rhsParser)\ndef matchAltExpr := matchAlt\ninstance : Coe (TSyntax ``matchAltExpr) (TSyntax ``matchAlt) where\n  coe stx := \u27e8stx.raw\u27e9\ndef matchAlts (rhsParser : Parser := termParser) : Parser :=\n  leading_parser withPosition $ many1Indent (ppLine >> matchAlt rhsParser)\n@[builtin_doc] def matchDiscr := leading_parser\n  optional (atomic (binderIdent >> \" : \")) >> termParser\ndef trueVal  := leading_parser nonReservedSymbol \"true\"\ndef falseVal := leading_parser nonReservedSymbol \"false\"\ndef generalizingParam := leading_parser\n  atomic (\"(\" >> nonReservedSymbol \"generalizing\") >> \" := \" >>\n    (trueVal <|> falseVal)  >> \")\" >> ppSpace\ndef motive := leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

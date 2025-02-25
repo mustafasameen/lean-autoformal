@@ -1,0 +1,10 @@
+{
+  "content": "monadMap {\u03b1 : Type u} : ({\u03b2 : Type u} \u2192 m \u03b2 \u2192 m \u03b2) \u2192 n \u03b1 \u2192 n \u03b1\nexport MonadFunctorT (monadMap)\n@[always_inline]\ninstance (m n o) [MonadFunctor n o] [MonadFunctorT m n] : MonadFunctorT m o where\n  monadMap f := MonadFunctor.monadMap (m := n) (monadMap (m := m) f)\ninstance monadFunctorRefl (m) : MonadFunctorT m m where\n  monadMap f := f\ninductive Except (\u03b5 : Type u) (\u03b1 : Type v) where\n  | ok    : \u03b1 \u2192 Except \u03b5 \u03b1\nattribute [unbox] Except\ninstance {\u03b5 : Type u} {\u03b1 : Type v} [Inhabited \u03b5] : Inhabited (Except \u03b5 \u03b1) where\n  default := Except.error default\nclass MonadExceptOf (\u03b5 : semiOutParam (Type u)) (m : Type v \u2192 Type w) where\n  throw {\u03b1 : Type v} : \u03b5 \u2192 m \u03b1\n  tryCatch {\u03b1 : Type v} (body : m \u03b1) (handler : \u03b5 \u2192 m \u03b1) : m \u03b1\nabbrev throwThe (\u03b5 : Type u) {m : Type v \u2192 Type w} [MonadExceptOf \u03b5 m] {\u03b1 : Type v} (e : \u03b5) : m \u03b1 :=\n  MonadExceptOf.throw e\nabbrev tryCatchThe (\u03b5 : Type u) {m : Type v \u2192 Type w} [MonadExceptOf \u03b5 m] {\u03b1 : Type v} (x : m \u03b1) (handle : \u03b5 \u2192 m \u03b1) : m \u03b1 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

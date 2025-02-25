@@ -1,0 +1,9 @@
+{
+  "content": "structure FooS where\n  x : Nat\n  y : Nat\n  h : x = y := by rfl\n#guard_msgs in\n#print BooS.mk\ndef f2 (x : Nat) : BooS :=\n  { x := x, y := x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/461a.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/461a.lean",
+    "definition_name": "FooS"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def mkLetKind : IO SyntaxNodeKind  := nextKind `let\n@[init mkLetKind] constant letKind  : SyntaxNodeKind := default _\ndef mkLetLhsIdKind : IO SyntaxNodeKind  := nextKind `letLhsId\n@[init mkLetLhsIdKind] constant letLhsIdKind : SyntaxNodeKind := default _\ndef mkLetLhsPatternKind : IO SyntaxNodeKind  := nextKind `letLhsPattern\n@[init mkLetLhsPatternKind] constant letLhsPatternKind  : SyntaxNodeKind := default _\n@[inline] def withArgs {\u03b1 : Type} (n : SyntaxNode) (fn : Array Syntax \u2192 \u03b1) : \u03b1 :=\nmatch n with\n| \u27e8Syntax.node _ args _, _\u27e9   := fn args\n| \u27e8Syntax.missing, h\u27e9         := unreachIsNodeMissing h\n| \u27e8Syntax.atom _ _, h\u27e9        := unreachIsNodeAtom h\n| \u27e8Syntax.ident _ _ _ _ _, h\u27e9 := unreachIsNodeIdent h\n@[inline] def updateArgs (n : SyntaxNode) (fn : Array Syntax \u2192 Array Syntax) : Syntax :=\nmatch n with\n| \u27e8Syntax.node kind args scopes, _\u27e9 := Syntax.node kind (fn args) scopes\n| \u27e8Syntax.missing, h\u27e9               := unreachIsNodeMissing h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

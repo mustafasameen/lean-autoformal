@@ -1,0 +1,10 @@
+{
+  "content": "class One (\u03b1) where one : \u03b1\ninstance [One \u03b1] : OfNat \u03b1 1 where ofNat := One.one\nclass Inv (\u03b1) where inv : \u03b1 \u2192 \u03b1\npostfix:max \"\u207b\u00b9\" => Inv.inv\nclass Group (\u03b1) extends Mul \u03b1, One \u03b1, Inv \u03b1 where\n  mul_assoc    (a b c : \u03b1) : (a * b) * c = a * (b * c)\n  one_mul      (a : \u03b1)     : 1 * a = a\n  mul_one      (a : \u03b1)     : a * 1 = a\n  inv_mul_self (a : \u03b1)     : a\u207b\u00b9 * a = 1\n  mul_inv_self (a : \u03b1)     : a * a\u207b\u00b9 = 1\nvariable [Group \u03b1] (a b x y : \u03b1)\nattribute [grind _=_] Group.mul_assoc\nattribute [grind] Group.one_mul\nattribute [grind] Group.mul_one\nattribute [grind] Group.inv_mul_self\nattribute [grind] Group.mul_inv_self\nexample : a\u207b\u00b9 * (a * b) = b := by grind\n@[grind]\ntheorem inv_mul_cancel_left : a\u207b\u00b9 * (a * b) = b := by grind\n@[grind]\ntheorem mul_inv_cancel_left : a * (a\u207b\u00b9 * b) = b := by grind\nend\nsection\nexample (h : \u2200 [inst : Neg Int] (x : Int), @Neg.neg Int inst x = x) : (0 : Int) = (0 : Int) := by\n  grind",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_name": "One",
+    "has_proof": true
+  }
+}

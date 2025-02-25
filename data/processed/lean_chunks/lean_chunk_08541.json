@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertMany_nil [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.WF) :\n    m.insertMany [] = m := by\n  simp_to_raw\n  rw [Raw\u2080.insertMany_nil]\n@[simp]\ntheorem insertMany_list_singleton {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_name": "insertMany_nil",
+    "has_proof": true
+  }
+}

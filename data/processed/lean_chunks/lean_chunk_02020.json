@@ -1,0 +1,9 @@
+{
+  "content": "instance BoolElems : HasElems Bool := \u27e8#[false, true]\u27e9\ninstance FooElems  : HasElems Foo  := \u27e8(elems Bool).map mk1 ++ (elems Bool).map mk2\u27e9\ndef fooRepr (foo : Foo) :=\n  match foo with\n  | mk1 b => f!\"OH {b}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/125.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/125.lean",
+    "definition_name": "BoolElems"
+  }
+}

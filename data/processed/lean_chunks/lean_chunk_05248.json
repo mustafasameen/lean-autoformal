@@ -1,0 +1,10 @@
+{
+  "content": "| [],    _, _ => []\n  | a::as, b, c => match b == a with\n    | true  => c::as\n    | false => a :: replace as b c\n@[simp] theorem replace_nil [BEq \u03b1] : ([] : List \u03b1).replace a b = [] := rfl\ntheorem replace_cons [BEq \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "pairwise_cons",
+    "has_proof": false
+  }
+}

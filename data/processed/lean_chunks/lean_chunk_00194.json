@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex3 (a : A) (c : C) : (f4 c a).w = c.w :=\n  rfl\ntheorem ex4 (a : A) (c : C) : (f4 c a).x = 0 :=\n  rfl\ndef f5 (c : C) (a : A) :=\n  { c, a with x := 0 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInst1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInst1.lean",
+    "definition_name": "ex3",
+    "has_proof": false
+  }
+}

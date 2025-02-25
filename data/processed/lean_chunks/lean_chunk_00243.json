@@ -1,0 +1,9 @@
+{
+  "content": "assert! (escapeUri \" \") == \"%20\"\n  true\ndef testUnicodeEscape :=\n  assert! (escapeUri \"\ud83d\ude35\") == \"%F0%9F%98%B5\"\n  assert! (escapeUri \"\\u6f22\\u5b57\") == \"%E6%BC%A2%E5%AD%97\"\n  true\ndef testRoundTrip :=\n  assert! (fileUriToPath? (pathToUri \"/temp/test.xml?\ud83d\ude35=2022\")) == \"/temp/test.xml?\ud83d\ude35=2022\"\n  true\ndef testInvalidFileUri :=\n  assert! (fileUriToPath? \"invalid\") == none\n  true\ndef testUnescapePercent :=\n  assert! (unescapeUri \"/temp/test%25.xml\") == \"/temp/test%.xml\"\n  true\ndef testUnescapeSinglePercent :=\n  assert! (unescapeUri \"%\") == \"%\"\n  true\ndef testUnescapeBadHex :=\n  assert! (unescapeUri \"%xab\") == \"%xab\"\n  assert! (unescapeUri \"file://test%W9/%3Fa%3D123\") == \"file://test%W9/?a=123\"\n  true\ndef testTruncatedEscape :=\n  assert! (unescapeUri \"lean%4\") == \"lean%4\"\n  true\ndef testUnescapeUnicode :=\n  assert! (unescapeUri \"%F0%9F%98%B5\") == \"\ud83d\ude35\"\n  assert! (unescapeUri \"br%C3%BCckner\") == \"br\u00fcckner\"\n  assert! (unescapeUri \"br%C3%BCckner\") == \"br\u00fcckner\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_name": "testEscaping"
+  }
+}

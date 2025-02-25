@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_add_const (l : List \u03b1) (a b : Nat) :\n    l.foldl (fun x _ => x + a) b = b + a * l.length := by\n  induction l generalizing b with\n  | nil => simp\n  | cons y l ih =>\n    simp only [foldl_cons, ih, length_cons, Nat.mul_add, Nat.mul_one, Nat.add_assoc,\n      Nat.add_comm a]\n@[simp] theorem foldr_add_const (l : List \u03b1) (a b : Nat) :\n    l.foldr (fun _ x => x + a) b = b + a * l.length := by\n  induction l generalizing b with\n  | nil => simp\n  | cons y l ih =>\n    simp only [foldr_cons, ih, length_cons, Nat.mul_add, Nat.mul_one, Nat.add_assoc]\n@[simp] theorem partition_eq_filter_filter (p : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    partition p l = (filter p l, filter (not \u2218 p) l) := by simp [partition, aux]\n  where\n    aux : \u2200 l {as bs}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "foldl_add_const",
+    "has_proof": true
+  }
+}

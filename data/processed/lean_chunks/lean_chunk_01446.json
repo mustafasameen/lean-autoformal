@@ -1,0 +1,10 @@
+{
+  "content": "inductive List \u03b1\n  | nil : List \u03b1\n  | cons : \u03b1 \u2192 List \u03b1 \u2192 List \u03b1\ndef append : List \u03b1 \u2192 List \u03b1 \u2192 List \u03b1\n  | .nil,       bs => bs\n  | .cons a as, bs => .cons a (append as bs)\ntheorem append_nil (as : List \u03b1) : append as .nil = as := by\n  induction as with\n  | nil         => grind only [append]\n  | cons _ _ ih => grind only [append]\ntheorem append_assoc (as bs cs : List \u03b1) : append (append as bs) cs = append as (append bs cs) := by\n  induction as with\n  | nil         => grind only [append]\n  | cons _ _ ih => grind only [append]\ndef reverseAux : List \u03b1 \u2192 List \u03b1 \u2192 List \u03b1\n  | .nil,      r => r\n  | .cons a l, r => reverseAux l (.cons a r)\ndef reverse (as : List \u03b1) : List \u03b1 :=\n  reverseAux as .nil\ntheorem reverseAux_eq_append (as bs : List \u03b1) :\n    reverseAux as bs = append (reverseAux as .nil) bs := by\n  induction as generalizing bs with\n  | nil         => grind only [reverseAux, append]\n  | cons _ _ ih => grind only [reverseAux, append_assoc, append]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_name": "List",
+    "has_proof": true
+  }
+}

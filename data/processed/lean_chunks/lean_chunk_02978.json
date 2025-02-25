@@ -1,0 +1,9 @@
+{
+  "content": "instance : ToMessageData (Option Expr) := \u27e8fun | none => \"<not-available>\" | some e => toMessageData e\u27e9\nsyntax:max \"m!\" interpolatedStr(term) : term\nmacro_rules\n  | `(m! $interpStr) => do interpStr.expandInterpolatedStr (\u2190 `(MessageData)) (\u2190 `(toMessageData))\ndef toMessageList (msgs : Array MessageData) : MessageData :=\n  indentD (MessageData.joinSep msgs.toList m!\"\\n\\n\")\nnamespace Kernel.Exception\nprivate def mkCtx (env : Environment) (lctx : LocalContext) (opts : Options) (msg : MessageData) : MessageData :=\n  MessageData.withContext { env := .ofKernelEnv env, mctx := {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_name": "ToMessageData"
+  }
+}

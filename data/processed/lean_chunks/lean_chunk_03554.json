@@ -1,0 +1,10 @@
+{
+  "content": "theorem coe_pred (j : Fin (n + 1)) (h : j \u2260 0) : (j.pred h : Nat) = j - 1 := rfl\n@[simp] theorem succ_pred : \u2200 (i : Fin (n + 1)) (h : i \u2260 0), (i.pred h).succ = i\n  | \u27e80, _\u27e9, hi => by simp only [mk_zero, ne_eq, not_true] at hi\n  | \u27e8_ + 1, _\u27e9, _ => rfl\n@[simp]\ntheorem pred_succ (i : Fin n) {h : i.succ \u2260 0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "coe_pred",
+    "has_proof": true
+  }
+}

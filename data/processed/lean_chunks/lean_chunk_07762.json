@@ -1,0 +1,9 @@
+{
+  "content": "structure MapTarget (aig : AIG \u03b1) (len : Nat) where\n  vec : RefVec aig len\n  func : (aig : AIG \u03b1) \u2192 Ref aig \u2192 Entrypoint \u03b1\n  [lawful : LawfulOperator \u03b1 Ref func]\n  [chainable : LawfulMapOperator \u03b1 func]\nattribute [instance] MapTarget.lawful\nattribute [instance] MapTarget.chainable\n@[specialize]\ndef map (aig : AIG \u03b1) (target : MapTarget aig len) : RefVecEntry \u03b1 len :=\n  go aig 0 (by omega) .empty target.vec target.func\nwhere\n  @[specialize]\n  go {len : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Map.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Map.lean",
+    "definition_name": "MapTarget"
+  }
+}

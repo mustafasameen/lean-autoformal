@@ -1,0 +1,9 @@
+{
+  "content": "instance when instantiating {\u2190 thm.origin.pp}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatch.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatch.lean",
+    "definition_name": "when"
+  }
+}

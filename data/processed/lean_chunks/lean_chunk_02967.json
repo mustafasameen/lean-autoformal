@@ -1,0 +1,9 @@
+{
+  "content": "toTypeExpr := mkConst ``String\ninstance : ToExpr Unit where\n  toExpr     := fun _ => mkConst `Unit.unit\n  toTypeExpr := mkConst ``Unit\ninstance : ToExpr System.FilePath where\n  toExpr p := mkApp (mkConst ``System.FilePath.mk) (toExpr p.toString)\n  toTypeExpr := mkConst ``System.FilePath\nprivate def Name.toExprAux (n : Name) : Expr :=\n  if isSimple n 0 then\n    mkStr n 0 #[]\n  else\n    go n\nwhere\n  isSimple (n : Name) (sz : Nat) : Bool :=\n    match n with\n    | .anonymous => 0 < sz && sz <= 8\n    | .str p _ => isSimple p (sz+1)\n    | _ => false\n  mkStr (n : Name) (sz : Nat) (args : Array Expr) : Expr :=\n    match n with\n    | .anonymous => mkAppN (mkConst (.str ``Lean.Name (\"mkStr\" ++ toString sz))) args.reverse\n    | .str p s => mkStr p (sz+1) (args.push (toExpr s))\n    | _ => unreachable!\n  go : Name \u2192 Expr\n    | .anonymous => mkConst ``Lean.Name.anonymous\n    | .str p s ..=> mkApp2 (mkConst ``Lean.Name.str) (go p) (toExpr s)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_name": "ToExpr"
+  }
+}

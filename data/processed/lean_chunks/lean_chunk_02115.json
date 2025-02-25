@@ -1,0 +1,10 @@
+{
+  "content": "theorem fib_two : fib 2 = 1 := rfl\nexample : 1 = fib (1 + 1) := by\n  fail_if_success { simp only [fib_two] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpDecide.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpDecide.lean",
+    "definition_name": "fib_two",
+    "has_proof": true
+  }
+}

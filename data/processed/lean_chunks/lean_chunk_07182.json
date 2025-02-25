@@ -1,0 +1,9 @@
+{
+  "content": "def constInt8 (n : Nat) : M llvmctx (LLVM.Value llvmctx) :=  do\n    LLVM.constInt8 llvmctx (UInt64.ofNat n)\ndef constInt64 (n : Nat) : M llvmctx (LLVM.Value llvmctx) :=  do\n    LLVM.constInt64 llvmctx (UInt64.ofNat n)\ndef constIntSizeT (n : Nat) : M llvmctx (LLVM.Value llvmctx) :=  do\n    LLVM.constIntSizeT llvmctx (UInt64.ofNat n)\ndef constIntUnsigned (n : Nat) : M llvmctx (LLVM.Value llvmctx) :=  do\n    LLVM.constIntUnsigned llvmctx (UInt64.ofNat n)\ndef getOrCreateFunctionPrototype (mod : LLVM.Module llvmctx)\n    (retty : LLVM.LLVMType llvmctx) (name : String) (args : Array (LLVM.LLVMType llvmctx)) : M llvmctx  (LLVM.Value llvmctx) := do\n  LLVM.getOrAddFunction mod name $ \u2190 LLVM.functionType retty args (isVarArg := false)\ndef callLeanBox (builder : LLVM.Builder llvmctx)\n    (arg : LLVM.Value llvmctx) (name : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let fnName :=  \"lean_box\"\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let argtys := #[ \u2190 LLVM.size_tType llvmctx ]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

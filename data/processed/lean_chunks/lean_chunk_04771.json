@@ -1,0 +1,10 @@
+{
+  "content": "theorem sign_neg (z : Int) : Int.sign (-z) = -Int.sign z := by\n  match z with | 0 | succ _ | -[_+1] => rfl\ntheorem sign_mul_natAbs : \u2200 a : Int, sign a * natAbs a = a\n  | 0      => rfl\n  | succ _ => Int.one_mul _\n  | -[_+1] => (Int.neg_eq_neg_one_mul _).symm\n@[simp] theorem sign_mul : \u2200 a b, sign (a * b) = sign a * sign b\n  | a, 0 | 0, b => by simp [Int.mul_zero, Int.zero_mul]\n  | succ _, succ _ | succ _, -[_+1] | -[_+1], succ _ | -[_+1], -[_+1] => rfl\ntheorem sign_eq_one_of_pos {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "sign_neg",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem Const.toListModel_insertMany_list {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_name": "Const",
+    "has_proof": false
+  }
+}

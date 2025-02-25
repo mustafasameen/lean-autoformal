@@ -1,0 +1,9 @@
+{
+  "content": "def ExprTraversal := \u2200{M : _} [Monad M] [MonadLiftT MetaM M] [MonadControlT MetaM M] [MonadOptions M], (Pos \u2192 Expr \u2192 M Expr) \u2192 Pos \u2192 Expr \u2192 M Expr\ninstance : Inhabited ExprTraversal where\n  default := traverseChildrenWithPos\npartial def traverseAll : ExprTraversal := fun\n  | visit, p, e => visit p e >>= traverseChildrenWithPos (fun p e => traverseAll visit p e) p\ndef testTraversal\n  (traversalWithPos : ExprTraversal)\n  (expectedLen : Nat): TermElabM Unit := do\n  let s \u2190 `(\n    \u2200 x y : Nat,\n    \u2200 {zz : Fin x},\n    \u2203 (z : {z: Nat // z = x + y}),\n    let p := z.1\n    p + x + y = 3\n    )\n  let e \u2190 elabTerm s none\n  let \u0393 \u2190 getLCtx\n  let (e', subexprs) \u2190 StateT.run (\n    traversalWithPos (fun p s => do\n      let a \u2190 get\n      let \u0394 \u2190 getLCtx\n      let E := Lean.LocalContext.subtract \u0393 \u0394\n      let nBinders \u2190 Lean.Core.numBinders p e\n      if E.size != nBinders then\n        throwError \"bad number of binders\"\n      set <| a.push (p, Expr.abstract s E)\n      return s\n    ) Pos.root e) #[]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ExprLens.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ExprLens.lean",
+    "definition_name": "ExprTraversal"
+  }
+}

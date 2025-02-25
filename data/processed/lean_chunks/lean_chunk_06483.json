@@ -1,0 +1,9 @@
+{
+  "content": "instantiateMVarDeclMVars mvarId\n    tryCatchRuntimeEx\n      (do let remainingGoals \u2190 withInfoHole mvarId <| Tactic.run mvarId <| kind.maybeWithoutRecovery do\n            withTacticInfoContext tacticCode do\n              withTacticInfoContext tacticCode[0] do\n                withNarrowedArgTacticReuse (argIdx := 1) (evalTactic \u00b7) tacticCode\n            withoutTacticIncrementality true do\n              synthesizeSyntheticMVars (postpone := .no)\n          unless remainingGoals.isEmpty do\n            if report then\n              kind.logError tacticCode\n              reportUnsolvedGoals remainingGoals\n            else\n              throwError \"unsolved goals\\n{goalsToMessageData remainingGoals}\")\n      fun ex => do\n        if report then\n          kind.logError tacticCode\n        if report && (\u2190 read).errToSorry then\n          for mvarId in (\u2190 getMVars (mkMVar mvarId)) do\n            mvarId.admit\n          logException ex\n        else\n          throw ex",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "reportStuckSyntheticMVars"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Fin2 (n : Nat) :=\n  (val  : Nat)\n  (isLt : val < n)\nprotected def Fin2.ofNat {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/noindexAnnotation.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/noindexAnnotation.lean",
+    "definition_name": "Fin2"
+  }
+}

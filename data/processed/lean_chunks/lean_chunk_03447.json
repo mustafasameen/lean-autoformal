@@ -1,0 +1,10 @@
+{
+  "content": "theorem toBitVec_eq_of_eq {a b : $typeName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_name": "toBitVec_eq_of_eq",
+    "has_proof": false
+  }
+}

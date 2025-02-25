@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldrM_nil [Monad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (b) : [].foldrM f b = pure b := rfl\n@[specialize]\ndef firstM {m : Type u \u2192 Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Control.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Control.lean",
+    "definition_name": "foldrM_nil",
+    "has_proof": false
+  }
+}

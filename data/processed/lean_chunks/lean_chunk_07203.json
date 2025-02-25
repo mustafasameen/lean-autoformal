@@ -1,0 +1,9 @@
+{
+  "content": "return global\ndef emitFnDecl (decl : Decl) (isExternal : Bool) : M llvmctx Unit := do\n  let cppBaseName \u2190 toCName decl.name\n  let _ \u2190 emitFnDeclAux (\u2190 getLLVMModule) decl cppBaseName isExternal\ndef emitExternDeclAux (decl : Decl) (cNameStr : String) : M llvmctx Unit := do\n  let env \u2190 getEnv\n  let extC := isExternC env decl.name\n  let _ \u2190 emitFnDeclAux (\u2190 getLLVMModule) decl cNameStr extC\ndef emitFnDecls : M llvmctx Unit := do\n  let env \u2190 getEnv\n  let decls := getDecls env\n  let modDecls  : NameSet := decls.foldl (fun s d => s.insert d.name) {}\n  let usedDecls : NameSet := decls.foldl (fun s d => collectUsedDecls env d (s.insert d.name)) {}\n  let usedDecls := usedDecls.toList\n  for n in usedDecls do\n    let decl \u2190 getDecl n\n    match getExternNameFor env `c decl.name with\n    | some cName => emitExternDeclAux decl cName\n    | none       => emitFnDecl decl (!modDecls.contains n)\n  return ()\ndef emitLhsSlot_ (x : VarId) : M llvmctx (LLVM.LLVMType llvmctx \u00d7 LLVM.Value llvmctx) := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

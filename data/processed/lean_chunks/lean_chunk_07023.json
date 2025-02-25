@@ -1,0 +1,9 @@
+{
+  "content": "let .const typeName _ := type.getAppFn | return ()\n      modify fun s => s.insert typeName\n      if isStructure (\u2190 getEnv) typeName then\n        for parentName in (\u2190 getAllParentStructures typeName) do\n          modify fun s => s.insert parentName\n      let some type \u2190 unfoldeDefinitionGuarded? type | return ()\n      visit type\nend DotCompletionUtils\nprivate def idCompletionCore\n    (ctx         : ContextInfo)\n    (stx         : Syntax)\n    (id          : Name)\n    (hoverInfo   : HoverInfo)\n    (danglingDot : Bool)\n    : M Unit := do\n  let mut id := id\n  if id.hasMacroScopes then\n    if stx.getHeadInfo matches .original .. then\n      id := id.eraseMacroScopes\n    else\n      return\n  let mut danglingDot := danglingDot\n  if let HoverInfo.inside delta := hoverInfo then\n    id := truncate id delta\n    danglingDot := false\n  if id.isAtomic then\n    for localDecl in (\u2190 getLCtx) do\n      if matchAtomic id localDecl.userName danglingDot then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

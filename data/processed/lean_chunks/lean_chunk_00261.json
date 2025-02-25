@@ -1,0 +1,9 @@
+{
+  "content": "class Funtype (N : Sort u) (O : outParam (Sort v)) (T : outParam (Sort w)) :=\n  pack : O -> N\n  unpack : N -> O\n  apply : N -> T\nclass LNot {P : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/binderCacheIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/binderCacheIssue.lean",
+    "definition_name": "Funtype"
+  }
+}

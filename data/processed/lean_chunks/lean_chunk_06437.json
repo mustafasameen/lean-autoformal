@@ -1,0 +1,9 @@
+{
+  "content": "let pattern := doLetElse[2]\n    let val     := doLetElse[4]\n    let elseSeq := doLetElse[6]\n    let contSeq \u2190 if isMutableLet doLetElse then\n      let vars \u2190 (\u2190 getPatternVarsEx pattern).mapM fun var => `(doElem| let mut $var := $var)\n      pure (vars ++ doElems.toArray)\n    else\n      pure doElems.toArray\n    let contSeq := mkDoSeq contSeq\n    let auxDo \u2190 `(do match $val:term with | $pattern:term => $contSeq | _ => $elseSeq)\n    doSeqToCode <| getDoSeqElems (getDoSeq auxDo)\n  partial def doReassignArrowToCode (doReassignArrow : Syntax) (doElems : List Syntax) : M CodeBlock := do\n    let decl := doReassignArrow[0]\n    if decl.getKind == ``Parser.Term.doIdDecl then\n      let doElem := decl[3]\n      let y      := decl[0]\n      let auxDo \u2190 `(do let r \u2190 $doElem; $y:ident := r)\n      doSeqToCode <| getDoSeqElems (getDoSeq auxDo) ++ doElems\n    else if decl.getKind == ``Parser.Term.doPatDecl then\n      let pattern := decl[0]\n      let doElem  := decl[2]\n      let optElse := decl[3]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

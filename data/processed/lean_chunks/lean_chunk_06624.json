@@ -1,0 +1,9 @@
+{
+  "content": "return s.restore iniSz pPos |>.pushSyntax pBack\n    let qBack := s.stxStack.back\n    s := s.popSyntax\n    let pushAntiquots stx s :=\n      if stx.isOfKind choiceKind then\n        { s with stxStack := s.stxStack ++ stx.getArgs }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Basic.lean",
+    "definition_name": "OrElseOnAntiquotBehavior"
+  }
+}

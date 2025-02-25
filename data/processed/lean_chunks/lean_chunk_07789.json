@@ -1,0 +1,10 @@
+{
+  "content": "theorem contains_of_contains_insert' [EquivBEq \u03b1] [LawfulHashable \u03b1] {k a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Lemmas.lean",
+    "definition_name": "contains_of_contains_insert",
+    "has_proof": false
+  }
+}

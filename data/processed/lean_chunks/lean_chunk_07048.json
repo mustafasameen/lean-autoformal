@@ -1,0 +1,9 @@
+{
+  "content": "structure WithRpcRef (\u03b1 : Type u) where\n  val : \u03b1\n  deriving Inhabited\ninstance [TypeName \u03b1] : RpcEncodable (WithRpcRef \u03b1) :=\n  { rpcEncode, rpcDecode }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Basic.lean",
+    "definition_name": "WithRpcRef"
+  }
+}

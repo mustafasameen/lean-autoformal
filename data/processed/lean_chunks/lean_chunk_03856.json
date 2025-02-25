@@ -1,0 +1,10 @@
+{
+  "content": "theorem popWhile_empty (p : \u03b1 \u2192 Bool) :\n    popWhile p #[] = #[] := by\n  simp [popWhile]\ndef takeWhile (p : \u03b1 \u2192 Bool) (as : Array \u03b1) : Array \u03b1 :=\nlet rec @[semireducible]\n  go (i : Nat) (acc : Array \u03b1) : Array \u03b1 :=\n    if h : i < as.size then\n      let a := as[i]\n      if p a then\n        go (i+1) (acc.push a)\n      else\n        acc\n    else\n      acc\n    decreasing_by simp_wf; decreasing_trivial_pre_omega\n  go 0 #[]\n@[semireducible]\ndef eraseIdx (xs : Array \u03b1) (i : Nat) (h : i < xs.size := by get_elem_tactic) : Array \u03b1 :=\n  if h' : i + 1 < xs.size then\n    let xs' := xs.swap (i + 1) i\n    xs'.eraseIdx (i + 1) (by simp [xs', h'])\n  else\n    xs.pop\ntermination_by xs.size - i\ndecreasing_by simp_wf; exact Nat.sub_succ_lt_self _ _ h\n@[simp] theorem size_eraseIdx (xs : Array \u03b1) (i : Nat) (h) : (xs.eraseIdx i h).size = xs.size - 1 := by\n  induction xs, i, h using Array.eraseIdx.induct with\n  | @case1 xs i h h' xs' ih =>\n    unfold eraseIdx\n    simp +zetaDelta [h', xs', ih]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_name": "popWhile_empty",
+    "has_proof": true
+  }
+}

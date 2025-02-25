@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_ofNat (n : Nat) : toNat \u2191n = n := rfl\n@[simp] theorem toNat_negSucc (n : Nat) : (Int.negSucc n).toNat = 0 := by\n  simp [toNat]\n@[simp] theorem toNat_ofNat_add_one {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "toNat_ofNat",
+    "has_proof": true
+  }
+}

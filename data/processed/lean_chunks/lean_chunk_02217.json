@@ -1,0 +1,9 @@
+{
+  "content": "inductive L (\u03b1 : Type u)\n| nil  : L \u03b1\n| cons : (Unit \u2192 \u03b1) \u2192 (Unit \u2192 L \u03b1) \u2192 L \u03b1\ndef L.append {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def7.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def7.lean",
+    "definition_name": "L"
+  }
+}

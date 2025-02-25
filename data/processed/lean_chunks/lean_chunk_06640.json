@@ -1,0 +1,9 @@
+{
+  "content": "let prec := match (\u2190 getCur) with\n    | `(binderDefault| := by $_) => maxPrec\n    | _                          => 0\n  visitArgs do\n    term.parenthesizer prec\n    visitToken\n@[builtin_doc] def explicitBinder (requireType := false) := leading_parser ppGroup <|\n  \"(\" >> withoutPosition (many1 binderIdent >> binderType requireType >> optional (binderTactic <|> binderDefault)) >> \")\"\n@[builtin_doc] def implicitBinder (requireType := false) := leading_parser ppGroup <|\n  \"{\" >> withoutPosition (many1 binderIdent >> binderType requireType) >> \"}\"\ndef strictImplicitLeftBracket := atomic (group (symbol \"{\" >> \"{\")) <|> \"\u2983\"\ndef strictImplicitRightBracket := atomic (group (symbol \"}\" >> \"}\")) <|> \"\u2984\"\n@[builtin_doc] def strictImplicitBinder (requireType := false) := leading_parser ppGroup <|\n  strictImplicitLeftBracket >> many1 binderIdent >>\n  binderType requireType >> strictImplicitRightBracket\n@[builtin_doc] def instBinder := leading_parser ppGroup <|",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

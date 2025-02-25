@@ -1,0 +1,10 @@
+{
+  "content": "theorem sub_eq_zero_iff_le : n - m = 0 \u2194 n \u2264 m :=\n  \u27e8Nat.le_of_sub_eq_zero, Nat.sub_eq_zero_of_le\u27e9\nprotected theorem sub_pos_iff_lt : 0 < n - m \u2194 m < n :=\n  \u27e8Nat.lt_of_sub_pos, Nat.sub_pos_of_lt\u27e9\nprotected theorem sub_le_iff_le_add {a b c : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "sub_eq_zero_iff_le",
+    "has_proof": false
+  }
+}

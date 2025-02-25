@@ -1,0 +1,9 @@
+{
+  "content": "string : FormatString\n  deriving Inhabited, Repr\nprivate def parseFormatPart : Parser FormatPart\n  := (.modifier <$> parseModifier)\n  <|> (pchar '\\\\') *> any <&> (.string \u2218 toString)\n  <|> (pchar '\\\"' *>  many1Chars (satisfy (\u00b7 \u2260 '\\\"')) <* pchar '\\\"') <&> .string\n  <|> (pchar '\\'' *>  many1Chars (satisfy (\u00b7 \u2260 '\\'')) <* pchar '\\'') <&> .string\n  <|> many1Chars (satisfy (fun x => \u00acChar.isAlpha x \u2227 x \u2260 '\\'' \u2227 x \u2260 '\\\"')) <&> .string\nprivate def specParser : Parser FormatString :=\n  (Array.toList <$> many parseFormatPart) <* eof\nprivate def specParse (s : String) : Except String FormatString :=\n  specParser.run s\nprivate def leftPad (n : Nat) (a : Char) (s : String) : String :=\n  \"\".pushn a (n -  s.length) ++ s\nprivate def rightPad (n : Nat) (a : Char) (s : String) : String :=\n  s ++ \"\".pushn a (n - s.length)\nprivate def pad (size : Nat)  (n : Int) (cut : Bool := false) : String :=\n  let (sign, n) := if n < 0 then (\"-\", -n) else (\"\", n)\n  let numStr := toString n",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "FormatPart"
+  }
+}

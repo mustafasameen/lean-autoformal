@@ -1,0 +1,10 @@
+{
+  "content": "theorem false_of_ne : a \u2260 a \u2192 False := Ne.irrefl\ntheorem ne_false_of_self : p \u2192 p \u2260 False :=\n  fun (hp : p) (h : p = False) => h \u25b8 hp\ntheorem ne_true_of_not : \u00acp \u2192 p \u2260 True :=\n  fun (hnp : \u00acp) (h : p = True) =>\n    have : \u00acTrue := h \u25b8 hnp\n    this trivial\ntheorem true_ne_false : \u00acTrue = False := ne_false_of_self trivial\ntheorem false_ne_true : False \u2260 True := fun h => h.symm \u25b8 trivial\nend Ne\ntheorem Bool.of_not_eq_true : {b : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "false_of_ne",
+    "has_proof": false
+  }
+}

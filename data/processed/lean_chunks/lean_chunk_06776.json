@@ -1,0 +1,9 @@
+{
+  "content": "structure BacktrackConfig where\n  proc : List MVarId \u2192 List MVarId \u2192 MetaM (Option (List MVarId)) := fun _ _ => pure none\n  suspend : MVarId \u2192 MetaM Bool := fun _ => pure false\n  discharge : MVarId \u2192 MetaM (Option (List MVarId)) := fun _ => failure\n  commitIndependentGoals : Bool := false\nnamespace Backtrack\nprivate def ppMVarId (g : MVarId) : MetaM Format := ppExpr =<< g.getType\nprivate def ppMVarIds (gs : List MVarId) : MetaM (List Format) := gs.mapM ppMVarId\ndef tryAllM [Monad m] [Alternative m] (L : List \u03b1) (f : \u03b1 \u2192 m \u03b2) : m (List \u03b1 \u00d7 List \u03b2) := do\n  let R \u2190 L.mapM (fun a => (Sum.inr <$> f a) <|> (pure (Sum.inl a)))\n  return (R.filterMap (fun s => match s with | .inl a => a | _ => none),\n    R.filterMap (fun s => match s with | .inr b => b | _ => none))\nvariable (cfg : BacktrackConfig)\nvariable (trace : Name := .anonymous)\nvariable (next : MVarId \u2192 (List MVarId \u2192 MetaM (Option (List MVarId))) \u2192 MetaM (List MVarId))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Backtrack.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Backtrack.lean",
+    "definition_name": "BacktrackConfig"
+  }
+}

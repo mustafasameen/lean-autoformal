@@ -1,0 +1,9 @@
+{
+  "content": "class ZeroHomClass (F : Type) (M N : outParam Type) [Zero M] [Zero N]\n  extends FunLike F M fun _ => N where\nstructure OneHom (M : Type) (N : Type) [One M] [One N] where\n  toFun : M \u2192 N\nclass OneHomClass (F : Type) (M N : outParam Type) [One M] [One N]\n  extends FunLike F M fun _ => N where\nstructure AddHom (M : Type) (N : Type) [Add M] [Add N] where\n  toFun : M \u2192 N\nclass AddHomClass (F : Type) (M N : outParam Type) [Add M] [Add N]\n  extends FunLike F M fun _ => N where\nstructure MulHom (M : Type) (N : Type) [Mul M] [Mul N] where\n  toFun : M \u2192 N\ninfixr:25 \" \u2192\u2099* \" => MulHom\nclass MulHomClass (F : Type) (M N : outParam Type) [Mul M] [Mul N]\n  extends FunLike F M fun _ => N where\nstructure AddMonoidHom (M : Type) (N : Type) [Add M] [Zero M] [Add N] [Zero N] extends\n  ZeroHom M N, AddHom M N\ninfixr:25 \" \u2192+ \" => AddMonoidHom\nclass AddMonoidHomClass (F : Type) (M N : outParam Type) [Add M] [Zero M] [Add N] [Zero N]\n  extends AddHomClass F M N, ZeroHomClass F M N",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_name": "ZeroHomClass"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_zero_length (x : BitVec 0) : x.toNat = 0 := by simp [of_length_zero]\ntheorem getLsbD_zero_length (x : BitVec 0) : x.getLsbD i = false := by simp\ntheorem getMsbD_zero_length (x : BitVec 0) : x.getMsbD i = false := by simp\ntheorem msb_zero_length (x : BitVec 0) : x.msb = false := by simp [BitVec.msb, of_length_zero]\ntheorem toNat_of_zero_length (h : w = 0) (x : BitVec w) : x.toNat = 0 := by\n  subst h; simp [toNat_zero_length]\ntheorem getLsbD_of_zero_length (h : w = 0) (x : BitVec w) : x.getLsbD i = false := by\n  subst h; simp [getLsbD_zero_length]\ntheorem getMsbD_of_zero_length (h : w = 0) (x : BitVec w) : x.getMsbD i = false := by\n  subst h; simp [getMsbD_zero_length]\ntheorem msb_of_zero_length (h : w = 0) (x : BitVec w) : x.msb = false := by\n  subst h; simp [msb_zero_length]\ntheorem ofFin_ofNat (n : Nat) :\n    ofFin (no_index (OfNat.ofNat n : Fin (2^w))) = OfNat.ofNat n := by\n  simp only [OfNat.ofNat, Fin.ofNat', BitVec.ofNat, Nat.and_pow_two_sub_one_eq_mod]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toNat_zero_length",
+    "has_proof": true
+  }
+}

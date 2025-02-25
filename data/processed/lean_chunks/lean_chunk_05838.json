@@ -1,0 +1,10 @@
+{
+  "content": "theorem zero_and (x : Nat) : 0 &&& x = 0 := by\n  simp only [HAnd.hAnd, AndOp.and, land]\n  unfold bitwise\n  simp\n@[simp] theorem and_zero (x : Nat) : x &&& 0 = 0 := by\n  simp only [HAnd.hAnd, AndOp.and, land]\n  unfold bitwise\n  simp\n@[simp] theorem one_and_eq_mod_two (n : Nat) : 1 &&& n = n % 2 := by\n  if n0 : n = 0 then\n    subst n0; decide\n  else\n    simp only [HAnd.hAnd, AndOp.and, land]\n    cases mod_two_eq_zero_or_one n with | _ h => simp [bitwise, n0, h]\n@[simp] theorem and_one_is_mod (x : Nat) : x &&& 1 = x % 2 := by\n  if xz : x = 0 then\n    simp [xz, zero_and]\n  else\n    have andz := and_zero (x/2)\n    simp only [HAnd.hAnd, AndOp.and, land] at andz\n    simp only [HAnd.hAnd, AndOp.and, land]\n    unfold bitwise\n    cases mod_two_eq_zero_or_one x with | _ p =>\n      simp [xz, p, andz, one_div_two, mod_eq_of_lt]\n@[local simp]\ntheorem testBit_add_one (x i : Nat) : testBit x (i + 1) = testBit (x/2) i := by\n  unfold testBit\n  simp [shiftRight_succ_inside]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "zero_and",
+    "has_proof": true
+  }
+}

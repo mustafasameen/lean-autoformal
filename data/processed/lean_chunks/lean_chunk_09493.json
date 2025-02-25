@@ -1,0 +1,9 @@
+{
+  "content": "@[inline, inherit_doc TreeSet.atIdx!]\ndef atIdx! [Inhabited \u03b1] (t : Raw \u03b1 cmp) (n : Nat) : \u03b1 :=\n  TreeMap.Raw.keyAtIndex! t.inner n\n@[inline, inherit_doc TreeSet.atIdxD]\ndef atIdxD (t : Raw \u03b1 cmp) (n : Nat) (fallback : \u03b1) : \u03b1 :=\n  TreeMap.Raw.keyAtIndexD t.inner n fallback\n@[inline, inherit_doc TreeSet.getGE?]\ndef getGE? (t : Raw \u03b1 cmp) (k : \u03b1) : Option \u03b1 :=\n  TreeMap.Raw.getKeyGE? t.inner k\n@[inline, inherit_doc TreeSet.getGT?]\ndef getGT? (t : Raw \u03b1 cmp) (k : \u03b1) : Option \u03b1 :=\n  TreeMap.Raw.getKeyGT? t.inner k\n@[inline, inherit_doc TreeSet.getLE?]\ndef getLE? (t : Raw \u03b1 cmp) (k : \u03b1) : Option \u03b1 :=\n  TreeMap.Raw.getKeyLE? t.inner k\n@[inline, inherit_doc TreeSet.getLT?]\ndef getLT? (t : Raw \u03b1 cmp) (k : \u03b1) : Option \u03b1 :=\n  TreeMap.Raw.getKeyLT? t.inner k\n@[inline, inherit_doc TreeSet.getGE!]\ndef getGE! [Inhabited \u03b1] (t : Raw \u03b1 cmp) (k : \u03b1) : \u03b1 :=\n  TreeMap.Raw.getKeyGE! t.inner k\n@[inline, inherit_doc TreeSet.getGT!]\ndef getGT! [Inhabited \u03b1] (t : Raw \u03b1 cmp) (k : \u03b1) : \u03b1 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Raw.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Raw.lean",
+    "definition_name": "Raw"
+  }
+}

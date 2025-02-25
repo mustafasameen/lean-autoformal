@@ -1,0 +1,10 @@
+{
+  "content": "simp at h\n  replace h := congrArg (Poly.denote ctx) h\n  simp at h\n  simp [*]\ndef le_coeff_cert (p\u2081 p\u2082 : Poly) (k : Int) : Bool :=\n  k > 0 && (p\u2081.divCoeffs k && p\u2082 == p\u2081.div k)\ntheorem le_coeff (ctx : Context) (p\u2081 p\u2082 : Poly) (k : Int) : le_coeff_cert p\u2081 p\u2082 k \u2192 p\u2081.denote' ctx \u2264 0 \u2192 p\u2082.denote' ctx \u2264 0 := by\n  simp [le_coeff_cert]\n  intro h\u2081 h\u2082 h\u2083\n  exact eq_of_norm_eq_of_divCoeffs h\u2081 h\u2082 h\u2083 |>.mp\ndef le_neg_cert (p\u2081 p\u2082 : Poly) : Bool :=\n  p\u2082 == (p\u2081.mul (-1) |>.addConst 1)\ntheorem le_neg (ctx : Context) (p\u2081 p\u2082 : Poly) : le_neg_cert p\u2081 p\u2082 \u2192 \u00ac p\u2081.denote' ctx \u2264 0 \u2192 p\u2082.denote' ctx \u2264 0 := by\n  simp [le_neg_cert]\n  intro; subst p\u2082; simp; intro h\n  replace h : _ + 1 \u2264 -0 := Int.neg_lt_neg <| Int.lt_of_not_ge h\n  simp at h\n  exact h\ndef Poly.leadCoeff (p : Poly) : Int :=\n  match p with\n  | .add a _ _ => a\n  | _ => 1\ndef le_combine_cert (p\u2081 p\u2082 p\u2083 : Poly) : Bool :=\n  let a\u2081 := p\u2081.leadCoeff.natAbs\n  let a\u2082 := p\u2082.leadCoeff.natAbs\n  p\u2083 == (p\u2081.mul a\u2082 |>.combine (p\u2082.mul a\u2081))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "dvd_solve_combine",
+    "has_proof": true
+  }
+}

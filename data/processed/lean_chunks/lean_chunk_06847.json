@@ -1,0 +1,10 @@
+{
+  "content": "def forbiddenDeclNames := #[``Eq, ``HEq, ``Iff, ``And, ``Or, ``Not]\nprivate def isForbidden (declName : Name) := forbiddenDeclNames.contains declName\npartial def splitWhileForbidden (pat : Expr) : List Expr :=\n  match_expr pat with\n  | Not p => splitWhileForbidden p\n  | And p\u2081 p\u2082 => splitWhileForbidden p\u2081 ++ splitWhileForbidden p\u2082\n  | Or p\u2081 p\u2082 => splitWhileForbidden p\u2081 ++ splitWhileForbidden p\u2082\n  | Eq _ lhs rhs => splitWhileForbidden lhs ++ splitWhileForbidden rhs\n  | Iff lhs rhs => splitWhileForbidden lhs ++ splitWhileForbidden rhs\n  | HEq _ lhs _ rhs => splitWhileForbidden lhs ++ splitWhileForbidden rhs\n  | _ => [pat]\nprivate def dontCare := mkConst (Name.mkSimple \"[grind_dontcare]\")\ndef mkGroundPattern (e : Expr) : Expr :=\n  mkAnnotation `grind.ground_pat e\ndef groundPattern? (e : Expr) : Option Expr :=\n  annotation? `grind.ground_pat e\nprivate def isGroundPattern (e : Expr) : Bool :=\n  groundPattern? e |>.isSome\ndef isPatternDontCare (e : Expr) : Bool :=\n  e == dontCare",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

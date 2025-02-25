@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo (X Y : Sort u) := f : Unit\ndef foo := Foo ((p : P) -> B.fn p) ({p : P}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/binderCacheIssue2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/binderCacheIssue2.lean",
+    "definition_name": "Foo"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "\"macro\" >> optPrecedence >> optNamedName >> optNamedPrio >> many1 (ppSpace >> macroArg) >> macroTail\n@[builtin_command_parser] def \u00abelab_rules\u00bb := leading_parser suppressInsideQuot <|\n  optional docComment >> optional Term.\u00abattributes\u00bb >> Term.attrKind >>\n  \"elab_rules\" >> optKind >> optional (\" : \" >> ident) >> optional (\" <= \" >> ident) >> Term.matchAlts\ndef elabArg  := macroArg\ndef elabTail := leading_parser atomic (\" : \" >> ident >> optional (\" <= \" >> ident)) >> darrow >> withPosition termParser\n@[builtin_command_parser] def \u00abelab\u00bb       := leading_parser suppressInsideQuot <|\n  optional docComment >> optional Term.\u00abattributes\u00bb >> Term.attrKind >>\n  \"elab\" >> optPrecedence >> optNamedName >> optNamedPrio >> many1 (ppSpace >> elabArg) >> elabTail\n@[builtin_command_parser] def binderPredicate := leading_parser\n   optional docComment >>  optional Term.attributes >> optional Term.attrKind >>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_name": "optPrecedence"
+  }
+}

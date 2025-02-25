@@ -1,0 +1,9 @@
+{
+  "content": "if report && (\u2190 read).errToSorry then\n          for mvarId in (\u2190 getMVars (mkMVar mvarId)) do\n            mvarId.admit\n          logException ex\n        else\n          throw ex\n  private partial def synthesizeSyntheticMVarsStep (postponeOnError : Bool) (runTactics : Bool) : TermElabM Bool := do\n    let ctx \u2190 read\n    traceAtCmdPos `Elab.resuming fun _ =>\n      m!\"resuming synthetic metavariables, mayPostpone: {ctx.mayPostpone}, postponeOnError: {postponeOnError}\"\n    let pendingMVars    := (\u2190 get).pendingMVars\n    let numSyntheticMVars := pendingMVars.length\n    modify fun s => { s with pendingMVars := [] }\n    let remainingPendingMVars \u2190 pendingMVars.filterRevM fun mvarId => do\n       traceM `Elab.postpone (mvarId.withContext do addMessageContext m!\"resuming {mkMVar mvarId}\")\n       let succeeded \u2190 synthesizeSyntheticMVar mvarId postponeOnError runTactics\n       if succeeded then markAsResolved mvarId",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "reportStuckSyntheticMVars"
+  }
+}

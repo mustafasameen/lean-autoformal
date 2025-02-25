@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEmpty_mkArray : (mkArray n a).isEmpty = decide (n = 0) := by\n  rw [\u2190 List.toArray_replicate, List.isEmpty_toArray]\n  simp\n@[simp] theorem sum_mkArray_nat (n : Nat) (a : Nat) : (mkArray n a).sum = n * a := by\n  rw [\u2190 List.toArray_replicate, List.sum_toArray]\n  simp\n@[simp] theorem size_reverse (xs : Array \u03b1) : xs.reverse.size = xs.size := by\n  let rec go (as : Array \u03b1) (i j) : (reverse.loop as i j).size = as.size := by\n    rw [reverse.loop]\n    if h : i < j then\n      simp [(go \u00b7 (i+1) \u27e8j-1, \u00b7\u27e9), h]\n    else simp [h]\n    termination_by j - i\n  simp only [reverse]; split <;> simp [go]\n@[simp] theorem toList_reverse (xs : Array \u03b1) : xs.reverse.toList = xs.toList.reverse := by\n  let rec go (as : Array \u03b1) (i j hj)\n      (h : i + j + 1 = xs.size) (h\u2082 : as.size = xs.size)\n      (H : \u2200 k, as.toList[k]? = if i \u2264 k \u2227 k \u2264 j then xs.toList[k]? else xs.toList.reverse[k]?)\n      (k : Nat) : (reverse.loop as i \u27e8j, hj\u27e9).toList[k]? = xs.toList.reverse[k]? := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "isEmpty_mkArray",
+    "has_proof": true
+  }
+}

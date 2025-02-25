@@ -1,0 +1,10 @@
+{
+  "content": "Nat.le_trans (Nat.succ_le_succ h\u2081) h\u2082\nprotected theorem Nat.le_antisymm {n m : Nat} (h\u2081 : LE.le n m) (h\u2082 : LE.le m n) : Eq n m :=\n  match h\u2081 with\n  | Nat.le.refl   => rfl\n  | Nat.le.step h => absurd (Nat.lt_of_le_of_lt h h\u2082) (Nat.lt_irrefl n)\nprotected theorem Nat.lt_of_le_of_ne {n m : Nat} (h\u2081 : LE.le n m) (h\u2082 : Not (Eq n m)) : LT.lt n m :=\n  match Nat.lt_or_ge n m with\n  | Or.inl h\u2083 => h\u2083\n  | Or.inr h\u2083 => absurd (Nat.le_antisymm h\u2081 h\u2083) h\u2082\ntheorem Nat.le_of_ble_eq_true (h : Eq (Nat.ble n m) true) : LE.le n m :=\n  match n, m with\n  | 0,      _      => Nat.zero_le _\n  | succ _, succ _ => Nat.succ_le_succ (le_of_ble_eq_true h)\ntheorem Nat.ble_self_eq_true : (n : Nat) \u2192 Eq (Nat.ble n n) true\n  | 0      => rfl\n  | succ n => ble_self_eq_true n\ntheorem Nat.ble_succ_eq_true : {n m : Nat} \u2192 Eq (Nat.ble n m) true \u2192 Eq (Nat.ble n (succ m)) true\n  | 0,      _,      _ => rfl\n  | succ n, succ _, h => ble_succ_eq_true (n := n) h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class resolution problem. A heartbeat is number of (small) memory allocations (in thousands), 0 means no limit\"\n}\nregister_builtin_option synthInstance.maxSize : Nat := {\n  defValue := 128\n  descr := \"maximum number of instances used to construct a solution in the type class instance synthesis procedure\"\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SynthInstance.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SynthInstance.lean",
+    "definition_name": "resolution"
+  }
+}

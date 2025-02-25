@@ -1,0 +1,9 @@
+{
+  "content": "structure MatchResult (\u03b1 : Type) where\n  elts : Array (Array (Array \u03b1)) := #[]\nnamespace MatchResult\nprivate def push (r : MatchResult \u03b1) (score : Nat) (e : Array \u03b1) : MatchResult \u03b1 :=\n  if e.isEmpty then\n    r\n  else if score < r.elts.size then\n    { elts := r.elts.modify score (\u00b7.push e) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_name": "MatchResult"
+  }
+}

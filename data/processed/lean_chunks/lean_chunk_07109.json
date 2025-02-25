@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\n  toPull : Array LetDecl := #[]\nabbrev PullM := ReaderT Context $ StateRefT State CompilerM\n@[inline] def withFVar (fvarId : FVarId) (x : PullM \u03b1) : PullM \u03b1 :=\n  withReader (fun ctx => { ctx with included := ctx.included.insert fvarId }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullLetDecls.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullLetDecls.lean",
+    "definition_name": "State"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_one_pos (i : Fin (n + 1)) (h : i < Fin.last n) : (0 : Fin (n + 1)) < i + 1 := by\n  match n with\n  | 0 => cases h\n  | n+1 =>\n    rw [Fin.lt_def, val_last, \u2190 Nat.add_lt_add_iff_right] at h\n    rw [Fin.lt_def, val_add, val_zero, val_one, Nat.mod_eq_of_lt h]\n    exact Nat.zero_lt_succ _\ntheorem one_pos : (0 : Fin (n + 2)) < 1 := Nat.succ_pos 0\ntheorem zero_ne_one : (0 : Fin (n + 2)) \u2260 1 := Fin.ne_of_lt one_pos\n@[simp] theorem succ_one_eq_two : Fin.succ (1 : Fin (n + 2)) = 2 := rfl\n@[simp] theorem succ_mk (n i : Nat) (h : i < n) :\n    Fin.succ \u27e8i, h\u27e9 = \u27e8i + 1, Nat.succ_lt_succ h\u27e9 := rfl\ntheorem mk_succ_pos (i : Nat) (h : i < n) :\n    (0 : Fin (n + 1)) < \u27e8i.succ, Nat.add_lt_add_right h 1\u27e9 := by\n  rw [lt_def, val_zero]; exact Nat.succ_pos i\ntheorem one_lt_succ_succ (a : Fin n) : (1 : Fin (n + 2)) < a.succ.succ := by\n  let n+1 := n\n  rw [\u2190 succ_zero_eq_one, succ_lt_succ_iff]; exact succ_pos a\n@[simp] theorem add_one_lt_iff {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "add_one_pos",
+    "has_proof": true
+  }
+}

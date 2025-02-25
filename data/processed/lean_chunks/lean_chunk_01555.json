@@ -1,0 +1,10 @@
+{
+  "content": "(hc : rowOfTypes row df.header.colTypes) :\n      rowsOfTypes (df.rows.concat row) (Header.colTypes df.header) :=\n  match df with\n    | \u27e8_, rows, hr\u27e9 => by\n      induction rows with\n        | nil         => simp at hc",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/946.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/946.lean",
+    "definition_name": "NULL",
+    "has_proof": true
+  }
+}

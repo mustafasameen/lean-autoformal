@@ -1,0 +1,9 @@
+{
+  "content": "def mkInstMod : Expr := mkConst ``Int.instMod\ndef mkInstHMod : Expr := mkApp2 (mkConst ``instHMod [levelZero]) Int.mkType mkInstMod\ndef mkInstPow : Expr := mkConst ``Int.instNatPow\ndef mkInstPowNat  : Expr := mkApp2 (mkConst ``instPowNat [levelZero]) Int.mkType mkInstPow\ndef mkInstHPow : Expr := mkApp3 (mkConst ``instHPow [levelZero, levelZero]) Int.mkType Nat.mkType mkInstPowNat\ndef mkInstLT : Expr := mkConst ``Int.instLTInt\ndef mkInstLE : Expr := mkConst ``Int.instLEInt\nend Int\nprivate def intNegFn : Expr :=\n  mkApp2 (mkConst ``Neg.neg [0]) Int.mkType Int.mkInstNeg\nprivate def intAddFn : Expr :=\n  mkApp4 (mkConst ``HAdd.hAdd [0, 0, 0]) Int.mkType Int.mkType Int.mkType Int.mkInstHAdd\nprivate def intSubFn : Expr :=\n  mkApp4 (mkConst ``HSub.hSub [0, 0, 0]) Int.mkType Int.mkType Int.mkType Int.mkInstHSub\nprivate def intMulFn : Expr :=\n  mkApp4 (mkConst ``HMul.hMul [0, 0, 0]) Int.mkType Int.mkType Int.mkType Int.mkInstHMul\ndef mkIntAdd (a b : Expr) : Expr :=\n  mkApp2 intAddFn a b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

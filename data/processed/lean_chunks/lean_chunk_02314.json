@@ -1,0 +1,9 @@
+{
+  "content": "let newCmd : TSyntax `command \u2190\n      `($nextStruct:command\n        $nextStructInst\n        $nextStructInst')\n    go val width m (cmds.push newCmd)\nmacro \"deep_wide_struct_inst_with\" type:ident val:ident depth:num width:num : command =>\n  mkStructAndInstStx type val width.getNat depth.getNat\ndef foo : String := \"foo\"\ndeep_wide_struct_inst_with String foo 50 20\nset_option maxHeartbeats 1000 in\nexample : a0 = a'0 := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInstFast.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInstFast.lean",
+    "definition_name": "baseIdent"
+  }
+}

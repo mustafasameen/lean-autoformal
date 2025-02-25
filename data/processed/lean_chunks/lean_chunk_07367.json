@@ -1,0 +1,10 @@
+{
+  "content": "have pl : p \u22a8 l := by simp only [(\u00b7 \u22a8 \u00b7), ite_true, p]\n    specialize h p pl\n    rcases h with \u27e8v, \u27e8h1, h2\u27e9 | \u27e8h1, h2\u27e9\u27e9\n    \u00b7 simp only [(\u00b7 \u22a8 \u00b7), p] at h2\n      split at h2\n      \u00b7 next v_eq_l =>\n        cases l\n        simp_all\n      \u00b7 next v_ne_l =>\n        simp only [decide_eq_false_iff_not] at h2\n        exfalso\n        exact h2 h1\n    \u00b7 simp only [(\u00b7 \u22a8 \u00b7), p] at h2\n      split at h2\n      \u00b7 next v_eq_l =>\n        cases l\n        simp_all\n      \u00b7 next v_ne_l =>\n        simp only [decide_eq_true_eq] at h2\n        exfalso\n        rcases not_tautology c (v, true) with v_not_in_c | negv_not_in_c\n        \u00b7 exact v_not_in_c h1\n        \u00b7 simp only [Literal.negate, Bool.not_true] at negv_not_in_c\n          exact negv_not_in_c h2\n  \u00b7 intro h p pl\n    apply Exists.intro l.1\n    by_cases hl : l.2\n    \u00b7 apply Or.inr\n      rw [\u2190 hl]\n      exact \u27e8h, pl\u27e9\n    \u00b7 apply Or.inl\n      simp only [Bool.not_eq_true] at hl\n      rw [\u2190 hl]\n      exact \u27e8h, pl\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_name": "unsat_of_limplies_complement",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance f (x : Nat) : Foo :=\n  { x, y := ack 10 10 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/isDefEqProjIssue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/isDefEqProjIssue.lean",
+    "definition_name": "f"
+  }
+}

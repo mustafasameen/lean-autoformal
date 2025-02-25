@@ -1,0 +1,9 @@
+{
+  "content": "structure InteractiveHypothesisBundle where\n  names : Array String\n  val? : Option CodeWithInfos := none\n  isType? : Option Bool := none\n  isInserted? : Option Bool := none\n  isRemoved? : Option Bool := none\n  deriving Inhabited, RpcEncodable\n  type : CodeWithInfos\nstructure InteractiveGoal extends InteractiveGoalCore where\n  goalPrefix : String\n  isInserted? : Option Bool := none\nstructure InteractiveTermGoal extends InteractiveGoalCore where\n  term : WithRpcRef Elab.TermInfo\n  deriving RpcEncodable\ndef InteractiveGoalCore.pretty (g : InteractiveGoalCore) (userName? : Option String)\n    (goalPrefix : String) : Format := Id.run do\nlet indent := 2\n  let mut ret := match userName? with\n    | some userName => f!\"case {userName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveGoal.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveGoal.lean",
+    "definition_name": "InteractiveHypothesisBundle"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem neg_eq_zero : -a = 0 \u2194 a = 0 := Int.neg_inj (b := 0)\nprotected theorem neg_ne_zero : -a \u2260 0 \u2194 a \u2260 0 := not_congr Int.neg_eq_zero\nprotected theorem sub_eq_add_neg {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Lemmas.lean",
+    "definition_name": "neg_eq_zero",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "the configuration file with the new language's extension. If the output file\nalready exists, Lake will error.\nTranslation is lossy. It does not preserve comments or formatting and\nnon-declarative configuration will be discarded.\"\ndef helpScript : (cmd : String) \u2192 String\n| \"list\"                => helpScriptList\n| \"run\"                 => helpScriptRun\n| \"doc\"                 => helpScriptDoc\n| _                     => helpScriptCli\ndef help : (cmd : String) \u2192 String\n| \"new\"                 => helpNew\n| \"init\"                => helpInit\n| \"build\"               => helpBuild\n| \"check-build\"         => helpCheckBuild\n| \"query\"               => helpQuery\n| \"update\" | \"upgrade\"  => helpUpdate\n| \"pack\"                => helpPack\n| \"unpack\"              => helpUnpack\n| \"upload\"              => helpUpload\n| \"test\"                => helpTest\n| \"check-test\"          => helpCheckTest\n| \"lint\"                => helpLint\n| \"check-lint\"          => helpCheckLint\n| \"clean\"               => helpClean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

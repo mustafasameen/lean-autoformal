@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem toArray_pop (xs : Vector \u03b1 n) : xs.pop.toArray = xs.toArray.pop := rfl\n@[simp] theorem toArray_push (xs : Vector \u03b1 n) (x) : (xs.push x).toArray = xs.toArray.push x := rfl\n@[simp] theorem toArray_beq_toArray [BEq \u03b1] (xs : Vector \u03b1 n) (ys : Vector \u03b1 n) :\n    (xs.toArray == ys.toArray) = (xs == ys) := by\n  simp [instBEq, isEqv, Array.instBEq, Array.isEqv, xs.2, ys.2]\n@[simp] theorem toArray_range : (Vector.range n).toArray = Array.range n := rfl\n@[simp] theorem toArray_reverse (xs : Vector \u03b1 n) : xs.reverse.toArray = xs.toArray.reverse := rfl\n@[simp] theorem toArray_set (xs : Vector \u03b1 n) (i x h) :\n    (xs.set i x).toArray = xs.toArray.set i x (by simpa using h):= rfl\n@[simp] theorem toArray_set! (xs : Vector \u03b1 n) (i x) :\n    (xs.set! i x).toArray = xs.toArray.set! i x := rfl\n@[simp] theorem toArray_setIfInBounds (xs : Vector \u03b1 n) (i x) :\n    (xs.setIfInBounds i x).toArray = xs.toArray.setIfInBounds i x := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "toArray_append",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_mapIdx (f : Nat \u2192 \u03b1 \u2192 \u03b2) (xs : Vector \u03b1 n) (i : Nat) (h : i < n) :\n    (xs.mapIdx f)[i] = f i (xs[i]'(by simp_all)) := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\n@[simp] theorem getElem?_mapIdx (f : Nat \u2192 \u03b1 \u2192 \u03b2) (xs : Vector \u03b1 n) (i : Nat) :\n    (xs.mapIdx f)[i]? = xs[i]?.map (f i) := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\nend Vector\nnamespace Array\n@[simp] theorem mapFinIdx_toVector (xs : Array \u03b1) (f : (i : Nat) \u2192 \u03b1 \u2192 (h : i < xs.size) \u2192 \u03b2) :\n    xs.toVector.mapFinIdx f = (xs.mapFinIdx f).toVector.cast (by simp) := by\n  ext <;> simp\n@[simp] theorem mapIdx_toVector (f : Nat \u2192 \u03b1 \u2192 \u03b2) (xs : Array \u03b1) :\n    xs.toVector.mapIdx f = (xs.mapIdx f).toVector.cast (by simp) := by\n  ext <;> simp\nend Array\nnamespace Vector\ntheorem mk_mem_zipIdx_iff_getElem? {x : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/MapIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/MapIdx.lean",
+    "definition_name": "getElem_mapIdx",
+    "has_proof": true
+  }
+}

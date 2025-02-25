@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 have hik'' : k < i := by omega\n        simp [hik', hik'']\n        omega\n      \u00b7 have hik'' : \u00ac (k < i) := by omega\n        simp [hik', hik'']\n        omega\n  \u00b7 ext k\n    simp only [and_twoPow, getLsbD_and, getLsbD_setWidth, Fin.is_lt, decide_true, Bool.true_and,\n      getLsbD_zero, and_eq_false_imp, and_eq_true, decide_eq_true_eq, and_imp]\n    by_cases hi : x.getLsbD i <;> simp [hi] <;> omega\n@[deprecated setWidth_setWidth_succ_eq_setWidth_setWidth_add_twoPow (since := \"2024-09-18\"),\n  inherit_doc setWidth_setWidth_succ_eq_setWidth_setWidth_add_twoPow]\nabbrev zeroExtend_truncate_succ_eq_zeroExtend_truncate_add_twoPow :=\n  @setWidth_setWidth_succ_eq_setWidth_setWidth_add_twoPow\ntheorem mulRec_eq_mul_signExtend_setWidth (x y : BitVec w) (s : Nat) :\n    mulRec x y s = x * ((y.setWidth (s + 1)).setWidth w) := by\n  induction s\n  case zero =>\n    simp only [mulRec_zero_eq, ofNat_eq_ofNat, Nat.reduceAdd]\n    by_cases y.getLsbD 0\n    case pos hy =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "slt_eq_ult",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def implicitBinderF := Parser.Term.implicitBinder\ndef instBinderF     := Parser.Term.instBinder\ndef explicitBinderF := Parser.Term.explicitBinder\ndef mkInductArgNames (indVal : InductiveVal) : TermElabM (Array Name) := do\n  forallTelescopeReducing indVal.type fun xs _ => do\n    let mut argNames := #[]\n    for x in xs do\n      let localDecl \u2190 x.fvarId!.getDecl\n      let paramName \u2190 mkFreshUserName localDecl.userName.eraseMacroScopes\n      argNames := argNames.push paramName\n    pure argNames\ndef mkImplicitBinders (argNames : Array Name) : TermElabM (Array (TSyntax ``Parser.Term.implicitBinder)) :=\n  argNames.mapM fun argName =>\n    `(implicitBinderF| { $(mkIdent argName) })\ndef mkInstImplicitBinders (className : Name) (indVal : InductiveVal) (argNames : Array Name) : TermElabM (Array Syntax) :=\n  forallBoundedTelescope indVal.type indVal.numParams fun xs _ => do\n    let mut binders := #[]\n    for h : i in [:xs.size] do\n      try\n        let x := xs[i]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

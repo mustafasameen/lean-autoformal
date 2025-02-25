@@ -1,0 +1,9 @@
+{
+  "content": "structure Array (\u03b1 : Type u) (n : Nat) : Type u where\n  data : (i : Fin n) \u2192 \u03b1\n@[extern \"some_extern\"]\ndef get {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/implementedByIssue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/implementedByIssue.lean",
+    "definition_name": "Array"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem induction_on {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "induction_on",
+    "has_proof": false
+  }
+}

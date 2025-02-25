@@ -1,0 +1,9 @@
+{
+  "content": "instance r.setoid : Setoid (M \u00d7 S) where\n  r := r S M\n  iseqv := sorry\ndef _root_.LocalizedModule : Type max u v :=\n  Quotient (r.setoid S M)\nsection\nvariable {M S}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "r"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def foo := Foo ((p : P) -> B.fn p) ({p : P} -> B.fn p)\n#print foo",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/binderCacheIssue2.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/binderCacheIssue2.lean",
+    "definition_name": "foo"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Position where\n  line : Nat\n  character : Nat\n  deriving Inhabited, BEq, Ord, Hashable, ToJson, FromJson, Repr\ninstance : ToString Position := \u27e8fun p =>\n  \"(\" ++ toString p.line ++ \", \" ++ toString p.character ++ \")\"\u27e9\ninstance : LT Position := ltOfOrd\ninstance : LE Position := leOfOrd\nstructure Range where\n  start : Position\n  \u00abend\u00bb : Position\n  deriving Inhabited, BEq, Hashable, ToJson, FromJson, Ord, Repr\ninstance : LT Range := ltOfOrd\ninstance : LE Range := leOfOrd\nstructure Command where\n  command : String\nstructure SnippetString where\n  value : String\n  deriving ToJson, FromJson\nstructure TextEdit where\n  range : Range\n  leanExtSnippet? : Option SnippetString := none\n  annotationId? : Option String := none\n  deriving ToJson, FromJson\nstructure TextDocumentEdit where\n  textDocument : VersionedTextDocumentIdentifier\n  edits : TextEditBatch\n  deriving ToJson, FromJson\nstructure ChangeAnnotation where\n  label             : String\n  description?      : Option String := none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_name": "Position"
+  }
+}

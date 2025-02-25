@@ -1,0 +1,9 @@
+{
+  "content": "| .pm => \"Post Meridiem\"\nprivate def formatMarkerNarrow (marker : HourMarker) : String :=\n  match marker with\n  | .am => \"A\"\n  | .pm => \"P\"\nprivate def toSigned (data : Int) : String :=\n  if data < 0 then toString data else \"+\" ++ toString data\nprivate def toIsoString (offset : Offset) (withMinutes : Bool) (withSeconds : Bool) (colon : Bool) : String :=\n  let (sign, time) := if offset.second.val \u2265 0 then (\"+\", offset.second) else (\"-\", -offset.second)\n  let time := PlainTime.ofSeconds time\n  let pad := leftPad 2 '0' \u2218 toString\n  let data := s!\"{sign}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "GenericFormat"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "(if xs[i] == a then 1 else 0) \u2264 xs.count a := by\n  rw [count_eq_countP]\n  apply boole_getElem_le_countP (\u00b7 == a)\ntheorem count_set (a b : \u03b1) (xs : Array \u03b1) (i : Nat) (h : i < xs.size) :\n    (xs.set i a).count b = xs.count b - (if xs[i] == b then 1 else 0) + (if a == b then 1 else 0) := by\n  simp [count_eq_countP, countP_set, h]\nvariable [LawfulBEq \u03b1]\n@[simp] theorem count_push_self (a : \u03b1) (xs : Array \u03b1) : count a (xs.push a) = count a xs + 1 := by\n  simp [count_push]\n@[simp] theorem count_push_of_ne (h : b \u2260 a) (xs : Array \u03b1) : count a (xs.push b) = count a xs := by\n  simp_all [count_push, h]\ntheorem count_singleton_self (a : \u03b1) : count a #[a] = 1 := by simp\n@[simp]\ntheorem count_pos_iff {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_name": "count_le_size",
+    "has_proof": true
+  }
+}

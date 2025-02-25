@@ -1,0 +1,10 @@
+{
+  "content": "theorem t (a : \u03b1) (as : List \u03b1) : f (a :: as) = as :=\n  sorry\ntheorem tt {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/457.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/457.lean",
+    "definition_name": "t",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def pairParser :=\nparser! \"(\" >> numLit >> \",\" >> ident >> \")\"\n@[builtinTestParser] def pairsParser :=\nparser! \"{\" >> sepBy1 testParser \",\" >> \"}\"\n@[builtinTestParser] def functionParser :=\nparser! \"fun\" >> ident >> \",\" >> testParser\n@[builtinTestParser] def identParser : Parser :=\nident\n@[builtinTestParser] def numParser : Parser :=\nnumLit\n@[builtinTestParser] def strParser : Parser :=\nstrLit\nend Foo\ndef testParser (input : String) : IO Unit :=\ndo\nenv \u2190 mkEmptyEnvironment",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/parser1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/parser1.lean",
+    "definition_name": "pairParser"
+  }
+}

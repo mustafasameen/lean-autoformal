@@ -1,0 +1,9 @@
+{
+  "content": "class AddCommGroupWithOne (R : Type u)\n  extends AddCommGroup R, AddGroupWithOne R, AddCommMonoidWithOne R\nend Mathlib.Data.Int.Cast.Defs\nsection Mathlib.Algebra.Group.Basic\nvariable [SubtractionMonoid \u03b1]\ninstance (priority := 100) SubtractionMonoid.toSubNegZeroMonoid : SubNegZeroMonoid \u03b1 :=\n  { SubtractionMonoid.toSubNegMonoid with\n    neg_zero := sorry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "MulZeroClass"
+  }
+}

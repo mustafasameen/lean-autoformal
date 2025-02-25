@@ -1,0 +1,9 @@
+{
+  "content": "class Foo (\u03b1 \u03b2 \u03b3 : Type) := (u:Unit)\nclass Bar (\u03b1 \u03b2 \u03b3 : Type) := (u:Unit)\nclass Top := (u:Unit)\nset_option synthInstance.checkSynthOrder false in\ninstance FooBarToTop (\u03b1 \u03b2 \u03b3 : Type) [Foo \u03b1 \u03b2 \u03b3] [Bar \u03b1 \u03b2 \u03b3] : Top := {u:=()}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals4.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals4.lean",
+    "definition_name": "Foo"
+  }
+}

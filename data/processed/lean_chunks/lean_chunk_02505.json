@@ -1,0 +1,10 @@
+{
+  "content": "theorem outOfBounds_eq_default [Inhabited \u03b1] : (outOfBounds : \u03b1) = default := rfl\nclass GetElem (coll : Type u) (idx : Type v) (elem : outParam (Type w))\n              (valid : outParam (coll \u2192 idx \u2192 Prop)) where\n  getElem (xs : coll) (i : idx) (h : valid xs i) : elem\nexport GetElem (getElem)\n@[inherit_doc getElem]\nsyntax:max term noWs \"[\" withoutPosition(term) \"]\" : term\nmacro_rules | `($x[$i]) => `(getElem $x $i (by get_elem_tactic))\n@[inherit_doc getElem]\nsyntax term noWs \"[\" withoutPosition(term) \"]'\" term:max : term\nmacro_rules | `($x[$i]'$h) => `(getElem $x $i $h)\n  getElem? : coll \u2192 idx \u2192 Option elem\n  getElem! [Inhabited elem] (xs : coll) (i : idx) : elem :=\n    match getElem? xs i with | some e => e | none => outOfBounds\nexport GetElem? (getElem? getElem!)\nmacro:max x:term noWs \"[\" i:term \"]\" noWs \"?\" : term => `(getElem? $x $i)\nmacro:max x:term noWs \"[\" i:term \"]\" noWs \"!\" : term => `(getElem! $x $i)\nrecommended_spelling \"getElem\" for \"xs[i]\" in [GetElem.getElem, \u00abterm__[_]\u00bb]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "outOfBounds_eq_default",
+    "has_proof": true
+  }
+}

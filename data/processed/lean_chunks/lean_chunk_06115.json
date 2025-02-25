@@ -1,0 +1,10 @@
+{
+  "content": "theorem bind_congr [Bind m] {x : m \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_name": "bind_congr",
+    "has_proof": false
+  }
+}

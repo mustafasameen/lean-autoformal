@@ -1,0 +1,9 @@
+{
+  "content": "def subMinutes (time : PlainTime) (minutesToSub : Minute.Offset) : PlainTime :=\n  addMinutes time (-minutesToSub)\n@[inline]\ndef addHours (time : PlainTime) (hoursToAdd : Hour.Offset) : PlainTime :=\n  let total := time.toNanoseconds + hoursToAdd.toNanoseconds\n  ofNanoseconds total\n@[inline]\ndef subHours (time : PlainTime) (hoursToSub : Hour.Offset) : PlainTime :=\n  addHours time (-hoursToSub)\ndef addNanoseconds (time : PlainTime) (nanosToAdd : Nanosecond.Offset) : PlainTime :=\n  let total := time.toNanoseconds + nanosToAdd\n  ofNanoseconds total\ndef subNanoseconds (time : PlainTime) (nanosToSub : Nanosecond.Offset) : PlainTime :=\n  addNanoseconds time (-nanosToSub)\ndef addMilliseconds (time : PlainTime) (millisToAdd : Millisecond.Offset) : PlainTime :=\n  let total := time.toMilliseconds + millisToAdd\n  ofMilliseconds total\ndef subMilliseconds (time : PlainTime) (millisToSub : Millisecond.Offset) : PlainTime :=\n  addMilliseconds time (-millisToSub)\n@[inline]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_name": "PlainTime"
+  }
+}

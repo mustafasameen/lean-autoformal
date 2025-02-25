@@ -1,0 +1,9 @@
+{
+  "content": "def leanMainFn := \"_lean_main\"\nstructure Context where\n  env        : Environment\n  modName    : Name\n  jpMap      : JPParamsMap := {}\n  mainFn     : FunId := default\n  mainParams : Array Param := #[]\nabbrev M := ReaderT Context (EStateM String String)\ndef getEnv : M Environment := Context.env <$> read\ndef getModName : M Name := Context.modName <$> read\ndef getDecl (n : Name) : M Decl := do\n  let env \u2190 getEnv\n  match findEnvDecl env n with\n  | some d => pure d\n  | none   => throw s!\"unknown declaration '{n}'\"\n@[inline] def emit {\u03b1 : Type} [ToString \u03b1] (a : \u03b1) : M Unit :=\n  modify fun out => out ++ toString a\n@[inline] def emitLn {\u03b1 : Type} [ToString \u03b1] (a : \u03b1) : M Unit := do\n  emit a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitC.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitC.lean",
+    "definition_name": "leanMainFn"
+  }
+}

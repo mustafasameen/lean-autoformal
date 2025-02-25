@@ -1,0 +1,9 @@
+{
+  "content": "structure BoxingState where\n  nextIdx : Index\n  auxDecls : Array Decl := #[]\n  auxDeclCache : AssocList FnBody Expr := AssocList.empty\n  nextAuxId : Nat := 1\nabbrev M := ReaderT BoxingContext (StateT BoxingState Id)\nprivate def M.mkFresh : M VarId := do\n  let oldS \u2190 getModify fun s => { s with nextIdx := s.nextIdx + 1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Boxing.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Boxing.lean",
+    "definition_name": "BoxingState"
+  }
+}

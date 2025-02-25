@@ -1,0 +1,10 @@
+{
+  "content": "theorem filterMap_eq_map (f : \u03b1 \u2192 \u03b2) (w : stop = as.size) :\n    filterMap (some \u2218 f) as 0 stop = map f as := by\n  subst w\n  cases as\n  simp\n@[simp] theorem singleton_def (v : \u03b1) : Array.singleton v = #[v] := rfl\ntheorem append_of_mem {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "filterMap_eq_map",
+    "has_proof": true
+  }
+}

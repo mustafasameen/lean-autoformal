@@ -1,0 +1,9 @@
+{
+  "content": "def fieldIdCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)\n    (lctx              : LocalContext)\n    (id                : Option Name)\n    (structName        : Name)\n    : CancellableM (Array CompletionItem) :=\n  runM params completionInfoPos ctx lctx do\n    let idStr := id.map (\u00b7.toString) |>.getD \"\"\n    let fieldNames := getStructureFieldsFlattened (\u2190 getEnv) structName (includeSubobjectFields := false)\n    for fieldName in fieldNames do\n      let .str _ fieldName := fieldName | continue\n      if ! containsSuccessiveCharacters idStr fieldName then\n        continue\n      let item := { label := fieldName, detail? := \"field\", documentation? := none, kind? := CompletionItemKind.field }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

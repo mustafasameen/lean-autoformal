@@ -1,0 +1,10 @@
+{
+  "content": "theorem vector\u2082_induction (P : Vector (Vector \u03b1 n) m \u2192 Prop)\n    (of : \u2200 (xss : Array (Array \u03b1)) (h\u2081 : xss.size = m) (h\u2082 : \u2200 xs \u2208 xss, xs.size = n),\n      P (mk (xss.attach.map (fun \u27e8xs, m\u27e9 => mk xs (h\u2082 xs m))) (by simpa using h\u2081)))\n    (xss : Vector (Vector \u03b1 n) m) : P xss := by\n  specialize of (xss.map toArray).toArray (by simp) (by simp)\n  simpa [Array.map_attach_eq_pmap, Array.pmap_map] using of\ntheorem vector\u2083_induction (P : Vector (Vector (Vector \u03b1 n) m) k \u2192 Prop)\n    (of : \u2200 (xss : Array (Array (Array \u03b1))) (h\u2081 : xss.size = k) (h\u2082 : \u2200 xs \u2208 xss, xs.size = m)\n      (h\u2083 : \u2200 xs \u2208 xss, \u2200 as \u2208 xs, as.size = n),\n      P (mk (xss.attach.map (fun \u27e8xs, m\u27e9 =>\n        mk (xs.attach.map (fun \u27e8as, m'\u27e9 =>\n          mk as (h\u2083 xs m as m'))) (by simpa using h\u2082 xs m))) (by simpa using h\u2081)))\n    (xss : Vector (Vector (Vector \u03b1 n) m) k) : P xss := by\n  specialize of (xss.map (fun as => (as.map toArray).toArray)).toArray (by simp) (by simp) (by simp)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "vector\u2082_induction",
+    "has_proof": true
+  }
+}

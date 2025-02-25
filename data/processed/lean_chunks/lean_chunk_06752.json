@@ -1,0 +1,9 @@
+{
+  "content": "let newGoals \u2190 goal.apply lem cfg\n    try\n      act newGoals\n    catch _ =>\n      if \u2190 allowFailure goal then\n        pure newGoals\n      else\n        failure\ndef tryOnEach\n    (act : Candidate \u2192 MetaM (List MVarId))\n    (candidates : Array Candidate) :\n    MetaM (Option (Array (List MVarId \u00d7 MetavarContext))) := do\n  let mut a := #[]\n  let s \u2190 saveState\n  for c in candidates do\n    match \u2190 (tryCatch (Except.ok <$> act c) (pure \u2218 Except.error)) with\n    | .error e =>\n      restoreState s\n      if isAbortSpeculation e then\n        break\n    | .ok remaining =>\n      if remaining.isEmpty then\n        return none\n      let ctx \u2190 getMCtx\n      restoreState s\n      a := a.push (remaining, ctx)\n  return (.some a)\nprivate def librarySearch' (goal : MVarId)\n    (tactic : List MVarId \u2192 MetaM (List MVarId))\n    (allowFailure : MVarId \u2192 MetaM Bool)\n    (leavePercentHeartbeats : Nat) :\n    MetaM (Option (Array (List MVarId \u00d7 MetavarContext))) := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_name": "CandidateFinder"
+  }
+}

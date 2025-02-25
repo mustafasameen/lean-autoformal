@@ -1,0 +1,9 @@
+{
+  "content": "inductive RevLex (r  : \u03b1 \u2192 \u03b1 \u2192 Prop) (s  : \u03b2 \u2192 \u03b2 \u2192 Prop) : @PSigma \u03b1 (fun _ => \u03b2) \u2192 @PSigma \u03b1 (fun _ => \u03b2) \u2192 Prop where\n  | left  : {a\u2081 a\u2082 : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_name": "RevLex"
+  }
+}

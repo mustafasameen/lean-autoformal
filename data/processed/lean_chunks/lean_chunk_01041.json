@@ -1,0 +1,9 @@
+{
+  "content": "structure Equiv (\u03b1 : Sort _) (\u03b2 : Sort _) where\n  protected toFun : \u03b1 \u2192 \u03b2\n  protected invFun : \u03b2 \u2192 \u03b1\ninfixl:25 \" \u2243 \" => Equiv\nprotected def Equiv.symm (e : \u03b1 \u2243 \u03b2) : \u03b2 \u2243 \u03b1 := \u27e8e.invFun, e.toFun\u27e9\nend Mathlib.Logic.Equiv.Defs\nsection Mathlib.Combinatorics.Quiver.Basic\nuniverse v v\u2081 v\u2082 u u\u2081 u\u2082\nclass Quiver (V : Type u) where\n  Hom : V \u2192 V \u2192 Sort v\ninfixr:10 \" \u27f6 \" => Quiver.Hom\nstructure Prefunctor (V : Type u\u2081) [Quiver.{v\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_cat_adjunction.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_cat_adjunction.lean",
+    "definition_name": "Equiv"
+  }
+}

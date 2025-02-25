@@ -1,0 +1,10 @@
+{
+  "content": "default := USize.ofNatLT 0 USize.size_pos\nabbrev Nat.isValidChar (n : Nat) : Prop :=\n  Or (LT.lt n 0xd800) (And (LT.lt 0xdfff n) (LT.lt n 0x110000))\nabbrev UInt32.isValidChar (n : UInt32) : Prop :=\n  n.toNat.isValidChar\nstructure Char where\n  valid : val.isValidChar\nprivate theorem isValidChar_UInt32 {n : Nat} (h : n.isValidChar) : LT.lt n UInt32.size :=\n  match h with\n  | Or.inl h      => Nat.lt_trans h (of_decide_eq_true rfl)\n  | Or.inr \u27e8_, h\u27e9 => Nat.lt_trans h (of_decide_eq_true rfl)\n@[extern \"lean_uint32_of_nat\"]\ndef Char.ofNatAux (n : @& Nat) (h : n.isValidChar) : Char :=\n  { val := \u27e8BitVec.ofNatLT n (isValidChar_UInt32 h)\u27e9, valid := h }\n@[noinline, match_pattern]\ndef Char.ofNat (n : Nat) : Char :=\n  dite (n.isValidChar)\n    (fun h => Char.ofNatAux n h)\n    (fun _ => { val := \u27e8BitVec.ofNatLT 0 (of_decide_eq_true rfl)\u27e9, valid := Or.inl (of_decide_eq_true rfl) })\ntheorem Char.eq_of_val_eq : \u2200 {c d : Char}, Eq c.val d.val \u2192 Eq c d\n  | \u27e8_, _\u27e9, \u27e8_, _\u27e9, rfl => rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "IO.println (getPathToBaseStructure? env `S1 `S4)\n  IO.println (getStructureSubobjects env `S4)\n  IO.println (\u2190 getAllParentStructures `S4)\n  pure ()\ndef dumpStructInfo (structName : Name) : CoreM Unit := do\n  let env \u2190 getEnv\n  let some info := getStructureInfo? env structName\n    | throwError \"no such structure {structName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure.lean",
+    "definition_name": "D"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def a := 1\n#guard_msgs in\nexample (b c d e f g h i j k l m n o p : Nat) :\n  b + c + d + e + f + g + h + i + j + k + l + m + n + o + p < 100 := by omega",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/omega.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/omega.lean",
+    "definition_name": "a"
+  }
+}

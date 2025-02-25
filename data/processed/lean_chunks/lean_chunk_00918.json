@@ -1,0 +1,9 @@
+{
+  "content": "class Approx {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1851.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1851.lean",
+    "definition_name": "Approx"
+  }
+}

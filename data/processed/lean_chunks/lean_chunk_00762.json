@@ -1,0 +1,9 @@
+{
+  "content": "class Enumerable (\u03b1 : Type) where\n  elems : List \u03b1\ninstance : Enumerable Bool where\n  elems := [false, true]\ninstance {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bigop.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bigop.lean",
+    "definition_name": "Enumerable"
+  }
+}

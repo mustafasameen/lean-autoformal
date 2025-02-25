@@ -1,0 +1,10 @@
+{
+  "content": "simp [ih]\ntheorem allM_eq_not_anyM_not [Monad m] [LawfulMonad m] (p : \u03b1 \u2192 m Bool) (as : List \u03b1) :\n    allM p as = (! \u00b7) <$> anyM ((! \u00b7) <$> p \u00b7) as := by\n  induction as with\n  | nil => simp\n  | cons a as ih =>\n    simp only [allM, anyM, bind_map_left, _root_.map_bind]\n    congr\n    funext b\n    split <;> simp_all\n@[simp] theorem foldlM_subtype [Monad m] {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_name": "forIn",
+    "has_proof": true
+  }
+}

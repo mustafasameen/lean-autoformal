@@ -1,0 +1,10 @@
+{
+  "content": "theorem findM?_id (p : \u03b1 \u2192 Bool) (as : List \u03b1) : findM? (m := Id) p as = as.find? p := by\n  induction as with\n  | nil => rfl\n  | cons a as ih =>\n    simp only [findM?, find?]\n    cases p a with\n    | true  => rfl\n    | false => rw [ih]; rfl\n@[specialize]\ndef findSomeM? {m : Type u \u2192 Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Control.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Control.lean",
+    "definition_name": "findM",
+    "has_proof": true
+  }
+}

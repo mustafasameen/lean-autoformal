@@ -1,0 +1,10 @@
+{
+  "content": "theorem liff_iff_limplies_and_limplies {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Entails.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Entails.lean",
+    "definition_name": "liff_iff_limplies_and_limplies",
+    "has_proof": false
+  }
+}

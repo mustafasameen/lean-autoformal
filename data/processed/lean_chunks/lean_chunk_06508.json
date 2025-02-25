@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_term_elab depArrow] def elabDepArrow : TermElab := fun stx _ =>\n  let binder := stx[0]\n  let term   := stx[2]\n  elabBinders #[binder] fun xs => do\n    mkForallFVars xs (\u2190 elabType term)\nprivate partial def getFunBinderIds? (stx : Syntax) : OptionT MacroM (Array Syntax) :=\n  let convertElem (stx : Term) : OptionT MacroM Syntax :=\n    match stx with\n    | `(_) =>\n      return stx\n    | `($_:ident) => return stx\n    | _ => failure\n  match stx with\n  | `($f $args*) => do\n     let mut acc := #[].push (\u2190 convertElem f)\n     for arg in args do\n       acc := acc.push (\u2190 convertElem arg)\n     return acc\n  | _ =>\n    return #[].push (\u2190 convertElem stx)\npartial def expandFunBinders (binders : Array Syntax) (body : Syntax) : MacroM (Array Syntax \u00d7 Syntax \u00d7 Bool) :=\n  let rec loop (body : Syntax) (i : Nat) (newBinders : Array Syntax) := do\n    if h : i < binders.size then\n      let binder := binders[i]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_name": "instance"
+  }
+}

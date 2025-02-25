@@ -1,0 +1,9 @@
+{
+  "content": "inductive Trie (\u03b1 : Type) where\n  | leaf : Option \u03b1 \u2192 Trie \u03b1\n  | node1 : Option \u03b1 \u2192 UInt8 \u2192 Trie \u03b1 \u2192 Trie \u03b1\n  | node : Option \u03b1 \u2192 ByteArray \u2192 Array (Trie \u03b1) \u2192 Trie \u03b1\nnamespace Trie\nvariable {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Trie.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Trie.lean",
+    "definition_name": "Trie"
+  }
+}

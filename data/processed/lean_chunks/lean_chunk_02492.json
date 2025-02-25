@@ -1,0 +1,9 @@
+{
+  "content": "class ForIn' (m : Type u\u2081 \u2192 Type u\u2082) (\u03c1 : Type u) (\u03b1 : outParam (Type v)) (d : outParam $ Membership \u03b1 \u03c1) where\n  forIn' {\u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "ForIn"
+  }
+}

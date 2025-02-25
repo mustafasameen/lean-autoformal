@@ -1,0 +1,9 @@
+{
+  "content": "data?   : Option \u03b1 := none\n  deriving Inhabited, BEq\ninstance [ToJson \u03b1] : CoeOut (ResponseError \u03b1) Message :=\n  \u27e8fun r => Message.responseError r.id r.code r.message (r.data?.map toJson)\u27e9\ninstance : CoeOut (ResponseError Unit) Message :=\n  \u27e8fun r => Message.responseError r.id r.code r.message none\u27e9\ninstance : Coe String RequestID := \u27e8RequestID.str\u27e9\ninstance : Coe JsonNumber RequestID := \u27e8RequestID.num\u27e9\nprivate def RequestID.lt : RequestID \u2192 RequestID \u2192 Bool\n  | RequestID.str a, RequestID.str b            => a < b\n  | RequestID.num a, RequestID.num b            => a < b\n  | RequestID.null,  RequestID.num _            => true\n  | RequestID.null,  RequestID.str _            => true\n  | RequestID.num _, RequestID.str _            => true\n| _, _",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/JsonRpc.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/JsonRpc.lean",
+    "definition_name": "Batch"
+  }
+}

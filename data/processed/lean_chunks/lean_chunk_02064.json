@@ -1,0 +1,10 @@
+{
+  "content": "theorem simple5 (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z :=\nby {\n  intro h1; intro _; intro h3;\n  exact Eq.trans h3 h1\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_name": "simple5",
+    "has_proof": true
+  }
+}

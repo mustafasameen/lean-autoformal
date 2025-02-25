@@ -1,0 +1,10 @@
+{
+  "content": "theorem toList_set (xs : Array \u03b1) (i x h) :\n    (xs.set i x).toList = xs.toList.set i x := rfl\ntheorem swap_def (xs : Array \u03b1) (i j : Nat) (hi hj) :\n    xs.swap i j hi hj = (xs.set i xs[j]).set j xs[i] (by simpa using hj) := by\n  simp [swap]\n@[simp] theorem toList_swap (xs : Array \u03b1) (i j : Nat) (hi hj) :\n    (xs.swap i j hi hj).toList = (xs.toList.set i xs[j]).set j xs[i] := by simp [swap_def]\nend Array\nnamespace List\nopen Array\ntheorem toArray_inj {as bs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "toList_set",
+    "has_proof": true
+  }
+}

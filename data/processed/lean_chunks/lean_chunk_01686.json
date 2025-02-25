@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_of_subsingleton [Preorder \u03b1] [Subsingleton \u03b1] {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_name": "le_of_subsingleton",
+    "has_proof": false
+  }
+}

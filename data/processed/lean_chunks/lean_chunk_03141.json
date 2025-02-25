@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofNat_min (a b : Nat) : ((min a b : Nat) : Int) = min (a : Int) (b : Int) := by\n  simp only [Nat.min_def, Int.min_def, Int.ofNat_le]\n  split <;> rfl\ntheorem ofNat_max (a b : Nat) : ((max a b : Nat) : Int) = max (a : Int) (b : Int) := by\n  simp only [Nat.max_def, Int.max_def, Int.ofNat_le]\n  split <;> rfl\ntheorem ofNat_natAbs (a : Int) : (a.natAbs : Int) = if 0 \u2264 a then a else -a := by\n  rw [Int.natAbs.eq_def]\n  split <;> rename_i n\n  \u00b7 simp only [Int.ofNat_eq_coe]\n    rw [if_pos (Int.ofNat_nonneg n)]\n  \u00b7 simp; rfl\ntheorem natAbs_dichotomy {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_name": "ofNat_min",
+    "has_proof": true
+  }
+}

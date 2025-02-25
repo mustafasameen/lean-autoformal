@@ -1,0 +1,10 @@
+{
+  "content": "def Ordinal := Bounded.LE 1 12\n  deriving Repr, BEq, LE, LT\ninstance : OfNat Ordinal n :=\n  inferInstanceAs (OfNat (Bounded.LE 1 (1 + (11 : Nat))) n)\ninstance : Inhabited Ordinal where\n  default := 1\ninstance {x y : Ordinal} : Decidable (x \u2264 y) :=\n  inferInstanceAs (Decidable (x.val \u2264 y.val))\ninstance {x y : Ordinal} : Decidable (x < y) :=\n  inferInstanceAs (Decidable (x.val < y.val))\ndef Offset : Type := Int\n  deriving Repr, BEq, Inhabited, Add, Sub, Mul, Div, Neg, ToString, LT, LE, DecidableEq\ninstance {x y : Offset} : Decidable (x \u2264 y) :=\n  Int.decLe x y\ninstance {x y : Offset} : Decidable (x < y) :=\n  Int.decLt x y\ninstance : OfNat Offset n :=\n  \u27e8Int.ofNat n\u27e9\ndef Quarter := Bounded.LE 1 4\nnamespace Quarter\ndef ofMonth (month : Month.Ordinal) : Quarter :=\n  month\n  |>.sub 1\n  |>.ediv 3 (by decide)\n  |>.add 1\nend Quarter\nnamespace Offset\n@[inline]\ndef ofNat (data : Nat) : Offset :=\n  Int.ofNat data\n@[inline]\ndef ofInt (data : Int) : Offset :=\n  data\nend Offset\nnamespace Ordinal",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Month.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Month.lean",
+    "definition_name": "Ordinal",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive BV : Nat \u2192 Type\n| nil  : BV 0\n| cons : {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def9.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def9.lean",
+    "definition_name": "BV"
+  }
+}

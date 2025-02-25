@@ -1,0 +1,9 @@
+{
+  "content": "instance subNegMonoid [\u2200 i, SubNegMonoid <| f i] : SubNegMonoid (\u2200 i : I, f i) :=\n  { addMonoid with\n    neg := Neg.neg\n    sub := Sub.sub\n    zsmul := fun z x i => z \u2022 x i\n    sub_eq_add_neg := sorry\n    zsmul_zero' := sorry\n    zsmul_succ' := sorry\n    zsmul_neg' := sorry\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "subNegMonoid"
+  }
+}

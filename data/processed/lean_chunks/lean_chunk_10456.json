@@ -1,0 +1,10 @@
+{
+  "content": "(l : List ((_ : \u03b1) \u00d7 \u03b2)) (hl : DistinctKeys l) (hc : containsKey k (alterKey k f l)) :\n    haveI hc' : (f (getValue? k l)).isSome := by rwa [containsKey_alterKey hl, BEq.refl] at hc\n    getValue k (alterKey k f l) hc = (f (getValue? k l)).get hc' := by\n  rw [getValue_alterKey _ _ _ _ hl]\n  simp\ntheorem getValue!_alterKey [EquivBEq \u03b1] {k k' : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "getValue",
+    "has_proof": true
+  }
+}

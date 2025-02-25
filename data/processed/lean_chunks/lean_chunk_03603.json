@@ -1,0 +1,9 @@
+{
+  "content": "instance coeToNat : CoeOut (Fin n) Nat :=\n  \u27e8fun v => v.val\u27e9\ndef elim0.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Basic.lean",
+    "definition_name": "coeToNat"
+  }
+}

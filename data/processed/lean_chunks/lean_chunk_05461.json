@@ -1,0 +1,9 @@
+{
+  "content": "class MonadPrettyFormat (m : Type \u2192 Type) where\n  pushOutput (s : String)    : m Unit\n  pushNewline (indent : Nat) : m Unit\n  currColumn                 : m Nat\n  endTags                    : Nat \u2192 m Unit\nopen MonadPrettyFormat\nprivate def pushGroup (flb : FlattenBehavior) (items : List WorkItem) (gs : List WorkGroup) (w : Nat) [Monad m] [MonadPrettyFormat m] : m (List WorkGroup) := do\n  let k  \u2190 currColumn\n  let g  := { flatten := flb == FlattenBehavior.allOrNone, flb := flb, items := items : WorkGroup }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_name": "MonadPrettyFormat"
+  }
+}

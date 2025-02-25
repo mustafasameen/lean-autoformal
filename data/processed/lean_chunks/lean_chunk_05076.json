@@ -1,0 +1,10 @@
+{
+  "content": "theorem findSomeM?_id (f : \u03b1 \u2192 Option \u03b2) (as : List \u03b1) : findSomeM? (m := Id) f as = as.findSome? f := by\n  induction as with\n  | nil => rfl\n  | cons a as ih =>\n    simp only [findSomeM?, findSome?]\n    cases f a with\n    | some b => rfl\n    | none   => rw [ih]; rfl\ntheorem findM?_eq_findSomeM? [Monad m] [LawfulMonad m] (p : \u03b1 \u2192 m Bool) (as : List \u03b1) :\n    as.findM? p = as.findSomeM? fun a => return if (\u2190 p a) then some a else none := by\n  induction as with\n  | nil => rfl\n  | cons a as ih =>\n    simp only [findM?, findSomeM?]\n    simp [ih]\n    congr\n    apply funext\n    intro b\n    cases b <;> simp\n@[inline] protected def forIn' {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Control.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Control.lean",
+    "definition_name": "findSomeM",
+    "has_proof": true
+  }
+}

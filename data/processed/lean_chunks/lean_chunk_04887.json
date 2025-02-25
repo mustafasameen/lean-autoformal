@@ -1,0 +1,10 @@
+{
+  "content": "theorem filter_map (f : \u03b2 \u2192 \u03b1) (l : List \u03b2) : filter p (map f l) = map f (filter (p \u2218 f) l) := by\n  induction l with\n  | nil => rfl\n  | cons a l IH => by_cases h : p (f a) <;> simp [*]\ntheorem map_filter_eq_foldr (f : \u03b1 \u2192 \u03b2) (p : \u03b1 \u2192 Bool) (as : List \u03b1) :\n    map f (filter p as) = foldr (fun a bs => bif p a then f a :: bs else bs) [] as := by\n  induction as with\n  | nil => rfl\n  | cons head _ ih =>\n    simp only [foldr]\n    cases hp : p head <;> simp [filter, *]\n@[simp] theorem filter_append {p : \u03b1 \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "filter_filter",
+    "has_proof": true
+  }
+}

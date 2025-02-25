@@ -1,0 +1,10 @@
+{
+  "content": "split <;> simp [*]\n      next => apply cons_le_of_eq ih h\n    next h => assumption\ntermination_by \u03c3\u2081.length\ntheorem State.join_le_right_of (h : \u03c3\u2081 \u227c \u03c3\u2082) (\u03c3\u2083 : State) : \u03c3\u2083.join \u03c3\u2081 \u227c \u03c3\u2082 :=\n  le_trans (join_le_right \u03c3\u2083 \u03c3\u2081) h\ntheorem State.eq_bot (h : \u03c3 \u227c \u22a5) : \u03c3 = \u22a5 := by\n  match \u03c3 with\n  | [] => simp\n  | (y, v) :: \u03c3 =>\n    have : State.find? ((y, v) :: \u03c3) y = some v := by simp\n    have := h this\n    contradiction\ntheorem State.erase_le_of_le_cons (h : \u03c3' \u227c (x, v) :: \u03c3) : \u03c3'.erase x \u227c \u03c3 := by\n  intro y w hf'\n  by_cases hxy : x = y <;> simp [*] at hf'\n  have hf := h hf'\n  simp [hxy, Ne.symm hxy] at hf\n  assumption\ntheorem State.erase_le_update (h : \u03c3' \u227c \u03c3) : \u03c3'.erase x \u227c \u03c3.update x v := by\n  intro y w hf'\n  by_cases hxy : x = y <;> simp [*] at hf' |-\n  exact h hf'\ntheorem State.update_le_update (h : \u03c3' \u227c \u03c3) : \u03c3'.update x v \u227c \u03c3.update x v := by\n  intro y w hf\n  induction \u03c3 generalizing \u03c3' hf with\n  | nil  => rw [eq_bot h] at hf; assumption\n  | cons zw' \u03c3 ih =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Stmt",
+    "has_proof": true
+  }
+}

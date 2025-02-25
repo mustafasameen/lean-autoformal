@@ -1,0 +1,9 @@
+{
+  "content": "def Expr.toPoly (e : Expr) :=\n  go 1 e []\nwhere\n  go (coeff : Nat) : Expr \u2192 (Poly \u2192 Poly)\n    | .num k    => bif k == 0 then id else ((coeff * k, fixedVar) :: \u00b7)\n    | .var i    => ((coeff, i) :: \u00b7)\n    | .add a b  => go coeff a \u2218 go coeff b\n    | .mulL k a\n    | .mulR a k => bif k == 0 then id else go (coeff * k) a\ndef Expr.toNormPoly (e : Expr) : Poly :=\n  e.toPoly.norm\ndef Expr.inc (e : Expr) : Expr :=\n   .add e (.num 1)\nstructure PolyCnstr  where\n  eq  : Bool\n  lhs : Poly\n  rhs : Poly\n  deriving BEq\ninstance : LawfulBEq PolyCnstr where\n  eq_of_beq {a b}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Expr"
+  }
+}

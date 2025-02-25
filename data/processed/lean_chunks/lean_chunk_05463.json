@@ -1,0 +1,9 @@
+{
+  "content": "def defIndent  := 2\ndef defUnicode := true\ndef nestD (f : Format) : Format :=\n  nest defIndent f\nprivate structure State where\n  out    : String := \"\"\n  column : Nat    := 0\ninstance : MonadPrettyFormat (StateM State) where\n  pushOutput s       := modify fun \u27e8out, col\u27e9 => \u27e8out ++ s, col + s.length\u27e9\n  pushNewline indent := modify fun \u27e8out, _\u27e9 => \u27e8out ++ \"\\n\".pushn ' ' indent, indent\u27e9\n  currColumn         := return (\u2190 get).column\n  startTag _         := return ()\n  endTags _          := return ()\n@[export lean_format_pretty]\ndef pretty (f : Format) (width : Nat := defWidth) (indent : Nat := 0) (column := 0) : String :=\n  let act : StateM State Unit := prettyM f width indent\n  State.out <| act (State.mk \"\" column) |>.snd\nend Format\nclass ToFormat (\u03b1 : Type u) where\n  format : \u03b1 \u2192 Format\nexport ToFormat (format)\ninstance : ToFormat Format where\n  format f := f\ninstance : ToFormat String where\n  format s := Format.text s",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_name": "defIndent"
+  }
+}

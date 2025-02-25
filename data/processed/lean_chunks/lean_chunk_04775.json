@@ -1,0 +1,10 @@
+{
+  "content": "theorem neg_of_sign_eq_neg_one : \u2200 {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "neg_of_sign_eq_neg_one",
+    "has_proof": false
+  }
+}

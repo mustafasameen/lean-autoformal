@@ -1,0 +1,10 @@
+{
+  "content": "@[extern \"lean_string_utf8_byte_size\"]\ndef String.utf8ByteSize : (@& String) \u2192 Nat\n  | \u27e8s\u27e9 => go s\nwhere\n  go : List Char \u2192 Nat\n   | .nil       => 0\n   | .cons c cs => hAdd (go cs) c.utf8Size\ninstance : HAdd String.Pos String.Pos String.Pos where\n  hAdd p\u2081 p\u2082 := { byteIdx := hAdd p\u2081.byteIdx p\u2082.byteIdx }\ninstance : HSub String.Pos String.Pos String.Pos where\n  hSub p\u2081 p\u2082 := { byteIdx := HSub.hSub p\u2081.byteIdx p\u2082.byteIdx }\ninstance : HAdd String.Pos Char String.Pos where\n  hAdd p c := { byteIdx := hAdd p.byteIdx c.utf8Size }\ninstance : HAdd String.Pos String String.Pos where\n  hAdd p s := { byteIdx := hAdd p.byteIdx s.utf8ByteSize }\ninstance : LE String.Pos where\n  le p\u2081 p\u2082 := LE.le p\u2081.byteIdx p\u2082.byteIdx\ninstance : LT String.Pos where\n  lt p\u2081 p\u2082 := LT.lt p\u2081.byteIdx p\u2082.byteIdx\ninstance (p\u2081 p\u2082 : String.Pos) : Decidable (LE.le p\u2081 p\u2082) :=\n  inferInstanceAs (Decidable (LE.le p\u2081.byteIdx p\u2082.byteIdx))\ninstance (p\u2081 p\u2082 : String.Pos) : Decidable (LT.lt p\u2081 p\u2082) :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

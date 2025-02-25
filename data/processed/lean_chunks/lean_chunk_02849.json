@@ -1,0 +1,9 @@
+{
+  "content": "deriving Inhabited, BEq\nstructure ConfigCtx extends Config where\n  contextual := true\ndef neutralConfig : Simp.Config := {\n  zeta              := false\n  beta              := false\n  eta               := false\n  iota              := false\n  proj              := false\n  decide            := false\n  arith             := false\n  autoUnfold        := false\n  ground            := false\n  zetaDelta         := false\n  zetaUnused        := false\n}\nstructure NormCastConfig extends Simp.Config where\n    zeta := false\n    beta := false\n    eta  := false\n    proj := false\n    iota := false\nend Simp\n  | all\n  | neg (idxs : List Nat)\n  deriving Inhabited, BEq\ninstance : Coe (List Nat) Occurrences := \u27e8.pos\u27e9\nend Lean.Meta",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/MetaTypes.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/MetaTypes.lean",
+    "definition_name": "defaultMaxSteps"
+  }
+}

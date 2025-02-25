@@ -1,0 +1,10 @@
+{
+  "content": "def a := 1\n@[deprecated \"Don't use `hi`.\" (since := \"1970-01-01\")]\ntheorem hi : a = 1 := rfl\nattribute [simp] hi\nexample (h : 1 = b) : a = b := by\n  simp\n  guard_target =\u209b 1 = b\n  exact h\nset_option linter.all true\nexample (h : 1 = b) : a = b := by\n  simp[\n    hi\n  ]\n  guard_target =\u209b 1 = b\n  exact h\n@[deprecated \"Don't use `hi'`, either.\" (since := \"1970-01-01\")]\ntheorem hi' : True := .intro\nexample : True := by\n  simp [\nhi'\n  ]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/4452.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/4452.lean",
+    "definition_name": "a",
+    "has_proof": true
+  }
+}

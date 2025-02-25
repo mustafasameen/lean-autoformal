@@ -1,0 +1,9 @@
+{
+  "content": "let f    := e.getAppFn.setPPExplicit false\n    let args := e.getAppArgs.map fun arg => if arg.hasMVar then arg else arg.setPPExplicit false\n    mkAppN f args |>.setPPExplicit true\n  | _      => e\ndef isLetFun (e : Expr) : Bool := e.isAppOfArity ``letFun 4\ndef letFun? (e : Expr) : Option (Name \u00d7 Expr \u00d7 Expr \u00d7 Expr) :=\n  match e with\n  | .app (.app (.app (.app (.const ``letFun _) t) _\u03b2) v) f =>\n    match f with\n    | .lam n _ b _ => some (n, t, v, b)\n    | _ => some (.anonymous, t, v, .app f (.bvar 0))\n  | _ => none\ndef letFunAppArgs? (e : Expr) : Option (Array Expr \u00d7 Name \u00d7 Expr \u00d7 Expr \u00d7 Expr) := do\n  guard <| 4 \u2264 e.getAppNumArgs\n  guard <| e.isAppOf ``letFun\n  let args := e.getAppArgs\n  let t := args[0]!\n  let v := args[2]!\n  let f := args[3]!\n  let rest := args.extract 4 args.size\n  match f with\n  | .lam n _ b _ => some (rest, n, t, v, b)\n  | _ => some (rest, .anonymous, t, v, .app f (.bvar 0))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

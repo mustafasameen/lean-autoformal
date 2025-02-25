@@ -1,0 +1,9 @@
+{
+  "content": "inductive CacheAuxDeclResult where\n  | new\n  | alreadyCached (declName : Name)\ndef cacheAuxDecl (decl : Decl) : CompilerM CacheAuxDeclResult := do\n  let key := { decl with name := .anonymous }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/AuxDeclCache.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/AuxDeclCache.lean",
+    "definition_name": "CacheAuxDeclResult"
+  }
+}

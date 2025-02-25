@@ -1,0 +1,9 @@
+{
+  "content": "structure LazyTraceChildren where\n  indent : Nat\n  children : Array (WithRpcRef MessageData)\n  deriving TypeName\ninductive MsgEmbed where\n  | expr : CodeWithInfos \u2192 MsgEmbed\n  | widget (wi : Widget.WidgetInstance) (alt : TaggedText MsgEmbed)\n  | trace (indent : Nat) (cls : Name) (msg : TaggedText MsgEmbed) (collapsed : Bool)\n      (children : StrictOrLazy (Array (TaggedText MsgEmbed)) (WithRpcRef LazyTraceChildren))\n  deriving Inhabited, RpcEncodable\nabbrev InteractiveDiagnostic := Lsp.DiagnosticWith (TaggedText MsgEmbed)\nderiving instance RpcEncodable for Lsp.DiagnosticWith\nnamespace InteractiveDiagnostic\nopen MsgEmbed\npartial def toDiagnostic (diag : InteractiveDiagnostic) : Lsp.Diagnostic :=\n  { diag with message := prettyTt diag.message }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveDiagnostic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveDiagnostic.lean",
+    "definition_name": "LazyTraceChildren"
+  }
+}

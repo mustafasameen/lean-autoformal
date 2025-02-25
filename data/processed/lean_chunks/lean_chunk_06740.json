@@ -1,0 +1,9 @@
+{
+  "content": "if args.size != ival.numIndices + ival.numParams then pure none\n      else match env.find? (Name.mkStr ival.name \"casesOn\") with\n        | ConstantInfo.defnInfo cval =>\n          return some {\n            inductiveVal  := ival,\n            casesOnVal    := cval,\n            majorDecl     := majorDecl,\n            majorTypeFn   := f,\n            majorTypeArgs := args\n          }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_name": "CasesSubgoal"
+  }
+}

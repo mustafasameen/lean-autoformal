@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : { x := 10, y := 0 : B }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/resolveLVal.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/resolveLVal.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

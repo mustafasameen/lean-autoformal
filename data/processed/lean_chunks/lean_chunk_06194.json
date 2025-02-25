@@ -1,0 +1,9 @@
+{
+  "content": "structure DefEqCacheKeyInfo where\n  kind : DefEqCacheKind\n  key  : DefEqCacheKey\nprivate def mkCacheKey (t s : Expr) : MetaM DefEqCacheKeyInfo := do\n  let kind \u2190 getDefEqCacheKind t s\n  let key \u2190 mkDefEqCacheKey t s\n  return { key, kind }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "DefEqCacheKeyInfo"
+  }
+}

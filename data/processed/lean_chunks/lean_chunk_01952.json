@@ -1,0 +1,10 @@
+{
+  "content": "theorem neg_add_cancel (a : G) : -a + a = 0 :=\n  AddGroup.neg_add_cancel a\ntheorem neg_eq_of_add (h : a + b = 0) : -a = b :=\n  left_neg_eq_right_neg (neg_add_cancel a) h\ntheorem add_neg_cancel (a : G) : a + -a = 0 := by\n  rw [\u2190 neg_add_cancel (-a), neg_eq_of_add (neg_add_cancel a)]\ntheorem add_neg_cancel_right (a b : G) : a + b + -b = a := by\n  rw [add_assoc, add_neg_cancel, add_zero]\ntheorem neg_neg (a : G) : - -a = a :=\n  neg_eq_of_add (neg_add_cancel a)\ntheorem neg_eq_of_add_eq_zero_left (h : a + b = 0) : -b = a := by\n  rw [\u2190 neg_eq_of_add h, neg_neg]\ntheorem eq_neg_of_add_eq_zero_left (h : a + b = 0) : a = -b :=\n  (neg_eq_of_add_eq_zero_left h).symm\ntheorem add_right_cancel (h : a + b = c + b) : a = c := by\n  rw [\u2190 add_neg_cancel_right a b, h, add_neg_cancel_right]\nend Group\nend Mathlib.Algebra.Group.Defs\nsection Mathlib.Algebra.Group.Hom.Defs\nstructure AddMonoidHom (M : Type u) (N : Type v) [AddMonoid M] [AddMonoid N] where\n  toFun : M \u2192 N",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "neg_add_cancel",
+    "has_proof": true
+  }
+}

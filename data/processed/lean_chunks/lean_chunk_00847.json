@@ -1,0 +1,9 @@
+{
+  "content": "class One (\u03b1 : Type) where\n  one : \u03b1\nclass Semiring (\u03b1 : Type) extends Add \u03b1, Mul \u03b1, Zero \u03b1, One \u03b1\nclass CommSemiring (R : Type) extends Semiring R\nclass Ring (R : Type) extends Semiring R\nclass CommRing (R : Type) extends Ring R\nend algebra_hierarchy_classes_to_comm_ring\nsection algebra_hierarchy_morphisms\nclass FunLike (F : Type) (\u03b1 : outParam Type) (\u03b2 : outParam <| \u03b1 \u2192 Type) where\n  coe : F \u2192 \u2200 a : \u03b1, \u03b2 a\ninstance (priority := 100) FunLike.insthasCoeToFun {F \u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_name": "One"
+  }
+}

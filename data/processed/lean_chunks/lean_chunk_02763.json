@@ -1,0 +1,10 @@
+{
+  "content": "instance Inhabited for Bool\nup ::\ntheorem PLift.up_down {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Inhabited",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Tree\n  | nil\n  | node (l r : Tree)\ninstance : Inhabited Tree := \u27e8.nil\u27e9\npartial def make' (n d : UInt32) : Tree :=\n  if d = 0 then .node .nil .nil\n  else .node (make' n (d - 1)) (make' (n + 1) (d - 1))\ndef make (d : UInt32) := make' d d\ndef check : Tree \u2192 UInt32\n  | .nil => 0\n  | .node l r => 1 + check l + check r\ndef minN := 4\ndef out (s : String) (n : Nat) (t : UInt32) : IO Unit :=\n  IO.println s!\"{s}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/binarytrees.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/binarytrees.lean",
+    "definition_name": "Tree"
+  }
+}

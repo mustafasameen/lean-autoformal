@@ -1,0 +1,10 @@
+{
+  "content": "theorem head?_drop (l : List \u03b1) (i : Nat) :\n    (l.drop i).head? = l[i]? := by\n  rw [head?_eq_getElem?, getElem?_drop, Nat.add_zero]\n@[simp] theorem head_drop {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "head",
+    "has_proof": true
+  }
+}

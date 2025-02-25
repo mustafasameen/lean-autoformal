@@ -1,0 +1,9 @@
+{
+  "content": "(a : \u03b1) [Inhabited (\u03b2 a)] : \u03b2 a :=\n  Raw\u2080.get! \u27e8m.1, m.2.size_buckets_pos\u27e9 a\n@[inline, inherit_doc Raw.getD] def getD [LawfulBEq \u03b1] (m : DHashMap \u03b1 \u03b2)\n    (a : \u03b1) (fallback : \u03b2 a) : \u03b2 a :=\n  Raw\u2080.getD \u27e8m.1, m.2.size_buckets_pos\u27e9 a fallback\n@[inline, inherit_doc Raw.erase] def erase (m : DHashMap \u03b1 \u03b2) (a : \u03b1) :\n    DHashMap \u03b1 \u03b2 :=\n  \u27e8Raw\u2080.erase \u27e8m.1, m.2.size_buckets_pos\u27e9 a, .erase\u2080 m.2\u27e9\nsection\nvariable {\u03b2 : Type v}\n@[inline, inherit_doc Raw.Const.get?] def Const.get?\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) (a : \u03b1) : Option \u03b2 :=\n  Raw\u2080.Const.get? \u27e8m.1, m.2.size_buckets_pos\u27e9 a\n@[inline, inherit_doc Raw.Const.get] def Const.get\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) (a : \u03b1) (h : a \u2208 m) : \u03b2 :=\n  Raw\u2080.Const.get \u27e8m.1, m.2.size_buckets_pos\u27e9 a h\n@[inline, inherit_doc Raw.Const.getD] def Const.getD\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) (a : \u03b1) (fallback : \u03b2) : \u03b2 :=\n  Raw\u2080.Const.getD \u27e8m.1, m.2.size_buckets_pos\u27e9 a fallback\n@[inline, inherit_doc Raw.Const.get!] def Const.get! [Inhabited \u03b2]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_name": "empty"
+  }
+}

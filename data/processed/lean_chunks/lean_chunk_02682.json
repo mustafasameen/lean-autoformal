@@ -1,0 +1,10 @@
+{
+  "content": "theorem Nat.le_of_ble_eq_true (h : Eq (Nat.ble n m) true) : LE.le n m :=\n  match n, m with\n  | 0,      _      => Nat.zero_le _\n  | succ _, succ _ => Nat.succ_le_succ (le_of_ble_eq_true h)\ntheorem Nat.ble_self_eq_true : (n : Nat) \u2192 Eq (Nat.ble n n) true\n  | 0      => rfl\n  | succ n => ble_self_eq_true n\ntheorem Nat.ble_succ_eq_true : {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat",
+    "has_proof": false
+  }
+}

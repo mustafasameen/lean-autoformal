@@ -1,0 +1,10 @@
+{
+  "content": "theorem sshiftRight_xor_distrib (x y : BitVec w) (n : Nat) :\n    (x ^^^ y).sshiftRight n = (x.sshiftRight n) ^^^ (y.sshiftRight n) := by\n  ext i\n  simp only [getElem_sshiftRight, getElem_xor, msb_xor]\n  split\n    <;> by_cases w \u2264 i\n    <;> simp [*]\ntheorem sshiftRight_and_distrib (x y : BitVec w) (n : Nat) :\n    (x &&& y).sshiftRight n = (x.sshiftRight n) &&& (y.sshiftRight n) := by\n  ext i\n  simp only [getElem_sshiftRight, getElem_and, msb_and]\n  split\n    <;> by_cases w \u2264 i\n    <;> simp [*]\ntheorem sshiftRight_or_distrib (x y : BitVec w) (n : Nat) :\n    (x ||| y).sshiftRight n = (x.sshiftRight n) ||| (y.sshiftRight n) := by\n  ext i\n  simp only [getElem_sshiftRight, getElem_or, msb_or]\n  split\n    <;> by_cases w \u2264 i\n    <;> simp [*]\ntheorem sshiftRight'_ofNat_eq_sshiftRight {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "sshiftRight_xor_distrib",
+    "has_proof": true
+  }
+}

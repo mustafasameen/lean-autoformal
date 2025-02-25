@@ -1,0 +1,10 @@
+{
+  "content": "theorem entails_of_irrelevant_assignment {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_name": "entails_of_irrelevant_assignment",
+    "has_proof": false
+  }
+}

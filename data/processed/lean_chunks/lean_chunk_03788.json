@@ -1,0 +1,10 @@
+{
+  "content": "@[deprecated getElem_push_lt (since := \"2024-10-21\")] abbrev get_push_lt := @getElem_push_lt\n@[deprecated getElem_push_eq (since := \"2024-10-21\")] abbrev get_push_eq := @getElem_push_eq\n@[deprecated back!_eq_back? (since := \"2024-10-31\")] abbrev back_eq_back? := @back!_eq_back?\n@[deprecated back!_push (since := \"2024-10-31\")] abbrev back_push := @back!_push\n@[deprecated eq_push_pop_back!_of_size_ne_zero (since := \"2024-10-31\")]\nabbrev eq_push_pop_back_of_size_ne_zero := @eq_push_pop_back!_of_size_ne_zero\n@[deprecated set!_is_setIfInBounds (since := \"2024-11-24\")] abbrev set_is_setIfInBounds := @set!_eq_setIfInBounds\n@[deprecated size_setIfInBounds (since := \"2024-11-24\")] abbrev size_setD := @size_setIfInBounds\n@[deprecated getElem_setIfInBounds_eq (since := \"2024-11-24\")] abbrev getElem_setD_eq := @getElem_setIfInBounds_self\n@[deprecated getElem?_setIfInBounds_eq (since := \"2024-11-24\")] abbrev get?_setD_eq := @getElem?_setIfInBounds_self",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_ofFn",
+    "has_proof": true
+  }
+}

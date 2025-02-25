@@ -1,0 +1,9 @@
+{
+  "content": "structure Context extends InductiveVal where\n  lparams : List Level\n  params : Array Expr\n  compFields : Array Name\n  compFieldVars : Array Expr\n  indices : Array Expr\n  val : Expr\nabbrev M := ReaderT Context MetaM\ndef getComputedFieldValue (computedField : Name) (ctorTerm : Expr) : MetaM Expr := do\n  let ctorName := ctorTerm.getAppFn.constName!\n  let ind \u2190 getConstInfoInduct (\u2190 getConstInfoCtor ctorName).induct\n  let val \u2190 mkAppOptM computedField (mkArray (ind.numParams+ind.numIndices) none ++ #[some ctorTerm])\n  let val \u2190\n    if let some wfEqn := WF.eqnInfoExt.find? (\u2190 getEnv) computedField then\n      pure <| mkAppN (wfEqn.value.instantiateLevelParams wfEqn.levelParams val.getAppFn.constLevels!) val.getAppArgs\n    else\n      unfoldDefinition val\n  let val \u2190 whnfHeadPred val (return ctorTerm.occurs \u00b7)\n  if !ctorTerm.occurs val then return val\n  throwError \"computed field {computedField}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ComputedFields.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ComputedFields.lean",
+    "definition_name": "Context"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem head_filter (p : \u03b1 \u2192 Bool) (l : List \u03b1) (h) :\n    (l.filter p).head h = (l.find? p).get (by simp_all [Option.isSome_iff_ne_none]) := by\n  simp [head_eq_iff_head?_eq_some]\n@[simp] theorem getLast?_filter (p : \u03b1 \u2192 Bool) (l : List \u03b1) : (l.filter p).getLast? = l.reverse.find? p := by\n  rw [getLast?_eq_head?_reverse]\n  simp [\u2190 filter_reverse]\n@[simp] theorem getLast_filter (p : \u03b1 \u2192 Bool) (l : List \u03b1) (h) :\n    (l.filter p).getLast h = (l.reverse.find? p).get (by simp_all [Option.isSome_iff_ne_none]) := by\n  simp [getLast_eq_iff_getLast?_eq_some]\n@[simp] theorem find?_filterMap (xs : List \u03b1) (f : \u03b1 \u2192 Option \u03b2) (p : \u03b2 \u2192 Bool) :\n    (xs.filterMap f).find? p = (xs.find? (fun a => (f a).any p)).bind f := by\n  induction xs with\n  | nil => simp\n  | cons x xs ih =>\n    simp only [filterMap_cons]\n    split <;>\n    \u00b7 simp only [find?_cons]\n      split <;> simp_all\n@[simp] theorem find?_map (f : \u03b2 \u2192 \u03b1) (l : List \u03b2) : find? p (l.map f) = (l.find? (p \u2218 f)).map f := by\n  induction l with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "get_find",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_eq_getElem? (l : BitVec w) (i : Nat) (h : i < w) :\n    l[i] = l[i]?.get (by simp [getElem?_eq_getElem, h]) := by\n  simp [getElem_eq_iff]\ntheorem getLsbD_eq_getElem?_getD {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getElem_eq_getElem",
+    "has_proof": true
+  }
+}

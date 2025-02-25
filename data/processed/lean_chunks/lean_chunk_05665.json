@@ -1,0 +1,10 @@
+{
+  "content": "theorem reverse_mkVector (n) (a : \u03b1) : reverse (mkVector n a) = mkVector n a := by\n  rw [\u2190 toArray_inj]\n  simp\n@[simp] theorem foldlM_append [Monad m] [LawfulMonad m] (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b) (xs : Vector \u03b1 n) (ys : Vector \u03b1 k) :\n    (xs ++ ys).foldlM f b = xs.foldlM f b >>= ys.foldlM f := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  rcases ys with \u27e8ys, rfl\u27e9\n  simp\n@[simp] theorem foldlM_empty [Monad m] (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (init : \u03b2) :\n    foldlM f init #v[] = return init := by\n  simp [foldlM]\n@[simp] theorem foldrM_empty [Monad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (init : \u03b2) :\n    foldrM f init #v[] = return init := by\n  simp [foldrM]\n@[simp] theorem foldlM_push [Monad m] [LawfulMonad m] (xs : Vector \u03b1 n) (a : \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b) :\n    (xs.push a).foldlM f b = xs.foldlM f b >>= fun b => f b a := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\ntheorem foldl_eq_foldlM (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b) (xs : Vector \u03b1 n) :\n    xs.foldl f b = xs.foldlM (m := Id) f b := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.foldl_eq_foldlM]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "reverse_mkVector",
+    "has_proof": true
+  }
+}

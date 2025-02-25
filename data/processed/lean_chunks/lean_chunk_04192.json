@@ -1,0 +1,10 @@
+{
+  "content": "theorem toInt_intMin_le (x : BitVec w) :\n    (intMin w).toInt \u2264 x.toInt := by\n  cases w\n  case zero => simp [@of_length_zero x]\n  case succ w =>\n    simp only [toInt_intMin, Nat.add_one_sub_one, Int.ofNat_emod]\n    have : 0 < 2 ^ w := Nat.two_pow_pos w\n    rw [Int.emod_eq_of_lt (by omega) (by omega)]\n    rw [BitVec.toInt_eq_toNat_bmod]\n    rw [show (2 ^ w : Nat) = ((2 ^ (w + 1) : Nat) : Int) / 2 by omega]\n    apply Int.le_bmod (by omega)\ntheorem intMin_sle (x : BitVec w) : (intMin w).sle x := by\n  simp only [BitVec.sle, toInt_intMin_le x, decide_true]\n@[simp]\ntheorem neg_intMin {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toInt_intMin_le",
+    "has_proof": true
+  }
+}

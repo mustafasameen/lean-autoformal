@@ -1,0 +1,10 @@
+{
+  "content": "theorem if_iff {B S T s t}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_bigstep.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_bigstep.lean",
+    "definition_name": "if_iff",
+    "has_proof": false
+  }
+}

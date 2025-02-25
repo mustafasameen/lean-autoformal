@@ -1,0 +1,10 @@
+{
+  "content": "theorem find?_flatten (xss : Array (Array \u03b1)) (p : \u03b1 \u2192 Bool) :\n    xss.flatten.find? p = xss.findSome? (\u00b7.find? p) := by\n  cases xss using array\u2082_induction\n  simp [List.findSome?_map, Function.comp_def]\ntheorem find?_flatten_eq_none_iff {xss : Array (Array \u03b1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem zip_eq_zipWith (as : Vector \u03b1 n) (bs : Vector \u03b2 n) : zip as bs = zipWith Prod.mk as bs := by\n  rcases as with \u27e8as, rfl\u27e9\n  rcases bs with \u27e8bs, h\u27e9\n  simp [Array.zip_eq_zipWith, h]\ntheorem zip_map (f : \u03b1 \u2192 \u03b3) (g : \u03b2 \u2192 \u03b4) (as : Vector \u03b1 n) (bs : Vector \u03b2 n) :\n    zip (as.map f) (bs.map g) = (zip as bs).map (Prod.map f g) := by\n  rcases as with \u27e8as, rfl\u27e9\n  rcases bs with \u27e8bs, h\u27e9\n  simp [Array.zip_map, h]\ntheorem zip_map_left (f : \u03b1 \u2192 \u03b3) (as : Vector \u03b1 n) (bs : Vector \u03b2 n) :\n    zip (as.map f) bs = (zip as bs).map (Prod.map f id) := by rw [\u2190 zip_map, map_id]\ntheorem zip_map_right (f : \u03b2 \u2192 \u03b3) (as : Vector \u03b1 n) (bs : Vector \u03b2 n) :\n    zip as (bs.map f) = (zip as bs).map (Prod.map id f) := by rw [\u2190 zip_map, map_id]\ntheorem zip_append {as : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Zip.lean",
+    "definition_name": "zip_eq_zipWith",
+    "has_proof": true
+  }
+}

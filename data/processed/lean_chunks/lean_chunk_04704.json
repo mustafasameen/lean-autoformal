@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_of_sub_neg {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "lt_of_sub_neg",
+    "has_proof": false
+  }
+}

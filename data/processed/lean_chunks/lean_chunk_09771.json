@@ -1,0 +1,10 @@
+{
+  "content": "theorem apply_bucket_with_proof {\u03b3 : \u03b1 \u2192 Type w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Model.lean",
+    "definition_name": "apply_bucket_with_proof",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "| s, m + 1, n, step => by\n    simpa [range', Nat.mul_succ, Nat.add_assoc, Nat.add_comm]\n      using range'_append (s + step) m n step\n@[simp] theorem range'_append_1 (s m n : Nat) :\n    range' s m ++ range' (s + m) n = range' s (m + n) := by simpa using range'_append s m n 1\ntheorem range'_sublist_right {s m n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_name": "head",
+    "has_proof": true
+  }
+}

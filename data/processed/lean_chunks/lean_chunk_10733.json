@@ -1,0 +1,9 @@
+{
+  "content": "def defaultVersionTags := StrPat.satisfies isVerLike `default\ndef StrPat.matches (s : String) : (self : StrPat) \u2192 Bool\n| .satisfies f _ => f s\n| .mem xs => xs.contains s\n| .startsWith p => p.isPrefixOf s\nstructure PackageConfig extends WorkspaceConfig, LeanConfig where\n  manifestFile : Option FilePath := none\n  precompileModules : Bool := false\n  moreServerArgs : Array String := #[]\n  moreGlobalServerArgs : Array String := moreServerArgs\n  srcDir : FilePath := \".\"\n  buildDir : FilePath := defaultBuildDir\n  leanLibDir : FilePath := defaultLeanLibDir\n  nativeLibDir : FilePath := defaultNativeLibDir\n  binDir : FilePath := defaultBinDir\n  irDir : FilePath := defaultIrDir\n  releaseRepo? : Option String := none\n  releaseRepo : Option String := none\n  buildArchive? : Option String := none\n  buildArchive : String :=\n    if let some name := buildArchive? then name else defaultBuildArchive name\n  preferReleaseBuild : Bool := false\n  testDriver : String := \"\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_name": "defaultVersionTags"
+  }
+}

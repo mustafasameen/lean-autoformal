@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofNat_pow (a b : Nat) : ((a ^ b : Nat) : Int) = (a : Int) ^ b := by\n  induction b with\n  | zero => rfl\n  | succ b ih => rw [Nat.pow_succ, Int.ofNat_mul, ih]; rfl\ntheorem pos_pow_of_pos (a : Int) (b : Nat) (h : 0 < a) : 0 < a ^ b := by\n  rw [Int.eq_natAbs_of_zero_le (Int.le_of_lt h), \u2190 Int.ofNat_zero, \u2190 Int.ofNat_pow, Int.ofNat_lt]\n  exact Nat.pow_pos (Int.natAbs_pos.mpr (Int.ne_of_gt h))\ntheorem ofNat_pos {a : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_name": "ofNat_pow",
+    "has_proof": true
+  }
+}

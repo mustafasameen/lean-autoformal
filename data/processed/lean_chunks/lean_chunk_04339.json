@@ -1,0 +1,10 @@
+{
+  "content": "theorem one_pow (n : Nat) : 1 ^ n = 1 := by\n  induction n with\n  | zero => rfl\n  | succ _ ih => rw [Nat.pow_succ, Nat.mul_one, ih]\n@[simp] protected theorem pow_one (a : Nat) : a ^ 1 = a := by\n  rw [Nat.pow_succ, Nat.pow_zero, Nat.one_mul]\nprotected theorem pow_two (a : Nat) : a ^ 2 = a * a := by rw [Nat.pow_succ, Nat.pow_one]\nprotected theorem pow_add (a m n : Nat) : a ^ (m + n) = a ^ m * a ^ n := by\n  induction n with\n  | zero => rw [Nat.add_zero, Nat.pow_zero, Nat.mul_one]\n  | succ _ ih => rw [Nat.add_succ, Nat.pow_succ, Nat.pow_succ, ih, Nat.mul_assoc]\nprotected theorem pow_add' (a m n : Nat) : a ^ (m + n) = a ^ n * a ^ m := by\n  rw [\u2190 Nat.pow_add, Nat.add_comm]\nprotected theorem pow_mul (a m n : Nat) : a ^ (m * n) = (a ^ m) ^ n := by\n  induction n with\n  | zero => rw [Nat.mul_zero, Nat.pow_zero, Nat.pow_zero]\n  | succ _ ih => rw [Nat.mul_succ, Nat.pow_add, Nat.pow_succ, ih]\nprotected theorem pow_mul' (a m n : Nat) : a ^ (m * n) = (a ^ n) ^ m := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "one_pow",
+    "has_proof": true
+  }
+}

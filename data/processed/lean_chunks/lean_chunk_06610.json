@@ -1,0 +1,9 @@
+{
+  "content": "def externEntry := leading_parser\n  optional (ident >> ppSpace) >> optional (nonReservedSymbol \"inline \") >> strLit\n@[builtin_attr_parser] def extern     := leading_parser\n  nonReservedSymbol \"extern\" >> optional (ppSpace >> numLit) >> many (ppSpace >> externEntry)\n@[builtin_attr_parser] def \u00abtactic_alt\u00bb := leading_parser\n  \"tactic_alt\" >> ppSpace >> ident\n@[builtin_attr_parser] def \u00abtactic_tag\u00bb := leading_parser\n  \"tactic_tag\" >> many1 (ppSpace >> ident)\nend Attr\nend Lean.Parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Attr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Attr.lean",
+    "definition_name": "numPrio"
+  }
+}

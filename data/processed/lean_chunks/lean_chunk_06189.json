@@ -1,0 +1,9 @@
+{
+  "content": "\"  motive         := \" ++ toString info.motivePos ++ \"\\n\" ++\n  \"  paramsAtMajor  := \" ++ toString info.paramsPos ++ \"\\n\" ++\n  \"  indicesAtMajor := \" ++ toString info.indicesPos ++ \"\\n\" ++\n  \"  produceMotive  := \" ++ toString info.produceMotive ++ \"\\n\" ++\n  \"}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/RecursorInfo.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/RecursorInfo.lean",
+    "definition_name": "RecursorInfo"
+  }
+}

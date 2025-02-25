@@ -1,0 +1,9 @@
+{
+  "content": "inductive tm : Type :=\n  | C : Nat \u2192 tm\n  | P : tm \u2192 tm \u2192 tm\nopen tm\nset_option hygiene false in\ninfixl:40 \" ==> \" => step\ninductive step : tm \u2192 tm \u2192 Prop :=\n  | ST_PlusConstConst : \u2200 n1 n2,\n      P (C n1) (C n2) ==> C (n1 + n2)\n  | ST_Plus1 : \u2200 t1 t1' t2,\n      t1 ==> t1' \u2192\n      P t1 t2 ==> P t1' t2\n  | ST_Plus2 : \u2200 n1 t2 t2',\n      t2 ==> t2' \u2192\n      P (C n1) t2 ==> P (C n1) t2'\ndef deterministic {X : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_name": "tm"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem sub_eq_add_neg (l\u2081 l\u2082 : LinearCombo) : l\u2081 - l\u2082 = l\u2081 + -l\u2082 := by\n  rcases l\u2081 with \u27e8a\u2081, c\u2081\u27e9; rcases l\u2082 with \u27e8a\u2082, c\u2082\u27e9\n  apply ext\n  \u00b7 simp [Int.sub_eq_add_neg]\n  \u00b7 simp [Coeffs.sub_eq_add_neg]\ndef mul (l\u2081 l\u2082 : LinearCombo) : LinearCombo :=\n  l\u2082.const * l\u2081 + l\u2081.const * l\u2082 - { const := l\u2081.const * l\u2082.const }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/LinearCombo.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/LinearCombo.lean",
+    "definition_name": "sub_eq_add_neg",
+    "has_proof": true
+  }
+}

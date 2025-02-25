@@ -1,0 +1,10 @@
+{
+  "content": "theorem gcd_dvd_gcd_mul_left (m n k : Nat) : gcd m n \u2223 gcd (k * m) n :=\n  gcd_dvd_gcd_of_dvd_left _ (Nat.dvd_mul_left _ _)\ntheorem gcd_dvd_gcd_mul_right (m n k : Nat) : gcd m n \u2223 gcd (m * k) n :=\n  gcd_dvd_gcd_of_dvd_left _ (Nat.dvd_mul_right _ _)\ntheorem gcd_dvd_gcd_mul_left_right (m n k : Nat) : gcd m n \u2223 gcd m (k * n) :=\n  gcd_dvd_gcd_of_dvd_right _ (Nat.dvd_mul_left _ _)\ntheorem gcd_dvd_gcd_mul_right_right (m n k : Nat) : gcd m n \u2223 gcd m (n * k) :=\n  gcd_dvd_gcd_of_dvd_right _ (Nat.dvd_mul_right _ _)\ntheorem gcd_eq_left {m n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "gcd_dvd_gcd_mul_left",
+    "has_proof": false
+  }
+}

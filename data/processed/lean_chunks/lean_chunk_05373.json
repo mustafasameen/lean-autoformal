@@ -1,0 +1,10 @@
+{
+  "content": "theorem length_erase [LawfulBEq \u03b1] (a : \u03b1) (l : List \u03b1) :\n    length (l.erase a) = if a \u2208 l then length l - 1 else length l := by\n  rw [erase_eq_eraseP, length_eraseP]\n  split <;> split <;> simp_all\ntheorem erase_sublist (a : \u03b1) (l : List \u03b1) : l.erase a <+ l :=\n  erase_eq_eraseP' a l \u25b8 eraseP_sublist ..\ntheorem erase_subset (a : \u03b1) (l : List \u03b1) : l.erase a \u2286 l := (erase_sublist a l).subset\ntheorem Sublist.erase (a : \u03b1) {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_name": "length_erase",
+    "has_proof": true
+  }
+}

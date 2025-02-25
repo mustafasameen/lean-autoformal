@@ -1,0 +1,10 @@
+{
+  "content": "(h := getElem_extract_loop_lt_aux xs ys size start hlt) :\n    (extract.loop xs size start ys)[i] = ys[i] := by\n  apply Eq.trans _ (getElem_append_left (ys := extract.loop xs size start #[]) hlt)\n  \u00b7 rw [size_append]; exact Nat.lt_of_lt_of_le hlt (Nat.le_add_right ..)\n  \u00b7 congr; rw [extract_loop_eq_aux]\ntheorem getElem_extract_loop_ge_aux (xs ys : Array \u03b1) (size start : Nat) (hge : i \u2265 ys.size)\n    (h : i < (extract.loop xs size start ys).size) : start + i - ys.size < xs.size := by\n  have h : i < ys.size + (xs.size - start) := by\n      apply Nat.lt_of_lt_of_le h\n      rw [size_extract_loop]\n      apply Nat.add_le_add_left\n      exact Nat.min_le_right ..\n  rw [Nat.add_sub_assoc hge]\n  apply Nat.add_lt_of_lt_sub'\n  exact Nat.sub_lt_left_of_lt_add hge h\ntheorem getElem_extract_loop_ge (xs ys : Array \u03b1) (size start : Nat) (hge : i \u2265 ys.size)\n    (h : i < (extract.loop xs size start ys).size)\n    (h' := getElem_extract_loop_ge_aux xs ys size start hge h) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "filter_reverse",
+    "has_proof": true
+  }
+}

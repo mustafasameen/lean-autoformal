@@ -1,0 +1,9 @@
+{
+  "content": "inf\u209b_le : \u2200 s, \u2200 a, a \u2208 s \u2192 inf\u209b s \u2264 a\n  le_inf\u209b : \u2200 s a, (\u2200 b, b \u2208 s \u2192 a \u2264 b) \u2192 a \u2264 inf\u209b s\nclass CompleteSemilatticeSup (\u03b1 : Type _) extends PartialOrder \u03b1, SupSet \u03b1 where\n  le_sup\u209b : \u2200 s, \u2200 a, a \u2208 s \u2192 a \u2264 sup\u209b s\n  sup\u209b_le : \u2200 s a, (\u2200 b, b \u2208 s \u2192 b \u2264 a) \u2192 sup\u209b s \u2264 a\nclass CompleteLattice (\u03b1 : Type _) extends Lattice \u03b1, CompleteSemilatticeSup \u03b1,\n  CompleteSemilatticeInf \u03b1, Top \u03b1, Bot \u03b1 where\n  protected le_top : \u2200 x : \u03b1, x \u2264 \u22a4\n  protected bot_le : \u2200 x : \u03b1, \u22a5 \u2264 x\nclass Frame (\u03b1 : Type _) extends CompleteLattice \u03b1 where\nclass Coframe (\u03b1 : Type _) extends CompleteLattice \u03b1 where\n  inf\u1d62_sup_le_sup_inf\u209b (a : \u03b1) (s : Set \u03b1) : (inf\u1d62 (\u03bb b => a \u2294 b)) \u2264 a \u2294 inf\u209b s\nclass CompleteDistribLattice (\u03b1 : Type _) extends Frame \u03b1 where\n  inf\u1d62_sup_le_sup_inf\u209b : \u2200 a s, (inf\u1d62 (\u03bb b => a \u2294 b)) \u2264 a \u2294 inf\u209b s\ninstance (priority := 100) CompleteDistribLattice.toCoframe {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_name": "HasSup"
+  }
+}

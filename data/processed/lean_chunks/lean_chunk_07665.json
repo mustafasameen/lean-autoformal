@@ -1,0 +1,10 @@
+{
+  "content": "theorem Cache.get?_bounds {decls : Array (Decl \u03b1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_name": "Cache",
+    "has_proof": false
+  }
+}

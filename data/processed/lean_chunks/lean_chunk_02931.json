@@ -1,0 +1,9 @@
+{
+  "content": "panic! s!\"Environment.modifyState: environment extension is marked as `mainOnly` but used in \\\n        async context '{asyncCtx.declPrefix}'\"\n    else\n      { env with checkedWithoutAsync.extensions := unsafe ext.modifyStateImpl env.checkedWithoutAsync.extensions f }\n  | .local =>\n    { env with checkedWithoutAsync.extensions := unsafe ext.modifyStateImpl env.checkedWithoutAsync.extensions f }\n  | _ =>\n    env.modifyCheckedAsync fun env =>\n      { env with extensions := unsafe ext.modifyStateImpl env.extensions f }\ndef setState {\u03c3 : Type} (ext : EnvExtension \u03c3) (env : Environment) (s : \u03c3) : Environment :=\n  inline <| modifyState ext env fun _ => s\nprivate unsafe def getStateUnsafe {\u03c3 : Type} [Inhabited \u03c3] (ext : EnvExtension \u03c3)\n    (env : Environment) (asyncMode := ext.asyncMode) : \u03c3 :=\n  match asyncMode with\n  | .sync     => ext.getStateImpl env.checked.get.extensions\n  | .async    => panic! \"EnvExtension.getState: called on `async` extension, use `findStateAsync` \\",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure SymbolInformation where\n  name           : String\n  kind           : SymbolKind\n  tags           : Array SymbolTag := #[]\n  location       : Location\n  containerName? : Option String := none\n  deriving FromJson, ToJson\nstructure CallHierarchyPrepareParams extends TextDocumentPositionParams\n  deriving FromJson, ToJson\nstructure CallHierarchyItem where\n  name           : String\n  kind           : SymbolKind\n  tags?          : Option (Array SymbolTag) := none\n  detail?        : Option String := none\n  uri            : DocumentUri\n  range          : Range\n  selectionRange : Range\n  data?          : Option Json := none\n  deriving FromJson, ToJson, BEq, Hashable, Inhabited\nstructure CallHierarchyIncomingCallsParams where\n  item : CallHierarchyItem\n  deriving FromJson, ToJson\nstructure CallHierarchyIncomingCall where\n  \u00abfrom\u00bb     : CallHierarchyItem\n  fromRanges : Array Range\n  deriving FromJson, ToJson, Inhabited\nstructure CallHierarchyOutgoingCallsParams where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "SymbolInformation"
+  }
+}

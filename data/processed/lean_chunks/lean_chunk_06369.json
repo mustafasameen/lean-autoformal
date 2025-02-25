@@ -1,0 +1,9 @@
+{
+  "content": "structure GuardMsgFailure where\ndef revealTrailingWhitespace (s : String) : String :=\n  s.replace \"\u23ce\\n\" \"\u23ce\u23ce\\n\" |>.replace \"\\t\\n\" \"\\t\u23ce\\n\" |>.replace \" \\n\" \" \u23ce\\n\"\ndef WhitespaceMode.apply (mode : WhitespaceMode) (s : String) : String :=\n  match mode with\n  | .exact => s\n  | .normalized => s.replace \"\\n\" \" \"\n  | .lax => String.intercalate \" \" <| (s.split Char.isWhitespace).filter (!\u00b7.isEmpty)\ndef MessageOrdering.apply (mode : MessageOrdering) (msgs : List String) : List String :=\n  match mode with\n  | .exact => msgs\n  | .sorted => msgs |>.toArray.qsort (\u00b7 < \u00b7) |>.toList\n@[builtin_command_elab Lean.guardMsgsCmd] def elabGuardMsgs : CommandElab\n  | `(command| $[$dc?:docComment]? #guard_msgs%$tk $(spec?)? in $cmd) => do\n    let expected : String := (\u2190 dc?.mapM (getDocStringText \u00b7)).getD \"\"\n        |>.trim |> removeTrailingWhitespaceMarker\n    let (whitespace, ordering, specFn) \u2190 parseGuardMsgsSpec spec?\n    let initMsgs \u2190 modifyGet fun st => (st.messages, { st with messages := {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/GuardMsgs.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/GuardMsgs.lean",
+    "definition_name": "GuardMsgFailure"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure nodeData :=\n(find : Node) (rank : Nat := 0)\nabbreviation ufData := Array nodeData\nabbreviation M (\u03b1 : Type) := EState String ufData \u03b1\ndef capacity : M Nat :=\ndo d \u2190 get; pure d.size\ndef findEntryAux : Nat \u2192 Node \u2192 M nodeData\n| 0     n := throw \"out of fuel\"\n| (i+1) n :=\n  do s \u2190 get;\n     if h : n < s.size then\n       do { let e := s.fget \u27e8n, h\u27e9;\n            if e.find = n then pure e\n            else do e\u2081 \u2190 findEntryAux i e.find;\n                    modify (fun s => s.set n e\u2081);\n                    pure e\u2081 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/unionfind_clean.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/unionfind_clean.lean",
+    "definition_name": "nodeData"
+  }
+}

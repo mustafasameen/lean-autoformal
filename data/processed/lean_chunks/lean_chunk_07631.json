@@ -1,0 +1,10 @@
+{
+  "content": "theorem idx_trichotomy (aig : AIG \u03b1) (hstart : start < aig.decls.size) {prop : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_name": "idx_trichotomy",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure S where\n  a : Nat\n  b : Bool\nexample (x y : S) : x.a = y.a \u2192 y.b = x.b \u2192 x = y := by\n  grind\nexample (x y : S) : x.a = y.a \u2192 y.b = x.b \u2192 x = y := by\n  fail_if_success grind -ext\n  sorry\nexample (x : S) : x.a = 10 \u2192 false \u2260 x.b \u2192 x = { a := 10, b := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_t1.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_t1.lean",
+    "definition_name": "S"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (p q : Prop) : p \u2192 q \u2192 p \u2227 q := by\n  intros\n  apply And.intro\n  exact \u2039p\u203a\n  exact \u2039q\u203a\ntheorem ex2 (p q : Prop) : p \u2192 q \u2192 p \u2227 q :=\n  fun _ _ => And.intro \u2039p\u203a \u2039q\u203a\ntheorem ex3 (p q : Prop) : p \u2192 q \u2192 p \u2227 q :=\n  fun _ _ => \u27e8\u2039p\u203a, \u2039q\u203a\u27e9\ntheorem ex4 {a b c : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/french_quote.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/french_quote.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

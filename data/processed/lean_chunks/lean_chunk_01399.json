@@ -1,0 +1,9 @@
+{
+  "content": "structure MonoidWithZeroHom (\u03b1 \u03b2 : Type _) [MulZeroOneClass \u03b1] [MulZeroOneClass \u03b2]\n  extends ZeroHom \u03b1 \u03b2, MonoidHom \u03b1 \u03b2\nclass AlgHomClass (F : Type _) (R A B : outParam (Type _))\n  [Semiring R] [Semiring A] [Semiring B] [Algebra R A] [Algebra R B]\n  [FunLike F A B] : Prop extends RingHomClass F A B where\n  commutes : \u2200 (f : F) (r : R), f (algebraMap R A r) = algebraMap R B r\nnamespace AlgHom\nvariable {R : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "MonoidWithZeroHom"
+  }
+}

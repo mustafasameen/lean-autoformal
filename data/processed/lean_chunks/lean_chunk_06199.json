@@ -1,0 +1,9 @@
+{
+  "content": "where\n      return false\n    let some ctorVal := getStructureLikeCtor? (\u2190 getEnv) structName | return false\n    if ctorVal.numFields != 1 then\nreturn false\n    let sType \u2190 whnf (\u2190 inferType s)\n    let sTypeFn := sType.getAppFn\n    if !sTypeFn.isConstOf structName then\n      return false\n    let s \u2190 whnf s\n    let sFn := s.getAppFn\n    if !sFn.isMVar then\n      return false\n    if (\u2190 isAssignable sFn) then\n      let ctorApp := mkApp (mkAppN (mkConst ctorVal.name sTypeFn.constLevels!) sType.getAppArgs) v\n      processAssignment' s ctorApp\n    else\n      return false\nprivate def isDefEqApp (t s : Expr) : MetaM Bool := do\n  let tFn := t.getAppFn\n  let sFn := s.getAppFn\n  if tFn.isConst && sFn.isConst && tFn.constName! == sFn.constName! then\nprivate def isDefEqUnitLike (t : Expr) (s : Expr) : MetaM Bool := do\n  let tType \u2190 whnf (\u2190 inferType t)\n  matchConstStructureLike tType.getAppFn (fun _ => return false) fun _ _ ctorVal => do\n    if ctorVal.numFields != 0 then\n      return false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "DeltaStepResult"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "#guard_msgs in\n#eval\n    let t : ZonedDateTime := FullDayTimeZone.parse! \"Thursday, August 15, 2024 14:03:47 -0300\"\n    ISO8601UTC.format t.toDateTime\n#guard_msgs in\n#eval\n    let t1 : ZonedDateTime := FullDayTimeZone.parse! \"Thursday, August 15, 2024 14:03:47 +0900\"\n    ISO8601UTC.format t1.toDateTime\n#guard_msgs in\n#eval\n    let t2 : ZonedDateTime := FullDayTimeZone.parse! \"Monday, June 16, 2014 03:03:03 -0300\"\n    ISO8601UTC.format t2.toDateTime\n#guard_msgs in\n#eval\n    let t2 := Full12HourWrong.parse \"05/10/1993 10:30:23 AM +03:00\"\n    (ISO8601UTC.format \u00b7.toDateTime) <$> t2\n#guard_msgs in\n#eval\n    let t2 := Full12HourWrong.parse \"05/10/1993 10:30:23 PM +03:00\"\n    (ISO8601UTC.format \u00b7.toDateTime) <$> t2\n#guard_msgs in\n#eval\n    let t2 := Full12HourWrong.parse \"05/10/1993 20:30:23 AM +03:00\"\n    (ISO8601UTC.format \u00b7.toDateTime) <$> t2\n#guard_msgs in\n#eval\n    let t2 := Full12HourWrong.parse \"05/10/1993 20:30:23 PM +03:00\"\n    (ISO8601UTC.format \u00b7.toDateTime) <$> t2",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeParse.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeParse.lean",
+    "definition_name": "date\u2081"
+  }
+}

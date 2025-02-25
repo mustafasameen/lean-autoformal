@@ -1,0 +1,10 @@
+{
+  "content": "\u27e8balance ky y newL r (by tree_tac) (by tree_tac) (by tree_tac), by tree_tac, by tree_tac,\n        by tree_tac\u27e9\n    | .eq => match (f (.ofEq ky y h)).inner with\n      | none =>\n        \u27e8glue l r (by tree_tac) (by tree_tac) (by tree_tac), by tree_tac, by tree_tac,\n           by tree_tac\u27e9\n      | some \u27e8ky', y'\u27e9 => \u27e8.inner sz ky' y' l r, by tree_tac, by tree_tac, by tree_tac\u27e9\n    | .gt =>\n      let \u27e8newR, h\u2081, h\u2082, h\u2083\u27e9 := updateCell k f r (by tree_tac)\n      \u27e8balance ky y l newR (by tree_tac) (by tree_tac) (by tree_tac), by tree_tac, by tree_tac,\n        by tree_tac\u27e9\ndef contains\u2098 [Ord \u03b1] (k : \u03b1) (l : Impl \u03b1 \u03b2) : Bool :=\n  applyCell k l fun c _ => c.contains\ndef get?\u2098 [Ord \u03b1] [OrientedOrd \u03b1] [LawfulEqOrd \u03b1] (k : \u03b1) (l : Impl \u03b1 \u03b2) : Option (\u03b2 k) :=\n  applyCell k l fun c _ => c.get?\ndef insert\u2098 [Ord \u03b1] (k : \u03b1) (v : \u03b2 k) (l : Impl \u03b1 \u03b2) (h : l.Balanced) : Impl \u03b1 \u03b2 :=\n  updateCell k (fun _ => .of k v) l h |>.impl\ndef erase\u2098 [Ord \u03b1] (k : \u03b1) (t : Impl \u03b1 \u03b2) (h : t.Balanced) : Impl \u03b1 \u03b2 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_name": "applyCell_eq_applyPartition",
+    "has_proof": true
+  }
+}

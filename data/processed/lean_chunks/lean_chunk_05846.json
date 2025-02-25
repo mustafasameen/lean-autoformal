@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_pow_two_of_testBit (x : Nat) (p : \u2200i, i \u2265 n \u2192 testBit x i = false) : x < 2^n := by\n  apply Decidable.by_contra\n  intro not_lt\n  have x_ge_n := Nat.ge_of_not_lt not_lt\n  have \u27e8i, \u27e8i_ge_n, test_true\u27e9\u27e9 := ge_two_pow_implies_high_bit_true x_ge_n\n  have test_false := p _ i_ge_n\n  simp [test_true] at test_false\nprivate theorem succ_mod_two : succ x % 2 = 1 - x % 2 := by\n  induction x with\n  | zero =>\n    trivial\n  | succ x hyp =>\n    have p : 2 \u2264 x + 2 := Nat.le_add_left _ _\n    simp [Nat.mod_eq (x+2) 2, p, hyp]\n    cases Nat.mod_two_eq_zero_or_one x with | _ p => simp [p]\nprivate theorem testBit_succ_zero : testBit (x + 1) 0 = !(testBit x 0) := by\n  simp [testBit_to_div_mod, succ_mod_two]\n  cases Nat.mod_two_eq_zero_or_one x with | _ p =>\n    simp [p]\ntheorem testBit_two_pow_add_eq (x i : Nat) : testBit (2^i + x) i = !(testBit x i) := by\n  simp [testBit_to_div_mod, add_div_left, Nat.two_pow_pos, succ_mod_two]\n  cases mod_two_eq_zero_or_one (x / 2 ^ i) with\n  | _ p => simp [p]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "lt_pow_two_of_testBit",
+    "has_proof": true
+  }
+}

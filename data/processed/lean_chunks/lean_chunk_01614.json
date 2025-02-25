@@ -1,0 +1,9 @@
+{
+  "content": "#eval FullDayTimeZone.format (dateUTC.convertTimeZone brTZ)\n#guard_msgs in\n#eval FullDayTimeZone.format (dateJP.convertTimeZone brTZ)\n#guard_msgs in\n#eval FullDayTimeZone.format dateUTC\n#guard_msgs in\n#eval FullDayTimeZone.format (dateBR.convertTimeZone .UTC)\n#guard_msgs in\n#eval FullDayTimeZone.format (dateJP.convertTimeZone .UTC)\n#guard_msgs in\n#eval FullDayTimeZone.format dateJP\n#guard_msgs in\n#eval FullDayTimeZone.format (dateBR.convertTimeZone jpTZ)\n#guard_msgs in\n#eval FullDayTimeZone.format (dateUTC.convertTimeZone jpTZ)\ndef localTm : Second.Offset := 1723730627\ndef PlainDate : PlainDateTime := Timestamp.toPlainDateTimeAssumingUTC (Timestamp.ofSecondsSinceUnixEpoch localTm)\ndef dateBR\u2081 := DateTime.ofPlainDateTime PlainDate brTZ\ndef dateJP\u2081 := DateTime.ofPlainDateTime PlainDate jpTZ\ndef dateUTC\u2081 := DateTime.ofPlainDateTime PlainDate .UTC\n#guard_msgs in\n#eval FullDayTimeZone.format dateBR\u2081\n#guard_msgs in\n#eval FullDayTimeZone.format dateJP\u2081\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_name": "date\u2081"
+  }
+}

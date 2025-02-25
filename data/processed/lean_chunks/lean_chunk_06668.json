@@ -1,0 +1,9 @@
+{
+  "content": "fn   : ParserFn\n  deriving Inhabited\nabbrev TrailingParser := Parser\ndef withResetCacheFn (p : ParserFn) : ParserFn := withStackDrop 0 fun c s =>\n  let parserCache := s.cache.parserCache\n  let s' := p c { s with cache.parserCache := {} }\n  { s' with cache.parserCache := parserCache }\n@[inherit_doc withResetCacheFn]\ndef withResetCache : Parser \u2192 Parser := withFn withResetCacheFn\ndef withCacheFn (parserName : Name) (p : ParserFn) : ParserFn := fun c s => Id.run do\n  let key := \u27e8c.toCacheableParserContext, parserName, s.pos\u27e9\n  if let some r := s.cache.parserCache[key]? then\n    return \u27e8s.stxStack.push r.stx, r.lhsPrec, r.newPos, s.cache, r.errorMsg, s.recoveredErrors\u27e9\n  let initStackSz := s.stxStack.raw.size\n  let s := withStackDrop initStackSz p c { s with lhsPrec := 0, errorMsg := none }\n  if s.stxStack.raw.size != initStackSz + 1 then\n    panic! s!\"withCacheFn: unexpected stack growth {s.stxStack.raw}\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_name": "ParserFn"
+  }
+}

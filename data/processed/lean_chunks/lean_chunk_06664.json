@@ -1,0 +1,9 @@
+{
+  "content": "stack.raw.toSubarray stack.drop\ndef empty : SyntaxStack where\n  raw  := #[]\n  drop := 0\ndef size (stack : SyntaxStack) : Nat :=\n  stack.raw.size - stack.drop\ndef isEmpty (stack : SyntaxStack) : Bool :=\n  stack.size == 0\ndef shrink (stack : SyntaxStack) (n : Nat) : SyntaxStack :=\n  { stack with raw := stack.raw.shrink (stack.drop + n) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_name": "TokenCacheEntry"
+  }
+}

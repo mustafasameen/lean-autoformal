@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_eq_append_getElem_of_pos {i}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "take_eq_append_getElem_of_pos",
+    "has_proof": false
+  }
+}

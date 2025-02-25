@@ -1,0 +1,9 @@
+{
+  "content": "instance id : Algebra R R :=\n  (RingHom.id R).toAlgebra\nend Semiring\nend Algebra\nend Mathlib.Algebra.Algebra.Basic\nsection Mathlib.Algebra.MonoidAlgebra.Basic\nvariable (k : Type u\u2081) (G : Type u\u2082)\nsection\nvariable [Semiring k]\ndef AddMonoidAlgebra :=\n  G \u2192\u2080 k\ninstance AddMonoidAlgebra.addCommMonoid : AddCommMonoid (AddMonoidAlgebra k G) :=\n  inferInstanceAs (AddCommMonoid (G \u2192\u2080 k))\nend\nnamespace AddMonoidAlgebra\nvariable {k G}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "id"
+  }
+}

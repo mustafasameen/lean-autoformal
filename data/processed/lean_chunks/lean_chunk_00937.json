@@ -1,0 +1,9 @@
+{
+  "content": "min_def : \u2200 a b, min a b = if a \u2264 b then a else b := by intros; rfl\n  max_def : \u2200 a b, max a b = if a \u2264 b then b else a := by intros; rfl\n  compare a b := compareOfLessAndEq a b\n  compare_eq_compareOfLessAndEq : \u2200 a b, compare a b = compareOfLessAndEq a b\nend LinearOrder\nend Mathlib.Order.Defs\nsection Mathlib.Order.Notation\nclass Bot (\u03b1 : Type _) where\n  bot : \u03b1\nnotation \"\u22a5\" => Bot.bot\nattribute [match_pattern] Bot.bot\nend Mathlib.Order.Notation\nsection Mathlib.Order.Basic\nvariable {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_mod_cast.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_mod_cast.lean",
+    "definition_name": "Preorder"
+  }
+}

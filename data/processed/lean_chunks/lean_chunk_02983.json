@@ -1,0 +1,9 @@
+{
+  "content": "structure EnumAttributes (\u03b1 : Type) where\n  attrs : List AttributeImpl\n  ext   : PersistentEnvExtension (Name \u00d7 \u03b1) (Name \u00d7 \u03b1) (NameMap \u03b1)\n  deriving Inhabited\ndef registerEnumAttributes (attrDescrs : List (Name \u00d7 String \u00d7 \u03b1))\n    (validate : Name \u2192 \u03b1 \u2192 AttrM Unit := fun _ _ => pure ())\n    (applicationTime := AttributeApplicationTime.afterTypeChecking)\n    (ref : Name := by exact decl_name%) : IO (EnumAttributes \u03b1) := do\n  let ext : PersistentEnvExtension (Name \u00d7 \u03b1) (Name \u00d7 \u03b1) (NameMap \u03b1) \u2190 registerPersistentEnvExtension {\n    name            := ref\n    mkInitial       := pure {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_name": "EnumAttributes"
+  }
+}

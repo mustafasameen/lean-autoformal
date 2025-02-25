@@ -1,0 +1,9 @@
+{
+  "content": "inductive NodeDef where\n  | unit\nset_option linter.unusedVariables false in\ndef node_def (_ : Nat) {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/PP.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/PP.lean",
+    "definition_name": "NodeDef"
+  }
+}

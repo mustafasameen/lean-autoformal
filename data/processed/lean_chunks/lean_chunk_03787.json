@@ -1,0 +1,10 @@
+{
+  "content": "namespace Array\n@[deprecated foldl_toList_eq_flatMap (since := \"2024-10-16\")]\nabbrev foldl_toList_eq_bind := @foldl_toList_eq_flatMap\n@[deprecated foldl_toList_eq_flatMap (since := \"2024-10-16\")]\nabbrev foldl_data_eq_bind := @foldl_toList_eq_flatMap\n@[deprecated getElem_mem (since := \"2024-10-17\")]\nabbrev getElem?_mem := @getElem_mem\n@[deprecated getElem_fin_eq_getElem_toList (since := \"2024-10-17\")]\nabbrev getElem_fin_eq_toList_get := @getElem_fin_eq_getElem_toList\n@[deprecated \"Use reverse direction of `getElem?_toList`\" (since := \"2024-10-17\")]\nabbrev getElem?_eq_toList_getElem? := @getElem?_toList\n@[deprecated getElem?_swap (since := \"2024-10-17\")] abbrev get?_swap := @getElem?_swap\n@[deprecated getElem_push (since := \"2024-10-21\")] abbrev get_push := @getElem_push\n@[deprecated getElem_push_lt (since := \"2024-10-21\")] abbrev get_push_lt := @getElem_push_lt\n@[deprecated getElem_push_eq (since := \"2024-10-21\")] abbrev get_push_eq := @getElem_push_eq",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_ofFn",
+    "has_proof": true
+  }
+}

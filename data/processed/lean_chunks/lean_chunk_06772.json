@@ -1,0 +1,10 @@
+{
+  "content": "| _ =>\n    let init := ((\u2190 op e).reverse)\n    e.foldlM (init := init) (fun a f => return a ++ (\u2190 getSubexpressionMatches op f))\ndef rewriteCandidates (hyps : Array (Expr \u00d7 Bool \u00d7 Nat))\n    (moduleRef : LazyDiscrTree.ModuleDiscrTreeRef (Name \u00d7 RwDirection))\n    (target : Expr)\n    (forbidden : NameSet := \u2205) :\n    MetaM (Array ((Expr \u2295 Name) \u00d7 Bool \u00d7 Nat)) := do\n  let candidates \u2190 getSubexpressionMatches (rwFindDecls moduleRef) target\n  let candidates := candidates.insertionSort fun (_, _, rp) (_, _, sp) => rp > sp\n  let mut forward : NameSet := \u2205\n  let mut backward : NameSet := \u2205\n  let mut deduped := #[]\n  for (l, s, w) in candidates do\n    if forbidden.contains l then continue\n    if s then\n      if \u00ac backward.contains l then\n        deduped := deduped.push (l, s, w)\n        backward := backward.insert l\n    else\n      if \u00ac forward.contains l then\n        deduped := deduped.push (l, s, w)\n        forward := forward.insert l",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "forwardWeight",
+    "has_proof": false
+  }
+}

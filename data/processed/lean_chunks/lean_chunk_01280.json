@@ -1,0 +1,9 @@
+{
+  "content": "class NameableType (\u03c4 : Type) where\n  name : String\ninstance : NameableType String where\n  name := \"String\"\ninstance [inst : NameableType \u03b1] : NameableType (Array \u03b1) where\n  name :=\n    if inst.name.contains ' ' then\n      s!\"Array ({inst.name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inlineProjInstIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inlineProjInstIssue.lean",
+    "definition_name": "NameableType"
+  }
+}

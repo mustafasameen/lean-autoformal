@@ -1,0 +1,9 @@
+{
+  "content": "def Level.Data := UInt64\ninstance : Inhabited Level.Data :=\n  inferInstanceAs (Inhabited UInt64)\ndef Level.Data.hash (c : Level.Data) : UInt64 :=\n  c.toUInt32.toUInt64\ninstance : BEq Level.Data :=\n  \u27e8fun (a b : UInt64) => a == b\u27e9\ndef Level.Data.depth (c : Level.Data) : UInt32 :=\n  (c.shiftRight 40).toUInt32\ndef Level.Data.hasMVar (c : Level.Data) : Bool :=\n  ((c.shiftRight 32).land 1) == 1\ndef Level.Data.hasParam (c : Level.Data) : Bool :=\n  ((c.shiftRight 33).land 1) == 1\ndef Level.mkData (h : UInt64) (depth : Nat := 0) (hasMVar hasParam : Bool := false) : Level.Data :=\n  if depth > Nat.pow 2 24 - 1 then panic! \"universe level depth is too big\"\n  else\n    let r : UInt64 := h.toUInt32.toUInt64 + hasMVar.toUInt64.shiftLeft 32 + hasParam.toUInt64.shiftLeft 33 + depth.toUInt64.shiftLeft 40\n    r\ninstance : Repr Level.Data where\n  reprPrec v prec := Id.run do\n    let mut r := \"Level.mkData \" ++ toString v.hash\n    if v.depth != 0 then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

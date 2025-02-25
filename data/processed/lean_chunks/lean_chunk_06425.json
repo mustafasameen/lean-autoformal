@@ -1,0 +1,9 @@
+{
+  "content": "def seqToTerm (action : Syntax) (k : Syntax) : M Syntax := withRef action <| withFreshMacroScope do\n  if action.getKind == ``Parser.Term.doDbgTrace then\n    let msg := action[1]\n    `(dbg_trace $msg; $k)\n  else if action.getKind == ``Parser.Term.doAssert then\n    let cond := action[1]\n    `(assert! $cond; $k)\n  else\n    let action \u2190 withRef action ``(($action : $((\u2190read).m) PUnit))\n    ``(Bind.bind $action (fun (_ : PUnit) => $k))\ndef declToTerm (decl : Syntax) (k : Syntax) : M Syntax := withRef decl <| withFreshMacroScope do\n  let kind := decl.getKind\n  if kind == ``Parser.Term.doLet then\n    let letDecl := decl[2]\n    `(let $letDecl:letDecl; $k)\n  else if kind == ``Parser.Term.doLetRec then\n    let letRecToken := decl[0]\n    let letRecDecls := decl[1]\n    return mkNode ``Parser.Term.letrec #[letRecToken, letRecDecls, mkNullNode, k]\n  else if kind == ``Parser.Term.doLetArrow then\n    let arg := decl[2]\n    if arg.getKind == ``Parser.Term.doIdDecl then\n      let id     := arg[0]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "DoIfView"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem blastVar.go_decl_eq {aig : AIG BVBit}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Var.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Var.lean",
+    "definition_name": "blastVar",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class HVAdd (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hVAdd : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass HSMul (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hSMul : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass VAdd (G : Type u) (P : Type v) where\n  vadd : G \u2192 P \u2192 P\nclass SMul (M : Type u) (\u03b1 : Type v) where\n  smul : M \u2192 \u03b1 \u2192 \u03b1\ninfixl:65 \" +\u1d65 \" => HVAdd.hVAdd\ninfixr:73 \" \u2022 \" => HSMul.hSMul\nmacro_rules | `($x \u2022 $y) => `(leftact% HSMul.hSMul $x $y)\ninstance instHSMul {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "HVAdd"
+  }
+}

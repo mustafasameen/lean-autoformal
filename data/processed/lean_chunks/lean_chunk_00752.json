@@ -1,0 +1,9 @@
+{
+  "content": "def FunType := Nat \u2192 Nat\nmutual\ndef foo : FunType\n  | .zero => 0\n  | .succ n => (id bar) n\ndecreasing_by all_goals sorry\ndef bar : Nat \u2192 Nat\n  | .zero => 0\n  | .succ n => foo n\ndecreasing_by all_goals sorry\nend\nend Ex5\nnamespace Ex6\ndef Fun3Type := Nat \u2192 Nat \u2192 Nat\nmutual\ndef foo : Nat \u2192 Nat \u2192 Nat \u2192 Nat\n  | .zero, _m => fun _ => 0\n  | .succ n, .zero => fun k => (id' (bar n)) .zero k\n  | .succ n, m => fun k => (id' bar) n m k\ntermination_by n m => (n,m)\ndecreasing_by all_goals sorry\ndef bar : Nat \u2192 Fun3Type\n  | .zero, _m => fun _ => 0\n  | .succ n, m => fun k => foo n m k\ntermination_by n m => (n,m)\ndecreasing_by all_goals sorry\nend\nend Ex6",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue2628.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue2628.lean",
+    "definition_name": "FunType"
+  }
+}

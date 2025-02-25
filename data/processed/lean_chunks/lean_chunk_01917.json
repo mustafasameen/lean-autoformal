@@ -1,0 +1,10 @@
+{
+  "content": "theorem tst1 (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z := by\n  intros h1 h2 h3\n  subst x\n  assumption\ntheorem tst2 (x y z : Nat) : y = z \u2192 x = z + y \u2192 x = z + z := by\n  intros h1 h2\n  subst h1\n  subst h2\n  exact rfl\ndef BV (n : Nat) : Type := { a : Array Bool // a.size = n }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subst1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subst1.lean",
+    "definition_name": "tst1",
+    "has_proof": true
+  }
+}

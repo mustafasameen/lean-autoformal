@@ -1,0 +1,9 @@
+{
+  "content": "structure Alt where\n  idx       : Nat\n  rhs       : Expr\n  fvarDecls : List LocalDecl\n  patterns  : List Pattern\n  cnstrs    : List (Expr \u00d7 Expr)\n  deriving Inhabited\nnamespace Alt\npartial def toMessageData (alt : Alt) : MetaM MessageData := do\n  withExistingLocalDecls alt.fvarDecls do\n    let msg := alt.fvarDecls.map fun d => m!\"{d.toExpr}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_name": "Alt"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure ReifiedBVExpr where\n  width : Nat\n  bvExpr : BVExpr width\n  evalsAtAtoms : M (Option Expr)\n  expr : Expr\nstructure ReifiedBVPred where\n  bvPred : BVPred\n  evalsAtAtoms : M (Option Expr)\n  expr : Expr\nstructure ReifiedBVLogical where\n  bvExpr : BVLogicalExpr\n  evalsAtAtoms : M (Option Expr)\n  expr : Expr\nstructure SatAtBVLogical where\n  bvExpr : BVLogicalExpr\n  satAtAtoms : M Expr\n  expr : Expr\nnamespace M\ndef run (m : M \u03b1) : MetaM \u03b1 :=\n  m.run' { }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/Frontend/BVDecide/Reflect.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/Frontend/BVDecide/Reflect.lean",
+    "definition_name": "ReifiedBVExpr"
+  }
+}

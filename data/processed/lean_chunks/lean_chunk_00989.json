@@ -1,0 +1,10 @@
+{
+  "content": "class Semigroup (\u03b1 : Type u) extends Mul \u03b1, MulAssoc \u03b1\nattribute [instance] Semigroup.mk\nclass AddSemigroup (\u03b1 : Type u) extends Add \u03b1, AddAssoc \u03b1\nattribute [instance] AddSemigroup.mk\nclass Monoid (\u03b1 : Type u) extends Semigroup \u03b1, One \u03b1, OneUnit \u03b1\nattribute [instance] Monoid.mk\nclass AddMonoid (\u03b1 : Type u) extends AddSemigroup \u03b1, Zero \u03b1, ZeroUnit \u03b1\nattribute [instance] AddMonoid.mk\nclass CommSemigroup (\u03b1 : Type u) extends Semigroup \u03b1, MulComm \u03b1\nattribute [instance] CommSemigroup.mk\nclass CommMonoid (\u03b1 : Type u) extends Monoid \u03b1, MulComm \u03b1\nattribute [instance] CommMonoid.mk\nclass Group (\u03b1 : Type u) extends Monoid \u03b1, Inv \u03b1, InvMul \u03b1\nattribute [instance] Group.mk\nclass AddGroup (\u03b1 : Type u) extends AddMonoid \u03b1, Neg \u03b1, NegAdd \u03b1\nattribute [instance] AddGroup.mk\nclass Semiring (\u03b1 : Type u) extends AddMonoid \u03b1, Monoid \u03b1, AddComm \u03b1, ZeroMul \u03b1, Distrib \u03b1\nattribute [instance] Semiring.mk\nclass Ring (\u03b1 : Type u) extends AddGroup \u03b1, Monoid \u03b1, AddComm \u03b1, Distrib \u03b1\nattribute [instance] Ring.mk",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlg.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlg.lean",
+    "definition_name": "Semigroup",
+    "has_proof": true
+  }
+}

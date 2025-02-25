@@ -1,0 +1,10 @@
+{
+  "content": "theorem erase_range' :\n    (range' s n).erase i =\n      range' s (min n (i - s)) ++ range' (max s (i + 1)) (min s (i + 1) + n - (i + 1)) := by\n  by_cases h : i \u2208 range' s n\n  \u00b7 obtain \u27e8as, bs, h\u2081, h\u2082\u27e9 := eq_append_cons_of_mem h\n    rw [h\u2081, erase_append_right _ h\u2082, erase_cons_head]\n    rw [range'_eq_append_iff] at h\u2081\n    obtain \u27e8k, -, rfl, hbs\u27e9 := h\u2081\n    rw [eq_comm, range'_eq_cons_iff] at hbs\n    obtain \u27e8rfl, -, rfl\u27e9 := hbs\n    simp at h\n    congr 2 <;> omega\n  \u00b7 rw [erase_of_not_mem h]\n    simp only [mem_range'_1, not_and, Nat.not_lt] at h\n    by_cases h' : s \u2264 i\n    \u00b7 have p : min s (i + 1) + n - (i + 1) = 0 := by omega\n      simp [p]\n      omega\n    \u00b7 have p : i - s = 0 := by omega\n      simp [p]\n      omega\nsection\nset_option linter.deprecated false\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\")]\ntheorem iota_eq_reverse_range' : \u2200 n : Nat, iota n = reverse (range' 1 n)\n  | 0 => rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "erase_range",
+    "has_proof": true
+  }
+}

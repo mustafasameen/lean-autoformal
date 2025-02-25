@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_right_inj {i j : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Lemmas.lean",
+    "definition_name": "add_right_inj",
+    "has_proof": false
+  }
+}

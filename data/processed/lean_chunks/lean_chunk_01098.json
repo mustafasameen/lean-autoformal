@@ -1,0 +1,9 @@
+{
+  "content": "instance nonAssocSemiring [Semiring k] [AddZeroClass G] : NonAssocSemiring (AddMonoidAlgebra k G) :=\n  { AddMonoidAlgebra.nonUnitalNonAssocSemiring with\n    one := 1\n    mul := (\u00b7 * \u00b7)\n    zero := 0\n    add := (\u00b7 + \u00b7)\n    one_mul := sorry\n    mul_one := sorry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "nonAssocSemiring"
+  }
+}

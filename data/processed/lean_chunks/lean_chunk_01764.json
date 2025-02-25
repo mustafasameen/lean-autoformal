@@ -1,0 +1,9 @@
+{
+  "content": "instance coerceBoolToProp : HasCoerce Bool Prop :=\n\u27e8fun y => y = true\u27e9\ninstance coerceDecidableEq (x : Bool) : Decidable (coerce x) :=\ninferInstanceAs (Decidable (x = true))\ninstance coerceNatToBool : HasCoerce Nat Bool :=\n\u27e8fun x => x == 0\u27e9\ninstance coerceNatToInt : HasCoerce Nat Int :=\n\u27e8fun x => Int.ofNat x\u27e9\ndef print {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synth1.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synth1.lean",
+    "definition_name": "coerceBoolToProp"
+  }
+}

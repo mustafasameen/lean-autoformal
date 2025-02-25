@@ -1,0 +1,9 @@
+{
+  "content": "| .app f a, .app g b =>\n        (do return .app (\u2190 joinTypes? f g) (\u2190 joinTypes? a b))\n         <|>\n        return erasedExpr\n      | .forallE n d\u2081 b\u2081 _, .forallE _ d\u2082 b\u2082 _ =>\n        (do return .forallE n (\u2190 joinTypes? d\u2081 d\u2082) (joinTypes b\u2081 b\u2082) .default)\n        <|>\n        return erasedExpr\n      | .lam n d\u2081 b\u2081 _, .lam _ d\u2082 b\u2082 _ =>\n        (do return .lam n (\u2190 joinTypes? d\u2081 d\u2082) (joinTypes b\u2081 b\u2082) .default)\n        <|>\n        return erasedExpr\n      | _, _ => return erasedExpr\nend\npartial def isTypeFormerType (type : Expr) : Bool :=\n  match type.headBeta with\n  | .sort .. => true\n  | .forallE _ _ b _ => isTypeFormerType b\n  | _ => false\ndef instantiateForall (type : Expr) (ps : Array Expr) : CoreM Expr :=\n  go 0 type\nwhere\n  go (i : Nat) (type : Expr) : CoreM Expr :=\n    if h : i < ps.size then\n      if let .forallE _ _ b _ := type.headBeta then\n        go (i+1) (b.instantiate1 ps[i])\n      else\n        throwError \"invalid instantiateForall, too many parameters\"\n    else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_name": "erasedExpr"
+  }
+}

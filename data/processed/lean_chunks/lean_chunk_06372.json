@@ -1,0 +1,9 @@
+{
+  "content": "for e in macroAttribute.getEntries env stx.getKind do\n    try\n      let stx' \u2190 withFreshMacroScope (e.value stx)\n      return (e.declName, Except.ok stx')\n    catch\n      | Macro.Exception.unsupportedSyntax => pure ()\n      | ex                                => return (e.declName, Except.error ex)\n  return none\nclass MonadMacroAdapter (m : Type \u2192 Type) where\n  getCurrMacroScope                  : m MacroScope\n  getNextMacroScope                  : m MacroScope\n  setNextMacroScope                  : MacroScope \u2192 m Unit\n@[always_inline]\ninstance (m n) [MonadLift m n] [MonadMacroAdapter m] : MonadMacroAdapter n := {\n  getCurrMacroScope := liftM (MonadMacroAdapter.getCurrMacroScope : m _)\n  getNextMacroScope := liftM (MonadMacroAdapter.getNextMacroScope : m _)\n  setNextMacroScope := fun s => liftM (MonadMacroAdapter.setNextMacroScope s : m _)\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Util.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Util.lean",
+    "definition_name": "MacroStackElem"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Json where\n  | null\n  | bool (b : Bool)\n  | num (n : JsonNumber)\n  | str (s : String)\n  | arr (elems : Array Json)\n  | obj (kvPairs : RBNode String (fun _ => Json))\n  deriving Inhabited\nnamespace Json\nprivate partial def beq' : Json \u2192 Json \u2192 Bool\n  | null,   null   => true\n  | bool a, bool b => a == b\n  | num a,  num b  => a == b\n  | str a,  str b  => a == b\n  | arr a,  arr b  =>\n    let _ : BEq Json := \u27e8beq'\u27e9\n    a == b\n  | obj a,  obj b =>\n    let _ : BEq Json := \u27e8beq'\u27e9\n    let szA := a.fold (init := 0) (fun a _ _ => a + 1)\n    let szB := b.fold (init := 0) (fun a _ _ => a + 1)\n    szA == szB && a.all fun field fa =>\n      match b.find compare field with\n      | none    => false\n      | some fb => fa == fb\n  | _,      _      => false\ninstance : BEq Json where\n  beq := beq'\nprivate partial def hash' : Json \u2192 UInt64\n  | null   => 11\n  | bool b => mixHash 13 <| hash b\n  | num n  => mixHash 17 <| hash n\n  | str s  => mixHash 19 <| hash s\n  | arr elems =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_name": "Json"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure RecommendedSpelling where\n  recommendedSpelling : String\nbuiltin_initialize recommendedSpellingByNameExt\n    : PersistentEnvExtension (Name \u00d7 Array RecommendedSpelling) (RecommendedSpelling \u00d7 Array Name)\n        (NameMap (Array RecommendedSpelling)) \u2190\n  registerPersistentEnvExtension {\n    mkInitial := pure {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term/Doc.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term/Doc.lean",
+    "definition_name": "RecommendedSpelling"
+  }
+}

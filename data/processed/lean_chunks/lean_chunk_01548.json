@@ -1,0 +1,9 @@
+{
+  "content": "class abbrev PEquiv.{U}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/classAbbrev.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/classAbbrev.lean",
+    "definition_name": "abbrev"
+  }
+}

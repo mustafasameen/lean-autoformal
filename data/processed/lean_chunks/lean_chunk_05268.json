@@ -1,0 +1,10 @@
+{
+  "content": "instance decidableBEx (p : \u03b1 \u2192 Prop) [DecidablePred p] :\n    \u2200 l : List \u03b1, Decidable (Exists fun x => x \u2208 l \u2227 p x)\n  | [] => isFalse nofun\n  | x :: xs =>\n    if h\u2081 : p x then isTrue \u27e8x, .head .., h\u2081\u27e9 else\n      match decidableBEx p xs with\n      | isTrue h\u2082 => isTrue <| let \u27e8y, hm, hp\u27e9 := h\u2082; \u27e8y, .tail _ hm, hp\u27e9\n      | isFalse h\u2082 => isFalse fun\n        | \u27e8y, .tail _ h, hp\u27e9 => h\u2082 \u27e8y, h, hp\u27e9\n        | \u27e8_, .head .., hp\u27e9 => h\u2081 hp\ninstance decidableBAll (p : \u03b1 \u2192 Prop) [DecidablePred p] :\n    \u2200 l : List \u03b1, Decidable (\u2200 x, x \u2208 l \u2192 p x)\n  | [] => isTrue nofun\n  | x :: xs =>\n    if h\u2081 : p x then\n      match decidableBAll p xs with\n      | isTrue h\u2082 => isTrue fun\n        | y, .tail _ h => h\u2082 y h\n        | _, .head .. => h\u2081\n      | isFalse h\u2082 => isFalse fun H => h\u2082 fun y hm => H y (.tail _ hm)\n    else isFalse fun H => h\u2081 <| H x (.head ..)\ndef take : Nat \u2192 List \u03b1 \u2192 List \u03b1\n  | 0,   _     => []\n  | _+1, []    => []\n  | n+1, a::as => a :: take n as",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "decidableBEx",
+    "has_proof": true
+  }
+}

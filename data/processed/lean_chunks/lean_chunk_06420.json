@@ -1,0 +1,9 @@
+{
+  "content": "structure DoIfView where\n  ref        : Syntax\n  optIdent   : Syntax\n  cond       : Syntax\n  thenBranch : Syntax\n  elseBranch : Syntax\nprivate def mkTuple (elems : Array Syntax) : MacroM Syntax := do\n  if elems.size = 0 then\n    mkUnit\n  else if h : elems.size = 1 then\n    return elems[0]\n  else\n    elems.extract 0 (elems.size - 1) |>.foldrM (init := elems.back!) fun elem tuple =>\n      ``(MProd.mk $elem $tuple)\nprivate def destructTuple (uvars : Array Var) (x : Syntax) (body : Syntax) : MacroM Syntax := do\n  if uvars.size = 0 then\n    return body\n  else if h : uvars.size = 1 then\n    `(let $(uvars[0]):ident := $x; $body)\n  else\n    destruct uvars.toList x body\nwhere\n  destruct (as : List Var) (x : Syntax) (body : Syntax) : MacroM Syntax := do\n    match as with\n      | [a, b]  => `(let $a:ident := $x.1; let $b:ident := $x.2; $body)\n      | a :: as => withFreshMacroScope do\n        let rest \u2190 destruct as (\u2190 `(x)) body\n        `(let $a:ident := $x.1; let x := $x.2; $rest)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "DoIfView"
+  }
+}

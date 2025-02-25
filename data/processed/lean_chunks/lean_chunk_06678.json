@@ -1,0 +1,9 @@
+{
+  "content": "register_parser_alias ppLine { stackSz? := some 0 }\n  register_parser_alias ppGroup { stackSz? := none }\n  register_parser_alias ppRealGroup { stackSz? := none }\n  register_parser_alias ppRealFill { stackSz? := none }\n  register_parser_alias ppIndent { stackSz? := none }\n  register_parser_alias ppDedent { stackSz? := none }\n  register_parser_alias ppDedentIfGrouped { stackSz? := none }\n  register_parser_alias ppAllowUngrouped { stackSz? := some 0 }\n  register_parser_alias ppHardLineUnlessUngrouped { stackSz? := some 0 }\nend Parser\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_name": "identWithPartialTrailingDot"
+  }
+}

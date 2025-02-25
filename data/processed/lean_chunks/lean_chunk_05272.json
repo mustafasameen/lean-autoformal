@@ -1,0 +1,10 @@
+{
+  "content": "| x::xs, acc => by simp [flatMapTR.go, flatMap, go xs]\n  exact (go as #[]).symm\n@[inline] def flattenTR (l : List (List \u03b1)) : List \u03b1 := l.flatMapTR id\n@[csimp] theorem flatten_eq_flattenTR : @flatten = @flattenTR := by\n  funext \u03b1 l; rw [\u2190 List.flatMap_id, List.flatMap_eq_flatMapTR]; rfl\n  @[specialize] go : List \u03b1 \u2192 Nat \u2192 Array \u03b1 \u2192 List \u03b1\n  | [], _, _ => l\n  | _::_, 0, acc => acc.toList\n  | a::as, n+1, acc => go as n (acc.push a)\n@[csimp] theorem take_eq_takeTR : @take = @takeTR := by\n  funext \u03b1 i l; simp [takeTR]\n  suffices \u2200 xs acc, l = acc.toList ++ xs \u2192 takeTR.go l xs i acc = acc.toList ++ xs.take i from\n    (this l #[] (by simp)).symm\n  intro xs; induction xs generalizing i with intro acc\n  | nil => cases i <;> simp [take, takeTR.go]\n  | cons x xs IH =>\n    cases i with simp only [take, takeTR.go]\n    | zero => simp\n    | succ n => intro h; rw [IH] <;> simp_all\n@[inline] def takeWhileTR (p : \u03b1 \u2192 Bool) (l : List \u03b1) : List \u03b1 := go l #[] where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_name": "set_eq_setTR",
+    "has_proof": true
+  }
+}

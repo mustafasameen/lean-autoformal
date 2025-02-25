@@ -1,0 +1,9 @@
+{
+  "content": "| lit v => v\n  | _     => panic! \"literal expected\"\ndef isRawNatLit : Expr \u2192 Bool\n  | lit (Literal.natVal _) => true\n  | _                      => false\ndef rawNatLit? : Expr \u2192 Option Nat\n  | lit (Literal.natVal v) => v\n  | _                      => none\ndef isStringLit : Expr \u2192 Bool\n  | lit (Literal.strVal _) => true\n  | _                      => false\ndef isCharLit : Expr \u2192 Bool\n  | app (const c _) a => c == ``Char.ofNat && a.isRawNatLit\n  | _                 => false\ndef constName! : Expr \u2192 Name\n  | const n _ => n\n  | _         => panic! \"constant expected\"\ndef constName? : Expr \u2192 Option Name\n  | const n _ => some n\n  | _         => none\ndef getForallBody : Expr \u2192 Expr\n  | forallE _ _ b .. => getForallBody b\n  | e                => e\ndef getForallBodyMaxDepth : (maxDepth : Nat) \u2192 Expr \u2192 Expr\n  | (n+1), forallE _ _ b _ => getForallBodyMaxDepth n b\n  | 0, e => e\n  | _, e => e\ndef getForallBinderNames : Expr \u2192 List Name\n  | forallE n _ b _ => n :: getForallBinderNames b\n  | _ => []",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

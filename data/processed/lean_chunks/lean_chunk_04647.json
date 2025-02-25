@@ -1,0 +1,10 @@
+{
+  "content": "p == (p\u2081.mul a\u2082 |>.combine (p\u2082.mul (- a\u2081))))\n  | _, _ => false\ntheorem dvd_solve_elim (ctx : Context) (d\u2081 : Int) (p\u2081 : Poly) (d\u2082 : Int) (p\u2082 : Poly) (d : Int) (p : Poly)\n    : dvd_solve_elim_cert d\u2081 p\u2081 d\u2082 p\u2082 d p \u2192 d\u2081 \u2223 p\u2081.denote' ctx \u2192 d\u2082 \u2223 p\u2082.denote' ctx \u2192 d \u2223 p.denote' ctx := by\n  simp [dvd_solve_elim_cert]\n  split <;> simp\n  next a\u2081 x\u2081 p\u2081 a\u2082 x\u2082 p\u2082 =>\n  intro _ hd _; subst x\u2081 p; simp\n  intro h\u2081 h\u2082\n  rw [Int.add_comm] at h\u2081 h\u2082\n  rw [\u2190 Int.sub_eq_add_neg]\n  exact dvd_solve_elim' hd h\u2081 h\u2082\ntheorem dvd_norm (ctx : Context) (d : Int) (p\u2081 p\u2082 : Poly) : p\u2081.norm == p\u2082 \u2192 d \u2223 p\u2081.denote' ctx \u2192 d \u2223 p\u2082.denote' ctx := by\n  simp\n  intro; subst p\u2082\n  intro h\u2081\n  simp [Poly.denote_norm ctx p\u2081, h\u2081]\ntheorem le_norm (ctx : Context) (p\u2081 p\u2082 : Poly) (h : p\u2081.norm == p\u2082) : p\u2081.denote' ctx \u2264 0 \u2192 p\u2082.denote' ctx \u2264 0 := by\n  simp at h\n  replace h := congrArg (Poly.denote ctx) h\n  simp at h\n  simp [*]\ndef le_coeff_cert (p\u2081 p\u2082 : Poly) (k : Int) : Bool :=\n  k > 0 && (p\u2081.divCoeffs k && p\u2082 == p\u2081.div k)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "dvd_solve_combine",
+    "has_proof": true
+  }
+}

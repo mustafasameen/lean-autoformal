@@ -1,0 +1,10 @@
+{
+  "content": "instance instOrderPi [\u2200 x, PartialOrder (\u03b2 x)] : PartialOrder (\u2200 x, \u03b2 x) where\n  rel f g := \u2200 x, f x \u2291 g x\n  rel_refl _ := rel_refl\n  rel_trans hf hg x := rel_trans (hf x) (hg x)\n  rel_antisymm hf hg := funext (fun x => rel_antisymm (hf x) (hg x))\ntheorem monotone_of_monotone_apply [PartialOrder \u03b3] [\u2200 x, PartialOrder (\u03b2 x)] (f : \u03b3 \u2192 (\u2200 x, \u03b2 x))\n  (h : \u2200 y, monotone (fun x => f x y)) : monotone f :=\n  fun x y hxy z => h z x y hxy\ntheorem monotone_apply [PartialOrder \u03b3] [\u2200 x, PartialOrder (\u03b2 x)] (a : \u03b1) (f : \u03b3 \u2192 \u2200 x, \u03b2 x)\n    (h : monotone f) :\n    monotone (fun x => f x a) := fun _ _ hfg => h _ _ hfg a\ntheorem chain_apply [\u2200 x, PartialOrder (\u03b2 x)] {c : (\u2200 x, \u03b2 x) \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "instOrderPi",
+    "has_proof": false
+  }
+}

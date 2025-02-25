@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_add_const (xs : Array \u03b1) (a b : Nat) :\n    xs.foldl (fun x _ => x + a) b = b + a * xs.size := by\n  rcases xs with \u27e8xs\u27e9\n  simp\n@[simp] theorem foldr_add_const (xs : Array \u03b1) (a b : Nat) :\n    xs.foldr (fun _ x => x + a) b = b + a * xs.size := by\n  rcases xs with \u27e8xs\u27e9\n  simp\ntheorem elem_cons_self [BEq \u03b1] [LawfulBEq \u03b1] {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "foldl_add_const",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "match getExportNameFor? (\u2190 getEnv) n with\n  | some (.str .anonymous s) => return \"_init_\" ++ s\n  | some _                   => throwInvalidExportName n\n  | none                     => pure (\"_init_\" ++ n.mangle)\ninductive ShouldForwardControlFlow where\n| yes | no\ndef builderGetInsertionFn (builder : LLVM.Builder llvmctx) : M llvmctx (LLVM.Value llvmctx) := do\n  let builderBB \u2190 LLVM.getInsertBlock builder\n  LLVM.getBasicBlockParent builderBB\ndef builderAppendBasicBlock (builder : LLVM.Builder llvmctx) (name : String) : M llvmctx (LLVM.BasicBlock llvmctx) := do\n  let fn \u2190 builderGetInsertionFn builder\n  LLVM.appendBasicBlockInContext llvmctx fn name\ndef buildPrologueAlloca (builder : LLVM.Builder llvmctx) (ty : LLVM.LLVMType llvmctx) (name : @&String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let origBB \u2190 LLVM.getInsertBlock builder\n  let fn \u2190 builderGetInsertionFn builder\n  if (\u2190 LLVM.countBasicBlocks fn) == 0 then\n    throw \"Attempt to obtain first BB of function without BBs\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

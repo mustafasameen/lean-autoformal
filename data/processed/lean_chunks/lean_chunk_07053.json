@@ -1,0 +1,9 @@
+{
+  "content": "`(bracketedBinderF| ($(mkIdent name) : Json))\n    let pktCtor \u2190 `(Parser.Command.ctor|\n      | $ctorId:ident $[$fieldStxs]* : RpcEncodablePacket)\n    let nms \u2190 argVars.mapM fun _ => mkIdent <$> mkFreshBinderName\n    let encArgs \u2190 nms.mapM fun nm => `(\u2190 rpcEncode $nm)\n    let encArm \u2190 `(matchAltTerm| | .$ctorId $nms* => return toJson (.$ctorId $encArgs* : RpcEncodablePacket))\n    let decArgs \u2190 nms.mapM fun nm => `(\u2190 rpcDecode $nm)\n    let decArm \u2190 `(matchAltTerm| | .$ctorId $nms* => return (.$ctorId $decArgs*))\n    return (pktCtor, encArm, decArm)\n  let (ctors, st) := st.unzip\n  let (encodes, decodes) := st.unzip\n  let paramIds \u2190 params.mapM fun p => return mkIdent (\u2190 getFVarLocalDecl p).userName\n  let typeId \u2190 `(@$(mkIdent indVal.name) $paramIds*)\n  `(inductive RpcEncodablePacket where\n      $[$ctors:ctor]*\n      deriving FromJson, ToJson\n    variable $encInstBinders* in\n    partial instance : RpcEncodable $typeId :=\n      { rpcEncode := enc, rpcDecode := dec }\n    where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_name": "matchAltTerm"
+  }
+}

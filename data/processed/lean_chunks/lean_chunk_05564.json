@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_empty_iff (a : \u03b1) : a \u2208 (#v[] : Vector \u03b1 0) \u2194 False := by simp\ntheorem mem_singleton_self (a : \u03b1) : a \u2208 #v[a] := by simp\ntheorem mem_of_mem_push_of_mem {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "mem_empty_iff",
+    "has_proof": true
+  }
+}

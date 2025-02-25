@@ -1,0 +1,9 @@
+{
+  "content": "structure State (\u03b1 : Type) [DecidableEq \u03b1] [Hashable \u03b1] (decls : Array (Decl \u03b1)) (idx : Nat) where\n  max : Nat\n  map : HashMap \u03b1 Nat\n  inv1 : State.Inv1 max map\n  inv2 : State.Inv2 decls idx map\nnamespace State\ndef empty {decls : Array (Decl \u03b1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_name": "State"
+  }
+}

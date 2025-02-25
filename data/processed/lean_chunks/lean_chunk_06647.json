@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_term_parser] def \u00abtrailing_parser\u00bb := leading_parser:leadPrec\n  \"trailing_parser\" >> optExprPrecedence >> optExprPrecedence >> ppSpace >> termParser\n@[builtin_term_parser] def borrowed   := leading_parser\n  \"@& \" >> termParser leadPrec\n@[builtin_term_parser] def doubleQuotedName := leading_parser\n  \"`\" >> checkNoWsBefore >> rawCh '`' (trailingWs := false) >> ident\ndef letIdBinder :=\n  withAntiquot (mkAntiquot \"letIdBinder\" decl_name% (isPseudoKind := true)) <|\n    binderIdent <|> bracketedBinder\ndef letEqnsDecl := leading_parser (withAnonymousAntiquot := false)\n  letIdLhs >> (\" := \" <|> matchAlts)\n@[builtin_doc] def letDecl := leading_parser (withAnonymousAntiquot := false)\n  notFollowedBy (nonReservedSymbol \"rec\") \"rec\" >>\n  (letIdDecl <|> letPatDecl <|> letEqnsDecl)\n@[builtin_term_parser] def \u00ablet\u00bb := leading_parser:leadPrec\n  withPosition (\"let \" >> letDecl) >> optSemicolon termParser\n@[builtin_term_parser] def \u00ablet_fun\u00bb     := leading_parser:leadPrec",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

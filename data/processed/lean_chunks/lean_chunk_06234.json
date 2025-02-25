@@ -1,0 +1,9 @@
+{
+  "content": "(failK : Unit \u2192 MetaM \u03b1) (successK : Expr \u2192 MetaM \u03b1) (preserveMData := false) : MetaM \u03b1 := do\n  if c.levelParams.length != lvls.length then\n    failK ()\n  else\n    let val \u2190 instantiateValueLevelParams c lvls\n    let val := val.betaRev revArgs (preserveMData := preserveMData)\n    successK val\ninductive ReduceMatcherResult where\n  | reduced (val : Expr)\n  | stuck   (val : Expr)\n  | notMatcher\n  | partialApp\nprivate def unfoldNestedDIte (e : Expr) : CoreM Expr := do\n  if e.find? (fun e => e.isAppOf ``dite) matches some _ then\n    Core.transform e fun e => do\n      if let .const ``dite us := e then\n        let constInfo \u2190 getConstInfo ``dite\n        let e \u2190 instantiateValueLevelParams constInfo us\n        return .done e\n      else\n        return .continue\n  else\n    return e\ndef canUnfoldAtMatcher (cfg : Config) (info : ConstantInfo) : CoreM Bool := do\n  match cfg.transparency with\n  | .all     => return true\n  | .default => return !(\u2190 isIrreducible info.name)\n  | _ =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

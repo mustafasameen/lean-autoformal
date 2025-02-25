@@ -1,0 +1,9 @@
+{
+  "content": "def macroRules $(mkIdentFrom tk k (canonical := true)) : Macro :=\n     fun $alts:matchAlt* | _ => no_error_if_unused% throw Lean.Macro.Exception.unsupportedSyntax)\n@[builtin_command_elab \u00abmacro_rules\u00bb] def elabMacroRules : CommandElab :=\n  adaptExpander fun stx => match stx with\n  | `($[$doc?:docComment]? $[@[$attrs?,*]]? $attrKind:attrKind macro_rules%$tk $alts:matchAlt*) =>\n    withRef (mkNullNode #[tk, mkNullNode alts]) do\n      expandNoKindMacroRulesAux alts \"macro_rules\" fun kind? alts =>\n        `($[$doc?:docComment]? $[@[$attrs?,*]]? $attrKind:attrKind macro_rules $[(kind := $(mkIdent <$> kind?))]? $alts:matchAlt*)\n  | `($[$doc?:docComment]? $[@[$attrs?,*]]? $attrKind:attrKind macro_rules%$tk (kind := $kind) | $x:ident => $rhs) =>\n    withRef (mkNullNode #[tk, rhs]) do\n      let attr \u2190 `(attrInstance| $attrKind:attrKind macro $kind)\n      let attrs := match attrs? with\n        | some attrs => attrs.getElems.push attr\n        | none => #[attr]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MacroRules.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MacroRules.lean",
+    "definition_name": "macroRules"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure PersistentArray (\u03b1 : Type u) where\n  root    : PersistentArrayNode \u03b1 := PersistentArrayNode.node (Array.mkEmpty PersistentArray.branching.toNat)\n  tail    : Array \u03b1               := Array.mkEmpty PersistentArray.branching.toNat\n  size    : Nat                   := 0\n  shift   : USize                 := PersistentArray.initShift\n  tailOff : Nat                   := 0\n  deriving Inhabited\nabbrev PArray (\u03b1 : Type u) := PersistentArray \u03b1\nnamespace PersistentArray\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentArray.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentArray.lean",
+    "definition_name": "PersistentArray"
+  }
+}

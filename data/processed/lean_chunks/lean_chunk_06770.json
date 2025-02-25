@@ -1,0 +1,10 @@
+{
+  "content": "| return none\n    if result.mvarIds.isEmpty then\n      let mctx \u2190 getMCtx\n      let rfl? \u2190 dischargableWithRfl? mctx result.eNew\n      return some { expr, symm, weight, result, mctx, rfl? }\n    else\n      let discharge \u2190\n        match side with\n        | .none => pure false\n        | .assumption => ((fun _ => true) <$> result.mvarIds.mapM fun m => m.assumption) <|> pure false\n        | .solveByElim => (solveByElim result.mvarIds >>= fun _ => pure true) <|> pure false\n      match discharge with\n      | false =>\n        return none\n      | true =>\n        let some expr := rewriteResultLemma result | return none\n        let expr \u2190 instantiateMVars expr\n        let (expr, symm) := if expr.isAppOfArity ``Eq.symm 4 then\n            (expr.getArg! 3, true)\n          else\n            (expr, false)\n        let mctx \u2190 getMCtx\n        let rfl? \u2190 dischargableWithRfl? mctx result.eNew\n        return some { expr, symm, weight, result, mctx, rfl? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "forwardWeight",
+    "has_proof": false
+  }
+}

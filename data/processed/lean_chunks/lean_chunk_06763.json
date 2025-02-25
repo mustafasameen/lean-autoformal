@@ -1,0 +1,9 @@
+{
+  "content": "trace[split.failure] \"`split` tactic failed to simplify target using new hypotheses Goals:\\n{mvarId\u2081}\\n{mvarId\u2082}\"\n      return none\n    else\n      return some ({ s\u2081 with mvarId := mvarId\u2081 }, { s\u2082 with mvarId := mvarId\u2082 })\n  else\n    return none\ndef splitIfLocalDecl? (mvarId : MVarId) (fvarId : FVarId) (hName? : Option Name := none) : MetaM (Option (MVarId \u00d7 MVarId)) := commitWhenSome? do\n  mvarId.withContext do\n    if let some (s\u2081, s\u2082) \u2190 splitIfAt? mvarId (\u2190 inferType (mkFVar fvarId)) hName? then\n      let mvarId\u2081 \u2190 simpIfLocalDecl s\u2081.mvarId fvarId\n      let mvarId\u2082 \u2190 simpIfLocalDecl s\u2082.mvarId fvarId\n      if s\u2081.mvarId == mvarId\u2081 && s\u2082.mvarId == mvarId\u2082 then\n        trace[split.failure] \"`split` tactic failed to simplify target using new hypotheses Goals:\\n{mvarId\u2081}\\n{mvarId\u2082}\"\n        return none\n      else\n        return some (mvarId\u2081, mvarId\u2082)\n    else\n      return none\nbuiltin_initialize registerTraceClass `Meta.Tactic.splitIf\nend Lean.Meta",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/SplitIf.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/SplitIf.lean",
+    "definition_name": "mkDischarge"
+  }
+}

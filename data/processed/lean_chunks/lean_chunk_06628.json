@@ -1,0 +1,9 @@
+{
+  "content": "doElemParser >> optional (checkColGt >> \" | \" >> doSeq)\n@[builtin_doElem_parser] def doLetArrow      := leading_parser\n  withPosition (\"let \" >> optional \"mut \" >> (doIdDecl <|> doPatDecl))\ndef letIdDeclNoBinders := node ``letIdDecl <|\n  atomic (ident >> pushNone >> optType >> \" := \") >> termParser\n@[builtin_doElem_parser] def doReassign      := leading_parser\n  notFollowedByRedefinedTermToken >> (letIdDeclNoBinders <|> letPatDecl)\n@[builtin_doElem_parser] def doReassignArrow := leading_parser\n  notFollowedByRedefinedTermToken >> (doIdDecl <|> doPatDecl)\n@[builtin_doElem_parser] def doHave     := leading_parser\n  \"have\" >> Term.haveDecl\ndef elseIf := atomic (group (withPosition (\"else \" >> checkLineEq >> \" if \")))\ndef doIfLetPure := leading_parser \" := \" >> termParser\ndef doIfLetBind := leading_parser \" \u2190 \" >> termParser\ndef doIfLet     := leading_parser (withAnonymousAntiquot := false)\n  \"let \" >> termParser >> (doIfLetPure <|> doIfLetBind)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_name": "doSeqIndent"
+  }
+}

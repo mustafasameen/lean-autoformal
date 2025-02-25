@@ -1,0 +1,9 @@
+{
+  "content": "structure UserWidgetDefinition where\n  javascript: String\n  deriving Inhabited, ToJson, FromJson\ninstance : ToModule UserWidgetDefinition where\n  toModule uwd := { uwd with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/UserWidget.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/UserWidget.lean",
+    "definition_name": "UserWidgetDefinition"
+  }
+}

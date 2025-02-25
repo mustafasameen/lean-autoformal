@@ -1,0 +1,9 @@
+{
+  "content": "class Eq_Of_Succ_Eq_Succ [Succ N] where\n  eq_of_succ_eq_succ {n m : N}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_name": "Eq_Of_Succ_Eq_Succ"
+  }
+}

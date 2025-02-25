@@ -1,0 +1,9 @@
+{
+  "content": "structure FinalizeContext where\n  elabs : Array InductiveElabStep2\n  mctx : MetavarContext\n  levelParams : List Name\n  params : Array Expr\n  lctx : LocalContext\n  localInsts : LocalInstances\n  replaceIndFVars : Expr \u2192 MetaM Expr\nprivate def mkInductiveDecl (vars : Array Expr) (elabs : Array InductiveElabStep1) : TermElabM FinalizeContext :=\n  Term.withoutSavingRecAppSyntax do\n  let views := elabs.map (\u00b7.view)\n  let view0 := views[0]!\n  let scopeLevelNames \u2190 Term.getLevelNames\n  InductiveElabStep1.checkLevelNames views\n  let allUserLevelNames := view0.levelNames\n  let isUnsafe          := view0.modifiers.isUnsafe\n  withRef view0.ref <| Term.withLevelNames allUserLevelNames do\n    let rs \u2190 elabHeaders views\n    Term.synthesizeSyntheticMVarsNoPostponing\n    ElabHeaderResult.checkLevelNames rs\n    let allUserLevelNames := rs[0]!.levelNames\n    trace[Elab.inductive] \"level names: {allUserLevelNames}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "FinalizeContext"
+  }
+}

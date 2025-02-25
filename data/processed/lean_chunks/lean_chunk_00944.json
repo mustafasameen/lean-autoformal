@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex7 : (if \"hello\" = \"world\" then 1 else 2) = 2 := by\n  simp (config := { decide := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp6.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp6.lean",
+    "definition_name": "ex7",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def nat   := mkConst `Nat\ndef boolE := mkConst `Bool\ndef succ  := mkConst `Nat.succ\ndef zero  := mkConst `Nat.zero\ndef add   := mkConst `Nat.add\ndef io    := mkConst `IO\ndef type  := mkSort levelOne\ndef mkArrow (d b : Expr) : Expr := mkForall `_ BinderInfo.default d b\ndef tst1 : MetaM Unit := do\nprint \"\nlet m1 \u2190 mkFreshExprMVar (mkArrow nat nat)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/meta6.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/meta6.lean",
+    "definition_name": "nat"
+  }
+}

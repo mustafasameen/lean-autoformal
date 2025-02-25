@@ -1,0 +1,10 @@
+{
+  "content": "simpa using this #[]\n  intro xs\n  induction l generalizing xs with\n  | nil => simp\n  | cons a l ih =>\n    simp only [foldlM_toArray] at ih\n    rw [size_toArray, mapM'_cons, foldlM_toArray]\n    simp [ih]\ntheorem uset_toArray (l : List \u03b1) (i : USize) (a : \u03b1) (h : i.toNat < l.toArray.size) :\n    l.toArray.uset i a h = (l.set i.toNat a).toArray := by simp\n@[simp] theorem modify_toArray (f : \u03b1 \u2192 \u03b1) (l : List \u03b1) :\n    l.toArray.modify i f = (l.modify f i).toArray := by\n  apply ext'\n  simp\n@[simp] theorem flatten_toArray (L : List (List \u03b1)) :\n    (L.toArray.map List.toArray).flatten = L.flatten.toArray := by\n  apply ext'\n  simp [Function.comp_def]\n@[simp] theorem toArray_range (n : Nat) : (range n).toArray = Array.range n := by\n  apply ext'\n  simp\n@[simp] theorem toArray_range' (start size step : Nat) :\n    (range' start size step).toArray = Array.range' start size step := by\n  apply ext'\n  simp\n@[simp] theorem toArray_ofFn (f : Fin n \u2192 \u03b1) : (ofFn f).toArray = Array.ofFn f := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_zipWith",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def firstFrontendMacroScope := hAdd reservedMacroScope 1\nclass MonadRef (m : Type \u2192 Type) where\n  withRef {\u03b1} : Syntax \u2192 m \u03b1 \u2192 m \u03b1\nexport MonadRef (getRef)\ninstance (m n : Type \u2192 Type) [MonadLift m n] [MonadFunctor m n] [MonadRef m] : MonadRef n where\n  getRef        := liftM (getRef : m _)\n  withRef ref x := monadMap (m := m) (MonadRef.withRef ref) x\ndef replaceRef (ref : Syntax) (oldRef : Syntax) : Syntax :=\n  match ref.getPos? with\n  | some _ => ref\n  | _      => oldRef\n@[always_inline, inline]\ndef withRef [Monad m] [MonadRef m] {\u03b1} (ref : Syntax) (x : m \u03b1) : m \u03b1 :=\n  bind getRef fun oldRef =>\n  let ref := replaceRef ref oldRef\n  MonadRef.withRef ref x\n@[always_inline, inline]\ndef withRef? [Monad m] [MonadRef m] {\u03b1} (ref? : Option Syntax) (x : m \u03b1) : m \u03b1 :=\n  match ref? with\n  | some ref => withRef ref x\n  | _        => x\nclass MonadQuotation (m : Type \u2192 Type) extends MonadRef m where\n  getMainModule     : m Name\n  withFreshMacroScope {\u03b1 : Type} : m \u03b1 \u2192 m \u03b1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "firstFrontendMacroScope"
+  }
+}

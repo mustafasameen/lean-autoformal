@@ -1,0 +1,10 @@
+{
+  "content": "theorem all_eq_not_any_not (l : List \u03b1) (p : \u03b1 \u2192 Bool) :\n    l.all p = !l.any fun x => binderNameHint x p (!p x)\n  := List.all_eq_not_any_not l p\n#guard_msgs in\nexample (names : List String) : names.all (fun name => \"Waldo\".isPrefixOf name) = true := by\n  rw [all_eq_not_any_not]\n  fail\n#guard_msgs in\nexample (names : List String) : names.all (fun name => \"Waldo\".isPrefixOf name) = true := by\n  simp [all_eq_not_any_not, -List.any_eq_false]\n  fail\ndef List.myAll (p : \u03b1 \u2192 Bool) (xs : List \u03b1) : Bool := !(xs.any fun x => !p x)\ntheorem myAll_eq_not_any_not (l : List \u03b1) (p : \u03b1 \u2192 Bool) :\n    l.myAll p = !l.any fun x => binderNameHint x p (!p x)\n  := rfl\n#guard_msgs in\nexample (names : List String) : names.myAll (fun name => \"Waldo\".isPrefixOf name) = true := by\n  dsimp [myAll_eq_not_any_not]\n  fail\n@[simp]\ntheorem List.mapIdx_eq_map (l : List \u03b1) (f : \u03b1 \u2192 \u03b2) : (l.mapIdx fun _ x => f x) = l.map f := by\n  induction l <;> simp_all\nset_option linter.unusedVariables false in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binderNameHint.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binderNameHint.lean",
+    "definition_name": "all_eq_not_any_not",
+    "has_proof": true
+  }
+}

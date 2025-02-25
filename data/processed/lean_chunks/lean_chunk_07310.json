@@ -1,0 +1,10 @@
+{
+  "content": "theorem eval_bin : eval assign (.bin lhs op rhs) = op.eval (lhs.eval assign) (rhs.eval assign) := by\n  rfl\n@[simp]\ntheorem eval_getLsbD : eval assign (.getLsbD expr idx) = (expr.eval assign).getLsbD idx := by\n  rfl\nend BVPred\nabbrev BVLogicalExpr := BoolExpr BVPred\nnamespace BVLogicalExpr\ndef eval (assign : BVExpr.Assignment) (expr : BVLogicalExpr) : Bool :=\n  BoolExpr.eval (\u00b7.eval assign) expr\n@[simp] theorem eval_literal : eval assign (.literal pred) = pred.eval assign := rfl\n@[simp] theorem eval_const : eval assign (.const b) = b := rfl\n@[simp] theorem eval_not : eval assign (.not x) = !eval assign x := rfl\n@[simp] theorem eval_gate : eval assign (.gate g x y) = g.eval (eval assign x) (eval assign y) := rfl\n@[simp] theorem eval_ite :\n  eval assign (.ite d l r) = bif (eval assign d) then (eval assign l) else (eval assign r) := rfl\ndef Sat (x : BVLogicalExpr) (assign : BVExpr.Assignment) : Prop := eval assign x = true\ndef Unsat (x : BVLogicalExpr) : Prop := \u2200 f, eval f x = false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_name": "eval_bin",
+    "has_proof": true
+  }
+}

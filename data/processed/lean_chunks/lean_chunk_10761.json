@@ -1,0 +1,9 @@
+{
+  "content": "lean <file>           elaborate a Lean file in Lake's context\n  update                update dependencies and save them to the manifest\n  pack                  pack build artifacts into an archive for distribution\n  unpack                unpack build artifacts from an distributed archive\n  upload <tag>          upload build artifacts to a GitHub release\n  script                manage and run workspace scripts\n  scripts               shorthand for `lake script list`\n  run <script>          shorthand for `lake script run`\n  translate-config      change language of the package configuration\n  serve                 start the Lean language server\nBASIC OPTIONS:\n  -K key[=value]        set the configuration file option named key\nOUTPUT OPTIONS:\n                        (levels: trace, info, warning, error)\n(same as\n(same as\nSee `lake help <command>` for more information on a specific command.\"\ndef newInitHelp :=\ns!\"If you are using Lake through Elan (which is standard), you can create a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "usage"
+  }
+}

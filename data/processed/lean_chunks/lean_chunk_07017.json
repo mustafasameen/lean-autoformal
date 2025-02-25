@@ -1,0 +1,9 @@
+{
+  "content": "private def matchDecl? (ns : Name) (id : Name) (danglingDot : Bool) (declName : Name) : MetaM (Option Name) := do\n    let some declName \u2190 normPrivateName? declName\n      | return none\n    if !ns.isPrefixOf declName then\n      return none\n    let declName := declName.replacePrefix ns Name.anonymous\n    if danglingDot then\n      if id.isPrefixOf declName then\n        let declName := declName.replacePrefix id Name.anonymous\n        if declName.isAtomic && !declName.isAnonymous then\n          return some declName\n    else if let (.str p\u2081 s\u2081, .str p\u2082 s\u2082) := (id, declName) then\n      if p\u2081 == p\u2082 then\n        if containsSuccessiveCharacters s\u2081 s\u2082 then\n          return some <| .mkSimple s\u2082\n        else\n          return none\n      else if p\u2081.isAnonymous then\n        if containsSuccessiveCharacters s\u2081 s\u2082 then\n          return some declName\n        else\n          return none\n    return none\n  private def forEligibleDeclsWithCancellationM [Monad m] [MonadEnv m]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

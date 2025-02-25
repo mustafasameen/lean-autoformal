@@ -1,0 +1,10 @@
+{
+  "content": "(hlr : BalanceLErasePrecond l.size rs \u2228 BalanceLErasePrecond rs l.size)\n    (hh : rs > delta * l.size) (hx : \u00acrls < ratio * rr.size) :\n    (doubleL k v l rk rv rlk rlv rll rlr rr).Balanced := by\n  tree_tac\ntheorem balanced_doubleR (k v ls lk lv ll lrs lrk lrv lrl lrr) (r : Impl \u03b1 \u03b2)\n    (hl : (Impl.inner ls lk lv ll (Impl.inner lrs lrk lrv lrl lrr)).Balanced) (hr : r.Balanced)\n    (hlr : BalanceLErasePrecond ls r.size \u2228 BalanceLErasePrecond r.size ls)\n    (hh : ls > delta * r.size) (hx : \u00aclrs < ratio * ll.size) :\n    (doubleR k v lk lv ll lrk lrv lrl lrr r).Balanced := by\n  tree_tac\ntheorem balanced_rotateL (k v l rs rk rv rl rr) (hl : l.Balanced)\n    (hr : (Impl.inner rs rk rv rl rr).Balanced)\n    (hlr : BalanceLErasePrecond l.size rs \u2228 BalanceLErasePrecond rs l.size)\n    (hh : rs > delta * l.size) :\n    (rotateL k v l rk rv rl rr : Impl \u03b1 \u03b2).Balanced := by\n  cases k, v, l, rk, rv, rl, rr using rotateL.fun_cases <;> simp only [rotateL]\n  \u00b7 split\n    \u00b7 next h =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_name": "balanced_singleL",
+    "has_proof": true
+  }
+}

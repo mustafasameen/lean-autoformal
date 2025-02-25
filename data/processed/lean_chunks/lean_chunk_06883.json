@@ -1,0 +1,9 @@
+{
+  "content": "def grindOnlyPos := 2\ndef isGrindOnly (stx : TSyntax `tactic) : Bool :=\n  stx.raw.getKind == ``Parser.Tactic.grind && !stx.raw[grindOnlyPos].isNone\ndef setGrindParams (stx : TSyntax `tactic) (params : Array Syntax) : TSyntax `tactic :=\n  if params.isEmpty then\n    \u27e8stx.raw.setArg grindParamsPos (mkNullNode)\u27e9\n  else\n    let paramsStx := #[mkAtom \"[\", (mkAtom \",\").mkSep params, mkAtom \"]\"]\n    \u27e8stx.raw.setArg grindParamsPos (mkNullNode paramsStx)\u27e9\ndef getGrindParams (stx : TSyntax `tactic) : Array Syntax :=\n  stx.raw[grindParamsPos][1].getSepArgs\ndef mkGrindOnly\n    (config : TSyntax ``Lean.Parser.Tactic.optConfig)\n    (fallback? : Option Term)\n    (trace : Grind.Trace)\n    : MetaM (TSyntax `tactic) := do\n  let mut params := #[]\n  let mut foundFns : NameSet := {}\n  for { origin, kind } in trace.thms.toList do\n    if let .decl declName := origin then\n      unless Match.isMatchEqnTheorem (\u2190 getEnv) declName do\n        if let some declName \u2190 isEqnThm? declName then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_name": "grindOnlyPos"
+  }
+}

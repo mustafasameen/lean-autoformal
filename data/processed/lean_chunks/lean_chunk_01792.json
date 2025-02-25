@@ -1,0 +1,9 @@
+{
+  "content": "class Bind2 (m : Type u \u2192 Type v) where\n  bind : \u2200 {\u03b1 \u03b2 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct3.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct3.lean",
+    "definition_name": "Bind2"
+  }
+}

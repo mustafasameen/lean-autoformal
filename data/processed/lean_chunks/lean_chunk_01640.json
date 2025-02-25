@@ -1,0 +1,10 @@
+{
+  "content": "\u03c3.find? x |>.getD (.int 0)\n@[simp] def State.erase (\u03c3 : State) (x : Var) : State :=\n  match \u03c3 with\n  | [] => []\n  | (y, v) :: \u03c3 => if x = y then erase \u03c3 x else (y, v) :: erase \u03c3 x\nsection\nattribute [local grind] State.update State.find? State.get State.erase\n@[simp, grind =] theorem State.find?_nil (x : Var) : find? [] x = none := by\n  grind\n@[simp] theorem State.find?_update_self (\u03c3 : State) (x : Var) (v : Val) : (\u03c3.update x v).find? x = some v := by\n  induction \u03c3, x, v using State.update.induct <;> grind\n@[simp] theorem State.find?_update (\u03c3 : State) (v : Val) (h : x \u2260 z) : (\u03c3.update x v).find? z = \u03c3.find? z := by\n  induction \u03c3, x, v using State.update.induct <;> grind\n@[grind =] theorem State.find?_update_eq (\u03c3 : State) (v : Val)\n    : (\u03c3.update x v).find? z = if x = z then some v else \u03c3.find? z := by\n  grind only [= find?_update_self, = find?_update, cases Or]\n@[grind] theorem State.get_of_find? {\u03c3 : State}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_constProp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_constProp.lean",
+    "definition_name": "Val",
+    "has_proof": true
+  }
+}

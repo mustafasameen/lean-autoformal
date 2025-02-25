@@ -1,0 +1,9 @@
+{
+  "content": "def npowRec [One M] [Mul M] : Nat \u2192 M \u2192 M\n  | 0, _ => 1\n  | n + 1, a => a * npowRec n a\ndef nsmulRec [Zero M] [Add M] : Nat \u2192 M \u2192 M\n  | 0, _ => 0\n  | n + 1, a => a + nsmulRec n a\nclass AddMonoid (M : Type u) extends AddSemigroup M, AddZeroClass M where\n  nsmul : Nat \u2192 M \u2192 M := nsmulRec\n  nsmul_zero : \u2200 x, nsmul 0 x = 0 := by intros; rfl\n  nsmul_succ : \u2200 (n : Nat) (x), nsmul (n + 1) x = x + nsmul n x := by intros; rfl\nattribute [instance 150] AddSemigroup.toAdd\nattribute [instance 50] AddZeroClass.toAdd\nclass Monoid (M : Type u) extends Semigroup M, MulOneClass M where\n  npow : Nat \u2192 M \u2192 M := npowRec\n  npow_zero : \u2200 x, npow 0 x = 1 := by intros; rfl\n  npow_succ : \u2200 (n : Nat) (x), npow (n + 1) x = x * npow n x := by intros; rfl\n@[default_instance high] instance Monoid.Pow {M : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "instHSMul"
+  }
+}

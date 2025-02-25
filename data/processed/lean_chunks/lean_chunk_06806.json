@@ -1,0 +1,9 @@
+{
+  "content": "structure MatcherResult where\nmatcher         : Expr\n  counterExamples : List CounterExample\n  unusedAltIdxs   : List Nat\n  addMatcher      : MetaM Unit\npartial def toPattern (e : Expr) : MetaM Pattern := do\n  match inaccessible? e with\n  | some t => return Pattern.inaccessible t\n  | none =>\n    match e.arrayLit? with\n    | some (\u03b1, lits) =>\n      return Pattern.arrayLit \u03b1 (\u2190 lits.mapM toPattern)\n    | none =>\n      if let some e := isNamedPattern? e then\n        let p \u2190 toPattern <| e.getArg! 2\n        match e.getArg! 1, e.getArg! 3 with\n        | Expr.fvar x, Expr.fvar h => return Pattern.as x p h\n        | _,           _   => throwError \"unexpected occurrence of auxiliary declaration 'namedPattern'\"\n      else if (\u2190 isMatchValue e) then\n        return Pattern.val e\n      else if e.isFVar then\n        return Pattern.var e.fvarId!\n      else\n        let newE \u2190 whnf e\n        if newE != e then\n          toPattern newE",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_name": "MatcherResult"
+  }
+}

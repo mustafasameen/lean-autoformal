@@ -1,0 +1,10 @@
+{
+  "content": "modify fun s => { s with bvarsFound := s.bvarsFound.insert idx }\nprivate def getPatternFn? (pattern : Expr) : Option Expr :=\n  if !pattern.isApp then\n    none\n  else match pattern.getAppFn with\n    | f@(.const declName _) => if isForbidden declName then none else some f\n    | f@(.fvar _) => some f\n    | _ => none\ndef getPatternSupportMask (f : Expr) (numArgs : Nat) : MetaM (Array Bool) := do\n  let pinfos := (\u2190 getFunInfoNArgs f numArgs).paramInfo\n  forallBoundedTelescope (\u2190 inferType f) numArgs fun xs _ => do\n    xs.mapIdxM fun idx x => do\n      if (\u2190 isProp x) then\n        return false\n      else if (\u2190 isProof x) then\n        return true\n      else if (\u2190 isTypeFormer x) then\n        if h : idx < pinfos.size then\n          return pinfos[idx].hasFwdDeps\n        else\n          return true\n      else\n        return (\u2190 x.fvarId!.getDecl).binderInfo matches .instImplicit\nprivate partial def go (pattern : Expr) : M Expr := do\n  if let some (e, k) := isOffsetPattern? pattern then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "protected def fromString! (s : String) : Pos :=\n  match Pos.fromString? s with\n  | .ok a => a\n  | .error e => panic! e\ninstance : Ord Pos := show Ord Nat by infer_instance\ninstance : DecidableEq Pos := show DecidableEq Nat by infer_instance\ninstance : ToString Pos := \u27e8Pos.toString\u27e9\ninstance : EmptyCollection Pos := \u27e8root\u27e9\ninstance : Repr Pos where\n  reprPrec p _ := f!\"Pos.fromString! {repr p.toString}\"\ninstance : ToJson Pos := \u27e8toJson \u2218 Pos.toString\u27e9\ninstance : FromJson Pos := \u27e8fun j => fromJson? j >>= Pos.fromString?\u27e9\nend SubExpr.Pos\nstructure SubExpr where\n  pos  : SubExpr.Pos\n  deriving Inhabited\nnamespace SubExpr\ndef mkRoot (e : Expr) : SubExpr := \u27e8e, Pos.root\u27e9\nabbrev PosMap (\u03b1 : Type u) := RBMap Pos \u03b1 compare\ndef bindingBody! : SubExpr \u2192 SubExpr\n  | \u27e8.forallE _ _ b _, p\u27e9 => \u27e8b, p.pushBindingBody\u27e9\n  | \u27e8.lam _ _ b _, p\u27e9 => \u27e8b, p.pushBindingBody\u27e9\n  | _ => panic! \"subexpr is not a binder\"\ndef bindingDomain! : SubExpr \u2192 SubExpr\n  | \u27e8.forallE _ t _ _, p\u27e9 => \u27e8t, p.pushBindingDomain\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_name": "SubExpr"
+  }
+}

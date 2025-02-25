@@ -1,0 +1,10 @@
+{
+  "content": "let extDescrs \u2190 persistentEnvExtensionsRef.get\n  let extNameIdx \u2190 mkExtNameMap startingAt\n  for h : modIdx in [:mods.size] do\n    let mod := mods[modIdx]\n    for (extName, entries) in mod.entries do\n      if let some entryIdx := extNameIdx[extName]? then\n        states := unsafe extDescrs[entryIdx]!.toEnvExtension.modifyStateImpl states fun s =>\n          { s with importedEntries := s.importedEntries.set! modIdx entries }\n  return env.setCheckedSync { env.checkedWithoutAsync with extensions := states }\n@[extern 2 \"lean_update_env_attributes\"] opaque updateEnvAttributes : Environment \u2192 IO Environment\nprivate def equivInfo (cinfo\u2081 cinfo\u2082 : ConstantInfo) : Bool := Id.run do\n  let .thmInfo tval\u2081 := cinfo\u2081 | false\n  let .thmInfo tval\u2082 := cinfo\u2082 | false\n  return tval\u2081.name == tval\u2082.name\n    && tval\u2081.type == tval\u2082.type\n    && tval\u2081.levelParams == tval\u2082.levelParams\n    && tval\u2081.all == tval\u2082.all",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

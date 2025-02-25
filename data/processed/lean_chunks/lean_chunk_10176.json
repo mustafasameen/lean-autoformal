@@ -1,0 +1,10 @@
+{
+  "content": "theorem Const.wfImp_insertManyIfNewUnit [BEq \u03b1] [Hashable \u03b1] [EquivBEq \u03b1] [LawfulHashable \u03b1]\n    {\u03c1 : Type w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_name": "Const",
+    "has_proof": false
+  }
+}

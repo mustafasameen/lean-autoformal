@@ -1,0 +1,9 @@
+{
+  "content": "if symm then `(rwRule| \u2190 $t:term) else `(rwRule| $t:term)\n  let tac \u2190 do\n    let loc \u2190 loc?.mapM fun loc => do `(location| at $(\u2190 delab loc):term)\n    `(tactic| rw [$rules_stx,*] $(loc)?)\n  let toMessageData (e : Expr) : MessageData := if e.isConst then .ofConst e else .ofExpr e\n  let mut tacMsg :=\n    let rulesMsg := MessageData.sbracket <| MessageData.joinSep\n      (rules.map fun \u27e8e, symm\u27e9 => (if symm then \"\u2190 \" else \"\") ++ toMessageData e) \", \"\n    if let some loc := loc? then\n      m!\"rw {rulesMsg} at {loc}\"\n    else\n      m!\"rw {rulesMsg}\"\n  let mut extraMsg := \"\"\n  if let some type := type? then\ntacMsg := tacMsg ++ m!\"\\n\nextraMsg := extraMsg ++ s!\"\\n\n  addSuggestion ref (s := { suggestion := tac, postInfo? := extraMsg, messageData? := tacMsg })\n    origSpan?",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "SuggestionStyle"
+  }
+}

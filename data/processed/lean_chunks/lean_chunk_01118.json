@@ -1,0 +1,9 @@
+{
+  "content": "{ AddMonoidAlgebra.ring, AddMonoidAlgebra.nonUnitalCommRing with }\nend AddMonoidAlgebra\nnamespace AddMonoidAlgebra\nvariable {k G}\nsection Algebra\ndef singleZeroRingHom [Semiring k] [AddMonoid G] : k \u2192+* AddMonoidAlgebra k G where\n  toFun a := single 0 a\ninstance algebra [CommSemiring R] [Semiring k] [Algebra R k] [AddMonoid G] :\n    Algebra R (AddMonoidAlgebra k G) :=\n  { singleZeroRingHom.comp (algebraMap R k) with }\nend Algebra\nend AddMonoidAlgebra\nend Mathlib.Algebra.MonoidAlgebra.Basic\nsection Mathlib.RingTheory.Ideal.Basic\n@[reducible]\ndef Ideal (R : Type u) [Semiring R] := Submodule R R\nend Mathlib.RingTheory.Ideal.Basic\nsection Mathlib.GroupTheory.Congruence\nopen Function Setoid\nstructure AddCon (M : Type _) [Add M] extends Setoid M where\nstructure Con (M : Type _) [Mul M] extends Setoid M where\nprotected def Con.Quotient [Mul M] (c : Con M) :=\n  Quotient c.toSetoid\nprotected def AddCon.Quotient [Add M] (c : AddCon M) :=\n  Quotient c.toSetoid",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddMonoidAlgebra"
+  }
+}

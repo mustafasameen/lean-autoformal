@@ -1,0 +1,9 @@
+{
+  "content": "structure DivModState (w : Nat) : Type where\n  wr : Nat\n  r : BitVec w\nstructure DivModArgs (w : Nat) where\n  d : BitVec w\nstructure DivModState.Lawful {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "DivModState"
+  }
+}

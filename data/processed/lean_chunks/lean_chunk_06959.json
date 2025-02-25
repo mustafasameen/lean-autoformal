@@ -1,0 +1,9 @@
+{
+  "content": "structure DerivingClassView where\n  ref : Syntax\n  className : Name\ndef getOptDerivingClasses (optDeriving : Syntax) : CoreM (Array DerivingClassView) := do\n  match optDeriving with\n  | `(Parser.Command.optDeriving| deriving $[$classes],*) =>\n    let mut ret := #[]\n    for cls in classes do\n      let className \u2190 realizeGlobalConstNoOverloadWithInfo cls\n      ret := ret.push { ref := cls, className := className }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Basic.lean",
+    "definition_name": "DerivingClassView"
+  }
+}

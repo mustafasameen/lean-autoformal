@@ -1,0 +1,10 @@
+{
+  "content": "instance : Std.IdempotentOp gcd := \u27e8gcd_self\u27e9\ntheorem gcd_rec (m n : Nat) : gcd m n = gcd (n % m) m :=\n  match m with\n  | 0 => by have := (mod_zero n).symm; rwa [gcd, gcd_zero_right]\n  | _ + 1 => by simp [gcd_succ]\n@[elab_as_elim] theorem gcd.induction {P : Nat \u2192 Nat \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "gcd_zero_left",
+    "has_proof": true
+  }
+}

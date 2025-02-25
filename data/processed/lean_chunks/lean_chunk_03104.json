@@ -1,0 +1,9 @@
+{
+  "content": "@[extern \"lean_io_prim_handle_try_lock\"] opaque tryLock (h : @& Handle) (exclusive := true) : IO Bool\n@[extern \"lean_io_prim_handle_unlock\"] opaque unlock (h : @& Handle) : IO Unit\n@[extern \"lean_io_prim_handle_rewind\"] opaque rewind (h : @& Handle) : IO Unit\n@[extern \"lean_io_prim_handle_truncate\"] opaque truncate (h : @& Handle) : IO Unit\n@[extern \"lean_io_prim_handle_read\"] opaque read (h : @& Handle) (bytes : USize) : IO ByteArray\n@[extern \"lean_io_prim_handle_write\"] opaque write (h : @& Handle) (buffer : @& ByteArray) : IO Unit\n@[extern \"lean_io_prim_handle_get_line\"] opaque getLine (h : @& Handle) : IO String\n@[extern \"lean_io_prim_handle_put_str\"] opaque putStr (h : @& Handle) (s : @& String) : IO Unit\nend Handle\n@[extern \"lean_io_realpath\"] opaque realPath (fname : FilePath) : IO FilePath\n@[extern \"lean_io_remove_file\"] opaque removeFile (fname : @& FilePath) : IO Unit\n@[extern \"lean_io_rename\"] opaque rename (old new : @& FilePath) : IO Unit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "TaskState"
+  }
+}

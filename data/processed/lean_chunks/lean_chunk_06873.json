@@ -1,0 +1,9 @@
+{
+  "content": "structure ENode where\n  next : Expr\n  congr : Expr\n  target? : Option Expr := none\n  proof? : Option Expr := none\n  size : Nat := 1\n  ctor : Bool := false\n  heqProofs : Bool := false\n  generation : Nat := 0\n  offset? : Option Expr := none\n  cutsat? : Option Expr := none\n  deriving Inhabited, Repr\ndef ENode.isCongrRoot (n : ENode) :=\n  isSameExpr n.self n.congr\nstructure CongrKey (enodes : ENodeMap) where\n  e : Expr\nprivate def hashRoot (enodes : ENodeMap) (e : Expr) : UInt64 :=\n  if let some node := enodes.find? { expr := e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Types.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Types.lean",
+    "definition_name": "ENode"
+  }
+}

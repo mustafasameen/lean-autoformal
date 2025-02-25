@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 apply ih\n            simp [denote_eq] at h |-\n            have haux : k\u2082 * Var.denote ctx v\u2081 \u2264 k\u2081 * Var.denote ctx v\u2081 := Nat.mul_le_mul_right _ (Nat.le_of_lt (Nat.blt_eq.mp hgtk))\n            rw [Nat.mul_sub_right_distrib, \u2190 Nat.add_assoc, \u2190 Nat.add_sub_assoc haux]\n            apply Nat.sub_eq_of_eq_add\n            simp [h]\n          \u00b7 have heqk : k\u2081 = k\u2082 := eq_of_not_blt_eq_true hltk hgtk; subst heqk\n            apply ih\n            simp [denote_eq] at h |-\n            rw [\u2190 Nat.add_assoc, \u2190 Nat.add_assoc] at h\n            exact Nat.add_right_cancel h\ntheorem Poly.of_denote_eq_cancelAux (ctx : Context) (fuel : Nat) (m\u2081 m\u2082 r\u2081 r\u2082 : Poly)\n    (h : denote_eq ctx (cancelAux fuel m\u2081 m\u2082 r\u2081 r\u2082)) : denote_eq ctx (r\u2081.reverse ++ m\u2081, r\u2082.reverse ++ m\u2082) := by\n  induction fuel generalizing m\u2081 m\u2082 r\u2081 r\u2082 with\n  | zero => assumption\n  | succ fuel ih =>\n    simp at h\n    split at h <;> (try simp; assumption)\n    rename_i k\u2081 v\u2081 m\u2081 k\u2082 v\u2082 m\u2082",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

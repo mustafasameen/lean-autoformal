@@ -1,0 +1,10 @@
+{
+  "content": "forM_toArray' l f rfl\n@[simp] theorem foldl_toArray' (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (init : \u03b2) (l : List \u03b1)\n    (h : stop = l.toArray.size) :\n    l.toArray.foldl f init 0 stop = l.foldl f init := by\n  subst h\n  rw [foldl_toList]\n@[simp] theorem sum_toArray [Add \u03b1] [Zero \u03b1] (l : List \u03b1) : l.toArray.sum = l.sum := by\n  simp [Array.sum, List.sum]\n@[simp] theorem append_toArray (l\u2081 l\u2082 : List \u03b1) :\n    l\u2081.toArray ++ l\u2082.toArray = (l\u2081 ++ l\u2082).toArray := by\n  apply ext'\n  simp\n@[simp] theorem push_append_toArray {as : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "toArray_cons",
+    "has_proof": true
+  }
+}

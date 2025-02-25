@@ -1,0 +1,10 @@
+{
+  "content": "theorem head_filter_of_pos {p : \u03b1 \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "head_filter_of_pos",
+    "has_proof": false
+  }
+}

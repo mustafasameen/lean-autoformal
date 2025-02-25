@@ -1,0 +1,9 @@
+{
+  "content": "let some module \u2190 s.srcSearchPath.searchModuleNameOfUri fw.doc.uri\n      | return\n    s.references.modify fun refs =>\n      refs.finalizeWorkerRefs module params.version params.references\n  def handleImportClosure (fw : FileWorker) (params : LeanImportClosureParams) : ServerM Unit := do\n    let s \u2190 read\n    s.importData.modify fun importData =>\n      importData.update fw.doc.uri (.ofList params.importClosure.toList)\n  private partial def forwardMessages (fw : FileWorker) : ServerM (ServerTask WorkerEvent) := do\n    let task \u2190 ServerTask.IO.asTask (loop $ \u2190read)\n    return task.mapCheap fun\n      | Except.ok ev   => ev\n      | Except.error e => WorkerEvent.ioError e\n  where\n    loop : ServerM WorkerEvent := do\n      let o := (\u2190read).hOut\n      let msg \u2190\n        try\n          fw.stdout.readLspMessage\n        catch err =>\n          let exitCode \u2190 fw.waitForProc\n          try fw.proc.kill catch _ => pure ()\n          match exitCode with\n          | 0 =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_name": "ServerContext"
+  }
+}

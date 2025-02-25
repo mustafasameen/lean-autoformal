@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] protected theorem one_lt_two_pow_iff : 1 < 2 ^ n \u2194 n \u2260 0 :=\n  \u27e8(by intro h p; subst p; simp at h), Nat.one_lt_two_pow\u27e9\nprotected theorem one_le_two_pow : 1 \u2264 2 ^ n :=\n  if h : n = 0 then\n    by subst h; simp\n  else\n    Nat.le_of_lt (Nat.one_lt_two_pow h)\n@[simp] theorem one_mod_two_pow_eq_one : 1 % 2 ^ n = 1 \u2194 0 < n := by\n  cases n with\n  | zero => simp\n  | succ n =>\n    rw [mod_eq_of_lt (a := 1) (Nat.one_lt_two_pow (by omega))]\n    simp\n@[simp] theorem one_mod_two_pow (h : 0 < n) : 1 % 2 ^ n = 1 :=\n  one_mod_two_pow_eq_one.mpr h\nprotected theorem pow_lt_pow_succ (h : 1 < a) : a ^ n < a ^ (n + 1) := by\n  rw [\u2190 Nat.mul_one (a^n), Nat.pow_succ]\n  exact Nat.mul_lt_mul_of_le_of_lt (Nat.le_refl _) h (Nat.pow_pos (Nat.lt_trans Nat.zero_lt_one h))\nprotected theorem pow_lt_pow_of_lt {a n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "one_pow",
+    "has_proof": true
+  }
+}

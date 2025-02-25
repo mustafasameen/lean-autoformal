@@ -1,0 +1,9 @@
+{
+  "content": "let isBinder := if allowSimultaneousBinderUse then some ref.isBinder else none\n    let key := (ref.ident, isBinder, ref.range)\n    refsByIdAndRange := match refsByIdAndRange[key]? with\n      | some ref' => refsByIdAndRange.insert key { ref' with aliases := ref'.aliases ++ ref.aliases }\n      | none => refsByIdAndRange.insert key ref\n  let dedupedRefs := refsByIdAndRange.fold (init := #[]) fun refs _ ref => refs.push ref\n  return dedupedRefs.qsort (\u00b7.range < \u00b7.range)\ndef findModuleRefs (text : FileMap) (trees : Array InfoTree) (localVars : Bool := true)\n    (allowSimultaneousBinderUse := false) : ModuleRefs := Id.run do\n  let mut refs :=\n    dedupReferences (allowSimultaneousBinderUse := allowSimultaneousBinderUse) <|\n    combineIdents trees <|\n    findReferences text trees\n  if !localVars then\n    refs := refs.filter fun\n      | { ident := RefIdent.fvar .., .. } => false\n      | _ => true\n  refs.foldl (init := Std.HashMap.empty) fun m ref => m.addRef ref\nstructure References where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem List.map_congr_left'' {f g : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binderNameHint_congr.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binderNameHint_congr.lean",
+    "definition_name": "List",
+    "has_proof": false
+  }
+}

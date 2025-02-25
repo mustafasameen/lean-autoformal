@@ -1,0 +1,10 @@
+{
+  "content": "theorem subtype_inj (A: Type) (p: A \u2192 Prop) (a b: A) (pa: p a) (pb: p b) : (\u27e8a, pa\u27e9: {a//p a}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subtype_inj.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subtype_inj.lean",
+    "definition_name": "subtype_inj",
+    "has_proof": false
+  }
+}

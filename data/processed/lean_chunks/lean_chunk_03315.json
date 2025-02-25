@@ -1,0 +1,9 @@
+{
+  "content": "class ToStream (collection : Type u) (stream : outParam (Type u)) : Type u where\n  toStream : collection \u2192 stream\nexport ToStream (toStream)\nclass Stream (stream : Type u) (value : outParam (Type v)) : Type (max u v) where\n  next? : stream \u2192 Option (value \u00d7 stream)\nprotected partial def Stream.forIn [Stream \u03c1 \u03b1] [Monad m] (s : \u03c1) (b : \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) : m \u03b2 := do\n  let _ : Inhabited (m \u03b2) := \u27e8pure b\u27e9\n  let rec visit (s : \u03c1) (b : \u03b2) : m \u03b2 := do\n    match Stream.next? s with\n    | some (a, s) => match (\u2190 f a b) with\n      | ForInStep.done b  => return b\n      | ForInStep.yield b => visit s b\n    | none => return b\n  visit s b\ninstance (priority := low) [Stream \u03c1 \u03b1] : ForIn m \u03c1 \u03b1 where\n  forIn := Stream.forIn\ninstance : ToStream (List \u03b1) (List \u03b1) where\n  toStream c := c\ninstance : ToStream (Array \u03b1) (Subarray \u03b1) where\n  toStream a := a[:a.size]\ninstance : ToStream (Subarray \u03b1) (Subarray \u03b1) where\n  toStream a := a\ninstance : ToStream String Substring where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Stream.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Stream.lean",
+    "definition_name": "ToStream"
+  }
+}

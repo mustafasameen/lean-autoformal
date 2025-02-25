@@ -1,0 +1,9 @@
+{
+  "content": "``(Bind.bind $action (fun (_ : PUnit) => $k))\ndef declToTerm (decl : Syntax) (k : Syntax) : M Syntax := withRef decl <| withFreshMacroScope do\n  let kind := decl.getKind\n  if kind == ``Parser.Term.doLet then\n    let letDecl := decl[2]\n    `(let $letDecl:letDecl; $k)\n  else if kind == ``Parser.Term.doLetRec then\n    let letRecToken := decl[0]\n    let letRecDecls := decl[1]\n    return mkNode ``Parser.Term.letrec #[letRecToken, letRecDecls, mkNullNode, k]\n  else if kind == ``Parser.Term.doLetArrow then\n    let arg := decl[2]\n    if arg.getKind == ``Parser.Term.doIdDecl then\n      let id     := arg[0]\n      let type   := expandOptType id arg[1]\n      let doElem := arg[3]\n      match isDoExpr? doElem with\n      | some action =>\n        let action \u2190 withRef action `(($action : $((\u2190 read).m) $type))\n        ``(Bind.bind $action (fun ($id:ident : $type) => $k))\n      | none        => Macro.throwErrorAt decl \"unexpected kind of `do` declaration\"\n    else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Kind"
+  }
+}

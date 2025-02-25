@@ -1,0 +1,10 @@
+{
+  "content": "let pat \u2190 preprocessPattern (mkEqBwdPattern f.constLevels! \u03b1 lhs rhs)\n    return (xs.size, [pat.abstract xs])\n  mkEMatchTheoremCore origin levelParams numParams proof patterns .eqBwd\ndef mkEMatchEqTheorem (declName : Name) (normalizePattern := true) (useLhs : Bool := true) : MetaM EMatchTheorem := do\n  mkEMatchEqTheoremCore (.decl declName) #[] (\u2190 getProofFor declName) normalizePattern useLhs\ndef addEMatchTheorem (declName : Name) (numParams : Nat) (patterns : List Expr) (kind : EMatchTheoremKind) : MetaM Unit := do\n  ematchTheoremsExt.add (\u2190 mkEMatchTheorem declName numParams patterns kind)\ndef addEMatchEqTheorem (declName : Name) : MetaM Unit := do\n  ematchTheoremsExt.add (\u2190 mkEMatchEqTheorem declName)\nprivate def getPropTypes (xs : Array Expr) : MetaM (Array Expr) :=\n  xs.filterMapM fun x => do\n    let type \u2190 inferType x\n    if (\u2190 isProp type) then return some type else return none\n  patterns  : Array Expr := #[]\n  done      : Bool := false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

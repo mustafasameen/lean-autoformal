@@ -1,0 +1,9 @@
+{
+  "content": "inductive Kind where\n  | regular\n  | forIn\n  | forInWithReturn\n  | nestedBC\n  | nestedPR\n  | nestedSBC\n  | nestedPRBC\ninstance : Inhabited Kind := \u27e8Kind.regular\u27e9\ndef Kind.isRegular : Kind \u2192 Bool\n  | .regular => true\n  | _        => false\nstructure Context where\n  returnType : Syntax\n  uvars      : Array Var\n  kind       : Kind\nabbrev M := ReaderT Context MacroM\ndef mkUVarTuple : M Syntax := do\n  let ctx \u2190 read\n  mkTuple ctx.uvars\ndef returnToTerm (val : Syntax) : M Syntax := do\n  let ctx \u2190 read\n  let u \u2190 mkUVarTuple\n  match ctx.kind with\n  | .regular         => if ctx.uvars.isEmpty then ``(Pure.pure $val) else ``(Pure.pure (MProd.mk $val $u))\n  | .forIn           => ``(Pure.pure (ForInStep.done $u))\n  | .forInWithReturn => ``(Pure.pure (ForInStep.done (MProd.mk (some $val) $u)))\n  | .nestedBC        => unreachable!\n  | .nestedPR        => ``(Pure.pure (DoResultPR.\u00abreturn\u00bb $val $u))\n  | .nestedSBC       => ``(Pure.pure (DoResultSBC.\u00abpureReturn\u00bb $val $u))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Kind"
+  }
+}

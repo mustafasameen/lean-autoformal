@@ -1,0 +1,10 @@
+{
+  "content": "theorem bmod_length (x : Coeffs) (m : Nat) : (bmod x m).length \u2264 x.length :=\n  IntList.bmod_length x m\ntheorem dvd_bmod_dot_sub_dot_bmod (m : Nat) (xs ys : Coeffs) :\n    (m : Int) \u2223 bmod_dot_sub_dot_bmod m xs ys := IntList.dvd_bmod_dot_sub_dot_bmod m xs ys\ntheorem get_of_length_le {i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Coeffs.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Coeffs.lean",
+    "definition_name": "bmod_length",
+    "has_proof": false
+  }
+}

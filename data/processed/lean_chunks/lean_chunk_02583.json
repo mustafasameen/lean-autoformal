@@ -1,0 +1,10 @@
+{
+  "content": "macro_rules | `(tactic| trivial) => `(tactic| decide)\nmacro_rules | `(tactic| trivial) => `(tactic| apply True.intro)\nmacro_rules | `(tactic| trivial) => `(tactic| apply And.intro <;> trivial)\nsyntax (name := omega) \"omega\" optConfig : tactic\nmacro \"bv_omega\" : tactic => `(tactic| (try simp only [bitvec_to_nat] at *) <;> omega)\nsyntax (name := normCast0) \"norm_cast0\" optConfig (location)? : tactic\nmacro \"assumption_mod_cast\" cfg:optConfig : tactic => `(tactic| norm_cast0 $cfg at * <;> assumption)\nmacro \"norm_cast\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| norm_cast0 $cfg $[$loc]? <;> try trivial)\n  push_cast\n  push_cast at h1\n  push_cast [Int.add_zero] at h2\n  exact h1\n```\nSee also `norm_cast`.\n-/\nsyntax (name := pushCast) \"push_cast\" optConfig (discharger)? (&\" only\")?\n  (\" [\" (simpStar <|> simpErase <|> simpLemma),* \"]\")? (location)? : tactic\nsyntax (name := normCastAddElim) \"norm_cast_add_elim\" ident : command\nmacro \"ac_nf\" loc:(location)? : tactic =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "DecideConfig",
+    "imports": "Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\""
+  }
+}

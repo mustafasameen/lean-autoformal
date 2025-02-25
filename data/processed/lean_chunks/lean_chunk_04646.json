@@ -1,0 +1,10 @@
+{
+  "content": "theorem dvd_solve_combine (ctx : Context) (d\u2081 : Int) (p\u2081 : Poly) (d\u2082 : Int) (p\u2082 : Poly) (d : Int) (p : Poly) (g \u03b1 \u03b2 : Int)\n    : dvd_solve_combine_cert d\u2081 p\u2081 d\u2082 p\u2082 d p g \u03b1 \u03b2 \u2192 d\u2081 \u2223 p\u2081.denote' ctx \u2192 d\u2082 \u2223 p\u2082.denote' ctx \u2192 d \u2223 p.denote' ctx := by\n  simp [dvd_solve_combine_cert]\n  split <;> simp\n  next a\u2081 x\u2081 p\u2081 a\u2082 x\u2082 p\u2082 =>\n  intro _ hg hd hp; subst x\u2081 p\n  simp [Poly.denote'_add]\n  intro h\u2081 h\u2082\n  rw [Int.add_comm] at h\u2081 h\u2082\n  rw [Int.add_comm _ (g * x\u2082.denote ctx), Int.add_left_comm, \u2190 Int.add_assoc, hd]\n  exact dvd_solve_combine' hg.symm h\u2081 h\u2082\ndef dvd_solve_elim_cert (d\u2081 : Int) (p\u2081 : Poly) (d\u2082 : Int) (p\u2082 : Poly) (d : Int) (p : Poly) : Bool :=\n  match p\u2081, p\u2082 with\n  | .add a\u2081 x\u2081 p\u2081, .add a\u2082 x\u2082 p\u2082 =>\n    x\u2081 == x\u2082 &&\n    (d == Int.gcd (a\u2081*d\u2082) (a\u2082*d\u2081) &&\n     p == (p\u2081.mul a\u2082 |>.combine (p\u2082.mul (- a\u2081))))\n  | _, _ => false\ntheorem dvd_solve_elim (ctx : Context) (d\u2081 : Int) (p\u2081 : Poly) (d\u2082 : Int) (p\u2082 : Poly) (d : Int) (p : Poly)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "dvd_solve_combine",
+    "has_proof": true
+  }
+}

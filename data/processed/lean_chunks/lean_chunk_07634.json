@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote_congr (assign1 assign2 : \u03b1 \u2192 Bool) (aig : AIG \u03b1) (idx : Nat)\n    (hidx : idx < aig.decls.size) (h : \u2200 a, a \u2208 aig \u2192 assign1 a = assign2 a) :\n    \u27e6aig, \u27e8idx, hidx\u27e9, assign1\u27e7 = \u27e6aig, \u27e8idx, hidx\u27e9, assign2\u27e7 := by\n  apply denote_idx_trichotomy\n  \u00b7 intro b heq\n    simp [denote_idx_const heq]\n  \u00b7 intro a heq\n    simp only [denote_idx_atom heq]\n    apply h\n    rw [mem_def, \u2190 heq, Array.mem_def]\n    apply Array.getElem_mem_toList\n  \u00b7 intro lhs rhs linv rinv heq\n    simp only [denote_idx_gate heq]\n    have := aig.invariant hidx heq\n    rw [denote_congr assign1 assign2 aig lhs (by omega) h]\n    rw [denote_congr assign1 assign2 aig rhs (by omega) h]\ntheorem of_isConstant {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_name": "denote_congr",
+    "has_proof": true
+  }
+}

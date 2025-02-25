@@ -1,0 +1,10 @@
+{
+  "content": "theorem filterMap_eq_filter (p : \u03b1 \u2192 Bool) :\n    filterMap (Option.guard (p \u00b7)) = filter p := by\n  funext l\n  induction l with\n  | nil => rfl\n  | cons a l IH => by_cases pa : p a <;> simp [filterMap_cons, Option.guard, pa, \u2190 IH]\ntheorem filterMap_filterMap (f : \u03b1 \u2192 Option \u03b2) (g : \u03b2 \u2192 Option \u03b3) (l : List \u03b1) :\n    filterMap g (filterMap f l) = filterMap (fun x => (f x).bind g) l := by\n  induction l with\n  | nil => rfl\n  | cons a l IH => cases h : f a <;> simp [filterMap_cons, *]\ntheorem map_filterMap (f : \u03b1 \u2192 Option \u03b2) (g : \u03b2 \u2192 \u03b3) (l : List \u03b1) :\n    map g (filterMap f l) = filterMap (fun x => (f x).map g) l := by\n  simp only [\u2190 filterMap_eq_map, filterMap_filterMap, Option.map_eq_bind]\n@[simp]\ntheorem filterMap_map (f : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 Option \u03b3) (l : List \u03b1) :\n    filterMap g (map f l) = filterMap (g \u2218 f) l := by\n  rw [\u2190 filterMap_eq_map, filterMap_filterMap]; rfl\ntheorem filter_filterMap (f : \u03b1 \u2192 Option \u03b2) (p : \u03b2 \u2192 Bool) (l : List \u03b1) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "filterMap_eq_filter",
+    "has_proof": true
+  }
+}

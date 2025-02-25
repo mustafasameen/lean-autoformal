@@ -1,0 +1,9 @@
+{
+  "content": "def f x y := 0\ndef g (x y z) := 0 + x + z\ndef h {\u03b1 \u03b2} (a : \u03b1) := a\ndef r {{\u03b1 \u03b2}} (a : \u03b1) := a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/implicitTypePos.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/implicitTypePos.lean",
+    "definition_name": "f"
+  }
+}

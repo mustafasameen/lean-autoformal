@@ -1,0 +1,9 @@
+{
+  "content": "deriving FromJson, ToJson\ninductive SymbolKind where\n  | file\n  | module\n  | namespace\n  | package\n  | class\n  | method\n  | property\n  | field\n  | constructor\n  | enum\n  | interface\n  | function\n  | variable\n  | constant\n  | string\n  | number\n  | boolean\n  | array\n  | object\n  | key\n  | null\n  | enumMember\n  | struct\n  | event\n  | operator\n  | typeParameter\n  deriving BEq, Hashable, Inhabited\ninstance : FromJson SymbolKind where\n  fromJson?\n    | 1  => .ok .file\n    | 2  => .ok .module\n    | 3  => .ok .namespace\n    | 4  => .ok .package\n    | 5  => .ok .class\n    | 6  => .ok .method\n    | 7  => .ok .property\n    | 8  => .ok .field\n    | 9  => .ok .constructor\n    | 10 => .ok .enum\n    | 11 => .ok .interface\n    | 12 => .ok .function\n    | 13 => .ok .variable\n    | 14 => .ok .constant\n    | 15 => .ok .string\n    | 16 => .ok .number\n    | 17 => .ok .boolean\n    | 18 => .ok .array\n    | 19 => .ok .object\n    | 20 => .ok .key\n    | 21 => .ok .null\n    | 22 => .ok .enumMember",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "CompletionOptions"
+  }
+}

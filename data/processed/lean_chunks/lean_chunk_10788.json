@@ -1,0 +1,9 @@
+{
+  "content": "def Package.afterReleaseAsync := @afterBuildCacheAsync\ndef Package.afterBuildCacheSync (self : Package) (build : JobM \u03b1) : FetchM (Job \u03b1) := do\n  if self.name \u2260 (\u2190 getRootPackage).name then\n    (\u2190 self.maybeFetchBuildCache).mapM fun _  => do\nsetTrace nilTrace\n      build\n  else\n    Job.async build\n@[deprecated afterBuildCacheSync (since := \"2024-09-27\")]\ndef Package.afterReleaseSync := @afterBuildCacheSync\nopen Package in\ndef initPackageFacetConfigs : DNameMap PackageFacetConfig :=\n  DNameMap.empty\n  |>.insert depsFacet depsFacetConfig\n  |>.insert transDepsFacet transDepsFacetConfig\n  |>.insert extraDepFacet extraDepFacetConfig\n  |>.insert optBuildCacheFacet optBuildCacheFacetConfig\n  |>.insert buildCacheFacet buildCacheFacetConfig\n  |>.insert optReservoirBarrelFacet optBarrelFacetConfig\n  |>.insert reservoirBarrelFacet barrelFacetConfig\n  |>.insert optGitHubReleaseFacet optGitHubReleaseFacetConfig\n  |>.insert gitHubReleaseFacet gitHubReleaseFacetConfig",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Package.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Package.lean",
+    "definition_name": "Package"
+  }
+}

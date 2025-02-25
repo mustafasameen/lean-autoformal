@@ -1,0 +1,9 @@
+{
+  "content": "structure FoldImpl (\u03b1 \u03b2 : Type u) where\n  \u03b3   : Type u\n  x\u2080  : \u03b3\n  f   : \u03b3 \u2192 \u03b1 \u2192 \u03b3\n  out : \u03b3 \u2192 \u03b2\ninductive R : FoldImpl \u03b1 \u03b2 \u2192 FoldImpl \u03b1 \u03b2 \u2192 Prop where\n  | intro {\u03b3 \u03b3' x\u2080 y\u2080 f g out out'}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1098.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1098.lean",
+    "definition_name": "FoldImpl"
+  }
+}

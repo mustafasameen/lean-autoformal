@@ -1,0 +1,9 @@
+{
+  "content": "instance instSMul' : SMul S (M \u29f8 P) :=\n  \u27e8fun a => Quotient.map' ((\u00b7 \u2022 \u00b7) a) fun x y h => sorry\u27e9\nend Quotient\nend Submodule\nend Mathlib.LinearAlgebra.Quotient\nsection Mathlib.RingTheory.Congruence\nstructure RingCon (R : Type _) [Add R] [Mul R] extends Setoid R where\nvariable {\u03b1 R : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "instSMul"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "termAlts := termAlts.push termAlt\n      let termMatchAlts := mkNode ``Parser.Term.matchAlts #[mkNullNode termAlts]\n      return mkNode ``Parser.Term.\u00abmatch\u00bb #[mkAtomFrom ref \"match\", genParam, optMotive, discrs, mkAtomFrom ref \"with\", termMatchAlts]\n    | .matchExpr ref meta d alts elseBranch => withFreshMacroScope do\n      let d' \u2190 `(discr)\n      let mut termAlts := #[]\n      for alt in alts do\n        let rhs \u2190 `(($(\u2190 toTerm alt.rhs) : $((\u2190 read).m) _))\n        let optVar := if let some var := alt.var? then mkNullNode #[var, mkAtomFrom var \"@\"] else mkNullNode #[]\n        let pat := mkNode ``Parser.Term.matchExprPat #[optVar, alt.funName, mkNullNode alt.pvars]\n        let termAlt := mkNode ``Parser.Term.matchExprAlt #[mkAtomFrom alt.ref \"|\", pat, mkAtomFrom alt.ref \"=>\", rhs]\n        termAlts := termAlts.push termAlt\n      let elseBranch := mkNode ``Parser.Term.matchExprElseAlt #[mkAtomFrom ref \"|\", mkHole ref, mkAtomFrom ref \"=>\", (\u2190 toTerm elseBranch)]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Kind"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive is_nat : Nat -> Prop\n| Z : is_nat 0\n| S {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_name": "is_nat"
+  }
+}

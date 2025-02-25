@@ -1,0 +1,9 @@
+{
+  "content": "executeReservedNameAction c\n        return (\u2190 getEnv).contains c\n      catch ex =>\n        logError m!\"Failed to realize constant {id}:{indentD ex.toMessageData}\"\n        return false\ndef realizeGlobalConstCore (n : Name) : CoreM (List Name) := do\n  let cs \u2190 realizeGlobalName n\n  filterFieldList n cs\ndef realizeGlobalConstNoOverloadCore (n : Name) : CoreM Name := do\n  ensureNoOverload n (\u2190 realizeGlobalConstCore n)\ndef realizeGlobalConst (stx : Syntax) : CoreM (List Name) :=\n  withRef stx do preprocessSyntaxAndResolve stx realizeGlobalConstCore\ndef realizeGlobalConstNoOverload (id : Syntax) : CoreM Name := do\n  ensureNonAmbiguous id (\u2190 realizeGlobalConst id)\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ReservedNameAction.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ReservedNameAction.lean",
+    "definition_name": "ReservedNameAction"
+  }
+}

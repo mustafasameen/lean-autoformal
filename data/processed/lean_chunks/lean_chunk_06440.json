@@ -1,0 +1,9 @@
+{
+  "content": "let toStreamApp \u2190 withRef ys `(@toStream _ _ _ $ys)\n        let auxDo \u2190\n          `(do let mut s := $toStreamApp:term\n               for $doForDecls:doForDecl,* do\n                 match @Stream.next? _ _ _ s with\n                 | none => break\n                 | some ($y, s') =>\n                   s := s'\n                   do $body)\n        doSeqToCode (getDoSeqElems (getDoSeq auxDo) ++ doElems)\n    else withRef doFor do\n      let h?        := if doForDecls[0]![0].isNone then none else some doForDecls[0]![0][0]\n      let x         := doForDecls[0]![1]\n      withRef x <| checkNotShadowingMutable (\u2190 getPatternVarsEx x)\n      let xs        := doForDecls[0]![3]\n      let forElems  := getDoSeqElems doFor[3]\n      let forInBodyCodeBlock \u2190 withFor (doSeqToCode forElems)\n      let \u27e8uvars, forInBody\u27e9 \u2190 mkForInBody x forInBodyCodeBlock\n      let ctx \u2190 read\n      let uvars := uvars.map fun v => ctx.mutableVars.findD v.getId v\n      let uvarsTuple \u2190 liftMacroM do mkTuple uvars",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

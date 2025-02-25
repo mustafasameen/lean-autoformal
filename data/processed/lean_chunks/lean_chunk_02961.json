@@ -1,0 +1,9 @@
+{
+  "content": "| stx => do\n    let o \u2190 fn stx\n    return o.getD stx\n@[specialize] partial def rewriteBottomUpM {m : Type \u2192 Type} [Monad m] (fn : Syntax \u2192 m (Syntax)) : Syntax \u2192 m (Syntax)\n  | node info kind args   => do\n    let args \u2190 args.mapM (rewriteBottomUpM fn)\n    fn (node info kind args)\n  | stx => fn stx\n@[inline] def rewriteBottomUp (fn : Syntax \u2192 Syntax) (stx : Syntax) : Syntax :=\n  Id.run <| stx.rewriteBottomUpM fn\nprivate def updateInfo : SourceInfo \u2192 String.Pos \u2192 String.Pos \u2192 SourceInfo\n  | SourceInfo.original lead pos trail endPos, leadStart, trailStop =>\n    SourceInfo.original { lead with startPos := leadStart } pos { trail with stopPos := trailStop } endPos\n  | info, _, _ => info\nprivate def chooseNiceTrailStop (trail : Substring) : String.Pos :=\ntrail.startPos + trail.posOf '\\n'\n@[inline]\nprivate def updateLeadingAux : Syntax \u2192 StateM String.Pos (Option Syntax)\n  | atom info@(SourceInfo.original _ _ trail _) val => do\n    let trailStop := chooseNiceTrailStop trail",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "SourceInfo"
+  }
+}

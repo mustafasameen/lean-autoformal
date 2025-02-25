@@ -1,0 +1,10 @@
+{
+  "content": "inductive LazyList (\u03b1 : Type u)\n| nil : LazyList \u03b1\n| cons (hd : \u03b1) (tl : LazyList \u03b1) : LazyList \u03b1\n| delayed (t : Thunk (LazyList \u03b1)) : LazyList \u03b1\nnamespace LazyList\ndef length : LazyList \u03b1 \u2192 Nat\n| nil        => 0\n| cons _ as  => length as + 1\n| delayed as => length as.get\ndef force : LazyList \u03b1 \u2192 Option (\u03b1 \u00d7 LazyList \u03b1)\n| delayed as => force as.get\n| nil        => none\n| cons a as  => some (a,as)\nend LazyList\ndef rotate (f : LazyList \u03c4) (r : List \u03c4) (a : LazyList \u03c4)\n  (h : f.length + 1 = r.length) : LazyList \u03c4 :=\n  match r with\n  | List.nil => False.elim (by simp +arith [LazyList.length] at h)\n  | y::r' =>\n  match f.force with\n  | none =>  LazyList.cons y a\n  | some (x, f') => LazyList.cons x (rotate f' r' (LazyList.cons y a) (sorry))\ntheorem rotate_inv {F : LazyList \u03c4}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyListRotateUnfoldProof.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyListRotateUnfoldProof.lean",
+    "definition_name": "LazyList",
+    "has_proof": true
+  }
+}

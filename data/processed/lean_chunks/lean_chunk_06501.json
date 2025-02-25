@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\n  patternVars : Array Expr := #[]\nstructure Context where\n  userName : Name := Name.anonymous\n  explicitPatternVars : Array FVarId := #[]\nabbrev M := ReaderT Context $ StateRefT State TermElabM\nprivate def withMVar (mvarId : MVarId) (x : M \u03b1) : M \u03b1 := do\n  let localDecl \u2190 getMVarDecl mvarId\n  if !localDecl.userName.isAnonymous && (\u2190 read).userName.isAnonymous then\n    withReader (fun ctx => { ctx with userName := localDecl.userName }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_name": "State"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem isPrefix_aig (aig : AIG \u03b1) (input : \u03b2 aig) :\n    IsPrefix aig.decls (f aig input).aig.decls := by\n  apply IsPrefix.of\n  \u00b7 intro idx h\n    apply decl_eq\n  \u00b7 apply le_size\ntheorem lt_size (entry : Entrypoint \u03b1) (input : \u03b2 entry.aig) :\n    entry.ref.gate < (f entry.aig input).aig.decls.size := by\n  have h1 := entry.ref.hgate\n  have h2 : entry.aig.decls.size \u2264 (f entry.aig input).aig.decls.size := by\n    apply le_size\n  omega\ntheorem lt_size_of_lt_aig_size (aig : AIG \u03b1) (input : \u03b2 aig) (h : x < aig.decls.size) :\n    x < (f aig input).aig.decls.size := by\n  apply Nat.lt_of_lt_of_le\n  \u00b7 exact h\n  \u00b7 exact le_size aig input\ntheorem le_size_of_le_aig_size (aig : AIG \u03b1) (input : \u03b2 aig) (h : x \u2264 aig.decls.size) :\n    x \u2264 (f aig input).aig.decls.size := by\n  apply Nat.le_trans\n  \u00b7 exact h\n  \u00b7 exact le_size aig input\n@[simp]\ntheorem denote_input_entry (entry : Entrypoint \u03b1) {input}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_name": "isPrefix_aig",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "Bool.and_iff_right_iff_imp, Bool.or_eq_true, Bool.not_eq_true', decide_eq_false_iff_not,\n        Nat.not_lt, decide_eq_true_eq]\n      omega\ntheorem getElem_sshiftRight {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getLsbD_sshiftRight",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_term_parser] def paren := leading_parser\n  \"(\" >> withoutPosition (withoutForbidden (ppDedentIfGrouped termParser)) >> \")\"\n@[builtin_term_parser] def anonymousCtor := leading_parser\n  \"\u27e8\" >> withoutPosition (withoutForbidden (sepBy termParser \", \" (allowTrailingSep := true))) >> \"\u27e9\"\ndef optIdent : Parser :=\n  optional (atomic (ident >> \" : \"))\ndef fromTerm   := leading_parser\n  \"from \" >> termParser\ndef showRhs := fromTerm <|> byTactic'\n@[builtin_doc] def sufficesDecl := leading_parser\n  (atomic (group (binderIdent >> \" : \")) <|> hygieneInfo) >> termParser >> ppSpace >> showRhs\n@[builtin_term_parser] def \u00absuffices\u00bb := leading_parser:leadPrec\n  withPosition (\"suffices \" >> sufficesDecl) >> optSemicolon termParser\n@[builtin_term_parser] def \u00abshow\u00bb     := leading_parser:leadPrec \"show \" >> termParser >> ppSpace >> showRhs\ndef typeSpec := leading_parser \" : \" >> termParser\ndef optType : Parser := optional typeSpec\n@[builtin_term_parser] def explicit := leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

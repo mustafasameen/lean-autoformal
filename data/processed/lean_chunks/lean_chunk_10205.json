@@ -1,0 +1,9 @@
+{
+  "content": "inductive AssocList (\u03b1 : Type u) (\u03b2 : \u03b1 \u2192 Type v) where\n  | cons (key : \u03b1) (value : \u03b2 key) (tail : AssocList \u03b1 \u03b2)\n  deriving Inhabited\nnamespace AssocList\n@[inline] def foldl (f : \u03b4 \u2192 (\u03b1 : \u03b1) \u2192 \u03b2 \u03b1 \u2192 \u03b4) (init : \u03b4) (as : AssocList \u03b1 \u03b2) : \u03b4 :=\n  Id.run (foldlM f init as)\n@[inline] def foldr (f : (a : \u03b1) \u2192 \u03b2 a \u2192 \u03b4 \u2192 \u03b4) (init : \u03b4) (as : AssocList \u03b1 \u03b2) : \u03b4 :=\n  Id.run (foldrM f init as)\n@[inline] def forInStep (as : AssocList \u03b1 \u03b2) (init : \u03b4) (f : (a : \u03b1) \u2192 \u03b2 a \u2192 \u03b4 \u2192 m (ForInStep \u03b4)) :\n    m (ForInStep \u03b4) :=\n  go as init\nwhere @[specialize] go : AssocList \u03b1 \u03b2 \u2192 \u03b4 \u2192 m (ForInStep \u03b4)\n  | .nil, acc => pure (ForInStep.yield acc)\n  | .cons k v t, acc => do\n    match \u2190 f k v acc with\n    | ForInStep.done d => pure (ForInStep.done d)\n    | ForInStep.yield d => go t d\ndef length (l : AssocList \u03b1 \u03b2) : Nat :=\n  l.foldl (fun n _ _ => n + 1) 0\nsection\nvariable {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/AssocList/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/AssocList/Basic.lean",
+    "definition_name": "AssocList"
+  }
+}

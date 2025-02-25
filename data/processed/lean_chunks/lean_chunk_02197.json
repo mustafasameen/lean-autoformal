@@ -1,0 +1,9 @@
+{
+  "content": "instance partialOrder [PartialOrder \u03b1] (p : \u03b1 \u2192 Prop) : PartialOrder (Subtype p) :=\n  PartialOrder.lift (fun (a : Subtype p) \u21a6 (a : \u03b1))\nend Subtype\nend Mathlib.Order.Basic\nsection Mathlib.Order.Lattice\nuniverse u\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "partialOrder"
+  }
+}

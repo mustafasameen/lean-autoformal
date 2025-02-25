@@ -1,0 +1,9 @@
+{
+  "content": "let ref \u2190 getRef\n  let msg \u2190 withRef ref do addMessageContext (\u2190 msg)\n  let (res, start, stop) \u2190 withStartStop opts <| observing k\n  let aboveThresh := trace.profiler.get opts &&\n    stop - start > trace.profiler.threshold.unitAdjusted opts\n  unless clsEnabled || aboveThresh do\n    modifyTraces (oldTraces ++ \u00b7)\n    return (\u2190 MonadExcept.ofExcept res)\n  let mut msg := m!\"{ExceptToEmoji.toEmoji res} {msg}\"\n  let mut data := { cls, collapsed, tag }\n  if trace.profiler.get opts then\n    data := { data with startTime := start, stopTime := stop }\n  addTraceNode oldTraces data ref msg\n  MonadExcept.ofExcept res\ndef addTraceAsMessages [Monad m] [MonadRef m] [MonadLog m] [MonadTrace m] : m Unit := do\n  if trace.profiler.output.get? (\u2190 getOptions) |>.isSome then\n    return\n  let traces \u2190 getResetTraces\n  if traces.isEmpty then\n    return\n  let mut pos2traces : Std.HashMap (String.Pos \u00d7 String.Pos) (Array MessageData) := \u2205\n  for traceElem in traces do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_name": "bombEmoji"
+  }
+}

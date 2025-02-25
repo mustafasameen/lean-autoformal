@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_toArray : xs = List.toArray as \u2194 xs.toList = as := by\n  cases xs\n  simp\ntheorem toArray_eq : List.toArray as = xs \u2194 as = xs.toList := by\n  cases xs\n  simp\ntheorem eq_empty_of_size_eq_zero (h : xs.size = 0) : xs = #[] := by\n  cases xs\n  simp_all\ntheorem ne_empty_of_size_eq_add_one (h : xs.size = n + 1) : xs \u2260 #[] := by\n  cases xs\n  simpa using List.ne_nil_of_length_eq_add_one h\ntheorem ne_empty_of_size_pos (h : 0 < xs.size) : xs \u2260 #[] := by\n  cases xs\n  simpa using List.ne_nil_of_length_pos h\ntheorem size_eq_zero_iff : xs.size = 0 \u2194 xs = #[] :=\n  \u27e8eq_empty_of_size_eq_zero, fun h => h \u25b8 rfl\u27e9\n@[deprecated size_eq_zero_iff (since := \"2025-02-24\")]\nabbrev size_eq_zero := @size_eq_zero_iff\ntheorem eq_empty_iff_size_eq_zero : xs = #[] \u2194 xs.size = 0 :=\n  size_eq_zero_iff.symm\ntheorem size_pos_of_mem {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "eq_toArray",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "xx39 : Nat := 0\n  xx40 : Nat := 0\n  xx41 : Nat := 0\n  xx42 : Nat := 0\n  xx43 : Nat := 0\n  xx44 : Nat := 0\n  xx45 : Nat := 0\n  xx46 : Nat := 0\n  xx47 : Nat := 0\n  xx48 : Nat := 0\n  xx49 : Nat := 0\n  xx50 : Nat := 0\n  xx51 : Nat := 0\n  xx52 : Nat := 0\n  xx53 : Nat := 0\n  xx54 : Nat := 0\n  xx55 : Nat := 0\n  xx56 : Nat := 0\n  xx57 : Nat := 0\n  xx58 : Nat := 0\n  xx59 : Nat := 0\n  xx60 : Nat := 0\n@[noinline] def mkFoo (y : Nat) : Foo :=\n  { y60 := y }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bigctorfields.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bigctorfields.lean",
+    "definition_name": "Foo"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem nil_subset (l : List \u03b1) : [] \u2286 l := nofun\n@[simp] theorem Subset.refl (l : List \u03b1) : l \u2286 l := fun _ i => i\ntheorem Subset.trans {l\u2081 l\u2082 l\u2083 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "nil_subset",
+    "has_proof": false
+  }
+}

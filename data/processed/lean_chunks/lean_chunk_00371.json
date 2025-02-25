@@ -1,0 +1,9 @@
+{
+  "content": "def tst := parser! \"(|\" >> term_parser >> \"|)\"\n@[term_parser] def boo : ParserDescr :=\nParserDescr.node `boo\n  (ParserDescr.andthen\n    (ParserDescr.symbol \"[|\" 0)\n    (ParserDescr.andthen\n      (ParserDescr.parser `term 0)\n      (ParserDescr.symbol \"|]\" 0)))\nopen Lean.Elab.Term\n@[term_elab tst] def elabTst : TermElab :=\nfun stx expected? =>\n  elabTerm (stx.getArg 1) expected?\n@[term_elab boo] def elabBoo : TermElab :=\nfun stx expected? =>\n  elabTerm (stx.getArg 1) expected?\n#eval run \"#check [| @id.{1} Nat |]\"\n#eval run \"#check (| id 1 |)\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/termParserAttr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/termParserAttr.lean",
+    "definition_name": "tst"
+  }
+}

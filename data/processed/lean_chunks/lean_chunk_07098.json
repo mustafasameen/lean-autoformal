@@ -1,0 +1,9 @@
+{
+  "content": "def Attributes := RBMap String String compare\ninstance : ToString Attributes := \u27e8\u03bb as => as.fold (\u03bb s n v => s ++ s!\" {n}=\\\"{v}\\\"\") \"\"\u27e9\nmutual\ninductive Element\n| Element\n  (name : String)\n  (attributes : Attributes)\n  (content : Array Content)\ninductive Content\n| Element (element : Element)\n| Comment (comment : String)\n| Character (content : String)\nderiving Inhabited\nend\nmutual\nprivate partial def eToString : Element \u2192 String\n| Element.Element n a c => s!\"<{n}{a}>{c.map cToString |>.foldl (\u00b7 ++ \u00b7) \"\"}</{n}>\"\nprivate partial def cToString : Content \u2192 String\n| Content.Element e => eToString e\n| Content.Comment c => s!\"<!\n| Content.Character c => c\nend\ninstance : ToString Element := \u27e8eToString\u27e9\ninstance : ToString Content := \u27e8cToString\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Xml/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Xml/Basic.lean",
+    "definition_name": "Attributes"
+  }
+}

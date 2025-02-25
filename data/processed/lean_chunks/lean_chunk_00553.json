@@ -1,0 +1,9 @@
+{
+  "content": "def f := a\nnamespace Ex7\nvariable (n : Nat)\n#guard_msgs in\nvariable [n]\nvariable (x)\n#guard_msgs in\nvariable [x]\nend Ex7\n#guard_msgs in\n#check f\nvariable (\u03b1) \u2983\u03b2 \u03b3\u2984\ndef g (a : \u03b1) (b : \u03b2) (c : \u03b3) := (a, b, c)\n#guard_msgs in\n#check h\nvariable {{\u03b2}}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/varBinderUpdate.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/varBinderUpdate.lean",
+    "definition_name": "f"
+  }
+}

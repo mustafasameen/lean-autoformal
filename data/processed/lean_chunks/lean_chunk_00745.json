@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 apply decr_left _ _ _ _\n  \u00b7 apply decr_right _ _ _ _ _\nattribute [simp] robinson\nset_option pp.proofs true\n#check robinson.eq_1\n#check robinson.eq_2\n#check robinson.eq_3\n#check robinson.eq_4\ntheorem ex : (robinson (Term.Var 0) (Term.Var 0)).1 = some id := by\n  unfold robinson\n  admit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/robinson.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/robinson.lean",
+    "definition_name": "Subst",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def abc' := #['a', 'b', 'c']\ndef abc := abc'.toSubarray\n#guard_msgs in\n#eval (#[1,2,3,4].toSubarray.split 1)\n#guard_msgs in\n#eval (#[1,2,3,4].toSubarray.split 3)\n#guard_msgs in\n#eval (#[1,2,3,4].toSubarray (start := 1) |>.split \u27e82, by decide\u27e9)\n#guard_msgs in\n#eval abc.split 1\n#guard_msgs in\n#eval abc.split 3\n#guard_msgs in\n#eval #[1,2,3].toSubarray.take 1\n#guard_msgs in\n#eval #[1,2,3].toSubarray.take 100\n#guard_msgs in\n#eval #[1,2,3].toSubarray.drop 1\n#guard_msgs in\n#eval #[1,2,3].toSubarray.drop 100",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subarray_split.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subarray_split.lean",
+    "definition_name": "abc"
+  }
+}

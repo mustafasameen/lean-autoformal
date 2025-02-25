@@ -1,0 +1,9 @@
+{
+  "content": "def p_29 := 110503\ndef p_30 := 132049\ndef p_31 := 216091\ndef p_32 := 756839\ndef p_33 := 859433\nset_option exponentiation.threshold 10000000\nexample : Nat.gcd (m p_31 * m p_33) (m p_32 * m p_33) - m p_33 = 0 := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lean_nat_gcd.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lean_nat_gcd.lean",
+    "definition_name": "p_29"
+  }
+}

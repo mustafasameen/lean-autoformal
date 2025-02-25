@@ -1,0 +1,9 @@
+{
+  "content": "structure GeneralizeResult where\n  discrs    : Array Discr\nprivate def generalize (discrs : Array Discr) (matchType : Expr) (altViews : Array MatchAltView) (generalizing? : Option Bool) : TermElabM GeneralizeResult := do\n  let gen := if let some g := generalizing? then g else true\n  if !gen then\n    return { discrs, matchType, altViews }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_name": "GeneralizeResult"
+  }
+}

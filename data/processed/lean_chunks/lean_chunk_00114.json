@@ -1,0 +1,9 @@
+{
+  "content": "def FinPlus1 n := Fin (n + 1)\ndef badCasesOn (n m : Nat) : Fin (n + 1) :=\n   Nat.casesOn (motive := FinPlus1) n (\u27e80,Nat.zero_lt_succ _\u27e9) (fun n => Fin.succ (badCasesOn n (.succ m)))\ndecreasing_by decreasing_tactic\ndef badCasesOn2 (n m : Nat) : Fin (n + 1) :=\n   Nat.casesOn (motive := FinPlus1) n (\u27e80,Nat.zero_lt_succ _\u27e9) (fun n => Fin.succ (badCasesOn2 n (.succ m)))\ntermination_by n\ndecreasing_by decreasing_tactic\ndef Fin_succ_comp (f : (n : Nat) \u2192 Fin (n + 1)) : (n : Nat) \u2192 Fin (n + 2) := fun n => Fin.succ (f n)\ndef badCasesOn3 (n m : Nat) : Fin (n + 1) :=\n   Nat.casesOn (motive := fun n => Fin (n + 1)) n (\u27e80,Nat.zero_lt_succ _\u27e9)\n      (Fin_succ_comp (fun n => badCasesOn3 n (.succ m)))\ndecreasing_by decreasing_tactic\ndef badCasesOn4 (n m : Nat) : Fin (n + 1) :=\n   Nat.casesOn (motive := fun n => Fin (n + 1)) n (\u27e80,Nat.zero_lt_succ _\u27e9)\n      (Fin_succ_comp (fun n => badCasesOn4 n (.succ m)))\ntermination_by n\ndecreasing_by decreasing_tactic\nend TrickyCode",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/guessLexFailures.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/guessLexFailures.lean",
+    "definition_name": "FinPlus1"
+  }
+}

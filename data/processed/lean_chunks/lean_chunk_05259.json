@@ -1,0 +1,10 @@
+{
+  "content": "theorem range_zero : range 0 = [] := rfl\ndef range' : (start len : Nat) \u2192 (step : Nat := 1) \u2192 List Nat\n  | _, 0, _ => []\n  | s, n+1, step => s :: range' (s+step) n step\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\")]\ndef iota : Nat \u2192 List Nat\n  | 0       => []\n  | m@(n+1) => m :: iota n\nset_option linter.deprecated false in\n@[simp] theorem iota_zero : iota 0 = [] := rfl\nset_option linter.deprecated false in\n@[simp] theorem iota_succ : iota (i+1) = (i+1) :: iota i := rfl\ndef zipIdx : List \u03b1 \u2192 (n : Nat := 0) \u2192 List (\u03b1 \u00d7 Nat)\n  | [], _ => nil\n  | x :: xs, n => (x, n) :: zipIdx xs (n + 1)\n@[simp] theorem zipIdx_nil : ([] : List \u03b1).zipIdx i = [] := rfl\n@[simp] theorem zipIdx_cons : (a::as).zipIdx i = (a, i) :: as.zipIdx (i+1) := rfl\n@[deprecated \"Use `zipIdx` instead; note the signature change.\" (since := \"2025-01-21\")]\ndef enumFrom : Nat \u2192 List \u03b1 \u2192 List (Nat \u00d7 \u03b1)\n  | _, [] => nil\n  | n, x :: xs   => (n, x) :: enumFrom (n + 1) xs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "range_zero",
+    "has_proof": false
+  }
+}

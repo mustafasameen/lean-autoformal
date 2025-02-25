@@ -1,0 +1,9 @@
+{
+  "content": "structure PartialMatch where\n  todo : Array Expr\n  score : Nat\n  c : TrieIndex\n  deriving Inhabited\nprivate partial def getMatchLoop (cases : Array PartialMatch) (result : MatchResult \u03b1) : MatchM \u03b1 (MatchResult \u03b1) := do\n  if cases.isEmpty then\n    pure result\n  else do\n    let ca := cases.back!\n    let cases := cases.pop\n    let (vs, star, cs) \u2190 evalNode ca.c\n    if ca.todo.isEmpty then\n      let result := result.push ca.score vs\n      getMatchLoop cases result\n    else if star == 0 && cs.isEmpty then\n      getMatchLoop cases result\n    else\n      let e     := ca.todo.back!\n      let todo  := ca.todo.pop\n      let pushStar (cases : Array PartialMatch) :=\n        if star = 0 then\n          cases\n        else\n          cases.push { todo, score := ca.score, c := star }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_name": "PartialMatch"
+  }
+}

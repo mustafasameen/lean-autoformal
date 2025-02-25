@@ -1,0 +1,9 @@
+{
+  "content": "structure Methods where\n  b : Nat \u2192 (opt : Nat := 42) \u2192 Nat\nexample (m : Methods) : Methods := { m with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5406.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5406.lean",
+    "definition_name": "Methods"
+  }
+}

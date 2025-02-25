@@ -1,0 +1,9 @@
+{
+  "content": "declName := ref\n    defValue := KVMap.Value.toDataValue decl.defValue\n    group := decl.group\n    descr := decl.descr\n  }\n  return { name := name, defValue := decl.defValue }\nmacro (name := registerBuiltinOption) doc?:(docComment)? \"register_builtin_option\" name:ident \" : \" type:term \" := \" decl:term : command =>\n  `($[$doc?]? builtin_initialize $name : Lean.Option $type \u2190 Lean.Option.register $(quote name.getId) $decl)\nmacro (name := registerOption) doc?:(docComment)? \"register_option\" name:ident \" : \" type:term \" := \" decl:term : command =>\n  `($[$doc?]? initialize $name : Lean.Option $type \u2190 Lean.Option.register $(quote name.getId) $decl)\nend Option\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_name": "Options"
+  }
+}

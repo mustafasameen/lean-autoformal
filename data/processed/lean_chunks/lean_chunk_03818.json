@@ -1,0 +1,10 @@
+{
+  "content": "theorem takeWhile_mkArray_eq_filter (p : \u03b1 \u2192 Bool) :\n    (mkArray n a).takeWhile p = (mkArray n a).filter p := by\n  simp [\u2190 List.toArray_replicate]\ntheorem takeWhile_mkArray (p : \u03b1 \u2192 Bool) :\n    (mkArray n a).takeWhile p = if p a then mkArray n a else #[] := by\n  simp [takeWhile_mkArray_eq_filter, filter_mkArray]\n@[simp] theorem popWhile_mkArray_eq_filter_not (p : \u03b1 \u2192 Bool) :\n    (mkArray n a).popWhile p = (mkArray n a).filter (fun a => !p a) := by\n  simp [\u2190 List.toArray_replicate, \u2190 List.filter_reverse]\ntheorem popWhile_mkArray (p : \u03b1 \u2192 Bool) :\n    (mkArray n a).popWhile p = if p a then #[] else mkArray n a := by\n  simp only [popWhile_mkArray_eq_filter_not, size_mkArray, filter_mkArray, Bool.not_eq_eq_eq_not,\n    Bool.not_true]\n  split <;> simp_all\ntheorem extract_takeWhile {as : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Extract.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Extract.lean",
+    "definition_name": "takeWhile_mkArray_eq_filter",
+    "has_proof": true
+  }
+}

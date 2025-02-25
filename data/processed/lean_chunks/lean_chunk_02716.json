@@ -1,0 +1,9 @@
+{
+  "content": "inductive PUnit : Sort u where\nabbrev Unit : Type := PUnit\n@[match_pattern] abbrev Unit.unit : Unit := PUnit.unit\nunsafe axiom lcAny : Type\nunsafe axiom lcProof {\u03b1 : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "PUnit"
+  }
+}

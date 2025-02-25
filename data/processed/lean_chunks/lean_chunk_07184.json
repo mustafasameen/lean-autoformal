@@ -1,0 +1,9 @@
+{
+  "content": "toString\n    | .inc => \"inc\"\n    | .dec => \"dec\"\ndef callLeanRefcountFn (builder : LLVM.Builder llvmctx)\n    (kind : RefcountKind) (checkRef? : Bool) (arg : LLVM.Value llvmctx)\n    (delta : Option (LLVM.Value llvmctx) := Option.none) : M llvmctx Unit := do\n  let fnName :=  s!\"lean_{kind}{if checkRef? then \"\" else \"_ref\"}{if delta.isNone then \"\" else \"_n\"}\"\n  let retty \u2190 LLVM.voidType llvmctx\n  let argtys \u2190 if delta.isNone then pure #[\u2190 LLVM.voidPtrType llvmctx] else pure #[\u2190 LLVM.voidPtrType llvmctx, \u2190 LLVM.size_tType llvmctx]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  match delta with\n  | .none => do\n    let _ \u2190 LLVM.buildCall2 builder fnty fn #[arg]\n  | .some n => do\n    let _ \u2190 LLVM.buildCall2 builder fnty fn #[arg, n]\ndef callLeanDecRef (builder : LLVM.Builder llvmctx) (res : LLVM.Value llvmctx) : M llvmctx Unit := do\n  let fnName :=  \"lean_dec_ref\"\n  let retty \u2190 LLVM.voidType llvmctx",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem twoPow_eq (w : Nat) (i : Nat) : twoPow w i = 1#w <<< i := by\n  dsimp [twoPow]\n@[simp, bitvec_to_nat]\ntheorem toNat_twoPow (w : Nat) (i : Nat) : (twoPow w i).toNat = 2^i % 2^w := by\n  rcases w with rfl | w\n  \u00b7 simp [Nat.mod_one, toNat_of_zero_length]\n  \u00b7 simp only [twoPow, toNat_shiftLeft, toNat_ofNat]\n    have h1 : 1 < 2 ^ (w + 1) := Nat.one_lt_two_pow (by omega)\n    rw [Nat.mod_eq_of_lt h1, Nat.shiftLeft_eq, Nat.one_mul]\n@[simp]\ntheorem getLsbD_twoPow (i j : Nat) : (twoPow w i).getLsbD j = ((i < w) && (i = j)) := by\n  rcases w with rfl | w\n  \u00b7 simp\n  \u00b7 simp only [twoPow, getLsbD_shiftLeft, getLsbD_ofNat]\n    by_cases hj : j < i\n    \u00b7 simp only [hj, decide_true, Bool.not_true, Bool.and_false, Bool.false_and, Bool.false_eq,\n      Bool.and_eq_false_imp, decide_eq_true_eq, decide_eq_false_iff_not]\n      omega\n    \u00b7 by_cases hi : Nat.testBit 1 (j - i)\n      \u00b7 obtain hi' := Nat.testBit_one_eq_true_iff_self_eq_zero.mp hi\n        have hij : j = i := by omega\n        simp_all",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "twoPow_eq",
+    "has_proof": true
+  }
+}

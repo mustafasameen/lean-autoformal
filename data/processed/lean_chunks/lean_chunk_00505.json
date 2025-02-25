@@ -1,0 +1,9 @@
+{
+  "content": "structure PLift (\u03b1 : Sort u) : Type u :=\n  up :: (down : \u03b1)\nstructure PointedType :=\n  (type : Type u)\n  (val : type)\ninstance : Inhabited PointedType.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_name": "PLift"
+  }
+}

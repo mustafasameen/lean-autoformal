@@ -1,0 +1,10 @@
+{
+  "content": "match oldAssignment with\n  | pos => unassigned\n| neg => neg\n  | both => neg\n| unassigned => unassigned\ndef addNegAssignment (oldAssignment : Assignment) : Assignment :=\n  match oldAssignment with\n  | pos => both\n  | neg => neg\n  | both => both\n  | unassigned => neg\ndef removeNegAssignment (oldAssignment : Assignment) : Assignment :=\n  match oldAssignment with\n| pos => pos\n  | neg => unassigned\n  | both => pos\n| unassigned => unassigned\ndef addAssignment (b : Bool) : Assignment \u2192 Assignment :=\n  if b then\n    addPosAssignment\n  else\n    addNegAssignment\ndef removeAssignment (b : Bool) : Assignment \u2192 Assignment :=\n  if b then\n    removePosAssignment\n  else\n    removeNegAssignment\ndef hasAssignment (b : Bool) : Assignment \u2192 Bool :=\n  if b then\n    hasPosAssignment\n  else\n    hasNegAssignment\ntheorem removePos_addPos_cancel {assignment : Assignment}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_name": "Assignment",
+    "has_proof": false
+  }
+}

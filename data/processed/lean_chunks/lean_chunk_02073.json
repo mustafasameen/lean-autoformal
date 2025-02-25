@@ -1,0 +1,10 @@
+{
+  "content": "theorem simple16 (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z :=\nby {\n  intros h1 h2 h3;\ntry clear x;\n  clear h2;\n  trace_state;\n  apply Eq.trans;\n  exact h3;\n  exact h1\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_name": "simple16",
+    "has_proof": true
+  }
+}

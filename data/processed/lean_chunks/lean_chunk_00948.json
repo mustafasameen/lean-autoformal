@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo :=\n(x : Nat)\n(y : Bool)\n(z : Bool)\n@[noinline] def mkFoo1 (x : Nat) (z : Bool) : Foo := { x := x, y := true, z := z }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/sharecommon.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/sharecommon.lean",
+    "definition_name": "Foo"
+  }
+}

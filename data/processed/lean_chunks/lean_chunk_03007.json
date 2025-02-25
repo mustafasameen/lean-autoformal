@@ -1,0 +1,9 @@
+{
+  "content": "def pushNthBindingDomain : (binderIdx : Nat) \u2192 Pos \u2192 Pos\n  | 0, p => p.pushBindingDomain\n  | (n+1), p => pushNthBindingDomain n p.pushBindingBody\ndef pushNthBindingBody : (numBinders : Nat) \u2192 Pos \u2192 Pos\n  | 0, p => p\n  | (n+1), p => pushNthBindingBody n p.pushBindingBody\nprotected def toString (p : Pos) : String :=\n  p.toArray.toList\n  |>.map toString\n  |> String.intercalate \"/\"\n  |> (\"/\" ++ \u00b7)\nopen Except in\nprivate def ofStringCoord : String \u2192 Except String Nat\n  | \"0\" => ok 0 | \"1\" => ok 1 | \"2\" => ok 2 | \"3\" => ok 3\n  | c => error s!\"Invalid coordinate {c}\"\nopen Except in\nprotected def fromString? : String \u2192 Except String Pos\n  | \"/\" => Except.ok Pos.root\n  | s =>\n    match String.splitOn s \"/\" with\n    | \"\" :: tail => Pos.ofArray <$> tail.toArray.mapM ofStringCoord\n    | ss => error s!\"malformed {ss}\"\nprotected def fromString! (s : String) : Pos :=\n  match Pos.fromString? s with\n  | .ok a => a\n  | .error e => panic! e\ninstance : Ord Pos := show Ord Nat by infer_instance",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_name": "SubExpr"
+  }
+}

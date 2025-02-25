@@ -1,0 +1,10 @@
+{
+  "content": "theorem propComplete (a : Prop) : a = True \u2228 a = False :=\n  match em a with\n  | Or.inl ha => Or.inl (eq_true ha)\n  | Or.inr hn => Or.inr (eq_false hn)\ntheorem byCases {p q : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Classical.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Classical.lean",
+    "definition_name": "propComplete",
+    "has_proof": true
+  }
+}

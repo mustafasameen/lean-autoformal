@@ -1,0 +1,10 @@
+{
+  "content": "theorem attach_map_subtype_val (o : Option \u03b1) :\n    o.attach.map Subtype.val = o :=\n  (attach_map_val _ _).trans (congrFun Option.map_id _)\ntheorem attachWith_map_val {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_name": "attach_map_subtype_val",
+    "has_proof": false
+  }
+}

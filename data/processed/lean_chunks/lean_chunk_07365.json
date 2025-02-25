@@ -1,0 +1,10 @@
+{
+  "content": "theorem sat_iff (p : \u03b1 \u2192 Bool) (a : \u03b1) (b : Bool) : p \u22a8 (a, b) \u2194 (p a) = b := by\n  simp only [Entails.eval]\ntheorem sat_negate_iff_not_sat {p : \u03b1 \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_name": "sat_iff",
+    "has_proof": true
+  }
+}

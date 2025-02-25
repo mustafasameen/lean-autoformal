@@ -1,0 +1,9 @@
+{
+  "content": "hints.decreasingBy?.isSome ||\n  hints.partialFixpoint?.isSome\ndef TerminationHints.rememberExtraParams (headerParams : Nat) (hints : TerminationHints)\n    (value : Expr) : TerminationHints :=\n  { hints with extraParams := value.getNumHeadLambdas - headerParams }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/TerminationHint.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/TerminationHint.lean",
+    "definition_name": "TerminationBy"
+  }
+}

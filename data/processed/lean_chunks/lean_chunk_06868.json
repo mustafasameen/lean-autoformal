@@ -1,0 +1,10 @@
+{
+  "content": "let type \u2190 inferType proof\n  withReducible <| forallTelescopeReducing type fun xs type => withDefault do\n    let searchPlaces \u2190 match kind with\n      | .fwd =>\n        let ps \u2190 getPropTypes xs\n        if ps.isEmpty then\n          throwError \"invalid `grind` forward theorem, theorem `{\u2190 origin.pp}` does not have propositional hypotheses\"\n        pure ps\n      | .bwd => pure #[type]\n      | .leftRight => pure <| (\u2190 getPropTypes xs).push type\n      | .rightLeft => pure <| #[type] ++ (\u2190 getPropTypes xs).reverse\n      | .default => pure <| #[type] ++ (\u2190 getPropTypes xs)\n      | _ => unreachable!\n    go xs searchPlaces\nwhere\n  go (xs : Array Expr) (searchPlaces : Array Expr) : MetaM (Option EMatchTheorem) := do\n    let (patterns, symbols) \u2190 if let some r \u2190 collectPatterns? proof xs searchPlaces then\n      pure r\n    else if !groundPatterns then\n      return none\n    else if let some (pattern, symbols) \u2190 collectGroundPattern? proof xs searchPlaces then\n      pure ([pattern], symbols)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

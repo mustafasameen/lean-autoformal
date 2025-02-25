@@ -1,0 +1,10 @@
+{
+  "content": "theorem mul_lt_mul_left (a0 : 0 < a) : a * b < a * c \u2194 b < c := by\n  induction a with\n  | zero => simp_all\n  | succ a ih =>\n    cases a\n    \u00b7 simp\n    \u00b7 simp_all [succ_eq_add_one, Nat.right_distrib]\n      omega\n@[simp] protected theorem mul_lt_mul_right (a0 : 0 < a) : b * a < c * a \u2194 b < c := by\n  rw [Nat.mul_comm b a, Nat.mul_comm c a, Nat.mul_lt_mul_left a0]\nprotected theorem lt_of_mul_lt_mul_left {a b c : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Mod.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Mod.lean",
+    "definition_name": "mul_lt_mul_left",
+    "has_proof": true
+  }
+}

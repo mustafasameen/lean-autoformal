@@ -1,0 +1,10 @@
+{
+  "content": "theorem drop_left : \u2200 l\u2081 l\u2082 : List \u03b1, drop (length l\u2081) (l\u2081 ++ l\u2082) = l\u2082\n  | [], _ => rfl\n  | _ :: l\u2081, l\u2082 => drop_left l\u2081 l\u2082\n@[simp]\ntheorem drop_left' {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_name": "drop_left",
+    "has_proof": false
+  }
+}

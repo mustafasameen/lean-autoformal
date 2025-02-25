@@ -1,0 +1,9 @@
+{
+  "content": "modify fun s => { s with cache := {} }\n    try\n      x\n    finally\n      modify fun s => { s with cache := cacheSaved }\n@[inline] def withTrackingZetaDelta : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM fun x =>\n    withFreshCache <| withReader (fun ctx => { ctx with trackZetaDelta := true }) x\ndef withZetaDeltaSet (s : FVarIdSet) : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM fun x =>\n    if s.isEmpty then\n      x\n    else\n      withFreshCache <| withReader (fun ctx => { ctx with zetaDeltaSet := s }) x\ndef withTrackingZetaDeltaSet (s : FVarIdSet) : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM fun x =>\n    if s.isEmpty then\n      x\n    else\n      withFreshCache <| withReader (fun ctx => { ctx with zetaDeltaSet := s, trackZetaDelta := true }) x\n@[inline] def withoutProofIrrelevance (x : n \u03b1) : n \u03b1 :=\n  withConfig (fun cfg => { cfg with proofIrrelevance := false }) x\n@[inline] private def Context.setTransparency (ctx : Context) (transparency : TransparencyMode) : Context :=\n  let config := { ctx.config with transparency }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

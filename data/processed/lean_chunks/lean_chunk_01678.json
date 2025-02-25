@@ -1,0 +1,9 @@
+{
+  "content": "def date\u2081 := datetime(\"1993-11-19T09:08:07\")\ndef date\u2082 := datetime(\"1993-05-09T12:59:59\")\ndef date\u2083 := date(\"2024-08-16\")\ndef date\u2084 := date(\"1500-08-16\")\ndef tm\u2081 := 753700087\ndef tm\u2082 := 736952399\n#guard_msgs in\n#eval format date\u2081\n#guard_msgs in\n#eval format date\u2082\n#guard_msgs in\n#eval date\u2081.toTimestampAssumingUTC.toSecondsSinceUnixEpoch\n#guard_msgs in\n#eval date\u2082.toTimestampAssumingUTC.toSecondsSinceUnixEpoch\n#guard_msgs in\n#eval PlainDateTime.ofTimestampAssumingUTC 736952399 |> format\n#guard_msgs in\n#eval PlainDateTime.toTimestampAssumingUTC date\u2082 |>.toSecondsSinceUnixEpoch\n#guard_msgs in\n#eval PlainDate.ofDaysSinceUNIXEpoch 19951 |> format\u2082\n#guard_msgs in\n#eval PlainDate.toDaysSinceUNIXEpoch date\u2083\n#guard_msgs in\n#eval PlainDate.weekday date\u2083\n#guard_msgs in\n#eval Id.run do\n  let mut res := #[]\n  for i in [0:10000] do\n    let i := Int.ofNat i - 999975\n    let date := PlainDate.ofDaysSinceUNIXEpoch (Day.Offset.ofInt i)\n    let num := date.toDaysSinceUNIXEpoch\n    if i \u2260 num.val then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeLocalDateTime.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeLocalDateTime.lean",
+    "definition_name": "date\u2081"
+  }
+}

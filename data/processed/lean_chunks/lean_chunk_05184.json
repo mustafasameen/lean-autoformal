@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 rintro \u27e8t, h\u27e9\n      simp at h\n      obtain \u27e8rfl, rfl\u27e9 := h\n      exact Or.inr \u27e8l\u2081, rfl, prefix_append l\u2081 t\u27e9\n    \u00b7 rintro (h | \u27e8t, w, \u27e8s, h'\u27e9\u27e9)\n      \u00b7 simp [h]\n      \u00b7 simp only [w]\n        refine \u27e8s, by simp [h']\u27e9\n@[simp] theorem cons_prefix_cons : a :: l\u2081 <+: b :: l\u2082 \u2194 a = b \u2227 l\u2081 <+: l\u2082 := by\n  simp only [prefix_cons_iff, cons.injEq, false_or, List.cons_ne_nil]\n  constructor\n  \u00b7 rintro \u27e8t, \u27e8rfl, rfl\u27e9, h\u27e9\n    exact \u27e8rfl, h\u27e9\n  \u00b7 rintro \u27e8rfl, h\u27e9\n    exact \u27e8l\u2081, \u27e8rfl, rfl\u27e9, h\u27e9\ntheorem suffix_cons_iff : l\u2081 <:+ a :: l\u2082 \u2194 l\u2081 = a :: l\u2082 \u2228 l\u2081 <:+ l\u2082 := by\n  constructor\n  \u00b7 rintro \u27e8\u27e8hd, tl\u27e9, hl\u2083\u27e9\n    \u00b7 exact Or.inl hl\u2083\n    \u00b7 simp only [cons_append] at hl\u2083\n      injection hl\u2083 with _ hl\u2084\n      exact Or.inr \u27e8_, hl\u2084\u27e9\n  \u00b7 rintro (rfl | hl\u2081)\n    \u00b7 exact (a :: l\u2082).suffix_refl\n    \u00b7 exact hl\u2081.trans (l\u2082.suffix_cons _)\ntheorem infix_cons_iff : l\u2081 <:+: a :: l\u2082 \u2194 l\u2081 <+: a :: l\u2082 \u2228 l\u2081 <:+: l\u2082 := by\n  constructor\n  \u00b7 rintro \u27e8\u27e8hd, tl\u27e9, t, hl\u2083\u27e9\n    \u00b7 exact Or.inl \u27e8t, hl\u2083\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "prefix_or_prefix_of_prefix",
+    "has_proof": true
+  }
+}

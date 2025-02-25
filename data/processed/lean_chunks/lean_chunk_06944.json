@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  typeInfos   : Array InductiveVal\n  auxFunNames : Array Name\n  usePartial  : Bool\ndef mkContext (fnPrefix : String) (typeName : Name) : TermElabM Context := do\n  let indVal \u2190 getConstInfoInduct typeName\n  let mut typeInfos := #[]\n  for typeName in indVal.all do\n    typeInfos := typeInfos.push (\u2190 getConstInfoInduct typeName)\n  let mut auxFunNames := #[]\n  for typeName in indVal.all do\n    match typeName.eraseMacroScopes with\n    | .str _ t => auxFunNames := auxFunNames.push (\u2190 mkFreshUserName <| Name.mkSimple <| fnPrefix ++ t)\n    | _        => auxFunNames := auxFunNames.push (\u2190 mkFreshUserName `instFn)\n  trace[Elab.Deriving.beq] \"{auxFunNames}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_name": "Context"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let ctx \u2190 read\n      let uvars := uvars.map fun v => ctx.mutableVars.findD v.getId v\n      let uvarsTuple \u2190 liftMacroM do mkTuple uvars\n      if hasReturn forInBodyCodeBlock.code then\n        let forInBody \u2190 liftMacroM <| destructTuple uvars (\u2190 `(r)) forInBody\n        let optType \u2190 `(Option $((\u2190 read).returnType))\n        let forInTerm \u2190 if let some h := h? then\n          annotate doFor\n            (\u2190 `(for_in'% $(xs) (MProd.mk (none : $optType) $uvarsTuple) fun $x $h (r : MProd $optType _) => let r := r.2; $forInBody))\n        else\n          annotate doFor\n            (\u2190 `(for_in% $(xs) (MProd.mk (none : $optType) $uvarsTuple) fun $x (r : MProd $optType _) => let r := r.2; $forInBody))\n        let auxDo \u2190 `(do let r \u2190 $forInTerm:term;\n                         $uvarsTuple:term := r.2;\n                         match r.1 with\n                         | none => Pure.pure (ensure_expected_type% \"type mismatch, `for`\" PUnit.unit)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

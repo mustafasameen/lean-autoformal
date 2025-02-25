@@ -1,0 +1,10 @@
+{
+  "content": "theorem count_le_size (a : \u03b1) (xs : Array \u03b1) : count a xs \u2264 xs.size := countP_le_size _\ntheorem count_le_count_push (a b : \u03b1) (xs : Array \u03b1) : count a xs \u2264 count a (xs.push b) := by\n  simp [count_push]\ntheorem count_singleton (a b : \u03b1) : count a #[b] = if b == a then 1 else 0 := by\n  simp [count_eq_countP]\n@[simp] theorem count_append (a : \u03b1) : \u2200 xs ys, count a (xs ++ ys) = count a xs + count a ys :=\n  countP_append _\n@[simp] theorem count_flatten (a : \u03b1) (xss : Array (Array \u03b1)) :\n    count a xss.flatten = (xss.map (count a)).sum := by\n  cases xss using array\u2082_induction\n  simp [List.count_flatten, Function.comp_def]\n@[simp] theorem count_reverse (a : \u03b1) (xs : Array \u03b1) : count a xs.reverse = count a xs := by\n  rcases xs with \u27e8xs\u27e9\n  simp\ntheorem boole_getElem_le_count (a : \u03b1) (xs : Array \u03b1) (i : Nat) (h : i < xs.size) :\n    (if xs[i] == a then 1 else 0) \u2264 xs.count a := by\n  rw [count_eq_countP]\n  apply boole_getElem_le_countP (\u00b7 == a)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_name": "count_le_size",
+    "has_proof": true
+  }
+}

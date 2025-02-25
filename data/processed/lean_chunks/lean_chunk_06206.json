@@ -1,0 +1,9 @@
+{
+  "content": "class resolution failed, insufficient number of arguments\"\n  else\n    return args\nprivate def preprocessOutParam (type : Expr) : MetaM Expr :=\n  forallTelescope type fun xs typeBody => do\n    match typeBody.getAppFn with\n    | c@(.const declName _) =>\n      let env \u2190 getEnv\n      if let some outParamsPos := getOutParamPositions? env declName then\n        unless outParamsPos.isEmpty do\n          let args := typeBody.getAppArgs\n          let cType \u2190 inferType c\n          let args \u2190 preprocessArgs cType 0 args outParamsPos\n          return (\u2190 mkForallFVars xs (mkAppN c args))\n      return type\n    | _ =>\n      return type\nprivate def assignOutParams (type : Expr) (result : Expr) : MetaM Bool := do\n  let resultType \u2190 inferType result\n  let defEq \u2190 withDefault <| withAssignableSyntheticOpaque <| isDefEq type resultType\n  unless defEq do\n    trace[Meta.synthInstance] \"{crossEmoji}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SynthInstance.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SynthInstance.lean",
+    "definition_name": "resolution"
+  }
+}

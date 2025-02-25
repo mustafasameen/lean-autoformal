@@ -1,0 +1,9 @@
+{
+  "content": "match x with\n  | Arg.var x => emitLhsSlot_ x\n  | _ => do\n    let slotty \u2190 LLVM.voidPtrType llvmctx\n    let slot \u2190 buildPrologueAlloca builder slotty \"irrelevant_slot\"\n    let v \u2190 callLeanBox builder (\u2190 constIntSizeT 0) \"irrelevant_val\"\n    let _ \u2190 LLVM.buildStore builder v slot\n    return (slotty, slot)\ndef emitArgVal (builder : LLVM.Builder llvmctx)\n    (x : Arg) (name : String := \"\") : M llvmctx (LLVM.LLVMType llvmctx \u00d7 LLVM.Value llvmctx) := do\n  let (xty, xslot) \u2190 emitArgSlot_ builder x\n  let xval \u2190 LLVM.buildLoad2 builder xty xslot name\n  return (xty, xval)\ndef emitAllocCtor (builder : LLVM.Builder llvmctx)\n    (c : CtorInfo) : M llvmctx (LLVM.Value llvmctx) := do\n  let hackSizeofVoidPtr := 8\n  let scalarSize := hackSizeofVoidPtr * c.usize + c.ssize\n  callLeanAllocCtor builder c.cidx c.size scalarSize \"lean_alloc_ctor_out\"\ndef emitCtorSetArgs (builder : LLVM.Builder llvmctx)\n    (z : VarId) (ys : Array Arg) : M llvmctx Unit := do\n  ys.size.forM fun i _ => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

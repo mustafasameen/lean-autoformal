@@ -1,0 +1,9 @@
+{
+  "content": "structure SourceInfo :=\n(leading  : Substring)\n(pos      : Nat)\n(trailing : Substring)\ndef mkUniqIdRef : IO (IO.Ref Nat) :=\nIO.mkRef 0\n@[init mkUniqIdRef]\nconstant nextUniqId : IO.Ref Nat := default _\nstructure SyntaxNodeKind :=\n(name : Name) (id : Nat)\ninstance : Inhabited SyntaxNodeKind :=\n\u27e8{name := default _, id := default _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "SourceInfo"
+  }
+}

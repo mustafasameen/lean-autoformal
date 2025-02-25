@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex2 (a b d e: Nat) : (f' a b d e |>.c) = d + e :=\n  rfl\nstructure D'' extends A, C' where\n  c := a\ndef f'' (a b d e : Nat) : D'' :=\n  { a, b, d, e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diamond3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diamond3.lean",
+    "definition_name": "ex2",
+    "has_proof": false
+  }
+}

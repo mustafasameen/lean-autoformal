@@ -1,0 +1,9 @@
+{
+  "content": "def grindPattern := leading_parser\n  \"grind_pattern \" >>  ident >> darrow >> sepBy1 termParser \",\"\n@[builtin_command_parser] def initGrindNorm := leading_parser\n  \"init_grind_norm \" >> many ident >> \"| \" >> many ident\nend Lean.Parser.Command",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Parser.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Parser.lean",
+    "definition_name": "grindPattern"
+  }
+}

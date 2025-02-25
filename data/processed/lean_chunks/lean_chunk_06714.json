@@ -1,0 +1,9 @@
+{
+  "content": "class MonadFileMap (m : Type \u2192 Type) where\n  getFileMap : m FileMap\nexport MonadFileMap (getFileMap)\nnamespace FileMap\ndef getLine (fmap : FileMap) (x : Nat) : Nat :=\n  min (x + 1) fmap.getLastLine\npartial def ofString (s : String) : FileMap :=\n  let rec loop (i : String.Pos) (line : Nat) (ps : Array String.Pos) : FileMap :=\n    if s.atEnd i then { source := s, positions := ps.push i }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Position.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Position.lean",
+    "definition_name": "MonadFileMap"
+  }
+}

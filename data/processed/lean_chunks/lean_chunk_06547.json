@@ -1,0 +1,9 @@
+{
+  "content": "let refs \u2190 self.allRefs[module]?\n  refs.findRange? pos includeStop\n  location    : Location\ndef referringTo\n    (self              : References)\n    (srcSearchPath     : SearchPath)\n    (ident             : RefIdent)\n    (includeDefinition : Bool := true)\n    : IO (Array DocumentRefInfo) := do\n  let mut result := #[]\n  for (moduleUri, info) in \u2190 self.allRefsFor srcSearchPath ident do\n    if includeDefinition then\n      if let some \u27e8range, parentDeclInfo?\u27e9 := info.definition? then\n        result := result.push \u27e8\u27e8moduleUri, range\u27e9, parentDeclInfo?\u27e9\n    for \u27e8range, parentDeclInfo?\u27e9 in info.usages do\n      result := result.push \u27e8\u27e8moduleUri, range\u27e9, parentDeclInfo?\u27e9\n  return result\ndef definitionsMatching\n    (self          : References)\n    (srcSearchPath : SearchPath)\n    (filter        : Name \u2192 Option \u03b1)\n    (maxAmount?    : Option Nat := none) : IO $ Array (\u03b1 \u00d7 Location) := do\n  let mut result := #[]\n  for (module, refs) in self.allRefs.toList do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

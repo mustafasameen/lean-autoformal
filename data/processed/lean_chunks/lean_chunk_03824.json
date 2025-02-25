@@ -1,0 +1,10 @@
+{
+  "content": "theorem forM_append [Monad m] [LawfulMonad m] (xs ys : Array \u03b1) (f : \u03b1 \u2192 m PUnit) :\n    forM (xs ++ ys) f = (do forM xs f; forM ys f) := by\n  rcases xs with \u27e8xs\u27e9\n  rcases ys with \u27e8ys\u27e9\n  simp\n@[simp] theorem forM_map [Monad m] [LawfulMonad m] (xs : Array \u03b1) (g : \u03b1 \u2192 \u03b2) (f : \u03b2 \u2192 m PUnit) :\n    forM (xs.map g) f = forM xs (fun a => f (g a)) := by\n  rcases xs with \u27e8xs\u27e9\n  simp\ntheorem forIn'_eq_foldlM [Monad m] [LawfulMonad m]\n    (xs : Array \u03b1) (f : (a : \u03b1) \u2192 a \u2208 xs \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) (init : \u03b2) :\n    forIn' xs init f = ForInStep.value <$>\n      xs.attach.foldlM (fun b \u27e8a, m\u27e9 => match b with\n        | .yield b => f a m b\n        | .done b => pure (.done b)) (ForInStep.yield init) := by\n  rcases xs with \u27e8xs\u27e9\n  simp [List.forIn'_eq_foldlM, List.foldlM_map]\n  congr\ntheorem forIn_eq_foldlM [Monad m] [LawfulMonad m]\n    (f : \u03b1 \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) (init : \u03b2) (xs : Array \u03b1) :\n    forIn xs init f = ForInStep.value <$>\n      xs.foldlM (fun b a => match b with\n        | .yield b => f a b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_name": "forM_append",
+    "has_proof": true
+  }
+}

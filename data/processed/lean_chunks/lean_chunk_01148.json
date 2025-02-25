@@ -1,0 +1,9 @@
+{
+  "content": "inductive type\n| bv  : Nat \u2192 type\n| bit : type\nopen type\ninductive plist (f : type \u2192 Type) : List type \u2192 Type\n| nil  : plist f []\n| cons {h:type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1968.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1968.lean",
+    "definition_name": "type"
+  }
+}

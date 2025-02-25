@@ -1,0 +1,10 @@
+{
+  "content": "rw [drop_eq_nil_of_le (by omega), drop_eq_nil_of_le (by omega)]\n    simp\n  termination_by max as.length bs.length - i\n  decreasing_by simp_wf; decreasing_trivial_pre_omega\n@[simp] theorem zipWithAll_toArray (f : Option \u03b1 \u2192 Option \u03b2 \u2192 \u03b3) (as : List \u03b1) (bs : List \u03b2) :\n    Array.zipWithAll f as.toArray bs.toArray = (List.zipWithAll f as bs).toArray := by\n  simp [Array.zipWithAll, zipWithAll_go_toArray]\n@[simp] theorem toArray_appendList (l\u2081 l\u2082 : List \u03b1) :\n    l\u2081.toArray ++ l\u2082 = (l\u2081 ++ l\u2082).toArray := by\n  apply ext'\n  simp\n@[simp] theorem pop_toArray (l : List \u03b1) : l.toArray.pop = l.dropLast.toArray := by\n  apply ext'\n  simp\ntheorem takeWhile_go_succ (p : \u03b1 \u2192 Bool) (a : \u03b1) (l : List \u03b1) (i : Nat) :\n    takeWhile.go p (a :: l).toArray (i+1) r = takeWhile.go p l.toArray i r := by\n  rw [takeWhile.go, takeWhile.go]\n  simp only [size_toArray, length_cons, Nat.add_lt_add_iff_right,\n    getElem_toArray, getElem_cons_succ]\n  split\n  rw [takeWhile_go_succ]\n  rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

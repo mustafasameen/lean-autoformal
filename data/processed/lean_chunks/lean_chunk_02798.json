@@ -1,0 +1,10 @@
+{
+  "content": "def Nat.pred : (@& Nat) \u2192 Nat\n  | 0      => 0\n  | succ a => a\ntheorem Nat.pred_le_pred : {n m : Nat} \u2192 LE.le n m \u2192 LE.le (pred n) (pred m)\n  | _,           _, Nat.le.refl   => Nat.le.refl\n  | 0,      succ _, Nat.le.step h => h\n  | succ _, succ _, Nat.le.step h => Nat.le_trans (le_succ _) h\ntheorem Nat.le_of_succ_le_succ {n m : Nat} : LE.le (succ n) (succ m) \u2192 LE.le n m :=\n  pred_le_pred\ntheorem Nat.le_of_lt_succ {m n : Nat} : LT.lt m (succ n) \u2192 LE.le m n :=\n  le_of_succ_le_succ\nprotected theorem Nat.eq_or_lt_of_le : {n m: Nat} \u2192 LE.le n m \u2192 Or (Eq n m) (LT.lt n m)\n  | zero,   zero,   _ => Or.inl rfl\n  | zero,   succ _, _ => Or.inr (Nat.succ_le_succ (Nat.zero_le _))\n  | succ _, zero,   h => absurd h (not_succ_le_zero _)\n  | succ n, succ m, h =>\n    have : LE.le n m := Nat.le_of_succ_le_succ h\n    match Nat.eq_or_lt_of_le this with\n    | Or.inl h => Or.inl (h \u25b8 rfl)\n    | Or.inr h => Or.inr (succ_le_succ h)\nprotected theorem Nat.lt_or_ge (n m : Nat) : Or (LT.lt n m) (GE.ge n m) :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_one [OneHomClass F M N] (f : F) : f 1 = 1 :=\n  OneHomClass.map_one f\nend One\nsection Mul\nvariable [Mul M] [Mul N]\nstructure MulHom (M : Type _) (N : Type _) [Mul M] [Mul N] where\n  toFun : M \u2192 N\n  map_mul' : \u2200 x y, toFun (x * y) = toFun x * toFun y\ninfixr:25 \" \u2192\u2099* \" => MulHom\nclass MulHomClass (F : Type _) (M N : outParam (Type _)) [outParam (Mul M)] [outParam (Mul N)]\n  extends FunLike F M fun _ => N where\n  map_mul : \u2200 (f : F) (x y : M), f (x * y) = f x * f y\n@[simp]\ntheorem map_mul [MulHomClass F M N] (f : F) (x y : M) : f (x * y) = f x * f y :=\n  MulHomClass.map_mul f x y\nend Mul\nsection mul_one\nvariable [MulOneClass M] [MulOneClass N]\nstructure MonoidHom (M : Type _) (N : Type _) [MulOneClass M] [MulOneClass N] extends\n  OneHom M N, M \u2192\u2099* N\ninfixr:25 \" \u2192* \" => MonoidHom\nclass MonoidHomClass (F : Type _) (M N : outParam (Type _)) [outParam (MulOneClass M)]\n   [outParam (MulOneClass N)] extends MulHomClass F M N, OneHomClass F M N",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1907orig.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1907orig.lean",
+    "definition_name": "map_one",
+    "has_proof": false
+  }
+}

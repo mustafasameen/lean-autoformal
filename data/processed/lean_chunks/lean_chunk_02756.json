@@ -1,0 +1,9 @@
+{
+  "content": "class MonadWithReaderOf (\u03c1 : semiOutParam (Type u)) (m : Type u \u2192 Type v) where\n  withReader {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "MonadWithReaderOf"
+  }
+}

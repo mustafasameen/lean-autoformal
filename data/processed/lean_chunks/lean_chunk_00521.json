@@ -1,0 +1,9 @@
+{
+  "content": "def veryLongNameForCompletion := Nat\ndef f (x : veryLongNam) := x",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/compHeader.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/compHeader.lean",
+    "definition_name": "veryLongNameForCompletion"
+  }
+}

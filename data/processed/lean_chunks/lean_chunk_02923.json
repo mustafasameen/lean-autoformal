@@ -1,0 +1,9 @@
+{
+  "content": "hints := .abbrev\n      safety := .safe\n    }\n    | .thm  => .thmInfo { fallbackVal with\n      value := mkApp2 (mkConst ``sorryAx [0]) fallbackVal.type (mkConst ``true)\n    }\n    | .axiom  => .axiomInfo { fallbackVal with\n      isUnsafe := false\n    }\n    | k => panic! s!\"AddConstAsyncResult.addConstAsync: unsupported constant kind {repr k}\"\n  let asyncConst := {\n    constInfo := {\n      name := constName\n      kind\n      sig := sigPromise.resultD fallbackVal\n      constInfo := infoPromise.resultD fallbackInfo\n    }\n    exts? := guard reportExts *> some (extensionsPromise.resultD #[])\n  }\n  return {\n    constName, kind\n    mainEnv := { env with\n      asyncConsts := env.asyncConsts.add asyncConst\n      checked := checkedEnvPromise.result?.bind (sync := true) fun\n        | some kenv => .pure kenv\n        | none      => env.checked }\n    asyncEnv := { env with\n      asyncCtx? := some { declPrefix := privateToUserName constName.eraseMacroScopes }\n    }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

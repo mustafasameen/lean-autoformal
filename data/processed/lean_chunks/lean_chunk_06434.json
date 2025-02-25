@@ -1,0 +1,9 @@
+{
+  "content": "structure Catch where\n  x         : Syntax\n  optType   : Syntax\n  codeBlock : CodeBlock\ndef getTryCatchUpdatedVars (tryCode : CodeBlock) (catches : Array Catch) (finallyCode? : Option CodeBlock) : VarSet :=\n  let ws := tryCode.uvars\n  let ws := catches.foldl (init := ws) fun ws alt => union alt.codeBlock.uvars ws\n  let ws := match finallyCode? with\n    | none   => ws\n    | some c => union c.uvars ws\n  ws\ndef tryCatchPred (tryCode : CodeBlock) (catches : Array Catch) (finallyCode? : Option CodeBlock) (p : Code \u2192 Bool) : Bool :=\n  p tryCode.code ||\n  catches.any (fun \u00abcatch\u00bb => p \u00abcatch\u00bb.codeBlock.code) ||\n  match finallyCode? with\n  | none => false\n  | some finallyCode => p finallyCode.code\nmutual\n  partial def doLetArrowToCode (doLetArrow : Syntax) (doElems : List Syntax) : M CodeBlock := do\n    let decl    := doLetArrow[2]\n    if decl.getKind == ``Parser.Term.doIdDecl then\n      let y := decl[0]\n      checkNotShadowingMutable #[y]\n      let doElem := decl[3]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

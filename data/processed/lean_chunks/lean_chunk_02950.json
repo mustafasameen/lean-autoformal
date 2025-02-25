@@ -1,0 +1,9 @@
+{
+  "content": "namespace Lean\ndef SourceInfo.updateTrailing (trailing : Substring) : SourceInfo \u2192 SourceInfo\n  | SourceInfo.original leading pos _ endPos => SourceInfo.original leading pos trailing endPos\n  | info                                     => info\ndef SourceInfo.getRange? (canonicalOnly := false) (info : SourceInfo) : Option String.Range :=\n  return \u27e8(\u2190 info.getPos? canonicalOnly), (\u2190 info.getTailPos? canonicalOnly)\u27e9\ndef SourceInfo.getRangeWithTrailing? (canonicalOnly := false) (info : SourceInfo) : Option String.Range :=\n  return \u27e8\u2190 info.getPos? canonicalOnly, \u2190 info.getTrailingTailPos? canonicalOnly\u27e9\ndef SourceInfo.nonCanonicalSynthetic : SourceInfo \u2192 SourceInfo\n  | SourceInfo.original _ pos _ endPos => SourceInfo.synthetic pos endPos false\n  | SourceInfo.synthetic pos endPos _  => SourceInfo.synthetic pos endPos false\n  | SourceInfo.none                    => SourceInfo.none\nderiving instance BEq for SourceInfo\npartial def structRangeEq : Syntax \u2192 Syntax \u2192 Bool",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "String"
+  }
+}

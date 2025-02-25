@@ -1,0 +1,10 @@
+{
+  "content": "| -[_ +1] => isFalse <| fun h => nomatch h\n@[extern \"lean_int_dec_le\"]\ninstance decLe (a b : @& Int) : Decidable (a \u2264 b) :=\n  decNonneg _\n@[extern \"lean_int_dec_lt\"]\ninstance decLt (a b : @& Int) : Decidable (a < b) :=\n  decNonneg _\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_nat_abs\"]\ndef natAbs (m : @& Int) : Nat :=\n  match m with\n  | ofNat m => m\n  | -[m +1] => m.succ\ndef sign : Int \u2192 Int\n  | Int.ofNat (succ _) => 1\n  | Int.ofNat 0 => 0\n  | -[_+1]      => -1\ndef toNat : Int \u2192 Nat\n  | ofNat n   => n\n  | negSucc _ => 0\ndef toNat' : Int \u2192 Option Nat\n  | (n : Nat) => some n\n  | -[_+1] => none\ninstance : Dvd Int where\n  dvd a b := Exists (fun c => b = a * c)\nprotected def pow (m : Int) : Nat \u2192 Int\n  | 0      => 1\n  | succ n => Int.pow m n * m\ninstance : NatPow Int where\n  pow := Int.pow\ninstance : LawfulBEq Int where\n  eq_of_beq h := by simp [BEq.beq] at h; assumption\n  rfl := by simp [BEq.beq]\ninstance : Min Int := minOfLe\ninstance : Max Int := maxOfLe\nend Int",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_name": "instOfNat",
+    "has_proof": true
+  }
+}

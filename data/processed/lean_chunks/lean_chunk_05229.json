@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_cons (f : \u03b1 \u2192 \u03b2) a l : map f (a :: l) = f a :: map f l := rfl\ndef filter (p : \u03b1 \u2192 Bool) : List \u03b1 \u2192 List \u03b1\n  | [] => []\n  | a::as => match p a with\n    | true => a :: filter p as\n    | false => filter p as\n@[simp] theorem filter_nil (p : \u03b1 \u2192 Bool) : filter p [] = [] := rfl\n@[specialize] def filterMap (f : \u03b1 \u2192 Option \u03b2) : List \u03b1 \u2192 List \u03b2\n  | []   => []\n  | a::as =>\n    match f a with\n    | none   => filterMap f as\n    | some b => b :: filterMap f as\n@[simp] theorem filterMap_nil (f : \u03b1 \u2192 Option \u03b2) : filterMap f [] = [] := rfl\ntheorem filterMap_cons (f : \u03b1 \u2192 Option \u03b2) (a : \u03b1) (l : List \u03b1) :\n    filterMap f (a :: l) =\n      match f a with\n      | none => filterMap f l\n      | some b => b :: filterMap f l := rfl\n@[specialize] def foldr (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (init : \u03b2) : List \u03b1 \u2192 \u03b2\n  | []     => init\n  | a :: l => f a (foldr f init l)\n@[simp] theorem foldr_nil : [].foldr f b = b := rfl\n@[simp] theorem foldr_cons (l : List \u03b1) : (a :: l).foldr f b = f a (l.foldr f b) := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "map_cons",
+    "has_proof": true
+  }
+}

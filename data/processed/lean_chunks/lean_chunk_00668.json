@@ -1,0 +1,9 @@
+{
+  "content": "class HasQuotient (A : outParam <| Type u) (B : Type v) where\n  quotient' : B \u2192 Type max u v\ndef HasQuotient.Quotient (A : outParam <| Type u) {B : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "HasQuotient"
+  }
+}

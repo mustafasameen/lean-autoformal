@@ -1,0 +1,9 @@
+{
+  "content": "def G := Nat\n#guard_msgs in\nexample : Type := by\n  left\nexample : Sum Nat (List Nat) := by\n  left\n  exact zero\nexample : Sum Nat (List Nat) := by\n  right\n  exact [0]\nexample : (1 = 1) \u2228 (2 = 3) := by\n  left\n  rfl\nexample : (1 = 2) \u2228 (3 = 3) := by\n  right\n  rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/left_right.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/left_right.lean",
+    "definition_name": "G"
+  }
+}

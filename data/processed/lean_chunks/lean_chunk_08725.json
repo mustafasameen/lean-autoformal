@@ -1,0 +1,10 @@
+{
+  "content": "theorem get?_alter_self [EquivBEq \u03b1] [LawfulHashable \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_name": "get",
+    "has_proof": false
+  }
+}

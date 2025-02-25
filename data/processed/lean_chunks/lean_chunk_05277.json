@@ -1,0 +1,10 @@
+{
+  "content": "theorem eraseIdx_eq_eraseIdxTR : @eraseIdx = @eraseIdxTR := by\n  funext \u03b1 l i; simp [eraseIdxTR]\n  suffices \u2200 xs acc, l = acc.toList ++ xs \u2192 eraseIdxTR.go l xs i acc = acc.toList ++ xs.eraseIdx i from\n    (this l #[] (by simp)).symm\n  intro xs; induction xs generalizing i with intro acc h\n  | nil => simp [eraseIdx, eraseIdxTR.go, h]\n  | cons x xs IH =>\n    match i with\n    | 0 => simp [eraseIdx, eraseIdxTR.go]\n    | i+1 =>\n      simp only [eraseIdxTR.go, eraseIdx]\n      rw [IH]; simp; simp; exact h\n  go : List \u03b1 \u2192 List \u03b2 \u2192 Array \u03b3 \u2192 List \u03b3\n  | a::as, b::bs, acc => go as bs (acc.push (f a b))\n  | _, _, acc => acc.toList\n@[csimp] theorem zipWith_eq_zipWithTR : @zipWith = @zipWithTR := by\n  funext \u03b1 \u03b2 \u03b3 f as bs\n  let rec go : \u2200 as bs acc, zipWithTR.go f as bs acc = acc.toList ++ as.zipWith f bs\n    | [], _, acc | _::_, [], acc => by simp [zipWithTR.go, zipWith]\n    | a::as, b::bs, acc => by simp [zipWithTR.go, zipWith, go as bs]\n  exact (go as bs #[]).symm",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_name": "eraseIdx_eq_eraseIdxTR",
+    "has_proof": true
+  }
+}

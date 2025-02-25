@@ -1,0 +1,10 @@
+{
+  "content": "theorem elim_with_implicit_target (motive : Bool \u2192 Nat \u2192 Prop)\n  (case1  : \u2200 m k, motive m k) {_ : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indimpltarget.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indimpltarget.lean",
+    "definition_name": "elim_with_implicit_target",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "@[deprecated getElem?_setIfInBounds_eq (since := \"2024-11-24\")] abbrev get?_setD_eq := @getElem?_setIfInBounds_self\n@[deprecated getD_get?_setIfInBounds (since := \"2024-11-24\")] abbrev getD_setD := @getD_get?_setIfInBounds\n@[deprecated getElem_setIfInBounds (since := \"2024-11-24\")] abbrev getElem_setD := @getElem_setIfInBounds\n@[deprecated List.getElem_toArray (since := \"2024-11-29\")]\ntheorem getElem_mk {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_ofFn",
+    "has_proof": true
+  }
+}

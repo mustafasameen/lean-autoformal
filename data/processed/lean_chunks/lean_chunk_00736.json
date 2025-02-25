@@ -1,0 +1,10 @@
+{
+  "content": "theorem foo : f x (x, y).2 = y := by sorry\nexample : f a b \u2264 b := by\nfail_if_success simp\n  set_option diagnostics true in\n  simp (config := { index := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpIndexDiag.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpIndexDiag.lean",
+    "definition_name": "foo",
+    "has_proof": true
+  }
+}

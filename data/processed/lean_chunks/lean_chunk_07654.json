@@ -1,0 +1,10 @@
+{
+  "content": "unfold getD\n  simp [hidx]\ntheorem get_out_bound (s : RefVec aig len) (idx : Nat) (alt : Ref aig) (hidx : len \u2264 idx) :\n    s.getD idx alt = alt := by\n  unfold getD\n  split\n  \u00b7 omega\n  \u00b7 rfl\ndef countKnown [Inhabited \u03b1] (aig : AIG \u03b1) (s : RefVec aig len) : Nat := Id.run do\n  let folder acc ref :=\n    let decl := aig.decls[ref]!\n    match decl with\n    | .const .. => acc + 1\n    | _ => acc\n  return s.refs.foldl (init := 0) folder\nend RefVec\nstructure BinaryRefVec (aig : AIG \u03b1) (len : Nat) where\n  lhs : RefVec aig len\n  rhs : RefVec aig len\nnamespace BinaryRefVec\n@[inline]\ndef cast {aig1 aig2 : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVec.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVec.lean",
+    "definition_name": "get_append",
+    "has_proof": true
+  }
+}

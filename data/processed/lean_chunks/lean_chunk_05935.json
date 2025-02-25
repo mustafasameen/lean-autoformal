@@ -1,0 +1,10 @@
+{
+  "content": "theorem emod_bmod_congr (x : Int) (n : Nat) : Int.bmod (x%n) n = Int.bmod x n := by\n  simp [bmod, Int.emod_emod]\ntheorem bdiv_add_bmod (x : Int) (m : Nat) : m * bdiv x m + bmod x m = x := by\n  unfold bdiv bmod\n  split\n  \u00b7 simp_all only [Nat.cast_ofNat_Int, Int.mul_zero, emod_zero, Int.zero_add, Int.sub_zero,\n      ite_self]\n  \u00b7 dsimp only\n    split\n    \u00b7 exact ediv_add_emod x m\n    \u00b7 rw [Int.mul_add, Int.mul_one, Int.add_assoc, Int.add_comm m, Int.sub_add_cancel]\n      exact ediv_add_emod x m\ntheorem bmod_add_bdiv (x : Int) (m : Nat) : bmod x m + m * bdiv x m = x := by\n  rw [Int.add_comm]; exact bdiv_add_bmod x m\ntheorem bdiv_add_bmod' (x : Int) (m : Nat) : bdiv x m * m + bmod x m = x := by\n  rw [Int.mul_comm]; exact bdiv_add_bmod x m\ntheorem bmod_add_bdiv' (x : Int) (m : Nat) : bmod x m + bdiv x m * m = x := by\n  rw [Int.add_comm]; exact bdiv_add_bmod' x m\ntheorem bmod_eq_self_sub_mul_bdiv (x : Int) (m : Nat) : bmod x m = x - m * bdiv x m := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "emod_bmod_congr",
+    "has_proof": true
+  }
+}

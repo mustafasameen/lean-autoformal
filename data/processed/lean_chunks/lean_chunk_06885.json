@@ -1,0 +1,9 @@
+{
+  "content": "| .eqBwd     => `(Parser.Tactic.grindParam| \u2190= $decl)\n            | .bwd       => `(Parser.Tactic.grindParam| \u2190 $decl)\n            | .fwd       => `(Parser.Tactic.grindParam| \u2192 $decl)\n            | .leftRight => `(Parser.Tactic.grindParam| => $decl)\n            | .rightLeft => `(Parser.Tactic.grindParam| <= $decl)\n            | .user      => `(Parser.Tactic.grindParam| usr $decl)\n            | .default   => `(Parser.Tactic.grindParam| $decl:ident)\n          params := params.push param\n  for declName in trace.eagerCases.toList do\n    unless Grind.isBuiltinEagerCases declName do\n      let decl : Ident := mkIdent (\u2190 unresolveNameGlobalAvoidingLocals declName)\n      let param \u2190 `(Parser.Tactic.grindParam| cases eager $decl)\n      params := params.push param\n  for declName in trace.cases.toList do\n    unless trace.eagerCases.contains declName || Grind.isBuiltinEagerCases declName do\n      let decl : Ident := mkIdent (\u2190 unresolveNameGlobalAvoidingLocals declName)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_name": "grindOnlyPos"
+  }
+}

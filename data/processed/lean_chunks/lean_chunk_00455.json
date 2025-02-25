@@ -1,0 +1,9 @@
+{
+  "content": "def foo := 10\ndef f (x : Nat) := x + x\nnamespace Bla\nprivate def foo := \"hello\"\n#check foo\nend Bla\nnamespace Boo\ndef boo := 100\nnamespace Bla\nprivate def boo := \"hello\"\n#check boo\n#check boo ++ \"world\"\nend Bla\nend Boo\nprivate def Nat.mul10 (x : Nat) := x * 10\ndef x := 10\n#eval x.mul10",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/private.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/private.lean",
+    "definition_name": "foo"
+  }
+}

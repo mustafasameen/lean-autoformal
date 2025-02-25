@@ -1,0 +1,9 @@
+{
+  "content": "def S := List Nat\nopaque TSpec : NonemptyType\ndef T (s : S) : Type :=  TSpec.type\ninstance (s : S) : Nonempty (T s) :=\n  TSpec.property\ninductive Op : (ishapes : List S) \u2192 (oshape : S) \u2192 Type\n  | binary : (shape : S) \u2192 Op [shape, shape] shape\n  | gemm   : {m n p : Nat} \u2192 Op [[m, n], [n, p]] [m, p]\nnoncomputable def Op.f : {ishapes : List S} \u2192 {oshape : S} \u2192 Op ishapes oshape \u2192 T oshape\n  | [shape, _],        _,      binary _ => Classical.ofNonempty\n  | [[m, n], [_, p]],  [_, _], gemm     => Classical.ofNonempty\n#print Op.f\nnoncomputable def Op.f2 : {ishapes : List S} \u2192 {oshape : S} \u2192 Op ishapes oshape \u2192 T oshape\n  | _,  _, binary _ => Classical.ofNonempty\n  | _,  _, gemm     => Classical.ofNonempty\n#print Op.f2\nnoncomputable def Op.f2' {ishapes : List S} {oshape : S} : Op ishapes oshape \u2192 T oshape\n  | binary _ => Classical.ofNonempty\n  | gemm     => Classical.ofNonempty\nnoncomputable def Op.f2'' : Op i o \u2192 T o\n  | binary _ => Classical.ofNonempty\n  | gemm     => Classical.ofNonempty",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1385.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1385.lean",
+    "definition_name": "S"
+  }
+}

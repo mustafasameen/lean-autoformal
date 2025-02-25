@@ -1,0 +1,10 @@
+{
+  "content": "theorem addComm4 [CommAddSemigroup \u03b1] {a b c : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/270.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/270.lean",
+    "definition_name": "addComm4",
+    "has_proof": false
+  }
+}

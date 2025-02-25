@@ -1,0 +1,9 @@
+{
+  "content": "unless resolutionOrderResult.conflicts.isEmpty do\n    let mut defects : List MessageData := []\n    for conflict in resolutionOrderResult.conflicts do\n      let parentKind direct := if direct then \"parent\" else \"indirect parent\"\n      let conflicts := conflict.conflicts.map fun (isDirect, name) =>\n        m!\"{parentKind isDirect} '{MessageData.ofConstName name}'\"\n      defects := m!\"- {parentKind conflict.isDirectParent} '{MessageData.ofConstName conflict.badParent}' \\\n        must come after {MessageData.andList conflicts.toList}\" :: defects\n    logWarning m!\"failed to compute strict resolution order:\\n{MessageData.joinSep defects.reverse \"\\n\"}\"\nprivate def addParentInstances (parents : Array StructureParentInfo) : MetaM Unit := do\n  let env \u2190 getEnv\n  let instParents := parents.filter fun parent => isClass env parent.structName\n  let resOrders : Array (Array Name) \u2190 instParents.mapM fun parent => getStructureResolutionOrder parent.structName",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

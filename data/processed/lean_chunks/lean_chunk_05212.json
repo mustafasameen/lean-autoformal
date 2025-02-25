@@ -1,0 +1,10 @@
+{
+  "content": "theorem IsPrefix.filter (p : \u03b1 \u2192 Bool) \u2983l\u2081 l\u2082 : List \u03b1\u2984 (h : l\u2081 <+: l\u2082) :\n    l\u2081.filter p <+: l\u2082.filter p := by\n  obtain \u27e8xs, rfl\u27e9 := h\n  rw [filter_append]; apply prefix_append\ntheorem IsSuffix.filter (p : \u03b1 \u2192 Bool) \u2983l\u2081 l\u2082 : List \u03b1\u2984 (h : l\u2081 <:+ l\u2082) :\n    l\u2081.filter p <:+ l\u2082.filter p := by\n  obtain \u27e8xs, rfl\u27e9 := h\n  rw [filter_append]; apply suffix_append\ntheorem IsInfix.filter (p : \u03b1 \u2192 Bool) \u2983l\u2081 l\u2082 : List \u03b1\u2984 (h : l\u2081 <:+: l\u2082) :\n    l\u2081.filter p <:+: l\u2082.filter p := by\n  obtain \u27e8xs, ys, rfl\u27e9 := h\n  rw [filter_append, filter_append]; apply infix_append _\ntheorem IsPrefix.filterMap {\u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "IsPrefix",
+    "has_proof": true
+  }
+}

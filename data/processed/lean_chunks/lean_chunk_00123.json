@@ -1,0 +1,9 @@
+{
+  "content": "inductive foo {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/issue3232.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/issue3232.lean",
+    "definition_name": "foo"
+  }
+}

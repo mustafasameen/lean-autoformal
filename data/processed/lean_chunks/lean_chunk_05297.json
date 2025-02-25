@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_concat_get (l : List \u03b1) (i : Nat) (h : i < l.length) :\n    (l.take i).concat l[i] = l.take (i+1) :=\n  Eq.symm <| (append_left_inj _).1 <| (take_append_drop (i+1) l).trans <| by\n    rw [concat_eq_append, append_assoc, singleton_append, getElem_cons_drop_succ_eq_drop, take_append_drop]\n@[simp] theorem take_append_getElem (l : List \u03b1) (i : Nat) (h : i < l.length) :\n    (l.take i) ++ [l[i]] = l.take (i+1) := by\n  simpa using take_concat_get l i h\ntheorem take_succ_eq_append_getElem {i}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_name": "take_concat_get",
+    "has_proof": true
+  }
+}

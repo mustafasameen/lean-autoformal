@@ -1,0 +1,9 @@
+{
+  "content": "inductive Color where\n  | Red\n  | Black\nopen Color\ninductive rbnode : Nat \u2192 Color \u2192 Type where\n  | Leaf : rbnode 1 Black\n  | R {h}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/matchWithSearch.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/matchWithSearch.lean",
+    "definition_name": "Color"
+  }
+}

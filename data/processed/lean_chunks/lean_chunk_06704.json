@@ -1,0 +1,9 @@
+{
+  "content": "def Options := KVMap\ndef Options.empty : Options  := {}\ninstance : Inhabited Options where\n  default := {}\ninstance : ToString Options := inferInstanceAs (ToString KVMap)\ninstance : ForIn m Options (Name \u00d7 DataValue) := inferInstanceAs (ForIn _ KVMap _)\ninstance : BEq Options := inferInstanceAs (BEq KVMap)\nstructure OptionDecl where\n  declName : Name := by exact decl_name%\n  defValue : DataValue\n  group    : String := \"\"\n  descr    : String := \"\"\n  deriving Inhabited\ndef OptionDecls := NameMap OptionDecl\ninstance : Inhabited OptionDecls := \u27e8({} : NameMap OptionDecl)\u27e9\nprivate builtin_initialize optionDeclsRef : IO.Ref OptionDecls \u2190 IO.mkRef (mkNameMap OptionDecl)\n@[export lean_register_option]\ndef registerOption (name : Name) (decl : OptionDecl) : IO Unit := do\n  unless (\u2190 initializing) do\n    throw (IO.userError \"failed to register option, options can only be registered during initialization\")\n  let decls \u2190 optionDeclsRef.get\n  if decls.contains name then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_name": "Options"
+  }
+}

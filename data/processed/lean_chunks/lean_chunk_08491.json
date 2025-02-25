@@ -1,0 +1,9 @@
+{
+  "content": "{\u03c1 : Type w} [ForIn Id \u03c1 \u03b1] (m : DHashMap \u03b1 (fun _ => Unit)) (l : \u03c1) :\n    DHashMap \u03b1 (fun _ => Unit) :=\n  \u27e8(Raw\u2080.Const.insertManyIfNewUnit \u27e8m.1, m.2.size_buckets_pos\u27e9 l).1,\n   (Raw\u2080.Const.insertManyIfNewUnit \u27e8m.1, m.2.size_buckets_pos\u27e9 l).2 _ Raw.WF.insertIfNew\u2080 m.2\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_name": "empty"
+  }
+}

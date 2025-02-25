@@ -1,0 +1,9 @@
+{
+  "content": "structure PassInstaller where\n  install : Array Pass \u2192 CoreM (Array Pass)\n  deriving Inhabited\nstructure PassManager where\n  passes : Array Pass\n  deriving Inhabited\ninstance : ToString Phase where\n  toString\n    | .base => \"base\"\n    | .mono => \"mono\"\n    | .impure => \"impure\"\nnamespace Pass\ndef mkPerDeclaration (name : Name) (run : Decl \u2192 CompilerM Decl) (phase : Phase) (occurrence : Nat := 0) : Pass where\n  occurrence := occurrence\n  phase := phase\n  name := name\n  run := fun xs => xs.mapM run\nend Pass\nnamespace PassManager\ndef validate (manager : PassManager) : CoreM Unit := do\n  let mut current := .base\n  for pass in manager.passes do\n    if \u00ac(current \u2264 pass.phase) then\n      throwError s!\"{pass.name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PassManager.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PassManager.lean",
+    "definition_name": "PassInstaller"
+  }
+}

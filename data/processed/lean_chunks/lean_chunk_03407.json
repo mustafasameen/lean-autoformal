@@ -1,0 +1,10 @@
+{
+  "content": "theorem admissible_flatOrder (P : FlatOrder b \u2192 Prop) (hnot : P b) : admissible P := by\n  intro c hchain h\n  by_cases h' : \u2203 (x : FlatOrder b), c x \u2227 x \u2260 b\n  \u00b7 simp [CCPO.csup, flat_csup, h']\n    apply Classical.some_spec\u2082 (q := (P \u00b7))\n    intro x \u27e8hcx, hneb\u27e9\n    apply h x hcx\n  \u00b7 simp [CCPO.csup, flat_csup, h', hnot]\nend flat_order\nsection mono_bind\nclass MonoBind (m : Type u \u2192 Type v) [Bind m] [\u2200 \u03b1, PartialOrder (m \u03b1)] where\n  bind_mono_left {a\u2081 a\u2082 : m \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "admissible_flatOrder",
+    "has_proof": true
+  }
+}

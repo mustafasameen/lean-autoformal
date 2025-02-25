@@ -1,0 +1,9 @@
+{
+  "content": "| .lam ..          => return .none\n  | .letE ..         => return .undef\n  | .proj ..         => return .undef\n  | .forallE _ _ b _ => isClassQuick? b\n  | .mdata _ e       => isClassQuick? e\n  | .const n _       => isClassQuickConst? n\n  | .mvar mvarId     => do\n    let some val \u2190 getExprMVarAssignment? mvarId | return .none\n    isClassQuick? val\n  | .app f _         => do\n    match f.getAppFn with\n    | .const n ..  => isClassQuickConst? n\n    | .lam ..      => return .undef\n    | .mvar mvarId =>\n      let some val \u2190 getExprMVarAssignment? mvarId | return .none\n      match val.getAppFn with\n      | .const n .. => isClassQuickConst? n\n      | _ => return .undef\n    | _            => return .none\nprivate def withNewLocalInstanceImp (className : Name) (fvar : Expr) (k : MetaM \u03b1) : MetaM \u03b1 := do\n  let localDecl \u2190 getFVarLocalDecl fvar\n  if localDecl.isImplementationDetail then\n    k\n  else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

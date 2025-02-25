@@ -1,0 +1,9 @@
+{
+  "content": ".success it default\n@[inline]\ndef skip : Parsec \u03b9 Unit := fun it =>\n  if h : Input.hasNext it then\n    .success (Input.next' it h) ()\n  else\n    .error it unexpectedEndOfInput\n@[specialize]\npartial def manyCharsCore (p : Parsec \u03b9 Char) (acc : String) : Parsec \u03b9 String :=\n  tryCatch p (manyCharsCore p <| acc.push \u00b7) (fun _ => pure acc)\n@[inline]\ndef manyChars (p : Parsec \u03b9 Char) : Parsec \u03b9 String := manyCharsCore p \"\"\n@[inline]\ndef many1Chars (p : Parsec \u03b9 Char) : Parsec \u03b9 String := do manyCharsCore p (\u2190 p).toString\nend Parsec\nend Std.Internal",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Internal/Parsec/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Internal/Parsec/Basic.lean",
+    "definition_name": "expectedEndOfInput"
+  }
+}

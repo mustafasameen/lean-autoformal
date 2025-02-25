@@ -1,0 +1,10 @@
+{
+  "content": "theorem _root_.Char.utf8Size_pos (c : Char) : 0 < c.utf8Size := by\n  repeat first | apply iteInduction (motive := (0 < \u00b7)) <;> intros | decide\ntheorem _root_.Char.utf8Size_le_four (c : Char) : c.utf8Size \u2264 4 := by\n  repeat first | apply iteInduction (motive := (\u00b7 \u2264 4)) <;> intros | decide\n@[deprecated Char.utf8Size_pos (since := \"2026-06-04\")] abbrev one_le_csize := Char.utf8Size_pos\n@[simp] theorem pos_lt_eq (p\u2081 p\u2082 : Pos) : (p\u2081 < p\u2082) = (p\u2081.1 < p\u2082.1) := rfl\n@[simp] theorem pos_add_char (p : Pos) (c : Char) : (p + c).byteIdx = p.byteIdx + c.utf8Size := rfl\nprotected theorem Pos.ne_zero_of_lt : {a b : Pos}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "_root_",
+    "has_proof": true
+  }
+}

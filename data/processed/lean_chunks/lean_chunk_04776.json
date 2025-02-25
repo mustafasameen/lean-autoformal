@@ -1,0 +1,10 @@
+{
+  "content": "theorem sign_eq_one_iff_pos {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "sign_eq_one_iff_pos",
+    "has_proof": false
+  }
+}

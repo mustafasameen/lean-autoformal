@@ -1,0 +1,10 @@
+{
+  "content": "structure ZipTarget (aig : AIG \u03b1) (len : Nat) where\n  input : BinaryRefVec aig len\n  func : (aig : AIG \u03b1) \u2192 BinaryInput aig \u2192 Entrypoint \u03b1\n  [lawful : LawfulOperator \u03b1 BinaryInput func]\n  [chainable : LawfulZipOperator \u03b1 func]\nattribute [instance] ZipTarget.lawful\nattribute [instance] ZipTarget.chainable\n@[specialize]\ndef zip (aig : AIG \u03b1) (target : ZipTarget aig len) : RefVecEntry \u03b1 len :=\n  go aig 0 .empty (by omega) target.input.lhs target.input.rhs target.func\nwhere\n  @[specialize]\n  go (aig : AIG \u03b1) (idx : Nat) (s : RefVec aig idx) (hidx : idx \u2264 len)\n      (lhs rhs : RefVec aig len) (f : (aig : AIG \u03b1) \u2192 BinaryInput aig \u2192 Entrypoint \u03b1)\n      [LawfulOperator \u03b1 BinaryInput f] [LawfulZipOperator \u03b1 f] :\n      RefVecEntry \u03b1 len :=\n    if hidx : idx < len then\n      let res := f aig \u27e8lhs.get idx hidx, rhs.get idx hidx\u27e9\n      let aig := res.aig\n      let newRef := res.ref\n      have := by\n        intros\n        apply LawfulOperator.le_size_of_le_aig_size\n        omega",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Zip.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Zip.lean",
+    "definition_name": "ZipTarget",
+    "has_proof": true
+  }
+}

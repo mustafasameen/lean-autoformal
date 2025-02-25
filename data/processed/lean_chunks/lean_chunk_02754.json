@@ -1,0 +1,9 @@
+{
+  "content": "class MonadExceptOf (\u03b5 : semiOutParam (Type u)) (m : Type v \u2192 Type w) where\n  throw {\u03b1 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "MonadExceptOf"
+  }
+}

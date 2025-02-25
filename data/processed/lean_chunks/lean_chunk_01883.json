@@ -1,0 +1,9 @@
+{
+  "content": "inductive Wk: Nat -> Nat -> Type 0 where\n  | id: Wk n n\n  | step: Wk m n -> Wk (Nat.succ m) n\n  | lift: Wk m n -> Wk (Nat.succ m) (Nat.succ n)\ndef wk_comp {n m l: Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/837.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/837.lean",
+    "definition_name": "Wk"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "ofMilliseconds total\ndef subMilliseconds (time : PlainTime) (millisToSub : Millisecond.Offset) : PlainTime :=\n  addMilliseconds time (-millisToSub)\n@[inline]\ndef withSeconds (pt : PlainTime) (second : Second.Ordinal true) : PlainTime :=\n  { pt with second := second }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_name": "PlainTime"
+  }
+}

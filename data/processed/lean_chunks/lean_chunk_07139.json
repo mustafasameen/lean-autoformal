@@ -1,0 +1,9 @@
+{
+  "content": "let altsRange    := [discrPos + 1:arity]\n  let altNumParams \u2190 val.ctors.toArray.mapM fun ctor => do\n    let .ctorInfo ctorVal \u2190 getConstInfo ctor | unreachable!\n    return ctorVal.numFields\n  return some { declName, numParams, motivePos, arity, discrPos, altsRange, altNumParams }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Util.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Util.lean",
+    "definition_name": "CasesInfo"
+  }
+}

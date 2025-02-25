@@ -1,0 +1,10 @@
+{
+  "content": "theorem id_obj (X : C) : (\ud835\udfed C).obj X = X := rfl\ntheorem id_map {X Y : C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_cat_adjunction.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_cat_adjunction.lean",
+    "definition_name": "id_obj",
+    "has_proof": false
+  }
+}

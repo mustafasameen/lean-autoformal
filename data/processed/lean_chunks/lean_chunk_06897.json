@@ -1,0 +1,9 @@
+{
+  "content": "let arg \u2190 match post, inv with\n          | true,  true  => `(Parser.Tactic.simpLemma| \u2190 $decl:term)\n          | true,  false => `(Parser.Tactic.simpLemma| $decl:term)\n          | false, true  => `(Parser.Tactic.simpLemma| \u2193 \u2190 $decl:term)\n          | false, false => `(Parser.Tactic.simpLemma| \u2193 $decl:term)\n        args := args.push arg\n      else if (\u2190 Simp.isBuiltinSimproc declName) then\n        let decl := mkIdent declName\n        let arg \u2190 match post with\n          | true  => `(Parser.Tactic.simpLemma| $decl:term)\n          | false => `(Parser.Tactic.simpLemma| \u2193 $decl:term)\n        args := args.push arg\n    | .fvar fvarId =>\n      if let some ldecl := lctx.find? fvarId then\n        if isSimpAll && !ldecl.hasValue then\n          continue\n        localsOrStar := localsOrStar.bind fun locals =>\n          if !ldecl.userName.isInaccessibleUserName && !ldecl.userName.hasMacroScopes &&\n              (lctx.findFromUserName? ldecl.userName).get!.fvarId == ldecl.fvarId then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "simpParamsPos"
+  }
+}

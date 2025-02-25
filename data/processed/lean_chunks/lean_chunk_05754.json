@@ -1,0 +1,10 @@
+{
+  "content": "theorem mapFinIdx_eq_mapIdx {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/MapIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/MapIdx.lean",
+    "definition_name": "mapFinIdx_eq_mapIdx",
+    "has_proof": false
+  }
+}

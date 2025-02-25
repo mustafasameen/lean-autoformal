@@ -1,0 +1,10 @@
+{
+  "content": "theorem suffix_cons (a : \u03b1) : \u2200 l, l <:+ a :: l := suffix_append [a]\ntheorem infix_cons : l\u2081 <:+: l\u2082 \u2192 l\u2081 <:+: a :: l\u2082 := fun \u27e8l\u2081', l\u2082', h\u27e9 => \u27e8a :: l\u2081', l\u2082', h \u25b8 rfl\u27e9\ntheorem infix_concat : l\u2081 <:+: l\u2082 \u2192 l\u2081 <:+: concat l\u2082 a := fun \u27e8l\u2081', l\u2082', h\u27e9 =>\n  \u27e8l\u2081', concat l\u2082' a, by simp [\u2190 h, concat_eq_append, append_assoc]\u27e9\ntheorem IsPrefix.trans : \u2200 {l\u2081 l\u2082 l\u2083 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "suffix_cons",
+    "has_proof": true
+  }
+}

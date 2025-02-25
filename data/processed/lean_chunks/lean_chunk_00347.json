@@ -1,0 +1,9 @@
+{
+  "content": "structure Op (tp : Type) (val : Type) where\n  args : Array tp\n  result : tp\n  apply : Array val \u2192 val\n deriving Inhabited\ndef mkOp (args : List tp) (result : tp) (apply : Array val \u2192 val) : Op tp val :=\n  { apply := apply, args := args.toArray, result }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "Op"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| .const declName _ args =>\n      let env \u2190 getEnv\n      args.forM handleFunArg\n      match (\u2190 getDecl? declName) with\n      | some decl =>\n        if decl.getArity == args.size then\n          match getFunctionSummary? env declName with\n          | some v => return v\n          | none => return (\u2190 findFunVal? declName).getD .top\n        else\n          return .top\n      | none =>\n        let some (.ctorInfo info) := env.find? declName | return .top\n        let args := args[info.numParams:].toArray\n        if info.numFields == args.size then\n          return .ctor declName (\u2190 args.mapM findArgValue)\n        else\n          return .top\n    | .fvar _ args =>\n      args.forM handleFunArg\n      return .top\n    | .erased => return .top\n  handleFunArg (arg : Arg) : InterpM Unit := do\n    if let .fvar fvarId := arg then\n      handleFunVar fvarId\n  handleFunVar (var : FVarId) : InterpM Unit := do\n    if let some funDecl \u2190 findFunDecl? var then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

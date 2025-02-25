@@ -1,0 +1,10 @@
+{
+  "content": "xs.reverse.foldr f b = xs.foldl (fun x y => f y x) b :=\n  (foldl_reverse ..).symm.trans <| by simp\ntheorem foldl_eq_foldr_reverse (xs : Array \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b) :\n    xs.foldl f b = xs.reverse.foldr (fun x y => f y x) b := by simp\ntheorem foldr_eq_foldl_reverse (xs : Array \u03b1) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b) :\n    xs.foldr f b = xs.reverse.foldl (fun x y => f y x) b := by simp\n@[simp] theorem foldr_push_eq_append {as : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "foldr_append",
+    "has_proof": true
+  }
+}

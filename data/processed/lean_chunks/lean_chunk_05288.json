@@ -1,0 +1,10 @@
+{
+  "content": "induction l generalizing i with\n  | nil => simp\n  | cons hd tl hl =>\n    cases i\n    \u00b7 simp\n    \u00b7 simp [hl]\n@[simp]\ntheorem drop_tail (l : List \u03b1) (i : Nat) : l.tail.drop i = l.drop (i + 1) := by\n  rw [Nat.add_comm, \u2190 drop_drop, drop_one]\n@[simp]\ntheorem drop_eq_nil_iff {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_name": "drop_drop",
+    "has_proof": true
+  }
+}

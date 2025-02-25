@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  a : Nat\n  b : Nat\ndef bla (x : Foo) : IO Unit := do\n  let { a, b }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/setStructInstNotation.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/setStructInstNotation.lean",
+    "definition_name": "Foo"
+  }
+}

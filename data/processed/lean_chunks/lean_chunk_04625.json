@@ -1,0 +1,10 @@
+{
+  "content": "simp_all [\u2190 Int.add_mul]\nattribute [local simp] Poly.denote_insert\ntheorem Poly.denote_norm (ctx : Context) (p : Poly) : p.norm.denote ctx = p.denote ctx := by\n  induction p <;> simp [*]\nattribute [local simp] Poly.denote_norm\ntheorem Poly.denote_append (ctx : Context) (p\u2081 p\u2082 : Poly) : (p\u2081.append p\u2082).denote ctx = p\u2081.denote ctx + p\u2082.denote ctx := by\n  induction p\u2081 <;> simp [append, *]\nattribute [local simp] Poly.denote_append\ntheorem Poly.denote_combine' (ctx : Context) (fuel : Nat) (p\u2081 p\u2082 : Poly) : (p\u2081.combine' fuel p\u2082).denote ctx = p\u2081.denote ctx + p\u2082.denote ctx := by\n  fun_induction p\u2081.combine' fuel p\u2082 <;>\n    simp +zetaDelta only [combine', cond_true, cond_false, *] <;>\n    simp_all +zetaDelta [denote, \u2190 Int.add_mul]\ntheorem Poly.denote_combine (ctx : Context) (p\u2081 p\u2082 : Poly) : (p\u2081.combine p\u2082).denote ctx = p\u2081.denote ctx + p\u2082.denote ctx := by\n  simp [combine, denote_combine']\nattribute [local simp] Poly.denote_combine\ntheorem sub_fold (a b : Int) : a.sub b = a - b := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

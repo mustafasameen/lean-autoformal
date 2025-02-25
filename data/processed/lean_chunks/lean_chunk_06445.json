@@ -1,0 +1,9 @@
+{
+  "content": "| .break ref           => ref\n  | .continue ref        => ref\n  | .return ref _        => ref\n  | .ite ref ..          => ref\n  | .match ref ..        => ref\n  | .matchExpr ref ..    => ref\n  | .jmp ref ..          => ref\nabbrev VarSet := RBMap Name Syntax Name.cmp\npartial def hasExitPointPred (c : Code) (p : Code \u2192 Bool) : Bool :=\n  let rec loop : Code \u2192 Bool\n    | .decl _ _ k             => loop k\n    | .reassign _ _ k         => loop k\n    | .joinpoint _ _ b k      => loop b || loop k\n    | .seq _ k                => loop k\n    | .ite _ _ _ _ t e        => loop t || loop e\n    | .match _ _ _ _ alts     => alts.any (loop \u00b7.rhs)\n    | .matchExpr _ _ _ alts e => alts.any (loop \u00b7.rhs) || loop e\n    | .jmp ..                 => false\n    | c                       => p c\n  loop c\ndef hasExitPoint (c : Code) : Bool :=\n  hasExitPointPred c fun _ => true\ndef hasReturn (c : Code) : Bool :=\n  hasExitPointPred c fun\n    | .return .. => true\n    | _ => false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Code"
+  }
+}

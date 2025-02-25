@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_succ_iff : m < succ n \u2194 m \u2264 n := \u27e8le_of_lt_succ, lt_succ_of_le\u27e9\nprotected theorem lt_add_one_iff : m < n + 1 \u2194 m \u2264 n := \u27e8le_of_lt_succ, lt_succ_of_le\u27e9\nprotected theorem lt_succ_iff_lt_or_eq : m < succ n \u2194 m < n \u2228 m = n :=\n  Nat.lt_succ_iff.trans Nat.le_iff_lt_or_eq\nprotected theorem lt_add_one_iff_lt_or_eq : m < n + 1 \u2194 m < n \u2228 m = n :=\n  Nat.lt_add_one_iff.trans Nat.le_iff_lt_or_eq\nprotected theorem eq_of_lt_succ_of_not_lt (hmn : m < n + 1) (h : \u00ac m < n) : m = n :=\n  (Nat.lt_succ_iff_lt_or_eq.1 hmn).resolve_left h\nprotected theorem eq_of_le_of_lt_succ (h\u2081 : n \u2264 m) (h\u2082 : m < n + 1) : m = n :=\n  Nat.le_antisymm (le_of_succ_le_succ h\u2082) h\u2081\nprotected abbrev one_pos := @Nat.zero_lt_one\nprotected theorem two_pos : 0 < 2 := Nat.zero_lt_succ _\nprotected theorem ne_zero_iff_zero_lt : n \u2260 0 \u2194 0 < n := Nat.pos_iff_ne_zero.symm\nprotected theorem zero_lt_two : 0 < 2 := Nat.zero_lt_succ _\nprotected theorem one_lt_two : 1 < 2 := Nat.succ_lt_succ Nat.zero_lt_one",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "lt_succ_iff",
+    "has_proof": true
+  }
+}

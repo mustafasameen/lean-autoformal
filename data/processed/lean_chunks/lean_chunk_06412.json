@@ -1,0 +1,9 @@
+{
+  "content": "inductive type, universe parameters mismatch in mutually inductive datatypes\"\nprivate def ElabHeaderResult.checkLevelNames (rs : Array PreElabHeaderResult) : TermElabM Unit := do\n  if h : rs.size > 1 then\n    let levelNames := rs[0].levelNames\n    for r in rs do\n      unless r.levelNames == levelNames do\n        throwErrorAt r.view.ref \"invalid inductive type, universe parameters mismatch in mutually inductive datatypes\"\nprivate def updateElabHeaderTypes (params : Array Expr) (rs : Array PreElabHeaderResult) (indFVars : Array Expr) : TermElabM (Array ElabHeaderResult) := do\n  rs.mapIdxM fun i r => do\n    let type \u2190 instantiateMVars r.type\n    let type := type.replaceFVars r.params params\n    pure { r with lctx := \u2190 getLCtx, localInsts := \u2190 getLocalInstances, type := type, indFVar := indFVars[i]! }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "type"
+  }
+}

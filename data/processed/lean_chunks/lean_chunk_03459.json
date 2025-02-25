@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_zero : (0 : $typeName).toNat = 0 := Nat.zero_mod _\n  @[simp] protected theorem toNat_add (a b : $typeName) : (a + b).toNat = (a.toNat + b.toNat) % 2 ^ $bits := BitVec.toNat_add ..\n  protected theorem toNat_sub (a b : $typeName) : (a - b).toNat = (2 ^ $bits - b.toNat + a.toNat) % 2 ^ $bits := BitVec.toNat_sub  ..\n  @[simp] protected theorem toNat_mul (a b : $typeName) : (a * b).toNat = a.toNat * b.toNat % 2 ^ $bits := BitVec.toNat_mul  ..\n  @[simp] protected theorem toNat_mod (a b : $typeName) : (a % b).toNat = a.toNat % b.toNat := BitVec.toNat_umod ..\n  @[simp] protected theorem toNat_div (a b : $typeName) : (a / b).toNat = a.toNat / b.toNat := BitVec.toNat_udiv  ..\n  @[simp] protected theorem toNat_sub_of_le (a b : $typeName) : b \u2264 a \u2192 (a - b).toNat = a.toNat - b.toNat := BitVec.toNat_sub_of_le\n  protected theorem toNat_lt_size (a : $typeName) : a.toNat < size := a.toBitVec.isLt\n  open $typeName (toNat_mod toNat_lt_size) in\n  protected theorem toNat_mod_lt {m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_name": "toNat_zero",
+    "has_proof": false
+  }
+}

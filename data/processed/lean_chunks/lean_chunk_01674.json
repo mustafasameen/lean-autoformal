@@ -1,0 +1,9 @@
+{
+  "content": "instance boolToNat : Coe Bool Nat :=\n{ coe := fun b => cond b 1 0 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/CoeNew.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/CoeNew.lean",
+    "definition_name": "boolToNat"
+  }
+}

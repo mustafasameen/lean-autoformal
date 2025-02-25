@@ -1,0 +1,9 @@
+{
+  "content": "structure Config where\n  transparency : TransparencyMode := .reducible\n  offsetCnstrs : Bool := true\n  occs : Occurrences := .all\n  newGoals : NewGoals := .nonDependentFirst\nend Rewrite\nnamespace Omega\n  splitDisjunctions : Bool := true\n  splitNatSub : Bool := true\n  splitNatAbs : Bool := true\n  splitMinMax : Bool := true\nend Omega\nnamespace CheckTactic\ninductive CheckGoalType {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Meta.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Meta.lean",
+    "definition_name": "Config"
+  }
+}

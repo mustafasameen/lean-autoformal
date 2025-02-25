@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (a : \u03b1) (b : List \u03b1) : (a::b = []) = False :=\n  by simp\ntheorem ex2 (a : \u03b1) (b : List \u03b1) : (a::b = []) = False :=\n  by simp\ntheorem ex3 (x : Nat) : (if Nat.succ x = 0 then 1 else 2) = 2 :=\n  by simp\ntheorem ex4 (x : Nat) : (if 10 = 0 then 1 else 2) = 2 :=\n  by simp\ntheorem ex5 : (10 = 20) = False :=\n  by simp\n#guard_msgs in\n#print ex5\ntheorem ex6 : (if \"hello\" = \"world\" then 1 else 2) = 2 :=\n  by simp (config := { decide := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp6.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp6.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

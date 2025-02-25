@@ -1,0 +1,10 @@
+{
+  "content": "theorem concat_append (a : \u03b1) (l\u2081 l\u2082 : List \u03b1) : concat l\u2081 a ++ l\u2082 = l\u2081 ++ a :: l\u2082 := by simp\ntheorem append_concat (a : \u03b1) (l\u2081 l\u2082 : List \u03b1) : l\u2081 ++ concat l\u2082 a = concat (l\u2081 ++ l\u2082) a := by simp\ntheorem map_concat (f : \u03b1 \u2192 \u03b2) (a : \u03b1) (l : List \u03b1) : map f (concat l a) = concat (map f l) (f a) := by\n  induction l with\n  | nil => rfl\n  | cons x xs ih => simp [ih]\ntheorem eq_nil_or_concat : \u2200 l : List \u03b1, l = [] \u2228 \u2203 l' b, l = concat l' b\n  | [] => .inl rfl\n  | a::l => match l, eq_nil_or_concat l with\n    | _, .inl rfl => .inr \u27e8[], a, rfl\u27e9\n    | _, .inr \u27e8l', b, rfl\u27e9 => .inr \u27e8a::l', b, rfl\u27e9\ntheorem eq_iff_flatten_eq : \u2200 {L L' : List (List \u03b1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "concat_append",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let {task, caption, optional} := job\n  let {log, action, ..} := task.get.state\n  let maxLv := log.maxLv\n  let failed := log.hasEntries \u2227 maxLv \u2265 failLv\n  if failed \u2227 \u00acoptional then\n    modify fun s => {s with failures := s.failures.push caption}\n  let hasOutput := failed \u2228 (log.hasEntries \u2227 maxLv \u2265 outLv)\n  let showJob :=\n    (\u00ac optional \u2228 showOptional) \u2227\n    (hasOutput \u2228 (showProgress \u2227 \u00ac useAnsi \u2227 action \u2265 minAction))\n  if showJob then\n    let verb := action.verb failed\n    let icon := if hasOutput then maxLv.icon else '\u2714'\n    let opt := if optional then \" (Optional)\" else \"\"\n    let caption := s!\"{icon} [{jobNo}/{totalJobs}]{opt} {verb} {caption}\"\n    let caption :=\n      if useAnsi then\n        let color := if hasOutput then maxLv.ansiColor else \"32\"\n        Ansi.chalk color caption\n      else\n        caption\n    let resetCtrl \u2190 modifyGet fun s => (s.resetCtrl, {s with resetCtrl := \"\"})\n    print s!\"{resetCtrl}{caption}\\n\"\n    if hasOutput then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_name": "Monitor"
+  }
+}

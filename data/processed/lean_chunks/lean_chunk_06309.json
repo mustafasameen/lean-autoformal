@@ -1,0 +1,9 @@
+{
+  "content": "pure (binders, type?, some optBinderTacticDefault[0][1])\n        else\n          let binderTactic := optBinderTacticDefault[0]\n          match type? with\n          | none => throwErrorAt binderTactic \"invalid field declaration, type must be provided when auto-param (tactic) is used\"\n          | some type =>\n            let tac := binderTactic[2]\n            let name \u2190 Term.declareTacticSyntax tac\n            let type \u2190 `(forall $(binders.getArgs):bracketedBinder*, $type)\n            let type \u2190 `(autoParam $type $(mkIdentFrom tac name))\n            pure (mkNullNode, some type.raw, none)\n      else\n        let (binders, type) := expandDeclSig fieldBinder[3]\n        pure (binders, some type, none)\n    let idents := fieldBinder[2].getArgs\n    idents.foldlM (init := views) fun (views : Array StructFieldView) ident => withRef ident do\n      let rawName := ident.getId\n      let name    := rawName.eraseMacroScopes\n      unless name.isAtomic do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "field"
+  }
+}

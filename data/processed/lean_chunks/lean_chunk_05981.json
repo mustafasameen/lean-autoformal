@@ -1,0 +1,10 @@
+{
+  "content": "theorem mergeTR_go_eq : mergeTR.go le l\u2081 l\u2082 acc = acc.reverse ++ merge l\u2081 l\u2082 le := by\n  induction l\u2081 generalizing l\u2082 acc with\n  | nil => simp [mergeTR.go, merge, reverseAux_eq]\n  | cons x l\u2081 ih\u2081 =>\n    induction l\u2082 generalizing acc with\n    | nil => simp [mergeTR.go, merge, reverseAux_eq]\n    | cons y l\u2082 ih\u2082 =>\n      simp [mergeTR.go, merge]\n      split <;> simp [ih\u2081, ih\u2082]\n@[csimp] theorem merge_eq_mergeTR : @merge = @mergeTR := by\n  funext\n  simp [mergeTR, mergeTR_go_eq]\ndef splitRevAt (n : Nat) (l : List \u03b1) : List \u03b1 \u00d7 List \u03b1 := go l n [] where\ndef mergeSortTR (l : List \u03b1) (le : \u03b1 \u2192 \u03b1 \u2192 Bool := by exact fun a b => a \u2264 b) : List \u03b1 :=\n  run \u27e8l, rfl\u27e9\nwhere run : {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Impl.lean",
+    "definition_name": "mergeTR_go_eq",
+    "has_proof": true
+  }
+}

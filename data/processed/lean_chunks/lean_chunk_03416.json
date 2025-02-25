@@ -1,0 +1,10 @@
+{
+  "content": "instance instCCPOPProd [CCPO \u03b1] [CCPO \u03b2] : CCPO (\u03b1 \u00d7' \u03b2) where\n  csup c := \u27e8CCPO.csup (PProd.chain.fst c), CCPO.csup (PProd.chain.snd c)\u27e9\n  csup_spec := by\n    intro \u27e8a, b\u27e9 c hchain\n    dsimp\n    constructor\n    next =>\n      intro \u27e8h\u2081, h\u2082\u27e9 \u27e8a', b'\u27e9 cab\n      constructor <;> dsimp at *\n      \u00b7 apply rel_trans ?_ h\u2081\n        apply le_csup (PProd.chain.chain_fst hchain)\n        exact \u27e8b', cab\u27e9\n      \u00b7 apply rel_trans ?_ h\u2082\n        apply le_csup (PProd.chain.chain_snd hchain)\n        exact \u27e8a', cab\u27e9\n    next =>\n      intro h\n      constructor <;> dsimp\n      \u00b7 apply csup_le (PProd.chain.chain_fst hchain)\n        intro a' \u27e8b', hcab\u27e9\n        apply (h _ hcab).1\n      \u00b7 apply csup_le (PProd.chain.chain_snd hchain)\n        intro b' \u27e8a', hcab\u27e9\n        apply (h _ hcab).2\ntheorem admissible_pprod_fst {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "instCCPOPProd",
+    "has_proof": true
+  }
+}

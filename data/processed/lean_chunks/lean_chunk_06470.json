@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\n  fType        : Expr\n  args         : List Arg\n  idx          : Nat := 0\ndef mkMotive (discrs : Array Expr) (expectedType : Expr) : MetaM Expr := do\n  discrs.foldrM (init := expectedType) fun discr motive => do\n    let discr \u2190 instantiateMVars discr\n    let motiveBody \u2190 kabstract motive discr\ndef revertArgs (args : List Arg) (f : Expr) (expectedType : Expr) : TermElabM (Expr \u00d7 Expr) := do\n  let (xs, expectedType) \u2190 args.foldrM (init := ([], expectedType)) fun arg (xs, expectedType) => do\n    let val \u2190\n      match arg with\n      | .expr val => pure val\n      | .stx stx => elabTerm stx none\n    let val \u2190 instantiateMVars val\n    let expectedTypeBody \u2190 kabstract expectedType val\ndef finalize : M Expr := do\n  unless (\u2190 get).namedArgs.isEmpty do\n    throwError \"failed to elaborate eliminator, unused named arguments: {(\u2190 get).namedArgs.map (\u00b7.name)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/App.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/App.lean",
+    "definition_name": "State"
+  }
+}

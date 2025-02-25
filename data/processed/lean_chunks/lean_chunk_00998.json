@@ -1,0 +1,9 @@
+{
+  "content": "inductive Many (\u03b1 : Type u) where\n  | none : Many \u03b1\n  | more : \u03b1 \u2192 (Unit \u2192 Many \u03b1) \u2192 Many \u03b1\ndef many_map {\u03b1 \u03b2 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4320.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4320.lean",
+    "definition_name": "Many"
+  }
+}

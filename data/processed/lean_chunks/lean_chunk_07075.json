@@ -1,0 +1,9 @@
+{
+  "content": "structure DocumentSymbolAux (Self : Type) where\n  name           : String\n  detail?        : Option String := none\n  kind           : SymbolKind\n  range          : Range\n  selectionRange : Range\n  children?      : Option (Array Self) := none\n  deriving FromJson, ToJson\ninductive DocumentSymbol where\n  | mk (sym : DocumentSymbolAux DocumentSymbol)\npartial instance : ToJson DocumentSymbol where\n  toJson :=\n    let rec go\n      | DocumentSymbol.mk sym =>\n        have : ToJson DocumentSymbol := \u27e8go\u27e9\n        toJson sym\n    go\nstructure DocumentSymbolResult where\n  syms : Array DocumentSymbol\ninstance : ToJson DocumentSymbolResult where\n  toJson dsr := toJson dsr.syms\ninductive SymbolTag where\n  | deprecated\n  deriving BEq, Hashable, Inhabited\ninstance : FromJson SymbolTag where\n  fromJson?\n    | 1 => .ok .deprecated\n    | j => .error s!\"unknown symbol tag {j}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "DocumentSymbolAux"
+  }
+}

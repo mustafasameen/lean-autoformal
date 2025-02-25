@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_replicate' : (replicate n a)[m]? = if m < n then some a else none := by\n  grind\nattribute [local grind =] getElem?_eq_some_iff in\nattribute [local grind =] getElem!_pos in\ntheorem getElem!_of_getElem?' [Inhabited \u03b1] :\n    \u2200 {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_list.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_list.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

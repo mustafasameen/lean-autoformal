@@ -1,0 +1,10 @@
+{
+  "content": "theorem negSucc_emod_negSucc {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Basic.lean",
+    "definition_name": "negSucc_emod_negSucc",
+    "has_proof": false
+  }
+}

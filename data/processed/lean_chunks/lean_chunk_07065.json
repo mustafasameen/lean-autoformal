@@ -1,0 +1,9 @@
+{
+  "content": "| MarkupKind.markdown  => str \"markdown\"\u27e9\nstructure MarkupContent where\n  kind  : MarkupKind\n  value : String\n  deriving ToJson, FromJson, DecidableEq, Hashable\nabbrev ProgressToken := String\nstructure ProgressParams (\u03b1 : Type) where\n  token : ProgressToken\n  value : \u03b1\n  deriving ToJson\nstructure WorkDoneProgressReport where\n  kind := \"report\"\n  cancellable := false\n  percentage? : Option Nat := none\n  deriving ToJson\nstructure WorkDoneProgressEnd where\n  kind := \"end\"\n  message? : Option String := none\n  deriving ToJson\nstructure WorkDoneProgressParams where\n  workDoneToken? : Option ProgressToken := none\n  deriving ToJson, FromJson\nstructure PartialResultParams where\n  partialResultToken? : Option ProgressToken := none\n  deriving ToJson, FromJson",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_name": "DocumentSelector"
+  }
+}

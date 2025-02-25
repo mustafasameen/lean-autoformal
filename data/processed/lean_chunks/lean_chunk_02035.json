@@ -1,0 +1,9 @@
+{
+  "content": "def ohno := 1\nstructure OhNo where\n  x := ohno",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2710.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2710.lean",
+    "definition_name": "ohno"
+  }
+}

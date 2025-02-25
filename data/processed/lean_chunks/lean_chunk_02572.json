@@ -1,0 +1,10 @@
+{
+  "content": "theorem or_iff_right_of_imp (ha : a \u2192 b) : (a \u2228 b) \u2194 b := Iff.intro (Or.rec ha id) .inr\ntheorem or_iff_left_of_imp  (hb : b \u2192 a) : (a \u2228 b) \u2194 a  := Iff.intro (Or.rec id hb) .inl\n@[simp] theorem or_iff_left_iff_imp  : (a \u2228 b \u2194 a) \u2194 (b \u2192 a) := Iff.intro (\u00b7.mp \u2218 Or.inr) or_iff_left_of_imp\n@[simp] theorem or_iff_right_iff_imp : (a \u2228 b \u2194 b) \u2194 (a \u2192 b) := by rw [or_comm, or_iff_left_iff_imp]\n@[simp] theorem iff_self_or {a b : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "and_true",
+    "has_proof": true
+  }
+}

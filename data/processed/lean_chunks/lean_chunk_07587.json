@@ -1,0 +1,10 @@
+{
+  "content": "(cache3 : Cache aig cnf3) (h12 : IsExtensionBy cache1 cache2 new1 hnew1)\n    (h23 : IsExtensionBy cache2 cache3 new2 hnew2) : IsExtensionBy cache1 cache3 new1 hnew1 := by\n  apply IsExtensionBy.mk\n  \u00b7 intro idx hidx hmarked\n    apply h23.extension\n    \u00b7 apply h12.extension\n      \u00b7 exact hmarked\n      \u00b7 omega\n    \u00b7 omega\n  \u00b7 apply h23.extension\n    \u00b7 exact h12.trueAt\n    \u00b7 omega\ntheorem Cache.IsExtensionBy_trans_right (cache1 : Cache aig cnf1) (cache2 : Cache aig cnf2)\n    (cache3 : Cache aig cnf3) (h12 : IsExtensionBy cache1 cache2 new1 hnew1)\n    (h23 : IsExtensionBy cache2 cache3 new2 hnew2) : IsExtensionBy cache1 cache3 new2 hnew2 := by\n  apply IsExtensionBy.mk\n  \u00b7 intro idx hidx hmarked\n    apply h23.extension\n    \u00b7 apply h12.extension\n      \u00b7 exact hmarked\n      \u00b7 omega\n    \u00b7 omega\n  \u00b7 exact h23.trueAt\ntheorem Cache.IsExtensionBy_rfl (cache : Cache aig cnf) {h}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "projectLeftAssign_property",
+    "has_proof": true
+  }
+}

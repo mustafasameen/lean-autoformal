@@ -1,0 +1,10 @@
+{
+  "content": "instance : DecidableEq (BitVec n) := BitVec.decEq\nprotected def BitVec.toNat (x : BitVec n) : Nat := x.toFin.val\ninstance : LT (BitVec n) where lt := (LT.lt \u00b7.toNat \u00b7.toNat)\ninstance (x y : BitVec n) : Decidable (LT.lt x y) :=\n  inferInstanceAs (Decidable (LT.lt x.toNat y.toNat))\ninstance : LE (BitVec n) where le := (LE.le \u00b7.toNat \u00b7.toNat)\ninstance (x y : BitVec n) : Decidable (LE.le x y) :=\n  inferInstanceAs (Decidable (LE.le x.toNat y.toNat))\nstructure UInt8 where\n  ofBitVec ::\n  toBitVec : BitVec 8\nattribute [extern \"lean_uint8_of_nat_mk\"] UInt8.ofBitVec\nattribute [extern \"lean_uint8_to_nat\"] UInt8.toBitVec\n@[extern \"lean_uint8_of_nat\"]\ndef UInt8.ofNatLT (n : @& Nat) (h : LT.lt n UInt8.size) : UInt8 where\n  toBitVec := BitVec.ofNatLT n h\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_uint8_dec_eq\"]\ndef UInt8.decEq (a b : UInt8) : Decidable (Eq a b) :=\n  match a, b with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m)\n      (fun h => isTrue (h \u25b8 rfl))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

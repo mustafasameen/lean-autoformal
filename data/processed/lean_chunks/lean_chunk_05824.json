@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_mod_right (x z : Nat) : (x + z) % z = x % z := by\n  rw [mod_eq_sub_mod (Nat.le_add_left ..), Nat.add_sub_cancel]\n@[simp] theorem add_mod_left (x z : Nat) : (x + z) % x = z % x := by\n  rw [Nat.add_comm, add_mod_right]\n@[simp] theorem add_mul_mod_self_left (x y z : Nat) : (x + y * z) % y = x % y := by\n  match z with\n  | 0 => rw [Nat.mul_zero, Nat.add_zero]\n  | succ z => rw [mul_succ, \u2190 Nat.add_assoc, add_mod_right, add_mul_mod_self_left (z := z)]\n@[simp] theorem mul_add_mod_self_left (a b c : Nat) : (a * b + c) % a = c % a := by\n  rw [Nat.add_comm, Nat.add_mul_mod_self_left]\n@[simp] theorem add_mul_mod_self_right (x y z : Nat) : (x + y * z) % z = x % z := by\n  rw [Nat.mul_comm, add_mul_mod_self_left]\n@[simp] theorem mul_add_mod_self_right (a b c : Nat) : (a * b + c) % b = c % b := by\n  rw [Nat.add_comm, Nat.add_mul_mod_self_right]\n@[simp] theorem mul_mod_right (m n : Nat) : (m * n) % m = 0 := by\n  rw [\u2190 Nat.zero_add (m * n), add_mul_mod_self_left, zero_mod]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "add_mod_right",
+    "has_proof": true
+  }
+}

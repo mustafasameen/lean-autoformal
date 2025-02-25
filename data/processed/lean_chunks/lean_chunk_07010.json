@@ -1,0 +1,9 @@
+{
+  "content": "def CodeActionProvider := CodeActionParams \u2192 Snapshot \u2192 RequestM (Array LazyCodeAction)\nderiving instance Inhabited for CodeActionProvider\nprivate builtin_initialize builtinCodeActionProviders : IO.Ref (NameMap CodeActionProvider) \u2190\n  IO.mkRef \u2205\ndef addBuiltinCodeActionProvider (decl : Name) (provider : CodeActionProvider) : IO Unit :=\n  builtinCodeActionProviders.modify (\u00b7.insert decl provider)\nbuiltin_initialize codeActionProviderExt : SimplePersistentEnvExtension Name NameSet \u2190 registerSimplePersistentEnvExtension {\n  addImportedFn := fun nss => nss.foldl (fun acc ns => ns.foldl NameSet.insert acc) \u2205\n  addEntryFn := fun s n => s.insert n\n  toArrayFn  := fun es => es.toArray.qsort Name.quickLt\n}\nbuiltin_initialize\n  let mkAttr (builtin : Bool) (name : Name) := registerBuiltinAttribute {\n    name\n    descr           := (if builtin then \"(builtin) \" else \"\") ++\n      \"Use to decorate methods for suggesting code actions. This is a low-level interface for making code actions.\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_name": "CodeActionProvider"
+  }
+}

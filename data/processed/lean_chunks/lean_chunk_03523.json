@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_def (a b : Fin n) : a + b = Fin.mk ((a + b) % n) (Nat.mod_lt _ a.pos) := rfl\ntheorem val_add (a b : Fin n) : (a + b).val = (a.val + b.val) % n := rfl\n@[simp] protected theorem zero_add [NeZero n] (k : Fin n) : (0 : Fin n) + k = k := by\n  ext\n  simp [Fin.add_def, Nat.mod_eq_of_lt k.2]\n@[simp] protected theorem add_zero [NeZero n] (k : Fin n) : k + 0 = k := by\n  ext\n  simp [add_def, Nat.mod_eq_of_lt k.2]\ntheorem val_add_one_of_lt {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "add_def",
+    "has_proof": true
+  }
+}

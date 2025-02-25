@@ -1,0 +1,9 @@
+{
+  "content": "structure S' where\n  foo : Nat\n  bar : Nat\nstructure S extends S' where\n  foobar : Nat\n  barfoo : Nat\nexample : S where\nexample : S where\nexample : S where\nexample : S where\nf\nexample : S where\nfoo\nexample : S where\nfoo :=\nexample : S where\n  foo :=\nexample : S where\n  foo := 1\nexample : S where\nfoo := 1;\nexample : S := {  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/completionStructureInstance.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/completionStructureInstance.lean",
+    "definition_name": "S"
+  }
+}

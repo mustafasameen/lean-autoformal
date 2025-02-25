@@ -1,0 +1,9 @@
+{
+  "content": "structure AddSubmonoid (M : Type _) where\nend Mathlib.GroupTheory.Submonoid.Basic\nsection Mathlib.Algebra.Hom.Ring\nstructure RingHom (\u03b1 : Type _) (\u03b2 : Type _) where\n  toFun : \u03b1 \u2192 \u03b2\ninfixr:25 \" \u2192+* \" => RingHom\nnamespace RingHom\ndef id (\u03b1 : Type _) : \u03b1 \u2192+* \u03b1 := by\n  refine { toFun := _root_.id.. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddSubmonoid"
+  }
+}

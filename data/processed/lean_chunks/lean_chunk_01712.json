@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : (1, 3) \u2208 { (n, m) | n < 2 \u2227 m < 5 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/set.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/set.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

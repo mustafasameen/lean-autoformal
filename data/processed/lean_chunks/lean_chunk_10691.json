@@ -1,0 +1,9 @@
+{
+  "content": "def main := IO.println \"bar\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/order/foo/Y.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/order/foo/Y.lean",
+    "definition_name": "main"
+  }
+}

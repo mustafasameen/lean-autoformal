@@ -1,0 +1,10 @@
+{
+  "content": "theorem fg : f (g x) = x := sorry\nset_option trace.grind.assert true in\nset_option trace.grind.ematch.instance true in\nexample : f a = b \u2192 a = g c \u2192 b = c := by\n  grind\nopaque R : Nat \u2192 Nat \u2192 Prop\n@[grind \u2192] theorem Rtrans : R x y \u2192 R y z \u2192 R x z := sorry\n@[grind \u2192] theorem Rsymm : R x y \u2192 R y x := sorry\nset_option trace.grind.assert true in\nexample : R a b \u2192 R c b \u2192 R d c \u2192 R a d := by\n  grind\nopaque bla : Nat \u2192 Nat\ntheorem blaThm : bla (bla x) = bla x := sorry\ngrind_pattern blaThm => bla (bla x)\nset_option trace.grind.assert true in\nexample : bla a = b \u2192 bla b = b := by\n  grind\nopaque U : Type\naxiom mul : U \u2192 U \u2192 U\naxiom one : U\naxiom inv : U \u2192 U\n@[grind \u2190=] theorem inv_of_mul : mul a b = one \u2192 inv a = b :=\n  sorry\nexample : R a b \u2192 R c b \u2192 R d c \u2192 R a d := by\nfail_if_success grind only\n  sorry\nexample : R a b \u2192 R c b \u2192 R d c \u2192 R a d := by\n  grind only [\u2192 Rtrans, \u2192 Rsymm]\nexample : R a b \u2192 R c b \u2192 R d c \u2192 R a d := by\n  grind only [Rtrans, \u2190 Rsymm]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_guide.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_guide.lean",
+    "definition_name": "fg",
+    "has_proof": true
+  }
+}

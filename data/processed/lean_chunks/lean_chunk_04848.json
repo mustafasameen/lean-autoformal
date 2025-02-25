@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem getElem!_eq_getElem?_getD [Inhabited \u03b1] (l : List \u03b1) (i : Nat) :\n    l[i]! = (l[i]?).getD (default : \u03b1) := by\n  simp only [getElem!_def]\n  match l[i]? with\n  | some _ => simp\n  | none => simp\ntheorem getElem_of_eq {l l' : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "get",
+    "has_proof": true
+  }
+}

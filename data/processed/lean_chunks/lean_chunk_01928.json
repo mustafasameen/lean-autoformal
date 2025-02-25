@@ -1,0 +1,9 @@
+{
+  "content": "structure Semigroup extends Magma where\n  mul_assoc (a b c : \u03b1) : a * b * c = a * (b * c)\ninstance : CoeSort Semigroup (Type u) where\n  coe s := s.\u03b1\nstructure CommSemigroup extends Semigroup where\n  mul_comm (a b : \u03b1) : a * b = b * a\nstructure Monoid extends Semigroup where\n  one : \u03b1\n  one_mul (a : \u03b1) : one * a = a\n  mul_one (a : \u03b1) : a * one = a\ninstance : CoeSort Monoid (Type u) where\n  coe s := s.\u03b1\nstructure CommMonoid extends Monoid where\n  mul_comm (a b : \u03b1) : a * b = b * a\ninstance : Coe CommMonoid CommSemigroup where\n  coe s := {\n      \u03b1   := s.\u03b1\n      mul := s.mul\n      mul_assoc := s.mul_assoc\n      mul_comm  := s.mul_comm\n    }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_name": "Semigroup"
+  }
+}

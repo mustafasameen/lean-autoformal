@@ -1,0 +1,9 @@
+{
+  "content": "| _, _ => false\ndef resolveEq (thunks : List (term \u2192 term \u2192 Option term)) (x y : term) : Option term :=\n  match thunks with\n  | [] => none\n  | fn :: thunks =>\n    match fn x y with\n    | none => resolveEq thunks x y\n    | some r => some r\ndef isOrComplement (x y : BoolVal) (tp : BoolType) : Bool :=\n  match x, y, tp with\n  | .not x _, y, .bool => x == y\n  | x, .not y _, .bool => x == y\n  | .eq a b _, .ne c d _, _ => a.typeOf == c.typeOf && a == b && c == d\n  | .ne a b _, .eq c d _, _ => a.typeOf == c.typeOf && a == b && c == d\n  | eq_true x, eq_false y, _ => x == y\n  | eq_false x, eq_true y, _ => x == y\n  | _, _, _ => false\npartial def simp (v : BoolVal) : BoolVal :=\n  let v := map simp v\n  match v with\n  | .boolToProp b => simp <| eq_true b\n  | .decide p =>\n      match p with\n      | .trueVal  _ => .trueVal  .bool\n      | .falseVal _ => .falseVal .bool\n      | .var _ => v\n      | .boolToProp _ => panic! \"Expected boolToProp to simplify away\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "BoolType"
+  }
+}

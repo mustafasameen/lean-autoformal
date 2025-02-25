@@ -1,0 +1,10 @@
+{
+  "content": "theorem eval_not : eval .not = ((~~~ \u00b7) : BitVec w \u2192 BitVec w) := by rfl\n@[simp]\ntheorem eval_shiftLeftConst : eval (shiftLeftConst n) = ((\u00b7 <<< n) : BitVec w \u2192 BitVec w) := by\n  rfl\n@[simp]\ntheorem eval_shiftRightConst : eval (shiftRightConst n) = ((\u00b7 >>> n) : BitVec w \u2192 BitVec w) := by\n  rfl\n@[simp]\ntheorem eval_rotateLeft : eval (rotateLeft n) = ((BitVec.rotateLeft \u00b7 n) : BitVec w \u2192 BitVec w) := by\n  rfl\n@[simp]\ntheorem eval_rotateRight : eval (rotateRight n) = ((BitVec.rotateRight \u00b7 n) : BitVec w \u2192 BitVec w) := by\n  rfl\n@[simp]\ntheorem eval_arithShiftRightConst : eval (arithShiftRightConst n) = (BitVec.sshiftRight \u00b7 n : BitVec w \u2192 BitVec w) := by\n  rfl\nend BVUnOp\ninductive BVExpr : Nat \u2192 Type where\n  | var (idx : Nat) : BVExpr w\n  | const (val : BitVec w) : BVExpr w\n  | zeroExtend (v : Nat) (expr : BVExpr w) : BVExpr v\n  | extract (start len : Nat) (expr : BVExpr w) : BVExpr len\n  | bin (lhs : BVExpr w) (op : BVBinOp) (rhs : BVExpr w) : BVExpr w",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_name": "eval_not",
+    "has_proof": true
+  }
+}

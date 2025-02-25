@@ -1,0 +1,10 @@
+{
+  "content": "i < length as \u2192 j \u2264 i \u2192 insertIdx j a (as.eraseIdx i) = (as.insertIdx j a).eraseIdx (i + 1)\n  | _, 0, _ :: _, _, _ => rfl\n  | n + 1, m + 1, a :: as, has, hmn =>\n    congrArg (cons a) <|\n      insertIdx_eraseIdx_of_le n m as (Nat.lt_of_succ_lt_succ has) (Nat.le_of_succ_le_succ hmn)\ntheorem insertIdx_comm (a b : \u03b1) :\n    \u2200 (i j : Nat) (l : List \u03b1) (_ : i \u2264 j) (_ : j \u2264 length l),\n      (l.insertIdx i a).insertIdx (j + 1) b = (l.insertIdx j b).insertIdx i a\n  | 0, j, l => by simp [insertIdx]\n  | _ + 1, 0, _ => fun h => (Nat.not_lt_zero _ h).elim\n  | i + 1, j + 1, [] => by simp\n  | i + 1, j + 1, c :: l => fun h\u2080 h\u2081 => by\n    simp only [insertIdx_succ_cons, cons.injEq, true_and]\n    exact insertIdx_comm a b i j l (Nat.le_of_succ_le_succ h\u2080) (Nat.le_of_succ_le_succ h\u2081)\ntheorem mem_insertIdx {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/InsertIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/InsertIdx.lean",
+    "definition_name": "insertIdx_zero",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_eq_map : Functor.map f = Option.map f := rfl\ntheorem map_none : f <$> none = none := rfl\ntheorem map_some : f <$> some a = some (f a) := rfl\n@[simp] theorem map_eq_some' : x.map f = some b \u2194 \u2203 a, x = some a \u2227 f a = b := by cases x <;> simp\ntheorem map_eq_some : f <$> x = some b \u2194 \u2203 a, x = some a \u2227 f a = b := map_eq_some'\n@[simp] theorem map_eq_none' : x.map f = none \u2194 x = none := by\n  cases x <;> simp [map_none', map_some', eq_self_iff_true]\ntheorem isSome_map {x : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "map_eq_map",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def BaseIOTask := Task\ninstance : Monad BaseIOTask := inferInstanceAs <| Monad Task\ninstance [Inhabited \u03b1] : Inhabited (BaseIOTask \u03b1) := inferInstance\nabbrev EIOTask \u03b5 := ExceptT \u03b5 BaseIOTask\nabbrev OptionIOTask := OptionT BaseIOTask\ninstance : Inhabited (OptionIOTask \u03b1) := \u27e8failure\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Task.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Task.lean",
+    "definition_name": "BaseIOTask"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Parity : Nat -> Type\n| even (n) : Parity (n + n)\n| odd  (n) : Parity (Nat.succ (n + n))\naxiom nDiv2 (n : Nat)     : n % 2 = 0 \u2192 n = n/2 + n/2\naxiom nDiv2Succ (n : Nat) : n % 2 \u2260 0 \u2192 n = Nat.succ (n/2 + n/2)\ndef parity (n : Nat) : Parity n :=\nif h : n % 2 = 0 then\n  Eq.ndrec (Parity.even (n/2)) (nDiv2 n h).symm\nelse\n  Eq.ndrec (Parity.odd (n/2)) (nDiv2Succ n h).symm\npartial def natToBin : (n : Nat) \u2192 List Bool\n| 0 => []\n| n => match n, parity n with\n  | _, Parity.even j => false :: natToBin j\n  | _, Parity.odd  j => true  :: natToBin j\n#eval natToBin 6\npartial def natToBin' : (n : Nat) \u2192 List Bool\n| 0 => []\n| n => match parity n with\n  | Parity.even j => false :: natToBin j\n  | Parity.odd  j => true  :: natToBin j\npartial def natToBinBad (n : Nat) : List Bool :=\nmatch n, parity n with\n| 0, _             => []\n| _, Parity.even j => false :: natToBin j\n| _, Parity.odd  j => true  :: natToBin j\npartial def natToBin2 (n : Nat) : List Bool :=\nmatch n, parity n with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match1.lean",
+    "definition_name": "Parity"
+  }
+}

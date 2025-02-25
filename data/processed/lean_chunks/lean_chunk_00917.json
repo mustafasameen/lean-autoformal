@@ -1,0 +1,9 @@
+{
+  "content": "inductive Tree (\u03b1 : Type u) : Type u\n | node : \u03b1 \u2192 (Bool \u2192 Tree \u03b1) \u2192 List (Tree \u03b1) \u2192 Tree \u03b1\n#guard_msgs in\nrun_meta\n  let igi : IndGroupInst := {all := #[``VTree], levels := [0], params := #[.const ``Bool []], numNested := 1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedTypeFormers.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedTypeFormers.lean",
+    "definition_name": "Tree"
+  }
+}

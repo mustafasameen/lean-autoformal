@@ -1,0 +1,10 @@
+{
+  "content": "theorem blastShiftRight.go_le_size (aig : AIG \u03b1) (distance : AIG.RefVec aig n) (curr : Nat)\n    (acc : AIG.RefVec aig w) :\n    aig.decls.size \u2264 (go aig distance curr acc).aig.decls.size := by\n  unfold go\n  dsimp only\n  split\n  \u00b7 refine Nat.le_trans ?_ (by apply go_le_size)\n    apply AIG.LawfulVecOperator.le_size (f := blastShiftRight.twoPowShift)\n  \u00b7 simp\ntermination_by n - 1 - curr\ntheorem blastShiftRight.go_decl_eq (aig : AIG \u03b1) (distance : AIG.RefVec aig n) (curr : Nat)\n    (acc : AIG.RefVec aig w) :\n    \u2200 (idx : Nat) (h1) (h2),\n        (go aig distance curr acc).aig.decls[idx]'h2 = aig.decls[idx]'h1 := by\n  generalize hgo : go aig distance curr acc = res\n  unfold go at hgo\n  dsimp only at hgo\n  split at hgo\n  \u00b7 rw [\u2190 hgo]\n    intros\n    rw [blastShiftRight.go_decl_eq]\n    rw [AIG.LawfulVecOperator.decl_eq (f := blastShiftRight.twoPowShift)]\n    apply AIG.LawfulVecOperator.lt_size_of_lt_aig_size (f := blastShiftRight.twoPowShift)\n    assumption\n  \u00b7 simp [\u2190 hgo]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftRight.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftRight.lean",
+    "definition_name": "blastShiftRight",
+    "has_proof": true
+  }
+}

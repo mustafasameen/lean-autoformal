@@ -1,0 +1,9 @@
+{
+  "content": "inductive ProjReductionKind where\n  | yes\n  | yesWithDelta\n  | yesWithDeltaI\n  deriving DecidableEq, Inhabited, Repr\ndef ProjReductionKind.toUInt64 : ProjReductionKind \u2192 UInt64\n  | .no  => 0\n  | .yes => 1\n  | .yesWithDelta => 2\n  | .yesWithDeltaI => 3\nstructure Config where\n  foApprox           : Bool := false\n  ctxApprox          : Bool := false\n  quasiPatternApprox : Bool := false\n  constApprox        : Bool := false\n  isDefEqStuckEx     : Bool := false\n  proofIrrelevance   : Bool := true\n  assignSyntheticOpaque : Bool := false\n  transparency       : TransparencyMode := TransparencyMode.default\n  univApprox : Bool := true\n  beta : Bool := true\n  zeta : Bool := true\n  zetaDelta : Bool := true\n  zetaUnused : Bool := true\n  deriving Inhabited, Repr\nstructure ConfigWithKey where\n  private mk ::\n  config : Config\n  key    : UInt64\n  deriving Inhabited\ndef Config.toConfigWithKey (c : Config) : ConfigWithKey :=\n  { config := c, key := c.toKey }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "ProjReductionKind"
+  }
+}

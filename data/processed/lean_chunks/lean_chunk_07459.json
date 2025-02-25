@@ -1,0 +1,10 @@
+{
+  "content": "simp only [List.mem_map, Prod.exists, Bool.exists_bool] at unsat_c_in_fc\n    rcases unsat_c_in_fc with \u27e8v, \u27e8v_in_neg_c, unsat_c_eq\u27e9 | \u27e8v_in_neg_c, unsat_c_eq\u27e9\u27e9 | unsat_c_in_f\n    \u00b7 simp only [negate_eq, List.mem_map, Prod.exists, Bool.exists_bool] at v_in_neg_c\n      rcases v_in_neg_c with \u27e8v', \u27e8_, v'_eq_v\u27e9 | \u27e8v'_in_c, v'_eq_v\u27e9\u27e9\n      \u00b7 simp [Literal.negate] at v'_eq_v\n      \u00b7 simp only [Literal.negate, Bool.not_true, Prod.mk.injEq, and_true] at v'_eq_v\n        simp only [(\u00b7 \u22a8 \u00b7), Clause.eval, List.any_eq_true, decide_eq_true_eq, Prod.exists,\n          Bool.exists_bool, \u2190 unsat_c_eq, not_exists, not_or, not_and] at p_unsat_c\n        specialize p_unsat_c v\n        rw [Clause.unit_eq] at p_unsat_c\n        simp only [List.mem_singleton, forall_const, Prod.mk.injEq, and_false, false_implies, and_true] at p_unsat_c\n        simp only [(\u00b7 \u22a8 \u00b7), Bool.not_eq_false] at p_unsat_c\n        specialize pc v\n        rw [v'_eq_v] at v'_in_c\n        have pv := pc.2 v'_in_c",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_name": "with",
+    "has_proof": true
+  }
+}

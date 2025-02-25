@@ -1,0 +1,10 @@
+{
+  "content": "modifyGet fun s => (PUnit.unit, f s)\n@[always_inline, inline]\ndef getModify {\u03c3 : Type u} {m : Type u \u2192 Type v} [MonadState \u03c3 m] (f : \u03c3 \u2192 \u03c3) : m \u03c3 :=\n  modifyGet fun s => (s, f s)\n@[always_inline]\ninstance {\u03c3 : Type u} {m : Type u \u2192 Type v} {n : Type u \u2192 Type w} [MonadLift m n] [MonadStateOf \u03c3 m] : MonadStateOf \u03c3 n where\n  get         := liftM (m := m) MonadStateOf.get\n  set       s := liftM (m := m) (MonadStateOf.set s)\n  modifyGet f := monadLift (m := m) (MonadState.modifyGet f)\nnamespace EStateM\ninductive Result (\u03b5 \u03c3 \u03b1 : Type u) where\n  | error : \u03b5 \u2192 \u03c3 \u2192 Result \u03b5 \u03c3 \u03b1\nvariable {\u03b5 \u03c3 \u03b1 : Type u}\ninstance [Inhabited \u03b5] [Inhabited \u03c3] : Inhabited (Result \u03b5 \u03c3 \u03b1) where\n  default := Result.error default default\nend EStateM\nopen EStateM (Result) in\ndef EStateM (\u03b5 \u03c3 \u03b1 : Type u) := \u03c3 \u2192 Result \u03b5 \u03c3 \u03b1\nnamespace EStateM\nvariable {\u03b5 \u03c3 \u03b1 \u03b2 : Type u}\ninstance [Inhabited \u03b5] : Inhabited (EStateM \u03b5 \u03c3 \u03b1) where\n  default := fun s => Result.error default s\n@[always_inline, inline]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

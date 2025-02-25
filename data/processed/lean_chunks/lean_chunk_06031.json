@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_take : \u2200 (i j) (l : List \u03b1), take i (take j l) = take (min i j) l\n  | n, 0, l => by rw [Nat.min_zero, take_zero, take_nil]\n  | 0, m, l => by rw [Nat.zero_min, take_zero, take_zero]\n  | succ n, succ m, nil => by simp only [take_nil]\n  | succ n, succ m, a :: l => by\n    simp only [take, succ_min_succ, take_take n m l]\ntheorem take_set_of_le (a : \u03b1) {i j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "take_take",
+    "has_proof": true
+  }
+}

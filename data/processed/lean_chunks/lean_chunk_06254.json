@@ -1,0 +1,9 @@
+{
+  "content": "structure SorryLabelView where\n  module? : Option DeclarationLocation := none\ndef SorryLabelView.encode (view : SorryLabelView) : CoreM Name :=\n  let name :=\n    if let some { module, range := { pos, endPos, charUtf16, endCharUtf16 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Sorry.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Sorry.lean",
+    "definition_name": "SorryLabelView"
+  }
+}

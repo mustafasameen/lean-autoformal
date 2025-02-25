@@ -1,0 +1,9 @@
+{
+  "content": "def invalidConfigEnvVar := \"LAKE_INVALID_CONFIG\"\ndef setupFile\n  (loadConfig : LoadConfig) (path : FilePath) (imports : List String := [])\n  (buildConfig : BuildConfig := {})\n: MainM PUnit := do\n  let configFile \u2190 realConfigFile loadConfig.configFile\n  let isConfig := EIO.catchExceptions (h := fun _ => pure false) do\n    let path \u2190 IO.FS.realPath path\n    return configFile.normalize == path.normalize\n  if configFile.toString.isEmpty then\n    exit noConfigFileCode\n  else if (\u2190 isConfig) then\n    IO.println <| Json.compress <| toJson {\n      paths := {\n        oleanPath := loadConfig.lakeEnv.leanPath\n        srcPath := loadConfig.lakeEnv.leanSrcPath\n        loadDynlibPaths := #[]\n        pluginPaths := #[loadConfig.lakeEnv.lake.sharedLib]\n      }\n      setupOptions := \u27e8\u2205\u27e9\n      : FileSetupInfo\n    }\n  else\n    if let some errLog := (\u2190 IO.getEnv invalidConfigEnvVar) then\n      IO.eprint errLog",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Serve.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Serve.lean",
+    "definition_name": "invalidConfigEnvVar"
+  }
+}

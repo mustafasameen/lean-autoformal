@@ -1,0 +1,9 @@
+{
+  "content": "instance hasAdd : Add c.Quotient :=\n  \u27e8Quotient.map\u2082' (\u00b7 + \u00b7) sorry\u27e9\nend\nsection AddZeroClass\nvariable [AddZeroClass M] [AddZeroClass P] (c : AddCon M)\nvariable (f : M \u2192+ P)\ndef lift : c.Quotient \u2192+ P where\n  toFun x := (AddCon.liftOn x f) sorry\nend AddZeroClass\nsection Monoids\ninstance zero [AddZeroClass M] (c : AddCon M) : Zero c.Quotient where\n  zero := Quotient.mk'' (0 : M)\ninstance _root_.AddCon.Quotient.nsmul {M : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "hasAdd"
+  }
+}

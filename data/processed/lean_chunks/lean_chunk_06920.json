@@ -1,0 +1,9 @@
+{
+  "content": "| [p] => p\n  | ps  => alts ref ps\ndef tuple\u2081Core : List\u03a0 RCasesPatt \u2192 List\u03a0 RCasesPatt\n  | []         => []\n  | [tuple ref []] => [tuple ref []]\n  | [tuple _ ps] => ps\n  | p :: ps    => p :: tuple\u2081Core ps\ndef tuple\u2081 : List\u03a0 RCasesPatt \u2192 RCasesPatt\n  | []      => default\n  | [one ref n] => one ref n\n  | ps      => tuple ps.head!.ref $ tuple\u2081Core ps\ndef alts\u2081Core : List\u03a3 (List\u03a0 RCasesPatt) \u2192 List\u03a3 RCasesPatt\n  | []          => []\n  | [[alts _ ps]] => ps\n  | p :: ps     => tuple\u2081 p :: alts\u2081Core ps\ndef alts\u2081 (ref : Syntax) : List\u03a3 (List\u03a0 RCasesPatt) \u2192 RCasesPatt\n  | [[]]        => tuple .missing []\n  | [[alts ref ps]] => tuple ref ps\n  | ps          => alts' ref $ alts\u2081Core ps\nopen MessageData in\npartial instance : ToMessageData RCasesPatt := \u27e8fmt 0\u27e9 where\n  fmt : Nat \u2192 RCasesPatt \u2192 MessageData\n  | p, paren _ pat => fmt p pat\n  | _, one _ n => n\n  | _, clear _ => \"-\"\n  | _, explicit _ pat => m!\"@{fmt 2 pat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/RCases.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/RCases.lean",
+    "definition_name": "RCasesPatt"
+  }
+}

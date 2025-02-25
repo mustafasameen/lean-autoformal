@@ -1,0 +1,9 @@
+{
+  "content": "deriving Inhabited\n@[implemented_by mkMethodsImp]\nopaque mkMethods (methods : Methods) : MethodsRef\ninstance : Inhabited MethodsRef where\n  default := mkMethods default\n@[implemented_by getMethodsImp] opaque getMethods : MacroM Methods\ndef expandMacro? (stx : Syntax) : MacroM (Option Syntax) := do\n  (\u2190 getMethods).expandMacro? stx\ndef getCurrNamespace : MacroM Name := do\n  (\u2190 getMethods).getCurrNamespace\ndef resolveGlobalName (n : Name) : MacroM (List (Prod Name (List String))) := do\n  (\u2190 getMethods).resolveGlobalName n\nabbrev UnexpandM := ReaderT Syntax (EStateM Unit Unit)\nabbrev Unexpander := Syntax \u2192 UnexpandM Syntax\ninstance : MonadQuotation UnexpandM where\n  getRef              := read\n  withRef ref x       := withReader (fun _ => ref) x\n  getCurrMacroScope   := pure 0\n  getMainModule       := pure `_fakeMod\n  withFreshMacroScope := id\nend PrettyPrinter\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "firstFrontendMacroScope"
+  }
+}

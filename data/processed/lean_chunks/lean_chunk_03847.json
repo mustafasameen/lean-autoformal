@@ -1,0 +1,10 @@
+{
+  "content": "theorem toList_toArray (as : List \u03b1) : as.toArray.toList = as := rfl\n@[deprecated toList_toArray (since := \"2025-02-17\")]\nabbrev _root_.Array.toList_toArray := @List.toList_toArray\n@[simp] theorem size_toArray (as : List \u03b1) : as.toArray.size = as.length := by simp [Array.size]\n@[deprecated size_toArray (since := \"2025-02-17\")]\nabbrev _root_.Array.size_toArray := @List.size_toArray\n@[simp] theorem getElem_toArray {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_name": "toList_toArray",
+    "has_proof": true
+  }
+}

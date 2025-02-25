@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  x1  : Nat := 0\n  x2  : Nat := 0\n  x3  : Nat := 0\n  x4  : Nat := 0\n  x5  : Nat := 0\n  x6  : Nat := 0\n  x7  : Nat := 0\n  x8  : Nat := 0\n  x9  : Nat := 0\n  x10 : Nat := 0\n  x11 : Nat := 0\n  x12 : Nat := 0\n  x13 : Nat := 0\n  x14 : Nat := 0\n  x15 : Nat := 0\n  x16 : Nat := 0\n  x17 : Nat := 0\n  x18 : Nat := 0\n  x19 : Nat := 0\n  x20 : Nat := 0\n  x21 : Nat := 0\n  x22 : Nat := 0\n  x23 : Nat := 0\n  x24 : Nat := 0\n  x25 : Nat := 0\n  x26 : Nat := 0\n  x27 : Nat := 0\n  x28 : Nat := 0\n  x29 : Nat := 0\n  x30 : Nat := 0\n  x31 : Nat := 0\n  x32 : Nat := 0\n  x33 : Nat := 0\n  x34 : Nat := 0\n  x35 : Nat := 0\n  x36 : Nat := 0\n  x37 : Nat := 0\n  x38 : Nat := 0\n  x39 : Nat := 0\n  x40 : Nat := 0\n  x41 : Nat := 0\n  x42 : Nat := 0\n  x43 : Nat := 0\n  x44 : Nat := 0\n  x45 : Nat := 0\n  x46 : Nat := 0\n  x47 : Nat := 0\n  x48 : Nat := 0\n  x49 : Nat := 0\n  x50 : Nat := 0\n  x51 : Nat := 0\n  x52 : Nat := 0\n  x53 : Nat := 0\n  x54 : Nat := 0\n  x55 : Nat := 0\n  x56 : Nat := 0\n  x57 : Nat := 0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bigctorfields.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bigctorfields.lean",
+    "definition_name": "Foo"
+  }
+}

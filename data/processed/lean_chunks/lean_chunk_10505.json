@@ -1,0 +1,10 @@
+{
+  "content": "theorem Balanced.map {t\u2081 t\u2082 : Impl \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_name": "Balanced",
+    "has_proof": false
+  }
+}

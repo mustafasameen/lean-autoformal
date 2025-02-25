@@ -1,0 +1,10 @@
+{
+  "content": "def B.subs : (b : B) \u2192 (Fin b.size \u2192 A \u2295 B)\n  | .self b => Fin.lastCases (.inr b) (b.subs)\n  | .other a => Fin.lastCases (.inl a) (a.subs)\n  | .empty => Fin.elim0\nend\nmutual\ndef A.hasNoBEmpty : A \u2192 Prop\n  | .self a => a.hasNoBEmpty\n  | .other b => b.hasNoBEmpty\n  | .empty => True\ntermination_by structural x => x\ndef B.hasNoBEmpty : B \u2192 Prop\n  | .self b => b.hasNoBEmpty\n  | .other a => a.hasNoBEmpty\n  | .empty => False\nend\nmutual\nopen Classical\nnoncomputable\ndef A.hasNoAEmpty : A \u2192 Prop\n  | .self a => a.hasNoAEmpty\n  | .other b => b.oddCount > 0\n  | .empty => False\ntermination_by structural x => x\nnoncomputable\ndef B.oddCount : B \u2192 Nat\n  | .self b => b.oddCount + 1\n  | .other a => if a.hasNoAEmpty then 0 else 1\n  | .empty => 0\nend\nmutual\nopen Classical\ndef A.type.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_name": "A_size_eq1",
+    "has_proof": true
+  }
+}

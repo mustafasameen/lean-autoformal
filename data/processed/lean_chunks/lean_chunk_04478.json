@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_eq_none : f <$> x = none \u2194 x = none := map_eq_none'\ntheorem map_eq_bind {x : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "map_eq_none",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "throwAbortTerm\n    let sources := sources.getSepArgs\n    if (\u2190 sources.allM fun source => return (\u2190 isLocalIdent? source).isSome) then\n      return none\n    if sources.any (\u00b7.isMissing) then\n      throwAbortTerm\n    return some (\u2190 go sources.toList #[])\nwhere\n  go (sources : List Syntax) (sourcesNew : Array Syntax) : TermElabM Syntax := do\n    match sources with\n    | [] =>\n      let sources := Syntax.mkSep sourcesNew (mkAtomFrom stx \", \")\n      return stx.setArg 1 (stx[1].setArg 0 sources)\n    | source :: sources =>\n      if (\u2190 isLocalIdent? source).isSome then\n        go sources (sourcesNew.push source)\n      else\n        withFreshMacroScope do\n          let sourceNew \u2190 `(__src)\n          let r \u2190 go sources (sourcesNew.push sourceNew)\n          `(let __src := $source; $r)\nstructure ExplicitSourceView where\n  structName : Name\n  deriving Inhabited\nstructure SourcesView where\n  implicit : Option Syntax\n  deriving Inhabited",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_name": "field"
+  }
+}

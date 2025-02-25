@@ -1,0 +1,9 @@
+{
+  "content": "return some literal\n  else\n    return none\nwhere\n  go : Value \u2192 CompilerM ((Array CodeDecl) \u00d7 FVarId)\n  | .ctor `Nat.zero #[] .. => do\n    let decl \u2190 mkAuxLetDecl <| .value <| .natVal <| 0\n    return (#[.let decl], decl.fvarId)\n  | .ctor `Nat.succ #[val] .. => do\n    let val := getNatConstant val + 1\n    let decl \u2190 mkAuxLetDecl <| .value <| .natVal <| val\n    return (#[.let decl], decl.fvarId)\n  | .ctor i vs => do\n    let args \u2190 vs.mapM go\n    let flatten acc := fun (decls, var) => (acc.fst ++ decls, acc.snd.push <| .fvar var)\n    let (decls, params) := args.foldl (init := (#[], Array.mkEmpty args.size)) flatten\n    let letVal : LetValue := .const i [] params\n    let letDecl \u2190 mkAuxLetDecl letVal\n    return (decls.push <| .let letDecl, letDecl.fvarId)\n  | _ => unreachable!\n  getNatConstant : Value \u2192 Nat\n  | .ctor `Nat.zero #[] .. => 0\n  | .ctor `Nat.succ #[val] .. => getNatConstant val + 1\n  | _ => panic! \"Not a well formed Nat constant Value\"\nend Value",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

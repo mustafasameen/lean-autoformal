@@ -1,0 +1,10 @@
+{
+  "content": "theorem DivModState.udiv_eq_of_lawful {n d : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "DivModState",
+    "has_proof": false
+  }
+}

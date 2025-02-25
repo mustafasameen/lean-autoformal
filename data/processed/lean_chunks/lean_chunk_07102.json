@@ -1,0 +1,9 @@
+{
+  "content": "\u27e8fun a b => lt a b = true\u27e9\ninstance : LT JsonNumber :=\n  ltProp\ninstance (a b : JsonNumber) : Decidable (a < b) :=\n  inferInstanceAs (Decidable (lt a b = true))\ninstance : Ord JsonNumber where\n  compare x y :=\n    if x < y then Ordering.lt\n    else if x > y then Ordering.gt\n    else Ordering.eq\nprotected def toString : JsonNumber \u2192 String\n  | \u27e8m, 0\u27e9 => m.repr\n  | \u27e8m, e\u27e9 =>\n    let sign := if m \u2265 0 then \"\" else \"-\"\n    let m := m.natAbs\n    let exp : Int := 9 + countDigits m - (e : Int)\n    let exp := if exp < 0 then exp else 0\n    let e' := 10 ^ (e - exp.natAbs)\n    let left := (m / e').repr\n    if m % e' = 0 && exp = 0 then\n      s!\"{sign}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_name": "JsonNumber"
+  }
+}

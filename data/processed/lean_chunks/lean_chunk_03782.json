@@ -1,0 +1,10 @@
+{
+  "content": "xs.size_zipWith ys Prod.mk\n@[simp] theorem getElem_zipWith (xs : Array \u03b1) (ys : Array \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (i : Nat)\n    (hi : i < (zipWith f xs ys).size) :\n    (zipWith f xs ys)[i] = f (xs[i]'(by simp at hi; omega)) (ys[i]'(by simp at hi; omega)) := by\n  cases xs\n  cases ys\n  simp\ntheorem toListRev_toArray (l : List \u03b1) : l.toArray.toListRev = l.reverse := by simp\n@[simp] theorem take_toArray (l : List \u03b1) (i : Nat) : l.toArray.take i = (l.take i).toArray := by\n  apply Array.ext <;> simp\n@[simp] theorem mapM_toArray [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m \u03b2) (l : List \u03b1) :\n    l.toArray.mapM f = List.toArray <$> l.mapM f := by\n  simp only [\u2190 mapM'_eq_mapM, mapM_eq_foldlM]\n  suffices \u2200 xs : Array \u03b2,\n      Array.foldlM (fun acc a => acc.push <$> f a) xs l.toArray = (xs ++ toArray \u00b7) <$> mapM' f l by\n    simpa using this #[]\n  intro xs\n  induction l generalizing xs with\n  | nil => simp\n  | cons a l ih =>\n    simp only [foldlM_toArray] at ih\n    rw [size_toArray, mapM'_cons, foldlM_toArray]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_zipWith",
+    "has_proof": true
+  }
+}

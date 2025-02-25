@@ -1,0 +1,10 @@
+{
+  "content": "theorem perm_append_comm_assoc (l\u2081 l\u2082 l\u2083 : List \u03b1) :\n    (l\u2081 ++ (l\u2082 ++ l\u2083)) ~ (l\u2082 ++ (l\u2081 ++ l\u2083)) := by\n  simpa only [List.append_assoc] using perm_append_comm.append_right _\ntheorem concat_perm (l : List \u03b1) (a : \u03b1) : concat l a ~ a :: l := by simp\ntheorem Perm.length_eq {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_name": "perm_append_comm_assoc",
+    "has_proof": true
+  }
+}

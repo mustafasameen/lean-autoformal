@@ -1,0 +1,9 @@
+{
+  "content": "structure Hypothesis where\n  userName : Name\n  type     : Expr\n  value    : Expr\n  kind : LocalDeclKind := .default\ndef _root_.Lean.MVarId.assertHypotheses (mvarId : MVarId) (hs : Array Hypothesis) : MetaM (Array FVarId \u00d7 MVarId) := do\n  if hs.isEmpty then\n    return (#[], mvarId)\n  else mvarId.withContext do\n    mvarId.checkNotAssigned `assertHypotheses\n    let tag    \u2190 mvarId.getTag\n    let target \u2190 mvarId.getType\n    let targetNew := hs.foldr (init := target) fun h targetNew =>\n      .forallE h.userName h.type targetNew h.binderInfo\n    let mvarNew \u2190 mkFreshExprSyntheticOpaqueMVar targetNew tag\n    let val := hs.foldl (init := mvarNew) fun val h => .app val h.value\n    mvarId.assign val\n    let (fvarIds, mvarId) \u2190 mvarNew.mvarId!.introNP hs.size\n    mvarId.modifyLCtx fun lctx => Id.run do\n      let mut lctx := lctx\n      for h : i in [:hs.size] do\n        let h := hs[i]\n        if h.kind != .default then\n          lctx := lctx.setKind fvarIds[i]! h.kind\n      pure lctx",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Assert.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Assert.lean",
+    "definition_name": "Hypothesis"
+  }
+}

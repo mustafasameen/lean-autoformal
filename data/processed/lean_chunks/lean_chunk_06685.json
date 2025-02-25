@@ -1,0 +1,10 @@
+{
+  "content": "theorem HashMapBucket.size_update {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/HashMap.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/HashMap.lean",
+    "definition_name": "HashMapBucket",
+    "has_proof": false
+  }
+}

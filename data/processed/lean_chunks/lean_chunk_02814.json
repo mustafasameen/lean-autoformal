@@ -1,0 +1,10 @@
+{
+  "content": "instance (p\u2081 p\u2082 : String.Pos) : Decidable (LE.le p\u2081 p\u2082) :=\n  inferInstanceAs (Decidable (LE.le p\u2081.byteIdx p\u2082.byteIdx))\ninstance (p\u2081 p\u2082 : String.Pos) : Decidable (LT.lt p\u2081 p\u2082) :=\n  inferInstanceAs (Decidable (LT.lt p\u2081.byteIdx p\u2082.byteIdx))\ninstance : Min String.Pos := minOfLe\ninstance : Max String.Pos := maxOfLe\n@[inline] def String.toSubstring (s : String) : Substring where\n  str      := s\n  startPos := {}\n  stopPos  := s.endPos\nunsafe def unsafeCast {\u03b1 : Sort u} {\u03b2 : Sort v} (a : \u03b1) : \u03b2 :=\n  PLift.down (ULift.down.{max u v} (cast lcProof (ULift.up.{max u v} (PLift.up a))))\n@[never_extract, extern \"lean_panic_fn\"]\ndef panicCore {\u03b1 : Sort u} [Inhabited \u03b1] (msg : String) : \u03b1 := default\n@[noinline, never_extract]\ndef panic {\u03b1 : Sort u} [Inhabited \u03b1] (msg : String) : \u03b1 :=\n  panicCore msg\nattribute [nospecialize] Inhabited\nstructure Array (\u03b1 : Type u) where\n  mk ::\n  toList : List \u03b1\nattribute [extern \"lean_array_to_list\"] Array.toList\nattribute [extern \"lean_array_mk\"] Array.mk",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

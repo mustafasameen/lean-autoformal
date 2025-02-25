@@ -1,0 +1,10 @@
+{
+  "content": "theorem simple2 (x y : Nat) : x = y \u2192 x = y :=\nby {\n  intro h;\n  assumption\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_name": "simple2",
+    "has_proof": true
+  }
+}

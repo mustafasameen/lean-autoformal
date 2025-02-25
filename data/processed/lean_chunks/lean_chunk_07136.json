@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\n  decls : Array Decl := #[]\nabbrev SpecializeM := ReaderT Context $ StateRefT State CompilerM\ninstance : MonadScope SpecializeM where\n  getScope := return (\u2190 read).scope\n  withScope f := withReader (fun ctx => { ctx with scope := f ctx.scope }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Specialize.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Specialize.lean",
+    "definition_name": "State"
+  }
+}

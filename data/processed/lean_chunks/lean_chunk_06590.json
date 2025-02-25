@@ -1,0 +1,10 @@
+{
+  "content": "@[builtin_command_parser] def \u00abderiving\u00bb     := leading_parser\n  \"deriving \" >> \"instance \" >> derivingClasses >> \" for \" >> sepBy1 (recover ident skip) \", \"\n@[builtin_command_parser] def noncomputableSection := leading_parser\n  \"noncomputable \" >> \"section\" >> optional (ppSpace >> checkColGt >> ident)\n@[builtin_command_parser] def \u00absection\u00bb      := leading_parser\n  \"section\" >> optional (ppSpace >> checkColGt >> ident)\n@[builtin_command_parser] def \u00abnamespace\u00bb    := leading_parser\n  \"namespace \" >> checkColGt >> ident\n@[builtin_command_parser] def \u00abend\u00bb          := leading_parser\n  \"end\" >> optional (ppSpace >> checkColGt >> ident)\n@[builtin_command_parser] def \u00abvariable\u00bb     := leading_parser\n  \"variable\" >> many1 (ppSpace >> checkColGt >> Term.bracketedBinder)\ndef id\u2081.{u} (\u03b1 : Type u) (a : \u03b1) := a\ndef id\u2082 (\u03b1 : Type u) (a : \u03b1) := a\n@[builtin_command_parser] def \u00abuniverse\u00bb     := leading_parser\n  \"universe\" >> many1 (ppSpace >> checkColGt >> ident)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

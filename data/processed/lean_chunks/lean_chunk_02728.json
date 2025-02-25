@@ -1,0 +1,9 @@
+{
+  "content": "inductive Except (\u03b5 : Type u) (\u03b1 : Type v) where\n  | ok    : \u03b1 \u2192 Except \u03b5 \u03b1\nattribute [unbox] Except\ninstance {\u03b5 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Except"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "\"#print \" >> (ident <|> strLit)\n@[builtin_command_parser] def printAxioms    := leading_parser\n  \"#print \" >> nonReservedSymbol \"axioms \" >> ident\n@[builtin_command_parser] def printEqns      := leading_parser\n  \"#print \" >> (nonReservedSymbol \"equations \" <|> nonReservedSymbol \"eqns \") >> ident\n@[builtin_command_parser] def printTacTags   := leading_parser\n  \"#print \" >> nonReservedSymbol \"tactic \" >> nonReservedSymbol \"tags\"\n@[builtin_command_parser] def \u00abwhere\u00bb        := leading_parser\n  \"#where\"\n@[builtin_command_parser] def \u00abset_option\u00bb   := leading_parser\n  \"set_option \" >> identWithPartialTrailingDot >> ppSpace >> optionValue\ndef eraseAttr := leading_parser\n  \"-\" >> rawIdent\n@[builtin_command_parser] def \u00abattribute\u00bb    := leading_parser\n  \"attribute \" >> \"[\" >>\n    withoutPosition (sepBy1 (eraseAttr <|> Term.attrInstance) \", \") >>\n  \"]\" >> many1 (ppSpace >> ident)\n@[builtin_command_parser] def \u00abexport\u00bb       := leading_parser\n  \"export \" >> ident >> \" (\" >> many1 ident >> \")\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem is_equivalence : Equivalence (@eqv \u03b1) :=\n  { refl := eqv.refl, symm := eqv.symm, trans := eqv.trans }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/716.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/716.lean",
+    "definition_name": "is_equivalence",
+    "has_proof": false
+  }
+}

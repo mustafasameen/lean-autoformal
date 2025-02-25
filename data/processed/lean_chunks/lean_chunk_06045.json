@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_drop (xs : List \u03b1) (i j : Nat) : (xs.drop i)[j]? = xs[i + j]? := by\n  ext\n  simp only [getElem?_eq_some_iff, getElem_drop, Option.mem_def]\n  constructor <;> intro \u27e8h, ha\u27e9\n  \u00b7 exact \u27e8_, ha\u27e9\n  \u00b7 refine \u27e8?_, ha\u27e9\n    rw [length_drop]\n    rw [Nat.add_comm] at h\n    apply Nat.lt_sub_of_add_lt h\ntheorem mem_take_iff_getElem {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

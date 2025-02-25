@@ -1,0 +1,10 @@
+{
+  "content": "right\n            refine \u27e8i, by simpa using h\u2081, by simpa using h\u2082, ?_, ?_\u27e9\n            \u00b7 intro j hj\n              simpa using w\u2081 (j + 1) (by simpa)\n            \u00b7 simpa using w\u2082\nattribute [local simp] Nat.add_one_lt_add_one_iff in\ntheorem lex_eq_false_iff_exists [BEq \u03b1] [PartialEquivBEq \u03b1] (lt : \u03b1 \u2192 \u03b1 \u2192 Bool)\n    (lt_irrefl : \u2200 x y, x == y \u2192 lt x y = false)\n    (lt_asymm : \u2200 x y, lt x y = true \u2192 lt y x = false)\n    (lt_antisymm : \u2200 x y, lt x y = false \u2192 lt y x = false \u2192 x == y) :\n    lex l\u2081 l\u2082 lt = false \u2194\n      (l\u2082.isEqv (l\u2081.take l\u2082.length) (\u00b7 == \u00b7)) \u2228\n        (\u2203 (i : Nat) (h\u2081 : i < l\u2081.length) (h\u2082 : i < l\u2082.length),\n          (\u2200 j, (hj : j < i) \u2192\n            l\u2081[j]'(Nat.lt_trans hj h\u2081) == l\u2082[j]'(Nat.lt_trans hj h\u2082)) \u2227 lt l\u2082[i] l\u2081[i]) := by\n  induction l\u2081 generalizing l\u2082 with\n  | nil =>\n    cases l\u2082 with\n    | nil => simp [lex]\n    | cons b bs => simp [lex]\n  | cons a l\u2081 ih =>\n    cases l\u2082 with\n    | nil => simp [lex]\n    | cons b l\u2082 =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_name": "lex_eq_true_iff_lex",
+    "has_proof": true
+  }
+}

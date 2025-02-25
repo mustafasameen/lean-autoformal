@@ -1,0 +1,10 @@
+{
+  "content": "theorem ext \u2983\u03b1 \u03b2 : X \u2245 Y\u2984 (w : \u03b1.hom = \u03b2.hom) : \u03b1 = \u03b2 :=\n  suffices \u03b1.inv = \u03b2.inv by grind [Iso]\n  calc\n    \u03b1.inv = \u03b1.inv \u226b \u03b2.hom \u226b \u03b2.inv   := by grind\n    _     = \u03b2.inv                    := by grind\ndef Function.RightInverse (g : \u03b2 \u2192 \u03b1) (f : \u03b1 \u2192 \u03b2) : Prop :=\n  LeftInverse f g\nopen Function\ndef homToEquiv (\u03b1 : X \u2245 Y) {Z : C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat2.lean",
+    "definition_name": "ext",
+    "has_proof": true
+  }
+}

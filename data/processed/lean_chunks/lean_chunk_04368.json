@@ -1,0 +1,10 @@
+{
+  "content": "theorem one_dvd (n : Nat) : 1 \u2223 n := \u27e8n, n.one_mul.symm\u27e9\ntheorem eq_one_of_dvd_one {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_name": "one_dvd",
+    "has_proof": false
+  }
+}

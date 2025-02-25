@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_zipIdx (xs : Array \u03b1) (i j) : (zipIdx xs i)[j]? = xs[j]?.map fun a => (a, i + j) := by\n  simp [getElem?_def]\ntheorem map_snd_add_zipIdx_eq_zipIdx (xs : Array \u03b1) (n k : Nat) :\n    map (Prod.map id (\u00b7 + n)) (zipIdx xs k) = zipIdx xs (n + k) :=\n  ext_getElem? fun i \u21a6 by simp [(\u00b7 \u2218 \u00b7), Nat.add_comm, Nat.add_left_comm]; rfl\n@[simp]\ntheorem zipIdx_map_snd (i) (xs : Array \u03b1) : map Prod.snd (zipIdx xs i) = range' i xs.size := by\n  cases xs\n  simp\n@[simp]\ntheorem zipIdx_map_fst (i) (xs : Array \u03b1) : map Prod.fst (zipIdx xs i) = xs := by\n  cases xs\n  simp\ntheorem zipIdx_eq_zip_range' (xs : Array \u03b1) {i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

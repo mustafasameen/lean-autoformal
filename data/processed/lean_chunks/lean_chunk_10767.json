@@ -1,0 +1,9 @@
+{
+  "content": "downloading and upgrading packages as needed. For each new (transitive) git\ndependency, the appropriate commit is cloned into a subdirectory of\n`packagesDir`. No copy is made of local dependencies.\nIf a set of packages are specified, said dependencies are upgraded to\nthe latest version compatible with the package's configuration (or removed if\nremoved from the configuration). If there are dependencies on multiple versions\nof the same package, the version materialized is undefined.\nA bare `lake update` will upgrade all dependencies.\"\ndef helpTest :=\n\"Test the workspace's root package using its configured test driver\nUSAGE:\nlake test [\nA test driver can be configured by either setting the 'testDriver'\npackage configuration option or by tagging a script, executable, or library\n`@[test_driver]`. A definition in a dependency can be used as a test driver\nby using the `<pkg>/<name>` syntax for the 'testDriver' configuration option.",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

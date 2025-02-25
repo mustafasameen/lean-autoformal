@@ -1,0 +1,9 @@
+{
+  "content": "structure S :=\n(n : Nat)\n(y : Vector' Nat n)\n(z : Vector' Nat n)\n(h : y = z)\n(m : { v : Nat // v = y.val.size }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match4.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match4.lean",
+    "definition_name": "S"
+  }
+}

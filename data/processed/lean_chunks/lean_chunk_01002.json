@@ -1,0 +1,9 @@
+{
+  "content": "inductive MonoOption' (\u03b1 : Type) : Type\n  | some (a : \u03b1)\n  | none\n  deriving ToExpr\n#guard_msgs in\n#eval repr <| toExpr <| MonoOption'.some true\ninductive Option' (\u03b1 : Type u)\n  | some (a : \u03b1)\n  | none\n  deriving ToExpr\n#guard_msgs in\n#eval repr <| toExpr <| Option'.some true\nexample : ToExpr (Option' Nat) := inferInstance\nstructure MyULift.{r, s}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingToExpr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingToExpr.lean",
+    "definition_name": "MonoOption"
+  }
+}

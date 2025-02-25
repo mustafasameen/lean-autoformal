@@ -1,0 +1,9 @@
+{
+  "content": "inductive PersistentArrayNode (\u03b1 : Type u) where\n  | node (cs : Array (PersistentArrayNode \u03b1)) : PersistentArrayNode \u03b1\n  | leaf (vs : Array \u03b1)                       : PersistentArrayNode \u03b1\n  deriving Inhabited\nnamespace PersistentArrayNode\ndef isNode {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentArray.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentArray.lean",
+    "definition_name": "PersistentArrayNode"
+  }
+}

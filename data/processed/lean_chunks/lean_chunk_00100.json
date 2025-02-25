@@ -1,0 +1,9 @@
+{
+  "content": "structure A where\n  x : Nat\nstructure B extends A\nstructure C extends B\nstructure D extends B\ndef a : A := \u27e8 0 \u27e9\ndef b : B := { a with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInstExtraEta.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInstExtraEta.lean",
+    "definition_name": "A"
+  }
+}

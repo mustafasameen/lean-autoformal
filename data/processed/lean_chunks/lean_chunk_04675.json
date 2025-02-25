@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_lt_add_iff_left (a : Int) : a + b < a + c \u2194 b < c :=\n  \u27e8Int.lt_of_add_lt_add_left, (Int.add_lt_add_left \u00b7 _)\u27e9\nprotected theorem add_lt_add_iff_right (c : Int) : a + c < b + c \u2194 a < b :=\n  \u27e8Int.lt_of_add_lt_add_right, (Int.add_lt_add_right \u00b7 _)\u27e9\nprotected theorem add_lt_add {a b c d : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "add_lt_add_iff_left",
+    "has_proof": false
+  }
+}

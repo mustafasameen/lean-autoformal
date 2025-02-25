@@ -1,0 +1,10 @@
+{
+  "content": "inductive Or (a b : Prop) : Prop where\n  | inr (h : b) : Or a b\ntheorem Or.intro_right (a : Prop) (h : b) : Or a b :=\n  Or.inr h\ntheorem Or.elim {c : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Or",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def CompactedRegion := USize\n@[extern \"lean_compacted_region_is_memory_mapped\"]\nopaque CompactedRegion.isMemoryMapped : CompactedRegion \u2192 Bool\nopaque EnvExtensionEntrySpec : NonemptyType.{0}\ndef EnvExtensionEntry : Type := EnvExtensionEntrySpec.type\ninstance : Nonempty EnvExtensionEntry := EnvExtensionEntrySpec.property\nstructure ModuleData where\n  imports         : Array Import\n  constNames      : Array Name\n  constants       : Array ConstantInfo\n  extraConstNames : Array Name\n  entries         : Array (Name \u00d7 Array EnvExtensionEntry)\n  deriving Inhabited\n  trustLevel   : UInt32       := 0\n  mainModule   : Name         := default\n  regions      : Array CompactedRegion := #[]\n  moduleNames  : Array Name   := #[]\n  unfoldCounter : PHashMap Name Nat := {}\nstructure Environment where\n  private mk ::\n  constants   : ConstMap\n  quotInit    : Bool := false\n  diagnostics : Diagnostics := {}\n  const2ModIdx            : Std.HashMap Name ModuleIdx",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

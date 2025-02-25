@@ -1,0 +1,9 @@
+{
+  "content": "KeyedDeclsAttribute.init {\n    builtinName := `builtin_parenthesizer,\n    name := `parenthesizer,\n    descr := \"Register a parenthesizer for a parser.\n  [parenthesizer k] registers a declaration of type `Lean.PrettyPrinter.Parenthesizer` for the `SyntaxNodeKind` `k`.\",\n    valueTypeName := `Lean.PrettyPrinter.Parenthesizer,\n    evalKey := fun builtin stx => do\n      let env \u2190 getEnv\n      let stx \u2190 Attribute.Builtin.getIdent stx\n      let id := stx.getId\n      unless (builtin && (env.find? id).isSome) || Parser.isValidSyntaxNodeKind env id do\n        throwError \"invalid [parenthesizer] argument, unknown syntax kind '{id}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_name": "Context"
+  }
+}

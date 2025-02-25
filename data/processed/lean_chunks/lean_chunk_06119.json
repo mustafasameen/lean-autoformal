@@ -1,0 +1,10 @@
+{
+  "content": "theorem seqRight_eq_bind [Monad m] [LawfulMonad m] (x : m \u03b1) (y : m \u03b2) : x *> y = x >>= fun _ => y := by\n  rw [seqRight_eq]\n  simp only [map_eq_pure_bind, const, seq_eq_bind_map, bind_assoc, pure_bind, id_eq, bind_pure]\ntheorem seqLeft_eq_bind [Monad m] [LawfulMonad m] (x : m \u03b1) (y : m \u03b2) : x <* y = x >>= fun a => y >>= fun _ => pure a := by\n  rw [seqLeft_eq]\n  simp only [map_eq_pure_bind, seq_eq_bind_map, bind_assoc, pure_bind, const_apply]\n@[simp] theorem map_bind [Monad m] [LawfulMonad m] (f : \u03b2 \u2192 \u03b3) (x : m \u03b1) (g : \u03b1 \u2192 m \u03b2) :\n    f <$> (x >>= g) = x >>= fun a => f <$> g a := by\n  rw [\u2190 bind_pure_comp, LawfulMonad.bind_assoc]\n  simp [bind_pure_comp]\n@[simp] theorem bind_map_left [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 \u03b2) (x : m \u03b1) (g : \u03b2 \u2192 m \u03b3) :\n    ((f <$> x) >>= fun b => g b) = (x >>= fun a => g (f a)) := by\n  rw [\u2190 bind_pure_comp]\n  simp only [bind_assoc, pure_bind]\ntheorem Functor.map_unit [Monad m] [LawfulMonad m] {a : m PUnit}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_name": "seqRight_eq_bind",
+    "has_proof": true
+  }
+}

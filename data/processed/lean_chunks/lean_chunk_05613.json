@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_congr_left (h : \u2200 a \u2208 xs, f a = g a) : map f xs = map g xs :=\n  map_inj_left.2 h\ntheorem map_inj [NeZero n] : map (n := n) f = map g \u2194 f = g := by\n  constructor\n  \u00b7 intro h\n    ext a\n    replace h := congrFun h (mkVector n a)\n    simp only [mkVector, map_mk, mk.injEq, Array.map_inj_left, Array.mem_mkArray,  and_imp,\n      forall_eq_apply_imp_iff] at h\n    exact h (NeZero.ne n)\n  \u00b7 intro h; subst h; rfl\ntheorem map_eq_push_iff {f : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "map_congr_left",
+    "has_proof": true
+  }
+}

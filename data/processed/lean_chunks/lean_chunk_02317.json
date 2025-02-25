@@ -1,0 +1,9 @@
+{
+  "content": "class LE_trans (\u03b1 : Type u) extends LE \u03b1 where\n  le_trans : \u2200 {a b c : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/appIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/appIssue.lean",
+    "definition_name": "LE_trans"
+  }
+}

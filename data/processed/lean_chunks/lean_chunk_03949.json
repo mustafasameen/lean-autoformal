@@ -1,0 +1,10 @@
+{
+  "content": "theorem erase_mkArray [LawfulBEq \u03b1] (n : Nat) (a b : \u03b1) :\n    (mkArray n a).erase b = if b == a then mkArray (n - 1) a else mkArray n a := by\n  simp only [\u2190 List.toArray_replicate, List.erase_toArray]\n  simp only [List.erase_replicate, beq_iff_eq, List.toArray_replicate]\n  split <;> simp\ntheorem erase_comm [LawfulBEq \u03b1] (a b : \u03b1) (xs : Array \u03b1) :\n    (xs.erase a).erase b = (xs.erase b).erase a := by\n  rcases xs with \u27e8xs\u27e9\n  simpa using List.erase_comm a b xs\ntheorem erase_eq_iff [LawfulBEq \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_name": "erase_mkArray",
+    "has_proof": true
+  }
+}

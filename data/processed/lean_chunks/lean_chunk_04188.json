@@ -1,0 +1,10 @@
+{
+  "content": "theorem shiftLeft_eq_mul_twoPow (x : BitVec w) (n : Nat) :\n    x <<< n = x * (BitVec.twoPow w n) := by\n  ext i\n  simp [getLsbD_shiftLeft, Fin.is_lt, decide_true, Bool.true_and, mul_twoPow_eq_shiftLeft]\ntheorem udiv_twoPow_eq_of_lt {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "shiftLeft_eq_mul_twoPow",
+    "has_proof": true
+  }
+}

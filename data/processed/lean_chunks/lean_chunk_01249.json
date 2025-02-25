@@ -1,0 +1,9 @@
+{
+  "content": "structure Idx (p : Array String) where\n  n : Fin p.size\nstructure Store where\n  arr : Array String\n  ids : Array (Idx arr)\ninstance {arr : Array String}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1293.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1293.lean",
+    "definition_name": "Idx"
+  }
+}

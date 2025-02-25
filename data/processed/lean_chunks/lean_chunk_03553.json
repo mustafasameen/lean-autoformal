@@ -1,0 +1,10 @@
+{
+  "content": "theorem natAdd_mk (n i : Nat) (hi : i < m) :\n    natAdd n \u27e8i, hi\u27e9 = \u27e8n + i, Nat.add_lt_add_left hi n\u27e9 := rfl\ntheorem le_coe_natAdd (m : Nat) (i : Fin n) : m \u2264 natAdd m i := Nat.le_add_right ..\n@[simp] theorem natAdd_zero {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "natAdd_mk",
+    "has_proof": false
+  }
+}

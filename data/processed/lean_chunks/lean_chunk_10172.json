@@ -1,0 +1,10 @@
+{
+  "content": "theorem toListModel_insertMany_list [BEq \u03b1] [Hashable \u03b1] [EquivBEq \u03b1] [LawfulHashable \u03b1]\n    {m : Raw\u2080 \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_name": "toListModel_insertMany_list",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Text\n  | full\ndef classify (num : Nat) : Option Text :=\n  if num < 4 then\n    some (.short)\n  else if num = 4 then\n    some (.full)\n  else if num = 5 then\n    some (.narrow)\n  else\n    none\nend Text\nstructure Number where\n  padding : Nat\n  deriving Repr, Inhabited\ndef classifyNumberText : Nat \u2192 Option (Number \u2295 Text)\n  | n => if n < 3 then some (.inl \u27e8n\u27e9) else .inr <$> (Text.classify n)\ninductive Fraction\n  | truncated (digits : Nat)\n  deriving Repr, Inhabited\nnamespace Fraction\ndef classify (nat : Nat) : Option Fraction :=\n  if nat < 9 then\n    some (.truncated nat)\n  else if nat = 9 then\n    some (.nano)\n  else\n    none\nend Fraction\ninductive Year\n  | fourDigit\ndef classify (num : Nat) : Option Year :=\n  if num = 2 then\n    some (.twoDigit)\n  else if num = 4 then\n    some (.fourDigit)\n  else if num > 4 \u2228 num = 3 then\n    some (.extended num)\n  else\n    none\nend Year\ninductive ZoneId\n  | full\n  deriving Repr, Inhabited\nnamespace ZoneId",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "Text"
+  }
+}

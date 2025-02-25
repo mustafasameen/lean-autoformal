@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofAIG.Inv1 (aig : AIG \u03b1) : \u2203 n, Inv1 n (ofAIG aig) := by\n  exists (ofAIGAux aig).max\n  dsimp only [ofAIG]\n  exact (ofAIGAux aig).inv1\ntheorem ofAIG.Inv2 (aig : AIG \u03b1) : Inv2 aig.decls aig.decls.size (ofAIG aig) := by\n  have := (ofAIGAux aig).inv2\n  simp [ofAIG, this]\ntheorem ofAIG_find_unique {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_name": "ofAIG",
+    "has_proof": true
+  }
+}

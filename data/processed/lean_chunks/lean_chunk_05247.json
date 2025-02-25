@@ -1,0 +1,10 @@
+{
+  "content": "theorem pairwise_cons : Pairwise R (a::l) \u2194 (\u2200 a', a' \u2208 l \u2192 R a a') \u2227 Pairwise R l :=\n  \u27e8fun | .cons h\u2081 h\u2082 => \u27e8h\u2081, h\u2082\u27e9, fun \u27e8h\u2081, h\u2082\u27e9 => h\u2082.cons h\u2081\u27e9\ninstance instDecidablePairwise [DecidableRel R] :\n    (l : List \u03b1) \u2192 Decidable (Pairwise R l)\n  | [] => isTrue .nil\n  | hd :: tl =>\n    match instDecidablePairwise tl with\n    | isTrue ht =>\n      match decidableBAll (R hd) tl with\n      | isFalse hf => isFalse fun hf' => hf (pairwise_cons.1 hf').1\n      | isTrue ht' => isTrue <| pairwise_cons.mpr (And.intro ht' ht)\n    | isFalse hf => isFalse fun | .cons _ ih => hf ih\nend Pairwise\ndef Nodup : List \u03b1 \u2192 Prop := Pairwise (\u00b7 \u2260 \u00b7)\ninstance nodupDecidable [DecidableEq \u03b1] : \u2200 l : List \u03b1, Decidable (Nodup l) :=\n  instDecidablePairwise\ndef replace [BEq \u03b1] : List \u03b1 \u2192 \u03b1 \u2192 \u03b1 \u2192 List \u03b1\n  | [],    _, _ => []\n  | a::as, b, c => match b == a with\n    | true  => c::as\n    | false => a :: replace as b c\n@[simp] theorem replace_nil [BEq \u03b1] : ([] : List \u03b1).replace a b = [] := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "pairwise_cons",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] def Header.colTypes (h : Header) : List DataType :=\n  h.map fun x => x.1\n@[simp] def Header.colNames (h : Header) : List String :=\n  h.map fun x => x.2\nabbrev Row := List DataEntry\n@[simp] def rowOfTypes : Row \u2192 List DataType \u2192 Prop\n  | [],       []       => True\n  | eh :: et, th :: tt => eh.isOf th \u2227 rowOfTypes et tt\n  | _,        _        => False\n@[simp] def rowsOfTypes : List Row \u2192 List DataType \u2192 Prop\n  | row :: rows, types => rowOfTypes row types \u2227 rowsOfTypes rows types\n  | [],          _     => True\nstructure DataFrame where\n  header     : Header\n  rows       : List Row\n  consistent : rowsOfTypes rows header.colTypes := by simp\nnamespace DataFrame\n@[simp] def empty (header : Header := []) : DataFrame :=\n  \u27e8header, [], by simp\u27e9\ntheorem consistentConcatOfConsistentRow\n    {df : DataFrame} (row : List DataEntry)\n    (hc : rowOfTypes row df.header.colTypes) :\n      rowsOfTypes (df.rows.concat row) (Header.colTypes df.header) :=\n  match df with\n    | \u27e8_, rows, hr\u27e9 => by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/946.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/946.lean",
+    "definition_name": "NULL",
+    "has_proof": true
+  }
+}

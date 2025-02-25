@@ -1,0 +1,9 @@
+{
+  "content": "| Expr.op l r => EvalInformation.evalOp ctx (eval \u03b2 ctx l) (eval \u03b2 ctx r)\ndef Expr.toList : Expr \u2192 List Nat\n  | Expr.var idx => [idx]\n  | Expr.op l r => l.toList.append r.toList\ndef evalList (\u03b2 : Sort u) [EvalInformation \u03b1 \u03b2] (ctx : \u03b1) : List Nat \u2192 \u03b2\n  | [] => EvalInformation.arbitrary ctx\n  | [x] => EvalInformation.evalVar ctx x\n  | x :: xs => EvalInformation.evalOp ctx (EvalInformation.evalVar ctx x) (evalList \u03b2 ctx xs)\ndef insert (x : Nat) : List Nat \u2192 List Nat\n  | [] => [x]\n  | a :: as => if x < a then x :: a :: as else a :: insert x as\ndef sort (xs : List Nat) : List Nat :=\n  let rec loop : List Nat \u2192 List Nat \u2192 List Nat\n    | acc, [] => acc\n    | acc, x :: xs => loop (insert x acc) xs\n  loop [] xs\ndef mergeIdem (xs : List Nat) : List Nat :=\n  let rec loop : Nat \u2192 List Nat \u2192 List Nat\n    | curr, next :: rest =>\n      if curr = next then\n        loop curr rest\n      else\n        curr :: loop next rest\n    | curr, [] => [curr]\n  match xs with\n  | [] => []\n  | x :: xs => loop x xs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_name": "ContextInformation"
+  }
+}

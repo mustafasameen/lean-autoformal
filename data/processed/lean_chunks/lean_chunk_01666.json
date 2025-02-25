@@ -1,0 +1,10 @@
+{
+  "content": "theorem Fin.zero_ext (a b : Fin 0) : True \u2192 a = b := by cases a.isLt\nexample (a b : Fin 0) : a = b := by ext; exact True.intro\n#guard_msgs in #check MyUnit.ext2_iff\nexample (x y : MyUnit) : x = y := by ext; rfl\nexample (f : \u2115 \u00d7 (\u2115 \u2192 \u2115)) : f = f := by\n  ext x\n  \u00b7 rfl\n  \u00b7 guard_target = (f.2) x = (f.2) x\n    rfl\nexample (f : Empty \u2192 Empty) : f = f := by\n  ext \u27e8\u27e9\nexample (xs : Array \u03b1) : xs.map id = xs := by\n  ext\n  . simp\n  . simp\n@[ext (iff := false)] theorem ext_intros {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ext.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ext.lean",
+    "definition_name": "Fin",
+    "has_proof": true
+  }
+}

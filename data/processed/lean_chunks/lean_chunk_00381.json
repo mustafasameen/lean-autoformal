@@ -1,0 +1,9 @@
+{
+  "content": "class Alternative (f : Type u \u2192 Type v) extends Applicative f : Type (max (u+1) v) :=\n(failure : \u2200 {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/modtest1.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/modtest1.lean",
+    "definition_name": "Alternative"
+  }
+}

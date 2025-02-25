@@ -1,0 +1,9 @@
+{
+  "content": "structure M (\u03b1 : Type) where\n  \u03c3 : ExceptT String IO \u03b1\ninstance : Monad M where\n  pure x   := { \u03c3 := pure x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/448.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/448.lean",
+    "definition_name": "M"
+  }
+}

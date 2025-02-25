@@ -1,0 +1,9 @@
+{
+  "content": "structure C extends B\ndef baz (a : A) (b : B) : C := {a, b with}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInstSourcesLeftToRight.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInstSourcesLeftToRight.lean",
+    "definition_name": "C"
+  }
+}

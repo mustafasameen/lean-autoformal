@@ -1,0 +1,9 @@
+{
+  "content": "structure TestInstallerContext where\n  passUnderTestName : Name\n  testName : Name\nstructure TestContext where\n  passUnderTest : Pass\n  testName : Name\nstructure SimpleAssertionContext where\n  decls : Array Decl\nstructure InOutAssertionContext where\n  input : Array Decl\n  output : Array Decl\nabbrev TestInstallerM := ReaderM TestInstallerContext\nabbrev TestInstaller := TestInstallerM PassInstaller\nabbrev TestM := ReaderT TestContext CompilerM\nabbrev SimpleAssertionM := ReaderT SimpleAssertionContext TestM\nabbrev InOutAssertionM := ReaderT InOutAssertionContext TestM\nabbrev SimpleTest := SimpleAssertionM Unit\nabbrev InOutTest := InOutAssertionM Unit\ndef TestInstaller.install (x : TestInstaller) (passUnderTestName testName : Name) : PassInstaller :=\n  x { passUnderTestName, testName }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Testing.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Testing.lean",
+    "definition_name": "TestInstallerContext"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Dyck : Type where\n| round : Dyck \u2192 Dyck\n| curly : Dyck \u2192 Dyck\n  | leaf : Dyck\ndeclare_syntax_cat brack\nsyntax \"(\" brack \")\" : brack\nsyntax \"{\" brack \"}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/syntax_example.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/syntax_example.lean",
+    "definition_name": "Dyck"
+  }
+}

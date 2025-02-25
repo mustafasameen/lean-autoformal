@@ -1,0 +1,9 @@
+{
+  "content": "def r1 := (DateRange.mk (Date.mk 0) (Date.mk 10) (by decide))\ndef r2 := (DateRange.mk (Date.mk 1) (Date.mk 10) (by decide))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/909.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/909.lean",
+    "definition_name": "r1"
+  }
+}

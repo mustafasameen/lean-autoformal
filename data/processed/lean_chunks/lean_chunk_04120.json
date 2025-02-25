@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_assoc (x y z : BitVec n) : x + y + z = x + (y + z) := by\n  apply eq_of_toNat_eq ; simp [Nat.add_assoc]\ninstance : Std.Associative (\u03b1 := BitVec n) (\u00b7 + \u00b7) := \u27e8BitVec.add_assoc\u27e9\nprotected theorem add_comm (x y : BitVec n) : x + y = y + x := by\n  simp [add_def, Nat.add_comm]\ninstance : Std.Commutative (\u03b1 := BitVec n) (\u00b7 + \u00b7) := \u27e8BitVec.add_comm\u27e9\n@[simp] protected theorem add_zero (x : BitVec n) : x + 0#n = x := by simp [add_def]\n@[simp] protected theorem zero_add (x : BitVec n) : 0#n + x = x := by simp [add_def]\ninstance : Std.LawfulIdentity (\u03b1 := BitVec n) (\u00b7 + \u00b7) 0#n where\n  left_id := BitVec.zero_add\n  right_id := BitVec.add_zero\ntheorem setWidth_add (x y : BitVec w) (h : i \u2264 w) :\n    (x + y).setWidth i = x.setWidth i + y.setWidth i := by\n  have dvd : 2^i \u2223 2^w := Nat.pow_dvd_pow _ h\n  simp [bitvec_to_nat, h, Nat.mod_mod_of_dvd _ dvd]\n@[simp, bitvec_to_nat] theorem toInt_add (x y : BitVec w) :\n  (x + y).toInt = (x.toInt + y.toInt).bmod (2^w) := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "add_assoc",
+    "has_proof": true
+  }
+}

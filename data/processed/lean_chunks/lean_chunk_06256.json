@@ -1,0 +1,9 @@
+{
+  "content": "structure ParamInfo where\n  hasFwdDeps     : Bool       := false\n  isProp         : Bool       := false\n  isDecInst      : Bool       := false\n  higherOrderOutParam : Bool  := false\n  dependsOnHigherOrderOutParam : Bool := false\n  deriving Inhabited\ndef ParamInfo.isImplicit (p : ParamInfo) : Bool :=\n  p.binderInfo == BinderInfo.implicit\ndef ParamInfo.isInstImplicit (p : ParamInfo) : Bool :=\n  p.binderInfo == BinderInfo.instImplicit\ndef ParamInfo.isStrictImplicit (p : ParamInfo) : Bool :=\n  p.binderInfo == BinderInfo.strictImplicit\ndef ParamInfo.isExplicit (p : ParamInfo) : Bool :=\n  p.binderInfo == BinderInfo.default\nstructure FunInfo where\n  resultDeps : Array Nat       := #[]\nstructure InfoCacheKey where\n  private mk ::\n  expr         : Expr\n  nargs?       : Option Nat\n  deriving Inhabited, BEq\ninstance : Hashable InfoCacheKey where\n  hash := fun { configKey, expr, nargs? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "ParamInfo"
+  }
+}

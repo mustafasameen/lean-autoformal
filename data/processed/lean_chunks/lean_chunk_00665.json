@@ -1,0 +1,9 @@
+{
+  "content": "class AddGroup (A : Type u) extends SubNegMonoid A where\n  protected add_left_neg : \u2200 a : A, -a + a = 0\nclass AddCommGroup (G : Type u) extends AddGroup G, AddCommMonoid G\nend Mathlib.Algebra.Group.Defs\nsection Mathlib.Algebra.Opposites\nvariable {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "AddGroup"
+  }
+}

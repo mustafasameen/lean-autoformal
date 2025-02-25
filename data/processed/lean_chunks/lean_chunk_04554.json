@@ -1,0 +1,10 @@
+{
+  "content": "theorem attachWith_some {x : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_name": "attachWith_some",
+    "has_proof": false
+  }
+}

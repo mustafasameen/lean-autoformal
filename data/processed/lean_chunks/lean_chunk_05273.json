@@ -1,0 +1,10 @@
+{
+  "content": "cases i with simp only [take, takeTR.go]\n    | zero => simp\n    | succ n => intro h; rw [IH] <;> simp_all\n@[inline] def takeWhileTR (p : \u03b1 \u2192 Bool) (l : List \u03b1) : List \u03b1 := go l #[] where\n  @[specialize] go : List \u03b1 \u2192 Array \u03b1 \u2192 List \u03b1\n  | [], _ => l\n  | a::as, acc => bif p a then go as (acc.push a) else acc.toList\n@[csimp] theorem takeWhile_eq_takeWhileTR : @takeWhile = @takeWhileTR := by\n  funext \u03b1 p l; simp [takeWhileTR]\n  suffices \u2200 xs acc, l = acc.toList ++ xs \u2192\n      takeWhileTR.go p l xs acc = acc.toList ++ xs.takeWhile p from\n    (this l #[] (by simp)).symm\n  intro xs; induction xs with intro acc\n  | nil => simp [takeWhile, takeWhileTR.go]\n  | cons x xs IH =>\n    simp only [takeWhileTR.go, Array.toListImpl_eq, takeWhile]\n    split\n    \u00b7 intro h; rw [IH] <;> simp_all\n    \u00b7 simp [*]\n@[inline] def dropLastTR (l : List \u03b1) : List \u03b1 := l.toArray.pop.toList\n@[csimp] theorem dropLast_eq_dropLastTR : @dropLast = @dropLastTR := by\n  funext \u03b1 l; simp [dropLastTR]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_name": "set_eq_setTR",
+    "has_proof": true
+  }
+}

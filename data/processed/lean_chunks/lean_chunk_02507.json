@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_congr_coll [GetElem coll idx elem valid] {c d : coll}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "getElem_congr_coll",
+    "has_proof": false
+  }
+}

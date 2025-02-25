@@ -1,0 +1,10 @@
+{
+  "content": "theorem zero_def : (0 : $typeName) = \u27e80\u27e9 := rfl\n  theorem one_def : (1 : $typeName) = \u27e81\u27e9 := rfl\n  theorem sub_def (a b : $typeName) : a - b = \u27e8a.toBitVec - b.toBitVec\u27e9 := rfl\n  theorem mul_def (a b : $typeName) : a * b = \u27e8a.toBitVec * b.toBitVec\u27e9 := rfl\n  theorem mod_def (a b : $typeName) : a % b = \u27e8a.toBitVec % b.toBitVec\u27e9 := rfl\n  theorem add_def (a b : $typeName) : a + b = \u27e8a.toBitVec + b.toBitVec\u27e9 := rfl\n  @[simp] theorem toNat_ofBitVec : (ofBitVec a).toNat = a.toNat := rfl\n  @[deprecated toNat_ofBitVec (since := \"2025-02-12\")]\n  theorem toNat_mk : (ofBitVec a).toNat = a.toNat := rfl\n  @[simp] theorem toNat_ofNat {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_name": "zero_def",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let mut fieldBinder := fieldBinder\n    if fieldBinder.getKind == ``Parser.Command.structSimpleBinder then\n      fieldBinder := mkNode ``Parser.Command.structExplicitBinder\n        #[ fieldBinder[0], mkAtomFrom fieldBinder \"(\", mkNullNode #[ fieldBinder[1] ], fieldBinder[2], fieldBinder[3], fieldBinder[4], mkAtomFrom fieldBinder \")\" ]\n    let k := fieldBinder.getKind\n    let binfo \u2190\n      if k == ``Parser.Command.structExplicitBinder then pure BinderInfo.default\n      else if k == ``Parser.Command.structImplicitBinder then pure BinderInfo.implicit\n      else if k == ``Parser.Command.structInstBinder then pure BinderInfo.instImplicit\n      else throwError \"unexpected kind of structure field\"\n    let fieldModifiers \u2190 elabModifiers fieldBinder[0]\n    checkValidFieldModifier fieldModifiers\n    if fieldModifiers.isPrivate && structModifiers.isPrivate then\n      throwError \"invalid 'private' field in a 'private' structure\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

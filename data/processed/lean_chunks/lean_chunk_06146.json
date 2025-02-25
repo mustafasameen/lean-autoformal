@@ -1,0 +1,9 @@
+{
+  "content": "MonadAlwaysExcept \u03b5 (MonadCacheT \u03b1 \u03b2 m) where\n  except := let _ := always.except; inferInstance\ndef withTraceNode [always : MonadAlwaysExcept \u03b5 m] [MonadLiftT BaseIO m] (cls : Name)\n    (msg : Except \u03b5 \u03b1 \u2192 m MessageData) (k : m \u03b1) (collapsed := true) (tag := \"\") : m \u03b1 := do\n  let _ := always.except\n  let opts \u2190 getOptions\n  let clsEnabled \u2190 isTracingEnabledFor cls\n  unless clsEnabled || trace.profiler.get opts do\n    return (\u2190 k)\n  let oldTraces \u2190 getResetTraces\n  let (res, start, stop) \u2190 withStartStop opts <| observing k\n  let aboveThresh := trace.profiler.get opts &&\n    stop - start > trace.profiler.threshold.unitAdjusted opts\n  unless clsEnabled || aboveThresh do\n    modifyTraces (oldTraces ++ \u00b7)\n    return (\u2190 MonadExcept.ofExcept res)\n  let ref \u2190 getRef\n  let mut m \u2190 try msg res catch _ => pure m!\"<exception thrown while producing trace node message>\"\n  let mut data := { cls, collapsed, tag }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_name": "TraceElem"
+  }
+}

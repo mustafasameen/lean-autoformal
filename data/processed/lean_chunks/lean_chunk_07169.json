@@ -1,0 +1,9 @@
+{
+  "content": "def isPropFormer (e : Expr) : MetaM Bool := do\n  isPropFormerType (\u2190 Meta.inferType e)\nopen Meta in\npartial def toLCNFType (type : Expr) : MetaM Expr := do\n  if (\u2190 isProp type) then\n    return erasedExpr\n  let type \u2190 whnfEta type\n  match type with\n  | .sort u     => return .sort u\n  | .const ..   => visitApp type #[]\n  | .lam n d b bi =>\n    withLocalDecl n bi d fun x => do\n      let d \u2190 toLCNFType d\n      let b \u2190 toLCNFType (b.instantiate1 x)\n      if b.isErased then\n        return b\n      else\n        return Expr.lam n d (b.abstract #[x]) bi\n  | .forallE .. => visitForall type #[]\n  | .app ..  => type.withApp visitApp\n  | .fvar .. => visitApp type #[]\n  | _        => return erasedExpr\nwhere\n  whnfEta (type : Expr) : MetaM Expr := do\n    let type \u2190 whnf type\n    let type' := type.eta\n    if type' != type then\n      whnfEta type'\n    else\n      return type\n  visitForall (e : Expr) (xs : Array Expr) : MetaM Expr := do\n    match e with\n    | .forallE n d b bi =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_name": "erasedExpr"
+  }
+}

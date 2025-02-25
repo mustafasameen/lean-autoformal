@@ -1,0 +1,9 @@
+{
+  "content": "return (.star, todo)\n      else\n        failure\n    | .forallE _ d b _ =>\n      let b \u2190 if b.hasLooseBVars then MatchClone.elimLooseBVarsByBeta b else pure b\n      if b.hasLooseBVars then\n        return (.other, todo)\n      else\n        return (.arrow, (todo.push d).push b)\n    | _ =>\n      return (.other, todo)\nprivate def rootKey (e : Expr) : MetaM (Key \u00d7 Array Expr) :=\n  pushArgs true (Array.mkEmpty initCapacity) e\nprivate partial def buildPath (op : Bool \u2192 Array Expr \u2192 Expr \u2192 MetaM (Key \u00d7 Array Expr)) (root : Bool) (todo : Array Expr) (keys : Array Key) : MetaM (Array Key) := do\n  if todo.isEmpty then\n    return keys\n  else\n    let e    := todo.back!\n    let todo := todo.pop\n    let (k, todo) \u2190 op root todo e\n    buildPath op false todo (keys.push k)\ndef patternPath (e : Expr) : MetaM (Array Key) := do\n  let todo : Array Expr := .mkEmpty initCapacity\n  let op root todo e := pushArgs root todo e\n  buildPath op (root := true) (todo.push e) (.mkEmpty initCapacity)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_name": "TrieIndex"
+  }
+}

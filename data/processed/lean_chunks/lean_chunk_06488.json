@@ -1,0 +1,9 @@
+{
+  "content": "def runPendingTacticsAt (e : Expr) : TermElabM Unit := do\n  for mvarId in (\u2190 getMVars e) do\n    let mvarId \u2190 getDelayedMVarRoot mvarId\n    if let some { kind := .tactic tacticCode savedContext kind, .. } \u2190 getSyntheticMVarDecl? mvarId then\n      withSavedContext savedContext do\n        runTactic mvarId tacticCode kind\n        markAsResolved mvarId\nbuiltin_initialize\n  registerTraceClass `Elab.resume\nend Lean.Elab.Term",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "reportStuckSyntheticMVars"
+  }
+}

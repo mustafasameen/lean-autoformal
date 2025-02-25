@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_partition : a \u2208 l \u2194 a \u2208 (partition p l).1 \u2228 a \u2208 (partition p l).2 := by\n  by_cases p a <;> simp_all\n@[simp] theorem length_dropLast : \u2200 (xs : List \u03b1), xs.dropLast.length = xs.length - 1\n  | [] => rfl\n  | x::xs => by simp\n@[simp] theorem getElem_dropLast : \u2200 (xs : List \u03b1) (i : Nat) (h : i < xs.dropLast.length),\n    xs.dropLast[i] = xs[i]'(Nat.lt_of_lt_of_le h (length_dropLast .. \u25b8 Nat.pred_le _))\n  | _::_::_, 0, _ => rfl\n  | _::_::_, i+1, h => getElem_dropLast _ i (Nat.add_one_lt_add_one_iff.mp h)\ntheorem getElem?_dropLast (xs : List \u03b1) (i : Nat) :\n    xs.dropLast[i]? = if i < xs.length - 1 then xs[i]? else none := by\n  split\n  \u00b7 rw [getElem?_eq_getElem, getElem?_eq_getElem, getElem_dropLast]\n    simpa\n  \u00b7 simp_all\ntheorem head_dropLast (xs : List \u03b1) (h) :\n    xs.dropLast.head h = xs.head (by rintro rfl; simp at h) := by\n  cases xs with\n  | nil => rfl\n  | cons x xs =>\n    cases xs with\n    | nil => simp at h\n    | cons y ys => rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "mem_partition",
+    "has_proof": true
+  }
+}

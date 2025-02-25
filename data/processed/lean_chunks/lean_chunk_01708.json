@@ -1,0 +1,9 @@
+{
+  "content": "class Bar (A : Sort u) (f : A -> Prop) := (bar : (a : A) -> f a)\nclass abbrev BarAbbrev (f : A -> Prop) := Bar A f\nend\nsection\nuniverse u\nclass Foo (A : Sort u) (f : A -> Prop) := (foo : (a : A) -> f a)\nclass abbrev FooAbbrev {A : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/436.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/436.lean",
+    "definition_name": "Bar"
+  }
+}

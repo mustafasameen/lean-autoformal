@@ -1,0 +1,9 @@
+{
+  "content": "return (\u2190 getEnv).find? declName\n  else\n    getUnfoldableConst? declName\nprivate def getConstInfoNoEx? (declName : Name) (ignoreTransparency : Bool) : MetaM (Option ConstantInfo) := do\n  if ignoreTransparency then\n    return (\u2190 getEnv).find? declName\n  else\n    getUnfoldableConstNoEx? declName\n@[inline] private def matchConstAux {\u03b1} (e : Expr) (failK : Unit \u2192 MetaM \u03b1) (k : ConstantInfo \u2192 List Level \u2192 MetaM \u03b1) (ignoreTransparency := false) : MetaM \u03b1 := do\n  let .const declName lvls := e\n    | failK ()\n  let some cinfo \u2190 getConstInfo? declName ignoreTransparency\n    | failK ()\n  k cinfo lvls\n    if (\u2190 withAtLeastTransparency TransparencyMode.default <| withNewMCtxDepth <| isDefEq majorType newType) then\n      return newCtorApp\n    else\n      return major\ndef mkProjFn (ctorVal : ConstructorVal) (us : List Level) (params : Array Expr) (i : Nat) (major : Expr) : CoreM Expr := do\n  match getStructureInfo? (\u2190 getEnv) ctorVal.induct with\n  | none => return mkProj ctorVal.induct i major",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

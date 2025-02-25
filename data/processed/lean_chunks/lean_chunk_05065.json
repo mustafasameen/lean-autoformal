@@ -1,0 +1,10 @@
+{
+  "content": "rw [takeWhile.go, takeWhile.go]\n  simp only [size_toArray, length_cons, Nat.add_lt_add_iff_right,\n    getElem_toArray, getElem_cons_succ]\n  split\n  rw [takeWhile_go_succ]\n  rfl\ntheorem takeWhile_go_toArray (p : \u03b1 \u2192 Bool) (l : List \u03b1) (i : Nat) :\n    Array.takeWhile.go p l.toArray i r = r ++ (takeWhile p (l.drop i)).toArray := by\n  induction l generalizing i r with\n  | nil => simp [takeWhile.go]\n  | cons a l ih =>\n    rw [takeWhile.go]\n    cases i with\n    | zero =>\n      simp [takeWhile_go_succ, ih, takeWhile_cons]\n      split <;> simp\n    | succ i =>\n      simp only [size_toArray, length_cons, Nat.add_lt_add_iff_right,\n        getElem_toArray, getElem_cons_succ, drop_succ_cons]\n      split <;> rename_i h\u2081\n      \u00b7 rw [takeWhile_go_succ, ih]\n        rw [\u2190 getElem_cons_drop_succ_eq_drop h\u2081, takeWhile_cons]\n        split <;> simp_all\n      \u00b7 simp_all [drop_eq_nil_of_le]\n@[simp] theorem takeWhile_toArray (p : \u03b1 \u2192 Bool) (l : List \u03b1) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

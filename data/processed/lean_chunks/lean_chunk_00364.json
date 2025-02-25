@@ -1,0 +1,9 @@
+{
+  "content": "w55 : Nat := 0\n  w56 : Nat := 0\n  w57 : Nat := 0\n  w58 : Nat := 0\n  w59 : Nat := 0\n  w60 : Nat := 0\n  xx1  : Nat := 0\n  xx2  : Nat := 0\n  xx3  : Nat := 0\n  xx4  : Nat := 0\n  xx5  : Nat := 0\n  xx6  : Nat := 0\n  xx7  : Nat := 0\n  xx8  : Nat := 0\n  xx9  : Nat := 0\n  xx10 : Nat := 0\n  xx11 : Nat := 0\n  xx12 : Nat := 0\n  xx13 : Nat := 0\n  xx14 : Nat := 0\n  xx15 : Nat := 0\n  xx16 : Nat := 0\n  xx17 : Nat := 0\n  xx18 : Nat := 0\n  xx19 : Nat := 0\n  xx20 : Nat := 0\n  xx21 : Nat := 0\n  xx22 : Nat := 0\n  xx23 : Nat := 0\n  xx24 : Nat := 0\n  xx25 : Nat := 0\n  xx26 : Nat := 0\n  xx27 : Nat := 0\n  xx28 : Nat := 0\n  xx29 : Nat := 0\n  xx30 : Nat := 0\n  xx31 : Nat := 0\n  xx32 : Nat := 0\n  xx33 : Nat := 0\n  xx34 : Nat := 0\n  xx35 : Nat := 0\n  xx36 : Nat := 0\n  xx37 : Nat := 0\n  xx38 : Nat := 0\n  xx39 : Nat := 0\n  xx40 : Nat := 0\n  xx41 : Nat := 0\n  xx42 : Nat := 0\n  xx43 : Nat := 0\n  xx44 : Nat := 0\n  xx45 : Nat := 0\n  xx46 : Nat := 0\n  xx47 : Nat := 0\n  xx48 : Nat := 0\n  xx49 : Nat := 0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bigctorfields.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bigctorfields.lean",
+    "definition_name": "Foo"
+  }
+}

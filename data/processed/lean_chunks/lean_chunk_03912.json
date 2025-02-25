@@ -1,0 +1,10 @@
+{
+  "content": "ext <;> simp\n@[simp] theorem mapIdx_toArray (f : Nat \u2192 \u03b1 \u2192 \u03b2) (l : List \u03b1) :\n    l.toArray.mapIdx f = (l.mapIdx f).toArray := by\n  ext <;> simp\nend List\nnamespace Array\ntheorem mk_mem_zipIdx_iff_getElem? {x : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/MapIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/MapIdx.lean",
+    "definition_name": "mapIdx_induction",
+    "has_proof": true
+  }
+}

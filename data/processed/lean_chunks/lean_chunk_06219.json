@@ -1,0 +1,9 @@
+{
+  "content": "structure DecLevelContext where\n  canAssignMVars : Bool := true\nprivate partial def decAux? : Level \u2192 ReaderT DecLevelContext MetaM (Option Level)\n  | Level.zero        => return none\n  | Level.param _     => return none\n  | Level.mvar mvarId => do\n    match (\u2190 getLevelMVarAssignment? mvarId) with\n    | some u => decAux? u\n    | none   =>\n      if (\u2190 mvarId.isReadOnly) || !(\u2190 read).canAssignMVars then\n        return none\n      else\n        let u \u2190 mkFreshLevelMVar\n        trace[Meta.isLevelDefEq.step] \"decAux?, {mkLevelMVar mvarId}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DecLevel.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DecLevel.lean",
+    "definition_name": "DecLevelContext"
+  }
+}

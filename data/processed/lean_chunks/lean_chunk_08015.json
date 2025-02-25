@@ -1,0 +1,9 @@
+{
+  "content": "HashMap.Raw.Internal.numBuckets m.inner\ninstance [Repr \u03b1] : Repr (Raw \u03b1) where\n  reprPrec m prec := Repr.addAppParen (\"Std.HashSet.Raw.ofList \" ++ reprArg m.toList) prec\nend Unverified\nstructure WF [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1) : Prop where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Raw.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Raw.lean",
+    "definition_name": "empty"
+  }
+}

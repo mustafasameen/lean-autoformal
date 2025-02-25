@@ -1,0 +1,9 @@
+{
+  "content": "inductive ParseResult (\u03b1 : Type) (\u03b9 : Type) where\n  | success (pos : \u03b9) (res : \u03b1)\n  | error (pos : \u03b9) (err : String)\n  deriving Repr\nend Parsec\ndef Parsec (\u03b9 : Type) (\u03b1 : Type) : Type := \u03b9 \u2192 Parsec.ParseResult \u03b1 \u03b9\nnamespace Parsec\nclass Input (\u03b9 : Type) (elem : outParam Type) (idx : outParam Type) [DecidableEq idx] [DecidableEq elem] where\n  pos : \u03b9 \u2192 idx\n  next : \u03b9 \u2192 \u03b9\n  curr : \u03b9 \u2192 elem\n  hasNext : \u03b9 \u2192 Bool\n  next' (it : \u03b9) : (hasNext it) \u2192 \u03b9\n  curr' (it : \u03b9) : (hasNext it) \u2192 elem\nvariable {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Internal/Parsec/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Internal/Parsec/Basic.lean",
+    "definition_name": "ParseResult"
+  }
+}

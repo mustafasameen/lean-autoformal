@@ -1,0 +1,10 @@
+{
+  "content": "| .self a => a.weird_size2 + 1\n  | .other _ => 0\n  | .empty => 0\ntermination_by structural x => x\ndef A.weird_size2 : A \u2192 Nat\n  | .self a => a.weird_size3 + 1\n  | .other _ => 0\n  | .empty => 0\ndef A.weird_size3 : A \u2192 Nat\n  | .self a => a.weird_size1 + 1\n  | .other _ => 0\n  | .empty => 0\nend\ntheorem A.weird_size1_eq_1 (a : A) : (A.self a).weird_size1 = a.weird_size2 + 1 := rfl\n#guard_msgs in\n#check A.weird_size1.eq_1\nend MutualIndNonMutualFun\nnamespace DifferentTypes\ninductive A\n  | self : A \u2192 A\n  | empty\n#guard_msgs in\nmutual\ndef A.with_nat : A \u2192 Nat\n  | .self a => a.with_nat + Nat.foo 1\n  | .empty => 0\ntermination_by structural x => x\ndef Nat.foo : Nat \u2192 Nat\n  | n+1 => Nat.foo n\n  | 0 => A.empty.with_nat\nend\nend DifferentTypes\nnamespace FixedIndex\n#guard_msgs in\nset_option linter.constructorNameAsVariable false in\nmutual\ndef A.size (n : Nat) (m : Nat) : A n \u2192 Nat\n  | .a => 0\n  | .b b => 1 + B.size m n b\ntermination_by structural t => t\ndef B.size (n : Nat) (m : Nat) : B m \u2192 Nat",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

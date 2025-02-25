@@ -1,0 +1,9 @@
+{
+  "content": "def maxCtorFields := getMaxCtorFields ()\n@[extern \"lean_get_max_ctor_scalars_size\"]\nopaque getMaxCtorScalarsSize : Unit \u2192 Nat\ndef maxCtorScalarsSize := getMaxCtorScalarsSize ()\n@[extern \"lean_get_max_ctor_tag\"]\nopaque getMaxCtorTag : Unit \u2192 Nat\ndef maxCtorTag := getMaxCtorTag ()\n@[extern \"lean_get_usize_size\"]\nopaque getUSizeSize : Unit \u2192 Nat\ndef usizeSize := getUSizeSize ()\nstructure CheckerContext where\n  env : Environment\n  localCtx : LocalContext := {}\n  decls : Array Decl\nstructure CheckerState where\n  foundVars : IndexSet := {}\nabbrev M := ReaderT CheckerContext (ExceptT String (StateT CheckerState Id))\ndef markIndex (i : Index) : M Unit := do\n  let s \u2190 get\n  if s.foundVars.contains i then\n    throw s!\"variable / joinpoint index {i} has already been used\"\n  modify fun s => { s with foundVars := s.foundVars.insert i }\ndef markVar (x : VarId) : M Unit :=\n  markIndex x.idx\ndef markJP (j : JoinPointId) : M Unit :=\n  markIndex j.idx\ndef getDecl (c : Name) : M Decl := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Checker.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Checker.lean",
+    "definition_name": "maxCtorFields"
+  }
+}

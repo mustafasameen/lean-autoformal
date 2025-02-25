@@ -1,0 +1,9 @@
+{
+  "content": "deriving FromJson, ToJson\nstructure Hover where\n  contents : MarkupContent\n  range?   : Option Range := none\n  deriving ToJson, FromJson\nstructure HoverParams extends TextDocumentPositionParams\n  deriving FromJson, ToJson\nstructure DeclarationParams extends TextDocumentPositionParams\n  deriving FromJson, ToJson\nstructure DefinitionParams extends TextDocumentPositionParams\n  deriving FromJson, ToJson\nstructure TypeDefinitionParams extends TextDocumentPositionParams\n  deriving FromJson, ToJson\nstructure ReferenceContext where\n  includeDeclaration : Bool\n  deriving FromJson, ToJson\nstructure ReferenceParams extends TextDocumentPositionParams where\n  context : ReferenceContext\n  deriving FromJson, ToJson\nstructure WorkspaceSymbolParams where\n  query : String\n  deriving FromJson, ToJson\nstructure DocumentHighlightParams extends TextDocumentPositionParams\n  deriving FromJson, ToJson\ninductive DocumentHighlightKind where\n  | text\n  | read\n  | write",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "CompletionItemKind"
+  }
+}

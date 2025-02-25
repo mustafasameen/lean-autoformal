@@ -1,0 +1,9 @@
+{
+  "content": "structure Equiv (\u03b1 : Sort _) (\u03b2 : Sort _) where\n  toFun : \u03b1 \u2192 \u03b2\n  invFun : \u03b2 \u2192 \u03b1\n  left_inv : \u2200 x, invFun (toFun x) = x\ninfixl:25 \" \u2243 \" => Equiv\ndef piSplitAt {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1856.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1856.lean",
+    "definition_name": "Equiv"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance instHasQuotientAddSubgroup : HasQuotient \u03b1 (AddSubgroup \u03b1) :=\n  \u27e8fun s => Quotient (leftRel s)\u27e9\nend QuotientAddGroup\nend Mathlib.GroupTheory.Coset\nsection Mathlib.Algebra.Module.LinearMap.Basic\nopen Function\nuniverse u u' v w x y z\nvariable {R R\u2081 R\u2082 R\u2083 k S M M\u2081 M\u2082 M\u2083 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "instHasQuotientAddSubgroup"
+  }
+}

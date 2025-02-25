@@ -1,0 +1,9 @@
+{
+  "content": "structure CodegenFileType where\n  private mk :: val : UInt64\ndef CodegenFileType.AssemblyFile : CodegenFileType := { val := 0 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/LLVMBindings.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/LLVMBindings.lean",
+    "definition_name": "CodegenFileType"
+  }
+}

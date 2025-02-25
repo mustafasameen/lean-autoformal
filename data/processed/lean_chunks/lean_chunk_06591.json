@@ -1,0 +1,10 @@
+{
+  "content": "def id\u2081.{u} (\u03b1 : Type u) (a : \u03b1) := a\ndef id\u2082 (\u03b1 : Type u) (a : \u03b1) := a\n@[builtin_command_parser] def \u00abuniverse\u00bb     := leading_parser\n  \"universe\" >> many1 (ppSpace >> checkColGt >> ident)\n@[builtin_command_parser] def check          := leading_parser\n  \"#check \" >> termParser\n@[builtin_command_parser] def check_failure  := leading_parser\n\"#check_failure \" >> termParser\n@[builtin_command_parser, builtin_doc] def eval := leading_parser\n  \"#eval \" >> termParser\n@[builtin_command_parser, inherit_doc eval] def evalBang := leading_parser\n  \"#eval! \" >> termParser\n@[builtin_command_parser] def synth          := leading_parser\n  \"#synth \" >> termParser\n@[builtin_command_parser] def exit           := leading_parser\n  \"#exit\"\n@[builtin_command_parser] def print          := leading_parser\n  \"#print \" >> (ident <|> strLit)\n@[builtin_command_parser] def printAxioms    := leading_parser\n  \"#print \" >> nonReservedSymbol \"axioms \" >> ident",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

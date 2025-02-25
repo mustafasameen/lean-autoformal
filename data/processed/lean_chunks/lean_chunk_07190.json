@@ -1,0 +1,9 @@
+{
+  "content": "let fnty \u2190 LLVM.functionType retty argtys\n  _ <- LLVM.buildCall2 builder fnty fn  #[o, i, v]\ndef callLeanIOResultMKOk (builder : LLVM.Builder llvmctx)\n    (v : LLVM.Value llvmctx) (name : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let fnName :=  \"lean_io_result_mk_ok\"\n  let voidptr \u2190 LLVM.voidPtrType llvmctx\n  let retty := voidptr\n  let argtys :=  #[voidptr]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  LLVM.buildCall2 builder fnty fn #[v] name\ndef callLeanAllocClosureFn (builder : LLVM.Builder llvmctx)\n    (f arity nys : LLVM.Value llvmctx) (retName : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let fnName :=  \"lean_alloc_closure\"\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let argtys := #[ \u2190 LLVM.voidPtrType llvmctx, \u2190 LLVM.unsignedType llvmctx, \u2190 LLVM.unsignedType llvmctx]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

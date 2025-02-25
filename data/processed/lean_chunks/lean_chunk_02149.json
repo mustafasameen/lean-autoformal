@@ -1,0 +1,9 @@
+{
+  "content": "inductive ListSplit : List \u03b1 \u2192 Type _\n  | split l\u2081 l\u2082 : ListSplit (l\u2081 ++ l\u2082)\ndef splitList : (l : List \u03b1) \u2192 ListSplit l\n  | [] => ListSplit.split [] []\n  | h :: t => ListSplit.split [h] t\n@[simp] def ListSplit.left {as : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/splitList.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/splitList.lean",
+    "definition_name": "ListSplit"
+  }
+}

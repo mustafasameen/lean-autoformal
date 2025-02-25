@@ -1,0 +1,10 @@
+{
+  "content": "theorem assoc {a b c : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_assoc.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_assoc.lean",
+    "definition_name": "assoc",
+    "has_proof": false
+  }
+}

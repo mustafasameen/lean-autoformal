@@ -1,0 +1,10 @@
+{
+  "content": "MonadReaderOf.read\n  read : m \u03c1\nexport MonadReader (read)\ninstance (\u03c1 : Type u) (m : Type u \u2192 Type v) [MonadReaderOf \u03c1 m] : MonadReader \u03c1 m where\n  read := readThe \u03c1\ninstance {\u03c1 : Type u} {m : Type u \u2192 Type v} {n : Type u \u2192 Type w} [MonadLift m n] [MonadReaderOf \u03c1 m] : MonadReaderOf \u03c1 n where\n  read := liftM (m := m) read\ninstance {\u03c1 : Type u} {m : Type u \u2192 Type v} [Monad m] : MonadReaderOf \u03c1 (ReaderT \u03c1 m) where\n  read := ReaderT.read\nclass MonadWithReaderOf (\u03c1 : semiOutParam (Type u)) (m : Type u \u2192 Type v) where\n  withReader {\u03b1 : Type u} : (\u03c1 \u2192 \u03c1) \u2192 m \u03b1 \u2192 m \u03b1\n@[always_inline, inline]\ndef withTheReader (\u03c1 : Type u) {m : Type u \u2192 Type v} [MonadWithReaderOf \u03c1 m] {\u03b1 : Type u} (f : \u03c1 \u2192 \u03c1) (x : m \u03b1) : m \u03b1 :=\n  MonadWithReaderOf.withReader f x\n  withReader {\u03b1 : Type u} : (\u03c1 \u2192 \u03c1) \u2192 m \u03b1 \u2192 m \u03b1\nexport MonadWithReader (withReader)\ninstance (\u03c1 : Type u) (m : Type u \u2192 Type v) [MonadWithReaderOf \u03c1 m] : MonadWithReader \u03c1 m where\n  withReader := withTheReader \u03c1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

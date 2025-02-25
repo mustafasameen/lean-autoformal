@@ -1,0 +1,9 @@
+{
+  "content": "def bar := foo (return 42)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1547.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1547.lean",
+    "definition_name": "bar"
+  }
+}

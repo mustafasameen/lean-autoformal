@@ -1,0 +1,9 @@
+{
+  "content": "instance L8.toL7 [inst : L8 \u03b1] : L7 \u03b1 := { inst with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tryHeuristicPerfIssue2.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tryHeuristicPerfIssue2.lean",
+    "definition_name": "L8"
+  }
+}

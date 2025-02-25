@@ -1,0 +1,9 @@
+{
+  "content": "class Linear (R : Type w) [Semiring R] (C : Type u\u2081) [Category.{v\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "Linear"
+  }
+}

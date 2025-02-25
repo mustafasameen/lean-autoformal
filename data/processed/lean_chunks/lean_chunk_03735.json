@@ -1,0 +1,10 @@
+{
+  "content": "(H : \u2200 k, as.toList[k]? = if i \u2264 k \u2227 k \u2264 j then xs.toList[k]? else xs.toList.reverse[k]?)\n      (k : Nat) : (reverse.loop as i \u27e8j, hj\u27e9).toList[k]? = xs.toList.reverse[k]? := by\n    rw [reverse.loop]; dsimp only; split <;> rename_i h\u2081\n    \u00b7 match j with | j+1 => ?_\n      simp only [Nat.add_sub_cancel]\n      rw [(go \u00b7 (i+1) j)]\n      \u00b7 rwa [Nat.add_right_comm i]\n      \u00b7 simp [size_swap, h\u2082]\n      \u00b7 intro k\n        rw [getElem?_toList, getElem?_swap]\n        simp only [H, \u2190 getElem_toList, \u2190 List.getElem?_eq_getElem, Nat.le_of_lt h\u2081,\n          \u2190 getElem?_toList]\n        split <;> rename_i h\u2082\n        \u00b7 simp only [\u2190 h\u2082, Nat.not_le.2 (Nat.lt_succ_self _), Nat.le_refl, and_false]\n          exact (List.getElem?_reverse' (j+1) i (Eq.trans (by simp +arith) h)).symm\n        split <;> rename_i h\u2083\n        \u00b7 simp only [\u2190 h\u2083, Nat.not_le.2 (Nat.lt_succ_self _), Nat.le_refl, false_and]\n          exact (List.getElem?_reverse' i (j+1) (Eq.trans (by simp +arith) h)).symm",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "isEmpty_mkArray",
+    "has_proof": true
+  }
+}

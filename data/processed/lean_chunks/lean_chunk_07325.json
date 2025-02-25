@@ -1,0 +1,10 @@
+{
+  "content": "theorem blastConst.go_le_size {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Const.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Const.lean",
+    "definition_name": "blastConst",
+    "has_proof": false
+  }
+}

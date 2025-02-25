@@ -1,0 +1,9 @@
+{
+  "content": "def \u00abinfixr\u00bb   := leading_parser \"infixr\"\ndef \u00abpostfix\u00bb  := leading_parser \"postfix\"\ndef mixfixKind := \u00abprefix\u00bb <|> \u00abinfix\u00bb <|> \u00abinfixl\u00bb <|> \u00abinfixr\u00bb <|> \u00abpostfix\u00bb\n@[builtin_command_parser] def \u00abmixfix\u00bb   := leading_parser\n  optional docComment >> optional Term.\u00abattributes\u00bb >> Term.attrKind >> mixfixKind >>\n  precedence >> optNamedName >> optNamedPrio >> ppSpace >> strLit >> darrow >> termParser\ndef identPrec  := leading_parser ident >> optPrecedence\ndef optKind : Parser := optional (\" (\" >> nonReservedSymbol \"kind\" >> \":=\" >> ident >> \")\")\ndef notationItem := ppSpace >> withAntiquot (mkAntiquot \"notationItem\" decl_name%) (strLit <|> identPrec)\n@[builtin_command_parser] def \u00abnotation\u00bb    := leading_parser\n  optional docComment >> optional Term.\u00abattributes\u00bb >> Term.attrKind >>\n  \"notation\" >> optPrecedence >> optNamedName >> optNamedPrio >> many notationItem >> darrow >> termParser\n@[builtin_command_parser] def \u00abmacro_rules\u00bb := suppressInsideQuot <| leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_name": "optPrecedence"
+  }
+}

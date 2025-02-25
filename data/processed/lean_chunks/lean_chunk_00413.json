@@ -1,0 +1,9 @@
+{
+  "content": "structure parsingTables :=\n(leadingTermParsers : TokenMap Parser)\n(trailingTermParsers : TokenMap trailingParser)\nabbreviation CommandParserM (\u03b1 : Type) :=\nparsingTables \u2192 parserM \u03b1\nend flatParser\nend Lean\nsection\nopen Lean.flatParser\ndef flatP : parserM Unit :=\nmany1 (str \"++\" <|> str \"**\" <|>  (str \"\nend\nsection\nopen Lean.Parser\nopen Lean.Parser.MonadParsec\n@[reducible] def Parser (\u03b1 : Type) : Type :=  ReaderT Lean.flatParser.recParsers (ReaderT Lean.flatParser.ParserConfig (ParsecT Syntax (StateT ParserCache Id))) \u03b1\ndef testParsec (p : Parser Unit) (input : String) : String :=\nlet ps : Lean.flatParser.recParsers := { cmdParser := Lean.flatParser.dummyParserCore, termParser := \u03bb _, Lean.flatParser.dummyParserCore }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/flat_parser.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/flat_parser.lean",
+    "definition_name": "parsingTables"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive DischargeResult where\n  | proved\n  | notProved\n  | maxDepth\n  | failedAssign\n  deriving DecidableEq\ndef discharge?' (thmId : Origin) (x : Expr) (type : Expr) : SimpM Bool := do\n  let r : DischargeResult \u2190 withTraceNode `Meta.Tactic.simp.discharge (fun\n      | .ok .proved       => return m!\"{\u2190 ppOrigin thmId}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Rewrite.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Rewrite.lean",
+    "definition_name": "DischargeResult"
+  }
+}

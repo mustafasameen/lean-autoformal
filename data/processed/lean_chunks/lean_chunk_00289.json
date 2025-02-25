@@ -1,0 +1,9 @@
+{
+  "content": "inductive A : Type u where | mkA : B \u2192 A | A : A\ninductive B : Type u where | mkB : A \u2192 B\nend\nnoncomputable def A_rec := @A.rec\nset_option linter.unusedVariables false\nexample (a : A) : True := by\n  induction a using A.rec\n  case mkA b IH =>\nrefine True.rec ?_ IH\n    exact trivial\n  case A => exact trivial\n  case mkB b IH => show True; exact trivial\nexample (a : A) : True := by\n  induction a using A_rec\n  case mkA b IH =>\nrefine True.rec ?_ IH\n    exact trivial\n  case A => exact trivial\ncase mkB b IH => show True; exact trivial\nexample (a : A) : True := by\n  induction a using @A.rec\n  case mkA b IH =>\nrefine True.rec ?_ IH\n    exact trivial\n  case A => exact trivial\n  case mkB b IH => show True; exact trivial\nexample (a : A) : True := by\n  induction a using @A_rec\n  case mkA b IH =>\nrefine True.rec ?_ IH\n    exact trivial\n  case A => exact trivial\n  case mkB b IH => show True; exact trivial\nexample (a : A) : True := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_name": "A"
+  }
+}

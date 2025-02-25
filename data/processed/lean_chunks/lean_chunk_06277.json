@@ -1,0 +1,9 @@
+{
+  "content": "structure UnificationHintEntry where\n  keys        : Array UnificationHintKey\n  val         : Name\n  deriving Inhabited\nabbrev UnificationHintTree := DiscrTree Name\nstructure UnificationHints where\n  discrTree : UnificationHintTree := DiscrTree.empty\n  deriving Inhabited\ninstance : ToFormat UnificationHints where\n  format h := format h.discrTree\nprivate def config : ConfigWithKey :=\n  { iota := false, proj := .no : Config }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/UnificationHint.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/UnificationHint.lean",
+    "definition_name": "UnificationHintEntry"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "apply Nat.sub_le_of_le_add\n            simp [h]\n          \u00b7 have heqk : k\u2081 = k\u2082 := eq_of_not_blt_eq_true hltk hgtk; subst heqk\n            apply ih\n            simp [denote_le] at h |-\n            rw [\u2190 Nat.add_assoc, \u2190 Nat.add_assoc] at h\n            apply Nat.le_of_add_le_add_right h\n    done\ntheorem Poly.of_denote_le_cancelAux (ctx : Context) (fuel : Nat) (m\u2081 m\u2082 r\u2081 r\u2082 : Poly)\n    (h : denote_le ctx (cancelAux fuel m\u2081 m\u2082 r\u2081 r\u2082)) : denote_le ctx (r\u2081.reverse ++ m\u2081, r\u2082.reverse ++ m\u2082) := by\n  induction fuel generalizing m\u2081 m\u2082 r\u2081 r\u2082 with\n  | zero => assumption\n  | succ fuel ih =>\n    simp at h\n    split at h <;> try (simp; assumption)\n    rename_i k\u2081 v\u2081 m\u2081 k\u2082 v\u2082 m\u2082\n    by_cases hltv : Nat.blt v\u2081 v\u2082 <;> simp [hltv] at h\n    \u00b7 have ih := ih (h := h); simp [denote_le] at ih \u22a2; assumption\n    \u00b7 by_cases hgtv : Nat.blt v\u2082 v\u2081 <;> simp [hgtv] at h\n      \u00b7 have ih := ih (h := h); simp [denote_le] at ih \u22a2; assumption",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

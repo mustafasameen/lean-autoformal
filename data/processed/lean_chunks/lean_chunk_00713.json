@@ -1,0 +1,9 @@
+{
+  "content": "class A (n : Nat) where\n  x : Nat\ndef A.x' {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3031.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3031.lean",
+    "definition_name": "A"
+  }
+}

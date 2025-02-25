@@ -1,0 +1,10 @@
+{
+  "content": "(xs.mapFinIdx f).toArray =\n      xs.toArray.mapFinIdx (fun i a h => f i a (by simpa [xs.size_toArray] using h)) :=\n  rfl\ntheorem toArray_mapM_go [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m \u03b2) (xs : Vector \u03b1 n) (i h acc) :\n    toArray <$> mapM.go f xs i h acc = Array.mapM.map f xs.toArray i acc.toArray := by\n  unfold mapM.go\n  unfold Array.mapM.map\n  simp only [xs.size_toArray, getElem_toArray]\n  split\n  \u00b7 simp only [map_bind]\n    congr\n    funext b\n    rw [toArray_mapM_go]\n    rfl\n  \u00b7 simp\n@[simp] theorem toArray_mapM [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m \u03b2) (xs : Vector \u03b1 n) :\n    toArray <$> xs.mapM f = xs.toArray.mapM f := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  unfold mapM\n  rw [toArray_mapM_go]\n  rfl\n@[simp] theorem toArray_ofFn (f : Fin n \u2192 \u03b1) : (Vector.ofFn f).toArray = Array.ofFn f := rfl\n@[simp] theorem toArray_pop (xs : Vector \u03b1 n) : xs.pop.toArray = xs.toArray.pop := rfl\n@[simp] theorem toArray_push (xs : Vector \u03b1 n) (x) : (xs.push x).toArray = xs.toArray.push x := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "toArray_append",
+    "has_proof": true
+  }
+}

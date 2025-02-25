@@ -1,0 +1,9 @@
+{
+  "content": "let target \u2190 mvarId.getType'\n  let rec go (badCases : ExprSet) : MetaM (Option (List MVarId)) := do\n    if let some e := findMatchToSplit? (backward.eqns.deepRecursiveSplit.get (\u2190 getOptions)) (\u2190 getEnv)\n                                       target declNames badCases then\n      try\n        Meta.Split.splitMatch mvarId e\n      catch _ =>\n        go (badCases.insert e)\n    else\n      trace[Meta.Tactic.split] \"did not find term to split\\n{MessageData.ofGoal mvarId}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_name": "EqnInfoCore"
+  }
+}

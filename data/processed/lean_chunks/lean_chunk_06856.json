@@ -1,0 +1,10 @@
+{
+  "content": "if checkTypeFVars thmVars fvarsFound xType then\n              fvarsFound := fvarsFound.insert fvarId\n              processed := processed.insert fvarId\n              modified := true\n          else if (\u2190 fvarId.getDecl).binderInfo matches .instImplicit then\n            if (\u2190 canBeSynthesized thmVars fvarsFound xType) then\n              fvarsFound := fvarsFound.insert fvarId\n              fvarsFound := update fvarsFound xType\n              processed := processed.insert fvarId\n              modified := true\n      if fvarsFound.size == numParams then\n        return .ok\n      if !modified then\n        break\n    let mut pos := #[]\n    for h : i in [:xs.size] do\n      let fvarId := xs[i].fvarId!\n      unless fvarsFound.contains fvarId do\n        pos := pos.push i\n    return .missing pos.toList\nprivate def ppParamsAt (proof : Expr) (numParams : Nat) (paramPos : List Nat) : MetaM MessageData := do\n  forallBoundedTelescope (\u2190 inferType proof) numParams fun xs _ => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

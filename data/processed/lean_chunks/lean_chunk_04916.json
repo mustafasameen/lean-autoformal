@@ -1,0 +1,10 @@
+{
+  "content": "theorem replicate_one : replicate 1 a = [a] := rfl\ntheorem map_const' (l : List \u03b1) (b : \u03b2) : map (fun _ => b) l = replicate l.length b :=\n  map_const l b\n@[simp] theorem set_replicate_self : (replicate n a).set i a = replicate n a := by\n  apply ext_getElem\n  \u00b7 simp\n  \u00b7 intro i h\u2081 h\u2082\n    simp [getElem_set]\n@[simp] theorem replicate_append_replicate : replicate n a ++ replicate m a = replicate (n + m) a := by\n  rw [eq_replicate_iff]\n  constructor\n  \u00b7 simp\n  \u00b7 intro b\n    simp only [mem_append, mem_replicate, ne_eq]\n    rintro (\u27e8-, rfl\u27e9 | \u27e8_, rfl\u27e9) <;> rfl\n@[deprecated replicate_append_replicate (since := \"2025-01-16\")]\nabbrev append_replicate_replicate := @replicate_append_replicate\ntheorem append_eq_replicate_iff {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "replicate_one",
+    "has_proof": true
+  }
+}

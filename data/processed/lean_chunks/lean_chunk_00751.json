@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : (g 10).run 1 = ((), 1) :=\nrfl\ntheorem ex2 : (g 20).run 1 = ((), 21) :=\nrfl\ndef h (x : Nat) : StateT Nat Id Unit := do\nif x > 10 then {\n  let s \u2190 get;\nset (s + x)\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nicerNestedDos.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nicerNestedDos.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def m a _ := by\n    split\n    \u00b7 exact getElem?_eq_some_getElem\n    \u00b7 exact getElem?_eq_none \u2039_\u203a\n  getElem!_def m a := by\n    rw [getElem!_eq_get!_getElem?]\n    split <",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_name": "m"
+  }
+}

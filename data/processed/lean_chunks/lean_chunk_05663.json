@@ -1,0 +1,10 @@
+{
+  "content": "theorem flatten_reverse (xss : Vector (Vector \u03b1 m) n) :\n    xss.reverse.flatten = (xss.map reverse).flatten.reverse := by\n  cases xss using vector\u2082_induction\n  simp [Array.flatten_reverse]\ntheorem reverse_flatMap {\u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "flatten_reverse",
+    "has_proof": true
+  }
+}

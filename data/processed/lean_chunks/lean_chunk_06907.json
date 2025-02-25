@@ -1,0 +1,9 @@
+{
+  "content": "inductive MatchKind\n| defEq (red : TransparencyMode := .reducible)\ndef colon.toMatchKind : TSyntax ``colon \u2192 Option MatchKind\n  | `(colon| :) => some .defEq\n  | `(colon| :~) => some (.defEq .default)\n  | `(colon| :\u209b) => some .syntactic\n  | `(colon| :\u2090) => some .alphaEq\n  | _ => none\ndef equal.toMatchKind : TSyntax ``equal \u2192 Option MatchKind\n  | `(equal| =) => some .defEq\n  | `(equal| =~) => some (.defEq .default)\n  | `(equal| =\u209b) => some .syntactic\n  | `(equal| =\u2090) => some .alphaEq\n  | _ => none\ndef elabAndEvalMatchKind (mk : MatchKind) (a b : Term) : TermElabM Bool :=\n  Term.withoutErrToSorry do\n    let a \u2190 Term.elabTerm a none\n    let b \u2190 Term.elabTerm b none\n    _ \u2190 isDefEqGuarded (\u2190 inferType a) (\u2190 inferType b)\n    Term.synthesizeSyntheticMVarsNoPostponing\n    mk.isEq (\u2190 instantiateMVars a) (\u2190 instantiateMVars b)\n@[builtin_tactic guardExpr]\ndef evalGuardExpr : Tactic := fun\n  | `(tactic| guard_expr $r $eq:equal $p)\n  | `(conv| guard_expr $r $eq:equal $p) => withMainContext do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Guard.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Guard.lean",
+    "definition_name": "MatchKind"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "#guard_msgs in\ntheorem ex1 (a : A) (h : (A.other (B.other a)).size = 2) : a.size = 0 := by\n  injection h with h\ntrace_state\n  injection h with h\nmutual\ndef A.subs : (a : A) \u2192 (Fin a.size \u2192 A \u2295 B)\n  | .self a => Fin.lastCases (.inl a) (a.subs)\n  | .other b => Fin.lastCases (.inr b) (b.subs)\n  | .empty => Fin.elim0\ntermination_by structural x => x\ndef B.subs : (b : B) \u2192 (Fin b.size \u2192 A \u2295 B)\n  | .self b => Fin.lastCases (.inr b) (b.subs)\n  | .other a => Fin.lastCases (.inl a) (a.subs)\n  | .empty => Fin.elim0\nend\nmutual\ndef A.hasNoBEmpty : A \u2192 Prop\n  | .self a => a.hasNoBEmpty\n  | .other b => b.hasNoBEmpty\n  | .empty => True\ntermination_by structural x => x\ndef B.hasNoBEmpty : B \u2192 Prop\n  | .self b => b.hasNoBEmpty\n  | .other a => a.hasNoBEmpty\n  | .empty => False\nend\nmutual\nopen Classical\nnoncomputable\ndef A.hasNoAEmpty : A \u2192 Prop\n  | .self a => a.hasNoAEmpty\n  | .other b => b.oddCount > 0\n  | .empty => False\ntermination_by structural x => x\nnoncomputable\ndef B.oddCount : B \u2192 Nat",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_name": "A",
+    "has_proof": true
+  }
+}

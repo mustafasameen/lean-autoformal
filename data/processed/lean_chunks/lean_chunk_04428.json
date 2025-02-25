@@ -1,0 +1,10 @@
+{
+  "content": "theorem pred_zero : pred 0 = 0 := rfl\nprotected theorem pred_succ (n : Nat) : pred n.succ = n := rfl\n@[simp] protected theorem zero_sub_one : 0 - 1 = 0 := rfl\n@[simp] protected theorem add_one_sub_one (n : Nat) : n + 1 - 1 = n := rfl\ntheorem sub_one_eq_self {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "pred_zero",
+    "has_proof": false
+  }
+}

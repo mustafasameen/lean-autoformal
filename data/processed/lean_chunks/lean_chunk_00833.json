@@ -1,0 +1,10 @@
+{
+  "content": "have h := congrArg (denote ctx) h\n  simp [denote_flat, denote_sort] at h\n  assumption\ntheorem ex\u2081 (x\u2081 x\u2082 x\u2083 x\u2084 : Nat) : (x\u2081 + x\u2082) + (x\u2083 + x\u2084) = x\u2081 + x\u2082 + x\u2083 + x\u2084 :=\n  Expr.eq_of_flat\n    { op      := Nat.add\n      assoc   := Nat.add_assoc\n      comm    := Nat.add_comm\n      vars    := [x\u2081, x\u2082, x\u2083, x\u2084],\n      someVal := x\u2081 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

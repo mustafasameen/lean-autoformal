@@ -1,0 +1,10 @@
+{
+  "content": "cases assignment <;> simp [removeNegAssignment, hasNegAssignment]\ntheorem not_has_remove (assignment : Assignment) (b : Bool) :\n    \u00achasAssignment b (removeAssignment b assignment) := by\n  by_cases b <;> cases assignment <;> simp_all [hasAssignment, removeAssignment,\n    removePosAssignment, hasPosAssignment, removeNegAssignment, hasNegAssignment]\ntheorem has_remove_irrelevant (assignment : Assignment) (b : Bool) :\n    hasAssignment b (removeAssignment (!b) assignment) \u2192 hasAssignment b assignment := by\n  by_cases hb : b\n  \u00b7 simp only [hb, removeAssignment, Bool.not_true, ite_false, hasAssignment, ite_true]\n    cases assignment <;> decide\n  \u00b7 simp only [Bool.not_eq_true] at hb\n    simp only [hb, removeAssignment, Bool.not_true, ite_false, hasAssignment, ite_true]\n    cases assignment <;> decide\ntheorem unassigned_of_has_neither (assignment : Assignment) (lacks_pos : \u00ac(hasPosAssignment assignment))\n  (lacks_neg : \u00ac(hasNegAssignment assignment)) :\n  assignment = unassigned := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_name": "add_both_eq_both",
+    "has_proof": true
+  }
+}

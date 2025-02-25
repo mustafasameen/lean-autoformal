@@ -1,0 +1,9 @@
+{
+  "content": "def Ctx := Type\n  structure Ty where\n    ctx : Ctx\n    ty : ctx \u2192 Type\n  structure Tm where\n    ty : Ty\n    tm : \u2200 {\u0393}, ty.ty \u0393\n  def ECtx : Ctx \u2192 Ctx \u2192 Type := (PLift $ \u00b7 = \u00b7)\n  def ETy  : Ty  \u2192 Ty  \u2192 Type := (PLift $ \u00b7 = \u00b7)\n  def ETm  : Tm  \u2192 Tm  \u2192 Type := (PLift $ \u00b7 = \u00b7)\n  def interpCStep : CtxSyntaxLayer Ctx Ty ECtx Ty.ctx \u2192 Ctx\n    | CtxSyntaxLayer.emp => Unit\n    | CtxSyntaxLayer.snoc _ T (PLift.up rfl) => \u03a3 \u03b3 : _, T.ty \u03b3\n  def Ty.inj \u0393 T := Ty.mk \u0393 (\u03bb _ => T)\n  def Ty.Unit {\u0393} := Ty.inj \u0393 _root_.Unit\n  def Ty.Empty {\u0393} := Ty.inj \u0393 _root_.Empty\n  def Ty.Nat {\u0393} := Ty.inj \u0393 _root_.Nat\n  def Tm.inj \u0393 {T} (t : T) := Tm.mk (Ty.inj \u0393 T) t\n  def interpTyStep : TySyntaxLayer Ctx Ty ECtx Ty.ctx \u2192 Ty\n    | TySyntaxLayer.top (\u0393:=\u0393) => Ty.Unit (\u0393:=\u0393)\n    | TySyntaxLayer.bot (\u0393:=\u0393) => Ty.Empty (\u0393:=\u0393)\n    | TySyntaxLayer.nat (\u0393:=\u0393) => Ty.Nat (\u0393:=\u0393)\n    | TySyntaxLayer.arrow (\u0393:=\u0393) A B (PLift.up Actx) (PLift.up Bctx) => Ty.mk \u0393 (\u03bb \u03b3 => A.ty (cast Actx \u03b3) \u2192 B.ty (cast Bctx \u03b3))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/341.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/341.lean",
+    "definition_name": "Ctx"
+  }
+}

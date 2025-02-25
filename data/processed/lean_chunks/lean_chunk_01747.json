@@ -1,0 +1,10 @@
+{
+  "content": "theorem pairwise_append {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1842.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1842.lean",
+    "definition_name": "pairwise_append",
+    "has_proof": false
+  }
+}

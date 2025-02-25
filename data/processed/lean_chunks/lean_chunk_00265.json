@@ -1,0 +1,9 @@
+{
+  "content": "def Wrapper := Secret\n  inductive Bla | z\n  instance : FunLike Bla (fun _ => Wrapper) := sorry\n  instance (priority := 100) {F \u03b2} [FunLike F \u03b2] :\n    CoeFun F fun _ => \u2200 a : Nat, \u03b2 a where coe := FunLike.coe\n  #check Bla.z \u2218 id\nend Ex1\nnamespace Ex2\nstructure Secret\ndef Wrapper := Secret\ndef f (a : Nat) : (fun _ => Wrapper) a := \u27e8\u27e9\n#check f \u2218 id\nend Ex2",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1891.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1891.lean",
+    "definition_name": "Wrapper"
+  }
+}

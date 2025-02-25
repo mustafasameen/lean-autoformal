@@ -1,0 +1,10 @@
+{
+  "content": "lemma must be = or \u2194, but is{indentExpr ty}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/NormCast.lean",
+    "definition_type": "lemma",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/NormCast.lean",
+    "definition_name": "must",
+    "has_proof": false
+  }
+}

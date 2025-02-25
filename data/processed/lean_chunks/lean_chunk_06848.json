@@ -1,0 +1,10 @@
+{
+  "content": "annotation? `grind.ground_pat e\nprivate def isGroundPattern (e : Expr) : Bool :=\n  groundPattern? e |>.isSome\ndef isPatternDontCare (e : Expr) : Bool :=\n  e == dontCare\nprivate def isAtomicPattern (e : Expr) : Bool :=\n  e.isBVar || isPatternDontCare e || isGroundPattern e\npartial def ppPattern (pattern : Expr) : MessageData := Id.run do\n  if let some e := groundPattern? pattern then\n    return m!\"`[{e}]\"\n  else if isPatternDontCare pattern then\n    return m!\"_\"\n  else match pattern with\n    | .bvar idx => return m!\"#{idx}\"\n    | _ =>\n      if pattern.isAppOfArity ``Grind.offset 2 then\n        let lhs := ppArg <| pattern.getArg! 0\n        let rhs := ppPattern <| pattern.getArg! 1\n        return m!\"{lhs} + {rhs}\"\n      else\n        let mut r := m!\"{pattern.getAppFn}\"\n        for arg in pattern.getAppArgs do\n          r := r ++ \" \" ++ ppArg arg\n        return r\nwhere\n  ppArg (arg : Expr) : MessageData :=\n    if isAtomicPattern arg then\n      ppPattern arg\n    else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

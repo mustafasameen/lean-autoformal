@@ -1,0 +1,9 @@
+{
+  "content": "structure NameGenerator where\n  namePrefix : Name := `_uniq\n  idx        : Nat  := 1\n  deriving Inhabited\n  | all\n  | reducible\n  | all\n  | none\n  deriving Inhabited, BEq\nnamespace DSimp\nstructure Config where\n  zeta              : Bool := true\n  beta              : Bool := true\n  eta               : Bool := true\n  etaStruct         : EtaStructMode := .all\n  iota              : Bool := true\n  proj              : Bool := true\n  decide            : Bool := false\n  autoUnfold        : Bool := false\n  failIfUnchanged   : Bool := true\n  unfoldPartialApp  : Bool := false\n  zetaDelta         : Bool := false\n  index             : Bool := true\n  zetaUnused : Bool := true\n  deriving Inhabited, BEq\nend DSimp\nnamespace Simp\ndef defaultMaxSteps := 100000\nstructure Config where\n  maxSteps          : Nat  := defaultMaxSteps\n  maxDischargeDepth : Nat  := 2\n  contextual        : Bool := false\n  memoize           : Bool := true\n  singlePass        : Bool := false\n  zeta              : Bool := true",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/MetaTypes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/MetaTypes.lean",
+    "definition_name": "NameGenerator"
+  }
+}

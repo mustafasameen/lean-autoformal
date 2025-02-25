@@ -1,0 +1,10 @@
+{
+  "content": "theorem toList_insertIdx (xs : Array \u03b1) (i x) (h) :\n    (xs.insertIdx i x h).toList = xs.toList.insertIdx i x := by\n  rcases xs with \u27e8xs\u27e9\n  simp\n@[simp]\ntheorem insertIdx_zero (xs : Array \u03b1) (x : \u03b1) : xs.insertIdx 0 x = #[x] ++ xs := by\n  rcases xs with \u27e8xs\u27e9\n  simp\n@[simp] theorem size_insertIdx {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/InsertIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/InsertIdx.lean",
+    "definition_name": "toList_insertIdx",
+    "has_proof": true
+  }
+}

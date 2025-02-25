@@ -1,0 +1,10 @@
+{
+  "content": "theorem and_exists_self (P : Prop) (Q : P \u2192 Prop) : (P \u2227 \u2203 p, Q p) \u2194 \u2203 p, Q p :=\n  \u27e8fun \u27e8_, h\u27e9 => h, fun \u27e8p, q\u27e9 => \u27e8p, \u27e8p, q\u27e9\u27e9\u27e9\n@[simp] theorem exists_and_self (P : Prop) (Q : P \u2192 Prop) : ((\u2203 p, Q p) \u2227 P) \u2194 \u2203 p, Q p :=\n  \u27e8fun \u27e8h, _\u27e9 => h, fun \u27e8p, q\u27e9 => \u27e8\u27e8p, q\u27e9, p\u27e9\u27e9\n@[simp] theorem forall_self_imp (P : Prop) (Q : P \u2192 Prop) : (\u2200 p : P, P \u2192 Q p) \u2194 \u2200 p, Q p :=\n  \u27e8fun h p => h p p, fun h _ p => h p\u27e9\nend quantifiers\n@[simp] theorem nonempty_prop {p : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "and_exists_self",
+    "has_proof": false
+  }
+}

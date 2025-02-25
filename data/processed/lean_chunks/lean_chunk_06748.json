@@ -1,0 +1,9 @@
+{
+  "content": "def CandidateFinder := Expr \u2192 MetaM (Array (Name \u00d7 DeclMod))\nopen LazyDiscrTree (InitEntry findMatches)\nprivate def addImport (name : Name) (constInfo : ConstantInfo) :\n    MetaM (Array (InitEntry (Name \u00d7 DeclMod))) :=\n  forallTelescope constInfo.type fun _ type => do\n    let e \u2190 InitEntry.fromExpr type (name, DeclMod.none)\n    let a := #[e]\n    if e.key == .const ``Iff 2 then\n      let a := a.push (\u2190e.mkSubEntry 0 (name, DeclMod.mp))\n      let a := a.push (\u2190e.mkSubEntry 1 (name, DeclMod.mpr))\n      pure a\n    else\n      pure a\ndef droppedKeys : List (List LazyDiscrTree.Key) := [[.star], [.const `Eq 3, .star, .star, .star]]\nprivate def constantsPerImportTask : Nat := 6500\ndef mkHeartbeatCheck (leavePercent : Nat) : MetaM (MetaM Bool) := do\n  let maxHB \u2190 getMaxHeartbeats\n  let hbThreshold := (\u2190 getRemainingHeartbeats) * leavePercent / 100\n  pure $\n    if maxHB = 0 then\n      pure false\n    else do\n      return (\u2190 getRemainingHeartbeats) < hbThreshold",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_name": "CandidateFinder"
+  }
+}

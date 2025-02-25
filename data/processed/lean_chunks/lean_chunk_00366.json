@@ -1,0 +1,9 @@
+{
+  "content": "structure S (\u03b1 : Type) :=\n(vals : Array \u03b1) (sz : Nat)\n@[noinline] def inc0 (a : Array Nat) : Array Nat :=\na.modify 0 (+1)\ndef f1 (s : S Nat) : S Nat :=\n{ vals := inc0 s.vals, .. s}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/badupdate1.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/badupdate1.lean",
+    "definition_name": "S"
+  }
+}

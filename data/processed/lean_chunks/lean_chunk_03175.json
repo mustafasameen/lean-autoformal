@@ -1,0 +1,10 @@
+{
+  "content": "theorem combo_sat (a) (w\u2081 : c\u2081.sat x\u2081) (b) (w\u2082 : c\u2082.sat x\u2082) :\n    (combo a c\u2081 b c\u2082).sat (a * x\u2081 + b * x\u2082) :=\n  add_sat (scale_sat a w\u2081) (scale_sat b w\u2082)\ndef div (c : Constraint) (k : Nat) : Constraint where\n  lowerBound := c.lowerBound.map fun x => (- ((- x) / k))\n  upperBound := c.upperBound.map fun y => y / k\ntheorem div_sat (c : Constraint) (t : Int) (k : Nat) (n : k \u2260 0) (h : (k : Int) \u2223 t) (w : c.sat t) :\n    (c.div k).sat (t / k) := by\n  replace n : (k : Int) > 0 := Int.ofNat_lt.mpr (Nat.pos_of_ne_zero n)\n  rcases c with \u27e8_ | l, _ | u\u27e9\n  \u00b7 simp_all [sat, div]\n  \u00b7 simp [sat, div] at w \u22a2\n    apply Int.le_of_sub_nonneg\n    rw [\u2190 Int.sub_ediv_of_dvd _ h, \u2190 ge_iff_le, Int.div_nonneg_iff_of_pos n]\n    exact Int.sub_nonneg_of_le w\n  \u00b7 simp [sat, div] at w \u22a2\n    apply Int.le_of_sub_nonneg\n    rw [Int.sub_neg, \u2190 Int.add_ediv_of_dvd_left h, \u2190 ge_iff_le,\n      Int.div_nonneg_iff_of_pos n]\n    exact Int.sub_nonneg_of_le w\n  \u00b7 simp [sat, div] at w \u22a2\n    constructor",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_name": "combo_sat",
+    "has_proof": true
+  }
+}

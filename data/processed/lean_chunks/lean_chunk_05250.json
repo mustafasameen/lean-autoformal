@@ -1,0 +1,10 @@
+{
+  "content": "rfl\ndef findSome? (f : \u03b1 \u2192 Option \u03b2) : List \u03b1 \u2192 Option \u03b2\n  | []    => none\n  | a::as => match f a with\n    | some b => some b\n    | none   => findSome? f as\n@[simp] theorem findSome?_nil : ([] : List \u03b1).findSome? f = none := rfl\ntheorem findSome?_cons {f : \u03b1 \u2192 Option \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "erase_nil",
+    "has_proof": true
+  }
+}

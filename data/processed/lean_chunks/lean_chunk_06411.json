@@ -1,0 +1,9 @@
+{
+  "content": "inductive resulting type\"\n  catch\n    | Exception.error ref msg => throw (Exception.error ref m!\"invalid mutually inductive types, {msg}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "resulting"
+  }
+}

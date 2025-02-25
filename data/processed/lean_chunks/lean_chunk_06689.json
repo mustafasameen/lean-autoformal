@@ -1,0 +1,9 @@
+{
+  "content": "def NameSet := RBTree Name Name.quickCmp\nnamespace NameSet\ndef empty : NameSet := mkRBTree Name Name.quickCmp\ninstance : EmptyCollection NameSet := \u27e8empty\u27e9\ninstance : Inhabited NameSet := \u27e8empty\u27e9\ndef insert (s : NameSet) (n : Name) : NameSet := RBTree.insert s n\ndef contains (s : NameSet) (n : Name) : Bool := RBMap.contains s n\ninstance : ForIn m NameSet Name :=\n  inferInstanceAs (ForIn _ (RBTree ..) ..)\ndef filter (f : Name \u2192 Bool) (s : NameSet) : NameSet := RBTree.filter f s\nend NameSet\ndef NameSSet := SSet Name\nnamespace NameSSet\nabbrev empty : NameSSet := SSet.empty\ninstance : EmptyCollection NameSSet := \u27e8empty\u27e9\ninstance : Inhabited NameSSet := \u27e8empty\u27e9\nabbrev insert (s : NameSSet) (n : Name) : NameSSet := SSet.insert s n\nabbrev contains (s : NameSSet) (n : Name) : Bool := SSet.contains s n\nend NameSSet\ndef NameHashSet := Std.HashSet Name\nnamespace NameHashSet\n@[inline] def empty : NameHashSet := Std.HashSet.empty\ninstance : EmptyCollection NameHashSet := \u27e8empty\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/NameMap.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/NameMap.lean",
+    "definition_name": "NameSet"
+  }
+}

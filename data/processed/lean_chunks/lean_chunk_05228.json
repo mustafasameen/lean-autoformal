@@ -1,0 +1,10 @@
+{
+  "content": "def tail : List \u03b1 \u2192 List \u03b1\n  | []    => []\n  | _::as => as\n@[simp] theorem tail_nil : @tail \u03b1 [] = [] := rfl\n@[simp] theorem tail_cons : @tail \u03b1 (a::as) = as := rfl\ndef tail? : List \u03b1 \u2192 Option (List \u03b1)\n  | []    => none\n  | _::as => some as\n@[simp] theorem tail?_nil : @tail? \u03b1 [] = none := rfl\n@[simp] theorem tail?_cons : @tail? \u03b1 (a::l) = some l := rfl\ndef tailD (l fallback : List \u03b1) : List \u03b1 :=\n  match l with\n  | [] => fallback\n  | _ :: tl => tl\n@[simp] theorem tailD_nil : @tailD \u03b1 [] l' = l' := rfl\n@[simp] theorem tailD_cons : @tailD \u03b1 (a::l) l' = l := rfl\n@[specialize] def map (f : \u03b1 \u2192 \u03b2) : List \u03b1 \u2192 List \u03b2\n  | []    => []\n  | a::as => f a :: map f as\n@[simp] theorem map_nil {f : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "getLast",
+    "has_proof": true
+  }
+}

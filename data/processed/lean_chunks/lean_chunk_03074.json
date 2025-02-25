@@ -1,0 +1,9 @@
+{
+  "content": "| .proj _ _ e      => 1 + e.sizeWithoutSharing\n  | .lit .. | .const .. | .sort .. | .mvar .. | .fvar .. | .bvar .. => 1\nend Expr\ndef mkAnnotation (kind : Name) (e : Expr) : Expr :=\n  mkMData (KVMap.empty.insert kind (DataValue.ofBool true)) e\ndef annotation? (kind : Name) (e : Expr) : Option Expr :=\n  match e with\n  | .mdata d b => if d.size == 1 && d.getBool kind false then some b else none\n  | _          => none\ndef mkInaccessible (e : Expr) : Expr :=\n  mkAnnotation `_inaccessible e\ndef patternWithRef? (p : Expr) : Option (Syntax \u00d7 Expr) :=\n  match p with\n  | .mdata d _ =>\n    match d.find patternRefAnnotationKey with\n    | some (DataValue.ofSyntax stx) => some (stx, p.mdataExpr!)\n    | _ => none\n  | _ => none\ndef isPatternWithRef (p : Expr) : Bool :=\n  patternWithRef? p |>.isSome\ndef mkPatternWithRef (p : Expr) (stx : Syntax) : Expr :=\n  if patternWithRef? p |>.isSome then\n    p\n  else\n    mkMData (KVMap.empty.insert patternRefAnnotationKey (DataValue.ofSyntax stx)) p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

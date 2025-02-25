@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_eq_one  {b : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_name": "toNat_eq_one",
+    "has_proof": false
+  }
+}

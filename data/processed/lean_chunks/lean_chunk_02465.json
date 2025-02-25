@@ -1,0 +1,10 @@
+{
+  "content": "theorem imp_self : (a \u2192 a) \u2194 True := iff_true_intro id\n@[simp] theorem imp_false : (a \u2192 False) \u2194 \u00aca := Iff.rfl\ntheorem imp.swap : (a \u2192 b \u2192 c) \u2194 (b \u2192 a \u2192 c) := Iff.intro flip flip\ntheorem imp_not_comm : (a \u2192 \u00acb) \u2194 (b \u2192 \u00aca) := imp.swap\ntheorem imp_congr_left (h : a \u2194 b) : (a \u2192 c) \u2194 (b \u2192 c) := Iff.intro (\u00b7 \u2218 h.mpr) (\u00b7 \u2218 h.mp)\ntheorem imp_congr_right (h : a \u2192 (b \u2194 c)) : (a \u2192 b) \u2194 (a \u2192 c) :=\n  Iff.intro (fun hab ha => (h ha).mp (hab ha)) (fun hcd ha => (h ha).mpr (hcd ha))\ntheorem imp_congr_ctx (h\u2081 : a \u2194 c) (h\u2082 : c \u2192 (b \u2194 d)) : (a \u2192 b) \u2194 (c \u2192 d) :=\n  Iff.trans (imp_congr_left h\u2081) (imp_congr_right h\u2082)\ntheorem imp_congr (h\u2081 : a \u2194 c) (h\u2082 : b \u2194 d) : (a \u2192 b) \u2194 (c \u2192 d) := imp_congr_ctx h\u2081 fun _ => h\u2082\ntheorem imp_iff_not (hb : \u00acb) : a \u2192 b \u2194 \u00aca := imp_congr_right fun _ => iff_false_intro hb\naxiom sound : \u2200 {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "imp_self",
+    "has_proof": false
+  }
+}

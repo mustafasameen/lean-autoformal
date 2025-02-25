@@ -1,0 +1,10 @@
+{
+  "content": "theorem length_reverse (as : List \u03b1) : (as.reverse).length = as.length := by\n  induction as with\n  | nil => rfl\n  | cons a as ih => simp [ih]\ntheorem mem_reverseAux {x : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "length_reverse",
+    "has_proof": true
+  }
+}

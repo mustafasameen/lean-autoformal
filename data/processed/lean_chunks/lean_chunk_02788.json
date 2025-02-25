@@ -1,0 +1,9 @@
+{
+  "content": "| symbol (val : String)\n  | nonReservedSymbol (val : String) (includeIdent : Bool)\n  | cat (catName : Name) (rbp : Nat)\n  | parser (declName : Name)\n  | nodeWithAntiquot (name : String) (kind : SyntaxNodeKind) (p : ParserDescr)\n  | sepBy  (p : ParserDescr) (sep : String) (psep : ParserDescr) (allowTrailingSep : Bool := false)\n  | sepBy1 (p : ParserDescr) (sep : String) (psep : ParserDescr) (allowTrailingSep : Bool := false)\ninstance : Inhabited ParserDescr where\n  default := ParserDescr.symbol \"\"\nabbrev TrailingParserDescr := ParserDescr\nabbrev MacroScope := Nat\ndef firstFrontendMacroScope := hAdd reservedMacroScope 1\nclass MonadRef (m : Type \u2192 Type) where\n  withRef {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "nonBacktrackable"
+  }
+}

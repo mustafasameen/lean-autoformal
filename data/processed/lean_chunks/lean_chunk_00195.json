@@ -1,0 +1,9 @@
+{
+  "content": "structure A where\n  x : Nat\n  w : Nat\nstructure B extends A where\n  y : Nat\nstructure C extends B where\n  z : Nat\ndef f1 (c : C) (a : A) : C :=\n{ c with toA := a, x := 0 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInst1.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInst1.lean",
+    "definition_name": "A"
+  }
+}

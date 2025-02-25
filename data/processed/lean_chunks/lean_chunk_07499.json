@@ -1,0 +1,10 @@
+{
+  "content": "inductive with \u27e8_, h\u27e9\n  exact h\ntheorem nodup_derivedLits {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_name": "with",
+    "has_proof": false
+  }
+}

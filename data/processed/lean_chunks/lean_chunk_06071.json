@@ -1,0 +1,10 @@
+{
+  "content": "theorem range'_eq_append_iff : range' s n = xs ++ ys \u2194 \u2203 k, k \u2264 n \u2227 xs = range' s k \u2227 ys = range' (s + k) (n - k) := by\n  induction n generalizing s xs ys with\n  | zero => simp\n  | succ n ih =>\n    simp only [range'_succ]\n    rw [cons_eq_append_iff]\n    constructor\n    \u00b7 rintro (\u27e8rfl, rfl\u27e9 | \u27e8_, rfl, h\u27e9)\n      \u00b7 exact \u27e80, by simp [range'_succ]\u27e9\n      \u00b7 simp only [ih] at h\n        obtain \u27e8k, h, rfl, rfl\u27e9 := h\n        refine \u27e8k + 1, ?_\u27e9\n        simp_all [range'_succ]\n        omega\n    \u00b7 rintro \u27e8k, h, rfl, rfl\u27e9\n      cases k with\n      | zero => simp [range'_succ]\n      | succ k =>\n        simp only [range'_succ, reduceCtorEq, false_and, cons.injEq, true_and, ih, range'_inj, exists_eq_left', or_true, and_true, false_or]\n        refine \u27e8k, ?_\u27e9\n        simp_all\n        omega\n@[simp] theorem find?_range'_eq_some {s n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "range",
+    "has_proof": true
+  }
+}

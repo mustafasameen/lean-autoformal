@@ -1,0 +1,9 @@
+{
+  "content": "inductive PackageEntrySrc\n  | path\n    (dir : FilePath)\nstructure PackageEntry where\n  name : Name\n  scope : String := \"\"\n  inherited : Bool\n  configFile : FilePath := defaultConfigFile\n  manifestFile? : Option FilePath := none\n  src : PackageEntrySrc\n  deriving Inhabited\nnamespace PackageEntry\nprotected def toJson (entry : PackageEntry) : Json :=\n  let fields := [\n    (\"name\", toJson entry.name),\n    (\"scope\", toJson entry.scope),\n    (\"configFile\" , toJson entry.configFile),\n    (\"manifestFile\", toJson entry.manifestFile?),\n    (\"inherited\", toJson entry.inherited),\n  ]\n  let fields :=\n    match entry.src with\n    | .path  dir =>\n      (\"type\", \"path\") :: fields.append [\n        (\"dir\", toJson dir),\n      ]\n    | .git url rev inputRev? subDir? =>\n      (\"type\", \"git\") :: fields.append [\n        (\"url\", toJson url),\n        (\"rev\", toJson rev),\n        (\"inputRev\", toJson inputRev?),\n        (\"subDir\", toJson subDir?),\n      ]\n  Json.mkObj fields",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Manifest.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Manifest.lean",
+    "definition_name": "PackageEntrySrc"
+  }
+}

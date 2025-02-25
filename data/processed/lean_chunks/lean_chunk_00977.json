@@ -1,0 +1,10 @@
+{
+  "content": "theorem Product.ext : {p q : \u03b1 \u00d7 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlg.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlg.lean",
+    "definition_name": "Product",
+    "has_proof": false
+  }
+}

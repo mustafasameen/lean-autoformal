@@ -1,0 +1,10 @@
+{
+  "content": "instance subsingleton_zero : Subsingleton (Fin 0) := subsingleton_iff_le_one.2 (by decide)\ninstance subsingleton_one : Subsingleton (Fin 1) := subsingleton_iff_le_one.2 (by decide)\ntheorem fin_one_eq_zero (a : Fin 1) : a = 0 := Subsingleton.elim a 0\n@[simp] theorem zero_eq_one_iff {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "subsingleton_zero",
+    "has_proof": true
+  }
+}

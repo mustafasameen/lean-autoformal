@@ -1,0 +1,9 @@
+{
+  "content": "inductive Eq : \u03b1 \u2192 \u03b1 \u2192 Prop\n  | refl (a : \u03b1) : Eq a a\nabbrev Eq.ndrec.{u1, u2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_name": "Eq"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure CandidateInfo where\n  arity : Nat\n  associated : Std.HashSet FVarId\n  deriving Inhabited\nstructure FindState where\n  candidates : Std.HashMap FVarId CandidateInfo := .empty\n  scope : Std.HashSet FVarId := .empty\nabbrev ReplaceCtx := Std.HashMap FVarId Name\nabbrev FindM := ReaderT (Option FVarId) StateRefT FindState ScopeM\nabbrev ReplaceM := ReaderT ReplaceCtx CompilerM\nprivate def findCandidate? (fvarId : FVarId) : FindM (Option CandidateInfo) := do\n  return (\u2190 get).candidates[fvarId]?\nprivate partial def eraseCandidate (fvarId : FVarId) : FindM Unit := do\n  if let some info \u2190 findCandidate? fvarId then\n    modify (fun state => { state with candidates := state.candidates.erase fvarId }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/JoinPoints.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/JoinPoints.lean",
+    "definition_name": "CandidateInfo"
+  }
+}

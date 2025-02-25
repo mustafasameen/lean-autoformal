@@ -1,0 +1,9 @@
+{
+  "content": "def MainM := EIO ExitCode\ninstance : Monad MainM := inferInstanceAs (Monad (EIO ExitCode))\ninstance : MonadFinally MainM := inferInstanceAs (MonadFinally (EIO ExitCode))\ninstance : MonadLift BaseIO MainM := inferInstanceAs (MonadLift BaseIO (EIO ExitCode))\nnamespace MainM\n@[inline] protected def tryCatchExit (f : ExitCode \u2192 MainM \u03b1) (self : MainM \u03b1) : MainM \u03b1 :=\n  self.toEIO.tryCatch f\n@[inline] protected def failure : MainM \u03b1 :=\n  exit 1\ninstance : MonadLog MainM := .stderr",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/MainM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/MainM.lean",
+    "definition_name": "MainM"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem foo {f: Fin n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1253.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1253.lean",
+    "definition_name": "foo",
+    "has_proof": false
+  }
+}

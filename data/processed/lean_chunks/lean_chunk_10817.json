@@ -1,0 +1,9 @@
+{
+  "content": "let extNameIdx \u2190 mkExtNameMap 0\n  let env := mod.entries.foldl (init := env) fun env (extName, ents) =>\n    if lakeExts.contains extName then\n      match extNameIdx[extName]? with\n      | some entryIdx => ents.foldl extDescrs[entryIdx]!.addEntry env\n      | none => env\n    else\n      env\n  return env\nwhere\n  lakeExts :=\n    NameSet.empty\n    |>.insert ``packageAttr\n    |>.insert ``packageDepAttr\n    |>.insert ``postUpdateAttr\n    |>.insert ``scriptAttr\n    |>.insert ``defaultScriptAttr\n    |>.insert ``leanLibAttr\n    |>.insert ``leanExeAttr\n    |>.insert ``externLibAttr\n    |>.insert ``targetAttr\n    |>.insert ``defaultTargetAttr\n    |>.insert ``testDriverAttr\n    |>.insert ``lintDriverAttr\n    |>.insert ``moduleFacetAttr\n    |>.insert ``packageFacetAttr\n    |>.insert ``libraryFacetAttr\n    |>.insert ``docStringExt\n    |>.insert ``IR.declMapExt\nstructure ConfigTrace where\n  platform : String\n  leanHash : String\n  configHash : Hash\n  options : NameMap String",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Lean/Elab.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Lean/Elab.lean",
+    "definition_name": "BEq"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_emptyc : (\u2205 : Raw \u03b1).size = 0 :=\n  HashMap.Raw.size_emptyc\ntheorem isEmpty_eq_size_eq_zero : m.isEmpty = (m.size == 0) :=\n  HashMap.Raw.isEmpty_eq_size_eq_zero\nvariable [BEq \u03b1] [Hashable \u03b1]\n@[simp]\ntheorem isEmpty_empty {c}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_name": "size_emptyc",
+    "has_proof": false
+  }
+}

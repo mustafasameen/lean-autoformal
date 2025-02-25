@@ -1,0 +1,10 @@
+{
+  "content": "theorem Bool.false_of_not_eq_self {a : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_name": "Bool",
+    "has_proof": false
+  }
+}

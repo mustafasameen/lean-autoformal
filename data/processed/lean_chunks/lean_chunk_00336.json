@@ -1,0 +1,9 @@
+{
+  "content": "structure Point where\n  x : Nat\n  y : Nat\nderiving Repr\nstructure PPoint (\u03b1 : Type) where\n  x : \u03b1\n  y : \u03b1\nderiving Repr\ndef origin : Point :=\n  { x := Nat.zero, y := Nat.zero }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1668.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1668.lean",
+    "definition_name": "Point"
+  }
+}

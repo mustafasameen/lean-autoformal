@@ -1,0 +1,10 @@
+{
+  "content": "@[macro_inline] instance [dp : Decidable p] [dq : Decidable q] : Decidable (Or p q) :=\n  match dp with\n  | isTrue  hp => isTrue (Or.inl hp)\n  | isFalse hp =>\n    match dq with\n    | isTrue hq  => isTrue (Or.inr hq)\n    | isFalse hq =>\n      isFalse fun h => match h with\n        | Or.inl h => hp h\n        | Or.inr h => hq h\ninstance [dp : Decidable p] : Decidable (Not p) :=\n  match dp with\n  | isTrue hp  => isFalse (absurd hp)\n  | isFalse hp => isTrue hp\n@[macro_inline] def cond {\u03b1 : Type u} (c : Bool) (x y : \u03b1) : \u03b1 :=\n  match c with\n  | true  => x\n  | false => y\n@[macro_inline]\nprotected def Bool.dcond {\u03b1 : Sort u} (c : Bool) (x : Eq c true \u2192 \u03b1) (y : Eq c false \u2192 \u03b1) : \u03b1 :=\n  match c with\n  | true  => x rfl\n  | false => y rfl\n@[macro_inline] def Bool.or (x y : Bool) : Bool :=\n  match x with\n  | true  => true\n  | false => y\n@[macro_inline] def Bool.and (x y : Bool) : Bool :=\n  match x with\n  | false => false\n  | true  => y\n@[inline] def Bool.not : Bool \u2192 Bool\n  | true  => false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

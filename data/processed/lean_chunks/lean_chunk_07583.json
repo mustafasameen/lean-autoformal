@@ -1,0 +1,10 @@
+{
+  "content": "cases assign output\n    <;> cases assign lhs\n      <;> cases assign rhs\n        <;> cases linv\n          <;> cases rinv\n            <;> decide\nend Decl\nabbrev CNFVar (aig : AIG Nat) := Nat \u2295 (Fin aig.decls.size)\nnamespace toCNF\ndef mixAssigns {aig : AIG Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "constToCNF_eval",
+    "has_proof": true
+  }
+}

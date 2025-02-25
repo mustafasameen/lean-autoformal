@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (m : Nat) : Le m 0 \u2192 m = 0 := by\n  intro h\n  cases h\n  rfl\ntheorem ex2 (m n : Nat) : Le m n \u2192 Le m.succ n.succ := by\n  intro h\n  induction h with\n  | base => apply Le.base\n  | succ n m ih =>\n    apply Le.succ\n    apply ih\ntheorem ex3 (m : Nat) : Le 0 m := by\n  induction m with\n  | zero => apply Le.base\n  | succ m ih =>\n    apply Le.succ\n    apply ih\ntheorem ex4 (m : Nat) : \u00ac Le m.succ 0 := by\n  intro h\n  cases h\ntheorem ex5 {m n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tacticTests.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tacticTests.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

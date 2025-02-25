@@ -1,0 +1,10 @@
+{
+  "content": "simp at h\n  rw [\u2190Int.sub_eq_zero, h, Int.add_comm, \u2190 Int.sub_eq_add_neg, Int.sub_eq_zero]\nprivate theorem mul_eq_zero_iff (a k : Int) (h\u2081 : k > 0) : k * a = 0 \u2194 a = 0 := by\n  conv => lhs; rw [\u2190 Int.mul_zero k]\n  apply Int.mul_eq_mul_left_iff\n  exact Int.ne_of_gt h\u2081\ntheorem norm_eq_coeff' (ctx : Context) (p p' : Poly) (k : Int) : p = p'.mul k \u2192 k > 0 \u2192 (p.denote ctx = 0 \u2194 p'.denote ctx = 0) := by\n  intro; subst p; intro h; simp [mul_eq_zero_iff, *]\ndef norm_eq_coeff_cert (lhs rhs : Expr) (p : Poly) (k : Int) : Bool :=\n  (lhs.sub rhs).norm == p.mul k && k > 0\ntheorem norm_eq_coeff (ctx : Context) (lhs rhs : Expr) (p : Poly) (k : Int)\n    : norm_eq_coeff_cert lhs rhs p k \u2192 (lhs.denote ctx = rhs.denote ctx) = (p.denote' ctx = 0) := by\n  simp [norm_eq_coeff_cert]\n  rw [norm_eq ctx lhs rhs (lhs.sub rhs).norm BEq.refl, Poly.denote'_eq_denote]\n  apply norm_eq_coeff'\nprivate theorem mul_le_zero_iff (a k : Int) (h\u2081 : k > 0) : k * a \u2264 0 \u2194 a \u2264 0 := by\n  constructor\n  \u00b7 intro h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

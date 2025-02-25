@@ -1,0 +1,9 @@
+{
+  "content": "#guard_msgs in #check b.g\n#guard_msgs in #check a.g\nset_option pp.fieldNotation false in\n#guard_msgs in #check a.g\n#guard_msgs in #check Float.abs 2.2\nstructure MySet (\u03b1 : Type) where\n  p : \u03b1 \u2192 Prop\nnamespace MySet\ndef MySubset {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/delabProjectionApp.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/delabProjectionApp.lean",
+    "definition_name": "A"
+  }
+}

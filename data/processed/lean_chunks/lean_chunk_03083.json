@@ -1,0 +1,9 @@
+{
+  "content": "structure Constructor where\n  name : Name\n  type : Expr\n  deriving Inhabited, BEq\nstructure InductiveType where\n  name : Name\n  type : Expr\n  ctors : List Constructor\n  deriving Inhabited, BEq\ndef Declaration.getNames : Declaration \u2192 List Name\n  | .axiomDecl val          => [val.name]\n  | .defnDecl val           => [val.name]\n  | .thmDecl val            => [val.name]\n  | .opaqueDecl val         => [val.name]\n  | .quotDecl               => [``Quot, ``Quot.mk, ``Quot.lift, ``Quot.ind]\n  | .mutualDefnDecl defns   => defns.map (\u00b7.name)\n  | .inductDecl _ _ types _ => types.map (\u00b7.name)\n@[specialize] def Declaration.foldExprM {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_name": "Constructor"
+  }
+}

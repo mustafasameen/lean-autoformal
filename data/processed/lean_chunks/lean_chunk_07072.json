@@ -1,0 +1,9 @@
+{
+  "content": "deriving FromJson, ToJson\nstructure ReferenceParams extends TextDocumentPositionParams where\n  context : ReferenceContext\n  deriving FromJson, ToJson\nstructure WorkspaceSymbolParams where\n  query : String\n  deriving FromJson, ToJson\nstructure DocumentHighlightParams extends TextDocumentPositionParams\n  deriving FromJson, ToJson\ninductive DocumentHighlightKind where\n  | text\n  | read\n  | write\ninstance : ToJson DocumentHighlightKind where\n toJson\n   | DocumentHighlightKind.text => 1\n   | DocumentHighlightKind.read => 2\n   | DocumentHighlightKind.write => 3\nstructure DocumentHighlight where\n  range : Range\n  kind? : Option DocumentHighlightKind := none\n  deriving ToJson\nabbrev DocumentHighlightResult := Array DocumentHighlight\nstructure DocumentSymbolParams where\n  textDocument : TextDocumentIdentifier\n  deriving FromJson, ToJson\ninductive SymbolKind where\n  | file\n  | module\n  | namespace\n  | package\n  | class\n  | method\n  | property\n  | field\n  | constructor\n  | enum\n  | interface",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "CompletionOptions"
+  }
+}

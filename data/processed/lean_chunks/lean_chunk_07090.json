@@ -1,0 +1,9 @@
+{
+  "content": "inductive SemanticTokenModifier where\n  | declaration\n  | definition\n  | readonly\n  | static\n  | deprecated\n  | abstract\n  | async\n  | modification\n  | documentation\n  | defaultLibrary\n  deriving ToJson, FromJson\ndef SemanticTokenModifier.names : Array String :=\n  #[\"declaration\", \"definition\", \"readonly\", \"static\", \"deprecated\", \"abstract\",\n    \"async\", \"modification\", \"documentation\", \"defaultLibrary\"]\ndef SemanticTokenModifier.toNat (modifier : SemanticTokenModifier) : Nat :=\n  modifier.toCtorIdx\nexample {v : SemanticTokenModifier}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "SemanticTokenModifier"
+  }
+}

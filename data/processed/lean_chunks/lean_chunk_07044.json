@@ -1,0 +1,9 @@
+{
+  "content": "label := name.toString\n            detail? := s!\"({opts.get name decl.defValue}), {decl.descr}\"\n            documentation? := none,\nkind? := CompletionItemKind.property\n            textEdit? := textEdit\n            data? := toJson {\n              params,\n              cPos := completionInfoPos,\n              id? := none : ResolvableCompletionItemData\n            }\n          }\n    return items\ndef tacticCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)\n    : IO (Array CompletionItem) := ctx.runMetaM .empty do\n  let allTacticDocs \u2190 Tactic.Doc.allTacticDocs\n  let items : Array CompletionItem := allTacticDocs.map fun tacticDoc => {\n      label          := tacticDoc.userName\n      detail?        := none\n      documentation? := tacticDoc.docString.map fun docString =>\n        { value := docString, kind := MarkupKind.markdown : MarkupContent }\n      kind?          := CompletionItemKind.keyword",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

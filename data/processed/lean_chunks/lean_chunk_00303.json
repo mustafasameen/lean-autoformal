@@ -1,0 +1,10 @@
+{
+  "content": "theorem foo (n : Nat) [P n] : True := trivial\nexample : True := by\n  apply foo 37\nopen Lean Meta Elab Tactic Term\nelab \"apply'\" e:term : tactic => do\n  evalApplyLikeTactic (\u00b7.apply \u00b7 { allowSynthFailures := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/2273.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/2273.lean",
+    "definition_name": "foo",
+    "has_proof": true
+  }
+}

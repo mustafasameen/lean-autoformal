@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 rw [\u2190 hres]\n      intros\n      simp\n    \u00b7 split at hres\n      \u00b7 rw [\u2190 hres]\n        intros\n        rw [LawfulOperator.decl_eq (f := AIG.mkConstCached)]\n      \u00b7 rw [\u2190 hres]\n        intros\n        rw [LawfulOperator.decl_eq (f := AIG.mkConstCached)]\n      \u00b7 rw [\u2190 hres]\n        intros\n        rw [LawfulOperator.decl_eq (f := AIG.mkConstCached)]\n      \u00b7 rw [\u2190 hres]\n        intros\n        rw [LawfulOperator.decl_eq (f := AIG.mkConstCached)]\n      \u00b7 rw [\u2190 hres]\n        intros\n        simp\n      \u00b7 rw [\u2190 hres]\n        intros\n        simp\n      \u00b7 rw [\u2190 hres]\n        intros\n        simp\n      \u00b7 rw [\u2190 hres]\n        intros\n        simp\n      \u00b7 split at hres\n        \u00b7 rw [\u2190 hres]\n          intros\n          simp\n        \u00b7 split at hres\n          \u00b7 rw [\u2190 hres]\n            intros\n            rw [AIG.LawfulOperator.decl_eq (f := AIG.mkConstCached)]\n          \u00b7 rw [\u2190 hres]\n            dsimp only\n            intro idx h1 h2\n            rw [Array.getElem_push]\n            simp [h2]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_name": "mkGateCached",
+    "has_proof": true
+  }
+}

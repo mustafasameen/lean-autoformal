@@ -1,0 +1,9 @@
+{
+  "content": "| stx@(Syntax.node i k args) =>\n    if k == choiceKind then do\n      let alts \u2190 stx.getArgs.mapM (expandLiftMethodAux inQuot inBinder \u00b7 |>.run [])\n      let (_, lifts) := alts[0]!\n      unless alts.all (\u00b7.2 == lifts) do\n        throwErrorAt stx \"cannot lift `(<- ...)` over inconsistent syntax variants, consider lifting out the binding manually\"\n      modify (\u00b7 ++ lifts)\n      return .node i k (alts.map (\u00b7.1))\n    else if liftMethodDelimiter k then\n      return stx\n    else if h : args.size >= 2 \u2227 (k == ``termDepIfThenElse || k == ``termIfThenElse) then do\n      let inAntiquot := stx.isAntiquot && !stx.isEscapedAntiquot\n      let arg1 \u2190 expandLiftMethodAux (inQuot && !inAntiquot || stx.isQuot) inBinder args[1]\n      let args := args.set! 1 arg1\n      return Syntax.node i k args\n    else if k == ``Parser.Term.liftMethod && !inQuot then withFreshMacroScope do\n      if inBinder then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "ToForInTermResult"
+  }
+}

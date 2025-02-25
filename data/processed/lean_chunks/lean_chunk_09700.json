@@ -1,0 +1,9 @@
+{
+  "content": "@[inline, inherit_doc DTreeMap.getKeyLT!]\ndef getKeyLT! [Inhabited \u03b1] (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : \u03b1 :=\n  DTreeMap.getKeyLT! t.inner k\n@[inline, inherit_doc DTreeMap.getKeyGED]\ndef getKeyGED (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  DTreeMap.getKeyGED t.inner k fallback\n@[inline, inherit_doc DTreeMap.getKeyGTD]\ndef getKeyGTD (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  DTreeMap.getKeyGTD t.inner k fallback\n@[inline, inherit_doc DTreeMap.getKeyLED]\ndef getKeyLED (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  DTreeMap.getKeyLED t.inner k fallback\n@[inline, inherit_doc DTreeMap.getKeyLTD]\ndef getKeyLTD (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  DTreeMap.getKeyLTD t.inner k fallback\nvariable {\u03b4 : Type w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Basic.lean",
+    "definition_name": "TreeMap"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "map      := fun x y => Seq.seq (pure x) fun _ => y\n  seqLeft  := fun a b => Seq.seq (Functor.map (Function.const _) a) b\n  seqRight := fun a b => Seq.seq (Functor.map (Function.const _ id) a) b\nclass Monad (m : Type u \u2192 Type v) : Type (max (u+1) v) extends Applicative m, Bind m where\n  map      f x := bind x (Function.comp pure f)\n  seq      f x := bind f fun y => Functor.map y (x ())\n  seqLeft  x y := bind x fun a => bind (y ()) (fun _ => pure a)\n  seqRight x y := bind x fun _ => y ()\ninstance {\u03b1 : Type u} {m : Type u \u2192 Type v} [Monad m] : Inhabited (\u03b1 \u2192 m \u03b1) where\n  default := pure\ninstance {\u03b1 : Type u} {m : Type u \u2192 Type v} [Monad m] [Inhabited \u03b1] : Inhabited (m \u03b1) where\n  default := pure default\ninstance [Monad m] : [Nonempty \u03b1] \u2192 Nonempty (m \u03b1)\n  | \u27e8x\u27e9 => \u27e8pure x\u27e9\nclass MonadLift (m : semiOutParam (Type u \u2192 Type v)) (n : Type u \u2192 Type w) where\nclass MonadLiftT (m : Type u \u2192 Type v) (n : Type u \u2192 Type w) where\nabbrev liftM := @monadLift\n@[always_inline]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

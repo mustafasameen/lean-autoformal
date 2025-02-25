@@ -1,0 +1,9 @@
+{
+  "content": "@[export lean_ir_mk_sproj_expr] def mkSProjExpr (n : Nat) (offset : Nat) (x : VarId) : Expr := Expr.sproj n offset x\n@[export lean_ir_mk_fapp_expr]  def mkFAppExpr (c : FunId) (ys : Array Arg) : Expr := Expr.fap c ys\n@[export lean_ir_mk_papp_expr]  def mkPAppExpr (c : FunId) (ys : Array Arg) : Expr := Expr.pap c ys\n@[export lean_ir_mk_app_expr]   def mkAppExpr (x : VarId) (ys : Array Arg) : Expr := Expr.ap x ys\n@[export lean_ir_mk_num_expr]   def mkNumExpr (v : Nat) : Expr := Expr.lit (LitVal.num v)\n@[export lean_ir_mk_str_expr]   def mkStrExpr (v : String) : Expr := Expr.lit (LitVal.str v)\nstructure Param where\n  x : VarId\n  borrow : Bool\n  ty : IRType\n  deriving Inhabited, Repr\n@[export lean_ir_mk_param]\ndef mkParam (x : VarId) (borrow : Bool) (ty : IRType) : Param := \u27e8x, borrow, ty\u27e9\ninductive AltCore (FnBody : Type) : Type where\n  | ctor (info : CtorInfo) (b : FnBody) : AltCore FnBody\n  | default (b : FnBody) : AltCore FnBody\ninductive FnBody where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_name": "VarId"
+  }
+}

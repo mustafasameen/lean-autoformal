@@ -1,0 +1,9 @@
+{
+  "content": "class InvolutiveNeg (A : Type _) extends Neg A where\n  neg_neg : \u2200 x : A, - -x = x\nclass InvolutiveInv (G : Type _) extends Inv G where\n  inv_inv : \u2200 x : G, x\u207b\u00b9\u207b\u00b9 = x\nend InvolutiveInv\ndef DivInvMonoid.div' {G : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "InvolutiveNeg"
+  }
+}

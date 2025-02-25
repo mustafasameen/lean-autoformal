@@ -1,0 +1,9 @@
+{
+  "content": "if let .decl declName := origin then\n      unless Match.isMatchEqnTheorem (\u2190 getEnv) declName do\n        if let some declName \u2190 isEqnThm? declName then\n          unless foundFns.contains declName do\n            foundFns := foundFns.insert declName\n            let decl : Ident := mkIdent (\u2190 unresolveNameGlobalAvoidingLocals declName)\n            let param \u2190 `(Parser.Tactic.grindParam| $decl:ident)\n            params := params.push param\n        else\n          let decl : Ident := mkIdent (\u2190 unresolveNameGlobalAvoidingLocals declName)\n          let param \u2190 match kind with\n            | .eqLhs     => `(Parser.Tactic.grindParam| = $decl)\n            | .eqRhs     => `(Parser.Tactic.grindParam| =_ $decl)\n            | .eqBoth    => `(Parser.Tactic.grindParam| _=_ $decl)\n            | .eqBwd     => `(Parser.Tactic.grindParam| \u2190= $decl)\n            | .bwd       => `(Parser.Tactic.grindParam| \u2190 $decl)\n            | .fwd       => `(Parser.Tactic.grindParam| \u2192 $decl)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_name": "grindOnlyPos"
+  }
+}

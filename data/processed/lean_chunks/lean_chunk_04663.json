@@ -1,0 +1,10 @@
+{
+  "content": "theorem mul_le_mul_of_nonpos_right {a b c : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "mul_le_mul_of_nonpos_right",
+    "has_proof": false
+  }
+}

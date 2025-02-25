@@ -1,0 +1,10 @@
+{
+  "content": "let aig := res.aig\n      let newRef := res.ref\n      have := by\n        intros\n        apply LawfulOperator.le_size_of_le_aig_size\n        omega\n      let s := s.cast this\n      let s := s.push newRef\n      go aig (idx + 1) s (by omega) (lhs.cast this) (rhs.cast this) f\n    else\n      have : idx = len := by omega\n      \u27e8aig, this \u25b8 s\u27e9\n  termination_by len - idx\ntheorem zip.go_le_size {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Zip.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Zip.lean",
+    "definition_name": "ZipTarget",
+    "has_proof": true
+  }
+}

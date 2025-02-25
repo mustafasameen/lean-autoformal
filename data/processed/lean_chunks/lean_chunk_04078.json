@@ -1,0 +1,10 @@
+{
+  "content": "theorem allOnes_shiftLeft_or_shiftLeft {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "allOnes_shiftLeft_or_shiftLeft",
+    "has_proof": false
+  }
+}

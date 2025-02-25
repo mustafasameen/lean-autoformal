@@ -1,0 +1,10 @@
+{
+  "content": "theorem toCNF.inj_is_injection {aig : AIG Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "toCNF",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive AList (T : Type) where\n  | Cons : Isize \u2192 T \u2192 AList T \u2192 AList T\n  | Nil : AList T\n  structure Fraction where\n    dividend : Isize\n    divisor : Isize\n  structure HashMap (T : Type) where\n    num_entries : Isize\n    max_load_factor : Fraction\n    max_load : Isize\n    saturated : Bool\n    slots : alloc.vec.Vec (AList T)\n  def hash_key (k : Isize) : Result Isize :=\n    Result.ok k\n  def ClonehashmapFraction.clone (self : Fraction) : Result Fraction :=\n    Result.ok self\n  @[reducible]\n  def core.clone.ClonehashmapFraction : core.clone.Clone Fraction := {\n    clone := ClonehashmapFraction.clone\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_name": "AList"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure GitRepo where\n  dir : FilePath\ninstance : Coe FilePath GitRepo := \u27e8(\u27e8\u00b7\u27e9)\u27e9\ninstance : ToString GitRepo := \u27e8(\u00b7.dir.toString)\u27e9\nnamespace GitRepo\ndef cwd : GitRepo := \u27e8\".\"\u27e9\n@[inline] def dirExists (repo : GitRepo) : BaseIO Bool :=\n  repo.dir.isDir\n@[inline] def captureGit? (args : Array String) (repo : GitRepo) : BaseIO (Option String) :=\n  captureProc? {cmd := \"git\", args, cwd := repo.dir}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_name": "GitRepo"
+  }
+}

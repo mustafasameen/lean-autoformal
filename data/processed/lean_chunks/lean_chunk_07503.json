@@ -1,0 +1,10 @@
+{
+  "content": "exact rupAddSuccess.symm\n  \u00b7 split at rupAddSuccess\n    \u00b7 simp at rupAddSuccess\n    \u00b7 split at rupAddSuccess\n      \u00b7 simp at rupAddSuccess\n      \u00b7 let fc := (insertRupUnits f (negate c)).1\n        have fc_assignments_size : (insertRupUnits f (negate c)).1.assignments.size = n := by\n          rw [size_assignments_insertRupUnits f (negate c)]\n          exact f_readyForRupAdd.2.1\n        simp +zetaDelta only [clauses_performRupCheck, rupUnits_performRupCheck, ratUnits_performRupCheck,\n          restoreAssignments_performRupCheck fc fc_assignments_size, Prod.mk.injEq, and_true] at rupAddSuccess\n        have rupAddSuccess : DefaultFormula.insert (clearRupUnits (insertRupUnits f (negate c)).fst) c = f' := by\n          rw [rupAddSuccess]\n        rw [clear_insertRup f f_readyForRupAdd (negate c)] at rupAddSuccess\n        exact rupAddSuccess.symm\nend DefaultFormula\nend Internal\nend LRAT\nend Std.Tactic.BVDecide",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_name": "let",
+    "has_proof": true
+  }
+}

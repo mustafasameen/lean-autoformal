@@ -1,0 +1,10 @@
+{
+  "content": "instance Prod.lexLtDec\n    [LT \u03b1] [LT \u03b2] [DecidableEq \u03b1]\n    [(a b : \u03b1) \u2192 Decidable (a < b)] [(a b : \u03b2) \u2192 Decidable (a < b)]\n    : (s t : \u03b1 \u00d7 \u03b2) \u2192 Decidable (Prod.lexLt s t) :=\n  fun _ _ => inferInstanceAs (Decidable (_ \u2228 _))\ntheorem Prod.lexLt_def [LT \u03b1] [LT \u03b2] (s t : \u03b1 \u00d7 \u03b2) : (Prod.lexLt s t) = (s.1 < t.1 \u2228 (s.1 = t.1 \u2227 s.2 < t.2)) :=\n  rfl\ntheorem Prod.eta (p : \u03b1 \u00d7 \u03b2) : (p.1, p.2) = p := rfl\ndef Prod.map {\u03b1\u2081 : Type u\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "Prod",
+    "has_proof": false
+  }
+}

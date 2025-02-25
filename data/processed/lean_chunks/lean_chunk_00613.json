@@ -1,0 +1,9 @@
+{
+  "content": "structure MonoidHom (M : Type _) (N : Type _) [Mul M] [Mul N] where\n  toFun : M \u2192 N\n  map_mul' : \u2200 x y, toFun (x * y) = toFun x * toFun y\nclass CommMagma (G : Type _) extends Mul G where\n  mul_comm : \u2200 a b : G, a * b = b * a\nset_option quotPrecheck false\ninfixr:25 \" \u2192*' \" => MonoidHom\ninstance [Mul M] [Mul N] : CoeFun (M \u2192*' N) (fun _ => M \u2192 N) where\n  coe := MonoidHom.toFun\nopen CommMagma\ninstance MonoidHom.commMonoid [Mul M] [Mul N] :\n    CommMagma (M \u2192*' N) where\n  mul := fun f g => { toFun := fun x => f x * g x, map_mul' := sorry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3705.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3705.lean",
+    "definition_name": "MonoidHom"
+  }
+}

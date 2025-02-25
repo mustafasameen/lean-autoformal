@@ -1,0 +1,10 @@
+{
+  "content": "simp [bitvec_to_nat, h, Nat.mod_mod_of_dvd _ dvd]\n@[simp, bitvec_to_nat] theorem toInt_add (x y : BitVec w) :\n  (x + y).toInt = (x.toInt + y.toInt).bmod (2^w) := by\n  simp [toInt_eq_toNat_bmod]\ntheorem ofInt_add {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "add_assoc",
+    "has_proof": true
+  }
+}

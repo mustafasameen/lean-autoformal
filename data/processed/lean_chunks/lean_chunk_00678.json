@@ -1,0 +1,9 @@
+{
+  "content": "instance instSubNegMonoid [SubNegMonoid \u03b1] : SubNegMonoid \u03b1\u1d43\u1d52\u1d56 where\n  toAddMonoid := instAddMonoid\n  toNeg := instNeg\n  zsmul n a := op <| n \u2022 a.unop\ninstance instAddGroup [AddGroup \u03b1] : AddGroup \u03b1\u1d43\u1d52\u1d56 where\n  toSubNegMonoid := instSubNegMonoid\n  add_left_neg _ := sorry\nend AddOpposite\nend Mathlib.Algebra.Group.Opposite\nsection Mathlib.GroupTheory.Subsemigroup.Operations\nvariable {M : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "instSubNegMonoid"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class MonadControl (m : semiOutParam (Type u \u2192 Type v)) (n : Type u \u2192 Type w) where\n  stM      : Type u \u2192 Type u\n  liftWith : {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Basic.lean",
+    "definition_name": "MonadControl"
+  }
+}

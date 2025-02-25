@@ -1,0 +1,10 @@
+{
+  "content": "Bounded.LE.ofNat' data h\n@[inline]\ndef toNat (month : Ordinal) : Nat := by\n  match month with\n  | \u27e8.ofNat s, _\u27e9 => exact s\n  | \u27e8.negSucc s, h\u27e9 => nomatch h.left\n@[inline]\ndef ofFin (data : Fin 13) : Ordinal :=\n  Bounded.LE.ofFin' data (by decide)\ndef toSeconds (leap : Bool) (month : Ordinal) : Second.Offset :=\n  let daysAcc := #[0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]\n  let days : Day.Offset := daysAcc[month.toNat]!\n  let time := days.toSeconds\n  if leap && month.toNat \u2265 2\n    then time + 86400\n    else time\n@[inline]\ndef toMinutes (leap : Bool) (month : Ordinal) : Minute.Offset :=\n  toSeconds leap month\n  |>.ediv 60\n@[inline]\ndef toHours (leap : Bool) (month : Ordinal) : Hour.Offset :=\n  toMinutes leap month\n  |>.ediv 60\n@[inline]\ndef toDays (leap : Bool) (month : Ordinal) : Day.Offset :=\n  toSeconds leap month\n  |>.convert\n@[inline]\nprivate def monthSizesNonLeap : { val : Array Day.Ordinal // val.size = 12 } :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Month.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Month.lean",
+    "definition_name": "Ordinal",
+    "has_proof": true
+  }
+}

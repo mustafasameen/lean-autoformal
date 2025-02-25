@@ -1,0 +1,10 @@
+{
+  "content": "theorem unitOfList_nil :\n    unitOfList ([] : List \u03b1) = \u2205 := by\n  simp_to_raw\n  simp\n@[simp]\ntheorem unitOfList_singleton {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_name": "unitOfList_nil",
+    "has_proof": true
+  }
+}

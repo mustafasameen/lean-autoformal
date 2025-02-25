@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_enumFrom {x : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "mem_enumFrom",
+    "has_proof": false
+  }
+}

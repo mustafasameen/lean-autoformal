@@ -1,0 +1,9 @@
+{
+  "content": "\u27e8Raw\u2080.Const.alter \u27e8m.1, m.2.size_buckets_pos\u27e9 a f, Raw.WF.constAlter\u2080 m.2\u27e9\n@[inline, inherit_doc Raw.insertMany] def insertMany {\u03c1 : Type w}\n    [ForIn Id \u03c1 ((a : \u03b1) \u00d7 \u03b2 a)] (m : DHashMap \u03b1 \u03b2) (l : \u03c1) : DHashMap \u03b1 \u03b2 :=\n  \u27e8(Raw\u2080.insertMany \u27e8m.1, m.2.size_buckets_pos\u27e9 l).1,\n   (Raw\u2080.insertMany \u27e8m.1, m.2.size_buckets_pos\u27e9 l).2 _ Raw.WF.insert\u2080 m.2\u27e9\n@[inline, inherit_doc Raw.Const.insertMany] def Const.insertMany {\u03b2 : Type v}\n    {\u03c1 : Type w} [ForIn Id \u03c1 (\u03b1 \u00d7 \u03b2)] (m : DHashMap \u03b1 (fun _ => \u03b2)) (l : \u03c1) :\n    DHashMap \u03b1 (fun _ => \u03b2) :=\n  \u27e8(Raw\u2080.Const.insertMany \u27e8m.1, m.2.size_buckets_pos\u27e9 l).1,\n   (Raw\u2080.Const.insertMany \u27e8m.1, m.2.size_buckets_pos\u27e9 l).2 _ Raw.WF.insert\u2080 m.2\u27e9\n@[inline, inherit_doc Raw.Const.insertManyIfNewUnit] def Const.insertManyIfNewUnit\n    {\u03c1 : Type w} [ForIn Id \u03c1 \u03b1] (m : DHashMap \u03b1 (fun _ => Unit)) (l : \u03c1) :\n    DHashMap \u03b1 (fun _ => Unit) :=\n  \u27e8(Raw\u2080.Const.insertManyIfNewUnit \u27e8m.1, m.2.size_buckets_pos\u27e9 l).1,",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_name": "empty"
+  }
+}

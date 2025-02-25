@@ -1,0 +1,9 @@
+{
+  "content": "class SubmonoidClass (S : Type _) (M : Type _) [MulOneClass M] [SetLike S M] : Prop extends\n  MulMemClass S M\nstructure AddSubmonoid (M : Type _) [AddZeroClass M] extends AddSubsemigroup M where\nclass AddSubmonoidClass (S : Type _) (M : Type _) [AddZeroClass M] [SetLike S M] : Prop extends\n  AddMemClass S M\nnamespace AddSubmonoid\ninstance : SetLike (AddSubmonoid A) A where\n  coe s := s.carrier\ninstance : AddSubmonoidClass (AddSubmonoid A) A where\nend AddSubmonoid\nnamespace Submonoid\ninstance : SetLike (Submonoid M) M where\n  coe s := s.carrier\ninstance : SubmonoidClass (Submonoid M) M where\nend Submonoid\nend Mathlib.GroupTheory.Submonoid.Basic\nsection Mathlib.GroupTheory.Submonoid.Operations\nvariable {M : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "SubmonoidClass"
+  }
+}

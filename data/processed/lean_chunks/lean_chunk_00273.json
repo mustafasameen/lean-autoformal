@@ -1,0 +1,9 @@
+{
+  "content": "instance inst1 {\u03b1 : Sort _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/353.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/353.lean",
+    "definition_name": "inst1"
+  }
+}

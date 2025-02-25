@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_attach (l : List \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b : \u03b2) :\n    l.attach.foldl (fun acc t => f acc t.1) b = l.foldl f b := by\n  induction l generalizing b with\n  | nil => simp\n  | cons a l ih => rw [foldl_cons, attach_cons, foldl_cons, foldl_map, ih]\ntheorem foldr_attach (l : List \u03b1) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b : \u03b2) :\n    l.attach.foldr (fun t acc => f t.1 acc) b = l.foldr f b := by\n  induction l generalizing b with\n  | nil => simp\n  | cons a l ih => rw [foldr_cons, attach_cons, foldr_cons, foldr_map, ih]\ntheorem attach_map {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Attach.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Attach.lean",
+    "definition_name": "foldl_attach",
+    "has_proof": true
+  }
+}

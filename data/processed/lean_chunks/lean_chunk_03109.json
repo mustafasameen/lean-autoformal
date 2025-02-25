@@ -1,0 +1,9 @@
+{
+  "content": "structure PromiseImpl (\u03b1 : Type) : Type where\n  prom : PromisePointed.type\n  h    : Nonempty \u03b1\ndef Promise (\u03b1 : Type) : Type := PromiseImpl \u03b1\ninstance [s : Nonempty \u03b1] : Nonempty (Promise \u03b1) :=\n  Nonempty.intro { prom := Classical.choice PromisePointed.property, h := s }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/Promise.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/Promise.lean",
+    "definition_name": "PromiseImpl"
+  }
+}

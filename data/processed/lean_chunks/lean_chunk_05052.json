@@ -1,0 +1,10 @@
+{
+  "content": "congr\n    ext1 (_|_) <;> simp\ntheorem findSomeRevM?_toArray [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m (Option \u03b2)) (l : List \u03b1) :\n    l.toArray.findSomeRevM? f = l.reverse.findSomeM? f := by\n  simp [Array.findSomeRevM?, findSomeRevM?_find_toArray]\ntheorem findRevM?_toArray [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m Bool) (l : List \u03b1) :\n    l.toArray.findRevM? f = l.reverse.findM? f := by\n  rw [Array.findRevM?, findSomeRevM?_toArray, findM?_eq_findSomeM?]\n@[simp] theorem findM?_toArray [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m Bool) (l : List \u03b1) :\n    l.toArray.findM? f = l.findM? f := by\n  rw [Array.findM?]\n  simp only [bind_pure_comp, map_pure, forIn_toArray]\n  induction l with\n  | nil => simp\n  | cons a l ih =>\n    simp only [forIn_cons, LawfulMonad.bind_assoc, findM?]\n    congr\n    ext1 (_|_) <;> simp [ih]\n@[simp] theorem findSome?_toArray (f : \u03b1 \u2192 Option \u03b2) (l : List \u03b1) :\n    l.toArray.findSome? f = l.findSome? f := by\n  rw [Array.findSome?, \u2190 findSomeM?_id, findSomeM?_toArray, Id.run]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "findSomeM",
+    "has_proof": true
+  }
+}

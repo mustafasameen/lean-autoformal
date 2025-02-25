@@ -1,0 +1,9 @@
+{
+  "content": "forallBoundedTelescope auxAppType info.numAlts fun hs _ => do\n    let auxApp \u2190 whnfMatcher (mkAppN auxApp hs)\n    let auxAppFn := auxApp.getAppFn\n    let mut i := prefixSz\n    for h in hs do\n      if auxAppFn == h then\n        let result := mkAppN args[i]! auxApp.getAppArgs\n        let result := mkAppN result args[prefixSz + info.numAlts:args.size]\n        return ReduceMatcherResult.reduced result.headBeta\n      i := i + 1\n    return ReduceMatcherResult.stuck auxApp\ndef projectCore? (e : Expr) (i : Nat) : MetaM (Option Expr) := do\n  let e := e.toCtorIfLit\n  matchConstCtor e.getAppFn (fun _ => pure none) fun ctorVal _ =>\n    let numArgs := e.getAppNumArgs\n    let idx := ctorVal.numParams + i\n    if idx < numArgs then\n      return some (e.getArg! idx)\n    else\n      return none\ndef project? (e : Expr) (i : Nat) : MetaM (Option Expr) := do\n  projectCore? (\u2190 whnf e) i\nprivate def whnfDelayedAssigned? (f' : Expr) (e : Expr) : MetaM (Option Expr) := do\n  if f'.isMVar then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "ReduceMatcherResult"
+  }
+}

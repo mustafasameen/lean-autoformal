@@ -1,0 +1,10 @@
+{
+  "content": "let .thmInfo tval\u2082 := cinfo\u2082 | false\n  return tval\u2081.name == tval\u2082.name\n    && tval\u2081.type == tval\u2082.type\n    && tval\u2081.levelParams == tval\u2082.levelParams\n    && tval\u2081.all == tval\u2082.all\ndef finalizeImport (s : ImportState) (imports : Array Import) (opts : Options) (trustLevel : UInt32 := 0)\n    (leakEnv := false) : IO Environment := do\n  let numConsts := s.moduleData.foldl (init := 0) fun numConsts mod =>\n    numConsts + mod.constants.size + mod.extraConstNames.size\n  let mut const2ModIdx : Std.HashMap Name ModuleIdx := Std.HashMap.empty (capacity := numConsts)\n  let mut constantMap : Std.HashMap Name ConstantInfo := Std.HashMap.empty (capacity := numConsts)\n  for h : modIdx in [0:s.moduleData.size] do\n    let mod := s.moduleData[modIdx]\n    for cname in mod.constNames, cinfo in mod.constants do\n      match constantMap.getThenInsertIfNew? cname cinfo with\n      | (cinfoPrev?, constantMap') =>\n        constantMap := constantMap'\n        if let some cinfoPrev := cinfoPrev? then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

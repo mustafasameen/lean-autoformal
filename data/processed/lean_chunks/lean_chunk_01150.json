@@ -1,0 +1,10 @@
+{
+  "content": "theorem noDupOfConsumeNoDup\n  (h : ns.noDup) (h' : consume p' ns es = some (some l, p)) :\n    l.noDup = true := by\n  induction ns generalizing p' es with\n  | uno  _      => cases es <;> cases h'\n  | cons _ _ hi =>\n    simp [NEList.noDup] at h\n    cases es with\n    | uno  _   => simp [consume] at h'; simp only [h.2, \u2190 h'.1]\n    | cons _ _ => exact hi h.2 h'\ninductive Continuation\n  | exit   : Continuation\n  | seq    : Program \u2192 Continuation \u2192 Continuation\n  | decl   : String \u2192 Continuation \u2192 Continuation\n  | fork   : Expression \u2192 Program \u2192 Program \u2192 Continuation \u2192 Continuation\n  | loop   : Expression \u2192 Program \u2192 Continuation \u2192 Continuation\n  | unOp   : UnOp \u2192 Expression \u2192 Continuation \u2192 Continuation\n  | binOp\u2081 : BinOp \u2192 Expression \u2192 Continuation \u2192 Continuation\n  | binOp\u2082 : BinOp \u2192 Value \u2192 Continuation \u2192 Continuation\n  | app    : Expression \u2192 NEList Expression \u2192 Continuation \u2192 Continuation\n  | block  : Context \u2192 Continuation \u2192 Continuation\n  | print  : Continuation \u2192 Continuation",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_name": "noDupOfConsumeNoDup",
+    "has_proof": true
+  }
+}

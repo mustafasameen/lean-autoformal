@@ -1,0 +1,10 @@
+{
+  "content": "private def ppParamsAt (proof : Expr) (numParams : Nat) (paramPos : List Nat) : MetaM MessageData := do\n  forallBoundedTelescope (\u2190 inferType proof) numParams fun xs _ => do\n    let mut msg := m!\"\"\n    let mut first := true\n    for h : i in [:xs.size] do\n      if paramPos.contains i then\n        let x := xs[i]\n        if first then first := false else msg := msg ++ \"\\n\"\n        msg := msg ++ m!\"{x} : {\u2190 inferType x}\"\n    addMessageContextFull msg\ndef mkEMatchTheoremCore (origin : Origin) (levelParams : Array Name) (numParams : Nat) (proof : Expr) (patterns : List Expr) (kind : EMatchTheoremKind) : MetaM EMatchTheorem := do\n  let (patterns, symbols, bvarFound) \u2190 NormalizePattern.main patterns\n  if symbols.isEmpty then\n    throwError \"invalid pattern for `{\u2190 origin.pp}`{indentD (patterns.map ppPattern)}\\nthe pattern does not contain constant symbols for indexing\"\n  trace[grind.ematch.pattern] \"{MessageData.ofConst proof}: {patterns.map ppPattern}\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

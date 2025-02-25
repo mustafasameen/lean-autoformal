@@ -1,0 +1,9 @@
+{
+  "content": "inductive SF : Type u \u2192 Type u \u2192 Type (u+1) where\n|  seq {as bs cs: Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1051.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1051.lean",
+    "definition_name": "SF"
+  }
+}

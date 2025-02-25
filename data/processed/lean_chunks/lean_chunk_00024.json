@@ -1,0 +1,10 @@
+{
+  "content": "theorem lehmer_correct (state : BitVec 32) (h1 : state > 0) (h2 : state < 0x7fffffff) :\n    naive state = opt state := by\n  unfold naive opt\n  bv_decide (config := { timeout := 120 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/bv_decide_mod.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/bv_decide_mod.lean",
+    "definition_name": "lehmer_correct",
+    "has_proof": true
+  }
+}

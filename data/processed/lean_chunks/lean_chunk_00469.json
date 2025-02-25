@@ -1,0 +1,9 @@
+{
+  "content": "class Dummy (\u03b1 : Type) := (val : \u03b1)\nvariable {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/vars.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/vars.lean",
+    "definition_name": "Dummy"
+  }
+}

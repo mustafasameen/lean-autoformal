@@ -1,0 +1,9 @@
+{
+  "content": "let args := e.getAppArgs\n  let t := args[0]!\n  let v := args[2]!\n  let f := args[3]!\n  let rest := args.extract 4 args.size\n  match f with\n  | .lam n _ b _ => some (rest, n, t, v, b)\n  | _ => some (rest, .anonymous, t, v, .app f (.bvar 0))\ndef foldlM {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "ExprStructEq"
+  }
+}

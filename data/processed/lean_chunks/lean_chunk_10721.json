@@ -1,0 +1,9 @@
+{
+  "content": "class MonadError (m : Type u \u2192 Type v) where\n  error {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Error.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Error.lean",
+    "definition_name": "MonadError"
+  }
+}

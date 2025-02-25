@@ -1,0 +1,9 @@
+{
+  "content": "def Baz := Foo\nvariable (f : Baz)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4670.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4670.lean",
+    "definition_name": "Baz"
+  }
+}

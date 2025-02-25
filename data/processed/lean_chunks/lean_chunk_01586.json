@@ -1,0 +1,9 @@
+{
+  "content": "def c1 := 30000000000 + 10000000000\ndef c2 := 40000000000\ndef c3 := fact 10\ndef v1  := 3628800\ndef v2  := 3628801\n#guard_msgs in\n#eval checkDefEq `c3 `v1\n#guard_msgs in\n#eval checkDefEq `c1 `c2\ndef c4 := decide (100000000 < 20000000000)\n#guard_msgs in\n#eval checkDefEq `c4 `Bool.true\ndef c5 := \"h\".length\ndef c6 := 1\nset_option pp.all true\n#guard_msgs in\n#eval checkDefEq `c5 `c6\ndef c7 := decide (\"hello\" = \"world\")\n#guard_msgs in\n#eval whnf `c8\ndef c9  : String := \"hello\" ++ \"world\"\ndef c10 : String := \"helloworld\"\n#guard_msgs in\n#eval whnf `c11\ndef c12 : Nat := 'a'.toNat\n#guard_msgs in\n#eval check `c11",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/kernel2.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/kernel2.lean",
+    "definition_name": "c1"
+  }
+}

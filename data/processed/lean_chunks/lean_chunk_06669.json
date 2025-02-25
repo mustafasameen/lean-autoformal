@@ -1,0 +1,9 @@
+{
+  "content": "if s.stxStack.raw.size != initStackSz + 1 then\n    panic! s!\"withCacheFn: unexpected stack growth {s.stxStack.raw}\"\n  { s with cache.parserCache := s.cache.parserCache.insert key \u27e8s.stxStack.back, s.lhsPrec, s.pos, s.errorMsg\u27e9 }\n@[inherit_doc withCacheFn, builtin_doc]\ndef withCache (parserName : Name) : Parser \u2192 Parser := withFn (withCacheFn parserName)\ndef ParserFn.run (p : ParserFn) (ictx : InputContext) (pmctx : ParserModuleContext) (tokens : TokenTable) (s : ParserState) : ParserState :=\n  p { pmctx with\n    prec           := 0\n    toInputContext := ictx\n    tokens\n  } s",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_name": "ParserFn"
+  }
+}

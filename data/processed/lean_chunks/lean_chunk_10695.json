@@ -1,0 +1,9 @@
+{
+  "content": "def table :=\n  stdTable <|> arrayTable\ndef keyvalCore (val : Parser) : Parser := nodeWithAntiquot \"keyval\" `Lake.Toml.keyval (anonymous := true) $\n  key >> trailingWs >> chAtom '=' >> trailingWs >> val\ndef expressionCore (val : Parser) : Parser :=\n  withAntiquot (mkAntiquot \"expression\" `Lake.Toml.expression (isPseudoKind := true)) $\n  keyvalCore val <|> table\ndef header : Parser :=\n  litWithAntiquot \"header\" `Lake.Toml.header skipFn trailingFn\ndef tomlCore (val : Parser) : Parser :=\n  nodeWithAntiquot \"toml\" `Lake.Toml.toml (anonymous := true) $\n  header >> sepByLinebreak (expressionCore val >> trailingSep)\ndef inlineTableCore (val : Parser) : Parser := nodeWithAntiquot \"inlineTable\" `Lake.Toml.inlineTable $\n  chAtom '{' [\"inline-table\"] (trailingFn := trailingFn) >>\n  sepBy (keyvalCore val >> trailingWs) \",\" (chAtom ',' (trailingFn := wsFn)) false >>\n  chAtom '}'\ndef arrayCore (val : Parser) : Parser := nodeWithAntiquot \"array\" `Lake.Toml.array $",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Toml/Grammar.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Toml/Grammar.lean",
+    "definition_name": "table"
+  }
+}

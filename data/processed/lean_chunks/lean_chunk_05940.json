@@ -1,0 +1,10 @@
+{
+  "content": "next p =>\n    rw [Int.sub_mul, Int.sub_eq_add_neg, \u2190 Int.mul_neg, bmod_add_mul_cancel, emod_mul_bmod_congr]\n@[simp] theorem mul_bmod_bmod : Int.bmod (x * Int.bmod y n) n = Int.bmod (x * y) n := by\n  rw [Int.mul_comm x, bmod_mul_bmod, Int.mul_comm x]\ntheorem add_bmod (a b : Int) (n : Nat) : (a + b).bmod n = (a.bmod n + b.bmod n).bmod n := by\n  simp\ntheorem emod_bmod {x : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "emod_bmod_congr",
+    "has_proof": true
+  }
+}

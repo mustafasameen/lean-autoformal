@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 simp only [show \u00aci - w\u2083 - w\u2082 < w\u2081 by omega, \u2193reduceIte, show i - w\u2083 - w\u2082 - w\u2081 = 0 by omega,\n      decide_true, Bool.true_and, h\u2080, show i - (w\u2081 + w\u2082 + w\u2083) = 0 by omega]\n    by_cases h\u2082 : i < w\u2083\n    \u00b7 simp [h\u2082]; omega\n    \u00b7 simp [h\u2082];  omega\ntheorem getLsbD_shiftConcat (x : BitVec w) (b : Bool) (i : Nat) :\n    (shiftConcat x b).getLsbD i\n    = (decide (i < w) && (if (i = 0) then b else x.getLsbD (i - 1))) := by\n  simp only [shiftConcat, getLsbD_setWidth, getLsbD_concat]\ntheorem getElem_shiftConcat {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "msb_cons",
+    "has_proof": true
+  }
+}

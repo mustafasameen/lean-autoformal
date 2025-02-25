@@ -1,0 +1,10 @@
+{
+  "content": "theorem perm_toArray (as bs : List \u03b1) : as.toArray ~ bs.toArray \u2194 as ~ bs := by\n  simp [perm_iff_toList_perm]\n@[simp, refl] protected theorem Perm.refl (xs : Array \u03b1) : xs ~ xs := by\n  cases xs\n  simp\nprotected theorem Perm.rfl {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Perm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Perm.lean",
+    "definition_name": "perm_toArray",
+    "has_proof": true
+  }
+}

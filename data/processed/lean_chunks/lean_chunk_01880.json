@@ -1,0 +1,9 @@
+{
+  "content": "def bla.aux := 1\ndef bla : Nat \u2192 Nat\n| n => n + bla.aux\n#guard_msgs in\n#eval bla 3\ndef boo : Nat :=\n  let n := 0\n  n.succ + (m |>.succ) + m.succ\nwhere\n  m := 1\nexample : boo = 5 := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3079.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3079.lean",
+    "definition_name": "bla"
+  }
+}

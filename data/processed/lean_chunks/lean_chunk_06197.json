@@ -1,0 +1,9 @@
+{
+  "content": "else\n        unfoldBoth t s\nwhere\n  unfoldBoth (t s : Expr) : MetaM DeltaStepResult := do\n    unfold t\n      (unfold s (return .unknown) (k t \u00b7))\n      (fun t => unfold s (k t s) (k t \u00b7))\n  k (t s : Expr) : MetaM DeltaStepResult := do\n    let t \u2190 whnfCore t\n    let s \u2190 whnfCore s\n    match (\u2190 isDefEqQuick t s) with\n    | .true  => return .eq\n    | .false => return .diff t s\n    | .undef => return .cont t s\nprivate partial def isDefEqProjDelta (t s : Expr) (i : Nat) : MetaM Bool := do\n  let t \u2190 whnfCore t\n  let s \u2190 whnfCore s\n  match (\u2190 isDefEqQuick t s) with\n  | .true  => return true\n  | .false | .undef  => loop t s\nwhere\n  loop (t s : Expr) : MetaM Bool := do\n    match (\u2190 isDefEqDeltaStep t s) with\n    | .cont t s => loop t s\n    | .eq => return true\n    | .unknown => tryReduceProjs t s\n    | .diff t s => tryReduceProjs t s\n  tryReduceProjs (t s : Expr) : MetaM Bool := do\n    match (\u2190 projectCore? t i), (\u2190 projectCore? s i) with\n    | some t, some s => Meta.isExprDefEqAux t s",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "DeltaStepResult"
+  }
+}

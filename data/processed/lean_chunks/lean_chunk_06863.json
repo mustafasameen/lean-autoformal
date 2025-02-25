@@ -1,0 +1,10 @@
+{
+  "content": "if done then\n    trace[grind.ematch.pattern.search] \"found full coverage\"\n  modify fun s => { s with patterns := s.patterns.push p, done }\nprivate def hasChildWithSameNewBVars (p : Expr) (supportMask : Array Bool) (alreadyFound : Std.HashSet Nat) : CoreM Bool := do\n  let s := diff (collectPatternBVars p) alreadyFound\n  for arg in p.getAppArgs, support in supportMask do\n    unless support do\n    unless arg.isBVar do\n    unless isOffsetPattern? arg |>.isSome do\n      let sArg := diff (collectPatternBVars arg) alreadyFound\n      if s \u2286 sArg then\n        return true\n  return false\nprivate partial def collect (e : Expr) : CollectorM Unit := do\n  if (\u2190 get).done then return ()\n  match e with\n  | .app .. =>\n    let f := e.getAppFn\n    let supportMask \u2190 NormalizePattern.getPatternSupportMask f e.getAppNumArgs\n    if (\u2190 isPatternFnCandidate f) then\n      let saved \u2190 getThe NormalizePattern.State\n      try\n        trace[grind.ematch.pattern.search] \"candidate: {e}\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

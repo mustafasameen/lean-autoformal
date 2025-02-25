@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_alter_eq_self_of_not_mem [LawfulBEq \u03b1] (h : m.1.WF) {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_name": "size_alter_eq_self_of_not_mem",
+    "has_proof": false
+  }
+}

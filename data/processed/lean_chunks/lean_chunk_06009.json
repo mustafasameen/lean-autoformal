@@ -1,0 +1,10 @@
+{
+  "content": "theorem isSuffix_iff : l\u2081 <:+ l\u2082 \u2194\n    l\u2081.length \u2264 l\u2082.length \u2227 \u2200 i (h : i < l\u2081.length), l\u2082[i + l\u2082.length - l\u2081.length]? = some l\u2081[i] := by\n  suffices l\u2081.length \u2264 l\u2082.length \u2227 l\u2081 <:+ l\u2082 \u2194\n      l\u2081.length \u2264 l\u2082.length \u2227 \u2200 i (h : i < l\u2081.length), l\u2082[i + l\u2082.length - l\u2081.length]? = some l\u2081[i] by\n    constructor\n    \u00b7 intro h\n      exact this.mp \u27e8h.length_le, h\u27e9\n    \u00b7 intro h\n      exact (this.mpr h).2\n  simp only [and_congr_right_iff]\n  intro le\n  rw [\u2190 reverse_prefix, isPrefix_iff]\n  simp only [length_reverse]\n  constructor\n  \u00b7 intro w i h\n    specialize w (l\u2081.length - 1 - i) (by omega)\n    rw [getElem?_reverse (by omega)] at w\n    have p : l\u2082.length - 1 - (l\u2081.length - 1 - i) = i + l\u2082.length - l\u2081.length := by omega\n    rw [p] at w\n    rw [w, getElem_reverse]\n    congr\n    omega\n  \u00b7 intro w i h\n    rw [getElem?_reverse]\n    specialize w (l\u2081.length - 1 - i) (by omega)\n    have p : l\u2081.length - 1 - i + l\u2082.length - l\u2081.length = l\u2082.length - 1 - i := by omega\n    rw [p] at w\n    rw [w, getElem_reverse]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Sublist.lean",
+    "definition_name": "isSuffix_iff",
+    "has_proof": true
+  }
+}

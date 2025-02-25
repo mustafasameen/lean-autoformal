@@ -1,0 +1,10 @@
+{
+  "content": "theorem Balanced.right {sz k v l r}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balanced.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balanced.lean",
+    "definition_name": "Balanced",
+    "has_proof": false
+  }
+}

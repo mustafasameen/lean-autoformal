@@ -1,0 +1,9 @@
+{
+  "content": "def xPlusY := `[Arith| x + y]\n#print xPlusY\nsyntax \"<[\" term \"]>\" : arith\nmacro_rules\n  | `(`[Arith| <[ $e:term ]>]) => pure e\n#check `[Arith| <[ xPlusY ]> + z]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/metaprogramming-arith.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/metaprogramming-arith.lean",
+    "definition_name": "xPlusY"
+  }
+}

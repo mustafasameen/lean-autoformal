@@ -1,0 +1,9 @@
+{
+  "content": "for fieldName in getStructureFields env parentStructName do\n      if sourceFieldNames.contains fieldName then\n        let fieldVal \u2190 mkProjection source fieldName\n        result := mkApp result fieldVal\n      else\n        let some fieldInfo := getFieldInfo? env parentStructName fieldName | unreachable!\n        if fieldInfo.subobject?.isNone then throwError \"failed to build coercion to parent structure\"\n        let resultType \u2190 whnfD (\u2190 inferType result)\n        unless resultType.isForall do throwError \"failed to build coercion to parent structure, unexpected type{indentExpr resultType}\"\n        let fieldVal \u2190 copyFields resultType.bindingDomain!\n        result := mkApp result fieldVal\n    return result\n  let declVal \u2190 instantiateMVars (\u2190 mkLambdaFVars params (\u2190 mkLambdaFVars #[source] (\u2190 copyFields parentType)))\n  let declName := parent.declName\n  let cval : ConstantVal := { name := declName, levelParams, type := declType }\n  if isProp then\n    addDecl <|",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

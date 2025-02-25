@@ -1,0 +1,10 @@
+{
+  "content": "class Semigroup (M : Type u) extends Mul M where\n  mul_assoc (a b c : M) : (a * b) * c = a * (b * c)\nexport Semigroup (mul_assoc)\nclass CommSemigroup (M : Type u) extends Semigroup M where\n  mul_comm (a b : M) : a * b = b * a\nexport CommSemigroup (mul_comm)\nclass Monoid (M : Type u) extends Semigroup M, OfNat M 1 where\n  mul_one (m : M) : m * 1 = m\n  one_mul (m : M) : 1 * m = m\nclass CommMonoid (M : Type u) extends Monoid M, CommSemigroup M\ntheorem mul_left_comm {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/972.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/972.lean",
+    "definition_name": "Semigroup",
+    "has_proof": false
+  }
+}

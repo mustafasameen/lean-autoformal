@@ -1,0 +1,10 @@
+{
+  "content": "theorem takeWhile_prefix (p : \u03b1 \u2192 Bool) : l.takeWhile p <+: l :=\n  \u27e8l.dropWhile p, takeWhile_append_dropWhile p l\u27e9\ntheorem dropWhile_suffix (p : \u03b1 \u2192 Bool) : l.dropWhile p <:+ l :=\n  \u27e8l.takeWhile p, takeWhile_append_dropWhile p l\u27e9\ntheorem takeWhile_sublist (p : \u03b1 \u2192 Bool) : l.takeWhile p <+ l :=\n  (takeWhile_prefix p).sublist\ntheorem dropWhile_sublist (p : \u03b1 \u2192 Bool) : l.dropWhile p <+ l :=\n  (dropWhile_suffix p).sublist\ntheorem takeWhile_subset {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "takeWhile_prefix",
+    "has_proof": false
+  }
+}

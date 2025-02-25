@@ -1,0 +1,9 @@
+{
+  "content": "structure FolderOleanEntry where\n  declName : Name\n  folderDeclName : Name\nstructure FolderEntry extends FolderOleanEntry where\n  folder : Folder\nbuiltin_initialize folderExt : PersistentEnvExtension FolderOleanEntry FolderEntry (List FolderOleanEntry \u00d7 SMap Name Folder) \u2190\n  registerPersistentEnvExtension {\n    mkInitial := return ([], builtinFolders)\n    addImportedFn := fun entriesArray => do\n      let ctx \u2190 read\n      let mut folders := builtinFolders\n      for entries in entriesArray do\n        for { declName, folderDeclName }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_name": "FolderOleanEntry"
+  }
+}

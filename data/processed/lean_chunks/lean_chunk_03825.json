@@ -1,0 +1,10 @@
+{
+  "content": "(f : \u03b1 \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) (init : \u03b2) (xs : Array \u03b1) :\n    forIn xs init f = ForInStep.value <$>\n      xs.foldlM (fun b a => match b with\n        | .yield b => f a b\n        | .done b => pure (.done b)) (ForInStep.yield init) := by\n  rcases xs with \u27e8xs\u27e9\n  simp only [List.forIn_toArray, List.forIn_eq_foldlM, List.size_toArray, List.foldlM_toArray']\n  congr\n@[simp] theorem filterM_toArray' [Monad m] [LawfulMonad m] (l : List \u03b1) (p : \u03b1 \u2192 m Bool) (w : stop = l.length) :\n    l.toArray.filterM p 0 stop = toArray <$> l.filterM p := by\n  subst w\n  rw [filterM_toArray]\ntheorem filterRevM_toArray [Monad m] [LawfulMonad m] (l : List \u03b1) (p : \u03b1 \u2192 m Bool) :\n    l.toArray.filterRevM p = toArray <$> l.filterRevM p := by\n  simp [Array.filterRevM, filterRevM]\n  rw [\u2190 foldlM_reverse, \u2190 foldlM_toArray, \u2190 Array.filterM, filterM_toArray]\n  simp only [filterM, bind_pure_comp, Functor.map_map, reverse_toArray, reverse_reverse]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_name": "forM_append",
+    "has_proof": true
+  }
+}

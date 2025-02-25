@@ -1,0 +1,10 @@
+{
+  "content": "def USize.ofNatLT (n : @& Nat) (h : LT.lt n USize.size) : USize where\n  toBitVec := BitVec.ofNatLT n h\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_usize_dec_eq\"]\ndef USize.decEq (a b : USize) : Decidable (Eq a b) :=\n  match a, b with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m)\n      (fun h => isTrue (h \u25b8 rfl))\n      (fun h => isFalse (fun h' => USize.noConfusion h' (fun h' => absurd h' h)))\ninstance : DecidableEq USize := USize.decEq\ninstance : Inhabited USize where\n  default := USize.ofNatLT 0 USize.size_pos\nabbrev Nat.isValidChar (n : Nat) : Prop :=\n  Or (LT.lt n 0xd800) (And (LT.lt 0xdfff n) (LT.lt n 0x110000))\nabbrev UInt32.isValidChar (n : UInt32) : Prop :=\n  n.toNat.isValidChar\nstructure Char where\n  valid : val.isValidChar\nprivate theorem isValidChar_UInt32 {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Fin",
+    "has_proof": false
+  }
+}

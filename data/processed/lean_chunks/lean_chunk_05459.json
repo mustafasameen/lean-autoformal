@@ -1,0 +1,9 @@
+{
+  "content": "inductive Format.FlattenBehavior where\n  | allOrNone\n  | fill\n  deriving Inhabited, BEq\nopen Format in\ninductive Format where\n  | line                : Format\n  | align (force : Bool) : Format\n  | nest (indent : Int) : Format \u2192 Format\n  | group               : Format \u2192 (behavior : FlattenBehavior := FlattenBehavior.allOrNone) \u2192 Format\ndef isEmpty : Format \u2192 Bool\n  | nil          => true\n  | line         => false\n  | align _      => true\n  | text msg     => msg == \"\"\n  | nest _ f     => f.isEmpty\n  | append f\u2081 f\u2082 => f\u2081.isEmpty && f\u2082.isEmpty\n  | group f _    => f.isEmpty\n  | tag _ f      => f.isEmpty\nclass MonadPrettyFormat (m : Type \u2192 Type) where\n  pushOutput (s : String)    : m Unit\n  pushNewline (indent : Nat) : m Unit\n  currColumn                 : m Nat\n  endTags                    : Nat \u2192 m Unit\nopen MonadPrettyFormat\nprivate def pushGroup (flb : FlattenBehavior) (items : List WorkItem) (gs : List WorkGroup) (w : Nat) [Monad m] [MonadPrettyFormat m] : m (List WorkGroup) := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_name": "Format"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive PostponeBehavior where\n  | yes\n  | no\n  | \u00abpartial\u00bb\n  deriving Inhabited, Repr, BEq\ndef PostponeBehavior.ofBool : Bool \u2192 PostponeBehavior\n  | true  => .yes\n  | false => .no\nprivate def TacticMVarKind.logError (tacticCode : Syntax) (kind : TacticMVarKind) : TermElabM Unit := do\n  match kind with\n  | term => pure ()\n  | autoParam argName => logErrorAt tacticCode m!\"could not synthesize default value for parameter '{argName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "PostponeBehavior"
+  }
+}

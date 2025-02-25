@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex (h : a = b) : (fun x => x) a = b := by\n  simp (config := { beta := false, failIfUnchanged := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/declareConfigElabBug.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/declareConfigElabBug.lean",
+    "definition_name": "ex",
+    "has_proof": true
+  }
+}

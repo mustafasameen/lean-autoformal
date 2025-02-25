@@ -1,0 +1,10 @@
+{
+  "content": "rw [map_eq_pure_bind]\n  congr\n  funext x\n  split <;> rfl\n@[simp] theorem forIn'_toList [Monad m] (o : Option \u03b1) (b : \u03b2) (f : (a : \u03b1) \u2192 a \u2208 o.toList \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) :\n    forIn' o.toList b f = forIn' o b fun a m b => f a (by simpa using m) b := by\n  cases o <;> rfl\n@[simp] theorem forIn_toList [Monad m] (o : Option \u03b1) (b : \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) :\n    forIn o.toList b f = forIn o b f := by\n  cases o <;> rfl\n@[simp] theorem foldlM_toList [Monad m] [LawfulMonad m] (o : Option \u03b2) (a : \u03b1) (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b1) :\n    o.toList.foldlM f a = o.elim (pure a) (fun b => f a b) := by\n  cases o <;> simp\n@[simp] theorem foldrM_toList [Monad m] [LawfulMonad m] (o : Option \u03b2) (a : \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b1) :\n    o.toList.foldrM f a = o.elim (pure a) (fun b => f b a) := by\n  cases o <;> simp\n@[simp] theorem foldl_toList (o : Option \u03b2) (a : \u03b1) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b1) :\n    o.toList.foldl f a = o.elim a (fun b => f a b) := by\n  cases o <;> simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/List.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/List.lean",
+    "definition_name": "forIn",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "withImporting do\n    plugins.forM Lean.loadPlugin\n    let (_, s) \u2190 importModulesCore imports |>.run\n    finalizeImport (leakEnv := leakEnv) s imports opts trustLevel\nunsafe def withImportModules {\u03b1 : Type} (imports : Array Import) (opts : Options) (trustLevel : UInt32 := 0) (act : Environment \u2192 IO \u03b1) : IO \u03b1 := do\n  let env \u2190 importModules imports opts trustLevel\n  try act env finally env.freeRegions\nbuiltin_initialize namespacesExt : SimplePersistentEnvExtension Name NameSSet \u2190\n  registerSimplePersistentEnvExtension {\n    addImportedFn   := fun as =>\n      let capacity := as.foldl (init := 0) fun r e => r + e.size\n      let map : Std.HashMap Name Unit := Std.HashMap.empty capacity\n      let map := mkStateFromImportedEntries (fun map name => map.insert name ()) map as\n      SMap.fromHashMap map |>.switch\n    addEntryFn      := fun s n => s.insert n\n  }\n@[inherit_doc Kernel.Environment.enableDiag]\ndef Kernel.enableDiag (env : Lean.Environment) (flag : Bool) : Lean.Environment :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

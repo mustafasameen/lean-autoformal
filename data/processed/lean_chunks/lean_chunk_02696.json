@@ -1,0 +1,10 @@
+{
+  "content": "structure Prod (\u03b1 : Type u) (\u03b2 : Type v) where\n  fst : \u03b1\nstructure PProd (\u03b1 : Sort u) (\u03b2 : Sort v) where\n  snd : \u03b2\nstructure MProd (\u03b1 \u03b2 : Type u) where\n  snd : \u03b2\n@[pp_using_anonymous_constructor]\nstructure And (a b : Prop) : Prop where\n  left : a\n  right : b\ninductive Or (a b : Prop) : Prop where\n  | inr (h : b) : Or a b\ntheorem Or.intro_right (a : Prop) (h : b) : Or a b :=\n  Or.inr h\ntheorem Or.elim {c : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Prod",
+    "has_proof": false
+  }
+}

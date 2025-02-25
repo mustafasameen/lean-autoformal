@@ -1,0 +1,10 @@
+{
+  "content": "theorem g_eq (h : p x) : g x = x := sorry\nexample : (if p x then g x else g x + 1) + g x = y := by\n  simp (discharger := assumption)\n  guard_target =\u209b (if p x then x else g x + 1) + g x = y\n  sorry\nexample : (let _  : p x := sorryAx _ false; g x + 1 = y) \u2194 g x = y := by\n  simp (config := { zeta := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3943.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3943.lean",
+    "definition_name": "g_eq",
+    "has_proof": true
+  }
+}

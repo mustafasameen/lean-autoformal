@@ -1,0 +1,10 @@
+{
+  "content": "def NULL := DataEntry.NULL\ninstance : Coe Int DataEntry where\n  coe := DataEntry.EInt\ninstance : Coe Float DataEntry where\n  coe := DataEntry.EFloat\ninstance : OfNat DataEntry n where\n  ofNat := DataEntry.EInt n\ninstance : OfScientific DataEntry where\n  ofScientific m s e := DataEntry.EFloat (OfScientific.ofScientific m s e)\ninstance : Coe String DataEntry where\n  coe := DataEntry.EString\nnamespace DataEntry\n@[simp] def isOf (e : DataEntry) (t : DataType) : Prop :=\n  match e, t with\n  | EInt _,    TInt    => True\n  | EFloat _,  TFloat  => True\n  | EString _, TString => True\n  | NULL,      _       => True\n  | _,         _       => False\n@[simp] theorem isOf_lit (n : Nat) : isOf (no_index (OfNat.ofNat n)) TInt = True := rfl\nend DataEntry\nabbrev Header := List (DataType \u00d7 String)\n@[simp] def Header.colTypes (h : Header) : List DataType :=\n  h.map fun x => x.1\n@[simp] def Header.colNames (h : Header) : List String :=\n  h.map fun x => x.2\nabbrev Row := List DataEntry",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/946.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/946.lean",
+    "definition_name": "NULL",
+    "has_proof": true
+  }
+}

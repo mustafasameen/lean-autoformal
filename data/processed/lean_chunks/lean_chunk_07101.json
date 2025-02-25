@@ -1,0 +1,9 @@
+{
+  "content": "for _ in [0:nDigits] do\n        if mAbs % 10 = 0 then\n          mAbs := mAbs / 10\n        else\n          break\n      (sign, mAbs, -(e : Int) + nDigits)\ndef lt (a b : JsonNumber) : Bool :=\n  let (as, am, ae) := a.normalize\n  let (bs, bm, be) := b.normalize\n  match (as, bs) with\n  | (-1, 1) => true\n  | (1, -1) => false\n  | _ =>\n    let ((am, ae), (bm, be)) :=\n      if as = -1 && bs = -1 then\n        ((bm, be), (am, ae))\n      else\n        ((am, ae), (bm, be))\n    let amDigits := countDigits am\n    let bmDigits := countDigits bm\n    let (am, bm) :=\n      if amDigits < bmDigits then\n        (am * 10^(bmDigits - amDigits), bm)\n      else\n        (am, bm * 10^(amDigits - bmDigits))\n    if ae < be then true\n    else if ae > be then false\n    else am < bm\ndef ltProp : LT JsonNumber :=\n  \u27e8fun a b => lt a b = true\u27e9\ninstance : LT JsonNumber :=\n  ltProp\ninstance (a b : JsonNumber) : Decidable (a < b) :=\n  inferInstanceAs (Decidable (lt a b = true))\ninstance : Ord JsonNumber where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_name": "JsonNumber"
+  }
+}

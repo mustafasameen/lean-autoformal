@@ -1,0 +1,9 @@
+{
+  "content": "def benv := bvar \u2192 Bool\ndef bEval : bExpr \u2192 benv \u2192 Bool\n  | bExpr.BLit b, i => b\n  | bExpr.BVar v, i => i v\ndef init_benv : benv := \u03bb v => false\ndef update_benv : benv \u2192 bvar \u2192 Bool \u2192 benv\n  | i, v, b => \u03bb v2 => if (bvar_eq v v2) then b else (i v2)\ninductive bCmd : Type\n  | bAssm (v : bvar) (e : bExpr)\n  | bSeq (c1 c2 : bCmd)\ndef cEval : benv \u2192 bCmd \u2192 benv\n| i0, c => match c with\n  | bCmd.bAssm v e  => update_benv i0 v (bEval e i0)\n  | bCmd.bSeq c1 c2 =>\n    let i1 := cEval i0 c1\n    cEval i1 c2\ndef myFirstProg := bCmd.bAssm (bvar.mk 0) (bExpr.BLit false)\ndef newEnv :=\n  cEval init_benv myFirstProg",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/436_lean3.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/436_lean3.lean",
+    "definition_name": "benv"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem concatEq (xs : List \u03b1) (h : xs \u2260 []) : concat (dropLast xs) (last xs h) = xs := by\n  match xs, h with\n  | [],  h        => contradiction\n  | [x], h        => rfl\n  | x\u2081::x\u2082::xs, h => simp [concat, dropLast, last, concatEq (x\u2082::xs) List.noConfusion]\ntheorem lengthCons {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/concatElim.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/concatElim.lean",
+    "definition_name": "concatEq",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem testBit_mul_pow_two :\n    testBit (2 ^ i * a) j = (decide (j \u2265 i) && testBit a (j-i)) := by\n  have gen := testBit_mul_pow_two_add a (Nat.two_pow_pos i) j\n  simp at gen\n  rw [gen]\n  cases Nat.lt_or_ge j i with\n  | _ p => simp [p, Nat.not_le_of_lt, Nat.not_lt_of_le]\ntheorem mul_add_lt_is_or {b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "testBit_mul_pow_two",
+    "has_proof": true
+  }
+}

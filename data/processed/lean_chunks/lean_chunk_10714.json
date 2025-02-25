@@ -1,0 +1,9 @@
+{
+  "content": "inductive EResult (\u03b5 : Type u) (\u03c3 : Type v) (\u03b1 : Type w) : Type max u v w\n| error : \u03b5 \u2192 \u03c3 \u2192 EResult \u03b5 \u03c3 \u03b1\ninstance [Inhabited \u03b1] [Inhabited \u03c3] : Inhabited (EResult \u03b5 \u03c3 \u03b1) where\n  default := EResult.ok default default\ninstance [Inhabited \u03b5] [Inhabited \u03c3] : Inhabited (EResult \u03b5 \u03c3 \u03b1) where\n  default := EResult.error default default\n@[inline] def EResult.toProd : EResult \u03b5 \u03c3 \u03b1 \u2192 Except \u03b5 \u03b1 \u00d7 \u03c3\n| .ok a s => (.ok a, s)\n| .error e s => (.error e, s)\n@[inline] def EResult.result? : EResult \u03b5 \u03c3 \u03b1 \u2192 Option \u03b1\n| .ok a _ => some a\n| _ => none\n@[inline] def EResult.toExcept : EResult \u03b5 \u03c3 \u03b1 \u2192 Except \u03b5 \u03b1\n| .ok a _ => .ok a\n| .error e _ => .error e\n@[always_inline, inline]\nprotected def EResult.map (f : \u03b1 \u2192 \u03b2) : EResult \u03b5 \u03c3 \u03b1 \u2192 EResult \u03b5 \u03c3 \u03b2\n| .ok a s => .ok (f a) s\n| .error e s => .error e s\ninstance : Functor (EResult \u03b5 \u03c3) where\n  map := EResult.map\ndef EStateT (\u03b5 : Type u) (\u03c3 : Type v) (m : Type max u v w \u2192 Type x) (\u03b1 : Type w) :=\n  \u03c3 \u2192 m (EResult \u03b5 \u03c3 \u03b1)\nnamespace EStateT\nvariable {\u03b5 \u03b5' : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/EStateT.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/EStateT.lean",
+    "definition_name": "EResult"
+  }
+}

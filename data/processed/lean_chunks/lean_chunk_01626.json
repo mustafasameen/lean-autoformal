@@ -1,0 +1,9 @@
+{
+  "content": "def Foo := Nat\ndef Foo.pow (x : Nat) (k : Nat) : Foo :=\n  match k with\n  | 0 => x\n  | k+1 => pow x k\ninstance : Pow Foo Nat := \u27e8Foo.pow\u27e9\nexample (x : Foo) : x ^ 2048 = x := by\n  show Foo.pow x 2048 = x\n  sorry",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1419.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1419.lean",
+    "definition_name": "Foo"
+  }
+}

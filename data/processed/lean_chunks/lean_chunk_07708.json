@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkConstCached_hit_aig (aig : AIG \u03b1) {hit}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_name": "mkConstCached_hit_aig",
+    "has_proof": false
+  }
+}

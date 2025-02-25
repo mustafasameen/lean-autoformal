@@ -1,0 +1,9 @@
+{
+  "content": "structure DeprecationEntry where\n  newName? : Option Name := none\n  text? : Option String := none\n  since? : Option String := none\n  deriving Inhabited\nbuiltin_initialize deprecatedAttr : ParametricAttribute DeprecationEntry \u2190\n  registerParametricAttribute {\n    name := `deprecated\n    descr := \"mark declaration as deprecated\",\n    getParam := fun _ stx => do\n      let `(attr| deprecated $[$id?]? $[$text?]? $[(since := $since?)]?) := stx\n        | throwError \"invalid `[deprecated]` attribute\"\n      let newName? \u2190 id?.mapM Elab.realizeGlobalConstNoOverloadWithInfo\n      let text? := text?.map TSyntax.getString\n      let since? := since?.map TSyntax.getString\n      if id?.isNone && text?.isNone then\n        logWarning \"`[deprecated]` attribute should specify either a new name or a deprecation message\"\n      if since?.isNone then\n        logWarning \"`[deprecated]` attribute should specify the date or library version at which the deprecation was introduced, using `(since := \\\"...\\\")`\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/Deprecated.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/Deprecated.lean",
+    "definition_name": "DeprecationEntry"
+  }
+}

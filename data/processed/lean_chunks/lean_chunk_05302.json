@@ -1,0 +1,10 @@
+{
+  "content": "theorem range'_succ (s n step) : range' s (n + 1) step = s :: range' (s + step) n step := by\n  simp [range', Nat.add_succ, Nat.mul_succ]\n@[simp] theorem length_range' (s step) : \u2200 n : Nat, length (range' s n step) = n\n  | 0 => rfl\n  | _ + 1 => congrArg succ (length_range' _ _ _)\n@[simp] theorem range'_eq_nil_iff : range' s n step = [] \u2194 n = 0 := by\n  rw [\u2190 length_eq_zero_iff, length_range']\n@[deprecated range'_eq_nil_iff (since := \"2025-01-29\")] abbrev range'_eq_nil := @range'_eq_nil_iff\ntheorem range'_ne_nil_iff (s : Nat) {n step : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_name": "range",
+    "has_proof": true
+  }
+}

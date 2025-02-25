@@ -1,0 +1,9 @@
+{
+  "content": "instance exists rather than giving a concrete construction. \\\n          The '{tacticName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/ElabTerm.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/ElabTerm.lean",
+    "definition_name": "exists"
+  }
+}

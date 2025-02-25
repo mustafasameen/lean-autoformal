@@ -1,0 +1,9 @@
+{
+  "content": "process (b.instantiate1 val)\n        else\n          return none\n    else\n      if let some (_, param) := struct.params.find? fun (paramName, _) => paramName == n then\n        if (\u2190 isDefEq (\u2190 inferType param) d) then\n          process (b.instantiate1 param)\n        else\n          return none\n      else\n        let arg \u2190 mkFreshExprMVar d\n        process (b.instantiate1 arg)\n  | e =>\n    let_expr id _ a := e | return some e\n    return some a\npartial def reduce (structNames : Array Name) (e : Expr) : MetaM Expr := do\n  match e with\n  | .forallE ..   =>\n    forallTelescope e fun xs b => withReduceLCtx xs do\n      mkForallFVars xs (\u2190 reduce structNames b)\n  | .lam .. | .letE .. =>\n    lambdaLetTelescope e fun xs b => withReduceLCtx xs do\n      mkLambdaFVars (usedLetOnly := true) xs (\u2190 reduce structNames b)\n  | .proj _ i b   =>\n    match (\u2190 Meta.project? b i) with\n    | some r => reduce structNames r\n    | none   => return e.updateProj! (\u2190 reduce structNames b)\n  | .app f .. =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_name": "Context"
+  }
+}

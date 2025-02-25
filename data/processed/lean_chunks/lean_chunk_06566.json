@@ -1,0 +1,9 @@
+{
+  "content": "inductive AsyncList (\u03b5 : Type u) (\u03b1 : Type v) where\n  | cons (hd : \u03b1) (tl : AsyncList \u03b5 \u03b1)\n  | delayed (tl : Lean.Server.ServerTask $ Except \u03b5 $ AsyncList \u03b5 \u03b1)\n  | nil\nnamespace AsyncList\nopen Lean.Server\ninstance : Inhabited (AsyncList \u03b5 \u03b1) := \u27e8nil\u27e9\ndef ofList : List \u03b1 \u2192 AsyncList \u03b5 \u03b1 :=\n  List.foldr AsyncList.cons AsyncList.nil\ninstance : Coe (List \u03b1) (AsyncList \u03b5 \u03b1) := \u27e8ofList\u27e9\npartial def waitUntil (p : \u03b1 \u2192 Bool) : AsyncList \u03b5 \u03b1 \u2192 ServerTask (List \u03b1 \u00d7 Option \u03b5)\n  | cons hd tl =>\n    if !p hd then\n      (tl.waitUntil p).mapCheap fun \u27e8l, e?\u27e9 => \u27e8hd :: l, e?\u27e9\n    else\n      .pure \u27e8[hd], none\u27e9\n  | nil => .pure \u27e8[], none\u27e9\n  | delayed tl =>\n    tl.bindCheap fun\n      | .ok tl   => tl.waitUntil p\n      | .error e => .pure \u27e8[], some e\u27e9\npartial def waitFind? (p : \u03b1 \u2192 Bool) : AsyncList \u03b5 \u03b1 \u2192 ServerTask (Except \u03b5 (Option \u03b1))\n  | nil => .pure <| .ok none\n  | cons hd tl =>\n    if p hd then .pure <| Except.ok <| some hd\n    else tl.waitFind? p\n  | delayed tl =>\n    tl.bindCheap fun",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/AsyncList.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/AsyncList.lean",
+    "definition_name": "AsyncList"
+  }
+}

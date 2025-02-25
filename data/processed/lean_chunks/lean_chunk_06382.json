@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  allStructNames : Array Name := #[]\n  maxDistance : Nat := 0\nstructure State where\npartial def collectStructNames (struct : StructInstView) (names : Array Name) : Array Name :=\n  let names := names.push struct.structName\n  struct.fields.foldl (init := names) fun names field =>\n    match field.val with\n    | .nested struct => collectStructNames struct names\n    | _ => names\ndef isDefaultMissing? [Monad m] [MonadMCtx m] (field : Field) : m Bool := do\n  if let some expr := field.expr? then\n    if let some (.mvar mvarId) := defaultMissing? expr then\n      unless (\u2190 mvarId.isAssigned) do\n        return true\n  return false\npartial def allDefaultMissing [Monad m] [MonadMCtx m] (struct : StructInstView) : m (Array Field) :=\n  go struct *> get |>.run' #[]\nwhere\n  go (struct : StructInstView) : StateT (Array Field) m Unit :=\n    for field in struct.fields do\n      if let .nested struct := field.val then\n        go struct\n      else if (\u2190 isDefaultMissing? field) then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_name": "Context"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "rw [gcd_comm, gcd_gcd_self_right_right]\n@[simp] theorem gcd_gcd_self_left_left (m n : Nat) : gcd (gcd m n) m = gcd m n := by\n  rw [gcd_comm m n, gcd_gcd_self_left_right]\ntheorem gcd_add_mul_self (m n k : Nat) : gcd m (n + k * m) = gcd m n := by\n  simp [gcd_rec m (n + k * m), gcd_rec m n]\ntheorem gcd_eq_zero_iff {i j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "gcd_mul_left_left",
+    "has_proof": true
+  }
+}

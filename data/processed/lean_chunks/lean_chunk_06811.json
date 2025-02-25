@@ -1,0 +1,9 @@
+{
+  "content": "structure PreContext where\n  id : Nat\n  op : Expr\n  assoc : Expr\n  comm : Option Expr\n  idem : Option Expr\n  deriving Inhabited\ninstance : ContextInformation (PreContext \u00d7 Array Bool) where\n  isComm ctx := ctx.1.comm.isSome\n  isIdem ctx := ctx.1.idem.isSome\n  isNeutral ctx x := ctx.2[x]!\ninstance : EvalInformation PreContext ACExpr where\n  arbitrary _ := Data.AC.Expr.var 0\n  evalOp _ := Data.AC.Expr.op\n  evalVar _ x := Data.AC.Expr.var x\ndef getInstance (cls : Name) (exprs : Array Expr) : MetaM (Option Expr) := do\n  try\n    let app \u2190 mkAppM cls exprs\n    trace[Meta.AC] \"trying: {indentExpr app}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_name": "PreContext"
+  }
+}

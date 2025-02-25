@@ -1,0 +1,9 @@
+{
+  "content": "structure Iso {C : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat.lean",
+    "definition_name": "Iso"
+  }
+}

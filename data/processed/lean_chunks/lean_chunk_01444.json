@@ -1,0 +1,10 @@
+{
+  "content": "theorem inv_mul_cancel_left : a\u207b\u00b9 * (a * b) = b := by grind\n@[grind]\ntheorem mul_inv_cancel_left : a * (a\u207b\u00b9 * b) = b := by grind\nend\nsection\nexample (h : \u2200 [inst : Neg Int] (x : Int), @Neg.neg Int inst x = x) : (0 : Int) = (0 : Int) := by\n  grind\nexample (h : \u2200 [inst : Neg Int] (x : Int), @Neg.neg Int inst x = x) : (0 : Int) = (0 : Int) := by\n  grind\nexample (h : \u2200 (\u03b1) [inst : Neg \u03b1] (x : \u03b1), @Neg.neg \u03b1 inst x = x) : (0 : Int) = (0 : Int) := by\n  grind\nend\nsection\nexample (h : (fun (\u03b1) [Mul \u03b1] (x y : \u03b1) => x * y) = a) : true = true := by\n  grind\nexample (x : Nat) (h : \u2200 (_ : x * y = z), z = z) : x = x := by\n  grind\nend\nsection\ndef f [Inhabited \u03b1] : \u03b1 := Inhabited.default\nexample : 0 = 0 := by\n  grind only [f]\nend\nsection\nexample :\n    ((fun x => (fun t (_y : \u03b1) => t) (fun z => x z)) (fun (z : \u03b1 \u2192 \u03b1 \u2192 \u03b1) x => ((fun _y => z) x) x))\n    = fun _y => (fun z => z) := by\n  grind\nexample :\n    ((fun x => (fun t (_y : \u03b1) => t) (fun z => x z)) (fun (z : \u03b1 \u2192 \u03b1 \u2192 \u03b1) x => ((fun _y => z) x) x))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_name": "inv_mul_cancel_left",
+    "has_proof": true
+  }
+}

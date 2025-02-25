@@ -1,0 +1,10 @@
+{
+  "content": "theorem div_eq (x y : Nat) : x / y = if 0 < y \u2227 y \u2264 x then (x - y) / y + 1 else 0 := by\n  show Nat.div x y = _\n  rw [Nat.div]\n  rfl\ndef div.inductionOn.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "div_eq",
+    "has_proof": true
+  }
+}

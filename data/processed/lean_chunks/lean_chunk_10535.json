@@ -1,0 +1,10 @@
+{
+  "content": "theorem balanced_empty : (empty : Impl \u03b1 \u03b2).Balanced :=\n  .leaf\nattribute [Std.Internal.tree_tac] or_true true_or\ndef insert! [Ord \u03b1] (k : \u03b1) (v : \u03b2 k) (t : Impl \u03b1 \u03b2) : Impl \u03b1 \u03b2 :=\n  match t with\n  | leaf => .inner 1 k v .leaf .leaf\n  | inner sz k' v' l r =>\n    match compare k k' with\n    | .lt => balanceL! k' v' (insert! k v l) r\n    | .gt => balanceR! k' v' l (insert! k v r)\n    | .eq => .inner sz k v l r\n@[inline]\ndef containsThenInsert! [Ord \u03b1] (k : \u03b1) (v : \u03b2 k) (t : Impl \u03b1 \u03b2) :\n    Bool \u00d7 Impl \u03b1 \u03b2 :=\n  let sz := size t\n  let m := t.insert! k v\n  (sz == m.size, m)\nwhere\n  size : Impl \u03b1 \u03b2 \u2192 Nat\n  | leaf => 0\n  | inner sz _ _ _ _ => sz\n@[inline]\ndef insertIfNew! [Ord \u03b1] (k : \u03b1) (v : \u03b2 k) (t : Impl \u03b1 \u03b2) :\n    Impl \u03b1 \u03b2 :=\n  if t.contains k then t else t.insert! k v\n@[inline]\ndef containsThenInsertIfNew! [Ord \u03b1] (k : \u03b1) (v : \u03b2 k) (t : Impl \u03b1 \u03b2) :\n    Bool \u00d7 Impl \u03b1 \u03b2 :=\n  if t.contains k then (true, t) else (false, t.insert! k v)\n@[inline]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Operations.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Operations.lean",
+    "definition_name": "balanced_empty",
+    "has_proof": false
+  }
+}

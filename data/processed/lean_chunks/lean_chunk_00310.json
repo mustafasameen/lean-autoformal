@@ -1,0 +1,9 @@
+{
+  "content": "def Foo := List Nat\ndef test (x : Nat) : Foo :=\n  [x, x+1, x+2]\n#eval test 4\n#check fun (x y : Foo) => x == y\nderiving instance BEq, Repr for Foo\n#eval test 4\n#check fun (x y : Foo) => x == y\ndef Boo := List (String \u00d7 String)\n  deriving BEq, Repr, DecidableEq\ndef mkBoo (s : String) : Boo :=\n  [(s, s)]\n#eval mkBoo \"hello\"\n#eval mkBoo \"hell\" == mkBoo \"hello\"\n#eval mkBoo \"hello\" == mkBoo \"hello\"\n#eval mkBoo \"hello\" = mkBoo \"hello\"\ndef M := ReaderT String (StateT Nat IO)\n  deriving Monad, MonadState, MonadReader\n#print instMMonad\ndef action : M Unit := do\n  modify (\u00b7 + 1)\n  dbg_trace \"{\u2190 read}\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/defInst.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/defInst.lean",
+    "definition_name": "Foo"
+  }
+}

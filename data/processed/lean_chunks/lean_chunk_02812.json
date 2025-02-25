@@ -1,0 +1,10 @@
+{
+  "content": "def List.foldl {\u03b1 : Type u} {\u03b2 : Type v} (f : \u03b1 \u2192 \u03b2 \u2192 \u03b1) : (init : \u03b1) \u2192 List \u03b2 \u2192 \u03b1\n  | a, nil      => a\n  | a, cons b l => foldl f (f a b) l\nstructure String where\n  mk ::\n  data : List Char\nattribute [extern \"lean_string_mk\"] String.mk\nattribute [extern \"lean_string_data\"] String.data\n@[extern \"lean_string_dec_eq\"]\ndef String.decEq (s\u2081 s\u2082 : @& String) : Decidable (Eq s\u2081 s\u2082) :=\n  match s\u2081, s\u2082 with\n  | \u27e8s\u2081\u27e9, \u27e8s\u2082\u27e9 =>\n    dite (Eq s\u2081 s\u2082) (fun h => isTrue (congrArg _ h)) (fun h => isFalse (fun h' => String.noConfusion h' (fun h' => absurd h' h)))\ninstance : DecidableEq String := String.decEq\nstructure String.Pos where\nstructure Substring where\n  startPos : String.Pos\n@[inline] def Substring.bsize : Substring \u2192 Nat\n  | \u27e8_, b, e\u27e9 => e.byteIdx.sub b.byteIdx\n@[extern \"lean_string_utf8_byte_size\"]\ndef String.utf8ByteSize : (@& String) \u2192 Nat\n  | \u27e8s\u27e9 => go s\nwhere\n  go : List Char \u2192 Nat\n   | .nil       => 0\n   | .cons c cs => hAdd (go cs) c.utf8Size",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Tree (\u03b2 : Type v) where\n  | leaf\n  | node (left : Tree \u03b2) (key : Nat) (value : \u03b2) (right : Tree \u03b2)\ndef Tree.insert (t : Tree \u03b2) (k : Nat) (v : \u03b2) : Tree \u03b2 :=\n  match t with\n  | leaf => node leaf k v leaf\n  | node left key value right =>\n    if k < key then\n      node (left.insert k v) key value right\n    else if key < k then\n      node left key value (right.insert k v)\n    else\n      node left k v right\ntermination_by structural t\n#guard_msgs in\n#check Tree.insert.induct\nend TreeExample\nnamespace TermDenote\ninductive HList {\u03b1 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_structural.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_structural.lean",
+    "definition_name": "Tree"
+  }
+}

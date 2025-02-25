@@ -1,0 +1,10 @@
+{
+  "content": "theorem length_toString (c : Char) : c.toString.length = 1 := rfl\nend Char\nnamespace String\ntheorem ext {s\u2081 s\u2082 : String}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "length_toString",
+    "has_proof": false
+  }
+}

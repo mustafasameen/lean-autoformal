@@ -1,0 +1,9 @@
+{
+  "content": "funStrictImplicitBinder <|> funImplicitBinder <|> instBinder <|> termParser maxPrec\ndef basicFun : Parser := leading_parser (withAnonymousAntiquot := false)\n  ppGroup (many1 (ppSpace >> funBinder) >> optType >> unicodeSymbol \" \u21a6\" \" =>\") >> ppSpace >> termParser\n@[builtin_term_parser] def \u00abfun\u00bb := leading_parser:maxPrec\n  ppAllowUngrouped >> unicodeSymbol \"\u03bb\" \"fun\" >> (basicFun <|> matchAlts)\ndef optExprPrecedence := optional (atomic \":\" >> termParser maxPrec)\ndef withAnonymousAntiquot := leading_parser\n  atomic (\" (\" >> nonReservedSymbol \"withAnonymousAntiquot\" >> \" := \") >>\n  (trueVal <|> falseVal) >> \")\"\n@[builtin_term_parser] def \u00ableading_parser\u00bb  := leading_parser:leadPrec\n  \"leading_parser\" >> optExprPrecedence >> optional withAnonymousAntiquot >> ppSpace >> termParser\n@[builtin_term_parser] def \u00abtrailing_parser\u00bb := leading_parser:leadPrec\n  \"trailing_parser\" >> optExprPrecedence >> optExprPrecedence >> ppSpace >> termParser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

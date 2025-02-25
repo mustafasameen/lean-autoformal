@@ -1,0 +1,10 @@
+{
+  "content": "cases h : x[i]? with\n  | none => simp\n  | some => by_cases i < w <;> simp_all\ntheorem lt_of_getMsb?_isSome (x : BitVec w) (i : Nat) : (getMsb? x i).isSome \u2192 i < w := by\n  if h : i < w then\n    simp [h]\n  else\n    simp [Nat.ge_of_not_lt h]\ntheorem getMsbD_eq_getMsb?_getD (x : BitVec w) (i : Nat) :\n    x.getMsbD i = (x.getMsb? i).getD false := by\n  rw [getMsbD_eq_getLsbD]\n  by_cases h : w = 0\n  \u00b7 simp [getMsb?, h]\n  \u00b7 rw [getLsbD_eq_getElem?_getD, getMsb?_eq_getLsb?]\n    split <;>\n    \u00b7 simp only [getLsb?_eq_getElem?, Bool.and_iff_right_iff_imp, decide_eq_true_eq,\n        Option.getD_none, Bool.and_eq_false_imp]\n      intros\n      omega\ntheorem eq_of_getLsbD_eq {x y : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "testBit_toNat",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "match constantMap.getThenInsertIfNew? cname cinfo with\n      | (cinfoPrev?, constantMap') =>\n        constantMap := constantMap'\n        if let some cinfoPrev := cinfoPrev? then\n          unless equivInfo cinfoPrev cinfo do\n            throwAlreadyImported s const2ModIdx modIdx cname\n      const2ModIdx := const2ModIdx.insertIfNew cname modIdx\n    for cname in mod.extraConstNames do\n      const2ModIdx := const2ModIdx.insertIfNew cname modIdx\n  let constants : ConstMap := SMap.fromHashMap constantMap false\n  let exts \u2190 mkInitialExtensionStates\n  let mut env : Environment := {\n    checkedWithoutAsync := {\n      const2ModIdx, constants\nquotInit        := !imports.isEmpty\n      extraConstNames := {}\n      extensions      := exts\n      header     := {\n        trustLevel, imports\n        regions      := s.regions\n        moduleNames  := s.moduleNames\n        moduleData   := s.moduleData\n      }\n    }\n  }\n  env \u2190 setImportedEntries env s.moduleData\n  if leakEnv then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "else\n          let parent_type := (\u2190 instantiateMVars parent.type).replace fun e => parentFVarToConst[e]?\n          mkCoercionToCopiedParent levelParams params view source parent parent_type)\n      parentInfos := parentInfos.push parentInfo\n      if let some fvar := parent.fvar? then\n        parentFVarToConst := parentFVarToConst.insert fvar <|\n          mkApp (mkAppN (.const parentInfo.projFn (levelParams.map mkLevelParam)) params) source\n    pure parentInfos\nprivate def checkResolutionOrder (structName : Name) : TermElabM Unit := do\n  let resolutionOrderResult \u2190 computeStructureResolutionOrder structName (relaxed := !structure.strictResolutionOrder.get (\u2190 getOptions))\n  trace[Elab.structure.resolutionOrder] \"computed resolution order: {resolutionOrderResult.resolutionOrder}\"\n  unless resolutionOrderResult.conflicts.isEmpty do\n    let mut defects : List MessageData := []\n    for conflict in resolutionOrderResult.conflicts do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

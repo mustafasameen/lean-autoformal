@@ -1,0 +1,9 @@
+{
+  "content": "structure ParserAttributeHook where\ndef evalInsideQuot (declName : Name) : Parser \u2192 Parser := withFn fun f c s =>\n  if c.quotDepth > 0 && !c.suppressInsideQuot && internal.parseQuotWithCurrentStage.get c.options && c.env.contains declName then\n    evalParserConst declName c s\n  else\n    f c s\ndef addBuiltinParser (catName : Name) (declName : Name) (leading : Bool) (p : Parser) (prio : Nat) : IO Unit := do\n  let p := evalInsideQuot declName p\n  let categories \u2190 builtinParserCategoriesRef.get\n  let categories \u2190 IO.ofExcept $ addParser categories catName declName leading p prio\n  builtinParserCategoriesRef.set categories\n  builtinSyntaxNodeKindSetRef.modify p.info.collectKinds\n  updateBuiltinTokens p.info declName\ndef addBuiltinLeadingParser (catName : Name) (declName : Name) (p : Parser) (prio : Nat) : IO Unit :=\n  addBuiltinParser catName declName true p prio\ndef addBuiltinTrailingParser (catName : Name) (declName : Name) (p : TrailingParser) (prio : Nat) : IO Unit :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_name": "ParserAttributeHook"
+  }
+}

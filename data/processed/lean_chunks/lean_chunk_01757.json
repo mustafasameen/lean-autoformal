@@ -1,0 +1,10 @@
+{
+  "content": "inductive Term (L: Nat \u2192 Type) (n : Nat) : Nat \u2192 Type _\n| var  (k: Fin n)                           : Term L n 0\n| func (f: L l)                             : Term L n l\n| app  (t: Term L n (l + 1)) (s: Term L n 0): Term L n l\nnamespace Term\ninductive SubTermOf: Term L n l\u2081 \u2192 Term L n l\u2082 \u2192 Prop\n| refl: SubTermOf t t\n| appL: SubTermOf t s\u2081 \u2192 SubTermOf t (app s\u2081 s\u2082)\n| appR: SubTermOf t s\u2082 \u2192 SubTermOf t (app s\u2081 s\u2082)\ntheorem app_SubTermOf {t\u2081: Term L n (l+1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1182.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1182.lean",
+    "definition_name": "Term",
+    "has_proof": false
+  }
+}

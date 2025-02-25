@@ -1,0 +1,9 @@
+{
+  "content": "isAuxRecursorWithSuffix env declName brecOnSuffix\nbuiltin_initialize noConfusionExt : TagDeclarationExtension \u2190 mkTagDeclarationExtension\ndef markNoConfusion (env : Environment) (n : Name) : Environment :=\n  noConfusionExt.tag env n\n@[export lean_is_no_confusion]\ndef isNoConfusion (env : Environment) (n : Name) : Bool :=\n  noConfusionExt.isTagged env n\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/AuxRecursor.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/AuxRecursor.lean",
+    "definition_name": "casesOnSuffix"
+  }
+}

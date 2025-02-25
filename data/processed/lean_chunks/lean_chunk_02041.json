@@ -1,0 +1,9 @@
+{
+  "content": "inductive MyOrder : Nat \u00d7 Nat \u2192 Nat \u00d7 Nat \u2192 Prop\n  | within {x u m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6354.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6354.lean",
+    "definition_name": "MyOrder"
+  }
+}

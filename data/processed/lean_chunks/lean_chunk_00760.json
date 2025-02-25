@@ -1,0 +1,9 @@
+{
+  "content": "inductive Extension : Con \u2192 Con \u2192 Type\n| zero : Extension \u0393 \u0393\n| succ : Extension \u0393 \u0394 \u2192 (n : Nat) \u2192 Extension \u0393 (.ext \u0394 n)\ndef Extension.recOn'\n  {motive : (\u0393 \u0394 : Con) \u2192 Extension \u0393 \u0394 \u2192 Sort v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6789.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6789.lean",
+    "definition_name": "Extension"
+  }
+}

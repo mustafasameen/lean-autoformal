@@ -1,0 +1,10 @@
+{
+  "content": "theorem p_iff_q (i : Nat) : P i \u2194 Q i :=\n  Iff.intro (fun \u27e8i\u27e9 => Q.gt_in_head i) (fun \u27e8i\u27e9 => P.gt_in_head i)\n#guard_msgs in\nexample {a : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/librarySearch.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/librarySearch.lean",
+    "definition_name": "p_iff_q",
+    "has_proof": false
+  }
+}

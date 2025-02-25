@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_take (xs : Vector \u03b1 n) (j : Nat) (hi : i < min n j) :\n    (xs.take j)[i] = xs[i] := by\n  cases xs\n  simp\ntheorem forall_zero_iff {P : Vector \u03b1 0 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "getElem_take",
+    "has_proof": true
+  }
+}

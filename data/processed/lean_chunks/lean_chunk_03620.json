@@ -1,0 +1,10 @@
+{
+  "content": "theorem zip_of_prod {as : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_name": "zip_of_prod",
+    "has_proof": false
+  }
+}

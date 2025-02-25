@@ -1,0 +1,10 @@
+{
+  "content": "theorem Cache.IsExtensionBy_set (cache1 : Cache aig cnf1) (cache2 : Cache aig cnf2) (idx : Nat)\n    (hbound : idx < cache1.marks.size) (h : cache2.marks = cache1.marks.set idx true) :\n    IsExtensionBy cache1 cache2 idx (by have := cache1.hmarks; omega) := by\n  apply IsExtensionBy.mk\n  \u00b7 intro idx hidx hmark\n    simp [Array.getElem_set, hmark, h]\n  \u00b7 simp [h]\ndef Cache.init (aig : AIG Nat) : Cache aig [] where\n  marks := mkArray aig.decls.size false\n  hmarks := by simp\n  inv := Inv_init\ndef Cache.addConst (cache : Cache aig cnf) (idx : Nat) (h : idx < aig.decls.size)\n    (htip : aig.decls[idx]'h = .const b) :\n    {\n      out : Cache aig (Decl.constToCNF (.inr \u27e8idx, h\u27e9) b ++ cnf)\n        //\n      Cache.IsExtensionBy cache out idx h\n    }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "Cache",
+    "has_proof": true
+  }
+}

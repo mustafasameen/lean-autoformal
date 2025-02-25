@@ -1,0 +1,9 @@
+{
+  "content": "structure ScopedEnvExtension (\u03b1 : Type) (\u03b2 : Type) (\u03c3 : Type) where\n  descr : Descr \u03b1 \u03b2 \u03c3\n  ext   : PersistentEnvExtension (Entry \u03b1) (Entry \u03b2) (StateStack \u03b1 \u03b2 \u03c3)\n  deriving Inhabited\nbuiltin_initialize scopedEnvExtensionsRef : IO.Ref (Array (ScopedEnvExtension EnvExtensionEntry EnvExtensionEntry EnvExtensionState)) \u2190 IO.mkRef #[]\nunsafe def registerScopedEnvExtensionUnsafe (descr : Descr \u03b1 \u03b2 \u03c3) : IO (ScopedEnvExtension \u03b1 \u03b2 \u03c3) := do\n  let ext \u2190 registerPersistentEnvExtension {\n    name            := descr.name\n    mkInitial       := mkInitial descr\n    addImportedFn   := addImportedFn descr\n    addEntryFn      := addEntryFn descr\n    exportEntriesFn := exportEntriesFn\n    statsFn         := fun s => format \"number of local entries: \" ++ format s.newEntries.length\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ScopedEnvExtension.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ScopedEnvExtension.lean",
+    "definition_name": "ScopedEnvExtension"
+  }
+}

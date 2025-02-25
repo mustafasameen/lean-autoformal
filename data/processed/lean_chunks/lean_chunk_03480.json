@@ -1,0 +1,10 @@
+{
+  "content": "abbrev Nat.toUInt32 := UInt32.ofNat\n@[extern \"lean_uint32_to_uint8\"]\ndef UInt32.toUInt8 (a : UInt32) : UInt8 := a.toNat.toUInt8\n@[extern \"lean_uint32_to_uint16\"]\ndef UInt32.toUInt16 (a : UInt32) : UInt16 := a.toNat.toUInt16\n@[extern \"lean_uint8_to_uint32\"]\ndef UInt8.toUInt32 (a : UInt8) : UInt32 := \u27e8\u27e8a.toNat, Nat.lt_trans a.toBitVec.isLt (by decide)\u27e9\u27e9\n@[extern \"lean_uint16_to_uint32\"]\ndef UInt16.toUInt32 (a : UInt16) : UInt32 := \u27e8\u27e8a.toNat, Nat.lt_trans a.toBitVec.isLt (by decide)\u27e9\u27e9\ninstance UInt32.instOfNat : OfNat UInt32 n := \u27e8UInt32.ofNat n\u27e9\ntheorem UInt32.ofNatLT_lt_of_lt {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/BasicAux.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/BasicAux.lean",
+    "definition_name": "UInt8",
+    "has_proof": true
+  }
+}

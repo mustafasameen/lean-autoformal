@@ -1,0 +1,9 @@
+{
+  "content": "instance RpcEncodable for Lsp.DiagnosticWith\nnamespace InteractiveDiagnostic\nopen MsgEmbed\npartial def toDiagnostic (diag : InteractiveDiagnostic) : Lsp.Diagnostic :=\n  { diag with message := prettyTt diag.message }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveDiagnostic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveDiagnostic.lean",
+    "definition_name": "RpcEncodable"
+  }
+}

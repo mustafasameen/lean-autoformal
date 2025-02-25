@@ -1,0 +1,9 @@
+{
+  "content": "inductive OrElseOnAntiquotBehavior where\n| acceptLhs\n| takeLongest\n| merge\n  deriving BEq\ndef orelseFnCore (p q : ParserFn) (antiquotBehavior := OrElseOnAntiquotBehavior.merge) : ParserFn := fun c s => Id.run do\n  let iniSz  := s.stackSize\n  let iniPos := s.pos\n  let mut s  := p c s\n  match s.errorMsg with\n  | some errorMsg =>\n    if s.pos == iniPos then\n      mergeOrElseErrors (q c (s.restore iniSz iniPos)) errorMsg iniPos true\n    else\n      s\n  | none =>\n    let pBack := s.stxStack.back\n    if antiquotBehavior == .acceptLhs || s.stackSize != iniSz + 1 || !pBack.isAntiquots then\n      return s\n    let pPos := s.pos\n    s := s.restore iniSz iniPos\n    s := q c s\n    if s.hasError then\n      return s.restore iniSz pPos |>.pushSyntax pBack\n    if s.pos > pPos then\n      return s\n    if s.pos < pPos || antiquotBehavior != .merge || s.stackSize != iniSz + 1 || !s.stxStack.back.isAntiquots then\n      return s.restore iniSz pPos |>.pushSyntax pBack\n    let qBack := s.stxStack.back",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Basic.lean",
+    "definition_name": "OrElseOnAntiquotBehavior"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Minus where\n  \u00abi-love-lisp\u00bb : Bool\n#guard_msgs in\n#check { \u00abi-love-lisp\u00bb := true : Minus }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/fieldNamesWithMinus.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/fieldNamesWithMinus.lean",
+    "definition_name": "Minus"
+  }
+}

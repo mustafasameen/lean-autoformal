@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_byteIdx (p\u2081 p\u2082 : Pos) : (p\u2081 + p\u2082).byteIdx = p\u2081.byteIdx + p\u2082.byteIdx := rfl\ntheorem add_eq (p\u2081 p\u2082 : Pos) : p\u2081 + p\u2082 = \u27e8p\u2081.byteIdx + p\u2082.byteIdx\u27e9 := rfl\n@[simp] theorem sub_byteIdx (p\u2081 p\u2082 : Pos) : (p\u2081 - p\u2082).byteIdx = p\u2081.byteIdx - p\u2082.byteIdx := rfl\ntheorem sub_eq (p\u2081 p\u2082 : Pos) : p\u2081 - p\u2082 = \u27e8p\u2081.byteIdx - p\u2082.byteIdx\u27e9 := rfl\n@[simp] theorem addChar_byteIdx (p : Pos) (c : Char) : (p + c).byteIdx = p.byteIdx + c.utf8Size := rfl\ntheorem addChar_eq (p : Pos) (c : Char) : p + c = \u27e8p.byteIdx + c.utf8Size\u27e9 := rfl\ntheorem zero_addChar_byteIdx (c : Char) : ((0 : Pos) + c).byteIdx = c.utf8Size := by\n  simp only [addChar_byteIdx, byteIdx_zero, Nat.zero_add]\ntheorem zero_addChar_eq (c : Char) : (0 : Pos) + c = \u27e8c.utf8Size\u27e9 := by rw [\u2190 zero_addChar_byteIdx]\ntheorem addChar_right_comm (p : Pos) (c\u2081 c\u2082 : Char) : p + c\u2081 + c\u2082 = p + c\u2082 + c\u2081 := by\n  apply ext\n  repeat rw [pos_add_char]\n  apply Nat.add_right_comm\ntheorem ne_of_lt {i\u2081 i\u2082 : Pos}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "add_byteIdx",
+    "has_proof": true
+  }
+}

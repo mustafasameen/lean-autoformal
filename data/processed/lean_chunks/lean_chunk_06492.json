@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  funId         : Ident\nctorVal?      : Option ConstructorVal\n  explicit      : Bool\n  ellipsis      : Bool\nparamDecls    : Array (Name \u00d7 BinderInfo)\n  paramDeclIdx  : Nat := 0\n  namedArgs     : Array NamedArg\n  args          : List Arg\n  newArgs       : Array Term := #[]\n  deriving Inhabited\nprivate def isDone (ctx : Context) : Bool :=\n  ctx.paramDeclIdx \u2265 ctx.paramDecls.size\nprivate def finalize (ctx : Context) : M Syntax := do\n  if ctx.namedArgs.isEmpty && ctx.args.isEmpty then\n    let fStx \u2190 `(@$(ctx.funId):ident)\n    return Syntax.mkApp fStx ctx.newArgs\n  else\n    throwError \"too many arguments\"\nprivate def isNextArgAccessible (ctx : Context) : Bool :=\n  let i := ctx.paramDeclIdx\n  match ctx.ctorVal? with\n| some ctorVal => i \u2265 ctorVal.numParams\n  | none =>\n    if h : i < ctx.paramDecls.size then\n      let d := ctx.paramDecls[i]\n      d.2.isExplicit\n    else\n      false\nprivate def getNextParam (ctx : Context) : (Name \u00d7 BinderInfo) \u00d7 Context :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PatternVar.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PatternVar.lean",
+    "definition_name": "Context"
+  }
+}

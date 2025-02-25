@@ -1,0 +1,10 @@
+{
+  "content": "theorem mul_ediv_cancel (a : Int) {b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Bootstrap.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Bootstrap.lean",
+    "definition_name": "mul_ediv_cancel",
+    "has_proof": false
+  }
+}

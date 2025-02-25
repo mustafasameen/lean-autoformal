@@ -1,0 +1,9 @@
+{
+  "content": "class Trait (X : Type u) where\n  R : Type v\nattribute [reducible] Trait.R\nclass SemiInner (X : Type u) (R : outParam <| Type v) where\n  semiInner : X \u2192 X \u2192 R\n@[reducible] instance (X) (R : Type u) [SemiInner X R] : Trait X := \u27e8R\u27e9\ndef norm {X}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/irreducibleIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/irreducibleIssue.lean",
+    "definition_name": "Trait"
+  }
+}

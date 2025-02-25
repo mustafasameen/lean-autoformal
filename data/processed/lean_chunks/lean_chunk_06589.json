@@ -1,0 +1,10 @@
+{
+  "content": "def structureTk          := leading_parser\n  \"structure \"\ndef classTk              := leading_parser\n  \"class \"\ndef structParent        := leading_parser\n  optional (atomic (ident >> \" : \")) >> termParser\ndef \u00abextends\u00bb            := leading_parser\n  \" extends \" >> sepBy1 structParent \", \" >> Term.optType\ndef \u00abstructure\u00bb          := leading_parser\n    (structureTk <|> classTk) >>\n    declId >>\n    ppIndent (many (ppSpace >> Term.bracketedBinder) >> Term.optType >> optional \u00abextends\u00bb) >>\n    optional ((symbol \" := \" <|> \" where \") >> optional structCtor >> structFields) >>\n    optDeriving\n@[builtin_command_parser] def declaration := leading_parser\n  declModifiers false >>\n  (\u00ababbrev\u00bb <|> definition <|> \u00abtheorem\u00bb <|> \u00abopaque\u00bb <|> \u00abinstance\u00bb <|> \u00abaxiom\u00bb <|> \u00abexample\u00bb <|>\n   \u00abinductive\u00bb <|> classInductive <|> \u00abstructure\u00bb)\n@[builtin_command_parser] def \u00abderiving\u00bb     := leading_parser\n  \"deriving \" >> \"instance \" >> derivingClasses >> \" for \" >> sepBy1 (recover ident skip) \", \"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

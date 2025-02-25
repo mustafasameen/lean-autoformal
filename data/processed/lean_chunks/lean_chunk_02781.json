@@ -1,0 +1,9 @@
+{
+  "content": "end SourceInfo\nabbrev SyntaxNodeKind := Name\ninductive Syntax.Preresolved where\n  | decl (n : Name) (fields : List String)\ninductive Syntax where\n  | missing : Syntax\n  | node   (info : SourceInfo) (kind : SyntaxNodeKind) (args : Array Syntax) : Syntax\n  | atom   (info : SourceInfo) (val : String) : Syntax\n  | ident  (info : SourceInfo) (rawVal : Substring) (val : Name) (preresolved : List Syntax.Preresolved) : Syntax\ndef Syntax.node2 (info : SourceInfo) (kind : SyntaxNodeKind) (a\u2081 a\u2082 : Syntax) : Syntax :=\n  Syntax.node info kind (Array.mkArray2 a\u2081 a\u2082)\ndef Syntax.node4 (info : SourceInfo) (kind : SyntaxNodeKind) (a\u2081 a\u2082 a\u2083 a\u2084 : Syntax) : Syntax :=\n  Syntax.node info kind (Array.mkArray4 a\u2081 a\u2082 a\u2083 a\u2084)\ndef Syntax.node6 (info : SourceInfo) (kind : SyntaxNodeKind) (a\u2081 a\u2082 a\u2083 a\u2084 a\u2085 a\u2086 : Syntax) : Syntax :=\n  Syntax.node info kind (Array.mkArray6 a\u2081 a\u2082 a\u2083 a\u2084 a\u2085 a\u2086)\ndef Syntax.node8 (info : SourceInfo) (kind : SyntaxNodeKind) (a\u2081 a\u2082 a\u2083 a\u2084 a\u2085 a\u2086 a\u2087 a\u2088 : Syntax) : Syntax :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "nonBacktrackable"
+  }
+}

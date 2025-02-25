@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_le_size_alter [LawfulBEq \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_name": "size_le_size_alter",
+    "has_proof": false
+  }
+}

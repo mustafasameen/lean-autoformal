@@ -1,0 +1,9 @@
+{
+  "content": "`(forall $binders*, $term)\n  | _ => Macro.throwUnsupported\n@[builtin_term_elab \u00abforall\u00bb] def elabForall : TermElab := fun stx _ =>\n  match stx with\n  | `(forall $binders*, $term) =>\n    elabBinders binders fun xs => do\n      let e \u2190 elabType term\n      mkForallFVars xs e\n  | _ => throwUnsupportedSyntax\nopen Lean.Elab.Term.Quotation in\n@[builtin_quot_precheck Lean.Parser.Term.arrow] def precheckArrow : Precheck\n  | `($dom:term -> $rng) => do\n    precheck dom\n    precheck rng\n  | _ => throwUnsupportedSyntax\n@[builtin_term_elab arrow] def elabArrow : TermElab := fun stx _ =>\n  match stx with\n  | `($dom:term -> $rng) => do\n    let dom \u2190 elabType dom\n    let rng \u2190 elabType rng\n    return mkForall (\u2190 MonadQuotation.addMacroScope `a) BinderInfo.default dom rng\n  | _                    => throwUnsupportedSyntax\n@[builtin_term_elab depArrow] def elabDepArrow : TermElab := fun stx _ =>\n  let binder := stx[0]\n  let term   := stx[2]\n  elabBinders #[binder] fun xs => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_name": "instance"
+  }
+}

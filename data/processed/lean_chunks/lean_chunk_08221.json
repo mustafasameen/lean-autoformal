@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_prod_fst_toList_eq_keys [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    (toList m).map Prod.fst = m.keys :=\n  Raw\u2080.Const.map_prod_fst_toList_eq_keys \u27e8m.1, m.2.size_buckets_pos\u27e9\n@[simp]\ntheorem length_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    (toList m).length = m.size :=\n  Raw\u2080.Const.length_toList \u27e8m.1, m.2.size_buckets_pos\u27e9 m.2\n@[simp]\ntheorem isEmpty_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    (toList m).isEmpty = m.isEmpty :=\n  Raw\u2080.Const.isEmpty_toList \u27e8m.1, m.2.size_buckets_pos\u27e9 m.2\n@[simp]\ntheorem mem_toList_iff_get?_eq_some [LawfulBEq \u03b1]\n    {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_name": "map_prod_fst_toList_eq_keys",
+    "has_proof": false
+  }
+}

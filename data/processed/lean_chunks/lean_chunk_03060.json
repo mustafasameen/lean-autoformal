@@ -1,0 +1,9 @@
+{
+  "content": "instance : BEq ExprStructEq := \u27e8ExprStructEq.beq\u27e9\ninstance : Hashable ExprStructEq := \u27e8ExprStructEq.hash\u27e9\ninstance : ToString ExprStructEq := \u27e8fun e => toString e.val\u27e9\nend ExprStructEq\nabbrev ExprStructMap (\u03b1 : Type) := Std.HashMap ExprStructEq \u03b1\nabbrev PersistentExprStructMap (\u03b1 : Type) := PHashMap ExprStructEq \u03b1\nnamespace Expr\nprivate partial def mkAppRevRangeAux (revArgs : Array Expr) (start : Nat) (b : Expr) (i : Nat) : Expr :=\n  if i == start then b\n  else\n    let i := i - 1\n    mkAppRevRangeAux revArgs start (mkApp b revArgs[i]!) i\npartial def betaRev (f : Expr) (revArgs : Array Expr) (useZeta := false) (preserveMData := false) : Expr :=\n  if revArgs.size == 0 then f\n  else\n    let sz := revArgs.size\n    let rec go (e : Expr) (i : Nat) : Expr :=\n      let done (_ : Unit) : Expr :=\n        let n := sz - i\n        mkAppRevRange (e.instantiateRange n sz revArgs) 0 n revArgs\n      match e with\n      | .lam _ _ b _ =>\n        if i + 1 < sz then\n          go b (i+1)\n        else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "eraseProjIncForAux y bs (mkArray n none) #[]\ndef mkSlowPath (x y : VarId) (mask : Mask) (b : FnBody) : FnBody :=\n  let b := reuseToCtor x b\n  let b := FnBody.dec y 1 true false b\n  mask.foldl (init := b) fun b m => match m with\n      | some z => FnBody.inc z 1 true false b\n      | none   => b\nabbrev M := ReaderT Context (StateM Nat)\n  def mkFresh : M VarId :=\n  modifyGet fun n => ({ idx := n }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ExpandResetReuse.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ExpandResetReuse.lean",
+    "definition_name": "Context"
+  }
+}

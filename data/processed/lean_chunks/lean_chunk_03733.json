@@ -1,0 +1,10 @@
+{
+  "content": "theorem flatten_mkArray_empty : (mkArray n (#[] : Array \u03b1)).flatten = #[] := by\n  rw [\u2190 toList_inj]\n  simp\n@[simp] theorem flatten_mkArray_singleton : (mkArray n #[a]).flatten = mkArray n a := by\n  rw [\u2190 toList_inj]\n  simp\n@[simp] theorem flatten_mkArray_mkArray : (mkArray n (mkArray m a)).flatten = mkArray (n * m) a := by\n  rw [\u2190 toList_inj]\n  simp\ntheorem flatMap_mkArray {\u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "flatten_mkArray_empty",
+    "has_proof": true
+  }
+}

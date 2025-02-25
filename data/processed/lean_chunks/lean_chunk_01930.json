@@ -1,0 +1,10 @@
+{
+  "content": "structure CommGroup extends Group where\n  mul_comm (a b : \u03b1) : a * b = b * a\ninstance : CoeSort CommGroup (Type u) where\n  coe s := s.\u03b1\ntheorem inv_mul_cancel_left {G : Group}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_name": "CommGroup",
+    "has_proof": false
+  }
+}

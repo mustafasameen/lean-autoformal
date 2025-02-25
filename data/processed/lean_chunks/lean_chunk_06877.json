@@ -1,0 +1,9 @@
+{
+  "content": "structure Cnstr (\u03b1 : Type) where\n  u  : \u03b1\n  v  : \u03b1\n  k  : Int := 0\n  deriving Inhabited\ndef Cnstr.neg : Cnstr \u03b1 \u2192 Cnstr \u03b1\n  | { u, v, k }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Arith/Offset/Util.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Arith/Offset/Util.lean",
+    "definition_name": "Cnstr"
+  }
+}

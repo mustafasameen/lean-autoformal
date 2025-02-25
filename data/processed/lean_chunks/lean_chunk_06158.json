@@ -1,0 +1,9 @@
+{
+  "content": "let samples := \u27e8s1, s2, weight, s3, s4, s5\u27e9\n          \u27e8\u27e8\u27e8t1, t2, t3, samples, t5, t6, t7, t8, t9, t10\u27e9, o2, o3, o4, o5\u27e9, o6\u27e9\n        else\n          let \u27e8\u27e8\u27e8t1, t2, t3, samples, t5, t6, t7, t8, t9, t10\u27e9, o2, o3, o4, o5\u27e9, sampleMap\u27e9 :=\n            thread\n          let \u27e8stack, time, weight, _, threadCPUDelta, length\u27e9 := samples\n          let samples := {\n              stack := stack.push stackIdx\n              time := time.push time.size.toFloat\n              weight := weight.push add.samples.weight[oldSampleIdx]!\n              threadCPUDelta := threadCPUDelta.push 1\n              length := length + 1\n            }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Profiler.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Profiler.lean",
+    "definition_name": "ThreadWithCollideMaps"
+  }
+}

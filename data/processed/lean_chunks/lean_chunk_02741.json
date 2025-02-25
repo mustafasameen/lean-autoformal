@@ -1,0 +1,9 @@
+{
+  "content": "inductive Exception where\n  | unsupportedSyntax : Exception\n  macroScope : MacroScope\n  traceMsgs  : List (Prod Name String) := List.nil\n  deriving Inhabited\nend Macro\nabbrev MacroM := ReaderT Macro.Context (EStateM Macro.Exception Macro.State)\nabbrev Macro := Syntax \u2192 MacroM Syntax\nnamespace Macro\ninstance : MonadRef MacroM where\n  getRef     := bind read fun ctx => pure ctx.ref\n  withRef    := fun ref x => withReader (fun ctx => { ctx with ref := ref }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Exception"
+  }
+}

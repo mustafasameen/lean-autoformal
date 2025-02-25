@@ -1,0 +1,9 @@
+{
+  "content": "uri            := definitionLocation.uri\n      range          := definitionLocation.range,\n      selectionRange := definitionLocation.range\n      data?          := toJson {\n        module := definitionModule.toName\n        name   := definitionName\n        : CallHierarchyItemData\n      }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_name": "CallHierarchyItemData"
+  }
+}

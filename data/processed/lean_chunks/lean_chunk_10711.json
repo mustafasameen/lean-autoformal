@@ -1,0 +1,9 @@
+{
+  "content": "repo.execGit #[\"checkout\", \"\n@[inline] def resolveRevision? (rev : String) (repo : GitRepo) : BaseIO (Option String) := do\nrepo.captureGit? #[\"rev-parse\", \"\n@[inline] def getHeadRevision? (repo : GitRepo) : BaseIO (Option String) :=\n  repo.resolveRevision? \"HEAD\"\ndef getHeadRevision (repo : GitRepo) : LogIO String := do\n  if let some rev \u2190 repo.getHeadRevision? then return rev\n  error s!\"{repo}: could not resolve 'HEAD' to a commit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_name": "defaultRemote"
+  }
+}

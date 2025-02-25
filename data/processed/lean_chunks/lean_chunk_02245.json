@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : map2 f nil nil = nil :=\nrfl\ntheorem ex2 (n : Nat) (b1 b2 : Bool) (v1 v2 : BV n) : map2 f (cons n b1 v1) (cons n b2 v2) = cons n (f b1 b2) (map2 f v1 v2) :=\nrfl\n#print map2\ndef map2' : {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def6.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def6.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "xs.get! i = xs[i]?.getD default := by\n  by_cases p : i < xs.size <;>\n  simp [get!, getElem!_eq_getD, getD_eq_getD_getElem?, getD_getElem?, p]\nset_option linter.deprecated false in\n@[deprecated get!_eq_getD_getElem? (since := \"2025-02-12\")] abbrev get!_eq_getElem? := @get!_eq_getD_getElem?\n@[simp] theorem mem_toList {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "getD_eq_getD_getElem",
+    "has_proof": true
+  }
+}

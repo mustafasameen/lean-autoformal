@@ -1,0 +1,10 @@
+{
+  "content": "theorem sdiv_eq (x y : BitVec w) : x.sdiv y =\n  match x.msb, y.msb with\n  | false, false => udiv x y\n  | false, true  =>  - (x.udiv (- y))\n  | true,  false => - ((- x).udiv y)\n  | true,  true  => (- x).udiv (- y) := by\n  rw [BitVec.sdiv]\n  rcases x.msb <;> rcases y.msb <;> simp\n@[bitvec_to_nat]\ntheorem toNat_sdiv {x y : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "sdiv_eq",
+    "has_proof": true
+  }
+}

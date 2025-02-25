@@ -1,0 +1,10 @@
+{
+  "content": "theorem diag1 (a : Bool) : diag a true false = 1 :=\nmatch a with\n| true  => rfl\n| false => rfl\ntheorem diag2 (a : Bool) : diag false a true = 2 :=\nby cases a; exact rfl; exact rfl\ntheorem diag3 (a : Bool) : diag true false a = 3 :=\nby cases a; exact rfl; exact rfl\ntheorem diag4_1 : diag false false false = default :=\nrfl\ntheorem diag4_2 : diag true true true = default :=\nrfl\ndef f : Nat \u2192 Nat \u2192 Nat\n| n, 0 => 0\n| 0, n => 1\n| n, m => default\ntheorem f_zero_right : (a : Nat) \u2192 f a 0 = 0\n| 0   => rfl\n| a+1 => rfl\ntheorem f_zero_succ (a : Nat) : f 0 (a+1) = 1 :=\nrfl\ntheorem f_succ_succ (a b : Nat) : f (a+1) (b+1) = default :=\nrfl\ndef app {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def12.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def12.lean",
+    "definition_name": "diag1",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  (p : Nat \u2192 Prop)\n  (q : String \u2192 Prop)\n  [inst0 : DecidablePred p]\n  [inst1 : DecidablePred q]\nexample : Foo := {\n  p := fun n => n < 9\n  q := fun s => s.length < 9\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1305.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1305.lean",
+    "definition_name": "Foo"
+  }
+}

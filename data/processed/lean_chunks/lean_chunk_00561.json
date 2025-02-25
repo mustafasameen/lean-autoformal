@@ -1,0 +1,10 @@
+{
+  "content": "theorem HasType.det (h\u2081 : HasType e t\u2081) (h\u2082 : HasType e t\u2082) : t\u2081 = t\u2082 := by\n  cases h\u2081 <;> cases h\u2082 <;> rfl\ntheorem Expr.typeCheck_complete {e : Expr}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/adamTC2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/adamTC2.lean",
+    "definition_name": "HasType",
+    "has_proof": true
+  }
+}

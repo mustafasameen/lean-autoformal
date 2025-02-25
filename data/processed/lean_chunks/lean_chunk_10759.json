@@ -1,0 +1,9 @@
+{
+  "content": "| \"test\"                => helpTest\n| \"check-test\"          => helpCheckTest\n| \"lint\"                => helpLint\n| \"check-lint\"          => helpCheckLint\n| \"clean\"               => helpClean\n| \"script\"              => helpScriptCli\n| \"scripts\"             => helpScriptList\n| \"run\"                 => helpScriptRun\n| \"serve\"               => helpServe\n| \"env\"                 => helpEnv\n| \"exe\" | \"exec\"        => helpExe\n| \"lean\"                => helpLean\n| \"translate-config\"    => helpTranslateConfig\n| _                     => usage",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "definition",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "in"
+  }
+}

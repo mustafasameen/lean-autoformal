@@ -1,0 +1,9 @@
+{
+  "content": "def Parser := String \u2192 State \u2192 State\ninstance : Inhabited Parser where\n  default := fun _ s => s\n@[inline] def State.setPos (s : State) (pos : String.Pos) : State :=\n  { s with pos := pos }\n@[inline] def State.mkError (s : State) (msg : String) : State :=\n  { s with error? := some msg }\ndef State.mkEOIError (s : State) : State :=\n  s.mkError \"unexpected end of input\"\n@[inline] def State.next (s : State) (input : String) (pos : String.Pos) : State :=\n  { s with pos := input.next pos }\n@[inline] def State.next' (s : State) (input : String) (pos : String.Pos) (h : \u00ac input.atEnd pos): State :=\n  { s with pos := input.next' pos h }\npartial def finishCommentBlock (nesting : Nat) : Parser := fun input s =>\n  let input := input\n  let i     := s.pos\n  if h : input.atEnd i then eoi s\n  else\n    let curr := input.get' i h\n    let i    := input.next' i h\n    if curr == '-' then\n      if h : input.atEnd i then eoi s\n      else\n        let curr := input.get' i h\nif curr == '/' then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_name": "Parser"
+  }
+}

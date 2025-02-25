@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 exact ih\u2081 _ h\u2081.tail h\u2082\n      \u00b7 apply Pairwise.cons\n        \u00b7 intro z m\n          rw [mem_merge, mem_cons] at m\n          simp only [Bool.not_eq_true] at h\n          rcases m with (\u27e8rfl|m\u27e9|m)\n          \u00b7 simpa [h] using total y z\n          \u00b7 exact trans _ _ _ (by simpa [h] using total x y) (rel_of_pairwise_cons h\u2081 m)\n          \u00b7 exact rel_of_pairwise_cons h\u2082 m\n        \u00b7 exact ih\u2082 h\u2082.tail\ntheorem merge_of_le : \u2200 {xs ys : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_name": "mem_merge_left",
+    "has_proof": true
+  }
+}

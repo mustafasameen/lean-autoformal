@@ -1,0 +1,9 @@
+{
+  "content": "structure TerminationMeasure where\n  ref : Syntax\n  structural : Bool\n  fn : Expr\nderiving Inhabited\ndef TerminationMeasure.elab (funName : Name) (type : Expr) (arity extraParams : Nat)\n    (hint : TerminationBy) : TermElabM TerminationMeasure := withDeclName funName do\n  assert! extraParams \u2264 arity\n  if h : hint.vars.size > extraParams then\n    let mut msg := m!\"{parameters hint.vars.size}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/TerminationMeasure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/TerminationMeasure.lean",
+    "definition_name": "TerminationMeasure"
+  }
+}

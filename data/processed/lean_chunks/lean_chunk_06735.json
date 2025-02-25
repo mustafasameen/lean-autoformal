@@ -1,0 +1,9 @@
+{
+  "content": "let mut lctx := lctx\n      for h : i in [:hs.size] do\n        let h := hs[i]\n        if h.kind != .default then\n          lctx := lctx.setKind fvarIds[i]! h.kind\n      pure lctx\n    return (fvarIds, mvarId)\ndef _root_.Lean.MVarId.replace (g : MVarId) (hyp : FVarId) (proof : Expr) (typeNew : Option Expr := none) :\n    MetaM AssertAfterResult :=\n  g.withContext do\n    let typeNew \u2190 match typeNew with\n    | some t => pure t\n    | none => inferType proof\n    let ldecl \u2190 hyp.getDecl\n    let (_, ldecl') \u2190 findMaxFVar typeNew |>.run ldecl\n    let result \u2190 g.assertAfter ldecl'.fvarId ldecl.userName typeNew proof\n    (return { result with mvarId := \u2190 result.mvarId.clear hyp }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Assert.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Assert.lean",
+    "definition_name": "Hypothesis"
+  }
+}

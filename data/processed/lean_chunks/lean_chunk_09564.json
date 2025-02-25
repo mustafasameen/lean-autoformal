@@ -1,0 +1,10 @@
+{
+  "content": "instance : Insert ((a : \u03b1) \u00d7 \u03b2 a) (DTreeMap \u03b1 \u03b2 cmp) where\n  insert e s := s.insert e.1 e.2\ninstance : LawfulSingleton ((a : \u03b1) \u00d7 \u03b2 a) (DTreeMap \u03b1 \u03b2 cmp) where\n  insert_emptyc_eq _ := rfl\n@[inline]\ndef insertIfNew (t : DTreeMap \u03b1 \u03b2 cmp) (a : \u03b1) (b : \u03b2 a) : DTreeMap \u03b1 \u03b2 cmp :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; \u27e8(t.inner.insertIfNew a b t.wf.balanced).impl, t.wf.insertIfNew\u27e9\n@[inline]\ndef containsThenInsert (t : DTreeMap \u03b1 \u03b2 cmp) (a : \u03b1) (b : \u03b2 a) : Bool \u00d7 DTreeMap \u03b1 \u03b2 cmp :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9\n  let p := t.inner.containsThenInsert a b t.wf.balanced\n  (p.1, \u27e8p.2.impl, t.wf.containsThenInsert\u27e9)\n@[inline]\ndef containsThenInsertIfNew (t : DTreeMap \u03b1 \u03b2 cmp) (a : \u03b1) (b : \u03b2 a) :\n    Bool \u00d7 DTreeMap \u03b1 \u03b2 cmp :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9\n  let p := t.inner.containsThenInsertIfNew a b t.wf.balanced\n  (p.1, \u27e8p.2.impl, t.wf.containsThenInsertIfNew\u27e9)\n@[inline]\ndef getThenInsertIfNew? [LawfulEqCmp cmp] (t : DTreeMap \u03b1 \u03b2 cmp) (a : \u03b1) (b : \u03b2 a) :\n    Option (\u03b2 a) \u00d7 DTreeMap \u03b1 \u03b2 cmp :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Basic.lean",
+    "definition_name": "DTreeMap",
+    "has_proof": true
+  }
+}

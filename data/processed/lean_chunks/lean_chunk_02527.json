@@ -1,0 +1,10 @@
+{
+  "content": "instance instGetElemFinVal [GetElem cont Nat elem dom] : GetElem cont (Fin n) elem fun xs i => dom xs i where\n  getElem xs i h := getElem xs i.1 h\ninstance instGetElem?FinVal [GetElem? cont Nat elem dom] : GetElem? cont (Fin n) elem fun xs i => dom xs i where\n  getElem? xs i := getElem? xs i.val\n  getElem! xs i := getElem! xs i.val\ninstance [GetElem? cont Nat elem dom] [h : LawfulGetElem cont Nat elem dom] :\n      LawfulGetElem cont (Fin n) elem fun xs i => dom xs i where\n  getElem?_def _c _i _d := h.getElem?_def ..\n  getElem!_def _c _i := h.getElem!_def ..\n@[simp] theorem getElem_fin [GetElem? Cont Nat Elem Dom] (a : Cont) (i : Fin n) (h : Dom a i) :\n    a[i] = a[i.1] := rfl\n@[simp] theorem getElem?_fin [h : GetElem? Cont Nat Elem Dom] (a : Cont) (i : Fin n) : a[i]? = a[i.1]? := by rfl\n@[simp] theorem getElem!_fin [GetElem? Cont Nat Elem Dom] (a : Cont) (i : Fin n) [Inhabited Elem] : a[i]! = a[i.1]! := rfl\nmacro_rules",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "instGetElemFinVal",
+    "has_proof": true
+  }
+}

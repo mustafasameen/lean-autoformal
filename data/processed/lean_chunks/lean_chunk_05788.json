@@ -1,0 +1,10 @@
+{
+  "content": "theorem lex_eq_true_iff_exists [BEq \u03b1] (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) :\n    lex l\u2081 l\u2082 lt = true \u2194\n      (l\u2081.isEqv (l\u2082.take l\u2081.size) (\u00b7 == \u00b7) \u2227 l\u2081.size < l\u2082.size) \u2228\n        (\u2203 (i : Nat) (h\u2081 : i < l\u2081.size) (h\u2082 : i < l\u2082.size),\n          (\u2200 j, (hj : j < i) \u2192\n            l\u2081[j]'(Nat.lt_trans hj h\u2081) == l\u2082[j]'(Nat.lt_trans hj h\u2082)) \u2227 lt l\u2081[i] l\u2082[i]) := by\n  cases l\u2081\n  cases l\u2082\n  simp [List.lex_eq_true_iff_exists]\ntheorem lex_eq_false_iff_exists [BEq \u03b1] [PartialEquivBEq \u03b1] (lt : \u03b1 \u2192 \u03b1 \u2192 Bool)\n    (lt_irrefl : \u2200 x y, x == y \u2192 lt x y = false)\n    (lt_asymm : \u2200 x y, lt x y = true \u2192 lt y x = false)\n    (lt_antisymm : \u2200 x y, lt x y = false \u2192 lt y x = false \u2192 x == y) :\n    lex l\u2081 l\u2082 lt = false \u2194\n      (l\u2082.isEqv (l\u2081.take l\u2082.size) (\u00b7 == \u00b7)) \u2228\n        (\u2203 (i : Nat) (h\u2081 : i < l\u2081.size) (h\u2082 : i < l\u2082.size),\n          (\u2200 j, (hj : j < i) \u2192\n            l\u2081[j]'(Nat.lt_trans hj h\u2081) == l\u2082[j]'(Nat.lt_trans hj h\u2082)) \u2227 lt l\u2082[i] l\u2081[i]) := by\n  cases l\u2081\n  cases l\u2082\n  simp_all [List.lex_eq_false_iff_exists]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lex/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lex/Lemmas.lean",
+    "definition_name": "lex_eq_true_iff_exists",
+    "has_proof": true
+  }
+}

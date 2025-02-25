@@ -1,0 +1,10 @@
+{
+  "content": "theorem zipWith_replicate' {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Zip.lean",
+    "definition_name": "zipWith_replicate",
+    "has_proof": false
+  }
+}

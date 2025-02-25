@@ -1,0 +1,10 @@
+{
+  "content": "theorem Char.eq_of_val_eq : \u2200 {c d : Char}, Eq c.val d.val \u2192 Eq c d\n  | \u27e8_, _\u27e9, \u27e8_, _\u27e9, rfl => rfl\ntheorem Char.val_eq_of_eq : \u2200 {c d : Char}, Eq c d \u2192 Eq c.val d.val\n  | _, _, rfl => rfl\ntheorem Char.ne_of_val_ne {c d : Char} (h : Not (Eq c.val d.val)) : Not (Eq c d) :=\n  fun h' => absurd (val_eq_of_eq h') h\ntheorem Char.val_ne_of_ne {c d : Char} (h : Not (Eq c d)) : Not (Eq c.val d.val) :=\n  fun h' => absurd (eq_of_val_eq h') h\ninstance : DecidableEq Char :=\n  fun c d =>\n    match decEq c.val d.val with\n    | isTrue h  => isTrue (Char.eq_of_val_eq h)\n    | isFalse h => isFalse (Char.ne_of_val_ne h)\ninductive Option (\u03b1 : Type u) where\n  | some (val : \u03b1) : Option \u03b1\nattribute [unbox] Option\nexport Option (none some)\ninstance {\u03b1} : Inhabited (Option \u03b1) where\n  default := none\n@[macro_inline] def Option.getD (opt : Option \u03b1) (dflt : \u03b1) : \u03b1 :=\n  match opt with\n  | some x => x\n  | none => dflt\n@[inline] protected def Option.map (f : \u03b1 \u2192 \u03b2) : Option \u03b1 \u2192 Option \u03b2\n  | some x => some (f x)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

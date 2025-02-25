@@ -1,0 +1,9 @@
+{
+  "content": "instance has_arr : HasArr Preorder := { Arr := Function }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structSorryBug.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structSorryBug.lean",
+    "definition_name": "has_arr"
+  }
+}

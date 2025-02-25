@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofNat_one : ofNat 1 = 1 := rfl\n  @[simp] protected theorem ofNat_toNat {x : $typeName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_name": "ofNat_one",
+    "has_proof": false
+  }
+}

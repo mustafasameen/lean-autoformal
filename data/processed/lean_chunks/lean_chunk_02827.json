@@ -1,0 +1,10 @@
+{
+  "content": "namespace EStateM\nvariable {\u03b5 \u03c3 \u03b1 \u03b2 : Type u}\ninstance [Inhabited \u03b5] : Inhabited (EStateM \u03b5 \u03c3 \u03b1) where\n  default := fun s => Result.error default s\n@[always_inline, inline]\nprotected def set (s : \u03c3) : EStateM \u03b5 \u03c3 PUnit := fun _ =>\n  Result.ok \u27e8\u27e9 s\n@[always_inline, inline]\nprotected def modifyGet (f : \u03c3 \u2192 Prod \u03b1 \u03c3) : EStateM \u03b5 \u03c3 \u03b1 := fun s =>\n  match f s with\n  | (a, s) => Result.ok a s\nclass Backtrackable (\u03b4 : outParam (Type u)) (\u03c3 : Type u) where\n  restore : \u03c3 \u2192 \u03b4 \u2192 \u03c3\n@[always_inline, inline]\nprotected def orElse {\u03b4} [Backtrackable \u03b4 \u03c3] (x\u2081 : EStateM \u03b5 \u03c3 \u03b1) (x\u2082 : Unit \u2192 EStateM \u03b5 \u03c3 \u03b1) : EStateM \u03b5 \u03c3 \u03b1 := fun s =>\n  let d := Backtrackable.save s",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

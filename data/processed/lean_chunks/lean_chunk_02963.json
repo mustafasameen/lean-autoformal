@@ -1,0 +1,9 @@
+{
+  "content": "| Syntax.ident info rawVal val pre   => Syntax.ident (info.updateTrailing trailing) rawVal val pre\n  | n@(Syntax.node info k args)        =>\n    if h : args.size = 0 then n\n    else\n     let i    := args.size - 1\n     let last := updateTrailing trailing args[i]\n     let args := args.set i last",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "SourceInfo"
+  }
+}

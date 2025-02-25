@@ -1,0 +1,10 @@
+{
+  "content": "let rec @[semireducible]\n  loop (as : Array \u03b1) (j : Fin as.size) :=\n    if i < j then\n      let j' : Fin as.size := \u27e8j-1, Nat.lt_of_le_of_lt (Nat.pred_le _) j.2\u27e9\n      let as := as.swap j' j\n      loop as \u27e8j', by rw [size_swap]; exact j'.2\u27e9\n    else\n      as\n    decreasing_by simp_wf; decreasing_trivial_pre_omega\n  let j := as.size\n  let as := as.push a\n  loop as \u27e8j, size_push .. \u25b8 j.lt_succ_self\u27e9\n@[deprecated insertIdx (since := \"2024-11-20\")] abbrev insertAt := @insertIdx\ndef insertIdxIfInBounds (as : Array \u03b1) (i : Nat) (a : \u03b1) : Array \u03b1 :=\n  if h : i \u2264 as.size then\n    insertIdx as i a\n  else\n    as\n@[semireducible]\ndef isPrefixOfAux [BEq \u03b1] (as bs : Array \u03b1) (hle : as.size \u2264 bs.size) (i : Nat) : Bool :=\n  if h : i < as.size then\n    let a := as[i]\n    have : i < bs.size := Nat.lt_of_lt_of_le h hle\n    let b := bs[i]\n    if a == b then\n      isPrefixOfAux as bs hle (i+1)\n    else\n      false\n  else\n    true\ndecreasing_by simp_wf; decreasing_trivial_pre_omega",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_name": "popWhile_empty",
+    "has_proof": true
+  }
+}

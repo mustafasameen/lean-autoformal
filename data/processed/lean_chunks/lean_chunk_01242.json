@@ -1,0 +1,9 @@
+{
+  "content": "inductive P : \u03b1 \u2192 \u03b1 \u2192 Prop where | refl : P a a\nattribute [refl] P.refl\n#guard_msgs in\nexample : P 42 23 := by apply_rfl\nopaque withImplicitNat {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rflTacticErrors.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rflTacticErrors.lean",
+    "definition_name": "P"
+  }
+}

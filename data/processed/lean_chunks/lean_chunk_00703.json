@@ -1,0 +1,9 @@
+{
+  "content": "universe u x\nnamespace QuotientAddGroup\nvariable {G : Type u} [AddGroup G] (N : AddSubgroup G) {M : Type x} [AddMonoid M]\nprotected def con : AddCon G where\n  toSetoid := leftRel N\ninstance Quotient.addGroup : AddGroup (G \u29f8 N) :=\n  (QuotientAddGroup.con N).addGroup\ninstance Quotient.addCommGroup {G : Type _} [AddCommGroup G] (N : AddSubgroup G) : AddCommGroup (G \u29f8 N) :=\n  { toAddGroup := @QuotientAddGroup.Quotient.addGroup _ _ N }\ndef lift (\u03c6 : G \u2192+ M) : G \u29f8 N \u2192+ M :=\n  (QuotientAddGroup.con N).lift \u03c6\nend QuotientAddGroup\nend Mathlib.GroupTheory.QuotientGroup\nsection Mathlib.Algebra.Algebra.Basic\nuniverse u v\nclass Algebra (R : Type u) (A : Type v) [Mul R] [Mul A] extends SMul R A,\n  R \u2192* A where\nend Mathlib.Algebra.Algebra.Basic\nsection Mathlib.Algebra.Module.LocalizedModule\nnamespace LocalizedModule\nuniverse u v\nvariable {R : Type u} [MulOneClass R] (S : Submonoid R)\nvariable (M : Type v) [AddCommMonoid M] [SMul R M]\ndef r (a b : M \u00d7 S) : Prop :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

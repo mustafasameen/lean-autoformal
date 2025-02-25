@@ -1,0 +1,9 @@
+{
+  "content": "register_parser_alias hole\n  register_parser_alias syntheticHole\n  register_parser_alias matchDiscr\n  register_parser_alias bracketedBinder\n  register_parser_alias attrKind\n  register_parser_alias optSemicolon\n  register_parser_alias structInstFields\nend Parser\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "defaultOrOfNonempty"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let hasNewlineSep := stx.getArgs.mapIdx (fun i n =>\n    i % 2 == 1 && n.matchesNull 0 && i != stx.getArgs.size - 1) |>.any id\n  visitArgs do\n    for i in (List.range stx.getArgs.size).reverse do\n      if i % 2 == 0 then p else pSep <|>\n        ((if i == stx.getArgs.size - 1 then pure () else pushWhitespace \"\\n\") *> goLeft)\n  if hasNewlineSep then\n    pushAlign (force := true)\n@[combinator_formatter sepBy1Indent] def sepBy1Indent.formatter := sepByIndent.formatter\nattribute [run_builtin_parser_attribute_hooks] sepByIndent sepBy1Indent\n@[run_builtin_parser_attribute_hooks, builtin_doc] abbrev notSymbol (s : String) : Parser :=\n  notFollowedBy (symbol s) s\n@[builtin_doc, inline] def ppHardSpace : Parser := skip\n@[builtin_doc, inline] def ppLine : Parser := skip\n@[builtin_doc, inline] def ppRealGroup : Parser \u2192 Parser := id\n@[builtin_doc, inline] def ppGroup (p : Parser) : Parser := ppRealFill (ppIndent p)\n@[builtin_doc, inline] def ppDedent : Parser \u2192 Parser := id",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_name": "identWithPartialTrailingDot"
+  }
+}

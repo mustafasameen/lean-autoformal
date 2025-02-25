@@ -1,0 +1,10 @@
+{
+  "content": "theorem toListModel_mkArray_nil {c}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_name": "toListModel_mkArray_nil",
+    "has_proof": false
+  }
+}

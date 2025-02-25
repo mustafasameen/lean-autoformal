@@ -1,0 +1,9 @@
+{
+  "content": "bif n % 2 == 0 then\n      with_bif_tailrec n\n    else\n      with_bif_tailrec (n-1)\ntermination_by n => n\n#guard_msgs in\n#check with_bif_tailrec.induct\nset_option linter.unusedVariables false in\ndef with_match_refining_tailrec : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n    match n with\n    | 0 => with_match_refining_tailrec 0\n    | m => with_match_refining_tailrec m\ntermination_by n => n\n#guard_msgs in\n#check with_match_refining_tailrec.induct\ndef with_arg_refining_match1 (i : Nat) : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n    if h : i = 0 then 0 else with_arg_refining_match1 (i - 1) n\ntermination_by i\n#guard_msgs in\n#check with_arg_refining_match1.induct\ndef with_arg_refining_match2 (i : Nat) (n : Nat) : Nat :=\n  if i = 0 then 0 else match n with\n  | 0 => 0\n  | n+1 => with_arg_refining_match2 (i - 1) n\ntermination_by i\n#guard_msgs in\n#check with_arg_refining_match2.induct\nset_option linter.unusedVariables false in\ndef with_other_match_tailrec : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n    match n % 2 with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "Tree"
+  }
+}

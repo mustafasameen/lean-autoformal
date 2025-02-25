@@ -1,0 +1,10 @@
+{
+  "content": "split\n    \u00b7 rfl\n    \u00b7 rename_i h\n      simp only [\u2190 show k < _ + 1 \u2194 _ from Nat.lt_succ (n := xs.size - 1), this, Nat.zero_le,\n        true_and, Nat.not_lt] at h\n      rw [List.getElem?_eq_none_iff.2 \u2039_\u203a, List.getElem?_eq_none_iff.2 (xs.toList.length_reverse \u25b8 \u2039_\u203a)]\n@[simp] theorem _root_.List.reverse_toArray (l : List \u03b1) : l.toArray.reverse = l.reverse.toArray := by\n  apply ext'\n  simp only [toList_reverse]\n@[simp] theorem reverse_push (xs : Array \u03b1) (a : \u03b1) : (xs.push a).reverse = #[a] ++ xs.reverse := by\n  cases xs\n  simp\n@[simp] theorem mem_reverse {x : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "isEmpty_mkArray",
+    "has_proof": true
+  }
+}

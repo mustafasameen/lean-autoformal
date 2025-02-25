@@ -1,0 +1,9 @@
+{
+  "content": "private def intMulFn : Expr :=\n  mkApp4 (mkConst ``HMul.hMul [0, 0, 0]) Int.mkType Int.mkType Int.mkType Int.mkInstHMul\ndef mkIntAdd (a b : Expr) : Expr :=\n  mkApp2 intAddFn a b\ndef mkIntMul (a b : Expr) : Expr :=\n  mkApp2 intMulFn a b\nprivate def intLEPred : Expr :=\n  mkApp2 (mkConst ``LE.le [0]) Int.mkType Int.mkInstLE\ndef mkIntEq (a b : Expr) : Expr :=\n  mkApp2 intEqPred a b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

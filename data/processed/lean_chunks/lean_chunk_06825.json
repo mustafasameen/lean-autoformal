@@ -1,0 +1,9 @@
+{
+  "content": "unless (\u2190 getConfig).clean do\n    return name\n  let mut name := name\n  if name.hasMacroScopes then\n    name := name.eraseMacroScopes\n    if name == `x || name == `a then\n      if (\u2190 isProp type) then\n        name := `h\n  if (\u2190 get).clean.used.contains name then\n    let base \u2190 mkBaseName name type\n    let mut i := if let some i := (\u2190 get).clean.next.find? base then i else 1\n    repeat\n      name := base.appendIndexAfter i\n      i := i + 1\n      unless (\u2190 get).clean.used.contains name do\n        break\n    modify fun s => { s with clean.next := s.clean.next.insert base i }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Intro.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Intro.lean",
+    "definition_name": "IntroResult"
+  }
+}

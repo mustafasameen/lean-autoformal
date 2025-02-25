@@ -1,0 +1,9 @@
+{
+  "content": "class Natural\nextends Zero N, Succ N, Succ_Not_Zero N, Eq_Of_Succ_Eq_Succ N, Nat_Induction N\nend\nsection\nvariable {\u2115}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_name": "Natural"
+  }
+}

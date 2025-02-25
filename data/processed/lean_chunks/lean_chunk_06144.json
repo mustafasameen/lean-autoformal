@@ -1,0 +1,9 @@
+{
+  "content": "def findSysroot (lean := \"lean\") : IO FilePath := do\n  if let some root \u2190 IO.getEnv \"LEAN_SYSROOT\" then\n    return root\n  let out \u2190 IO.Process.run {\n    cmd := lean\nargs := #[\"\n  }\n  return out.trim\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Path.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Path.lean",
+    "definition_name": "findSysroot"
+  }
+}

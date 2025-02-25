@@ -1,0 +1,9 @@
+{
+  "content": "class OfState (\u03b1 : Type) [BEq \u03b1] [Hashable \u03b1] where\n  get : State \u2192 Alloc \u03b1\n  modify : (Alloc \u03b1 \u2192 Alloc \u03b1) \u2192 State \u2192 State\ninstance : OfState Name where\n  get s := s.names\n  modify f s := { s with names := f s.names }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/998Export.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/998Export.lean",
+    "definition_name": "OfState"
+  }
+}

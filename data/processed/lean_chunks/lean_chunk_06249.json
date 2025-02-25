@@ -1,0 +1,10 @@
+{
+  "content": "let value \u2190 mkLambdaFVars xs (\u2190 mkEqRefl lhs)\n      let name := declName ++ suffix\n      addDecl <| Declaration.thmDecl {\n        name, type, value\n        levelParams := info.levelParams\n      }\n      return some name\n  else\n    return none\ndef isEqnThm? (thmName : Name) : CoreM (Option Name) := do\n  return eqnsExt.getState (\u2190 getEnv) |>.mapInv.find? thmName\ndef isEqnThm (thmName : Name) : CoreM Bool := do\n  return eqnsExt.getState (\u2190 getEnv) |>.mapInv.contains thmName\nprivate def registerEqnThms (declName : Name) (eqThms : Array Name) : CoreM Unit := do\n  modifyEnv fun env => eqnsExt.modifyState env fun s => { s with\n    map := s.map.insert declName eqThms\n    mapInv := eqThms.foldl (init := s.mapInv) fun mapInv eqThm => mapInv.insert eqThm declName\n  }\nprivate partial def alreadyGenerated? (declName : Name) : MetaM (Option (Array Name)) := do\n  let env \u2190 getEnv\n  let eq1 := Name.str declName eqn1ThmSuffix\n  if env.contains eq1 then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_name": "eqnThmSuffixBase",
+    "has_proof": false
+  }
+}

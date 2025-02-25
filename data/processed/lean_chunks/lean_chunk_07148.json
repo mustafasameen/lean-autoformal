@@ -1,0 +1,9 @@
+{
+  "content": "if ptrEq type p.type then\n    return p\n  else\n    let p := { p with type }\n    modifyLCtx fun lctx => lctx.addParam p\n    return p\n@[implemented_by updateParamImp] opaque Param.update (p : Param) (type : Expr) : CompilerM Param\nprivate unsafe def updateLetDeclImp (decl : LetDecl) (type : Expr) (value : LetValue) : CompilerM LetDecl := do\n  if ptrEq type decl.type && ptrEq value decl.value then\n    return decl\n  else\n    let decl := { decl with type, value }\n    modifyLCtx fun lctx => lctx.addLetDecl decl\n    return decl\n@[implemented_by updateLetDeclImp] opaque LetDecl.update (decl : LetDecl) (type : Expr) (value : LetValue) : CompilerM LetDecl\ndef LetDecl.updateValue (decl : LetDecl) (value : LetValue) : CompilerM LetDecl :=\n  decl.update decl.type value\nprivate unsafe def updateFunDeclImp (decl: FunDecl) (type : Expr) (params : Array Param) (value : Code) : CompilerM FunDecl := do\n  if ptrEq type decl.type && ptrEq params decl.params && ptrEq value decl.value then\n    return decl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "mkFreshBinderName"
+  }
+}

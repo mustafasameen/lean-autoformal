@@ -1,0 +1,10 @@
+{
+  "content": "theorem find?_mkVector :\n    find? p (mkVector n a) = if n = 0 then none else if p a then some a else none := by\n  rw [mkVector_eq_mk_mkArray, find?_mk, Array.find?_mkArray]\n@[simp] theorem find?_mkVector_of_length_pos (h : 0 < n) :\n    find? p (mkVector n a) = if p a then some a else none := by\n  simp [find?_mkVector, Nat.ne_of_gt h]\n@[simp] theorem find?_mkVector_of_pos (h : p a) :\n    find? p (mkVector n a) = if n = 0 then none else some a := by\n  simp [find?_mkVector, h]\n@[simp] theorem find?_mkVector_of_neg (h : \u00ac p a) : find? p (mkVector n a) = none := by\n  simp [find?_mkVector, h]\ntheorem find?_mkVector_eq_none_iff {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

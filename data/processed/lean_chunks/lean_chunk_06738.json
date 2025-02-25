@@ -1,0 +1,9 @@
+{
+  "content": "let (fvarId, newMVarId) \u2190 newMVarId.intro1P\n      return {\n        mvarId         := newMVarId,\n        indicesFVarIds := indicesFVarIds,\n        fvarId         := fvarId,\n        numEqs         := newEqs.size\n      }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_name": "GeneralizeIndicesSubgoal"
+  }
+}

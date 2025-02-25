@@ -1,0 +1,9 @@
+{
+  "content": "inductive SolverResult where\n  | sat (assignment : Array (Bool \u00d7 Nat))\n  | unsat\nnamespace ModelParser\nopen Std.Internal.Parsec\nopen Std.Internal.Parsec.ByteArray\nopen LRAT.Parser.Text (skipNewline)\ndef parsePartialAssignment : Parser (Bool \u00d7 (Array (Bool \u00d7 Nat))) := do\n  skipByteChar 'v'\n  let idents \u2190 many (attempt wsLit)\n  let idents := idents.map (fun i => if i > 0 then (true, i.natAbs) else (false, i.natAbs))\n  tryCatch\n    (skipString \" 0\")\n    (csuccess := fun _ => pure (true, idents))\n    (cerror := fun _ => do\n      skipNewline\n      return (false, idents)\n    )\nwhere\n  @[inline]\n  wsLit : Parser Int := do\n    skipByteChar ' '\n    LRAT.Parser.Text.parseLit\npartial def parseLines : Parser (Array (Bool \u00d7 Nat)) :=\n  go #[]\nwhere\n  go (acc : Array (Bool \u00d7 Nat)) : Parser (Array (Bool \u00d7 Nat)) := do\n    let (terminal?, additionalAssignment) \u2190 parsePartialAssignment\n    let acc := acc ++ additionalAssignment\n    if terminal? then\n      return acc\n    else\n      go acc\n@[inline]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/External.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/External.lean",
+    "definition_name": "SolverResult"
+  }
+}

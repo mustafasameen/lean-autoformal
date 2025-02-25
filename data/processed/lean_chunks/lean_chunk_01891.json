@@ -1,0 +1,9 @@
+{
+  "content": "inductive X : Nat \u2192 Prop\n  | f {s : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_split_issue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_split_issue.lean",
+    "definition_name": "X"
+  }
+}

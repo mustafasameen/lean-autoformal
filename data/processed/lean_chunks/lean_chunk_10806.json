@@ -1,0 +1,9 @@
+{
+  "content": "def clearFileHash (file : FilePath) : IO Unit := do\n  try\n    IO.FS.removeFile <| file.toString ++ \".hash\"\n  catch\n    | .noFileOrDirectory .. => pure ()\n    | e => throw e\ndef fetchFileHash (file : FilePath) (text := false) : JobM Hash := do\n  let hashFile := FilePath.mk <| file.toString ++ \".hash\"\n  if (\u2190 getTrustHash) then\n    if let some hash \u2190 Hash.load? hashFile then\n      return hash\n  let hash \u2190 computeFileHash file text\n  createParentDirs hashFile\n  IO.FS.writeFile hashFile hash.toString\n  return hash\ndef fetchFileTrace (file : FilePath) (text := false) : JobM BuildTrace := do\n  return .mk (\u2190 fetchFileHash file text) (\u2190 getMTime file)\ndef buildFileUnlessUpToDate'\n  (file : FilePath) (build : JobM PUnit) (text := false)\n: JobM Unit := do\n  let traceFile := FilePath.mk <| file.toString ++ \".trace\"\n  buildUnlessUpToDate file (\u2190 getTrace) traceFile do\n    build\n    clearFileHash file\n  setTrace (\u2190 fetchFileTrace file text)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "platformTrace"
+  }
+}

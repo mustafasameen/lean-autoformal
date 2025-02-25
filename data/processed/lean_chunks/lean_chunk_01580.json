@@ -1,0 +1,10 @@
+{
+  "content": "theorem OfNat.ofNat_ofNat : OfNat.ofNat (no_index OfNat.ofNat n) = OfNat.ofNat n := rfl\nexample : Not\n  (@Eq.{1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/regressions3210.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/regressions3210.lean",
+    "definition_name": "OfNat",
+    "has_proof": false
+  }
+}

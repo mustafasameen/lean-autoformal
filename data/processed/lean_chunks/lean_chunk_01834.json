@@ -1,0 +1,9 @@
+{
+  "content": "structure Baz where\n  baz : {x : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/335.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/335.lean",
+    "definition_name": "Baz"
+  }
+}

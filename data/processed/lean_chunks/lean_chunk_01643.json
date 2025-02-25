@@ -1,0 +1,10 @@
+{
+  "content": "class MulOneClass (M : Type) extends One M, Mul M where\n  one_mul : \u2200 a : M, 1 * a = a\nexport MulOneClass (one_mul)\nend Mathlib.Algebra.Group.Defs\nsection Mathlib.Algebra.Ring.Defs\nclass Distrib (R : Type) extends Mul R, Add R where\n  right_distrib : \u2200 a b c : R, (a + b) * c = a * c + b * c\nclass RightDistribClass (R : Type) [Mul R] [Add R] : Prop where\n  right_distrib : \u2200 a b c : R, (a + b) * c = a * c + b * c\ninstance Distrib.rightDistribClass (R : Type) [Distrib R] : RightDistribClass R :=\n  \u27e8Distrib.right_distrib\u27e9\ntheorem add_mul [Mul R] [Add R] [RightDistribClass R] (a b c : R) :\n    (a + b) * c = a * c + b * c :=\n  RightDistribClass.right_distrib a b c\ntheorem add_one_mul [Add \u03b1] [MulOneClass \u03b1] [RightDistribClass \u03b1] (a b : \u03b1) :\n    (a + 1) * b = a * b + b := by\n  rw [add_mul, one_mul]\nclass Semiring (R : Type) extends Distrib R, MulOneClass R\nend Mathlib.Algebra.Ring.Defs\nsection Mathlib.Data.Nat.Basic\ninstance : Semiring Nat where\n  add := Nat.add\n  mul := Nat.mul",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2736.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2736.lean",
+    "definition_name": "MulOneClass",
+    "has_proof": true
+  }
+}

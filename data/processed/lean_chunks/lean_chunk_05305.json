@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_range' (s step) :\n    \u2200 {i n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_name": "getElem",
+    "has_proof": false
+  }
+}

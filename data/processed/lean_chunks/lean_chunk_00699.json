@@ -1,0 +1,9 @@
+{
+  "content": "instance : SetLike (AddSubgroup A) A where\n  coe s := s.carrier\nend AddSubgroup\nend Mathlib.GroupTheory.Subgroup.Basic\nsection Mathlib.GroupTheory.GroupAction.Basic\nuniverse u v\nnamespace VAdd\nvariable (M : Type u) [AddMonoid M] {\u03b1 : Type v} [VAdd M \u03b1]\ndef orbit (a : \u03b1) :=\n  Set.range fun m : M => m +\u1d65 a\nvariable (G \u03b1 : Type _) [AddGroup G] [VAdd G \u03b1]\ndef orbitRel : Setoid \u03b1 where\n  r a b := a \u2208 orbit G b\n  iseqv := sorry\nend VAdd\nend Mathlib.GroupTheory.GroupAction.Basic\nsection Mathlib.GroupTheory.Subgroup.MulOpposite\nvariable {G : Type _} [AddGroup G]\nprotected def AddSubgroup.op (H : AddSubgroup G) : AddSubgroup G\u1d43\u1d52\u1d56 where\n  carrier := MulOpposite.unop \u207b\u00b9' (H : Set G)\nend Mathlib.GroupTheory.Subgroup.MulOpposite\nsection Mathlib.Algebra.Quotient\nuniverse u v\nclass HasQuotient (A : outParam <| Type u) (B : Type v) where\n  quotient' : B \u2192 Type max u v\ndef HasQuotient.Quotient (A : outParam <| Type u) {B : Type v}\n    [HasQuotient A B] (b : B) : Type max u v :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

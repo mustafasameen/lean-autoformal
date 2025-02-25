@@ -1,0 +1,9 @@
+{
+  "content": "class Shrinkable (\u03b1 : Type u) where\n  shrink : (x : \u03b1) \u2192 List \u03b1 := fun _ \u21a6 []\nclass SampleableExt (\u03b1 : Sort u) where\n  proxy : Type v\n  [proxyRepr : Repr proxy]\n  [shrink : Shrinkable proxy]\n  sample : Gen proxy\n  interp : proxy \u2192 \u03b1\npartial def minimizeAux [SampleableExt \u03b1] {\u03b2 : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeOccursCheckIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeOccursCheckIssue.lean",
+    "definition_name": "Shrinkable"
+  }
+}

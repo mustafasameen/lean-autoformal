@@ -1,0 +1,9 @@
+{
+  "content": "def foo := 1)\n#eval run $ `(def foo := 1 def bar := 2)\n#eval run $ do let a \u2190 `(Nat.one)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/StxQuot.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/StxQuot.lean",
+    "definition_name": "foo"
+  }
+}

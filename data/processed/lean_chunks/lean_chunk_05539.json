@@ -1,0 +1,10 @@
+{
+  "content": "cases xs\n  simp\n@[simp] theorem findRev?_toArray (p : \u03b1 \u2192 Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.findRev? p = xs.findRev? p := by\n  cases xs\n  simp\n@[simp] theorem findSomeRev?_toArray (f : \u03b1 \u2192 Option \u03b2) (xs : Vector \u03b1 n) :\n    xs.toArray.findSomeRev? f = xs.findSomeRev? f := by\n  cases xs\n  simp\n@[simp] theorem findM?_toArray [Monad m] (p : \u03b1 \u2192 m Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.findM? p = xs.findM? p := by\n  cases xs\n  simp\n@[simp] theorem findSomeM?_toArray [Monad m] (f : \u03b1 \u2192 m (Option \u03b2)) (xs : Vector \u03b1 n) :\n    xs.toArray.findSomeM? f = xs.findSomeM? f := by\n  cases xs\n  simp\n@[simp] theorem findRevM?_toArray [Monad m] (p : \u03b1 \u2192 m Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.findRevM? p = xs.findRevM? p := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\n@[simp] theorem findSomeRevM?_toArray [Monad m] (f : \u03b1 \u2192 m (Option \u03b2)) (xs : Vector \u03b1 n) :\n    xs.toArray.findSomeRevM? f = xs.findSomeRevM? f := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "toArray_append",
+    "has_proof": true
+  }
+}

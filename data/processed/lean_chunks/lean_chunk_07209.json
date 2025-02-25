@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  projMap : ProjMap\npartial def consumed (x : VarId) : FnBody \u2192 Bool\n  | .vdecl _ _ v b   =>\n    match v with\n    | Expr.reuse y _ _ _ => x == y || consumed x b\n    | _                  => consumed x b\n  | .dec y _ _ _ b   => x == y || consumed x b\n  | .case _ _ _ alts => alts.all fun alt => consumed x alt.body\n  | e => !e.isTerminal && consumed x e.body\nabbrev Mask := Array (Option VarId)\n          let bs   := bs.pop.pop\n          let mask := mask.set! i (some z)\n          let keep := keep.push b'\n          let keep := if n == 1 then keep else keep.push (FnBody.inc z (n-1) c p FnBody.nil)\n          eraseProjIncForAux y bs mask keep\n        else done ()\n      | _ => done ()\n    | _ => done ()\ndef eraseProjIncFor (n : Nat) (y : VarId) (bs : Array FnBody) : Array FnBody \u00d7 Mask :=\n  eraseProjIncForAux y bs (mkArray n none) #[]\ndef mkSlowPath (x y : VarId) (mask : Mask) (b : FnBody) : FnBody :=\n  let b := reuseToCtor x b\n  let b := FnBody.dec y 1 true false b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ExpandResetReuse.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ExpandResetReuse.lean",
+    "definition_name": "Context"
+  }
+}

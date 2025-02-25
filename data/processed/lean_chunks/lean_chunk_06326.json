@@ -1,0 +1,9 @@
+{
+  "content": "infos.map fun info' =>\n    if info'.name == info.name then\n      info\n    else\n      info'\n        let declName := structDeclName ++ subfieldName\n        let infos := infos.push { ref := (\u2190 getRef), name := subfieldName, declName, fvar := subfieldFVar, kind := StructFieldKind.fromSubobject }\n        go (i+1) infos\n    else\n      k infos\nprivate def getFieldType (infos : Array StructFieldInfo) (parentType : Expr) (fieldName : Name) : MetaM Expr := do\n  withLocalDeclD (\u2190 mkFreshId) parentType fun parent => do\n    let proj \u2190 mkProjection parent fieldName\n    let projType \u2190 inferType proj\n    let visit (e : Expr) : MetaM TransformStep := do\n      if let Expr.const subProjName .. := e.getAppFn then\n        if let some { numParams, .. } \u2190 getProjectionFnInfo? subProjName then\n          let Name.str _ subFieldName .. := subProjName\n            | throwError \"invalid projection name {subProjName}\"\n          let args := e.getAppArgs\n          if let some major := args[numParams]? then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

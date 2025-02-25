@@ -1,0 +1,9 @@
+{
+  "content": "inductive ReservoirResp (\u03b1 : Type u)\n| data (a : \u03b1)\n| error (status : Nat) (message : String)\nprotected def ReservoirResp.fromJson? [FromJson \u03b1] (val : Json) : Except String (ReservoirResp \u03b1) := do\n  let obj \u2190 JsonObject.fromJson? val\n  if let some (err : JsonObject) \u2190 obj.get? \"error\" then\n    let status \u2190 err.get \"status\"\n    let message \u2190 err.get \"message\"\n    return .error status message\n  else\n    .data <$> fromJson? val\ninstance [FromJson \u03b1] : FromJson (ReservoirResp \u03b1) := \u27e8ReservoirResp.fromJson?\u27e9\ndef Reservoir.pkgApiUrl (lakeEnv : Lake.Env) (owner pkg : String) :=\n   s!\"{lakeEnv.reservoirApiUrl}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_name": "ReservoirResp"
+  }
+}

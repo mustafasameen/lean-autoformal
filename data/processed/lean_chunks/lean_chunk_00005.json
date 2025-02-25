@@ -1,0 +1,10 @@
+{
+  "content": "def flip : Rbcolor \u2192 Rbcolor\n| red   => black\n| black => red\ndef flipColor : Rbnode \u03b1 \u03b2 \u2192 Rbnode \u03b1 \u03b2\n| Node c l k v r   => Node (flip c) l k v r\n| leaf             => leaf\ndef flipColors : \u2200 (n : Rbnode \u03b1 \u03b2), n \u2260 leaf \u2192 Rbnode \u03b1 \u03b2\n| n@(Node c l k v r), _ =>\n  if isRed l \u2227 isRed r\n  then Node (flip c) (flipColor l) k v (flipColor r)\n  else n\n| leaf, h => absurd rfl h\ndef fixup (n : Rbnode \u03b1 \u03b2) (h : n \u2260 leaf) : Rbnode \u03b1 \u03b2 :=\nlet n\u2081 := rotateLeft n h;\nlet h\u2081 := (rotateLeftNeLeaf n h);\nlet n\u2082 := rotateRight n\u2081 h\u2081;\nlet h\u2082 := (rotateRightNeLeaf n\u2081 h\u2081);\nflipColors n\u2082 h\u2082\ndef setBlack : Rbnode \u03b1 \u03b2 \u2192 Rbnode \u03b1 \u03b2\n| Node red l k v r   => Node black l k v r\n| n                  => n\nsection insert\nvariable (lt : \u03b1 \u2192 \u03b1 \u2192 Prop) [DecidableRel lt]\ndef ins (x : \u03b1) (vx : \u03b2 x) : Rbnode \u03b1 \u03b2 \u2192 Rbnode \u03b1 \u03b2\n| leaf             => Node red leaf x vx leaf\n| Node c l k v r   =>\n  if lt x k then fixup (Node c (ins l) k v r) (fun h => Rbnode.noConfusion h)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap3.lean",
+    "definition_name": "rotateLeftNeLeaf",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let completionKind \u2190 getCompletionKindForDecl c\n      if id.isAnonymous then\n        addUnresolvedCompletionItem (.mkSimple c.name.getString!) (.const c.name) completionKind\n        return\n      let some label \u2190 matchDecl? typeName id (danglingDot := false) declName | pure ()\n      addUnresolvedCompletionItem label (.const c.name) completionKind\ndef fieldIdCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)\n    (lctx              : LocalContext)\n    (id                : Option Name)\n    (structName        : Name)\n    : CancellableM (Array CompletionItem) :=\n  runM params completionInfoPos ctx lctx do\n    let idStr := id.map (\u00b7.toString) |>.getD \"\"\n    let fieldNames := getStructureFieldsFlattened (\u2190 getEnv) structName (includeSubobjectFields := false)\n    for fieldName in fieldNames do\n      let .str _ fieldName := fieldName | continue\n      if ! containsSuccessiveCharacters idStr fieldName then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

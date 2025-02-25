@@ -1,0 +1,10 @@
+{
+  "content": "theorem forM_eq_forM_keys {m' : Type w \u2192 Type w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "forM_eq_forM_keys",
+    "has_proof": false
+  }
+}

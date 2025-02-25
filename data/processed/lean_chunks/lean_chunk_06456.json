@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  options           : Options\n  ref               : Syntax\n  autoBoundImplicit : Bool\nstructure State where\n  ngen       : NameGenerator\n  mctx       : MetavarContext\n  levelNames : List Name\nabbrev LevelElabM := ReaderT Context (EStateM Exception State)\ninstance : MonadOptions LevelElabM where\n  getOptions := return (\u2190 read).options\n@[always_inline]\ninstance : MonadRef LevelElabM where\n  getRef        := return (\u2190 read).ref\n  withRef ref x := withReader (fun ctx => { ctx with ref := ref }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Level.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Level.lean",
+    "definition_name": "Context"
+  }
+}

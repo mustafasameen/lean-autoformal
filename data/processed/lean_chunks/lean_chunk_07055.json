@@ -1,0 +1,9 @@
+{
+  "content": "if indVal.numIndices \u2260 0 then\n    throwError \"indexed inductive families are not supported\"\n  elabCommand <| \u2190 liftTermElabM do\n    forallTelescopeReducing indVal.type fun params _ => do\n      let encInstBinders \u2190 (\u2190 params.filterM (isType \u00b7)).mapM fun p => do\n        `(bracketedBinderF| [RpcEncodable $(mkIdent (\u2190 getFVarLocalDecl p).userName):ident])\n      if isStructure (\u2190 getEnv) typeName then\n          deriveStructureInstance indVal params encInstBinders\n      else\n          deriveInductiveInstance indVal params encInstBinders\n  return true\ninitialize\n  registerDerivingHandler ``RpcEncodable deriveInstance\n  registerTraceClass `Elab.Deriving.RpcEncodable\nend Lean.Server.RpcEncodable",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_name": "matchAltTerm"
+  }
+}

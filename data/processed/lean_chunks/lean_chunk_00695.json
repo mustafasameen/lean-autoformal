@@ -1,0 +1,9 @@
+{
+  "content": "instance module' [Mul S] [SMul S R] [SMul S M] (P : Submodule R M) :\n    SMul S (M \u29f8 P) := sorry\ninstance module (P : Submodule R M) : SMul R (M \u29f8 P) :=\n  Quotient.module' P\nend Module\nend Quotient\nsection\nvariable {M\u2082 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "module"
+  }
+}

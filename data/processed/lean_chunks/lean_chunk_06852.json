@@ -1,0 +1,10 @@
+{
+  "content": "return mkAppN f args.toArray\nwhere\n  goArg (arg : Expr) (isSupport : Bool) : M Expr := do\n    if !arg.hasLooseBVars then\n      if arg.hasMVar then\n        pure dontCare\n      else\n        pure <| mkGroundPattern arg\n    else match arg with\n      | .bvar idx =>\n        if isSupport && (\u2190 foundBVar idx) then\n          pure dontCare\n        else\n          saveBVar idx\n          pure arg\n      | _ =>\n        if isSupport then\n          pure dontCare\n        else if let some _ := getPatternFn? arg then\n          go arg\n        else\n          pure dontCare\ndef main (patterns : List Expr) : MetaM (List Expr \u00d7 List HeadIndex \u00d7 Std.HashSet Nat) := do\n  let (patterns, s) \u2190 patterns.mapM go |>.run {}\n  return (patterns, s.symbols.toList, s.bvarsFound)\ndef normalizePattern (e : Expr) : M Expr := do\n  go e\nend NormalizePattern\nprivate def checkTypeFVars (thmVars : FVarIdSet) (fvarsFound : FVarIdSet) (type : Expr) : Bool :=\n  let typeFVars := (collectFVars {} type).fvarIds",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

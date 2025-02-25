@@ -1,0 +1,9 @@
+{
+  "content": "\"\ndef helpEnv :=\n\"Execute a command in Lake's environment\nUSAGE:\n  lake env [<cmd>] [<args>...]\nSpawns a new process executing `cmd` with the given `args` and with\nthe environment set based on the detected Lean/Lake installations and\nthe workspace configuration (if it exists).\nSpecifically, this command sets the following environment variables:\n  LAKE                  set to the detected Lake executable\n  LAKE_HOME             set to the detected Lake home\n  LEAN_SYSROOT          set to the detected Lean toolchain directory\n  LEAN_AR               set to the detected Lean `ar` binary\n  LEAN_CC               set to the detected `cc` (if not using the bundled one)\n  LEAN_PATH             adds Lake's and the workspace's Lean library dirs\n  LEAN_SRC_PATH         adds Lake's and the workspace's source dirs\n  PATH                  adds Lean's, Lake's, and the workspace's binary dirs\n  PATH                  adds Lean's and the workspace's library dirs (Windows)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

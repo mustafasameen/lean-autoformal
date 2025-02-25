@@ -1,0 +1,9 @@
+{
+  "content": "class Top : Type := (x : Unit)\ninstance AllFoo (\u03b1 : Type) : Foo \u03b1 := {x:=()}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/leaky_tmp_metavars.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/leaky_tmp_metavars.lean",
+    "definition_name": "Top"
+  }
+}

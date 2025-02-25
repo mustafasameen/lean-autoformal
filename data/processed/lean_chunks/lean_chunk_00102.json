@@ -1,0 +1,9 @@
+{
+  "content": "def bla := 20\nend Foo\ndef boo : Nat :=\n  open Foo in by exact bla",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/366.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/366.lean",
+    "definition_name": "bla"
+  }
+}

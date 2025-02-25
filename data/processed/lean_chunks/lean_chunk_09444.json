@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_emptyc : (\u2205 : TreeSet \u03b1 cmp).size = 0 :=\n  TreeMap.size_emptyc\ntheorem isEmpty_eq_size_eq_zero :\n    t.isEmpty = (t.size == 0) :=\n  TreeMap.isEmpty_eq_size_eq_zero\ntheorem size_insert [TransCmp cmp] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Lemmas.lean",
+    "definition_name": "size_emptyc",
+    "has_proof": false
+  }
+}

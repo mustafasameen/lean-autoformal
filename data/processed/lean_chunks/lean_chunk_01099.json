@@ -1,0 +1,9 @@
+{
+  "content": "instance smulZeroClass [Semiring k] [SMulZeroClass R k] : SMulZeroClass R (AddMonoidAlgebra k G) :=\n  Finsupp.smulZeroClass\ninstance semiring [Semiring k] [AddMonoid G] : Semiring (AddMonoidAlgebra k G) :=\n  { AddMonoidAlgebra.nonUnitalSemiring,\n    AddMonoidAlgebra.nonAssocSemiring with\n    one := 1\n    mul := (\u00b7 * \u00b7)\n    zero := 0\n    add := (\u00b7 + \u00b7) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "smulZeroClass"
+  }
+}

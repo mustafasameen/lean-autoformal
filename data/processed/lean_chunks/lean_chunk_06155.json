@@ -1,0 +1,9 @@
+{
+  "content": "structure FormatWithInfos where\n  fmt : Format\n  infos : PrettyPrinter.InfoPerPos\ninstance : Coe Format FormatWithInfos where\n  coe fmt := { fmt, infos := \u2205 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/PPExt.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/PPExt.lean",
+    "definition_name": "FormatWithInfos"
+  }
+}

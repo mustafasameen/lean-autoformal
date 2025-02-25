@@ -1,0 +1,9 @@
+{
+  "content": "def Cxt := List Ty\ninductive Var : (g : Cxt) \u2192 (a : Ty) \u2192 Type\n  | vz {g a}   : Var (a :: g) a\n  | vs {g a b} : Var g a \u2192 Var (b :: g) a\ninductive Term : Cxt \u2192 Ty \u2192 Type\n  | var {g a}   : Var g a \u2192 Term g a\n  | app {g a b} : Term g (Ty.arr a b) \u2192 Term g a \u2192 Term g b\n  | abs {g a b} : Term (a :: g) b \u2192 Term g (Ty.arr a b)\ndef Ren (g d : Cxt) :=\n  (a : Ty) \u2192 Var d a \u2192 Var g a\ndef liftr {g d a} (r : Ren g d) : Ren (a :: g) (a :: d)\n  | _, Var.vz   => Var.vz\n  | _, Var.vs x => Var.vs (r _ x)\ndef rename {g d : Cxt} : (r : Ren g d) \u2192 {a : Ty} \u2192 Term d a \u2192 Term g a\n  | r, _, Term.var x   => Term.var (r _ x)\n  | r, _, Term.app t u => Term.app (rename r t) (rename r u)\n  | r, _, Term.abs t   => Term.abs (rename (liftr r) t)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/renaming.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/renaming.lean",
+    "definition_name": "Cxt"
+  }
+}

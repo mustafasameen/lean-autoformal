@@ -1,0 +1,7 @@
+{
+  "content": "What is Lean\nLean is a functional programming language that makes it easy to\nwrite correct and maintainable code.\nYou can also use Lean as an interactive theorem prover.\nLean programming primarily involves defining types and functions.\nThis allows your focus to remain on the problem domain and manipulating its data,\nrather than the details of programming.\n-- Defines a function that takes a name and produces a greeting.\ndef getGreeting (name : String) := s!\"Hello, {name}! Isn't Lean great?\"\n\n-- The `main` function is the entry point of your program.\n-- Its type is `IO Unit` because it can perform `IO` operations (side effects).\ndef main : IO Unit :=\n  -- Define a list of names\n  let names := [\"Sebastian\", \"Leo\", \"Daniel\"]\n\n  -- Map each name to a greeting\n  let greetings := names.map getGreeting\n\n  -- Print the list of greetings\n  for greeting in greetings do\n    IO.println greeting\n\nLean has numerous features, including:",
+  "metadata": {
+    "source": "https://lean-lang.org/lean4/doc",
+    "title": "Untitled"
+  }
+}

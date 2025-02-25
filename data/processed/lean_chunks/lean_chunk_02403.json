@@ -1,0 +1,9 @@
+{
+  "content": "inductive Tree (\u03b1 : Type)\n| leaf : \u03b1 \u2192 Tree\n| node : Tree \u2192 Tree \u2192 Tree\nnamespace Tree\nprivate def toStr {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pldi/intro.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pldi/intro.lean",
+    "definition_name": "Tree"
+  }
+}

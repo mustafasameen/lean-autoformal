@@ -1,0 +1,9 @@
+{
+  "content": "instance instB0 : B 0 where\ninstance instB10000 : B 10000 where\n#guard_msgs in\n#synth A\nend Ex1\nnamespace Ex2\nclass A where\nclass B (n : Nat) where\nclass C where\ninstance test' [B 10] : A where\ninstance test [B 0] [C] : A where\ninstance foo {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3996.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3996.lean",
+    "definition_name": "instB0"
+  }
+}

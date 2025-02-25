@@ -1,0 +1,9 @@
+{
+  "content": "class BEq (\u03b1 : Type u) where\n@[macro_inline] def dite {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "BEq"
+  }
+}

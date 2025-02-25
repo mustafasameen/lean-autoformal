@@ -1,0 +1,10 @@
+{
+  "content": "apply Exists.intro l.1\n    by_cases hl : l.2\n    \u00b7 apply Or.inr\n      rw [\u2190 hl]\n      exact \u27e8h, pl\u27e9\n    \u00b7 apply Or.inl\n      simp only [Bool.not_eq_true] at hl\n      rw [\u2190 hl]\n      exact \u27e8h, pl\u27e9\ntheorem entails_of_entails_delete [DecidableEq \u03b1] [Clause \u03b1 \u03b2] {p : \u03b1 \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_name": "unsat_of_limplies_complement",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure State :=\n  (verb : String)\n  (path : String)\n  (status := \"200 OK\")\n  (outHeaders : Array String := #[])\n  (out : String := \"\")\n  (tryNextHandler := false)\nabbrev HandlerM := StateT State IO\nabbrev Handler := HandlerM Unit\ndef checkVerb (verb : String) : Handler := do\n  let st \u2190 get\n  if st.verb != verb then\n    throw $ IO.userError \"invalid verb\"\ndef checkPathLiteral (p : String) : Handler := do\n  let st \u2190 get\n  if p.isPrefixOf st.path then\n    set { st with path := st.path.extract p.bsize st.path.bsize }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/webserver/Webserver.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/webserver/Webserver.lean",
+    "definition_name": "State"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem Subtype.coe_injective : Function.Injective (fun (a : Subtype p) \u21a6 (a : \u03b1)) := fun _ _ \u21a6 Subtype.ext\nend Mathlib.Data.Subtype\nsection Mathlib.Data.Set.Defs\nuniverse u v w\nnamespace Set\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Subtype",
+    "has_proof": false
+  }
+}

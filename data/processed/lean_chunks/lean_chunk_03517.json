@@ -1,0 +1,10 @@
+{
+  "content": "theorem val_rev (i : Fin n) : rev i = n - (i + 1) := rfl\n@[simp] theorem rev_rev (i : Fin n) : rev (rev i) = i := Fin.ext <| by\n  rw [val_rev, val_rev, \u2190 Nat.sub_sub, Nat.sub_sub_self (by exact i.2), Nat.add_sub_cancel]\n@[simp] theorem rev_le_rev {i j : Fin n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "val_rev",
+    "has_proof": true
+  }
+}

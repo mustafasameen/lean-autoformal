@@ -1,0 +1,10 @@
+{
+  "content": "theorem length_erase_le (a : \u03b1) (l : List \u03b1) : (l.erase a).length \u2264 l.length :=\n  (erase_sublist a l).length_le\ntheorem le_length_erase [LawfulBEq \u03b1] (a : \u03b1) (l : List \u03b1) : l.length - 1 \u2264 (l.erase a).length := by\n  rw [length_erase]\n  split <;> simp\ntheorem mem_of_mem_erase {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_name": "length_erase_le",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "strictImplicitLeftBracket >> many1 binderIdent >>\n  binderType requireType >> strictImplicitRightBracket\n@[builtin_doc] def instBinder := leading_parser ppGroup <|\n  \"[\" >> withoutPosition (optIdent >> termParser) >> \"]\"\n@[builtin_doc] def bracketedBinder (requireType := false) :=\n  withAntiquot (mkAntiquot \"bracketedBinder\" decl_name% (isPseudoKind := true)) <|\n    explicitBinder requireType <|> strictImplicitBinder requireType <|>\n    implicitBinder requireType <|> instBinder\n@[builtin_term_parser] def depArrow := leading_parser:25\n  bracketedBinder true >> unicodeSymbol \" \u2192 \" \" -> \" >> termParser\n@[builtin_term_parser]\ndef \u00abforall\u00bb := leading_parser:leadPrec\n  unicodeSymbol \"\u2200\" \"forall\" >>\n  many1 (ppSpace >> (binderIdent <|> bracketedBinder)) >>\n  optType >> \", \" >> termParser\ndef matchAlt (rhsParser : Parser := termParser) : Parser :=\n  leading_parser (withAnonymousAntiquot := false)\n    \"| \" >> ppIndent (\n      sepBy1 (sepBy1 termParser \", \") \" | \" >> darrow >>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def testFile := \"handleLocking.lock\"\ndef test2 : IO Unit := do\n  let h \u2190 IO.FS.Handle.mk testFile .write\n  h.lock\nlet h \u2190 IO.FS.Handle.mk testFile .write\n  unless (\u2190 h.tryLock) do\n    throw <| IO.userError \"handle free failed to unlock\"\n#guard_msgs in\n#eval test2",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/handleLocking.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/handleLocking.lean",
+    "definition_name": "testFile"
+  }
+}

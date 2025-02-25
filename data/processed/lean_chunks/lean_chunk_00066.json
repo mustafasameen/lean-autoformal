@@ -1,0 +1,9 @@
+{
+  "content": "def foo := 42\n#check foo\ndef bar :=\n  let rec @[class] bar : Nat := 42\n  bar\n#check bar",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/nonfatalattrs.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/nonfatalattrs.lean",
+    "definition_name": "foo"
+  }
+}

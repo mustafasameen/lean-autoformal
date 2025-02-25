@@ -1,0 +1,10 @@
+{
+  "content": "theorem and_true (p : Prop) : (p \u2227 True) = p := propext \u27e8(\u00b7.1), (\u27e8\u00b7, trivial\u27e9)\u27e9\n@[simp] theorem true_and (p : Prop) : (True \u2227 p) = p := propext \u27e8(\u00b7.2), (\u27e8trivial, \u00b7\u27e9)\u27e9\ninstance : Std.LawfulIdentity And True where\n  left_id := true_and\n  right_id := and_true\n@[simp] theorem and_false (p : Prop) : (p \u2227 False) = False := eq_false (\u00b7.2)\n@[simp] theorem false_and (p : Prop) : (False \u2227 p) = False := eq_false (\u00b7.1)\n@[simp] theorem and_self (p : Prop) : (p \u2227 p) = p := propext \u27e8(\u00b7.left), fun h => \u27e8h, h\u27e9\u27e9\ninstance : Std.IdempotentOp And := \u27e8and_self\u27e9\n@[simp] theorem and_not_self : \u00ac(a \u2227 \u00aca) | \u27e8ha, hn\u27e9 => absurd ha hn\n@[simp] theorem not_and_self : \u00ac(\u00aca \u2227 a) := and_not_self \u2218 And.symm\n@[simp] theorem and_imp : (a \u2227 b \u2192 c) \u2194 (a \u2192 b \u2192 c) := \u27e8fun h ha hb => h \u27e8ha, hb\u27e9, fun h \u27e8ha, hb\u27e9 => h ha hb\u27e9\n@[simp] theorem not_and : \u00ac(a \u2227 b) \u2194 (a \u2192 \u00acb) := and_imp\n@[simp] theorem or_self (p : Prop) : (p \u2228 p) = p := propext \u27e8fun | .inl h | .inr h => h, .inl\u27e9\ninstance : Std.IdempotentOp Or := \u27e8or_self\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "and_true",
+    "has_proof": true
+  }
+}

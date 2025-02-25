@@ -1,0 +1,10 @@
+{
+  "content": "theorem fooEq (x y : Nat) (xs : List Nat) : foo (x::y::xs) = (2*x + y) :: foo xs :=\nrfl\ndef bla (x : Nat) (ys : List Nat) : List Nat :=\nif x % 2 == 0 then\n  match ys with\n  | []    => []\n  | y::ys => (y + x/2) :: bla (x/2) ys\nelse\n  match ys with\n  | []    => []\n  | y::ys => (y + x/2 + 1) :: bla (x/2) ys\ndef pbla (x : Nat) (ys : PList Nat) : PList Nat :=\nif x % 2 == 0 then\n  match ys with\n  | PList.nil    => PList.nil\n  | y:::ys => (y + x/2) ::: pbla (x/2) ys\nelse\n  match ys with\n  | PList.nil    => PList.nil\n  | y:::ys => (y + x/2 + 1) ::: pbla (x/2) ys\ntermination_by structural ys\ntheorem blaEq (y : Nat) (ys : List Nat) : bla 4 (y::ys) = (y+2) :: bla 2 ys :=\nrfl\ninductive PNat : Prop\n| zero\n| succ : PNat \u2192 PNat\ndef f : Nat \u2192 Nat \u2192 Nat\n | 0, y   => y\n | x+1, y =>\n   match f x y with\n   | 0 => f x y\n   | v => f x v + 1\ndef pf : PNat \u2192 PNat \u2192 PNat\n | PNat.zero, y   => y\n | PNat.succ x, y =>\n   match pf x y with\n   | PNat.zero => pf x y\n   | v => PNat.succ $ pf x v",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralRec1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralRec1.lean",
+    "definition_name": "fooEq",
+    "has_proof": true
+  }
+}

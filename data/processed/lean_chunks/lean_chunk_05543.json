@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_empty_of_size_eq_zero (xs : Vector \u03b1 n) (h : n = 0) : xs = #v[].cast h.symm := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  apply toArray_inj.1\n  simp only [List.length_eq_zero_iff, Array.toList_eq_nil_iff] at h\n  simp [h]\ntheorem size_eq_one {xs : Vector \u03b1 1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "eq_empty_of_size_eq_zero",
+    "has_proof": true
+  }
+}

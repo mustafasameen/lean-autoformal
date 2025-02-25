@@ -1,0 +1,10 @@
+{
+  "content": "structure CacheHit (decls : Array (Decl \u03b1)) (decl : Decl \u03b1) where\n  idx : Nat\n  hbound : idx < decls.size\n  hvalid : decls[idx]'hbound = decl\ntheorem Cache.get?_bounds {decls : Array (Decl \u03b1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_name": "CacheHit",
+    "has_proof": false
+  }
+}

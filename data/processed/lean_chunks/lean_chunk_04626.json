@@ -1,0 +1,10 @@
+{
+  "content": "simp [combine, denote_combine']\nattribute [local simp] Poly.denote_combine\ntheorem sub_fold (a b : Int) : a.sub b = a - b := rfl\ntheorem neg_fold (a : Int) : a.neg = -a := rfl\nattribute [local simp] sub_fold neg_fold\nattribute [local simp] Poly.div Poly.divAll\ntheorem Poly.denote_div_eq_of_divAll (ctx : Context) (p : Poly) (k : Int) : p.divAll k \u2192 (p.div k).denote ctx * k = p.denote ctx := by\n  induction p with\n  | num _ => simp; intro h; rw [\u2190 cdiv_eq_div_of_divides h]; exact div_mul_cancel_of_mod_zero h\n  | add k' v p ih =>\n    simp; intro h\u2081 h\u2082\n    replace h\u2081 := div_mul_cancel_of_mod_zero h\u2081\n    have ih := ih h\u2082\n    simp [ih]\n    apply congrArg (denote ctx p + \u00b7)\n    rw [Int.mul_right_comm, h\u2081]\nattribute [local simp] Poly.divCoeffs Poly.getConst\ntheorem Poly.denote_div_eq_of_divCoeffs (ctx : Context) (p : Poly) (k : Int) : p.divCoeffs k \u2192 (p.div k).denote ctx * k + cmod p.getConst k = p.denote ctx := by\n  induction p with\n  | num k' => simp; rw [Int.mul_comm, cdiv_add_cmod]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

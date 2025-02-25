@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_attach (xs : Array \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b : \u03b2) :\n    xs.attach.foldl (fun acc t => f acc t.1) b = xs.foldl f b := by\n  rcases xs with \u27e8xs\u27e9\n  simp only [List.attach_toArray, List.attachWith_mem_toArray, List.size_toArray,\n    List.length_pmap, List.foldl_toArray', mem_toArray, List.foldl_subtype]\n  congr\n  ext\n  simpa using fun a => List.mem_of_getElem? a\ntheorem foldr_attach (xs : Array \u03b1) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b : \u03b2) :\n    xs.attach.foldr (fun t acc => f t.1 acc) b = xs.foldr f b := by\n  rcases xs with \u27e8xs\u27e9\n  simp only [List.attach_toArray, List.attachWith_mem_toArray, List.size_toArray,\n    List.length_pmap, List.foldr_toArray', mem_toArray, List.foldr_subtype]\n  congr\n  ext\n  simpa using fun a => List.mem_of_getElem? a\ntheorem attach_map {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Attach.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Attach.lean",
+    "definition_name": "foldl_attach",
+    "has_proof": true
+  }
+}

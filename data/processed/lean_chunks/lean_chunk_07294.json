@@ -1,0 +1,9 @@
+{
+  "content": "structure Channel.State (\u03b1 : Type) where\n  values : Std.Queue \u03b1 := \u2205\n  consumers : Std.Queue (IO.Promise (Option \u03b1)) := \u2205\n  closed := false\n  deriving Inhabited\ndef Channel (\u03b1 : Type) : Type := Mutex (Channel.State \u03b1)\ninstance : Nonempty (Channel \u03b1) :=\n  inferInstanceAs (Nonempty (Mutex _))\ndef Channel.send (ch : Channel \u03b1) (v : \u03b1) : BaseIO Unit :=\n  ch.atomically do\n    let st \u2190 get\n    if st.closed then return\n    if let some (consumer, consumers) := st.consumers.dequeue? then\n      consumer.resolve (some v)\n      set { st with consumers }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sync/Channel.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sync/Channel.lean",
+    "definition_name": "Channel"
+  }
+}

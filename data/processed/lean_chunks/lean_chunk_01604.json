@@ -1,0 +1,9 @@
+{
+  "content": "def State := Variable \u2192 Nat\ninductive Stmt : Type where\n  | skip : Stmt\n  | assign : Variable \u2192 (State \u2192 Nat) \u2192 Stmt\n  | seq : Stmt \u2192 Stmt \u2192 Stmt\n  | ifThenElse : (State \u2192 Prop) \u2192 Stmt \u2192 Stmt \u2192 Stmt\n  | whileDo : (State \u2192 Prop) \u2192 Stmt \u2192 Stmt\ninfix:60 \"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_guide.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_guide.lean",
+    "definition_name": "State"
+  }
+}

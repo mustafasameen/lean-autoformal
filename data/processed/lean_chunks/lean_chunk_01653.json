@@ -1,0 +1,9 @@
+{
+  "content": "inductive Even : Nat \u2192 Prop\n  | zero : Even 0\n  | plus_two {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_ctor_ematch.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_ctor_ematch.lean",
+    "definition_name": "Even"
+  }
+}

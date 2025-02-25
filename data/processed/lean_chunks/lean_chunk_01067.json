@@ -1,0 +1,9 @@
+{
+  "content": "class Distrib (R : Type _) extends Mul R, Add R where\n  protected left_distrib : \u2200 a b c : R, a * (b + c) = a * b + a * c\n  protected right_distrib : \u2200 a b c : R, (a + b) * c = a * c + b * c\nclass LeftDistribClass (R : Type _) [Mul R] [Add R] : Prop where\n  protected left_distrib : \u2200 a b c : R, a * (b + c) = a * b + a * c\nclass RightDistribClass (R : Type _) [Mul R] [Add R] : Prop where\n  protected right_distrib : \u2200 a b c : R, (a + b) * c = a * c + b * c\ninstance (priority := 100) Distrib.leftDistribClass (R : Type _) [Distrib R] : LeftDistribClass R :=\n  \u27e8Distrib.left_distrib\u27e9\ninstance (priority := 100) Distrib.rightDistribClass (R : Type _) [Distrib R] :\n    RightDistribClass R :=\n  \u27e8Distrib.right_distrib\u27e9\nclass NonUnitalNonAssocSemiring (\u03b1 : Type u) extends AddCommMonoid \u03b1, Distrib \u03b1, MulZeroClass \u03b1\nclass NonUnitalSemiring (\u03b1 : Type u) extends NonUnitalNonAssocSemiring \u03b1, SemigroupWithZero \u03b1\nclass NonAssocSemiring (\u03b1 : Type u) extends NonUnitalNonAssocSemiring \u03b1, MulZeroOneClass \u03b1,",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "Distrib"
+  }
+}

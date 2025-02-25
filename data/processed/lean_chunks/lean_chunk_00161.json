@@ -1,0 +1,9 @@
+{
+  "content": "inductive Member : \u03b1 \u2192 List \u03b1 \u2192 Type _\n  | head : Member a (a::as)\n  | tail : Member a bs \u2192 Member a (b::bs)\ndef HList.get : HList \u03b2 is \u2192 Member i is \u2192 \u03b2 i\n  | a::as, .head => a\n  | _::as, .tail h => as.get h\ninductive Ty where\n  | nat\n  | fn : Ty \u2192 Ty \u2192 Ty\nabbrev Ty.denote : Ty \u2192 Type\n  | nat    => Nat\n  | fn a b => a.denote \u2192 b.denote\ninductive Term : List Ty \u2192 Ty \u2192 Type\n  | var   : Member ty ctx \u2192 Term ctx ty\n  | const : Nat \u2192 Term ctx .nat\n  | plus  : Term ctx .nat \u2192 Term ctx .nat \u2192 Term ctx .nat\n  | app   : Term ctx (.fn dom ran) \u2192 Term ctx dom \u2192 Term ctx ran\n  | lam   : Term (dom :: ctx) ran \u2192 Term ctx (.fn dom ran)\n  | \u00ablet\u00bb : Term ctx ty\u2081 \u2192 Term (ty\u2081 :: ctx) ty\u2082 \u2192 Term ctx ty\u2082\ndef Term.denote : Term ctx ty \u2192 HList Ty.denote ctx \u2192 ty.denote\n  | var h,     env => env.get h\n  | const n,   _   => n\n  | plus a b,  env => a.denote env + b.denote env\n  | app f a,   env => f.denote env (a.denote env)\n  | lam b,     env => fun x => b.denote (x :: env)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/lcnfTypes.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/lcnfTypes.lean",
+    "definition_name": "Member"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let (ws?, log) \u2190 (loadWorkspace config).captureLog\n    log.replay (logger := MonadLog.stderr)\n    if let some ws := ws? then\n      let ctx := mkLakeContext ws\n      pure (\u2190 LakeT.run ctx getAugmentedEnv, ws.root.moreGlobalServerArgs)\n    else\nIO.eprintln \"warning: package configuration has errors, falling back to plain `lean\n      pure (config.lakeEnv.baseVars.push (invalidConfigEnvVar, log.toString), #[])\n  (\u2190 IO.Process.spawn {\n    cmd := config.lakeEnv.lean.lean.toString\nargs := #[\"\n    env := extraEnv\n  }).wait",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Serve.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Serve.lean",
+    "definition_name": "invalidConfigEnvVar"
+  }
+}

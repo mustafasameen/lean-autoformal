@@ -1,0 +1,10 @@
+{
+  "content": "theorem pure_id_seq [Applicative f] [LawfulApplicative f] (x : f \u03b1) : pure id <*> x = x := by\n  simp [pure_seq]\nclass LawfulMonad (m : Type u \u2192 Type v) [Monad m] : Prop extends LawfulApplicative m where\n  bind_pure_comp (f : \u03b1 \u2192 \u03b2) (x : m \u03b1) : x >>= (fun a => pure (f a)) = f <$> x\n  bind_map       {\u03b1 \u03b2 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_name": "pure_id_seq",
+    "has_proof": true
+  }
+}

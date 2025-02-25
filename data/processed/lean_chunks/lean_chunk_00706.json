@@ -1,0 +1,9 @@
+{
+  "content": "\u27e8fun p => Quotient (quotientRel p)\u27e9\nnamespace Quotient\ndef mk {p : Submodule R M} : M \u2192 M \u29f8 p :=\n  Quotient.mk''\ninstance addCommGroup : AddCommGroup (M \u29f8 p) :=\n  QuotientAddGroup.Quotient.addCommGroup p.toAddSubgroup\nsection Module\nvariable {S : Type _}\ninstance module' [Mul S] [SMul S R] [SMul S M] (P : Submodule R M) :\n    SMul S (M \u29f8 P) := sorry\ninstance module (P : Submodule R M) : SMul R (M \u29f8 P) :=\n  Quotient.module' P\nend Module\nend Quotient\nsection\nvariable {M\u2082 : Type _} [AddCommGroup M\u2082] [SMul R M\u2082]\ndef mkQ : M \u2192\u2097[R] M \u29f8 p where\n  toFun := Quotient.mk\nend\nvariable {M\u2082 : Type _} [AddCommGroup M\u2082] [SMul R M\u2082]\ndef liftQ (f : M \u2192\u2097[R] M\u2082) : M \u29f8 p \u2192\u2097[R] M\u2082 :=\n  { QuotientAddGroup.lift p.toAddSubgroup f.toAddMonoidHom with }\nvariable (q : Submodule R M\u2082)\ndef mapQ (f : M \u2192\u2097[R] M\u2082) : M \u29f8 p \u2192\u2097[R] M\u2082 \u29f8 q :=\n  p.liftQ (q.mkQ.comp f)\nend Submodule\nend Mathlib.LinearAlgebra.Quotient\nsection Mathlib.Algebra.Module.Submodule.Localization\nuniverse u u' v v'",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

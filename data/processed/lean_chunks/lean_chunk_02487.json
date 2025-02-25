@@ -1,0 +1,9 @@
+{
+  "content": "inductive DoResultPRBC (\u03b1 \u03b2 \u03c3 : Type u) where\n  | return : \u03b2 \u2192 \u03c3 \u2192 DoResultPRBC \u03b1 \u03b2 \u03c3\n  | break : \u03c3 \u2192 DoResultPRBC \u03b1 \u03b2 \u03c3\n  | continue : \u03c3 \u2192 DoResultPRBC \u03b1 \u03b2 \u03c3\ninductive DoResultPR (\u03b1 \u03b2 \u03c3 : Type u) where\n  | return : \u03b2 \u2192 \u03c3 \u2192 DoResultPR \u03b1 \u03b2 \u03c3\ninductive DoResultBC (\u03c3 : Type u) where\n  | break    : \u03c3 \u2192 DoResultBC \u03c3\n  | continue : \u03c3 \u2192 DoResultBC \u03c3\ninductive DoResultSBC (\u03b1 \u03c3 : Type u) where\n  | pureReturn : \u03b1 \u2192 \u03c3 \u2192 DoResultSBC \u03b1 \u03c3\n  | break    : \u03c3 \u2192 DoResultSBC \u03b1 \u03c3\n  | continue   : \u03c3 \u2192 DoResultSBC \u03b1 \u03c3\n  Equiv : \u03b1 \u2192 \u03b1 \u2192 Sort v\n@[inherit_doc] infix:50 \" \u2248 \"  => HasEquiv.Equiv\nrecommended_spelling \"equiv\" for \"\u2248\" in [HasEquiv.Equiv, \u00abterm_\u2248_\u00bb]\nclass HasSubset (\u03b1 : Type u) where\nclass HasSSubset (\u03b1 : Type u) where\nabbrev Superset [HasSubset \u03b1] (a b : \u03b1) := Subset b a\nclass Union (\u03b1 : Type u) where\nclass Inter (\u03b1 : Type u) where\nclass SDiff (\u03b1 : Type u) where\n  sdiff : \u03b1 \u2192 \u03b1 \u2192 \u03b1\ninfix:50 \" \u2282 \" => SSubset\ninfix:50 \" \u2283 \" => SSuperset\ninfixl:70 \" \u2229 \" => Inter.inter\ninfix:70 \" \\\\ \" => SDiff.sdiff",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "DoResultPRBC"
+  }
+}

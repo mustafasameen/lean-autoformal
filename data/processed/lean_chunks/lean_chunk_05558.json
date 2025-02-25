@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_of_mem_singleton (h : a \u2208 #v[b]) : a = b := by\n  simpa using h\n@[simp] theorem mem_singleton {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "eq_of_mem_singleton",
+    "has_proof": true
+  }
+}

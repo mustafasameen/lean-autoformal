@@ -1,0 +1,9 @@
+{
+  "content": "structure DefaultClause (numVarsSucc : Nat) where\n  clause : CNF.Clause (PosFin numVarsSucc)\n  nodupkey : \u2200 l : PosFin numVarsSucc, (l, true) \u2209 clause \u2228 (l, false) \u2209 clause\n  nodup : List.Nodup clause\n  deriving BEq\ninstance : ToString (DefaultClause n) where\n  toString c := s!\"{c.clause.reverse}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Clause.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Clause.lean",
+    "definition_name": "DefaultClause"
+  }
+}

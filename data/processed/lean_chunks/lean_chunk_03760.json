@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldrM_append' [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (b) (xs ys : Array \u03b1)\n    (w : start = xs.size + ys.size) :\n    (xs ++ ys).foldrM f b start 0 = ys.foldrM f b >>= xs.foldrM f := by\n  subst w\n  rcases xs with \u27e8xs\u27e9\n  rcases ys with \u27e8ys\u27e9\n  simp\ntheorem foldrM_append [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (b) (xs ys : Array \u03b1) :\n    (xs ++ ys).foldrM f b = ys.foldrM f b >>= xs.foldrM f := by\n  simp\n@[simp] theorem foldl_append' {\u03b2 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "foldrM_append",
+    "has_proof": true
+  }
+}

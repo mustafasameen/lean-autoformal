@@ -1,0 +1,9 @@
+{
+  "content": "inductive CtxSyntaxLayer where\n  inductive TySyntaxLayer where\n  | arrow : {\u0393 : G}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/337.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/337.lean",
+    "definition_name": "CtxSyntaxLayer"
+  }
+}

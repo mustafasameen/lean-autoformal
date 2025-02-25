@@ -1,0 +1,9 @@
+{
+  "content": "def mapQ (f : M \u2192\u2097[R] M\u2082) : M \u29f8 p \u2192\u2097[R] M\u2082 \u29f8 q :=\n  p.liftQ (q.mkQ.comp f)\nend Submodule\nend Mathlib.LinearAlgebra.Quotient\nsection Mathlib.Algebra.Module.Submodule.Localization\nuniverse u u' v v'\nvariable {R : Type u} (S : Type u') {M : Type v} {N : Type v'}\nvariable [MulOneClass R] [Mul S] [AddCommGroup M] [AddCommGroup N]\nvariable [SMul R M] [SMul R N] [Algebra R S] [SMul S N]\nvariable (p : Submonoid R) (f : M \u2192\u2097[R] N) [IsLocalizedModule p f]\nvariable (M' : Submodule R M)\ndef Submodule.localized' : Submodule S N where\n  carrier := setOf fun x => \u2203 m \u2208 M', \u2203 s : p, IsLocalizedModule.mk' f m s = x",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem default_eq : default = \"\" := rfl\n@[simp] theorem length_mk (s : List Char) : (String.mk s).length = s.length := rfl\n@[simp] theorem length_empty : \"\".length = 0 := rfl\n@[simp] theorem length_singleton (c : Char) : (String.singleton c).length = 1 := rfl\n@[simp] theorem length_push (c : Char) : (String.push s c).length = s.length + 1 := by\n  rw [push, length_mk, List.length_append, List.length_singleton, Nat.succ.injEq]\n  rfl\n@[simp] theorem length_pushn (c : Char) (n : Nat) : (pushn s c n).length = s.length + n := by\n  unfold pushn; induction n <;> simp [Nat.repeat, Nat.add_assoc, *]\n@[simp] theorem length_append (s t : String) : (s ++ t).length = s.length + t.length := by\n  simp only [length, append, List.length_append]\n@[simp] theorem data_push (s : String) (c : Char) : (s.push c).data = s.data ++ [c] := rfl\n@[simp] theorem data_append (s t : String) : (s ++ t).data = s.data ++ t.data := rfl\nattribute [simp] toList\ntheorem lt_iff {s t : String}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "default_eq",
+    "has_proof": true
+  }
+}

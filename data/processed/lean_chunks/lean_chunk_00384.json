@@ -1,0 +1,9 @@
+{
+  "content": "instance isMonad : Monad LazyList :=\n{ pure := @LazyList.pure, bind := @LazyList.bind, map := @LazyList.map }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lazylist.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lazylist.lean",
+    "definition_name": "isMonad"
+  }
+}

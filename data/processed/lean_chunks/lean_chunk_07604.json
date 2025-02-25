@@ -1,0 +1,10 @@
+{
+  "content": "| oldAtom ih1 ih2 ih3 ih4 ih5 =>\n    simp_all only [true_implies]\n    next idx' _ _ _ =>\n    replace hidx : idx \u2264 idx' := by omega\n    cases Nat.eq_or_lt_of_le hidx with\n    | inl hidxeq =>\n      simp only [hidxeq, ih3, Decl.atom.injEq] at heq\n      rw [\u2190 heq]\n      apply Exists.intro\n      assumption\n    | inr hlt => apply ih5 <;> assumption\n  | const ih1 ih2 ih3 ih4 =>\n    next idx' _ _ =>\n    replace hidx : idx \u2264 idx' := by omega\n    cases Nat.eq_or_lt_of_le hidx with\n    | inl hidxeq => simp [hidxeq, ih3] at heq\n    | inr hlt => apply ih4 <;> assumption\n  | gate ih1 ih2 ih3 ih4 =>\n    next idx' _ _ _ _ _ =>\n    replace hidx : idx \u2264 idx' := by omega\n    cases Nat.eq_or_lt_of_le hidx with\n    | inl hidxeq => simp [hidxeq, ih3] at heq\n    | inr hlt => apply ih4 <;> assumption\nend State\nstructure State (\u03b1 : Type) [DecidableEq \u03b1] [Hashable \u03b1] (decls : Array (Decl \u03b1)) (idx : Nat) where\n  max : Nat\n  map : HashMap \u03b1 Nat\n  inv1 : State.Inv1 max map\n  inv2 : State.Inv2 decls idx map",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_name": "Inv2",
+    "has_proof": true
+  }
+}

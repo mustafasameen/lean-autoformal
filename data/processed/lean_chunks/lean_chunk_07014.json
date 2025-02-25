@@ -1,0 +1,9 @@
+{
+  "content": "let doc \u2190 readDoc\n  let some data := param.data?\n    | throw (RequestError.invalidParams \"Expected a data field on CodeAction.\")\n  let data : CodeActionResolveData \u2190 liftExcept <| Except.mapError RequestError.invalidParams <| fromJson? data\n  let pos := doc.meta.text.lspPosToUtf8Pos data.params.range.end\n  withWaitFindSnap doc (fun s => s.endPos \u2265 pos)\n    (notFoundX := throw <| RequestError.internalError \"snapshot not found\")\n    fun snap => do\n      let cap \u2190 match (\u2190 builtinCodeActionProviders.get).find? data.providerName with\n        | some cap => pure cap\n        | none     => RequestM.runCoreM snap <| evalCodeActionProvider data.providerName\n      let cas \u2190 cap data.params snap\n      let some ca := cas[data.providerResultIndex]?\n        | throw <| RequestError.internalError s!\"Failed to resolve code action index {data.providerResultIndex}.\"\n      let some lazy := ca.lazy?\n        | throw <| RequestError.internalError s!\"Can't resolve",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_name": "CodeActionProvider"
+  }
+}

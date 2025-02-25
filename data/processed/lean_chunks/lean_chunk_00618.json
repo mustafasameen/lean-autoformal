@@ -1,0 +1,9 @@
+{
+  "content": "structure p (n : Int)\nexample : p 42 := by\n  norm_cast\n  guard_target = p 42\n  exact \u27e8\u27e9\nexample : an + bn = 1 \u2194 (an + bn : Int) = 1 := by norm_cast\nexample (h : bn \u2264 an) : an - bn = 1 \u2194 (an - bn : Int) = 1 := by norm_cast\nexample (k : Nat) {x y : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/norm_cast.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/norm_cast.lean",
+    "definition_name": "p"
+  }
+}

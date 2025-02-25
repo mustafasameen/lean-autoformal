@@ -1,0 +1,9 @@
+{
+  "content": "| _,                         _     => none\ndef getTailPos? (info : SourceInfo) (canonicalOnly := false) : Option String.Pos :=\n  match info, canonicalOnly with\n  | original (endPos := endPos) ..,  _\n  | synthetic (endPos := endPos) (canonical := true) .., _\n  | synthetic (endPos := endPos) .., false => some endPos\n  | _,                               _     => none\ndef getTrailing? (info : SourceInfo) : Option Substring :=\n  match info with\n  | original (trailing := trailing) .. => some trailing\n  | _                                  => none\ndef getTrailingTailPos? (info : SourceInfo) (canonicalOnly := false) : Option String.Pos :=\n  match info.getTrailing? with\n  | some trailing => some trailing.stopPos\n  | none          => info.getTailPos? canonicalOnly\nend SourceInfo\nabbrev SyntaxNodeKind := Name\ninductive Syntax.Preresolved where\n  | decl (n : Name) (fields : List String)\ninductive Syntax where\n  | missing : Syntax",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "nonBacktrackable"
+  }
+}

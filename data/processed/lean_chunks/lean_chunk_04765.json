@@ -1,0 +1,10 @@
+{
+  "content": "theorem sub_one_lt_of_le {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "sub_one_lt_of_le",
+    "has_proof": false
+  }
+}

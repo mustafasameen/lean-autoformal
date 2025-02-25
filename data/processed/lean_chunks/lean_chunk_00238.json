@@ -1,0 +1,9 @@
+{
+  "content": "def s :=\n  myFun 3 <|> myFun 4\n#print s",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/eagerCoeExpansion.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/eagerCoeExpansion.lean",
+    "definition_name": "s"
+  }
+}

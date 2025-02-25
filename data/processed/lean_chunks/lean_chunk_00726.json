@@ -1,0 +1,10 @@
+{
+  "content": "theorem rotate_unit_6 {x : BitVec 64}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_shift.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_shift.lean",
+    "definition_name": "rotate_unit_6",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive RequestID where\n  | str (s : String)\n  | num (n : JsonNumber)\n  | null\n  deriving Inhabited, BEq, Ord\ninstance : OfNat RequestID n := \u27e8RequestID.num n\u27e9\ninstance : ToString RequestID where\n  toString\n  | RequestID.str s => s!\"\\\"{s}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/JsonRpc.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/JsonRpc.lean",
+    "definition_name": "RequestID"
+  }
+}

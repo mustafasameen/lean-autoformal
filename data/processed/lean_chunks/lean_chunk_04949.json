@@ -1,0 +1,10 @@
+{
+  "content": "theorem dropLast_cons_of_ne_nil {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "dropLast_cons_of_ne_nil",
+    "has_proof": false
+  }
+}

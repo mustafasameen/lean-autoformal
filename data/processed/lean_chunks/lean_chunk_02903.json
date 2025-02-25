@@ -1,0 +1,9 @@
+{
+  "content": "class resolution maintain term indices where reducible declarations are expanded.\"\n}\nprivate def validate (declName : Name) (status : ReducibilityStatus) (attrKind : AttributeKind) : CoreM Unit := do\n  let suffix := \"use `set_option allowUnsafeReducibility true` to override reducibility status validation\"\n  unless allowUnsafeReducibility.get (\u2190 getOptions) do\n    match (\u2190 getConstInfo declName) with\n    | .defnInfo _ =>\n      let statusOld := getReducibilityStatusCore (\u2190 getEnv) declName\n      match attrKind with\n      | .scoped =>\n        throwError \"failed to set reducibility status for `{declName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ReducibilityAttrs.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ReducibilityAttrs.lean",
+    "definition_name": "resolution"
+  }
+}

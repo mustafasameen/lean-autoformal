@@ -1,0 +1,10 @@
+{
+  "content": "private def ExtState := IO.Ref (Option (LazyDiscrTree (Name \u00d7 RwDirection)))\nprivate builtin_initialize ExtState.default : IO.Ref (Option (LazyDiscrTree (Name \u00d7 RwDirection))) \u2190 do\n  IO.mkRef .none\nprivate instance : Inhabited ExtState where\n  default := ExtState.default\nprivate builtin_initialize ext : EnvExtension ExtState \u2190\n  registerEnvExtension (IO.mkRef .none)\nprivate def constantsPerImportTask : Nat := 6500\ndef incPrio : Nat \u2192 Name \u00d7 RwDirection \u2192 Name \u00d7 Bool \u00d7 Nat\n| q, (nm, d) =>\n  match d with\n  | .forward => (nm, false, 2 * q)\n  | .backward => (nm, true, q)\nstructure RewriteResult where\n  expr : Expr\n  weight : Nat\n  mctx : MetavarContext\n  rfl? : Bool\nprivate def RewriteResult.ppResult (r : RewriteResult) : MetaM String :=\n  return (\u2190 ppExpr r.result.eNew).pretty\ndef solveByElim (goals : List MVarId) (depth : Nat := 6) : MetaM PUnit := do\n  let cfg : SolveByElimConfig := { maxDepth := depth, exfalso := false, symm := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "forwardWeight",
+    "has_proof": false
+  }
+}

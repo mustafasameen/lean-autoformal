@@ -1,0 +1,9 @@
+{
+  "content": "structure ConfigItemView where\n  ref : Syntax\n  option : Ident\n  value : Term\nprivate def mkConfigItemViews (c : TSyntaxArray ``configItem) : Array ConfigItemView :=\n  c.map fun item =>\n    match item with\n    | `(configItem| ($option:ident := $value)) => { ref := item, option, value }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Config.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Config.lean",
+    "definition_name": "ConfigItemView"
+  }
+}

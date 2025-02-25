@@ -1,0 +1,10 @@
+{
+  "content": "theorem isLeft_iff : x.isLeft \u2194 \u2203 y, x = Sum.inl y := by cases x <;> simp\ntheorem isRight_iff : x.isRight \u2194 \u2203 y, x = Sum.inr y := by cases x <;> simp\nend get\ntheorem inl.inj_iff : (inl a : \u03b1 \u2295 \u03b2) = inl b \u2194 a = b := \u27e8inl.inj, congrArg _\u27e9\ntheorem inr.inj_iff : (inr a : \u03b1 \u2295 \u03b2) = inr b \u2194 a = b := \u27e8inr.inj, congrArg _\u27e9\ntheorem inl_ne_inr : inl a \u2260 inr b := nofun\ntheorem inr_ne_inl : inr b \u2260 inl a := nofun\n@[simp] theorem map_map (f' : \u03b1' \u2192 \u03b1'') (g' : \u03b2' \u2192 \u03b2'') (f : \u03b1 \u2192 \u03b1') (g : \u03b2 \u2192 \u03b2') :\n    \u2200 x : Sum \u03b1 \u03b2, (x.map f g).map f' g' = x.map (f' \u2218 f) (g' \u2218 g)\n  | inl _ => rfl\n  | inr _ => rfl\n@[simp] theorem map_comp_map (f' : \u03b1' \u2192 \u03b1'') (g' : \u03b2' \u2192 \u03b2'') (f : \u03b1 \u2192 \u03b1') (g : \u03b2 \u2192 \u03b2') :\n    Sum.map f' g' \u2218 Sum.map f g = Sum.map (f' \u2218 f) (g' \u2218 g) :=\n  funext <| map_map f' g' f g\n@[simp] theorem map_id_id : Sum.map (@id \u03b1) (@id \u03b2) = id :=\n  funext fun x => Sum.recOn x (fun _ => rfl) fun _ => rfl\ntheorem elim_map {f\u2081 : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Lemmas.lean",
+    "definition_name": "isLeft_iff",
+    "has_proof": true
+  }
+}

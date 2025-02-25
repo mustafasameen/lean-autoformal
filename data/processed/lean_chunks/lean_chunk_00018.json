@@ -1,0 +1,9 @@
+{
+  "content": "def myLen : List Tree \u2192 Nat \u2192 Nat\n  | .node .. :: xs, r => myLen xs (r + 1)\n  | _ :: xs,        r => myLen xs r\n  | [],             r => r\ndef main (xs : List String) : IO Unit := do\n  let [n, freq] \u2190 pure xs | throw <| IO.userError \"invalid input\"\n  let n     := n.toNat!\n  let freq  := freq.toNat!\n  let freq  := if freq == 0 then 1 else freq\n  let mList := mkMap n freq\n  let v     := fold (fun _ v r => if v then r + 1 else r) mList.head! 0\n  IO.println s!\"{myLen mList 0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap_checkpoint.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap_checkpoint.lean",
+    "definition_name": "Color"
+  }
+}

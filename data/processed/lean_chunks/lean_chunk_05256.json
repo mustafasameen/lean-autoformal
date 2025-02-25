@@ -1,0 +1,10 @@
+{
+  "content": "theorem zip_nil_left : zip ([] : List \u03b1) (l : List \u03b2)  = [] := rfl\n@[simp] theorem zip_nil_right : zip (l : List \u03b1) ([] : List \u03b2)  = [] := by simp [zip, zipWith]\n@[simp] theorem zip_cons_cons : zip (a :: as) (b :: bs) = (a, b) :: zip as bs := rfl\ndef zipWithAll (f : Option \u03b1 \u2192 Option \u03b2 \u2192 \u03b3) : List \u03b1 \u2192 List \u03b2 \u2192 List \u03b3\n  | [], bs => bs.map fun b => f none (some b)\n  | a :: as, [] => (a :: as).map fun a => f (some a) none\n  | a :: as, b :: bs => f a b :: zipWithAll f as bs\n@[simp] theorem zipWithAll_nil :\n    zipWithAll f as [] = as.map fun a => f (some a) none := by\n  cases as <;> rfl\n@[simp] theorem nil_zipWithAll :\n    zipWithAll f [] bs = bs.map fun b => f none (some b) := rfl\n@[simp] theorem zipWithAll_cons_cons :\n    zipWithAll f (a :: as) (b :: bs) = f (some a) (some b) :: zipWithAll f as bs := rfl\ndef unzip : List (\u03b1 \u00d7 \u03b2) \u2192 List \u03b1 \u00d7 List \u03b2\n  | []          => ([], [])\n  | (a, b) :: t => match unzip t with | (as, bs) => (a::as, b::bs)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "zip_nil_left",
+    "has_proof": true
+  }
+}

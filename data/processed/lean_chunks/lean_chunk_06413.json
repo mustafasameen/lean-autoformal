@@ -1,0 +1,9 @@
+{
+  "content": "inductive declaration\"\n  | indType :: _ => forallTelescopeReducing indType.type fun _ r => do\n    let r \u2190 whnfD r\n    match r with\n    | Expr.sort u => return u\n    | _           => throwError \"unexpected inductive type resulting type{indentExpr r}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "declaration"
+  }
+}

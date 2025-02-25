@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_eq_add_one : (\u2203 n, a = n + 1) \u2194 0 < a :=\n  \u27e8fun \u27e8n, h\u27e9 => by omega, fun h => \u27e8a - 1, by omega\u27e9\u27e9\n@[simp] theorem exists_add_one_eq : (\u2203 n, n + 1 = a) \u2194 0 < a :=\n  \u27e8fun \u27e8n, h\u27e9 => by omega, fun h => \u27e8a - 1, by omega\u27e9\u27e9\ntheorem forall_lt_succ_right {p : Nat \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "exists_eq_add_one",
+    "has_proof": true
+  }
+}

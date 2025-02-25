@@ -1,0 +1,9 @@
+{
+  "content": "class FunLike (F : Sort _) (\u03b2 : outParam <| Nat \u2192 Sort _) where\n    coe : F \u2192 \u2200 a, \u03b2 a\n  inductive Secret\n  def Wrapper := Secret\n  inductive Bla | z\n  instance : FunLike Bla (fun _ => Wrapper) := sorry\n  instance (priority := 100) {F \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1891.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1891.lean",
+    "definition_name": "FunLike"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "$uvarsTuple:term := r.2;\n                         match r.1 with\n                         | none => Pure.pure (ensure_expected_type% \"type mismatch, `for`\" PUnit.unit)\n                         | some a => return ensure_expected_type% \"type mismatch, `for`\" a)\n        doSeqToCode (getDoSeqElems (getDoSeq auxDo) ++ doElems)\n      else\n        let forInBody \u2190 liftMacroM <| destructTuple uvars (\u2190 `(r)) forInBody\n        let forInTerm \u2190 if let some h := h? then\n          annotate doFor (\u2190 `(for_in'% $(xs) $uvarsTuple fun $x $h r => $forInBody))\n        else\n          annotate doFor (\u2190 `(for_in% $(xs) $uvarsTuple fun $x r => $forInBody))\n        if doElems.isEmpty then\n          let auxDo \u2190 `(do let r \u2190 $forInTerm:term;\n                           $uvarsTuple:term := r;\n                           Pure.pure (ensure_expected_type% \"type mismatch, `for`\" PUnit.unit))\n          doSeqToCode <| getDoSeqElems (getDoSeq auxDo)\n        else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "return result\nprivate def pu64 : Parser UInt64 := ByteArray.toUInt64LE! <$> take 8\nprivate def pi64 : Parser Int64 := toInt64 <$> take 8\nprivate def pu32 : Parser UInt32 := toUInt32 <$> take 4\nprivate def pi32 : Parser Int32 := toInt32 <$> take 4\nprivate def pu8 : Parser UInt8 := any\nprivate def pbool : Parser Bool := (\u00b7 != 0) <$> pu8\nprivate def parseHeader : Parser Header :=\n  Header.mk\n    <$> (pstring \"TZif\" *> pu8)\n    <*> (take 15 *> pu32)\n    <*> pu32\n    <*> pu32\n    <*> pu32\n    <*> pu32\n    <*> pu32\nprivate def parseLocalTimeType : Parser LocalTimeType :=\n  LocalTimeType.mk\n    <$> pi32\n    <*> pbool\n    <*> pu8\nprivate def parseLeapSecond (p : Parser Int) : Parser LeapSecond :=\n  LeapSecond.mk\n    <$> p\n    <*> pi32\nprivate def parseTransitionTimes (size : Parser Int32) (n : UInt32) : Parser (Array Int32) :=\n  manyN (n.toNat) size\nprivate def parseTransitionIndices (n : UInt32) : Parser (Array UInt8) :=\n  manyN (n.toNat) pu8",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_name": "Header"
+  }
+}

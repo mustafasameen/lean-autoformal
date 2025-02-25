@@ -1,0 +1,10 @@
+{
+  "content": "class MulOneClass (M : Type u) extends One M, Mul M where\n  one_mul : \u2200 a : M, 1 * a = a\n  mul_one : \u2200 a : M, a * 1 = a\ntheorem MulOneClass.ext {M : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1711.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1711.lean",
+    "definition_name": "MulOneClass",
+    "has_proof": false
+  }
+}

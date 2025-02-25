@@ -1,0 +1,9 @@
+{
+  "content": "inductive vec : Nat \u2192 Type where\n  | nil : vec 0\n  | cons : Int \u2192 vec n \u2192 vec n.succ\ndef vec_len : vec n \u2192 Nat\n  | vec.nil => 0\n  | x@(vec.cons h t) => vec_len t + 1\ndef vec_len' : {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/471.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/471.lean",
+    "definition_name": "vec"
+  }
+}

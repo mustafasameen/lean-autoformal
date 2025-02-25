@@ -1,0 +1,9 @@
+{
+  "content": "c.type.instantiateLevelParams c.levelParams ls\ndef instantiateValueLevelParams! (c : ConstantInfo) (ls : List Level) : Expr :=\n  c.value!.instantiateLevelParams c.levelParams ls\nend ConstantInfo\ninductive EnvExtension.AsyncMode where\n  | sync\n  | local\n  | mainOnly\n  | async\n  deriving Inhabited\nstructure EnvExtension (\u03c3 : Type) where private mk ::\n  idx       : Nat\n  mkInitial : IO \u03c3\n  asyncMode : EnvExtension.AsyncMode\n  deriving Inhabited\nnamespace EnvExtension\nprivate builtin_initialize envExtensionsRef : IO.Ref (Array (EnvExtension EnvExtensionState)) \u2190 IO.mkRef #[]\npartial def ensureExtensionsArraySize (exts : Array EnvExtensionState) : IO (Array EnvExtensionState) := do\n  loop exts.size exts\nwhere\n  loop (i : Nat) (exts : Array EnvExtensionState) : IO (Array EnvExtensionState) := do\n    let envExtensions \u2190 envExtensionsRef.get\n    if h : i < envExtensions.size then\n      let s \u2190 envExtensions[i].mkInitial\n      let exts := exts.push s\n      loop (i + 1) exts\n    else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

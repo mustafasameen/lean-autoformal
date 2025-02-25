@@ -1,0 +1,10 @@
+{
+  "content": "theorem getKeyD_eq [BEq \u03b1] {l : AssocList \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/AssocList/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/AssocList/Lemmas.lean",
+    "definition_name": "getKeyD_eq",
+    "has_proof": false
+  }
+}

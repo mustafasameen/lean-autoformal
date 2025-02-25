@@ -1,0 +1,9 @@
+{
+  "content": "instance\ninstance : DecidableEq Pos := show DecidableEq Nat by infer_instance\ninstance : ToString Pos := \u27e8Pos.toString\u27e9\ninstance : EmptyCollection Pos := \u27e8root\u27e9\ninstance : Repr Pos where\n  reprPrec p _ := f!\"Pos.fromString! {repr p.toString}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_name": "instance"
+  }
+}

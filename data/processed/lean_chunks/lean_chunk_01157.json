@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo (n : Nat) : Type\n| nil            : Foo n\n| cons (s: Foo n): Foo n\nnamespace Foo\n@[simp] def bar: {n: Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1193b.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1193b.lean",
+    "definition_name": "Foo"
+  }
+}

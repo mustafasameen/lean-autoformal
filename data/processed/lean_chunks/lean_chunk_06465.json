@@ -1,0 +1,9 @@
+{
+  "content": "inductive family declaration\"\n            return mkAppN indFVar params\n          | some ctorType =>\n            let type \u2190 Term.elabType ctorType\n            trace[Elab.inductive] \"elabType {ctorView.declName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Inductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Inductive.lean",
+    "definition_name": "family"
+  }
+}

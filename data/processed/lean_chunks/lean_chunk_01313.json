@@ -1,0 +1,9 @@
+{
+  "content": "def arrayMkInjEqSnippet :=\n  fun {\u03b1 : Type} (xs : List \u03b1) => Eq.ndrec (motive := fun _ => (Array.mk xs = Array.mk xs)) (Eq.refl (Array.mk xs)) (rfl : xs = xs)\ndef typeAs (\u03b1 : Type u) (a : \u03b1) := ()\nset_option pp.analyze.explicitHoles false in\n#testDelab \u2200 {\u03b1 : Sort u} {\u03b2 : \u03b1 \u2192 Sort v} {f\u2081 f\u2082 : (x : \u03b1) \u2192 \u03b2 x}, (\u2200 (x : \u03b1), f\u2081 x = f\u2082 _) \u2192 f\u2081 = f\u2082\n  expecting \u2200 {\u03b1 : Sort u} {\u03b2 : \u03b1 \u2192 Sort v} {f\u2081 f\u2082 : (x : \u03b1) \u2192 \u03b2 x}, (\u2200 (x : \u03b1), f\u2081 x = f\u2082 x) \u2192 f\u2081 = f\u2082\n#testDelabN Nat.brecOn\n#testDelabN Nat.below\n#testDelabN Nat.mod_lt\n#testDelabN Array.qsort\n#testDelabN List.partition\n#testDelabN List.partition.loop\n#testDelabN StateT.modifyGet\n#testDelabN Nat.gcd_one_left\n#testDelabN List.hasDecidableLt\n#testDelabN Lean.Xml.parse\n#testDelabN Add.noConfusionType\n#testDelabN List.filterMapM.loop\n#testDelabN instMonadReaderOfOfMonadLift\n#testDelabN instInhabitedPUnit\n#testDelabN Lean.Syntax.getOptionalIdent?\n#testDelabN Lean.Meta.ppExpr\n#testDelabN MonadLift.noConfusion\n#testDelabN MonadLift.noConfusionType",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_name": "arrayMkInjEqSnippet"
+  }
+}

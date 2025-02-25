@@ -1,0 +1,10 @@
+{
+  "content": "unless checkTypeFVars thmVars fvarsFound classArg do\n            return false\n      return true\ninductive CheckCoverageResult where\n|\n    missing (pos : List Nat)\nprivate def checkCoverage (thmProof : Expr) (numParams : Nat) (bvarsFound : Std.HashSet Nat) : MetaM CheckCoverageResult := do\n  if bvarsFound.size == numParams then return .ok\n  forallBoundedTelescope (\u2190 inferType thmProof) numParams fun xs _ => do\n    assert! numParams == xs.size\n    let patternVars := bvarsFound.toList.map fun bidx => xs[numParams - bidx - 1]!.fvarId!\n    let thmVars : FVarIdSet := RBTree.ofList <| xs.toList.map (\u00b7.fvarId!)\n    let update (fvarsFound : FVarIdSet) (e : Expr) : FVarIdSet :=\n      (collectFVars {} e).fvarIds.foldl (init := fvarsFound) fun s fvarId =>\n        if thmVars.contains fvarId then s.insert fvarId else s\n    let mut fvarsFound : FVarIdSet := RBTree.ofList patternVars\n    for patternVar in patternVars do\n      let type \u2190 patternVar.getType",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

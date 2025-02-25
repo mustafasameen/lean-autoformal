@@ -1,0 +1,9 @@
+{
+  "content": "structure UnificationConstraint where\n  lhs : Expr\n  rhs : Expr\nstructure UnificationHint where\n  pattern     : UnificationConstraint\n  constraints : List UnificationConstraint\nprivate partial def decodeUnificationHint (e : Expr) : ExceptT MessageData Id UnificationHint := do\n  decode e #[]\nwhere\n  decodeConstraint (e : Expr) : ExceptT MessageData Id UnificationConstraint :=\n    match e.eq? with\n    | some (_, lhs, rhs) => return UnificationConstraint.mk lhs rhs\n    | none => throw m!\"invalid unification hint constraint, unexpected term{indentExpr e}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/UnificationHint.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/UnificationHint.lean",
+    "definition_name": "UnificationConstraint"
+  }
+}

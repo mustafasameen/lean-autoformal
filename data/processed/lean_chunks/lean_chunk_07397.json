@@ -1,0 +1,10 @@
+{
+  "content": "have f_liff_f' : Liff \u03b1 f f' := rupAdd_sound f c rupHints f' f_readyForRupAdd heq\n  intro p pf\n  rw [f_liff_f' p] at pf\n  exact ih p pf\ntheorem addRatCaseSound [DecidableEq \u03b1] [Clause \u03b1 \u03b2] [Entails \u03b1 \u03c3] [Formula \u03b1 \u03b2 \u03c3] (f : \u03c3)\n    (f_readyForRupAdd : ReadyForRupAdd f) (f_readyForRatAdd : ReadyForRatAdd f) (c : \u03b2)\n    (pivot : Literal \u03b1) (f' : \u03c3) (rupHints : Array Nat) (ratHints : Array (Nat \u00d7 Array Nat))\n    (pivot_limplies_c : Limplies \u03b1 pivot c) (heq : performRatAdd f c pivot rupHints ratHints = (f', true))\n    (restPrf : List (Action \u03b2 \u03b1)) (restPrfWellFormed : \u2200 (a : Action \u03b2 \u03b1), a \u2208 restPrf \u2192 WellFormedAction a)\n    (ih : \u2200 (f : \u03c3),\n      ReadyForRupAdd f \u2192 ReadyForRatAdd f \u2192 (\u2200 (a : Action \u03b2 \u03b1), a \u2208 restPrf \u2192 WellFormedAction a) \u2192\n      lratChecker f restPrf = success \u2192 Unsatisfiable \u03b1 f)\n    (f'_success : lratChecker f' restPrf = success) :\n    Unsatisfiable \u03b1 f := by\n  rw [limplies_iff_mem] at pivot_limplies_c",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_name": "specialize",
+    "has_proof": true
+  }
+}

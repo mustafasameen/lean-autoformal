@@ -1,0 +1,9 @@
+{
+  "content": "match e with\n  | app fn arg => if ptrEq fn newFn && ptrEq arg newArg then e else mkApp newFn newArg\n  | _          => panic! \"application expected\"\n@[implemented_by updateApp!Impl]\ndef updateApp! (e : Expr) (newFn : Expr) (newArg : Expr) : Expr :=\n  match e with\n  | app _ _ => mkApp newFn newArg\n  | _       => panic! \"application expected\"\n@[inline] def updateFVar! (e : Expr) (fvarIdNew : FVarId) : Expr :=\n  match e with\n  | .fvar fvarId => if fvarId == fvarIdNew then e else .fvar fvarIdNew\n  | _            => panic! \"fvar expected\"\n@[inline] private unsafe def updateConst!Impl (e : Expr) (newLevels : List Level) : Expr :=\n  match e with\n  | const n ls => if ptrEqList ls newLevels then e else mkConst n newLevels\n  | _          => panic! \"constant expected\"\n@[implemented_by updateConst!Impl]\ndef updateConst! (e : Expr) (newLevels : List Level) : Expr :=\n  match e with\n  | const n _ => mkConst n newLevels\n  | _         => panic! \"constant expected\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

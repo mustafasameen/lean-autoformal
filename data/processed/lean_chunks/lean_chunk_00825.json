@@ -1,0 +1,10 @@
+{
+  "content": "| op a b =>\n        simp [denote, sort.loop]\n        match h:sort.swap a b with\n        | (r\u2081, r\u2082) =>\n          have hs := denote_swap a b\n          rw [h] at hs\n          simp [denote] at hs\n          simp [denote, ih]\n          assumption\n  denote_swap (e\u2081 e\u2082 : Expr) : denote ctx (Expr.op (sort.swap e\u2081 e\u2082).1 (sort.swap e\u2081 e\u2082).2) = denote ctx (Expr.op e\u2081 e\u2082) := by\n    induction e\u2082 generalizing e\u2081 with\n    | op a b ih' ih =>\n      clear ih'\n      cases e\u2081 with\n      | var i =>\n        cases a with\n        | var j =>\n          by_cases h : i > j\n          focus\n            simp [sort.swap, h]\n            match h:sort.swap (var j) b with\n            | (r\u2081, r\u2082) => simp; rw [denote_op (a := var i), \u2190 ih]; simp [h, denote]; rw [Context.left_comm]\n          focus\n            simp [sort.swap, h]\n            match h:sort.swap (var i) b with\n            | (r\u2081, r\u2082) =>\n              simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

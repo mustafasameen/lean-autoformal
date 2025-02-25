@@ -1,0 +1,10 @@
+{
+  "content": "def ctx := List (Var \u00d7 type)\nopen type term in\ninductive typing : ctx \u2192 term \u2192 type \u2192 Prop where\n| var  : typing ((x, A) :: \u0393) (var x) A\n  | arri : typing ((x, A) :: \u0393) M B \u2192 typing \u0393 (lam x A M) (arrow A B)\n  | arre : typing \u0393 M (arrow A B) \u2192 typing \u0393 N A \u2192 typing \u0393 (app M N) B\nopen type term in\ntheorem no_\u03b4 : \u00ac \u2203 A B, typing nil (lam x A (app (var x) (var x))) (arrow A B) :=\n  fun h => match h with\n  | Exists.intro A (Exists.intro B h) => match h with\n    | typing.arri h => match h with\n      | typing.arre (A := T) h\u2081 h\u2082 => match h\u2082 with\n        | typing.var => nomatch h\u2081\nnamespace STLC",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1022.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1022.lean",
+    "definition_name": "ctx",
+    "has_proof": false
+  }
+}

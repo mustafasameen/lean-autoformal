@@ -1,0 +1,9 @@
+{
+  "content": "structure Magma where\n  carrier   : Type u\n  mul : carrier \u2192 carrier \u2192 carrier\ninstance : CoeSort Magma (Type u) where\n  coe m := m.carrier\ndef mul {s : Magma}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/unifHintAndTC.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/unifHintAndTC.lean",
+    "definition_name": "Magma"
+  }
+}

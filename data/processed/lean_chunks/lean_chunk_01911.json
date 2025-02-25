@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex2 : { c1 with z := 2 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInst3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInst3.lean",
+    "definition_name": "ex2",
+    "has_proof": false
+  }
+}

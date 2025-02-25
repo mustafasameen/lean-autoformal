@@ -1,0 +1,9 @@
+{
+  "content": "structure B extends A where\n  y : Nat\n  x := 20\ndef f (a : Nat) : B :=\n  { y := a }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structPrivateFieldBug2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structPrivateFieldBug2.lean",
+    "definition_name": "B"
+  }
+}

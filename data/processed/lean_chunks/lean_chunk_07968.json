@@ -1,0 +1,10 @@
+{
+  "content": "theorem length_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.WF) :\n    m.toList.length = m.size :=\n  HashMap.Raw.length_keys h.1\n@[simp]\ntheorem isEmpty_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.WF) :\n    m.toList.isEmpty = m.isEmpty :=\n  HashMap.Raw.isEmpty_keys h.1\n@[simp]\ntheorem contains_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_name": "length_toList",
+    "has_proof": false
+  }
+}

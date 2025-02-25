@@ -1,0 +1,9 @@
+{
+  "content": "inductive Continuation\n  | exit   : Continuation\n  | seq    : Program \u2192 Continuation \u2192 Continuation\n  | decl   : String \u2192 Continuation \u2192 Continuation\n  | fork   : Expression \u2192 Program \u2192 Program \u2192 Continuation \u2192 Continuation\n  | loop   : Expression \u2192 Program \u2192 Continuation \u2192 Continuation\n  | unOp   : UnOp \u2192 Expression \u2192 Continuation \u2192 Continuation\n  | binOp\u2081 : BinOp \u2192 Expression \u2192 Continuation \u2192 Continuation\n  | binOp\u2082 : BinOp \u2192 Value \u2192 Continuation \u2192 Continuation\n  | app    : Expression \u2192 NEList Expression \u2192 Continuation \u2192 Continuation\n  | block  : Context \u2192 Continuation \u2192 Continuation\n  | print  : Continuation \u2192 Continuation\ninductive State\n  | ret   : Value      \u2192 Context \u2192 Continuation \u2192 State\n  | prog  : Program    \u2192 Context \u2192 Continuation \u2192 State\n  | expr  : Expression \u2192 Context \u2192 Continuation \u2192 State\n  | error : ErrorType  \u2192 Context \u2192 String \u2192 State\n  | done  : Value      \u2192 Context \u2192 State\ndef cantEvalAsBool (e : Expression) (v : Value) : String :=\n  s!\"I can't evaluate '{e}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_name": "Continuation"
+  }
+}

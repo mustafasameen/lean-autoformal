@@ -1,0 +1,10 @@
+{
+  "content": "theorem getKeyD_unitOfList_of_contains_eq_false [EquivBEq \u03b1] [LawfulHashable \u03b1]\n    {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_name": "getKeyD_unitOfList_of_contains_eq_false",
+    "has_proof": false
+  }
+}

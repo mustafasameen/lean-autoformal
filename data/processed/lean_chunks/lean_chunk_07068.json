@@ -1,0 +1,9 @@
+{
+  "content": "def create := 1\ndef change := 2\ndef delete := 4\nend FileSystemWatcher\nstructure DidChangeWatchedFilesRegistrationOptions where\n  watchers : Array FileSystemWatcher\n  deriving FromJson, ToJson\ninductive FileChangeType\n  | Created\n  | Changed\n  | Deleted\ninstance : FromJson FileChangeType where\n  fromJson? j := do\n    match (\u2190 fromJson? j : Nat) with\n      | 1 => return FileChangeType.Created\n      | 2 => return FileChangeType.Changed\n      | 3 => return FileChangeType.Deleted\n      | _ => throw s!\"expected 1, 2, or 3, got {j}\"\ninstance : ToJson FileChangeType where\n  toJson\n    | FileChangeType.Created => toJson 1\n    | FileChangeType.Changed => toJson 2\n    | FileChangeType.Deleted => toJson 3\nstructure FileEvent where\n  uri : DocumentUri\n  type : FileChangeType\n  deriving FromJson, ToJson\nstructure DidChangeWatchedFilesParams where\n  changes : Array FileEvent\n  deriving FromJson, ToJson\nend Lsp\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Workspace.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Workspace.lean",
+    "definition_name": "create"
+  }
+}

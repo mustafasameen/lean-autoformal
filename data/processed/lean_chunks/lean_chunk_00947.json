@@ -1,0 +1,9 @@
+{
+  "content": "class MulComm (\u03b1 : Type u) [Mul \u03b1] : Prop where\n    mulComm : {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mulcomm.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mulcomm.lean",
+    "definition_name": "MulComm"
+  }
+}

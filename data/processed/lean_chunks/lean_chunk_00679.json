@@ -1,0 +1,9 @@
+{
+  "content": "instance one [One M\u2081] : One S' :=\n  \u27e8\u27e81, sorry\u27e9\u27e9\ninstance zero [Zero M\u2081] : Zero S' :=\n  \u27e8\u27e80, sorry\u27e9\u27e9\nend\nnamespace AddSubmonoidClass\ninstance nSMul {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "one"
+  }
+}

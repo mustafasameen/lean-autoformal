@@ -1,0 +1,9 @@
+{
+  "content": "def Ordinal := Bounded.LE 0 59\n  deriving Repr, BEq, LE, LT\ninstance : OfNat Ordinal n :=\n  inferInstanceAs (OfNat (Bounded.LE 0 (0 + (59 : Nat))) n)\ninstance : Inhabited Ordinal where\n  default := 0\ninstance {x y : Ordinal} : Decidable (x \u2264 y) :=\n  inferInstanceAs (Decidable (x.val \u2264 y.val))\ninstance {x y : Ordinal} : Decidable (x < y) :=\n  inferInstanceAs (Decidable (x.val < y.val))\ndef Offset : Type := UnitVal 60\n  deriving Repr, BEq, Inhabited, Add, Sub, Neg, ToString, LT, LE\ninstance { x y : Offset } : Decidable (x \u2264 y) :=\n  inferInstanceAs (Decidable (x.val \u2264 y.val))\ninstance { x y : Offset } : Decidable (x < y) :=\n  inferInstanceAs (Decidable (x.val < y.val))\ninstance : OfNat Offset n :=\n  \u27e8UnitVal.ofInt <| Int.ofNat n\u27e9\nnamespace Ordinal\n@[inline]\ndef ofInt (data : Int) (h : 0 \u2264 data \u2227 data \u2264 59) : Ordinal :=\n  Bounded.LE.mk data h\n@[inline]\ndef ofNat (data : Nat) (h : data \u2264 59) : Ordinal :=\n  Bounded.LE.ofNat data h\n@[inline]\ndef ofFin (data : Fin 60) : Ordinal :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Minute.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Minute.lean",
+    "definition_name": "Ordinal"
+  }
+}

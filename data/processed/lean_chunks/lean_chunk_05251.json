@@ -1,0 +1,10 @@
+{
+  "content": "theorem idxOf_nil [BEq \u03b1] : ([] : List \u03b1).idxOf x = 0 := rfl\n@[deprecated idxOf_nil (since := \"2025-01-29\")]\ntheorem indexOf_nil [BEq \u03b1] : ([] : List \u03b1).idxOf x = 0 := rfl\ndef findIdx? (p : \u03b1 \u2192 Bool) (l : List \u03b1) : Option Nat :=\n  go l 0\nwhere\n  go : List \u03b1 \u2192 Nat \u2192 Option Nat\n  | [], _ => none\n  | a :: l, i => if p a then some i else go l (i + 1)\n@[inline] def idxOf? [BEq \u03b1] (a : \u03b1) : List \u03b1 \u2192 Option Nat := findIdx? (\u00b7 == a)\n@[inline] def findFinIdx? (p : \u03b1 \u2192 Bool) (l : List \u03b1) : Option (Fin l.length) :=\n  go l 0 (by simp)\nwhere\n  go : (l' : List \u03b1) \u2192 (i : Nat) \u2192 (h : l'.length + i = l.length) \u2192 Option (Fin l.length)\n  | [], _, _ => none\n  | a :: l, i, h =>\n    if p a then\n      some \u27e8i, by\n        simp only [Nat.add_comm _ i, \u2190 Nat.add_assoc] at h\n        exact Nat.lt_of_add_right_lt (Nat.lt_of_succ_le (Nat.le_of_eq h))\u27e9\n    else\n      go l (i + 1) (by simp at h; simpa [\u2190 Nat.add_assoc, Nat.add_right_comm] using h)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "idxOf_nil",
+    "has_proof": true
+  }
+}

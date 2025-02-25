@@ -1,0 +1,10 @@
+{
+  "content": "unless (\u2190 checkCoverage proof xs.size {}) matches .ok do\n    return none\n  let go? : CollectorM (Option Expr) := do\n    for place in searchPlaces do\n      let place \u2190 preprocessPattern place\n      if let some r \u2190 visit? place then\n        return r\n    return none\n  let (some p, s) \u2190 go? { proof, xs } |>.run' {} |>.run {}\n    | return none\n  return some (p, s.symbols.toList)\nwhere\n  visit? (e : Expr) : CollectorM (Option Expr) := do\n    match e with\n    | .app .. =>\n      let f := e.getAppFn\n      if (\u2190 isPatternFnCandidate f) then\n        let e \u2190 NormalizePattern.normalizePattern e\n        return some e\n      else\n        let args := e.getAppArgs\n        for arg in args, flag in (\u2190 NormalizePattern.getPatternSupportMask f args.size) do\n          unless flag do\n            if let some r \u2190 visit? arg then\n              return r\n        return none\n    | .forallE _ d b _ =>\n      if (\u2190 pure e.isArrow <&&> isProp d <&&> isProp b) then\n        if let some d \u2190 visit? d then return d",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

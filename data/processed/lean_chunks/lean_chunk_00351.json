@@ -1,0 +1,9 @@
+{
+  "content": "| diteBool\n  | condBool\n  deriving BEq, Repr\ndef IteOp.condType (op : IteOp) : BoolType :=\n  match op with\n  | .iteProp | .diteProp | .iteBool | .diteBool => .prop\n  | .condBool => .bool\ndef IteOp.resultType (op : IteOp) : BoolType :=\n  match op with\n  | .iteProp | .diteProp => .prop\n  | .iteBool | .diteBool | .condBool => .bool\ninductive BoolVal where\n  | trueVal (tp : BoolType)\n  | falseVal (tp : BoolType)\n  | var (d : VarDecl BoolType)\n  | boolToProp (t : BoolVal)\ndef isComplement (x y : BoolVal) : Bool :=\n  match x, y with\n  | .not x _, y => x == y\n  | x, .not y _ => x == y\n  | .eq a b _, .ne c d _ => a.typeOf == c.typeOf && a == b && c == d\n  | .ne a b _, .eq c d _ => a.typeOf == c.typeOf && a == b && c == d\n  | eq_true x, eq_false y => x == y\n  | eq_false x, eq_true y => x == y\n  | _, _ => false\ndef resolveEq (thunks : List (term \u2192 term \u2192 Option term)) (x y : term) : Option term :=\n  match thunks with\n  | [] => none\n  | fn :: thunks =>\n    match fn x y with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "BoolType"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Raw (\u03b1 : Type u) (cmp : \u03b1 \u2192 \u03b1 \u2192 Ordering := by exact compare) where\nstructure WF (t : Raw \u03b1 cmp) where\n@[inline, inherit_doc TreeSet.min!]\ndef min! [Inhabited \u03b1] (t : Raw \u03b1 cmp) : \u03b1 :=\n  TreeMap.Raw.minKey! t.inner\n@[inline, inherit_doc TreeSet.minD]\ndef minD (t : Raw \u03b1 cmp) (fallback : \u03b1) : \u03b1 :=\n  TreeMap.Raw.minKeyD t.inner fallback\n@[inline, inherit_doc TreeSet.max?]\ndef max? (t : Raw \u03b1 cmp) : Option \u03b1 :=\n  TreeMap.Raw.maxKey? t.inner\n@[inline, inherit_doc TreeSet.max!]\ndef max! [Inhabited \u03b1] (t : Raw \u03b1 cmp) : \u03b1 :=\n  TreeMap.Raw.maxKey! t.inner\n@[inline, inherit_doc TreeSet.maxD]\ndef maxD (t : Raw \u03b1 cmp) (fallback : \u03b1) : \u03b1 :=\n  TreeMap.Raw.maxKeyD t.inner fallback\n@[inline, inherit_doc TreeSet.atIdx?]\ndef atIdx? (t : Raw \u03b1 cmp) (n : Nat) : Option \u03b1 :=\n  TreeMap.Raw.keyAtIndex? t.inner n\n@[inline, inherit_doc TreeSet.atIdx!]\ndef atIdx! [Inhabited \u03b1] (t : Raw \u03b1 cmp) (n : Nat) : \u03b1 :=\n  TreeMap.Raw.keyAtIndex! t.inner n\n@[inline, inherit_doc TreeSet.atIdxD]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Raw.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Raw.lean",
+    "definition_name": "Raw"
+  }
+}

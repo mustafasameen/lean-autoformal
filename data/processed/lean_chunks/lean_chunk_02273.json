@@ -1,0 +1,10 @@
+{
+  "content": "theorem find_spec : p (Nat.find H) := sorry\nprotected theorem find_min' {m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_2.lean",
+    "definition_name": "find_spec",
+    "has_proof": false
+  }
+}

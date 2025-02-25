@@ -1,0 +1,10 @@
+{
+  "content": "inductive LazyList (\u03b1 : Type u)\n| nil : LazyList \u03b1\n| cons (hd : \u03b1) (tl : LazyList \u03b1) : LazyList \u03b1\n| delayed (t : Thunk (LazyList \u03b1)) : LazyList \u03b1\nnamespace LazyList\ndef force : LazyList \u03b1 \u2192 Option (\u03b1 \u00d7 LazyList \u03b1)\n| delayed as => force as.get\n| nil        => none\n| cons a as  => some (a,as)\ndef length : LazyList \u03b1 \u2192 Nat\n| nil        => 0\n| cons _ as  => length as + 1\n| delayed as => length as.get\ntheorem F_force_some_len_minus_one {L L' : LazyList \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/james1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/james1.lean",
+    "definition_name": "LazyList",
+    "has_proof": false
+  }
+}

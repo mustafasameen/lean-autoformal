@@ -1,0 +1,10 @@
+{
+  "content": "toNat_shiftConcat_eq_of_lt (qr.wr_lt_w h) h.hrWidth,\n        toNat_shiftConcat_eq_of_lt (qr.wr_lt_w h) h.hqWidth]\n      omega\n  \u00b7 simp only [rltd, \u2193reduceIte]\n    constructor <;> try bv_omega\n    case neg.hrLtDivisor =>\n      simp only [lt_def, Nat.not_lt] at rltd\n      rw [BitVec.toNat_sub_of_le rltd,\n        toNat_shiftConcat_eq_of_lt (hk := qr.wr_lt_w h) (hx := h.hrWidth),\n        Nat.mul_comm]\n      apply two_mul_add_sub_lt_of_lt_of_lt_two <;> bv_omega\n    case neg.hrWidth =>\n      simp only\n      have hdr' : d \u2264 (qr.r.shiftConcat (n.getLsbD (qr.wn - 1))) :=\n        BitVec.not_lt_iff_le.mp rltd\n      have hr' : ((qr.r.shiftConcat (n.getLsbD (qr.wn - 1)))).toNat < 2 ^ (qr.wr + 1) := by\n        apply toNat_shiftConcat_lt_of_lt <;> bv_omega\n      rw [BitVec.toNat_sub_of_le hdr']\n      omega\n    case neg.hqWidth =>\n      apply toNat_shiftConcat_lt_of_lt <;> omega\n    case neg.hdiv =>\n      have rltd' := (BitVec.not_lt_iff_le.mp rltd)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "two_mul_add_sub_lt_of_lt_of_lt_two",
+    "has_proof": true
+  }
+}

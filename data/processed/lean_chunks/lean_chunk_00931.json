@@ -1,0 +1,9 @@
+{
+  "content": "structure Mappish (dIn dOut : Type u) [Fintype dIn] [Fintype dOut] where\n  k : Nat\nvariable {dIn dOut dOut\u2082 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4203.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4203.lean",
+    "definition_name": "Mappish"
+  }
+}

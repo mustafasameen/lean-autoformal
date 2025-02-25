@@ -1,0 +1,9 @@
+{
+  "content": "inductive Bla\n| ofNat  (x : Nat)\n| ofBool (x : Bool)\ndef Bla.optional? : Bla \u2192 Option Nat\n| ofNat x  => some x\n| ofBool _ => none\n#eval checkWithMkMatcherInput ``Bla.optional?.match_1\ndef Bla.isNat? (b : Bla) : Option { x : Nat // optional? b = some x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_name": "Bla"
+  }
+}

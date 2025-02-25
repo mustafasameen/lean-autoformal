@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_eq_max : \u2200 a : Int, (toNat a : Int) = max a 0\n  | (n : Nat) => (Int.max_eq_left (ofNat_zero_le n)).symm\n  | -[n+1] => (Int.max_eq_right (Int.le_of_lt (negSucc_lt_zero n))).symm\n@[simp] theorem toNat_zero : (0 : Int).toNat = 0 := rfl\n@[simp] theorem toNat_one : (1 : Int).toNat = 1 := rfl\ntheorem toNat_of_nonneg {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "toNat_eq_max",
+    "has_proof": false
+  }
+}

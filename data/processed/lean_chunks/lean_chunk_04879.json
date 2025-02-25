@@ -1,0 +1,10 @@
+{
+  "content": "rintro \u27e8\u27e9\n@[simp] theorem length_map (as : List \u03b1) (f : \u03b1 \u2192 \u03b2) : (as.map f).length = as.length := by\n  induction as with\n  | nil => simp [List.map]\n  | cons _ as ih => simp [List.map, ih]\n@[simp] theorem getElem?_map (f : \u03b1 \u2192 \u03b2) : \u2200 (l : List \u03b1) (i : Nat), (map f l)[i]? = Option.map f l[i]?\n  | [], _ => rfl\n  | _ :: _, 0 => by simp\n  | _ :: l, i+1 => by simp [getElem?_map f l i]\n@[simp] theorem getElem_map (f : \u03b1 \u2192 \u03b2) {l}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "head_tail",
+    "has_proof": true
+  }
+}

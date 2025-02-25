@@ -1,0 +1,10 @@
+{
+  "content": "@[extern \"lean_uint8_dec_eq\"]\ndef UInt8.decEq (a b : UInt8) : Decidable (Eq a b) :=\n  match a, b with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m)\n      (fun h => isTrue (h \u25b8 rfl))\n      (fun h => isFalse (fun h' => UInt8.noConfusion h' (fun h' => absurd h' h)))\ninstance : DecidableEq UInt8 := UInt8.decEq\ninstance : Inhabited UInt8 where\n  default := UInt8.ofNatLT 0 (of_decide_eq_true rfl)\nstructure UInt16 where\n  ofBitVec ::\n  toBitVec : BitVec 16\nattribute [extern \"lean_uint16_of_nat_mk\"] UInt16.ofBitVec\nattribute [extern \"lean_uint16_to_nat\"] UInt16.toBitVec\n@[extern \"lean_uint16_of_nat\"]\ndef UInt16.ofNatLT (n : @& Nat) (h : LT.lt n UInt16.size) : UInt16 where\n  toBitVec := BitVec.ofNatLT n h\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_uint16_dec_eq\"]\ndef UInt16.decEq (a b : UInt16) : Decidable (Eq a b) :=\n  match a, b with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m)\n      (fun h => isTrue (h \u25b8 rfl))\n      (fun h => isFalse (fun h' => UInt16.noConfusion h' (fun h' => absurd h' h)))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

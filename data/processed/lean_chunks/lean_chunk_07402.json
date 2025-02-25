@@ -1,0 +1,10 @@
+{
+  "content": "split\n      \u00b7 next hCheckSuccess =>\n        intro f'_success\n        simp only [List.cons.injEq] at hprf\n        rw [\u2190 hprf.2] at f'_success\n        rw [hCheckSuccess] at heq\n        simp only [WellFormedAction, hprf.1] at actionWellFormed\n        exact addRatCaseSound f f_readyForRupAdd f_readyForRatAdd c pivot f' rupHints ratHints actionWellFormed heq restPrf\n          restPrfWellFormed ih f'_success\n      \u00b7 simp [false_implies]\n    \u00b7 next ids restPrf' hprf =>\n      intro h\n      simp only [List.cons.injEq] at hprf\n      rw [\u2190 hprf.2] at h\n      exact delCaseSound f f_readyForRupAdd f_readyForRatAdd ids restPrf restPrfWellFormed ih h\nend Internal\nend LRAT\nend Std.Tactic.BVDecide",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_name": "specialize",
+    "has_proof": true
+  }
+}

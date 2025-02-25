@@ -1,0 +1,9 @@
+{
+  "content": "inductive hiddenTree : Nat \u2192 Type\n  | HR {h}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/matchWithSearch.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/matchWithSearch.lean",
+    "definition_name": "hiddenTree"
+  }
+}

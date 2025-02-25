@@ -1,0 +1,9 @@
+{
+  "content": "instance nonBacktrackable : Backtrackable PUnit \u03c3 where\n  save    := dummySave\n  restore := dummyRestore\nend EStateM\n  hash : \u03b1 \u2192 UInt64\nexport Hashable (hash)\n@[extern \"lean_string_hash\"]\nprotected opaque String.hash (s : @& String) : UInt64\ninstance : Hashable String where\n  hash := String.hash\nnamespace Lean\ninductive Name where\n  | str (pre : Name) (str : String)\n  | num (pre : Name) (i : Nat)\nwith\n  @[computed_field] hash : Name \u2192 UInt64\n    | .anonymous => .ofNatLT 1723 (of_decide_eq_true rfl)\n    | .str p s => mixHash p.hash s.hash\n    | .num p v => mixHash p.hash (dite (LT.lt v UInt64.size) (fun h => UInt64.ofNatLT v h) (fun _ => UInt64.ofNatLT 17 (of_decide_eq_true rfl)))\ninstance : Inhabited Name where\n  default := Name.anonymous\ninstance : Hashable Name where\n  hash := Name.hash\nnamespace Name\n@[export lean_name_mk_string]\nabbrev mkStr (p : Name) (s : String) : Name :=\n  Name.str p s\n@[export lean_name_mk_numeral]\nabbrev mkNum (p : Name) (v : Nat) : Name :=\n  Name.num p v",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "nonBacktrackable"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem mod_one (x : Nat) : x % 1 = 0 := by\n  have h : x % 1 < 1 := mod_lt x (by decide)\n  have : (y : Nat) \u2192 y < 1 \u2192 y = 0 := by\n    intro y\n    cases y with\n    | zero   => intro _; rfl\n    | succ y => intro h; apply absurd (Nat.lt_of_succ_lt_succ h) (Nat.not_lt_zero y)\n  exact this _ h\ntheorem div_add_mod (m n : Nat) : n * (m / n) + m % n = m := by\n  rw [div_eq, mod_eq]\n  have h : Decidable (0 < n \u2227 n \u2264 m) := inferInstance\n  cases h with\n  | isFalse h => simp [h]\n  | isTrue h =>\n    simp [h]\n    have ih := div_add_mod (m - n) n\n    rw [Nat.left_distrib, Nat.mul_one, Nat.add_assoc, Nat.add_left_comm, ih, Nat.add_comm, Nat.sub_add_cancel h.2]\ndecreasing_by apply div_rec_lemma; assumption\ntheorem div_eq_sub_div (h\u2081 : 0 < b) (h\u2082 : b \u2264 a) : a / b = (a - b) / b + 1 := by\n rw [div_eq a, if_pos]; constructor <;> assumption\ntheorem mod_add_div (m k : Nat) : m % k + k * (m / k) = m := by\n  induction m, k using mod.inductionOn with rw [div_eq, mod_eq]\n  | base x y h => simp [h]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "sub_mod_add_mod_cancel",
+    "has_proof": true
+  }
+}

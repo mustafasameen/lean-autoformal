@@ -1,0 +1,9 @@
+{
+  "content": ".sort u\ndef mkFVar (fvarId : FVarId) : Expr :=\n  .fvar fvarId\ndef mkMVar (mvarId : MVarId) : Expr :=\n  .mvar mvarId\ndef mkMData (m : MData) (e : Expr) : Expr :=\n  .mdata m e\ndef mkProj (structName : Name) (idx : Nat) (struct : Expr) : Expr :=\n  .proj structName idx struct\n@[match_pattern] def mkApp (f a : Expr) : Expr :=\n  .app f a\ndef mkLambda (x : Name) (bi : BinderInfo) (t : Expr) (b : Expr) : Expr :=\n  .lam x t b bi\ndef mkForall (x : Name) (bi : BinderInfo) (t : Expr) (b : Expr) : Expr :=\n  .forallE x t b bi\ndef mkSimpleThunk (type : Expr) : Expr :=\n  mkLambda `_ BinderInfo.default (mkConst `Unit) type\ndef mkLet (x : Name) (t : Expr) (v : Expr) (b : Expr) (nonDep : Bool := false) : Expr :=\n  .letE x t v b nonDep\n@[match_pattern] def mkAppB (f a b : Expr) := mkApp (mkApp f a) b\n@[match_pattern] def mkApp2 (f a b : Expr) := mkAppB f a b\n@[match_pattern] def mkApp3 (f a b c : Expr) := mkApp (mkAppB f a b) c\n@[match_pattern] def mkApp4 (f a b c d : Expr) := mkAppB (mkAppB f a b) c d",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

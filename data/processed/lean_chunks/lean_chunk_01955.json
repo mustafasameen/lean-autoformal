@@ -1,0 +1,10 @@
+{
+  "content": "smul_zero : \u2200 a : M, a \u2022 (0 : A) = 0\n  smul_add : \u2200 (a : M) (x y : A), a \u2022 (x + y) = a \u2022 x + a \u2022 y\nexport DistribMulAction (smul_zero smul_add)\nend Mathlib.Algebra.GroupWithZero.Action.Defs\nsection Mathlib.Algebra.Ring.Defs\nclass Semiring (\u03b1 : Type u) extends AddMonoid \u03b1, MulOneClass \u03b1 where\nend Mathlib.Algebra.Ring.Defs\nsection Mathlib.Algebra.Module.Defs\nclass Module (R : Type u) (M : Type v) [Semiring R] [AddMonoid M] extends\n  DistribMulAction R M where\n  protected add_smul : \u2200 (r s : R) (x : M), (r + s) \u2022 x = r \u2022 x + s \u2022 x\n  protected zero_smul : \u2200 x : M, (0 : R) \u2022 x = 0\nexport Module (add_smul zero_smul)\nend Mathlib.Algebra.Module.Defs\nsection Mathlib.Combinatorics.Quiver.Basic\nclass Quiver (V : Type u\u2081) where\n  Hom : V \u2192 V \u2192 Sort v\u2081\ninfixr:10 \" \u27f6 \" => Quiver.Hom\nstructure Prefunctor (V : Type u\u2081) [Quiver.{v\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "map_zero",
+    "has_proof": true
+  }
+}

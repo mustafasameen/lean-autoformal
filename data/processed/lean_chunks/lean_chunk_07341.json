@@ -1,0 +1,9 @@
+{
+  "content": "structure ExtractTarget (aig : AIG \u03b1) (len : Nat) where\n  {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/Extract.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/Extract.lean",
+    "definition_name": "ExtractTarget"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure State (llvmctx : LLVM.Context) where\n  var2val : Std.HashMap VarId (LLVM.LLVMType llvmctx \u00d7 LLVM.Value llvmctx)\n  jp2bb   : Std.HashMap JoinPointId (LLVM.BasicBlock llvmctx)\nabbrev Error := String\nabbrev M (llvmctx : LLVM.Context) :=\n  StateRefT (State llvmctx) (ReaderT (Context llvmctx) (ExceptT Error IO))\ninstance : Inhabited (M llvmctx \u03b1) where\n  default := throw \"Error: inhabitant\"\ndef addVartoState (x : VarId) (v : LLVM.Value llvmctx) (ty : LLVM.LLVMType llvmctx) : M llvmctx Unit := do\nmodify (fun s => { s with var2val := s.var2val.insert x (ty, v) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "State"
+  }
+}

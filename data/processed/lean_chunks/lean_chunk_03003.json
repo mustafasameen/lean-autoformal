@@ -1,0 +1,9 @@
+{
+  "content": "structure SubExpr where\n  pos  : SubExpr.Pos\n  deriving Inhabited\nnamespace SubExpr\ndef mkRoot (e : Expr) : SubExpr := \u27e8e, Pos.root\u27e9\nabbrev PosMap (\u03b1 : Type u) := RBMap Pos \u03b1 compare\ndef bindingBody! : SubExpr \u2192 SubExpr\n  | \u27e8.forallE _ _ b _, p\u27e9 => \u27e8b, p.pushBindingBody\u27e9\n  | \u27e8.lam _ _ b _, p\u27e9 => \u27e8b, p.pushBindingBody\u27e9\n  | _ => panic! \"subexpr is not a binder\"\ndef bindingDomain! : SubExpr \u2192 SubExpr\n  | \u27e8.forallE _ t _ _, p\u27e9 => \u27e8t, p.pushBindingDomain\u27e9\n  | \u27e8.lam _ t _ _, p\u27e9 => \u27e8t, p.pushBindingDomain\u27e9\n  | _ => panic! \"subexpr is not a binder\"\ninstance : ToJson FVarId := \u27e8fun f => toJson f.name\u27e9\ninstance : ToJson MVarId := \u27e8fun f => toJson f.name\u27e9\ninstance : FromJson FVarId := \u27e8fun j => FVarId.mk <$> fromJson? j\u27e9\ninstance : FromJson MVarId := \u27e8fun j => MVarId.mk <$> fromJson? j\u27e9\n  | hyp : FVarId \u2192 GoalLocation\n  | hypValue : FVarId \u2192 SubExpr.Pos \u2192 GoalLocation\nstructure GoalsLocation where\ndef Expr.traverseAppWithPos {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_name": "SubExpr"
+  }
+}

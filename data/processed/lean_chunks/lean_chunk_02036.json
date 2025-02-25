@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_id (xs : List \u03b1) : List.map id xs = xs := by\n  fun_induction List.map <;> simp_all only [List.map, id]\ntheorem map_map (f : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 \u03b3) xs :\n  List.map g (List.map f xs) = List.map (g \u2218 f) xs := by\n  fun_induction List.map <;> simp_all only [List.map, Function.comp]\n#guard_msgs in\ntheorem append_assoc :\n  List.append xs (List.append ys zs) = List.append (List.append xs ys) zs := by\n  fun_induction List.append <;> simp_all only [List.append]\nend ListEx\nnamespace Ex1\nvariable (P : Nat \u2192 Prop)\ndef ackermann : (Nat \u00d7 Nat) \u2192 Nat\n  | (0, m) => m + 1\n  | (n+1, 0) => ackermann (n, 1)\n  | (n+1, m+1) => ackermann (n, ackermann (n + 1, m))\ntermination_by p => p\n#guard_msgs in\nexample : P (ackermann p) := by\n  fun_induction ackermann\n  fail\n#guard_msgs in\nexample : P (ackermann p) := by\n  fun_cases ackermann\n  fail\n#guard_msgs in\nexample : P (ackermann n m) := by\n  fun_induction ackermann\nend Ex2\nnamespace Ex3\nvariable (P : List \u03b1 \u2192 Prop)\ndef ackermann {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funinduction_ident.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funinduction_ident.lean",
+    "definition_name": "map_id",
+    "has_proof": true
+  }
+}

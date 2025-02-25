@@ -1,0 +1,9 @@
+{
+  "content": "def x := (1, 2)\ndef y := x\n@[noinline] def mk (v : Nat) := (v, v+1)\n#eval withPtrAddr x (fun a => dbgTrace (\">> \" ++ toString a) $ fun _ => 0) TrustMe\n#guard_msgs in\n#eval withPtrEq x (mk 1) (fun _ => dbgTrace (\">> \" ++ toString x ++ \" == \" ++ toString y) $ fun _ => x == y) TrustMe",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ptrAddr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ptrAddr.lean",
+    "definition_name": "x"
+  }
+}

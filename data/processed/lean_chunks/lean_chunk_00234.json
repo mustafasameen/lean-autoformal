@@ -1,0 +1,9 @@
+{
+  "content": "class inductive () where\n  | \"\" : )\ninductive 44: Type where | \"\" : 44\ninductive 44 : Type where | \"\" : 44\ninductive 44 (n : Nat) : Type where | \"\" : 44\ninductive 44(n : Nat) : Type where | \"\" : 44\ninductive 44| \"\" : 44\ninductive !!! where\n  | \"\" (x : Nat)) : Bogus\n#eval Foo.a\ninductive Item.{4, 5, 6, 7, a, \"foo\", b, c}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/parserRecovery.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/parserRecovery.lean",
+    "definition_name": "inductive"
+  }
+}

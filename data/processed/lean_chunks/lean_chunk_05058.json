@@ -1,0 +1,10 @@
+{
+  "content": "theorem isPrefixOfAux_toArray_succ [BEq \u03b1] (l\u2081 l\u2082 : List \u03b1) (hle : l\u2081.length \u2264 l\u2082.length) (i : Nat) :\n    Array.isPrefixOfAux l\u2081.toArray l\u2082.toArray hle (i + 1) =\n      Array.isPrefixOfAux l\u2081.tail.toArray l\u2082.tail.toArray (by simp; omega) i := by\n  rw [Array.isPrefixOfAux]\n  conv => rhs; rw [Array.isPrefixOfAux]\n  simp only [size_toArray, getElem_toArray, Bool.if_false_right, length_tail, getElem_tail]\n  split <;> rename_i h\u2081 <;> split <;> rename_i h\u2082\n  \u00b7 rw [isPrefixOfAux_toArray_succ]\n  \u00b7 omega\n  \u00b7 omega\n  \u00b7 rfl\ntheorem isPrefixOfAux_toArray_succ' [BEq \u03b1] (l\u2081 l\u2082 : List \u03b1) (hle : l\u2081.length \u2264 l\u2082.length) (i : Nat) :\n    Array.isPrefixOfAux l\u2081.toArray l\u2082.toArray hle (i + 1) =\n      Array.isPrefixOfAux (l\u2081.drop (i+1)).toArray (l\u2082.drop (i+1)).toArray (by simp; omega) 0 := by\n  induction i generalizing l\u2081 l\u2082 with\n  | zero => simp [isPrefixOfAux_toArray_succ]\n  | succ i ih =>\n    rw [isPrefixOfAux_toArray_succ, ih]\n    simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

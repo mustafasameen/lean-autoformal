@@ -1,0 +1,10 @@
+{
+  "content": "theorem getLsbD_shiftConcat_eq_decide (x : BitVec w) (b : Bool) (i : Nat) :\n    (shiftConcat x b).getLsbD i\n    = (decide (i < w) && ((decide (i = 0) && b) || (decide (0 < i) && x.getLsbD (i - 1)))) := by\n  simp only [getLsbD_shiftConcat]\n  split <;> simp [*, show ((0 < i) \u2194 \u00ac(i = 0)) by omega]\ntheorem shiftRight_sub_one_eq_shiftConcat (n : BitVec w) (hwn : 0 < wn) :\n    n >>> (wn - 1) = (n >>> wn).shiftConcat (n.getLsbD (wn - 1)) := by\n  ext i h\n  simp only [getElem_ushiftRight, getElem_shiftConcat, h, decide_true, Bool.true_and]\n  split\n  \u00b7 simp [*]\n  \u00b7 congr 1; omega\n@[simp, bitvec_to_nat]\ntheorem toNat_shiftConcat {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getLsbD_shiftConcat_eq_decide",
+    "has_proof": true
+  }
+}

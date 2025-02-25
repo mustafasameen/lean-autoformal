@@ -1,0 +1,10 @@
+{
+  "content": "simp [h]\ntheorem getElem?_eraseIdx_of_ge (l : List \u03b1) (i : Nat) (j : Nat) (h : i \u2264 j) :\n    (l.eraseIdx i)[j]? = l[j + 1]? := by\n  rw [getElem?_eraseIdx]\n  simp only [dite_eq_ite, ite_eq_right_iff]\n  intro h'\n  omega\ntheorem getElem_eraseIdx (l : List \u03b1) (i : Nat) (j : Nat) (h : j < (l.eraseIdx i).length) :\n    (l.eraseIdx i)[j] = if h' : j < i then\n        l[j]'(by have := length_eraseIdx_le l i; omega)\n      else\n        l[j + 1]'(by rw [length_eraseIdx] at h; split at h <;> omega) := by\n  apply Option.some.inj\n  rw [\u2190 getElem?_eq_getElem, getElem?_eraseIdx]\n  split <;> simp\ntheorem getElem_eraseIdx_of_lt (l : List \u03b1) (i : Nat) (j : Nat) (h : j < (l.eraseIdx i).length) (h' : j < i) :\n    (l.eraseIdx i)[j] = l[j]'(by have := length_eraseIdx_le l i; omega) := by\n  rw [getElem_eraseIdx]\n  simp only [dite_eq_left_iff, Nat.not_lt]\n  intro h'\n  omega\ntheorem getElem_eraseIdx_of_ge (l : List \u03b1) (i : Nat) (j : Nat) (h : j < (l.eraseIdx i).length) (h' : i \u2264 j) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Erase.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

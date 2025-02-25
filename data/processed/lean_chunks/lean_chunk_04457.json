@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_some_self (a : \u03b1) : a \u2208 some a := mem_some.2 rfl\ntheorem some_ne_none (x : \u03b1) : some x \u2260 none := nofun\nprotected theorem \u00abforall\u00bb {p : Option \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "mem_some_self",
+    "has_proof": false
+  }
+}

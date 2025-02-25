@@ -1,0 +1,9 @@
+{
+  "content": "def b := a + 1\nend MyMod\ndef myMod1 : MyMod := \u27e80\u27e9\n#guard myMod1.a == 0\n#guard myMod1.b == 1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/modAsClasses.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/modAsClasses.lean",
+    "definition_name": "b"
+  }
+}

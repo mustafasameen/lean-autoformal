@@ -1,0 +1,10 @@
+{
+  "content": "theorem comp_p {P Q : Karoubi C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4595_slowdown.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4595_slowdown.lean",
+    "definition_name": "comp_p",
+    "has_proof": false
+  }
+}

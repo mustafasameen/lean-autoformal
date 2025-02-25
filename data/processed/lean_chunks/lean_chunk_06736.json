@@ -1,0 +1,9 @@
+{
+  "content": "structure GeneralizeIndicesSubgoal where\n  mvarId         : MVarId\n  indicesFVarIds : Array FVarId\n  fvarId         : FVarId\n  numEqs         : Nat\ndef generalizeIndices' (mvarId : MVarId) (e : Expr) (varName? : Option Name := none) : MetaM GeneralizeIndicesSubgoal :=\n  mvarId.withContext do\n    let lctx       \u2190 getLCtx\n    let localInsts \u2190 getLocalInstances\n    mvarId.checkNotAssigned `generalizeIndices\n    let type \u2190 whnfD (\u2190 inferType e)\n    type.withApp fun f args => matchConstInduct f (fun _ => throwTacticEx `generalizeIndices mvarId \"inductive type expected\") fun val _ => do\n      unless val.numIndices > 0 do throwTacticEx `generalizeIndices mvarId \"indexed inductive type expected\"\n      unless args.size == val.numIndices + val.numParams do throwTacticEx `generalizeIndices mvarId \"ill-formed inductive datatype\"\n      let indices := args.extract (args.size - val.numIndices) args.size\nlet IA := mkAppN f (args.extract 0 val.numParams)\n      let IAType \u2190 inferType IA",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_name": "GeneralizeIndicesSubgoal"
+  }
+}

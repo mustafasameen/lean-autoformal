@@ -1,0 +1,10 @@
+{
+  "content": "theorem simple13 (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z := by\nintros h1 h2 h3\ntrace_state\napply @Eq.trans\ncase b => exact y\ntrace_state\nrepeat assumption\ntheorem simple13b (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z := by {\nintros h1 h2 h3;\ntrace_state;\napply @Eq.trans;\ncase b => exact y;\ntrace_state;\nrepeat assumption\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_name": "simple13",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : f [1, 0, 2] = [false, true, false] :=\nrfl\n#check f\nset_option pp.raw true\nset_option pp.raw.maxDepth 10\nset_option trace.Elab.step true in\ndef g (xs : List Nat) : List Bool :=\nxs.map <| by {\n  intro\n    | 0 => exact true\n    | _ => exact false\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

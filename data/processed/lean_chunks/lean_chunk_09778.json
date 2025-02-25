@@ -1,0 +1,9 @@
+{
+  "content": "else\n    match f none with\n    | none => m\n    | some b =>\n      let size'    := size + 1\n      let buckets' := buckets.uset i (.cons a b bkt) h\n      expandIfNecessary \u27e8\u27e8size', buckets'\u27e9, by simpa [buckets']\u27e9\n@[inline] def containsThenInsertIfNew [BEq \u03b1] [Hashable \u03b1] (m : Raw\u2080 \u03b1 \u03b2) (a : \u03b1) (b : \u03b2 a) :\n    Bool \u00d7 Raw\u2080 \u03b1 \u03b2 :=\n  let \u27e8\u27e8size, buckets\u27e9, hm\u27e9 := m\n  let \u27e8i, h\u27e9 := mkIdx buckets.size hm (hash a)\n  let bkt := buckets[i]\n  if bkt.contains a then\n    (true, \u27e8\u27e8size, buckets\u27e9, hm\u27e9)\n  else\n    let size'    := size + 1\n    let buckets' := buckets.uset i (AssocList.cons a b bkt) h\n    (false, expandIfNecessary \u27e8\u27e8size', buckets'\u27e9, by simpa [buckets']\u27e9)\n@[inline] def getThenInsertIfNew? [BEq \u03b1] [Hashable \u03b1] [LawfulBEq \u03b1] (m : Raw\u2080 \u03b1 \u03b2) (a : \u03b1)\n    (b : \u03b2 a) : Option (\u03b2 a) \u00d7 Raw\u2080 \u03b1 \u03b2 :=\n  let \u27e8\u27e8size, buckets\u27e9, hm\u27e9 := m\n  let \u27e8i, h\u27e9 := mkIdx buckets.size hm (hash a)\n  let bkt := buckets[i]\n  match bkt.getCast? a with\n  | none =>\n    let size'    := size + 1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_name": "empty"
+  }
+}

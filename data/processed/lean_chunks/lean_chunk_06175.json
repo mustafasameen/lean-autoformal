@@ -1,0 +1,9 @@
+{
+  "content": "catchInternalId backtrackExceptionId\n    (do\n      let (_, st) \u2190 (concat formatter { table, options }).run { stxTrav := .fromSyntax stx }\n      let mut f := st.stack[0]!\n      if pp.oneline.get options then\n        let mut s := f.pretty' options |>.trim\n        let lineEnd := s.find (\u00b7 == '\\n')\n        if lineEnd < s.endPos then\n          s := s.extract 0 lineEnd ++ \" [...]\"\n        f := s\n      return .fill f)\n    (fun _ => throwError \"format: uncaught backtrack exception\")\ndef formatCategory (cat : Name) := format <| categoryFormatter cat\ndef formatTerm := formatCategory `term\ndef formatTactic := formatCategory `tactic\ndef formatCommand := formatCategory `command\nbuiltin_initialize\n  registerTraceClass `PrettyPrinter.format\n  registerTraceClass `PrettyPrinter.format.backtrack (inherited := true)\n  registerTraceClass `PrettyPrinter.format.input (inherited := true)\nend PrettyPrinter\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_name": "nonReservedSymbolNoAntiquot"
+  }
+}

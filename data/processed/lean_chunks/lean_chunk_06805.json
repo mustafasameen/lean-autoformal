@@ -1,0 +1,9 @@
+{
+  "content": "structure Problem where\n  mvarId        : MVarId\n  vars          : List Expr\n  alts          : List Alt\n  examples      : List Example\n  deriving Inhabited\ndef withGoalOf {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_name": "Problem"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem Perm.merge (s\u2081 s\u2082 : \u03b1 \u2192 \u03b1 \u2192 Bool) (hl : l\u2081 ~ l\u2082) (hr : r\u2081 ~ r\u2082) :\n    merge l\u2081 r\u2081 s\u2081 ~ merge l\u2082 r\u2082 s\u2082 :=\n  Perm.trans (merge_perm_append ..) <| Perm.trans (Perm.append hl hr) <| Perm.symm (merge_perm_append ..)\ntheorem sorted_mergeSort\n    (trans : \u2200 (a b c : \u03b1), le a b \u2192 le b c \u2192 le a c)\n    (total : \u2200 (a b : \u03b1), le a b || le b a) :\n    (l : List \u03b1) \u2192 (mergeSort l le).Pairwise le\n  | [] => by simp [mergeSort]\n  | [a] => by simp [mergeSort]\n  | a :: b :: xs => by\n    rw [mergeSort]\n    apply sorted_merge @trans @total\n    apply sorted_mergeSort trans total\n    apply sorted_mergeSort trans total\ntermination_by l => l.length\n@[deprecated sorted_mergeSort (since := \"2024-09-02\")] abbrev mergeSort_sorted := @sorted_mergeSort\ntheorem mergeSort_of_sorted : \u2200 {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_name": "Perm",
+    "has_proof": true
+  }
+}

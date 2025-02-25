@@ -1,0 +1,9 @@
+{
+  "content": "def leanMainFn := \"_lean_main\"\nnamespace LLVM\ndef size_tType (llvmctx : LLVM.Context) : BaseIO (LLVM.LLVMType llvmctx) :=\n  LLVM.i64Type llvmctx\ndef unsignedType (llvmctx : LLVM.Context) : BaseIO (LLVM.LLVMType llvmctx) :=\n  LLVM.i32Type llvmctx\ndef getOrAddFunction (m : LLVM.Module ctx) (name : String) (type : LLVM.LLVMType ctx) : BaseIO (LLVM.Value ctx) :=  do\n  match (\u2190 LLVM.getNamedFunction m name) with\n  | some fn => return fn\n  | none =>\n    let fn \u2190 LLVM.addFunction m name type\n    let attr \u2190 LLVM.createStringAttribute \"probe-stack\" \"inline-asm\"\n    LLVM.addAttributeAtIndex fn LLVM.AttributeIndex.AttributeFunctionIndex attr\n    return fn\ndef getOrAddGlobal (m : LLVM.Module ctx) (name : String) (type : LLVM.LLVMType ctx) : BaseIO (LLVM.Value ctx) :=  do\n  match (\u2190 LLVM.getNamedGlobal m name) with\n  | .some fn => return fn\n  | .none => LLVM.addGlobal m name type\nend LLVM\nnamespace EmitLLVM\nstructure Context (llvmctx : LLVM.Context) where\n  env        : Environment",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

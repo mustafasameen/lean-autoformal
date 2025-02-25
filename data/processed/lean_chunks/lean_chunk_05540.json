@@ -1,0 +1,10 @@
+{
+  "content": "simp\n@[simp] theorem findSomeRevM?_toArray [Monad m] (f : \u03b1 \u2192 m (Option \u03b2)) (xs : Vector \u03b1 n) :\n    xs.toArray.findSomeRevM? f = xs.findSomeRevM? f := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\n@[simp] theorem finIdxOf?_toArray [BEq \u03b1] (a : \u03b1) (xs : Vector \u03b1 n) :\n    xs.toArray.finIdxOf? a = (xs.finIdxOf? a).map (Fin.cast xs.size_toArray.symm) := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\n@[simp] theorem findFinIdx?_toArray (p : \u03b1 \u2192 Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.findFinIdx? p = (xs.findFinIdx? p).map (Fin.cast xs.size_toArray.symm) := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\n@[simp] theorem toArray_mkVector : (mkVector n a).toArray = mkArray n a := rfl\n@[simp] theorem toArray_inj {xs ys : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "toArray_append",
+    "has_proof": true
+  }
+}

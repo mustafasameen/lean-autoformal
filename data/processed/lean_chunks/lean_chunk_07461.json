@@ -1,0 +1,10 @@
+{
+  "content": "specialize pc v\n        rw [v'_eq_v] at v'_in_c\n        have pv := pc.1 v'_in_c\n        simp only [(\u00b7 \u22a8 \u00b7), Bool.not_eq_true] at pv\n        simp only [p_unsat_c] at pv\n        cases pv\n      \u00b7 simp [Literal.negate] at v'_eq_v\n    \u00b7 simp only [formulaEntails_def, List.all_eq_true, decide_eq_true_eq] at pf\n      exact p_unsat_c <| pf unsat_c unsat_c_in_f\ntheorem sat_of_insertRat {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_name": "with",
+    "has_proof": true
+  }
+}

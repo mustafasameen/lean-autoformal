@@ -1,0 +1,10 @@
+{
+  "content": "congr\n  funext b?\n  split <;> rename_i b\n  \u00b7 simp [filterMapM]\n  \u00b7 simp only [bind_pure_comp]\n    rw [filterMapM_loop_eq, filterMapM]\n    simp\ntheorem foldlM_map [Monad m] (f : \u03b2\u2081 \u2192 \u03b2\u2082) (g : \u03b1 \u2192 \u03b2\u2082 \u2192 m \u03b1) (l : List \u03b2\u2081) (init : \u03b1) :\n    (l.map f).foldlM g init = l.foldlM (fun x y => g x (f y)) init := by\n  induction l generalizing g init <;> simp [*]\ntheorem foldrM_map [Monad m] [LawfulMonad m] (f : \u03b2\u2081 \u2192 \u03b2\u2082) (g : \u03b2\u2082 \u2192 \u03b1 \u2192 m \u03b1) (l : List \u03b2\u2081)\n    (init : \u03b1) : (l.map f).foldrM g init = l.foldrM (fun x y => g (f x) y) init := by\n  induction l generalizing g init <;> simp [*]\ntheorem foldlM_filterMap [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 Option \u03b2) (g : \u03b3 \u2192 \u03b2 \u2192 m \u03b3) (l : List \u03b1) (init : \u03b3) :\n    (l.filterMap f).foldlM g init =\n      l.foldlM (fun x y => match f y with | some b => g x b | none => pure x) init := by\n  induction l generalizing init with\n  | nil => rfl\n  | cons a l ih =>\n    simp only [filterMap_cons, foldlM_cons]\n    cases f a <;> simp [ih]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_name": "filterMapM_nil",
+    "has_proof": true
+  }
+}

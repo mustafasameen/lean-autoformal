@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldr_push' (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (init : \u03b2) (xs : Array \u03b1) (a : \u03b1) {start}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "foldr_push",
+    "has_proof": false
+  }
+}

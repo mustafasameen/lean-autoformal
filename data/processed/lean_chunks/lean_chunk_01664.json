@@ -1,0 +1,9 @@
+{
+  "content": "def answer := 42\n#guard_msgs in\n#check List_map.eq_unfold\ndef List_map2 (f : \u03b1 \u2192 \u03b2) : List \u03b1 \u2192 List \u03b2\n  | [] => []\n  | x::xs => f x :: List_map2 f xs\ntermination_by l => l\n#guard_msgs in\n#check List_map2.eq_unfold",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/unfoldLemma.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/unfoldLemma.lean",
+    "definition_name": "answer"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem pure_def : pure = @some \u03b1 := rfl\n@[simp] theorem bind_eq_bind : bind = @Option.bind \u03b1 \u03b2 := rfl\n@[simp] theorem bind_some (x : Option \u03b1) : x.bind some = x := by cases x <;> rfl\n@[simp] theorem bind_none (x : Option \u03b1) : x.bind (fun _ => none (\u03b1 := \u03b2)) = none := by\n  cases x <;> rfl\ntheorem bind_eq_some : x.bind f = some b \u2194 \u2203 a, x = some a \u2227 f a = some b := by\n  cases x <;> simp\n@[simp] theorem bind_eq_none {o : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "pure_def",
+    "has_proof": true
+  }
+}

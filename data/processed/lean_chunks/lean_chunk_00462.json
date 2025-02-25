@@ -1,0 +1,9 @@
+{
+  "content": "class Foo.{u, v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/typeclasses_with_umetavariables.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/typeclasses_with_umetavariables.lean",
+    "definition_name": "Foo"
+  }
+}

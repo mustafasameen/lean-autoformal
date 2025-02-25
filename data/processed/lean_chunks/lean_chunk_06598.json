@@ -1,0 +1,10 @@
+{
+  "content": "recommended spellings, so even though the parser for `\u2227` uses `@[inherit_doc And]`, we have to\nattach the recommended spelling to both `And` and `\u00abterm_\u2227_\u00bb`.\nThe `syntax`, `macro`, `elab` and `notation` commands accept a `(name := parserName)` option to\nassign a name to the created parser so that you do not have to guess the automatically generated\nname. The `synax`, `macro` and `elab` commands can be hovered to see the name of the parser.\nFor complex notations which enclose identifiers, the convention is to use example identifiers rather\nthan other placeholders. This is an example following the convention:\n```\nrecommended_spelling \"singleton\" for \"[a]\" in [List.cons, \u00abterm[_]\u00bb]\n```\nUsing `[\u00b7]` or `[\u22ef]` or `[\u2026]` instead of `[a]` would be against the convention. When attaching a\nrecommended spelling to a notation whose docstring already has an example, try to reuse the\nidentifier names chosen in the docstring for consistency.\n-/",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

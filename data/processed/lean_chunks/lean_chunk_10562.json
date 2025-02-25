@@ -1,0 +1,10 @@
+{
+  "content": "theorem containsThenInsert!_fst_eq_containsThenInsert_fst [Ord \u03b1] (t : Impl \u03b1 \u03b2) (htb : t.Balanced) (a : \u03b1) (b : \u03b2 a) :\n    (t.containsThenInsert! a b).1 = (t.containsThenInsert a b htb).1 := by\n  cases t <;> simp [containsThenInsert, containsThenInsert.size,\n    containsThenInsert!, containsThenInsert!.size, insert!_eq_insert\u2098, insert_eq_insert\u2098, htb]\ntheorem containsThenInsert!_snd_eq_containsThenInsert_snd [Ord \u03b1] (t : Impl \u03b1 \u03b2) (htb : t.Balanced) (a : \u03b1) (b : \u03b2 a) :\n    (t.containsThenInsert! a b).2 = (t.containsThenInsert a b htb).2.impl := by\n  cases t <;> simp [containsThenInsert, containsThenInsert!, insert!_eq_insert\u2098 htb,\n    insert_eq_insert\u2098]\ntheorem containsThenInsert_snd_eq_insert\u2098 [Ord \u03b1] (t : Impl \u03b1 \u03b2) (htb : t.Balanced) (a : \u03b1) (b : \u03b2 a) :\n    (t.containsThenInsert a b htb).2.impl = t.insert\u2098 a b htb := by\n  rw [containsThenInsert, insert_eq_insert\u2098]\ntheorem containsThenInsert!_snd_eq_insert\u2098 [Ord \u03b1] (t : Impl \u03b1 \u03b2) (htb : t.Balanced) (a : \u03b1) (b : \u03b2 a) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_name": "containsThenInsert",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "attribute [nospecialize] Inhabited\nstructure Array (\u03b1 : Type u) where\n  mk ::\n  toList : List \u03b1\nattribute [extern \"lean_array_to_list\"] Array.toList\nattribute [extern \"lean_array_mk\"] Array.mk\n@[match_pattern]\nabbrev List.toArray (xs : List \u03b1) : Array \u03b1 := .mk xs\ndef Array.empty {\u03b1 : Type u} : Array \u03b1 := mkEmpty 0\n@[extern \"lean_array_fget\"]\ndef Array.getInternal {\u03b1 : Type u} (a : @& Array \u03b1) (i : @& Nat) (h : LT.lt i a.size) : \u03b1 :=\n  a.toList.get \u27e8i, h\u27e9\n@[extern \"lean_array_get\"]\ndef Array.get!Internal {\u03b1 : Type u} [Inhabited \u03b1] (a : @& Array \u03b1) (i : @& Nat) : \u03b1 :=\n  Array.getD a i default\n@[extern \"lean_array_push\"]\ndef Array.push {\u03b1 : Type u} (a : Array \u03b1) (v : \u03b1) : Array \u03b1 where\n  toList := List.concat a.toList v\ndef Array.mkArray1 {\u03b1 : Type u} (a\u2081 : \u03b1) : Array \u03b1 :=\n  (mkEmpty 1).push a\u2081\ndef Array.mkArray3 {\u03b1 : Type u} (a\u2081 a\u2082 a\u2083 : \u03b1) : Array \u03b1 :=\n  (((mkEmpty 3).push a\u2081).push a\u2082).push a\u2083\ndef Array.mkArray5 {\u03b1 : Type u} (a\u2081 a\u2082 a\u2083 a\u2084 a\u2085 : \u03b1) : Array \u03b1 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

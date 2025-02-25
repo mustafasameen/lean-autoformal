@@ -1,0 +1,9 @@
+{
+  "content": "structure Environment where\n  private mk ::\n  constants   : ConstMap\n  quotInit    : Bool := false\n  diagnostics : Diagnostics := {}\n  const2ModIdx            : Std.HashMap Name ModuleIdx\n  private extensions      : Array EnvExtensionState\n  private extraConstNames : NameSet\ninductive Exception where\n  | unknownConstant  (env : Environment) (name : Name)\n  | alreadyDeclared  (env : Environment) (name : Name)\n  | declTypeMismatch (env : Environment) (decl : Declaration) (givenType : Expr)\n  | declHasMVars     (env : Environment) (name : Name) (expr : Expr)\n  | declHasFVars     (env : Environment) (name : Name) (expr : Expr)\n  | funExpected      (env : Environment) (lctx : LocalContext) (expr : Expr)\n  | typeExpected     (env : Environment) (lctx : LocalContext) (expr : Expr)\n  | letTypeMismatch  (env : Environment) (lctx : LocalContext) (name : Name) (givenType : Expr) (expectedType : Expr)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if type.isRec then\n              cont <| forbiddenTypes.insert typeName\n            else\n              cont forbiddenTypes\n          | _ => cont forbiddenTypes\n      | choice vs =>\n        let vs := vs.map (go \u00b7 forbiddenTypes remainingDepth)\n        if vs.elem top then\n          top\n        else\n          choice vs\n      | v => v\npartial def containsCtor : Value \u2192 Name \u2192 Bool\n| .top .., _ => true\n| .bot .., _ => true\n| .ctor i ..,  j => i == j\n| .choice vs .., j => vs.any fun v => containsCtor v j\npartial def getCtorArgs : Value \u2192 Name \u2192 Option (Array Value)\n| .ctor i args ..,  j => if i == j then some args else none\n| .choice vs .., j => do\n  for variant in vs do\n    if let .ctor i args .. := variant then\n      if i == j then\n        return args\n  none\n| _, _ => none\npartial def ofNat (n : Nat) : Value :=\n  if n > maxValueDepth then\n    goBig n n\n  else\n    goSmall n\nwhere\n  goBig (orig : Nat) (curr : Nat) : Value :=\n    if orig - curr == maxValueDepth then\n      .top",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

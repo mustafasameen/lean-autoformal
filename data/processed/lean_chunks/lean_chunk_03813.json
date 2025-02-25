@@ -1,0 +1,10 @@
+{
+  "content": "theorem takeWhile_map (f : \u03b1 \u2192 \u03b2) (p : \u03b2 \u2192 Bool) (as : Array \u03b1) :\n    (as.map f).takeWhile p = (as.takeWhile (p \u2218 f)).map f := by\n  rcases as with \u27e8as\u27e9\n  simp [List.takeWhile_map]\ntheorem popWhile_map (f : \u03b1 \u2192 \u03b2) (p : \u03b2 \u2192 Bool) (as : Array \u03b1) :\n    (as.map f).popWhile p = (as.popWhile (p \u2218 f)).map f := by\n  rcases as with \u27e8as\u27e9\n  simp [List.dropWhile_map, \u2190 List.map_reverse]\ntheorem takeWhile_filterMap (f : \u03b1 \u2192 Option \u03b2) (p : \u03b2 \u2192 Bool) (as : Array \u03b1) :\n    (as.filterMap f).takeWhile p = (as.takeWhile fun a => (f a).all p).filterMap f := by\n  rcases as with \u27e8as\u27e9\n  simp [List.takeWhile_filterMap]\ntheorem popWhile_filterMap (f : \u03b1 \u2192 Option \u03b2) (p : \u03b2 \u2192 Bool) (as : Array \u03b1) :\n    (as.filterMap f).popWhile p = (as.popWhile fun a => (f a).all p).filterMap f := by\n  rcases as with \u27e8as\u27e9\n  simp [List.dropWhile_filterMap, \u2190 List.filterMap_reverse]\ntheorem takeWhile_filter (p q : \u03b1 \u2192 Bool) (as : Array \u03b1) :\n    (as.filter p).takeWhile q = (as.takeWhile fun a => !p a || q a).filter p := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Extract.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Extract.lean",
+    "definition_name": "takeWhile_map",
+    "has_proof": true
+  }
+}

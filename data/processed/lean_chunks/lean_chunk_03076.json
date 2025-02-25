@@ -1,0 +1,9 @@
+{
+  "content": "mkApp (mkConst ``Nat.succ) a\ndef mkNatSub (a b : Expr) : Expr :=\n  mkApp2 natSubFn a b\ndef mkNatLE (a b : Expr) : Expr :=\n  mkApp2 natLEPred a b\nprivate def natEqPred : Expr :=\n  mkApp (mkConst ``Eq [1]) Nat.mkType\nnamespace Int\nprotected def mkType : Expr := mkConst ``Int\ndef mkInstNeg : Expr := mkConst ``Int.instNegInt\ndef mkInstAdd : Expr := mkConst ``Int.instAdd\ndef mkInstHAdd : Expr := mkApp2 (mkConst ``instHAdd [levelZero]) Int.mkType mkInstAdd\ndef mkInstSub : Expr := mkConst ``Int.instSub\ndef mkInstHSub : Expr := mkApp2 (mkConst ``instHSub [levelZero]) Int.mkType mkInstSub\ndef mkInstMul : Expr := mkConst ``Int.instMul\ndef mkInstHMul : Expr := mkApp2 (mkConst ``instHMul [levelZero]) Int.mkType mkInstMul\ndef mkInstDiv : Expr := mkConst ``Int.instDiv\ndef mkInstHDiv : Expr := mkApp2 (mkConst ``instHDiv [levelZero]) Int.mkType mkInstDiv\ndef mkInstMod : Expr := mkConst ``Int.instMod\ndef mkInstHMod : Expr := mkApp2 (mkConst ``instHMod [levelZero]) Int.mkType mkInstMod",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

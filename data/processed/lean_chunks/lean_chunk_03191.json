@@ -1,0 +1,9 @@
+{
+  "content": "structure FloatSpec where\n  float : Type\n  val   : float\n  lt    : float \u2192 float \u2192 Prop\n  le    : float \u2192 float \u2192 Prop\n  decLt : DecidableRel lt\n  decLe : DecidableRel le\nopaque floatSpec : FloatSpec := {\n  float := Unit,\n  val   := (),\n  lt    := fun _ _ => True,\n  le    := fun _ _ => True,\n  decLt := fun _ _ => inferInstanceAs (Decidable True),\n  decLe := fun _ _ => inferInstanceAs (Decidable True)\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Float.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Float.lean",
+    "definition_name": "FloatSpec"
+  }
+}

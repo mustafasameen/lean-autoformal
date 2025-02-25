@@ -1,0 +1,10 @@
+{
+  "content": "theorem inf_le_left : a \u2293 b \u2264 a := sorry\ntheorem le_inf_iff : a \u2264 b \u2293 c \u2194 a \u2264 b \u2227 a \u2264 c := sorry\nend SemilatticeInf\nclass Lattice (\u03b1 : Type u) extends SemilatticeSup \u03b1, SemilatticeInf \u03b1\nnamespace Subtype\nprotected def semilatticeSup [SemilatticeSup \u03b1] {P : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "inf_le_left",
+    "has_proof": false
+  }
+}

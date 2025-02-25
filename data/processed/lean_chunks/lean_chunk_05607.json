@@ -1,0 +1,10 @@
+{
+  "content": "theorem setIfInBounds_setIfInBounds (a b : \u03b1) (xs : Vector \u03b1 n) (i : Nat) :\n    (xs.setIfInBounds i a).setIfInBounds i b = xs.setIfInBounds i b := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp\ntheorem mem_setIfInBounds (xs : Vector \u03b1 n) (i : Nat) (hi : i < n) (a : \u03b1) :\n    a \u2208 xs.setIfInBounds i a := by\n  simp [mem_iff_getElem]\n  exact \u27e8i, (by simpa using hi), by simp\u27e9\n@[simp] theorem isEqv_eq [DecidableEq \u03b1] {xs ys : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "setIfInBounds_setIfInBounds",
+    "has_proof": true
+  }
+}

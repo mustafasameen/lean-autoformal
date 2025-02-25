@@ -1,0 +1,9 @@
+{
+  "content": "structure Collector.Context where\n  proof : Expr\n  xs    : Array Expr\nprivate def isPatternFnCandidate (f : Expr) : CollectorM Bool := do\n  match f with\n  | .const declName _ => return !isForbidden declName\n  | .fvar .. => return !(\u2190 read).xs.contains f\n  | _ => return false\nprivate def addNewPattern (p : Expr) : CollectorM Unit := do\n  trace[grind.ematch.pattern.search] \"found pattern: {ppPattern p}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "Collector"
+  }
+}

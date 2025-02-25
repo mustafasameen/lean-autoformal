@@ -1,0 +1,10 @@
+{
+  "content": "if (\u2190 isPatternFnCandidate f) then\n      let saved \u2190 getThe NormalizePattern.State\n      try\n        trace[grind.ematch.pattern.search] \"candidate: {e}\"\n        let p := e.abstract (\u2190 read).xs\n        unless p.hasLooseBVars do\n          trace[grind.ematch.pattern.search] \"skip, does not contain pattern variables\"\n          return ()\n        let p \u2190 NormalizePattern.normalizePattern p\n        if saved.bvarsFound.size < (\u2190 getThe NormalizePattern.State).bvarsFound.size then\n          unless (\u2190 hasChildWithSameNewBVars p supportMask saved.bvarsFound) do\n            addNewPattern p\n            return ()\n        trace[grind.ematch.pattern.search] \"skip, no new variables covered\"\n        set saved\n      catch _ =>\n        trace[grind.ematch.pattern.search] \"skip, exception during normalization\"\n        set saved\n    let args := e.getAppArgs\n    for arg in args, support in supportMask do\n      unless support do\n        collect arg\n  | .forallE _ d b _ =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

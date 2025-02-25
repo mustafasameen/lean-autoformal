@@ -1,0 +1,9 @@
+{
+  "content": "instance true in\nset_option trace.grind.assert true in\nexample (b : List \u03b1) (p : \u03b1 \u2192 Prop) (h\u2081 : \u2200 a \u2208 b, p a) (h\u2082 : \u2203 a \u2208 b, \u00acp a) : False := by\n  grind\n#guard_msgs (info) in\nset_option trace.grind.ematch.pattern true in\nset_option trace.grind.ematch.instance true in\nset_option trace.grind.assert true in\nexample (P Q R : \u03b1 \u2192 Prop) (h\u2081 : \u2200 x, Q x \u2192 P x) (h\u2082 : \u2200 x, R x \u2192 False = (P x)) : Q a \u2192 R a \u2192 False := by\n  grind\nexample (w : Nat \u2192 Type) (h : \u2200 n, Subsingleton (w n)) : True := by\n  grind\nexample {P1 P2 : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_t1.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_t1.lean",
+    "definition_name": "true"
+  }
+}

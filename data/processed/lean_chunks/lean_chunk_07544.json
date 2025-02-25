@@ -1,0 +1,9 @@
+{
+  "content": "| \u27e85, _\u27e9 => \"May\"\n  | \u27e86, _\u27e9 => \"June\"\n  | \u27e87, _\u27e9 => \"July\"\n  | \u27e88, _\u27e9 => \"August\"\n  | \u27e89, _\u27e9 => \"September\"\n  | \u27e810, _\u27e9 => \"October\"\n  | \u27e811, _\u27e9 => \"November\"\n  | \u27e812, _\u27e9 => \"December\"\nprivate def formatMonthShort : Month.Ordinal \u2192 String\n  | \u27e81, _\u27e9 => \"Jan\"\n  | \u27e82, _\u27e9 => \"Feb\"\n  | \u27e83, _\u27e9 => \"Mar\"\n  | \u27e84, _\u27e9 => \"Apr\"\n  | \u27e85, _\u27e9 => \"May\"\n  | \u27e86, _\u27e9 => \"Jun\"\n  | \u27e87, _\u27e9 => \"Jul\"\n  | \u27e88, _\u27e9 => \"Aug\"\n  | \u27e89, _\u27e9 => \"Sep\"\n  | \u27e810, _\u27e9 => \"Oct\"\n  | \u27e811, _\u27e9 => \"Nov\"\n  | \u27e812, _\u27e9 => \"Dec\"\nprivate def formatMonthNarrow : Month.Ordinal \u2192 String\n  | \u27e81, _\u27e9  => \"J\"\n  | \u27e82, _\u27e9  => \"F\"\n  | \u27e83, _\u27e9  => \"M\"\n  | \u27e84, _\u27e9  => \"A\"\n  | \u27e85, _\u27e9  => \"M\"\n  | \u27e86, _\u27e9  => \"J\"\n  | \u27e87, _\u27e9  => \"J\"\n  | \u27e88, _\u27e9  => \"A\"\n  | \u27e89, _\u27e9  => \"S\"\n  | \u27e810, _\u27e9 => \"O\"\n  | \u27e811, _\u27e9 => \"N\"\n  | \u27e812, _\u27e9 => \"D\"\nprivate def formatWeekdayLong : Weekday \u2192 String\n  | .sunday => \"Sunday\"\n  | .monday => \"Monday\"\n  | .tuesday => \"Tuesday\"\n  | .wednesday => \"Wednesday\"\n  | .thursday => \"Thursday\"\n  | .friday => \"Friday\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "FormatPart"
+  }
+}

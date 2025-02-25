@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex8 (n m k : Nat) (h : Nat.succ n + m = Nat.succ n + k) : Nat.succ (n + m) = Nat.succ (n + k) :=\nNat.succ_add .. \u25b8 Nat.succ_add .. \u25b8 h\ntheorem ex9 (a b : Nat) (h\u2081 : a = a + b) (h\u2082 : a = b) : a = b + a  :=\nh\u2082 \u25b8 h\u2081\ntheorem ex10 (a b : Nat) (h : a = b) : b = a :=\nh \u25b8 rfl\ndef ex11  {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subst.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subst.lean",
+    "definition_name": "ex8",
+    "has_proof": false
+  }
+}

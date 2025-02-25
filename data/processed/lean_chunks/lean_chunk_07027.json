@@ -1,0 +1,9 @@
+{
+  "content": "getAliasState env |>.forM fun alias declNames => do\n    let rec searchAlias (ns : Name) : M Unit := do\n      if matchAlias ns alias then\n        addAlias alias declNames\n      else\n        match ns with\n        | Name.str p ..  => searchAlias p\n        | _ => return ()\n    searchAlias ctx.currNamespace\n  if !danglingDot then\n    if let .str .anonymous s := id then\n      let keywords := Parser.getTokenTable env\n      for keyword in keywords.findPrefix s do\n        addKeywordCompletionItem keyword\n  completeNamespaces ctx id danglingDot\ndef idCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)\n    (lctx              : LocalContext)\n    (stx               : Syntax)\n    (id                : Name)\n    (hoverInfo         : HoverInfo)\n    (danglingDot       : Bool)\n    : CancellableM (Array CompletionItem) :=\n  runM params completionInfoPos ctx lctx do\n    idCompletionCore ctx stx id hoverInfo danglingDot",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

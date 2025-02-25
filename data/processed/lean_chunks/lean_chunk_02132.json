@@ -1,0 +1,10 @@
+{
+  "content": "theorem monotone_id [Preorder \u03b1] : Monotone (\u03b1 := \u03b1) id :=\n  fun h => h\ntheorem monotone_id' [Preorder \u03b1] : Monotone (\u03b1 := \u03b1) id :=\n@fun a b h => h\ntheorem monotone_id'' [Preorder \u03b1] : Monotone (\u03b1 := \u03b1) id :=\nfun {a b}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/monotone.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/monotone.lean",
+    "definition_name": "monotone_id",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Stats where\n  numNodes      : Nat := 0\n  numNull       : Nat := 0\n  numCollisions : Nat := 0\n  maxDepth      : Nat := 0\npartial def collectStats : Node \u03b1 \u03b2 \u2192 Stats \u2192 Nat \u2192 Stats\n  | Node.collision keys _ _, stats, depth =>\n    { stats with\n      numNodes      := stats.numNodes + 1,\n      numCollisions := stats.numCollisions + keys.size - 1,\n      maxDepth      := Nat.max stats.maxDepth depth }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_name": "Stats"
+  }
+}

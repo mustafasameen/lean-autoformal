@@ -1,0 +1,10 @@
+{
+  "content": "theorem _root_.List.attach_toArray {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Attach.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Attach.lean",
+    "definition_name": "_root_",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 contradiction\n  \u00b7 rw [if_neg \u2039_\u203a]\n    tree_tac\n  \u00b7 rw [if_neg \u2039_\u203a]\n    exact balanced_doubleR k v _ _ _ _ _ _ _ _ _ _ hl hr hlr hh \u2039_\u203a\ntheorem balanceL_eq_balanceLErase {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_name": "balanced_singleL",
+    "has_proof": true
+  }
+}

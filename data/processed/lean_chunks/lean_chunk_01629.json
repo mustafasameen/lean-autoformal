@@ -1,0 +1,9 @@
+{
+  "content": "structure A where\n  x : Nat\nstructure B extends A where\n  y : Nat\nstructure C extends B where\n  z : Nat\nvariable (a : A) (b : B) (c : C)\nsection\n#guard_msgs in #check b.x\n#guard_msgs in #check b.y\n#guard_msgs in #check c.z\nend\nsection\nset_option pp.fieldNotation false\n#guard_msgs in #check b.x\n#guard_msgs in #check b.y\n#guard_msgs in #check c.z\nend\nstructure Fin0 where\n  val : Nat\nstructure Fin' extends Fin0\nstructure Fin'' (n : Nat) extends Fin0\nstructure D (n : Nat) extends A\nvariable (x : Fin0) (y : Fin') (z : Fin'' 5) (d : D 5)\nsection\n#guard_msgs in #check y.val\n#guard_msgs in #check d.x\nend\nsection\nset_option pp.explicit true\n#guard_msgs in #check x.val\n#guard_msgs in #check z.val\nnotation:max \"\u263a \" f:max => Fn.toFun f\n#guard_msgs in #check f.toFun 0\ndef A.g (a : A) : Nat := a.x\n#guard_msgs in #check b.g\n#guard_msgs in #check a.g\nset_option pp.fieldNotation false in\n#guard_msgs in #check a.g\n#guard_msgs in #check Float.abs 2.2\nstructure MySet (\u03b1 : Type) where\n  p : \u03b1 \u2192 Prop",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/delabProjectionApp.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/delabProjectionApp.lean",
+    "definition_name": "A"
+  }
+}

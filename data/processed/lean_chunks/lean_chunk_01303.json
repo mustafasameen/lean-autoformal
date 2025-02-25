@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  x : Nat\n  y : Nat := 10\n@[instance]\ndef f (x : Nat) : Foo :=\n  { x := x + x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp_proj_transparency_issue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp_proj_transparency_issue.lean",
+    "definition_name": "Foo"
+  }
+}

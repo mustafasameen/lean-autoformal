@@ -1,0 +1,9 @@
+{
+  "content": "structure PlainTime where\n  hour : Hour.Ordinal\n  minute : Minute.Ordinal\n  second : Second.Ordinal true\n  nanosecond : Nanosecond.Ordinal\n  deriving Repr\ninstance : Inhabited PlainTime where\n  default := \u27e80, 0, 0, 0, by decide\u27e9\ninstance : BEq PlainTime where\n  beq x y := x.hour.val == y.hour.val && x.minute == y.minute\n          && x.second.val == y.second.val && x.nanosecond == y.nanosecond\nnamespace PlainTime\ndef midnight : PlainTime :=\n  \u27e80, 0, 0, 0\u27e9\n@[inline]\ndef ofHourMinuteSecondsNano (hour : Hour.Ordinal) (minute : Minute.Ordinal) (second : Second.Ordinal true) (nano : Nanosecond.Ordinal) : PlainTime :=\n  \u27e8hour, minute, second, nano\u27e9\n@[inline]\ndef ofHourMinuteSeconds (hour : Hour.Ordinal) (minute : Minute.Ordinal) (second : Second.Ordinal true) : PlainTime :=\n  ofHourMinuteSecondsNano hour minute second 0\ndef toMilliseconds (time : PlainTime) : Millisecond.Offset :=\n  time.hour.toOffset.toMilliseconds +\n  time.minute.toOffset.toMilliseconds +",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_name": "PlainTime"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def x := 10\nend Foo\nopen Foo\n#check x\n#check Foo.x\nnamespace Bla.Foo\nprotected def y := 20\ndef z := 30\nend Bla.Foo\nopen Bla\n#check Foo.y\nopen Bla.Foo\n#check y\n#check z\nprotected def x := 0\nprotected partial def Foo.f (x : Nat) :=\nif x > 0 then f (x-1) * 2 else 1\nprotected partial def Bla.f (x : Nat) :=\nif x > 0 then Bla.f (x-1) * 2 else 1\n#eval Bla.f 3\nnamespace Foo\nprotected partial def g (x : Nat) :=\nif x > 0 then g (x-1) * 2 else 1\nend Foo\nnamespace Bla\nprotected partial def g (x : Nat) :=\nif x > 0 then Bla.g (x-1) * 2 else 1\n#eval g 3\n#eval Bla.g 3\nend Bla\ndef S (\u03c3 : Type) (m : Type \u2192 Type) (\u03b1 : Type) :=\n\u03c3 \u2192 m (\u03b1 \u00d7 \u03c3)\nnamespace S\nvariable {\u03c3 : Type} {m : Type \u2192 Type} [Monad m] {\u03b1 : Type}\nprotected def pure (a : \u03b1) : S \u03c3 m \u03b1 :=\nfun s => pure (a, s)\nend S",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/protected.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/protected.lean",
+    "definition_name": "x"
+  }
+}

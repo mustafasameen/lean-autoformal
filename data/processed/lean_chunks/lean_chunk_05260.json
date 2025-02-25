@@ -1,0 +1,10 @@
+{
+  "content": "def enumFrom : Nat \u2192 List \u03b1 \u2192 List (Nat \u00d7 \u03b1)\n  | _, [] => nil\n  | n, x :: xs   => (n, x) :: enumFrom (n + 1) xs\nset_option linter.deprecated false in\n@[deprecated zipIdx_nil (since := \"2025-01-21\"), simp]\ntheorem enumFrom_nil : ([] : List \u03b1).enumFrom i = [] := rfl\nset_option linter.deprecated false in\n@[deprecated zipIdx_cons (since := \"2025-01-21\"), simp]\ntheorem enumFrom_cons : (a::as).enumFrom i = (i, a) :: as.enumFrom (i+1) := rfl\n@[deprecated \"Use `zipIdx` instead; note the signature change.\" (since := \"2025-01-21\")]\ndef enum : List \u03b1 \u2192 List (Nat \u00d7 \u03b1) := enumFrom 0\nset_option linter.deprecated false in\n@[deprecated zipIdx_nil (since := \"2025-01-21\"), simp]\ntheorem enum_nil : ([] : List \u03b1).enum = [] := rfl\ndef min? [Min \u03b1] : List \u03b1 \u2192 Option \u03b1\n  | []    => none\n  | a::as => some <| as.foldl min a\n@[inherit_doc min?, deprecated min? (since := \"2024-09-29\")] abbrev minimum? := @min?\ndef max? [Max \u03b1] : List \u03b1 \u2192 Option \u03b1\n  | []    => none\n  | a::as => some <| as.foldl max a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "range_zero",
+    "has_proof": false
+  }
+}

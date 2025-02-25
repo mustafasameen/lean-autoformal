@@ -1,0 +1,10 @@
+{
+  "content": "theorem left_comm [CommMonoid \u03b1] (a b c : \u03b1) : a * (b * c) = b * (a * c) := by\n  rw [\u2190 Semigroup.mul_assoc, CommMonoid.mul_comm a b, Semigroup.mul_assoc]\nopen Lean Meta Elab Tactic Grind in\ndef fallback : Fallback := do\n  let nodes \u2190 filterENodes fun e => return e.self.isApp && e.self.isAppOf ``HMul.hMul\n  trace[Meta.debug] \"{nodes.toList.map (\u00b7.self)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_canon_insts.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_canon_insts.lean",
+    "definition_name": "left_comm",
+    "has_proof": true
+  }
+}

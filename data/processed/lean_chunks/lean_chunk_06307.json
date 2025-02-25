@@ -1,0 +1,9 @@
+{
+  "content": "structure StructFieldInfo where\n  ref      : Syntax\n  name     : Name\n  kind     : StructFieldKind\n  declName : Name\n  fvar     : Expr\n  value? : Option Expr := none\n  deriving Inhabited, Repr\ndef StructFieldInfo.isFromSubobject (info : StructFieldInfo) : Bool :=\n  info.kind matches StructFieldKind.fromSubobject\ndef StructFieldInfo.isSubobject (info : StructFieldInfo) : Bool :=\n  info.kind matches StructFieldKind.subobject ..\nprivate def defaultCtorName := `mk\nprivate def expandCtor (structStx : Syntax) (structModifiers : Modifiers) (structDeclName : Name) : TermElabM CtorView := do\n  let useDefault := do\n    let declName := structDeclName ++ defaultCtorName\n    let ref := structStx[1].mkSynthetic\n    addDeclarationRangesFromSyntax declName ref\n    pure { ref, declId := ref, modifiers := default, declName }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "StructParentView"
+  }
+}

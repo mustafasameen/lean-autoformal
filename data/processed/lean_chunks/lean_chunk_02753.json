@@ -1,0 +1,9 @@
+{
+  "content": "class MonadFunctorT (m : Type u \u2192 Type v) (n : Type u \u2192 Type w) where\n  monadMap {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "MonadFunctorT"
+  }
+}

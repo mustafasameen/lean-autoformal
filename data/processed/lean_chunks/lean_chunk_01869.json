@@ -1,0 +1,9 @@
+{
+  "content": "structure MyState :=\nbs : Nat := 0\nps : Nat := 0\ninstance : Repr MyState where\n  reprPrec s _ := repr (s.bs, s.ps)\ninstance : EStateM.Backtrackable Nat MyState :=\n{ save    := fun s => s.bs,\n  restore := fun s d => { s with bs := d }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/backtrackable_estate.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/backtrackable_estate.lean",
+    "definition_name": "MyState"
+  }
+}

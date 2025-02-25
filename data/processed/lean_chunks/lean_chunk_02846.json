@@ -1,0 +1,9 @@
+{
+  "content": "maxDischargeDepth : Nat  := 2\n  contextual        : Bool := false\n  memoize           : Bool := true\n  singlePass        : Bool := false\n  zeta              : Bool := true\n  beta              : Bool := true\n  eta               : Bool := true\n  etaStruct         : EtaStructMode := .all\n  iota              : Bool := true\n  proj              : Bool := true\n  decide            : Bool := false\n  autoUnfold        : Bool := false\n  dsimp             : Bool := true\n  failIfUnchanged   : Bool := true\n  ground            : Bool := false\n  unfoldPartialApp  : Bool := false\n  zetaDelta         : Bool := false\n  index             : Bool := true\n  implicitDefEqProofs : Bool := true\n  zetaUnused : Bool := true\n  deriving Inhabited, BEq\nstructure ConfigCtx extends Config where\n  contextual := true\ndef neutralConfig : Simp.Config := {\n  zeta              := false\n  beta              := false\n  eta               := false\n  iota              := false\n  proj              := false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/MetaTypes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/MetaTypes.lean",
+    "definition_name": "NameGenerator"
+  }
+}

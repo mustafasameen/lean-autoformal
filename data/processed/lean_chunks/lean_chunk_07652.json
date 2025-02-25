@@ -1,0 +1,10 @@
+{
+  "content": "theorem get_push_ref_eq (s : RefVec aig len) (ref : AIG.Ref aig) :\n    (s.push ref).get len (by omega) = ref := by\n  have := s.hlen\n  simp [get, push, \u2190 this]\ntheorem get_push_ref_eq' (s : RefVec aig len) (ref : AIG.Ref aig) (idx : Nat)\n    (hidx : idx = len) :\n    (s.push ref).get idx (by omega) = ref := by\n  have := s.hlen\n  simp [get, push, \u2190 this, hidx]\ntheorem get_push_ref_lt (s : RefVec aig len) (ref : AIG.Ref aig) (idx : Nat)\n    (hidx : idx < len) :\n    (s.push ref).get idx (by omega) = s.get idx hidx := by\n  simp only [get, push, Ref.mk.injEq]\n  cases ref\n  simp only [Ref.mk.injEq]\n  rw [Array.getElem_push_lt]\n@[simp]\ntheorem get_cast {aig1 aig2 : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVec.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVec.lean",
+    "definition_name": "get_push_ref_eq",
+    "has_proof": true
+  }
+}

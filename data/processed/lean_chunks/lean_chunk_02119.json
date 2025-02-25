@@ -1,0 +1,9 @@
+{
+  "content": "instance HLOS_max : HLOS.{a}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/univCnstrApprox.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/univCnstrApprox.lean",
+    "definition_name": "HLOS_max"
+  }
+}

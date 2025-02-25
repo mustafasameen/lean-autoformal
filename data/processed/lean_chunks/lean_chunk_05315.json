@@ -1,0 +1,10 @@
+{
+  "content": "theorem unzip_zipIdx_eq_prod (l : List \u03b1) {i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_name": "unzip_zipIdx_eq_prod",
+    "has_proof": false
+  }
+}

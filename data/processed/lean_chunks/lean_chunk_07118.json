@@ -1,0 +1,9 @@
+{
+  "content": "def maxValueDepth := 8\nprotected partial def beq : Value \u2192 Value \u2192 Bool\n| bot, bot => true\n| top, top => true\n| ctor i1 vs1 , ctor i2 vs2 =>\n  i1 == i2 && Array.isEqv vs1 vs2 Value.beq\n| choice vs1 , choice vs2 =>\n  let isSubset as bs := as.all (fun a => bs.any fun b => Value.beq a b)\n  isSubset vs1 vs2 && isSubset vs2 vs1\n| _, _ => false\ninstance : BEq Value := \u27e8Value.beq\u27e9\nmutual\npartial def addChoice (vs : List Value) (v : Value) : List Value :=\n  match vs, v with\n  | [], v => [v]\n  | v1@(ctor i1 _ ) :: cs, ctor i2 _ =>\n    if i1 == i2 then\n      (merge v1 v) :: cs\n    else\n      v1 :: addChoice cs v\n  | _, _ => panic! \"invalid addChoice\"\npartial def merge (v1 v2 : Value) : Value :=\n  match v1, v2 with\n  | bot, v | v, bot => v\n  | top, _ | _, top => top\n  | ctor i1 vs1, ctor i2 vs2 =>\n    if i1 == i2 then\n      ctor i1 (Array.zipWith merge vs1 vs2)\n    else\n      choice [v1, v2]\n  | choice vs1, choice vs2 =>\n    choice (vs1.foldl addChoice vs2)\n  | choice vs, v | v, choice vs =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure A where\n  p: Prop\n  q: True\nexample := (\u03bb \u27e8_,_\u27e9 \u21a6 True.intro : (A.mk (And True True) (by exact True.intro)).p \u2192 True)\nend Test1\nnamespace Test2\nstructure A where\n  p: Prop\n  q: True\nstructure B extends A where\n  q': p \u2192 True\nexample: B where\n  p := True \u2227 True\n  q := by exact True.intro\n  q' := \u03bb \u27e8_,_\u27e9 \u21a6 True.intro\nend Test2\nnamespace Test3\nclass Preorder (\u03b1 : Type) extends LE \u03b1, LT \u03b1 where\n  le_refl : \u2200 a : \u03b1, a \u2264 a\n  lt := fun a b => a \u2264 b \u2227 \u00acb \u2264 a\nclass PartialOrder (\u03b1 : Type) extends Preorder \u03b1 where\n  le_antisymm : \u2200 a b : \u03b1, a \u2264 b \u2192 b \u2264 a \u2192 a = b\ninductive MyOrder : Nat \u00d7 Nat \u2192 Nat \u00d7 Nat \u2192 Prop\n  | within {x u m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6354.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6354.lean",
+    "definition_name": "A"
+  }
+}

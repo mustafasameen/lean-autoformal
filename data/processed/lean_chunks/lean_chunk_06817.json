@@ -1,0 +1,9 @@
+{
+  "content": "| some idem => someE idemClass idem\n    return mkApp7 (mkConst ``Lean.Data.AC.Context.mk [u]) \u03b1 preContext.op preContext.assoc comm idem vars arbitrary\n  convert : ACExpr \u2192 Expr\n    | .op l r => mkApp2 (mkConst ``Data.AC.Expr.op) (convert l) (convert r)\n    | .var x => mkApp (mkConst ``Data.AC.Expr.var) $ mkNatLit x\n  convertTarget (vars : Array Expr) : ACExpr \u2192 Expr\n    | .op l r => mkApp2 preContext.op (convertTarget vars l) (convertTarget vars r)\n    | .var x => vars[x]!\ndef post (e : Expr) : SimpM Simp.Step := do\n  let ctx \u2190 Simp.getContext\n  match e, ctx.parent? with\n  | bin op\u2081 l r, some (bin op\u2082 _ _) =>\n    if \u2190isDefEq op\u2081 op\u2082 then\n      return Simp.Step.done { expr := e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_name": "PreExpr"
+  }
+}

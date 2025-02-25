@@ -1,0 +1,9 @@
+{
+  "content": "@[extern \"lean_elab_add_decl_without_checking\"]\nprivate opaque addDeclWithoutChecking (env : Environment) (decl : @& Declaration) :\n  Except Kernel.Exception Environment\ndef addDeclCore (env : Environment) (maxHeartbeats : USize) (decl : @& Declaration)\n    (cancelTk? : @& Option IO.CancelToken) (doCheck := true) :\n    Except Kernel.Exception Environment := do\n  if let some ctx := env.asyncCtx? then\n    if let some n := decl.getNames.find? (!ctx.mayContain \u00b7) then\n      throw <| .other s!\"cannot add declaration {n} to environment as it is restricted to the \\\n        prefix {ctx.declPrefix}\"\n  if doCheck then\n    addDeclCheck env maxHeartbeats decl cancelTk?\n  else\n    addDeclWithoutChecking env decl\n@[inherit_doc Kernel.Environment.constants]\ndef constants (env : Environment) : ConstMap :=\n  env.toKernelEnv.constants\n@[inherit_doc Kernel.Environment.const2ModIdx]\ndef const2ModIdx (env : Environment) : Std.HashMap Name ModuleIdx :=\n  env.toKernelEnv.const2ModIdx",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem iff_of_true' (ha : a) (hb : b) : a \u2194 b := Iff.intro (fun _ => hb) (fun _ => ha)\ntheorem iff_true_intro' (h : a) : a \u2194 True := iff_of_true' h trivial\n@[simp]\ntheorem IsEmpty.forall_iff [IsEmpty \u03b1] {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_name": "iff_of_true",
+    "has_proof": false
+  }
+}

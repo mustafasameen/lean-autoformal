@@ -1,0 +1,9 @@
+{
+  "content": "instance pattern, 'with' is not allowed in patterns\"\n    let fields \u2190 fields.getElems.mapM fun\n      | `(Parser.Term.structInstField| $lval:structInstLVal := $val) => do\n        let newVal \u2190 collect val\n        `(Parser.Term.structInstField| $lval:structInstLVal := $newVal)\n| _ => throwInvalidPattern\n    `({ $[$srcs?,* with]? $fields,* $[..%$ell?]? $[: $ty?]? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PatternVar.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PatternVar.lean",
+    "definition_name": "pattern"
+  }
+}

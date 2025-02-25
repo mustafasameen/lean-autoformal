@@ -1,0 +1,10 @@
+{
+  "content": "structure BVVar (width : Nat) where\n  ident : Nat\ndef blastVar (aig : AIG BVBit) (var : BVVar w) : AIG.RefVecEntry BVBit w :=\n  go aig w var.ident 0 .empty (by omega)\nwhere\n  go (aig : AIG BVBit) (w : Nat) (a : Nat) (curr : Nat) (s : AIG.RefVec aig curr)\n    (hcurr : curr \u2264 w) :\n    AIG.RefVecEntry BVBit w :=\n  if hcurr : curr < w then\n    let res := aig.mkAtomCached \u27e8a, \u27e8curr, hcurr\u27e9\u27e9\n    let aig := res.aig\n    let bitRef := res.ref\n    let s := s.cast <| AIG.LawfulOperator.le_size (f := AIG.mkAtomCached) ..\n    let s := s.push bitRef\n    go aig w a (curr + 1) s (by omega)\n  else\n    have hcurr : curr = w := by omega\n    \u27e8aig, hcurr \u25b8 s\u27e9\n  termination_by w - curr\ntheorem blastVar.go_le_size {aig : AIG BVBit}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Var.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Var.lean",
+    "definition_name": "BVVar",
+    "has_proof": true
+  }
+}

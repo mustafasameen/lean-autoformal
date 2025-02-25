@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_mkArray (n : Nat) (v : \u03b1) : (mkArray n v).size = n :=\n  List.length_replicate ..\n@[simp] theorem toList_mkArray : (mkArray n a).toList = List.replicate n a := by\n  simp only [mkArray]\n@[simp] theorem mkArray_zero : mkArray 0 a = #[] := rfl\ntheorem mkArray_succ : mkArray (n + 1) a = (mkArray n a).push a := by\n  apply toList_inj.1\n  simp [List.replicate_succ']\n@[simp] theorem getElem_mkArray (n : Nat) (v : \u03b1) (h : i < (mkArray n v).size) :\n    (mkArray n v)[i] = v := by simp [\u2190 getElem_toList]\ntheorem getElem?_mkArray (n : Nat) (v : \u03b1) (i : Nat) :\n    (mkArray n v)[i]? = if i < n then some v else none := by\n  simp [getElem?_def]\ntheorem not_mem_empty (a : \u03b1) : \u00ac a \u2208 #[] := by simp\n@[simp] theorem mem_push {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "size_mkArray",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure MacroScopesView where\n  imported   : Name\n  scopes     : List MacroScope\ninstance : Inhabited MacroScopesView where\n  default := \u27e8default, default, default, default\u27e9\ndef extractMacroScopes (n : Name) : MacroScopesView :=\n  match n.hasMacroScopes with\n  | true  => extractMacroScopesAux n List.nil\n  | false => { name := n, scopes := List.nil, imported := Name.anonymous, mainModule := Name.anonymous }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "MacroScopesView"
+  }
+}

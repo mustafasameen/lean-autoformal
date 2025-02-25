@@ -1,0 +1,9 @@
+{
+  "content": "| _ => pure ()\nregister_builtin_option compiler.enableNew : Bool := {\n  defValue := false\n  group    := \"compiler\"\n  descr    := \"(compiler) enable the new code generator, this should have no significant effect on your code but it does help to test the new code generator",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/CoreM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/CoreM.lean",
+    "definition_name": "supportedRecursors"
+  }
+}

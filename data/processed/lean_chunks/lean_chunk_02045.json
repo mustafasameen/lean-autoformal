@@ -1,0 +1,9 @@
+{
+  "content": "inductive Tree | node : List Tree \u2192 Tree\ndef Tree.rev : Tree \u2192 Tree\n  | node ts => .node (ts.attach.map (fun \u27e8t, _ht\u27e9 => t.rev) |>.reverse)\n#guard_msgs in\n#check Tree.rev.induct\ndef fib : Nat \u2192 Nat\n  | 0 => 1\n  | 1 => 1\n  | n+2 => fib n + fib (n+1)\ntermination_by n => n\n#guard_msgs in\n#check fib.induct\nset_option linter.unusedVariables false in\ndef have_tailrec : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n    have h2 : n < n+1 := Nat.lt_succ_self n\n    have_tailrec n\ntermination_by n => n\n#guard_msgs in\n#check have_tailrec.induct\nset_option linter.unusedVariables false in\ndef have_non_tailrec : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n    Nat.succ <|\n      have h2 : n < n+1 := Nat.lt_succ_self n\n      have_non_tailrec n\ntermination_by n => n\n#guard_msgs in\n#check have_non_tailrec.induct\nset_option linter.unusedVariables false in\ndef let_tailrec : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n    let h2 : n < n+1 := Nat.lt_succ_self n\n    let_tailrec n\ntermination_by n => n\n#guard_msgs in\n#check let_tailrec.induct",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "Tree"
+  }
+}

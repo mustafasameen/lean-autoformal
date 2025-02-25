@@ -1,0 +1,9 @@
+{
+  "content": "inductive Empty : Type u\nattribute [cases_eliminator] Empty.casesOn\nnotation \"\ud835\udfce\" => Empty\ndef Not (A : Type u) : Type u := A \u2192 (\ud835\udfce : Type)\ndef Neq {A : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "Empty"
+  }
+}

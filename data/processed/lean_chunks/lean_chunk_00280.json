@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  name  : String\n  val   : List Nat\n  lower : Nat := List.length val\n  inv   : val.length >= lower\n  flag  : Bool\n  deriving Hashable\n#eval hash <| { name := \"Joe\", val := (List.range' 1 40).reverse, flag := true, inv := by decide : Foo }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/derivingHashable.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/derivingHashable.lean",
+    "definition_name": "Foo"
+  }
+}

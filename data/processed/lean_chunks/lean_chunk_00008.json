@@ -1,0 +1,9 @@
+{
+  "content": "instance Rbcolor.DecidableEq : DecidableEq Rbcolor :=\n{decEq := fun a b => Rbcolor.casesOn a\n  (Rbcolor.casesOn b (isTrue rfl) (isFalse (fun h => Rbcolor.noConfusion h)))\n  (Rbcolor.casesOn b (isFalse (fun h => Rbcolor.noConfusion h)) (isTrue rfl))}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap3.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap3.lean",
+    "definition_name": "Rbcolor"
+  }
+}

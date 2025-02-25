@@ -1,0 +1,9 @@
+{
+  "content": "structure Ptr (\u03b1 : Type u) where\n  value : \u03b1\nunsafe instance : Hashable (Ptr \u03b1) where\n  hash a := hash64 (ptrAddrUnsafe a).toUInt64\nunsafe instance : BEq (Ptr \u03b1) where\n  beq a b := ptrAddrUnsafe a == ptrAddrUnsafe b\nunsafe def PtrSet (\u03b1 : Type) :=\n  Std.HashSet (Ptr \u03b1)\nunsafe def mkPtrSet {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/PtrSet.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/PtrSet.lean",
+    "definition_name": "Ptr"
+  }
+}

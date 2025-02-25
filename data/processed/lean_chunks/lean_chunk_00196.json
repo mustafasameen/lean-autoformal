@@ -1,0 +1,9 @@
+{
+  "content": "def aux1 := fun (x : Nat) y z => Nat.add y z\ndef aux2 := fun y z => Nat.add y z\ndef aux3 := (1+.)\ndef aux4 := fun (x : Nat) y z => Nat.add z y\ndef aux5 := fun y => Nat.add y y\nset_option trace.Meta.debug true\n#eval tst `aux1\n#eval tst `aux2\n#eval tst `aux3\n#eval tst `aux4\n#eval tst `aux5",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/eta.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/eta.lean",
+    "definition_name": "aux1"
+  }
+}

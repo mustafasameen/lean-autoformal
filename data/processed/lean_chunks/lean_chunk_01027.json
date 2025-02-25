@@ -1,0 +1,9 @@
+{
+  "content": "structure A where\n  x : Nat\n  y : Nat\ndef f (a : A) : Nat :=\n  let {x, y}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/fieldAbbrevInPat.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/fieldAbbrevInPat.lean",
+    "definition_name": "A"
+  }
+}

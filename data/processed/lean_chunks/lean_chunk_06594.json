@@ -1,0 +1,10 @@
+{
+  "content": "namespace Combinator.Calculus\n  def I (a : \u03b1) : \u03b1 := a\n  def K (a : \u03b1) : \u03b2 \u2192 \u03b1 := fun _ => a\n  def S (x : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (y : \u03b1 \u2192 \u03b2) (z : \u03b1) : \u03b3 := x z (y z)\nend Combinator.Calculus\nsection\n  open Combinator.Calculus\n  theorem SKx_eq_K : S K x = I := rfl\nend\nopen Combinator.Calculus in\ntheorem SKx_eq_K' : S K x = I := rfl\nsection\n  open Combinator.Calculus (S K)\n  theorem SKxy_eq_y : S K x y = y := rfl\n  theorem SKxy_eq_Iy : S K x y = Combinator.Calculus.I y := rfl\nend\nsection\n  open Combinator.Calculus\n    renaming\n      I \u2192 identity,\n      K \u2192 konstant\n  #check identity\n  #check konstant\nend\nsection\n  open Combinator.Calculus\n    hiding S\n  #check I\n  #check K\nend\nsection\n  namespace Demo\n    inductive MyType\n    | val\n    namespace N1\n      scoped infix:68 \" \u224b \" => BEq.beq\n      scoped instance : BEq MyType where\n        beq _ _ := true\n      def Alias := MyType\n    end N1\n  end Demo\n  open scoped Demo.N1\n  #check Demo.MyType.val == Demo.MyType.val",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

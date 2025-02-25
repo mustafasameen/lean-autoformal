@@ -1,0 +1,9 @@
+{
+  "content": "inductive FormatPart\n  | string (val : String)\n  | modifier (modifier : Modifier)\n  deriving Repr\ninstance : Coe String FormatPart where\n  coe := .string\ninstance : Coe Modifier FormatPart where\n  coe := .modifier\nabbrev FormatString := List FormatPart\ninductive Awareness\n  | any\nnamespace Awareness\ninstance : Coe TimeZone Awareness where\n  coe := .only\n@[simp]\nprivate def type (x : Awareness) : Type :=\n  match x with\n  | .any => ZonedDateTime\n  | .only tz => DateTime tz\ninstance : Inhabited (type aw) where\n  default := by\n    simp [type]\n    split <;> exact Inhabited.default\nprivate def getD (x : Awareness) (default : TimeZone) : TimeZone :=\n  match x with\n  | .any => default\n  | .only tz => tz\nend Awareness\nstructure GenericFormat (awareness : Awareness) where\n  string : FormatString\n  deriving Inhabited, Repr\nprivate def parseFormatPart : Parser FormatPart\n  := (.modifier <$> parseModifier)\n  <|> (pchar '\\\\') *> any <&> (.string \u2218 toString)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "FormatPart"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem Eq.subst {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_name": "Eq",
+    "has_proof": false
+  }
+}

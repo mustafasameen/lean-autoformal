@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_ofNat (x w : Nat) : (BitVec.ofNat w x).toNat = x % 2^w := by\n  simp [BitVec.toNat, BitVec.ofNat, Fin.ofNat']\n@[simp] theorem toFin_ofNat (x : Nat) : toFin (BitVec.ofNat w x) = Fin.ofNat' (2^w) x := rfl\ntheorem getLsbD_ofNat (n : Nat) (x : Nat) (i : Nat) :\n  getLsbD (BitVec.ofNat n x) i = (i < n && x.testBit i) := by\n  simp [getLsbD, BitVec.ofNat, Fin.val_ofNat']\n@[simp] theorem getLsbD_zero : (0#w).getLsbD i = false := by simp [getLsbD]\n@[simp] theorem getElem_zero (h : i < w) : (0#w)[i] = false := by simp [getElem_eq_testBit_toNat]\n@[simp] theorem getMsbD_zero : (0#w).getMsbD i = false := by simp [getMsbD]\n@[simp] theorem getLsbD_one : (1#w).getLsbD i = (decide (0 < w) && decide (i = 0)) := by\n  simp only [getLsbD, toNat_ofNat, Nat.testBit_mod_two_pow]\n  by_cases h : i = 0\n    <;> simp [h, Nat.testBit_to_div_mod, Nat.div_eq_of_lt]\n@[simp] theorem getElem_one (h : i < w) : (1#w)[i] = decide (i = 0) := by\n  simp [\u2190 getLsbD_eq_getElem, getLsbD_one, h, show 0 < w by omega]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toNat_ofNat",
+    "has_proof": true
+  }
+}

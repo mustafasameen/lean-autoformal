@@ -1,0 +1,10 @@
+{
+  "content": "theorem MyEq.symm {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/symm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/symm.lean",
+    "definition_name": "MyEq",
+    "has_proof": false
+  }
+}

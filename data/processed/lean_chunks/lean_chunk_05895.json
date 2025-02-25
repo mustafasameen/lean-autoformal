@@ -1,0 +1,10 @@
+{
+  "content": "theorem neg_ediv_self (a : Int) (h : a \u2260 0) : (-a) / a = -1 := by\n  rw [neg_ediv_of_dvd (Int.dvd_refl a), Int.ediv_self h]\n@[simp]\ntheorem emod_sub_cancel (x y : Int): (x - y) % y = x % y := by\n  by_cases h : y = 0\n  \u00b7 simp [h]\n  \u00b7 simp only [Int.emod_def, Int.sub_ediv_of_dvd, Int.dvd_refl, Int.ediv_self h, Int.mul_sub]\n    simp [Int.mul_one, Int.sub_sub, Int.add_comm y]\n@[simp] theorem add_neg_emod_self (a b : Int) : (a + -b) % b = a % b := by\n  rw [\u2190 Int.sub_eq_add_neg, emod_sub_cancel]\n@[simp] theorem neg_add_emod_self (a b : Int) : (-a + b) % a = b % a := by\n  rw [Int.add_comm, add_neg_emod_self]\nprotected theorem ediv_mul_le (a : Int) {b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "neg_ediv_self",
+    "has_proof": true
+  }
+}

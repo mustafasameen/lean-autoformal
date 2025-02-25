@@ -1,0 +1,9 @@
+{
+  "content": "structure FooRef where\n  a : Array Nat\n  deriving Inhabited, TypeName\n#eval test (WithRpcRef FooRef) default\nstructure FooJson where\n  s : String\n  deriving FromJson, ToJson, Inhabited\nstructure Bar where\n  fooRef : WithRpcRef FooRef\n  fooJson : FooJson\n  deriving RpcEncodable, Inhabited\n#eval test Bar default\nstructure BarTrans where\n  bar : Bar\n  deriving RpcEncodable, Inhabited\n#eval test BarTrans default\nstructure Baz where\narr : Array String\n  deriving RpcEncodable, Inhabited\n#eval test Baz default\nstructure FooGeneric (\u03b1 : Type) where\n  a : \u03b1\n  b? : Option \u03b1\n  deriving RpcEncodable, Inhabited\n#eval test (FooGeneric Nat) default\n#eval test (FooGeneric Nat) { a := 3, b? := some 42 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/derivingRpcEncoding.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/derivingRpcEncoding.lean",
+    "definition_name": "FooRef"
+  }
+}

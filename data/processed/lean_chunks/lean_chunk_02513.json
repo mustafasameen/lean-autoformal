@@ -1,0 +1,10 @@
+{
+  "content": "rfl\n@[simp] theorem getElem_cons_succ (a : \u03b1) (as : List \u03b1) (i : Nat) (h : i + 1 < (a :: as).length) : getElem (a :: as) (i+1) h = getElem as i (Nat.lt_of_succ_lt_succ h) := by\n  rfl\n@[simp] theorem getElem_mem : \u2200 {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

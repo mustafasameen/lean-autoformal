@@ -1,0 +1,9 @@
+{
+  "content": "class MulMemClass (S : Type _) (M : Type _) [Mul M] [SetLike S M] : Prop where\nclass AddMemClass (S : Type _) (M : Type _) [Add M] [SetLike S M] : Prop where\nstructure Subsemigroup (M : Type _) [Mul M] where\n  carrier : Set M\nstructure AddSubsemigroup (M : Type _) [Add M] where\n  carrier : Set M\nend Mathlib.GroupTheory.Subsemigroup.Basic\nsection Mathlib.Algebra.Group.InjSurj\nnamespace Function\nnamespace Injective\nvariable {M\u2081 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "MulMemClass"
+  }
+}

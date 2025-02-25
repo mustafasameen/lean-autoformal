@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_append_getLast (l : List \u03b1) (h : l \u2260 []) :\n    (l.take (l.length - 1)) ++ [l.getLast h] = l := by\n  rw [getLast_eq_getElem]\n  cases l\n  \u00b7 contradiction\n  \u00b7 simp\n@[simp] theorem take_append_getLast? (l : List \u03b1) :\n    (l.take (l.length - 1)) ++ l.getLast?.toList = l := by\n  match l with\n  | [] => simp\n  | x :: xs =>\n    simpa using take_append_getLast (x :: xs) (by simp)\n@[deprecated take_succ_cons (since := \"2024-07-25\")]\ntheorem take_cons_succ : (a::as).take (i+1) = a :: as.take i := rfl\n@[deprecated take_of_length_le (since := \"2024-07-25\")]\ntheorem take_all_of_le {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_name": "take_append_getLast",
+    "has_proof": true
+  }
+}

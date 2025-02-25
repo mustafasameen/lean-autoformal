@@ -1,0 +1,9 @@
+{
+  "content": "def Reservoir.lakeHeaders := #[\n  \"X-Reservoir-Api-Version:1.0.0\",\n  \"X-Lake-Registry-Api-Version:0.1.0\"\n]\ndef Reservoir.fetchPkg? (lakeEnv : Lake.Env) (owner pkg : String) : LogIO (Option RegistryPkg) := do\n  let url := Reservoir.pkgApiUrl lakeEnv owner pkg\n  let out \u2190\n    try\n      getUrl url Reservoir.lakeHeaders\n    catch e =>\n      logError s!\"{owner}/{pkg}: Reservoir lookup failed\"\n      throw e\n  match Json.parse out >>= fromJson? with\n  | .ok json =>\n    match fromJson? json with\n    | .ok (resp : ReservoirResp RegistryPkg) =>\n      match resp with\n      | .data pkg =>\n        return pkg\n      | .error status msg =>\n        if status == 404 then\n          return none\n        else\n          error s!\"{owner}/{pkg}: Reservoir lookup failed: {msg}\"\n    | .error e =>\n      errorWithLog do\n      logError s!\"{owner}/{pkg}: Reservoir lookup failed",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_name": "Reservoir"
+  }
+}

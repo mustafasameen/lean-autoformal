@@ -1,0 +1,9 @@
+{
+  "content": "let defaultBranch? \u2190 obj.get? \"defaultBranch\"\n      let subDir? \u2190 obj.get? \"subDir\"\n      return .git obj url githubUrl? defaultBranch? subDir?\n    else\n      return .other obj\n  catch e =>\n    throw s!\"invalid registry source: {e}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_name": "RegistrySrc"
+  }
+}

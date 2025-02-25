@@ -1,0 +1,9 @@
+{
+  "content": "abbrev Macro := Syntax \u2192 MacroM Syntax\nnamespace Macro\ninstance : MonadRef MacroM where\n  getRef     := bind read fun ctx => pure ctx.ref\n  withRef    := fun ref x => withReader (fun ctx => { ctx with ref := ref }) x\ndef throwUnsupported {\u03b1} : MacroM \u03b1 :=\n  throw Exception.unsupportedSyntax\ndef throwError {\u03b1} (msg : String) : MacroM \u03b1 :=\n  bind getRef fun ref =>\n  throw (Exception.error ref msg)\n@[inline] protected def withFreshMacroScope {\u03b1} (x : MacroM \u03b1) : MacroM \u03b1 :=\n  bind (modifyGet (fun s => (s.macroScope, { s with macroScope := hAdd s.macroScope 1 }))) fun fresh =>\n  withReader (fun ctx => { ctx with currMacroScope := fresh }) x\nstructure Methods where\n  expandMacro?      : Syntax \u2192 MacroM (Option Syntax)\n  hasDecl           : Name \u2192 MacroM Bool\n  resolveGlobalName : Name \u2192 MacroM (List (Prod Name (List String)))\n  deriving Inhabited\n@[implemented_by mkMethodsImp]\nopaque mkMethods (methods : Methods) : MethodsRef\ninstance : Inhabited MethodsRef where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "firstFrontendMacroScope"
+  }
+}

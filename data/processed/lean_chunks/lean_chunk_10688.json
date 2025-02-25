@@ -1,0 +1,9 @@
+{
+  "content": "def test := do\n  IO.println \"\"\n  checkParse \"leanprover/lean4:v4.13.0-rc1\"\n  checkParse \"leanprover/lean4:nightly-2024-09-15\"\n  checkParse \"leanprover/lean4-pr-releases:pr-release-101\"\n  checkParse \"leanprover/lean:v4.1.0\"\n  checkParse \"4.12.0\"\n  checkLt \"4.6.0-rc1\" \"v4.6.0\"\n  checkLt \"4.12.0\" \"leanprover/lean4:v4.13.0-rc1\"\n  checkLt \"nightly-2024-09-08\" \"nightly-2024-10-09\"\n  checkLt \"nightly-2024-09-08\" \"4.0.0\"\n#guard_msgs in #eval test",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/updateToolchain/test.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/updateToolchain/test.lean",
+    "definition_name": "test"
+  }
+}

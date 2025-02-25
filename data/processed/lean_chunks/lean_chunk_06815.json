@@ -1,0 +1,9 @@
+{
+  "content": "let lhs := convert acExpr\n    let rhs := convert acExprNormed\n    let proof := mkAppN (mkConst ``Context.eq_of_norm [u]) #[\u03b1, context, lhs, rhs, \u2190mkEqRefl (mkConst ``Bool.true)]\n    let proofType \u2190 mkEq (convertTarget vars acExpr) (convertTarget vars acExprNormed)\n    let proof \u2190 mkExpectedTypeHint proof proofType\n    return proof\n  let some (_, _, tgt) := (\u2190 inferType proof).eq? | panic! \"unexpected proof type\"\n  return (proof, tgt)\nwhere\n  mkContext (\u03b1 : Expr) (u : Level) (vars : Array (Expr \u00d7 Option Expr)) : MetaM Expr := do\n    let arbitrary := vars[0]!.1\n    let plift := mkApp (mkConst ``PLift [.zero])\n    let pliftUp := mkApp2 (mkConst ``PLift.up [.zero])\n    let noneE tp   := mkApp  (mkConst ``Option.none [.zero]) (plift tp)\n    let someE tp v := mkApp2 (mkConst ``Option.some [.zero]) (plift tp) (pliftUp tp v)\n    let vars \u2190 vars.mapM fun \u27e8x, inst?\u27e9 =>\n      let isNeutral :=\n        let isNeutralClass := mkApp3 (mkConst ``LawfulIdentity [u]) \u03b1 preContext.op x",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_name": "PreExpr"
+  }
+}

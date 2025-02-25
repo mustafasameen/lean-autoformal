@@ -1,0 +1,9 @@
+{
+  "content": "class LinearMapClass (F : Type _) (R : outParam (Type _))\n  (M M\u2082 : outParam (Type _)) [Add M] [Add M\u2082]\n    [SMul R M] [SMul R M\u2082] [FunLike F M M\u2082] : Prop\n    extends MulActionSemiHomClass F (id : R \u2192 R) M M\u2082\nvariable (F : Type _)\nvariable [Zero R]\nvariable [Zero M] [Add M] [Zero M\u2083] [Add M\u2083]\nvariable [SMulWithZero R M] [SMulWithZero R M\u2083]\ndef inst1 [FunLike F M M\u2083] [LinearMapClass F R M M\u2083] : ZeroHomClass F M M\u2083 :=\n  { map_zero := fun f \u21a6\n      show f 0 = 0 by\n        rw [\u2190 zero_smul R (0 : M), @map_smul\u209b\u2097]\n        simp only [id_eq, zero_smul]\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_name": "LinearMapClass"
+  }
+}

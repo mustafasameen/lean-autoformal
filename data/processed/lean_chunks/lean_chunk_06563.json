@@ -1,0 +1,9 @@
+{
+  "content": "inductive ServerEvent where\n    | workerEvent (fw : FileWorker) (ev : WorkerEvent)\n    | clientMsg (msg : JsonRpc.Message)\n    | clientError (e : IO.Error)\n  def runClientTask : ServerM (ServerTask ServerEvent) := do\n    let st \u2190 read\n    let readMsgAction : IO ServerEvent := do\n        pure (Message.notification \"exit\" none)\n    match msg with\n    | .notification \"exit\" none =>\n      break\n    | .request id _ _ =>\n      st.hOut.writeLspResponseError {\n        id,\n        code := .invalidRequest,\n        message := \"Request received after 'shutdown' request.\"\n      }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_name": "ServerEvent"
+  }
+}

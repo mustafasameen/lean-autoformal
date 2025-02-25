@@ -1,0 +1,9 @@
+{
+  "content": "class CommSemiring (R : Type u) extends Semiring R, CommMonoid R\ninstance (priority := 100) CommSemiring.toNonUnitalCommSemiring [CommSemiring \u03b1] :\n    NonUnitalCommSemiring \u03b1 :=\n  { inferInstanceAs (CommMonoid \u03b1), inferInstanceAs (CommSemiring \u03b1) with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "Distrib"
+  }
+}

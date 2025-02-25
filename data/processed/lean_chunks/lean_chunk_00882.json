@@ -1,0 +1,9 @@
+{
+  "content": "addc6 : \u2200 (x y : \u03b1), @Add.add \u03b1 (@L1.toAdd _ (@L2.toL1 _ (@L3.toL2 _ (@L4.toL3 _ (@L5.toL4 _ \u27e8add, addc1, addc2, addc3, addc4, addc5\u27e9))))) x y = @Add.add \u03b1 (@L1.toAdd _ (@L2.toL1 _ (@L3.toL2 _ (@L4.toL3 _ (@L5.toL4 _ \u27e8add, addc1, addc2, addc3, addc4, addc5\u27e9))))) y x\n  addc7 : \u2200 (x y : \u03b1), @Add.add \u03b1 (@L1.toAdd _ (@L2.toL1 _ (@L3.toL2 _ (@L4.toL3 _ (@L5.toL4 _ (@L6.toL5 _ \u27e8add, addc1, addc2, addc3, addc4, addc5, addc6\u27e9)))))) x y = @Add.add \u03b1 (@L1.toAdd _ (@L2.toL1 _ (@L3.toL2 _ (@L4.toL3 _ (@L5.toL4 _ (@L6.toL5 _ \u27e8add, addc1, addc2, addc3, addc4, addc5, addc6\u27e9)))))) y x\n  addc8 : \u2200 (x y : \u03b1), @Add.add \u03b1 (@L1.toAdd _ (@L2.toL1 _ (@L3.toL2 _ (@L4.toL3 _ (@L5.toL4 _ (@L6.toL5 _ (@L7.toL6 _ \u27e8add, addc1, addc2, addc3, addc4, addc5, addc6, addc7\u27e9))))))) x y = @Add.add \u03b1 (@L1.toAdd _ (@L2.toL1 _ (@L3.toL2 _ (@L4.toL3 _ (@L5.toL4 _ (@L6.toL5 _ (@L7.toL6 _ \u27e8add, addc1, addc2, addc3, addc4, addc5, addc6, addc7\u27e9))))))) y x\ninstance L8.toL7 [inst : L8 \u03b1] : L7 \u03b1 := { inst with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tryHeuristicPerfIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tryHeuristicPerfIssue.lean",
+    "definition_name": "L8"
+  }
+}

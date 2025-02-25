@@ -1,0 +1,9 @@
+{
+  "content": "structure Equiv (\u03b1 : Sort _) (\u03b2 : Sort _) where\n  protected toFun : \u03b1 \u2192 \u03b2\n  protected invFun : \u03b2 \u2192 \u03b1\n  protected left_inv : LeftInverse invFun toFun\n  protected right_inv : RightInverse invFun toFun\n@[inherit_doc]\ninfixl:25 \" \u2243 \" => Equiv\nattribute [local grind] Function.LeftInverse in\nprotected def flip (F : C \u2964 D \u2964 E) : D \u2964 C \u2964 E where\n  obj k :=\n    { obj := fun j => (F.obj j).obj k,\n      map := fun f => (F.map f).app k, }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat.lean",
+    "definition_name": "Equiv"
+  }
+}

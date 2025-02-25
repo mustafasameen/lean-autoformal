@@ -1,0 +1,9 @@
+{
+  "content": "structure ExternAttrData where\n  arity?   : Option Nat := none\n  entries  : List ExternEntry\n  deriving Inhabited, BEq, Hashable\nprivate def syntaxToExternAttrData (stx : Syntax) : AttrM ExternAttrData := do\n  let arity?  := if stx[1].isNone then none else some <| stx[1][0].isNatLit?.getD 0\n  let entriesStx := stx[2].getArgs\n  if entriesStx.size == 0 && arity? == none then\n    return { entries := [ ExternEntry.adhoc `all ] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/ExternAttr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/ExternAttr.lean",
+    "definition_name": "ExternAttrData"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def allRefsFor\n    (self          : References)\n    (srcSearchPath : SearchPath)\n    (ident         : RefIdent)\n    : IO (Array (DocumentUri \u00d7 Lsp.RefInfo)) := do\n  let refsToCheck := match ident with\n    | RefIdent.const .. => self.allRefs.toArray\n    | RefIdent.fvar identModule .. =>\n      let identModuleName := identModule.toName\n      match self.allRefs[identModuleName]? with\n      | none => #[]\n      | some refs => #[(identModuleName, refs)]\n  let mut result := #[]\n  for (module, refs) in refsToCheck do\n    let some info := refs.get? ident\n      | continue\n    let some path \u2190 srcSearchPath.findModuleWithExt \"lean\" module\n      | continue\n    let uri := System.Uri.pathToUri <| \u2190 IO.FS.realPath path\n    result := result.push (uri, info)\n  return result\ndef findRange? (self : References) (module : Name) (pos : Lsp.Position) (includeStop := false) : Option Range := do\n  let refs \u2190 self.allRefs[module]?\n  refs.findRange? pos includeStop\n  location    : Location\ndef referringTo",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

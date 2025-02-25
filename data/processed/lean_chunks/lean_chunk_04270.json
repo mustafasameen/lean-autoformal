@@ -1,0 +1,10 @@
+{
+  "content": "rcases w\u2082 with rfl | w\u2082\n  \u00b7 simp [of_length_zero]\n  \u00b7 simp [sshiftRightRec_eq]\ndef ushiftRightRec (x : BitVec w\u2081) (y : BitVec w\u2082) (n : Nat) : BitVec w\u2081 :=\n  let shiftAmt := (y &&& (twoPow w\u2082 n))\n  match n with\n  | 0 => x >>> shiftAmt\n  | n + 1 => (ushiftRightRec x y n) >>> shiftAmt\n@[simp]\ntheorem ushiftRightRec_zero (x : BitVec w\u2081) (y : BitVec w\u2082) :\n    ushiftRightRec x y 0 = x >>> (y &&& twoPow w\u2082 0) := by\n  simp [ushiftRightRec]\n@[simp]\ntheorem ushiftRightRec_succ (x : BitVec w\u2081) (y : BitVec w\u2082) :\n    ushiftRightRec x y (n + 1) = (ushiftRightRec x y n) >>> (y &&& twoPow w\u2082 (n + 1)) := by\n  simp [ushiftRightRec]\ntheorem ushiftRight'_or_of_and_eq_zero {x : BitVec w\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "sshiftRightRec_eq",
+    "has_proof": true
+  }
+}

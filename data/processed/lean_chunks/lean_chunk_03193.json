@@ -1,0 +1,9 @@
+{
+  "content": "class Repr (\u03b1 : Type u) where\n  reprPrec : \u03b1 \u2192 Nat \u2192 Format\nexport Repr (reprPrec)\nabbrev repr [Repr \u03b1] (a : \u03b1) : Format :=\n  reprPrec a 0\nabbrev reprStr [Repr \u03b1] (a : \u03b1) : String :=\n  reprPrec a 0 |>.pretty\nabbrev reprArg [Repr \u03b1] (a : \u03b1) : Format :=\n  reprPrec a max_prec\nclass ReprAtom (\u03b1 : Type u)\ninstance [Repr \u03b1] : Repr (id \u03b1) :=\n  inferInstanceAs (Repr \u03b1)\ninstance [Repr \u03b1] : Repr (Id \u03b1) :=\n  inferInstanceAs (Repr \u03b1)\ninstance : Repr Empty where\n  reprPrec := nofun\ninstance : Repr Bool where\n  reprPrec\n    | true, _  => \"true\"\n    | false, _ => \"false\"\ndef Repr.addAppParen (f : Format) (prec : Nat) : Format :=\n  if prec >= max_prec then\n    Format.paren f\n  else\n    f\ninstance : Repr (Decidable p) where\n  reprPrec\n    | Decidable.isTrue _, prec  => Repr.addAppParen \"isTrue _\" prec\n    | Decidable.isFalse _, prec => Repr.addAppParen \"isFalse _\" prec\ninstance : Repr PUnit.{u+1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Repr.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Repr.lean",
+    "definition_name": "Repr"
+  }
+}

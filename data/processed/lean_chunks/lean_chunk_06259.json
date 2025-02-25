@@ -1,0 +1,9 @@
+{
+  "content": "def mkFreshTypeMVar (kind := MetavarKind.natural) (userName := Name.anonymous) : MetaM Expr := do\n  let u \u2190 mkFreshLevelMVar\n  mkFreshExprMVar (mkSort u) kind userName\nprivate def mkFreshExprMVarWithIdCore (mvarId : MVarId) (type : Expr)\n    (kind : MetavarKind := MetavarKind.natural) (userName : Name := Name.anonymous) (numScopeArgs : Nat := 0)\n    : MetaM Expr := do\n  mkFreshExprMVarAtCore mvarId (\u2190 getLCtx) (\u2190 getLocalInstances) type kind userName numScopeArgs\ndef mkFreshExprMVarWithId (mvarId : MVarId) (type? : Option Expr := none) (kind : MetavarKind := MetavarKind.natural) (userName := Name.anonymous) : MetaM Expr :=\n  match type? with\n  | some type => mkFreshExprMVarWithIdCore mvarId type kind userName\n  | none      => do\n    let u \u2190 mkFreshLevelMVar\n    let type \u2190 mkFreshExprMVar (mkSort u)\n    mkFreshExprMVarWithIdCore mvarId type kind userName\ndef mkFreshLevelMVars (num : Nat) : MetaM (List Level) :=\n  num.foldM (init := []) fun _ _ us =>\n    return (\u2190 mkFreshLevelMVar)::us",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

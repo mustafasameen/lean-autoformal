@@ -1,0 +1,9 @@
+{
+  "content": "structure SpawnArgs extends StdioConfig where\n  args : Array String := #[]\n  env : Array (String \u00d7 Option String) := #[]\n@[extern \"lean_io_process_child_wait\"] opaque Child.wait {cfg : @& StdioConfig}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "SpawnArgs"
+  }
+}

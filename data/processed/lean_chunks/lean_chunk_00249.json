@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (x : Nat) (h : f (f x) = x) : (let y := x*x; if f (f x) = x then 1 else y + 1) = 1 := by\n  simp (config := { zeta := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simpZetaFalse.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simpZetaFalse.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

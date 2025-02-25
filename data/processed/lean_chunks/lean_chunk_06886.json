@@ -1,0 +1,9 @@
+{
+  "content": "unless trace.eagerCases.contains declName || Grind.isBuiltinEagerCases declName do\n      let decl : Ident := mkIdent (\u2190 unresolveNameGlobalAvoidingLocals declName)\n      let param \u2190 `(Parser.Tactic.grindParam| cases $decl)\n      params := params.push param\n  let result \u2190 if let some fallback := fallback? then\n    `(tactic| grind $config:optConfig only on_failure $fallback)\n  else\n    `(tactic| grind $config:optConfig only)\n  return setGrindParams result params\n@[builtin_tactic Lean.Parser.Tactic.grind] def evalGrind : Tactic := fun stx => do\n  match stx with\n  | `(tactic| grind $config:optConfig $[only%$only]?  $[ [$params:grindParam,*] ]? $[on_failure $fallback?]?) =>\n    let config \u2190 elabGrindConfig config\n    discard <| evalGrindCore stx config only params fallback?\n  | _ => throwUnsupportedSyntax\n@[builtin_tactic Lean.Parser.Tactic.grindTrace] def evalGrindTrace : Tactic := fun stx => do\n  match stx with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_name": "grindOnlyPos"
+  }
+}

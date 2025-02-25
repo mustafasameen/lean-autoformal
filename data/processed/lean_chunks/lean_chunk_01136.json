@@ -1,0 +1,9 @@
+{
+  "content": "| TySyntaxLayer.nat (\u0393:=\u0393) => Ty.Nat (\u0393:=\u0393)\n    | TySyntaxLayer.arrow (\u0393:=\u0393) A B (PLift.up Actx) (PLift.up Bctx) => Ty.mk \u0393 (\u03bb \u03b3 => A.ty (cast Actx \u03b3) \u2192 B.ty (cast Bctx \u03b3))\n  def interpTmStep : TmSyntaxLayer Ctx Ty Tm ECtx ETy Ty.ctx Tm.ty interpTyStep \u2192 Tm\n    | TmSyntaxLayer.tt (\u0393:=\u0393) => Tm.inj \u0393 Unit.unit\n    | TmSyntaxLayer.zero (\u0393:=\u0393) => Tm.inj \u0393 (0 : Nat)\n    | TmSyntaxLayer.succ (\u0393:=\u0393) => Tm.inj \u0393 Nat.succ\n    | TmSyntaxLayer.app (\u0393:=\u0393) A B (PLift.up Actx) (PLift.up Bctx) (Tm.mk fty ftm) (Tm.mk (Ty.mk xctx xty) xtm) (PLift.up fTy) (PLift.up xTy)\n        => { ty := B\n           , tm := fun {\u03b3} =>\n                     (by\n                       simp at fTy xTy",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/341.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/341.lean",
+    "definition_name": "Ctx"
+  }
+}

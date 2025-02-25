@@ -1,0 +1,9 @@
+{
+  "content": "let (body, subst) \u2190 constantInfos.foldlM (init := (\u2190 go body, {})) folder\n              let body \u2190 replaceFVars body subst false\n              return alt.updateCode body\n            else\n              return alt.updateCode (\u2190 go body)\n          else\n            trace[Compiler.elimDeadBranches] s!\"Threw away cases {\u2190 getBinderName cs.discr} branch {ctor}\"\n            eraseCode alt.getCode\n            return alt.updateCode <| .unreach typ\n        | .default body => return alt.updateCode (\u2190 go body)\n      return code.updateCases! cs.resultType cs.discr (\u2190 cs.alts.mapM <| processAlt cs.resultType)\n    | .jmp .. | .return .. | .unreach .. => return code\nend UnreachableBranches\nopen UnreachableBranches in\ndef Decl.elimDeadBranches (decls : Array Decl) : CompilerM (Array Decl) := do\n  let mut assignments := decls.map fun _ => {}\n  let initialVal i :=\n    if decls[i]!.safe then .bot else .top",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def with_overlap : Nat \u2192 Nat\n  | 0 => 0\n  | 1 => 1\n  | 2 => 2\n  | 3 => 3\n  | n+1 => with_overlap n\ntermination_by n => n\n#guard_msgs in\n#check with_overlap.induct\nnamespace UnusedExtraParams\ndef unary (base : Nat) : Nat \u2192 Nat\n  | 0 => base\n  | n+1 => unary base n\ntermination_by n => n\n#guard_msgs in\n#check unary.induct\ndef binary (base : Nat) : Nat \u2192 Nat \u2192 Nat\n  | 0, m => base + m\n  | n+1, m => binary base n m\ntermination_by n => n\n#guard_msgs in\n#check binary.induct\nend UnusedExtraParams\nnamespace NonTailrecMatch\ndef match_non_tail (n : Nat ) : Bool :=\n  n = 42 || match n with\n  | 0 => true\n  | 1 => true\n  | n+2 => match_non_tail n && match_non_tail (n+1)\ntermination_by n\ndef match_non_tail_induct\n  {motive : Nat \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "Tree"
+  }
+}

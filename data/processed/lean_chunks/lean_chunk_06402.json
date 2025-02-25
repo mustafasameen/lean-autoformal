@@ -1,0 +1,9 @@
+{
+  "content": "structure ComputedFieldView where\n  ref       : Syntax\n  modifiers : Syntax\n  fieldId   : Name\n  type      : Syntax.Term\n  matchAlts : TSyntax ``Parser.Term.matchAlts\n  allowIndices    : Bool\n  allowSortPolymorphism : Bool\n  shortDeclName   : Name\n  declName        : Name\n  levelNames      : List Name\n  binders         : Syntax\n  type?           : Option Syntax\n  ctors           : Array CtorView\n  computedFields  : Array ComputedFieldView\n  derivingClasses : Array DerivingClassView\n  deriving Inhabited\nstructure ElabHeaderResult extends PreElabHeaderResult where\n  indFVar    : Expr\n  deriving Inhabited\n  ctors : List Constructor\n  collectUsedFVars : StateRefT CollectFVars.State MetaM Unit := pure ()\n  finalizeTermElab : TermElabM Unit := pure ()\n  finalize (levelParams : List Name) (params : Array Expr) (replaceIndFVars : Expr \u2192 MetaM Expr) : TermElabM Unit := fun _ _ _ => pure ()\n  deriving Inhabited\nstructure InductiveElabDescr where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "ComputedFieldView"
+  }
+}

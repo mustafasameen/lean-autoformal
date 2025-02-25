@@ -1,0 +1,9 @@
+{
+  "content": "inductive Expr where\n  | nat  : Nat \u2192 Expr\n  | plus : Expr \u2192 Expr \u2192 Expr\n  | bool : Bool \u2192 Expr\n  | and  : Expr \u2192 Expr \u2192 Expr\n  deriving DecidableEq\ninductive Ty where\n  | nat\n  | bool\n  deriving DecidableEq\ninductive HasType : Expr \u2192 Ty \u2192 Prop\n  | nat  : HasType (.nat v) .nat\n  | plus : HasType a .nat \u2192 HasType b .nat \u2192 HasType (.plus a b) .nat\n  | bool : HasType (.bool v) .bool\n  | and  : HasType a .bool \u2192 HasType b .bool \u2192 HasType (.and a b) .bool\ndef Expr.typeCheck (e : Expr) : Option {t : Ty // HasType e t}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/adamTC.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/adamTC.lean",
+    "definition_name": "Expr"
+  }
+}

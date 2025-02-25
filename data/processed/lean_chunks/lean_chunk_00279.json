@@ -1,0 +1,9 @@
+{
+  "content": "class Fintype (\u03b1 : Type) where\naxiom Finset (\u03b1 : Type) : Type\naxiom Finset.univ {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/386.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/386.lean",
+    "definition_name": "Fintype"
+  }
+}

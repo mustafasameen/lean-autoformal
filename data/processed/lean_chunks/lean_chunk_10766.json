@@ -1,0 +1,9 @@
+{
+  "content": "are listed and end with a newline. If `\nJSON. Otherwise, they are printed as raw strings. Targets which do not have\noutput configured will be printed as an empty string or `null`.\nSee `lake help build` for information on and examples of targets.\"\ndef helpCheckBuild :=\n\"Check if any default build targets are configured\nUSAGE:\n  lake check-build\nExits with code 0 if the workspace's root package has any\ndefault targets configured. Errors (with code 1) otherwise.\nDoes NOT verify that the configured default targets are valid.\nIt merely verifies that some are specified.\n\"\ndef helpUpdate :=\n\"Update dependencies and save them to the manifest\nUSAGE:\n  lake update [<package>...]\nALIAS: lake upgrade\nUpdates the Lake package manifest (i.e., `lake-manifest.json`),\ndownloading and upgrading packages as needed. For each new (transitive) git\ndependency, the appropriate commit is cloned into a subdirectory of\n`packagesDir`. No copy is made of local dependencies.",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

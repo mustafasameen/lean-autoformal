@@ -1,0 +1,9 @@
+{
+  "content": "| app f a, as => withAppRevAux k f (as.push a)\n  | f,       as => k f as\ndef getRevArg!' : Expr \u2192 Nat \u2192 Expr\n  | mdata _ a, i => getRevArg!' a i\n  | app _ a, 0   => a\n  | app f _, i+1 => getRevArg!' f i\n  | _,       _   => panic! \"invalid index\"\n@[inline] def getArg!' (e : Expr) (i : Nat) (n := e.getAppNumArgs) : Expr :=\n  getRevArg!' e (n - i - 1)\ndef hasLooseBVars (e : Expr) : Bool :=\n  e.looseBVarRange > 0\ndef isArrow (e : Expr) : Bool :=\n  match e with\n  | forallE _ _ b _ => !b.hasLooseBVars\n  | _ => false\n@[extern \"lean_expr_has_loose_bvar\"]\nopaque hasLooseBVar (e : @& Expr) (bvarIdx : @& Nat) : Bool\n@[extern \"lean_expr_lower_loose_bvars\"]\nopaque lowerLooseBVars (e : @& Expr) (s d : @& Nat) : Expr\n@[extern \"lean_expr_lift_loose_bvars\"]\nopaque liftLooseBVars (e : @& Expr) (s d : @& Nat) : Expr\ndef inferImplicit : Expr \u2192 Nat \u2192 Bool \u2192 Expr\n  | Expr.forallE n d b bi, i+1, considerRange =>\n    let b       := inferImplicit b i considerRange",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

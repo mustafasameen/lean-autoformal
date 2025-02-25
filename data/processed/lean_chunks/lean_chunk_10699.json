@@ -1,0 +1,9 @@
+{
+  "content": "instance 0] instance : FamilyDef Fam a (Fam a) where\n  family_key_eq_type := rfl\n@[macro_inline] def toFamily [FamilyOut Fam a \u03b2] (b : \u03b2) : Fam a :=\n  cast FamilyOut.family_key_eq_type.symm b\nscoped macro (name := familyDef) doc?:optional(Parser.Command.docComment)\n\"family_def \" id:ident \" : \" fam:ident key:term \" := \" ty:term : command => do\n  let tid := extractMacroScopes fam.getId |>.name\n  if let (tid, _) :: _ \u2190 Macro.resolveGlobalName tid then\n    let app := Syntax.mkApp fam #[key]\n    let axm := mkIdentFrom id (canonical := true) <| `_root_ ++ tid ++ id.getId\n    `($[$doc?]? @[simp] axiom $axm : $app = $ty\n    instance : FamilyDef $fam $key $ty := \u27e8$axm\u27e9)\n  else\n    Macro.throwErrorAt fam s!\"unknown family '{tid}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Family.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Family.lean",
+    "definition_name": "0"
+  }
+}

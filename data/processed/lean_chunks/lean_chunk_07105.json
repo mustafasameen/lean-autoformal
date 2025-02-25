@@ -1,0 +1,9 @@
+{
+  "content": "instance : OfNat Json n := \u27e8Json.num n\u27e9\ndef isNull : Json -> Bool\n  | null => true\n  | _    => false\ndef getObj? : Json \u2192 Except String (RBNode String (fun _ => Json))\n  | obj kvs => return kvs\n  | _       => throw \"object expected\"\ndef getArr? : Json \u2192 Except String (Array Json)\n  | arr a => return a\n  | _     => throw \"array expected\"\ndef getStr? : Json \u2192 Except String String\n  | str s => return s\n  | _     => throw \"String expected\"\ndef getNat? : Json \u2192 Except String Nat\n  | (n : Nat) => return n\n  | _         => throw \"Natural number expected\"\ndef getInt? : Json \u2192 Except String Int\n  | (i : Int) => return i\n  | _         => throw \"Integer expected\"\ndef getBool? : Json \u2192 Except String Bool\n  | (b : Bool) => return b\n  | _          => throw \"Bool expected\"\ndef getNum? : Json \u2192 Except String JsonNumber\n  | num n => return n\n  | _     => throw \"number expected\"\ndef getObjVal? : Json \u2192 String \u2192 Except String Json\n  | obj kvs, k =>\n    match kvs.find compare k with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_name": "Json"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem one_div_two : 1/2 = 0 := by trivial\nprivate theorem two_pow_succ_sub_succ_div_two : (2 ^ (n+1) - (x + 1)) / 2 = 2^n - (x/2 + 1) := by\n  omega\nprivate theorem two_pow_succ_sub_one_div_two : (2 ^ (n+1) - 1) / 2 = 2^n - 1 :=\n  two_pow_succ_sub_succ_div_two\nprivate theorem two_mul_sub_one {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "one_div_two",
+    "has_proof": true
+  }
+}

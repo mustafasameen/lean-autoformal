@@ -1,0 +1,9 @@
+{
+  "content": "and (stx.isOfKind k) (beq stx.getNumArgs n)\ndef getId : Syntax \u2192 Name\n  | ident _ _ val _ => val\n  | _               => Name.anonymous\npartial def getHeadInfo? : Syntax \u2192 Option SourceInfo\n  | atom info _   => some info\n  | ident info .. => some info\n  | node SourceInfo.none _ args   =>\n    let rec loop (i : Nat) : Option SourceInfo :=\n      match decide (LT.lt i args.size) with\n      | true => match getHeadInfo? (args.get!Internal i) with\n         | some info => some info\n         | none      => loop (hAdd i 1)\n      | false => none\n    loop 0\n  | node info _ _ => some info\n  | _             => none\ndef getPos? (stx : Syntax) (canonicalOnly := false) : Option String.Pos :=\n  stx.getHeadInfo.getPos? canonicalOnly\npartial def getTailPos? (stx : Syntax) (canonicalOnly := false) : Option String.Pos :=\n  match stx, canonicalOnly with\n  | atom (SourceInfo.original (endPos := pos) ..) .., _\n  | atom (SourceInfo.synthetic (endPos := pos) (canonical := true) ..) _, _",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "TSyntax"
+  }
+}

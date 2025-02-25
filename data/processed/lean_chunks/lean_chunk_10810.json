@@ -1,0 +1,9 @@
+{
+  "content": "(weakArgs traceArgs : Array String := #[])\n: SpawnM (Job FilePath) :=\n  srcJob.mapM fun srcFile => do\n    addLeanTrace\n    addPureTrace traceArgs\naddPlatformTrace\n    buildFileUnlessUpToDate' oFile do\n      let lean \u2190 getLeanInstall\n      compileO oFile srcFile (lean.ccFlags ++ weakArgs ++ traceArgs) lean.cc\n    return oFile\ndef buildLeanSharedLib\n  (libFile : FilePath) (linkJobs : Array (Job FilePath))\n  (weakArgs traceArgs : Array String := #[])\n: SpawnM (Job FilePath) :=\n  (Job.collectArray linkJobs).mapM fun links => do\n    addLeanTrace\n    addPureTrace traceArgs\naddPlatformTrace\n    buildFileUnlessUpToDate' libFile do\n      let lean \u2190 getLeanInstall\n      let args := links.map toString ++ weakArgs ++ traceArgs ++ lean.ccLinkSharedFlags\n      compileSharedLib libFile args lean.cc\n    return libFile\ndef buildLeanExe\n  (exeFile : FilePath) (linkJobs : Array (Job FilePath))\n  (weakArgs traceArgs : Array String := #[]) (sharedLean : Bool := false)\n: SpawnM (Job FilePath) :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "platformTrace"
+  }
+}

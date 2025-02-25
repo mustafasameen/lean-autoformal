@@ -1,0 +1,9 @@
+{
+  "content": "run_meta do\n  withLocalDeclD `x (mkConst ``Nat) fun x => do\n    let lhs := Expr.proj ``Foo 0 <| mkApp (mkConst ``f) x\n    let rhs := Expr.proj ``Foo 0 <| mkApp (mkConst ``g) x\n    assert! (\u2190 isDefEq lhs rhs)\nrun_meta do\n  withLocalDeclD `x (mkConst ``Nat) fun x => do\n    let lhs := Expr.proj ``Foo 0 <| mkApp (mkConst ``f) x\n    let rhs := Expr.proj ``Foo 0 <| mkApp (mkConst ``g) x\n    match Kernel.isDefEq (\u2190 getEnv) {} lhs rhs with\n    | .ok b => assert! b\n    | .error _ => throwError \"failed\"\nexample : (f x).1 = (g x).1 :=\n  rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/isDefEqProjIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/isDefEqProjIssue.lean",
+    "definition_name": "bar"
+  }
+}

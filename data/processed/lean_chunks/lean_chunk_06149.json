@@ -1,0 +1,9 @@
+{
+  "content": "def bombEmoji := \"\ud83d\udca5\ufe0f\"\ndef checkEmoji := \"\u2705\ufe0f\"\ndef crossEmoji := \"\u274c\ufe0f\"\ndef exceptBoolEmoji : Except \u03b5 Bool \u2192 String\n  | .error _ => bombEmoji\n  | .ok true => checkEmoji\n  | .ok false => crossEmoji\ndef exceptOptionEmoji : Except \u03b5 (Option \u03b1) \u2192 String\n  | .error _ => bombEmoji\n  | .ok (some _) => checkEmoji\n  | .ok none => crossEmoji\ndef withTraceNodeBefore [MonadRef m] [AddMessageContext m] [MonadOptions m]\n    [always : MonadAlwaysExcept \u03b5 m] [MonadLiftT BaseIO m] [ExceptToEmoji \u03b5 \u03b1] (cls : Name)\n    (msg : m MessageData) (k : m \u03b1) (collapsed := true) (tag := \"\") : m \u03b1 := do\n  let _ := always.except\n  let opts \u2190 getOptions\n  let clsEnabled \u2190 isTracingEnabledFor cls\n  unless clsEnabled || trace.profiler.get opts do\n    return (\u2190 k)\n  let oldTraces \u2190 getResetTraces\n  let ref \u2190 getRef\n  let msg \u2190 withRef ref do addMessageContext (\u2190 msg)\n  let (res, start, stop) \u2190 withStartStop opts <| observing k\n  let aboveThresh := trace.profiler.get opts &&",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_name": "bombEmoji"
+  }
+}

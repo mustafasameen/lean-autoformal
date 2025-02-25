@@ -1,0 +1,10 @@
+{
+  "content": "theorem shiftLeft_zero (x : BitVec w) : x <<< 0 = x := by\n  apply eq_of_toNat_eq\n  simp\n@[simp]\ntheorem zero_shiftLeft (n : Nat) : 0#w <<< n = 0#w := by\n  simp [bitvec_to_nat]\n@[simp] theorem getLsbD_shiftLeft (x : BitVec m) (n) :\n    getLsbD (x <<< n) i = (decide (i < m) && !decide (i < n) && getLsbD x (i - n)) := by\n  rw [\u2190 testBit_toNat, getLsbD]\n  simp only [toNat_shiftLeft, Nat.testBit_mod_two_pow, Nat.testBit_shiftLeft, ge_iff_le]\n  cases h\u2081 : decide (i < m) <;> cases h\u2082 : decide (n \u2264 i) <;> cases h\u2083 : decide (i < n)\n  all_goals { simp_all <;> omega }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "shiftLeft_zero",
+    "has_proof": true
+  }
+}

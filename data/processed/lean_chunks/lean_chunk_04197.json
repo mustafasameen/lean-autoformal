@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_intMax : (intMax w).toNat = 2 ^ (w - 1) - 1 := by\n  simp only [intMax]\n  by_cases h : w = 0\n  \u00b7 simp [h]\n  \u00b7 have h' : 0 < w := by omega\n    rw [toNat_sub, toNat_twoPow, \u2190 Nat.sub_add_comm (by simpa [h'] using Nat.one_le_two_pow),\n      Nat.add_sub_assoc (by simpa [h'] using Nat.one_le_two_pow),\n      Nat.two_pow_pred_mod_two_pow h', ofNat_eq_ofNat, toNat_ofNat, Nat.one_mod_two_pow h',\n      Nat.add_mod_left, Nat.mod_eq_of_lt]\n    have := Nat.two_pow_pred_lt_two_pow h'\n    have := Nat.two_pow_pos w\n    omega\n@[simp]\ntheorem getLsbD_intMax (w : Nat) : (intMax w).getLsbD i = decide (i + 1 < w) := by\n  rw [\u2190 testBit_toNat, toNat_intMax, Nat.testBit_two_pow_sub_one, decide_eq_decide]\n  omega\n@[simp] theorem intMax_add_one {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toNat_intMax",
+    "has_proof": true
+  }
+}

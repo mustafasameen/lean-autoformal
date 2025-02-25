@@ -1,0 +1,9 @@
+{
+  "content": "class IsTrans (N : Type) (r : N \u2192 N \u2192 Prop) : Prop\nvariable [IsTrans N r] {a b c d : N}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/variable.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/variable.lean",
+    "definition_name": "IsTrans"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure App.Context where\n  f               : Expr\n  fType           : Expr\n  args            : Array Expr\n  mvars           : Array Expr\n  bInfos          : Array BinderInfo\n  forceRegularApp : Bool\nstructure App.State where\n  bottomUps       : Array Bool\n  higherOrders    : Array Bool\n  funBinders      : Array Bool\n  provideds       : Array Bool\n  namedArgs       : Array Name := #[]\nabbrev AnalyzeAppM := ReaderT App.Context (StateT App.State AnalyzeM)\nmutual\n  partial def analyze (parentIsApp : Bool := false) : AnalyzeM Unit := do\n    checkSystem \"Delaborator.topDownAnalyze\"\n    trace[pp.analyze] \"{(\u2190 read).knowsType}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/TopDownAnalyze.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/TopDownAnalyze.lean",
+    "definition_name": "App"
+  }
+}

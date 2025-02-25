@@ -1,0 +1,10 @@
+{
+  "content": "theorem findIdx?_replicate :\n    (replicate n a).findIdx? p = if 0 < n \u2227 p a then some 0 else none := by\n  cases n with\n  | zero => simp\n  | succ n =>\n    simp only [replicate, findIdx?_cons, Nat.zero_add, zero_lt_succ, true_and]\n    split <;> simp_all\ntheorem findIdx?_eq_findSome?_zipIdx {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "findIdx",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure EqnInfoCore where\n  declName    : Name\n  levelParams : List Name\n  type        : Expr\n  value       : Expr\n  deriving Inhabited\npartial def expand (progress : Bool) (e : Expr) : Bool \u00d7 Expr :=\n  match e with\n  | Expr.letE _ _ v b _ => expand true (b.instantiate1 v)\n  | Expr.mdata _ b      => expand true b\n  | e =>\n    if let some (_, _, v, b) := e.letFun? then\n      expand true (b.instantiate1 v)\n    else\n      (progress, e)\ndef expandRHS? (mvarId : MVarId) : MetaM (Option MVarId) := do\n  let target \u2190 mvarId.getType'\n  let some (_, lhs, rhs) := target.eq? | return none\n  let (true, rhs') := expand false rhs | return none\n  return some (\u2190 mvarId.replaceTargetDefEq (\u2190 mkEq lhs rhs'))\ndef simpMatch? (mvarId : MVarId) : MetaM (Option MVarId) := do\n  let mvarId' \u2190 Split.simpMatchTarget mvarId\n  if mvarId != mvarId' then return some mvarId' else return none\ndef simpIf? (mvarId : MVarId) : MetaM (Option MVarId) := do\n  let mvarId' \u2190 simpIfTarget mvarId (useDecide := true)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_name": "EqnInfoCore"
+  }
+}

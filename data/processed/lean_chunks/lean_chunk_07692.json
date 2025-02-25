@@ -1,0 +1,10 @@
+{
+  "content": "rw [AIG.LawfulOperator.decl_eq (f := AIG.mkIfCached)]\n    apply AIG.LawfulOperator.lt_size_of_lt_aig_size (f := AIG.mkIfCached)\n    assumption\n  \u00b7 simp [\u2190 hgo]\ntermination_by w - curr\nend ite\ninstance : LawfulVecOperator \u03b1 IfInput ite where\n  le_size := by\n    intros\n    unfold ite\n    apply ite.go_le_size\n  decl_eq := by\n    intros\n    unfold ite\n    rw [ite.go_decl_eq]\nnamespace ite\ntheorem go_get_aux {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/If.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/If.lean",
+    "definition_name": "go_le_size",
+    "has_proof": true
+  }
+}

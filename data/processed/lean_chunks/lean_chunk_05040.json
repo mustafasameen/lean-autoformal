@@ -1,0 +1,10 @@
+{
+  "content": "theorem IsPrefix.le [LT \u03b1] [Std.Irrefl (\u00b7 < \u00b7 : \u03b1 \u2192 \u03b1 \u2192 Prop)]\n    {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_name": "IsPrefix",
+    "has_proof": false
+  }
+}

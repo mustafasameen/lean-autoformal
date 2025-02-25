@@ -1,0 +1,10 @@
+{
+  "content": "theorem relabel_relabel' : relabel r1 \u2218 relabel r2 = relabel (r1 \u2218 r2) := by\n  funext i\n  simp only [Function.comp_apply, relabel, List.map_map]\n  rfl\nend Clause\ndef relabel (r : \u03b1 \u2192 \u03b2) (f : CNF \u03b1) : CNF \u03b2 := f.map (Clause.relabel r)\n@[simp] theorem relabel_nil {r : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Relabel.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Relabel.lean",
+    "definition_name": "relabel_relabel",
+    "has_proof": true
+  }
+}

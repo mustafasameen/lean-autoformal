@@ -1,0 +1,9 @@
+{
+  "content": "| other                               := other\ndef testToNode2 (stx : Syntax) : IO Syntax := pure $ toNode2 stx\ndef main (xs : List String) : IO Unit := do\nlet stx := mkStx 11,\n  prof \"testNoOp\" $ testNoOp stx,\n  prof \"testNoExp\" $ testNoExp stx,\n  prof \"testSimple\" $ testSimple stx,\n  prof \"testToNode2\" $ testToNode2 stx,\n  pure ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/expander.lean",
+    "definition_name": "node"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "mul := (\u00b7 * \u00b7)\n  mul_one x := sorry\n  one_mul x := sorry\ninstance addZeroClass [AddZeroClass M] (c : AddCon M) : AddZeroClass c.Quotient where\n  zero := ((0 : M) : c.Quotient)\n  add := (\u00b7 + \u00b7)\n  add_zero x := sorry\n  zero_add x := sorry\ninstance [Monoid M] (c : Con M) : Pow c.Quotient Nat\n    where pow x n := Quotient.map' (fun x => x ^ n) (fun _ _ => sorry) x\ninstance hasNeg [AddGroup M] (c : AddCon M) : Neg c.Quotient :=\n  \u27e8(Quotient.map' Neg.neg) fun _ _ => sorry\u27e9\ninstance hasSub [AddGroup M] (c : AddCon M) : Sub c.Quotient :=\n  \u27e8(Quotient.map\u2082' (\u00b7 - \u00b7)) fun _ _ h\u2081 _ _ h\u2082 => sorry\u27e9\ninstance instSMul [MulOneClass M] [SMul \u03b1 M] (c : Con M) :\n    SMul \u03b1 c.Quotient where\n  smul a := (Quotient.map' ((\u00b7 \u2022 \u00b7) a)) fun _ _ => sorry\nend Mathlib.GroupTheory.Congruence\nsection Mathlib.GroupTheory.Coset\ndef QuotientAddGroup.leftRel [AddGroup \u03b1] (s : AddSubgroup \u03b1) : Setoid \u03b1 :=\n  sorry\nend Mathlib.GroupTheory.Coset\nsection Mathlib.GroupTheory.QuotientGroup",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddMonoidAlgebra"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "instance Decidable.predToBool (p : \u03b1 \u2192 Prop) [DecidablePred p] :\n    CoeDep (\u03b1 \u2192 Prop) p (\u03b1 \u2192 Bool) := \u27e8fun b => decide <| p b\u27e9\ninstance [DecidablePred p] : DecidablePred (p \u2218 f) :=\n  fun x => inferInstanceAs (Decidable (p (f x)))\ndef decidable_of_bool : \u2200 (b : Bool), (b \u2194 a) \u2192 Decidable a\n  | true, h => isTrue (h.1 rfl)\n  | false, h => isFalse (mt h.2 Bool.noConfusion)\nprotected theorem Decidable.not_forall {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "Decidable",
+    "has_proof": false
+  }
+}

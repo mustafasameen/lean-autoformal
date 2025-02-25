@@ -1,0 +1,9 @@
+{
+  "content": "for field in struct.fields do\n      if let .nested struct := field.val then\n        go struct\n      else if (\u2190 isDefaultMissing? field) then\n        modify (\u00b7.push field)\ndef isRoundDone : M Bool := do\n  return (\u2190 get).progress && (\u2190 read).maxDistance > 0\npartial def mkDefaultValue? (struct : StructInstView) (cinfo : ConstantInfo) : TermElabM (Option Expr) :=\n  withRef struct.ref do\n  let us \u2190 mkFreshLevelMVarsFor cinfo\n  process (\u2190 instantiateValueLevelParams cinfo us)\nwhere\n  process : Expr \u2192 TermElabM (Option Expr)\n  | .lam n d b c => withRef struct.ref do\n    if c.isExplicit then\n      let fieldName := n\n      match getFieldValue? struct fieldName with\n      | none     => return none\n      | some val =>\n        let valType \u2190 inferType val\n        if (\u2190 isDefEq valType d) then\n          process (b.instantiate1 val)\n        else\n          return none\n    else\n      if let some (_, param) := struct.params.find? fun (paramName, _) => paramName == n then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_name": "Context"
+  }
+}

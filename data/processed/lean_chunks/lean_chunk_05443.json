@@ -1,0 +1,10 @@
+{
+  "content": "theorem lookup_eq_findSome? (l : List (\u03b1 \u00d7 \u03b2)) (k : \u03b1) :\n    l.lookup k = l.findSome? fun p => if k == p.1 then some p.2 else none := by\n  induction l with\n  | nil => rfl\n  | cons p l ih =>\n    match p with\n    | (k', v) =>\n      simp only [lookup_cons, findSome?_cons]\n      split <;> simp_all\n@[simp] theorem lookup_eq_none_iff {l : List (\u03b1 \u00d7 \u03b2)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "lookup_eq_findSome",
+    "has_proof": true
+  }
+}

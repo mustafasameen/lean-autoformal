@@ -1,0 +1,10 @@
+{
+  "content": "theorem filter_cons :\n    (x :: xs : List \u03b1).filter p = if p x then x :: (xs.filter p) else xs.filter p := by\n  split <;> simp [*]\ntheorem length_filter_le (p : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    (l.filter p).length \u2264 l.length := by\n  induction l with\n  | nil => simp\n  | cons a l ih =>\n    simp only [filter_cons, length_cons, succ_eq_add_one]\n    split\n    \u00b7 simp only [length_cons, succ_eq_add_one]\n      exact Nat.succ_le_succ ih\n    \u00b7 exact Nat.le_trans ih (Nat.le_add_right _ _)\n@[simp]\ntheorem filter_eq_self {l}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "filter_cons",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "mkAntiquot \"float\" `Lake.Toml.float (anonymous := false) <|>\n  mkAntiquot \"decInt\" `Lake.Toml.decInt (anonymous := false) <|>\n  mkAntiquot \"binNum\" `Lake.Toml.binNum (anonymous := false) <|>\n  mkAntiquot \"octNum\" `Lake.Toml.octNum (anonymous := false) <|>\n  mkAntiquot \"hexNum\" `Lake.Toml.hexNum (anonymous := false) <|>\n  mkAntiquot \"dateTime\" `Lake.Toml.dateTime (anonymous := false) <|>\n  mkAntiquot \"numeral\" `Lake.Toml.numeral (isPseudoKind := true)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Toml/Grammar.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Toml/Grammar.lean",
+    "definition_name": "table"
+  }
+}

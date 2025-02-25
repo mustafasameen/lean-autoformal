@@ -1,0 +1,10 @@
+{
+  "content": "def declValEqns      := leading_parser\n  Term.matchAltsWhereDecls\ndef whereStructInst  := leading_parser\n  ppIndent ppSpace >> \"where\" >> Term.structInstFields (sepByIndent Term.structInstField \"; \" (allowTrailingSep := true)) >>\n  optional Term.whereDecls\n@[builtin_doc] def declVal :=\n  withAntiquot (mkAntiquot \"declVal\" decl_name% (isPseudoKind := true)) <|\n    declValSimple <|> declValEqns <|> whereStructInst\ndef \u00ababbrev\u00bb         := leading_parser\n  \"abbrev \" >> declId >> ppIndent optDeclSig >> declVal\ndef optDefDeriving   :=\n  optional (ppDedent ppLine >> atomic (\"deriving \" >> notSymbol \"instance\") >> sepBy1 ident \", \")\ndef definition     := leading_parser\n  \"def \" >> recover declId skipUntilWsOrDelim >> ppIndent optDeclSig >> declVal >> optDefDeriving\ndef \u00abtheorem\u00bb        := leading_parser\n  \"theorem \" >> recover declId skipUntilWsOrDelim >> ppIndent declSig >> declVal\ndef \u00abopaque\u00bb         := leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "projections",
+    "has_proof": true
+  }
+}

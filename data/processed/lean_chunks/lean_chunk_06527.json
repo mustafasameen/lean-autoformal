@@ -1,0 +1,9 @@
+{
+  "content": "structure InfoWithCtx where\n  ctx  : Elab.ContextInfo\n  info : Elab.Info\n  children : PersistentArray InfoTree\npartial def InfoTree.visitM [Monad m]\n    (preNode  : ContextInfo \u2192 Info \u2192 (children : PersistentArray InfoTree) \u2192 m Bool := fun _ _ _ => pure true)\n    (postNode : ContextInfo \u2192 Info \u2192 (children : PersistentArray InfoTree) \u2192 List (Option \u03b1) \u2192 m \u03b1)\n    (ctx? : Option ContextInfo := none) : InfoTree \u2192 m (Option \u03b1) :=\n  go ctx?\nwhere go\n  | ctx?, context ctx t => go (ctx.mergeIntoOuter? ctx?) t\n  | some ctx, node i cs => do\n    let visitChildren \u2190 preNode ctx i cs\n    if !visitChildren then\n      postNode ctx i cs []\n    else\n      let as \u2190 cs.toList.mapM (go <| i.updateContext? ctx)\n      postNode ctx i cs as\n  | none, node .. => panic! \"unexpected context-free info tree node\"\n  | _, hole .. => pure none\ndef InfoTree.collectNodesBottomUpM [Monad m] (p : ContextInfo \u2192 Info \u2192 PersistentArray InfoTree \u2192 List \u03b1 \u2192 m (List \u03b1)) (i : InfoTree) : m (List \u03b1) :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_name": "InfoWithCtx"
+  }
+}

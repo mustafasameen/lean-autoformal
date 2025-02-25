@@ -1,0 +1,9 @@
+{
+  "content": "findFVarDepsFixpoint (psNew ++ ps) (acc.push p)\npartial def findFVarDeps (fvarId : FVarId) : PullM (Array ToPull) := do\n  let ps \u2190 findFVarDirectDeps fvarId\n  findFVarDepsFixpoint ps\ndef findParamsDeps (params : Array Param) : PullM (Array ToPull) := do\n  let mut acc := #[]\n  for param in params do\n    acc := acc ++ (\u2190 findFVarDeps param.fvarId)\n  return acc\ndef ToPull.attach (p : ToPull) (k : Code) : Code :=\n  if p.isFun then\n    .fun p.decl k\n  else\n    .jp p.decl k\npartial def attach (ps : Array ToPull) (k : Code) : Code := Id.run do\n  let visited := ps.map fun _ => false\n  let (_, (k, _)) := go |>.run (k, visited)\n  return k\nwhere\n  go : StateM (Code \u00d7 Array Bool) Unit := do\n    for i in [:ps.size] do\n      visit i\n  visited (i : Nat) : StateM (Code \u00d7 Array Bool) Bool :=\n    return (\u2190 get).2[i]!\n  visit (i : Nat) : StateM (Code \u00d7 Array Bool) Unit := do\n    unless (\u2190 visited i) do\n      modify fun (k, visited) => (k, visited.set! i true)\n      let pi := ps[i]!",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_name": "ToPull"
+  }
+}

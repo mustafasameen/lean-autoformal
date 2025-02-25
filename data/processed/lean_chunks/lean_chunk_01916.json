@@ -1,0 +1,9 @@
+{
+  "content": "instance GroupToType : CoeSort Group (Type u) :=\nCoeSort.mk (fun g => g.carrier)\nvariable (g : Group.{1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeSort2.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeSort2.lean",
+    "definition_name": "GroupToType"
+  }
+}

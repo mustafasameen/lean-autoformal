@@ -1,0 +1,9 @@
+{
+  "content": "def x := 10\nscoped macro \"~0~\" : term => `(0)\n#check ~0~\nend Foo\nopen Foo hiding x\n#check ~0~",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/scopedHindingIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/scopedHindingIssue.lean",
+    "definition_name": "x"
+  }
+}

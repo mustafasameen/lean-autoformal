@@ -1,0 +1,10 @@
+{
+  "content": "theorem mapM_eq_foldlM [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m \u03b2) (xs : Array \u03b1) :\n    xs.mapM f = xs.foldlM (fun bs a => bs.push <$> f a) #[] := by\n  rw [mapM, aux, \u2190 foldlM_toList]; rfl\nwhere\n  aux (i bs) :\n      mapM.map f xs i bs = (xs.toList.drop i).foldlM (fun bs a => bs.push <$> f a) bs := by\n    unfold mapM.map; split\n    \u00b7 rw [\u2190 List.getElem_cons_drop_succ_eq_drop \u2039_\u203a]\n      simp only [aux (i + 1), map_eq_pure_bind, length_toList, List.foldlM_cons, bind_assoc,\n        pure_bind]\n      rfl\n    \u00b7 rw [List.drop_of_length_le (Nat.ge_of_not_lt \u2039_\u203a)]; rfl\n  termination_by xs.size - i\n  decreasing_by decreasing_trivial_pre_omega\n@[simp] theorem toList_map (f : \u03b1 \u2192 \u03b2) (xs : Array \u03b1) : (xs.map f).toList = xs.toList.map f := by\n  rw [map, mapM_eq_foldlM]\n  apply congrArg toList (foldl_toList (fun bs a => push bs (f a)) #[] xs).symm |>.trans\n  have H (l xs) : List.foldl (fun bs a => push bs (f a)) xs l = \u27e8xs.toList ++ l.map f\u27e9 := by\n    induction l generalizing xs <;> simp [*]\n  simp [H]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "mapM_eq_foldlM",
+    "has_proof": true
+  }
+}

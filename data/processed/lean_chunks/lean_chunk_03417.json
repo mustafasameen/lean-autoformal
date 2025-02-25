@@ -1,0 +1,9 @@
+{
+  "content": "instance FlatOrder.instOrder : PartialOrder (FlatOrder b) where\n  rel := rel\n  rel_refl := .refl\n  rel_trans {x y z : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "FlatOrder"
+  }
+}

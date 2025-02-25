@@ -1,0 +1,10 @@
+{
+  "content": "have : l[j] = a := by\n        rw [drop_eq_getElem_cons] at w\n        simp only [cons.injEq] at w\n        exact w.1.symm\n      simp only [getElem_toArray, this]\n      split\n      \u00b7 rfl\n      \u00b7 simp only [length_cons] at h\n        have : l.length - (j + 1) < l.length - j := by omega\n        rw [findFinIdx?_loop_toArray]\n        rw [drop_add_one_eq_tail_drop, \u2190 w, tail_cons]\n  \u00b7 have : l' = [] := by simp_all\n    subst this\n    simp\ntermination_by l.length - j\n@[simp] theorem findFinIdx?_toArray (p : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    l.toArray.findFinIdx? p = l.findFinIdx? p := by\n  rw [Array.findFinIdx?, findFinIdx?, findFinIdx?_loop_toArray]\n  simp\n@[simp] theorem findIdx?_toArray (p : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    l.toArray.findIdx? p = l.findIdx? p := by\n  rw [Array.findIdx?_eq_map_findFinIdx?_val, findIdx?_eq_map_findFinIdx?_val]\n  simp\nprivate theorem idxAuxOf_toArray [BEq \u03b1] (a : \u03b1) (l : List \u03b1) (j : Nat) (w : l' = l.drop j) (h) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "findSomeM",
+    "has_proof": true
+  }
+}

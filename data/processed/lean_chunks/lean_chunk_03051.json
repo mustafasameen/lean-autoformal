@@ -1,0 +1,9 @@
+{
+  "content": "@[extern \"lean_expr_eqv\"]\nopaque eqv (a : @& Expr) (b : @& Expr) : Bool\ninstance : BEq Expr where\n  beq := Expr.eqv\n@[extern \"lean_expr_equal\"]\nopaque equal (a : @& Expr) (b : @& Expr) : Bool\ndef isType : Expr \u2192 Bool\n  | sort (.succ ..) => true\n  | _ => false\ndef isProp : Expr \u2192 Bool\n  | sort .zero => true\n  | _ => false\ndef isMVar : Expr \u2192 Bool\n  | mvar .. => true\n  | _       => false\ndef isApp : Expr \u2192 Bool\n  | app .. => true\n  | _      => false\ndef isConst : Expr \u2192 Bool\n  | const .. => true\n  | _        => false\ndef isConstOf : Expr \u2192 Name \u2192 Bool\n  | const n .., m => n == m\n  | _,          _ => false\ndef isFVarOf : Expr \u2192 FVarId \u2192 Bool\n  | .fvar fvarId, fvarId' => fvarId == fvarId'\n  | _, _ => false\ndef isLambda : Expr \u2192 Bool\n  | lam .. => true\n  | _      => false\ndef isLet : Expr \u2192 Bool\n  | letE .. => true\n  | _       => false\ndef isLit : Expr \u2192 Bool\n  | lit .. => true\n  | _      => false\ndef appFn! : Expr \u2192 Expr\n  | app f _ => f\n  | _       => panic! \"application expected\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

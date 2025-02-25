@@ -1,0 +1,9 @@
+{
+  "content": "let congrTheorems \u2190 getSimpCongrTheorems\n  let ctx \u2190 Simp.mkContext\n     (config := (\u2190 elabSimpConfig stx[1] (kind := kind)))\n     (simpTheorems := #[simpTheorems])\n     congrTheorems\n  let r \u2190 elabSimpArgs stx[4] (eraseLocal := eraseLocal) (kind := kind) (simprocs := #[simprocs]) ctx\n  if !r.starArg || ignoreStarArg then\n    return { r with dischargeWrapper }\n  else\n    let ctx := r.ctx\n    let simprocs := r.simprocs\n    let mut simpTheorems := ctx.simpTheorems\n    let hs \u2190 getPropHyps\n    for h in hs do\n      unless simpTheorems.isErased (.fvar h) do\n        simpTheorems \u2190 simpTheorems.addTheorem (.fvar h) (\u2190 h.getDecl).toExpr (config := ctx.indexConfig)\n    let ctx := ctx.setSimpTheorems simpTheorems\n    return { ctx, simprocs, dischargeWrapper }\nregister_builtin_option tactic.simp.trace : Bool := {\n  defValue := false\n  descr    := \"When tracing is enabled, calls to `simp` or `dsimp` will print an equivalent `simp only` call.\"\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "simpParamsPos"
+  }
+}

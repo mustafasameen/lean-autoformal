@@ -1,0 +1,9 @@
+{
+  "content": "structure ByteArray where\n  data : Array UInt8\nattribute [extern \"lean_byte_array_mk\"] ByteArray.mk\nattribute [extern \"lean_byte_array_data\"] ByteArray.data\nnamespace ByteArray\n@[extern \"lean_mk_empty_byte_array\"]\ndef mkEmpty (c : @& Nat) : ByteArray :=\n  { data := #[] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/ByteArray/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/ByteArray/Basic.lean",
+    "definition_name": "ByteArray"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if !ldecl.userName.isInaccessibleUserName && !ldecl.userName.hasMacroScopes &&\n              (lctx.findFromUserName? ldecl.userName).get!.fvarId == ldecl.fvarId then\n            some (locals.push ldecl.userName)\n          else\n            none\n| .stx _ thmStx =>\n      args := args.push thmStx\n| .other _ =>\npure ()\n  if let some locals := localsOrStar then\n    args := args ++ (\u2190 locals.mapM fun id => `(Parser.Tactic.simpLemma| $(mkIdent id):ident))\n  else\n    args := args.push (\u2190 `(Parser.Tactic.simpStar| *))\n  return setSimpParams stx args\ndef traceSimpCall (stx : Syntax) (usedSimps : Simp.UsedSimps) : MetaM Unit := do\n  logInfoAt stx[0] m!\"Try this: {\u2190 mkSimpOnly stx usedSimps}\"\ndef simpLocation (ctx : Simp.Context) (simprocs : Simp.SimprocsArray) (discharge? : Option Simp.Discharge := none) (loc : Location) : TacticM Simp.Stats := do\n  match loc with\n  | Location.targets hyps simplifyTarget =>\n    withMainContext do\n      let fvarIds \u2190 getFVarIds hyps",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "simpParamsPos"
+  }
+}

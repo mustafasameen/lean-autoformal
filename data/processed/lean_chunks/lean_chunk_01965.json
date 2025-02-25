@@ -1,0 +1,9 @@
+{
+  "content": "class AddMonoid (M : Type u) extends Add M, Zero M where\n  protected add_assoc : \u2200 a b c : M, a + b + c = a + (b + c)\n  protected zero_add : \u2200 a : M, 0 + a = a\n  protected add_zero : \u2200 a : M, a + 0 = a\nsection AddMonoid\nvariable {M : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "AddMonoid"
+  }
+}

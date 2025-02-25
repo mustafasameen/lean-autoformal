@@ -1,0 +1,10 @@
+{
+  "content": "theorem IsPrefix.mem (hx : a \u2208 l\u2081) (hl : l\u2081 <+: l\u2082) : a \u2208 l\u2082 :=\n  hl.subset hx\ntheorem IsSuffix.mem (hx : a \u2208 l\u2081) (hl : l\u2081 <:+ l\u2082) : a \u2208 l\u2082 :=\n  hl.subset hx\ntheorem IsInfix.mem (hx : a \u2208 l\u2081) (hl : l\u2081 <:+: l\u2082) : a \u2208 l\u2082 :=\n  hl.subset hx\n@[simp] theorem reverse_suffix : reverse l\u2081 <:+ reverse l\u2082 \u2194 l\u2081 <+: l\u2082 :=\n  \u27e8fun \u27e8r, e\u27e9 => \u27e8reverse r, by rw [\u2190 reverse_reverse l\u2081, \u2190 reverse_append, e, reverse_reverse]\u27e9,\n   fun \u27e8r, e\u27e9 => \u27e8reverse r, by rw [\u2190 reverse_append, e]\u27e9\u27e9\n@[simp] theorem reverse_prefix : reverse l\u2081 <+: reverse l\u2082 \u2194 l\u2081 <:+ l\u2082 := by\n  rw [\u2190 reverse_suffix]; simp only [reverse_reverse]\n@[simp] theorem reverse_infix : reverse l\u2081 <:+: reverse l\u2082 \u2194 l\u2081 <:+: l\u2082 := by\n  refine \u27e8fun \u27e8s, t, e\u27e9 => \u27e8reverse t, reverse s, ?_\u27e9, fun \u27e8s, t, e\u27e9 => \u27e8reverse t, reverse s, ?_\u27e9\u27e9\n  \u00b7 rw [\u2190 reverse_reverse l\u2081, append_assoc, \u2190 reverse_append, \u2190 reverse_append, e,\n      reverse_reverse]\n  \u00b7 rw [append_assoc, \u2190 reverse_append, \u2190 reverse_append, e]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "IsPrefix",
+    "has_proof": true
+  }
+}

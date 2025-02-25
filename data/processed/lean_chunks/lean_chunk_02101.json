@@ -1,0 +1,10 @@
+{
+  "content": "theorem State.update_le_update (h : \u03c3' \u227c \u03c3) : \u03c3'.update x v \u227c \u03c3.update x v := by\n  intro y w hf\n  induction \u03c3 generalizing \u03c3' hf with\n  | nil  => rw [eq_bot h] at hf; assumption\n  | cons zw' \u03c3 ih =>\n    have (z, w') := zw'; simp\n    have : \u03c3'.erase z \u227c \u03c3 := erase_le_of_le_cons h\n    have ih := ih this\n    revert ih hf\n    split <;> simp [*] <;> by_cases hyz : y = z <;> simp (config := { contextual := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Stmt",
+    "has_proof": true
+  }
+}

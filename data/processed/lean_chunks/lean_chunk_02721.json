@@ -1,0 +1,9 @@
+{
+  "content": "inductive Bool : Type where\n  | true : Bool\nexport Bool (false true)\n@[pp_using_anonymous_constructor]\nstructure Subtype {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Bool"
+  }
+}

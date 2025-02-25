@@ -1,0 +1,9 @@
+{
+  "content": "(size : Nat) : Prop where\nstructure IsHashSelf [BEq \u03b1] [Hashable \u03b1] (m : Array (AssocList \u03b1 \u03b2)) : Prop where\nstructure WFImp [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) : Prop where\n  size_eq : m.size = (toListModel m.buckets).length",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_name": "empty"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Stats where\n  numNodes : Nat\n  depth : Nat\n  tailSize : Nat\npartial def collectStats : PersistentArrayNode \u03b1 \u2192 Stats \u2192 Nat \u2192 Stats\n  | node cs, s, d =>\n    cs.foldl (fun s c => collectStats c s (d+1))\n      { s with\n        numNodes := s.numNodes + 1,\n        depth    := Nat.max d s.depth }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentArray.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentArray.lean",
+    "definition_name": "Stats"
+  }
+}

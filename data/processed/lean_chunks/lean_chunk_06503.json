@@ -1,0 +1,9 @@
+{
+  "content": "def recAppKey := `_recApp\ndef mkRecAppWithSyntax (e : Expr) (stx : Syntax) : Expr :=\n  mkMData (KVMap.empty.insert recAppKey (.ofSyntax stx)) e\ndef getRecAppSyntax? (e : Expr) : Option Syntax :=\n  match e with\n  | .mdata d _ =>\n    match d.find recAppKey with\n    | some (DataValue.ofSyntax stx) => some stx\n    | _ => none\n  | _                => none\ndef MData.isRecApp (d : MData) : Bool :=\n  d.contains recAppKey\ndef hasRecAppSyntax (e : Expr) : Bool :=\n  match e with\n  | .mdata d _ => d.isRecApp\n  | _ => false\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/RecAppSyntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/RecAppSyntax.lean",
+    "definition_name": "recAppKey"
+  }
+}

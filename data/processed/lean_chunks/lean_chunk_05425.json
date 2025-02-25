@@ -1,0 +1,10 @@
+{
+  "content": "theorem findIdx?_map (f : \u03b2 \u2192 \u03b1) (l : List \u03b2) : findIdx? p (l.map f) = l.findIdx? (p \u2218 f) := by\n  induction l with\n  | nil => simp\n  | cons x xs ih =>\n    simp only [map_cons, findIdx?_cons]\n    split <;> simp_all\n@[simp] theorem findIdx?_append :\n    (xs ++ ys : List \u03b1).findIdx? p =\n      (xs.findIdx? p).or ((ys.findIdx? p).map fun i => i + xs.length) := by\n  induction xs with simp\n  | cons _ _ _ => split <;> simp_all [Option.map_or', Option.map_map]; rfl\ntheorem findIdx?_flatten {l : List (List \u03b1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "findIdx",
+    "has_proof": true
+  }
+}

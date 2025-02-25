@@ -1,0 +1,10 @@
+{
+  "content": "theorem mapM'_nil [Monad m] {f : \u03b1 \u2192 m \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_name": "mapM",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem cond_true_left   : \u2200(c f : Bool), cond c true f  = ( c || f) := by decide\n@[simp] theorem cond_false_left  : \u2200(c f : Bool), cond c false f = (!c && f) := by decide\n@[simp] theorem cond_true_right  : \u2200(c t : Bool), cond c t true  = (!c || t) := by decide\n@[simp] theorem cond_false_right : \u2200(c t : Bool), cond c t false = ( c && t) := by decide\n@[simp] theorem cond_true_not_same  : \u2200 (c b : Bool), cond c (!c) b = (!c && b) := by decide\n@[simp] theorem cond_false_not_same : \u2200 (c b : Bool), cond c b (!c) = (!c || b) := by decide\n@[simp] theorem cond_true_same  : \u2200(c b : Bool), cond c c b = (c || b) := by decide\n@[simp] theorem cond_false_same : \u2200(c b : Bool), cond c b c = (c && b) := by decide\ntheorem cond_pos {b : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_name": "cond_true_left",
+    "has_proof": true
+  }
+}

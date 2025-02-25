@@ -1,0 +1,9 @@
+{
+  "content": "def bar (x) := 1\ninductive Foo where\n  | bar (x)\nstructure Bla where\n  bar (x) : Nat",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoImplicitCtorParamIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoImplicitCtorParamIssue.lean",
+    "definition_name": "bar"
+  }
+}

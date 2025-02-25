@@ -1,0 +1,10 @@
+{
+  "content": "theorem sub_one (n) : n - 1 = pred n := rfl\nprotected theorem one_sub : \u2200 n, 1 - n = if n = 0 then 1 else 0\n  | 0 => rfl\n  | _+1 => by rw [if_neg (Nat.succ_ne_zero _), Nat.succ_sub_succ, Nat.zero_sub]\ntheorem succ_sub_sub_succ (n m k) : succ n - m - succ k = n - m - k := by\n  rw [Nat.sub_sub, Nat.sub_sub, add_succ, succ_sub_succ]\ntheorem add_sub_sub_add_right (n m k l : Nat) :\n    (n + l) - m - (k + l) = n - m - k := by\n  rw [Nat.sub_sub, Nat.sub_sub, \u2190Nat.add_assoc, Nat.add_sub_add_right]\nprotected theorem sub_right_comm (m n k : Nat) : m - n - k = m - k - n := by\n  rw [Nat.sub_sub, Nat.sub_sub, Nat.add_comm]\nprotected theorem add_sub_cancel_right (n m : Nat) : (n + m) - m = n := Nat.add_sub_cancel ..\n@[simp] protected theorem add_sub_cancel' {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "sub_one",
+    "has_proof": true
+  }
+}

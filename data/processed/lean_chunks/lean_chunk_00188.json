@@ -1,0 +1,9 @@
+{
+  "content": "def boo := 2\nend Foo\nnamespace Baz\n#check Foo.bar\nopen Foo in\n#check bar\nsection Ex1\nopen Foo (bar)\n#check bar\n#check boo\nend Ex1\nsection Ex2\nopen Foo hiding bar\n#check bar\n#check boo\nend Ex2\nsection Ex2\nopen Foo renaming bar \u2192 bah\n#check bah\nend Ex2\nexport Foo (bar)\nexport Foo.Bar (bar)\n#check bar\nend Baz",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/593.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/593.lean",
+    "definition_name": "boo"
+  }
+}

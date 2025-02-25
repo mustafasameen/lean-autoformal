@@ -1,0 +1,9 @@
+{
+  "content": "def callLeanDecRef (builder : LLVM.Builder llvmctx) (res : LLVM.Value llvmctx) : M llvmctx Unit := do\n  let fnName :=  \"lean_dec_ref\"\n  let retty \u2190 LLVM.voidType llvmctx\n  let argtys := #[ \u2190 LLVM.i8PtrType llvmctx ]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  let _ \u2190 LLVM.buildCall2 builder fnty fn  #[res]\ndef callLeanUnsignedToNatFn (builder : LLVM.Builder llvmctx)\n    (n : Nat) (name : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let mod \u2190 getLLVMModule\n  let argtys := #[\u2190 LLVM.i32Type llvmctx]\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let f \u2190   getOrCreateFunctionPrototype mod retty \"lean_unsigned_to_nat\"  argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  let nv \u2190 constIntUnsigned n\n  LLVM.buildCall2 builder fnty f #[nv] name\ndef callLeanMkStringUncheckedFn (builder : LLVM.Builder llvmctx)\n    (strPtr nBytes nChars : LLVM.Value llvmctx) (name : String) : M llvmctx (LLVM.Value llvmctx) := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

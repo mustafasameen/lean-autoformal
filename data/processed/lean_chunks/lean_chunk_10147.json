@@ -1,0 +1,10 @@
+{
+  "content": "theorem toListModel_expandIfNecessary [BEq \u03b1] [Hashable \u03b1] [PartialEquivBEq \u03b1] (m : Raw\u2080 \u03b1 \u03b2) :\n    Perm (toListModel (expandIfNecessary m).1.2) (toListModel m.1.2) := by\n  rw [expandIfNecessary]\n  dsimp\n  split\n  \u00b7 exact Perm.refl _\n  \u00b7 dsimp\n    exact toListModel_expand\n@[simp]\ntheorem size_expandIfNecessary [BEq \u03b1] [Hashable \u03b1] {m : Raw\u2080 \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_name": "toListModel_expandIfNecessary",
+    "has_proof": true
+  }
+}

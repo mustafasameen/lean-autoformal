@@ -1,0 +1,10 @@
+{
+  "content": "theorem monotone_findSomeM?\n    (f : \u03b3 \u2192 \u03b1 \u2192 m (Option \u03b2)) (xs : List \u03b1) (hmono : monotone f) :\n    monotone (fun x => xs.findSomeM? (f x)) := by\n  induction xs with\n  | nil => apply monotone_const\n  | cons _ _ ih =>\n    apply monotone_bind\n    \u00b7 apply monotone_apply\n      apply hmono\n    \u00b7 apply monotone_of_monotone_apply\n      intro y\n      cases y\n      \u00b7 apply ih\n      \u00b7 apply monotone_const\n@[partial_fixpoint_monotone]\ntheorem monotone_forIn'_loop {\u03b1 : Type uu}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_name": "monotone_findSomeM",
+    "has_proof": true
+  }
+}

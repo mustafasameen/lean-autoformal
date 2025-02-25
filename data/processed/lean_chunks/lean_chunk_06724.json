@@ -1,0 +1,9 @@
+{
+  "content": "def ppPiBinderNames := `pp.piBinderNames\nprivate partial def delabForallBinders (delabGroup : Array Syntax \u2192 Bool \u2192 Syntax \u2192 Delab) (curNames : Array Syntax := #[]) (curDep := false) : Delab := do\n  let dep := !(\u2190 getExpr).isArrow || (\u2190 getOptionsAtCurrPos).get ppPiBinderNames false\n  if !curNames.isEmpty && dep != curDep then\n    delabGroup curNames curDep (\u2190 delab)\n  else\n    let preserve := (\u2190 getOptionsAtCurrPos).get ppPiPreserveNames false\n    let curDep := dep\n    if \u2190 shouldGroupWithNext then\n      withBindingBodyUnusedName (preserveName := preserve) fun stxN => delabForallBinders delabGroup (curNames.push stxN) curDep\n    else\n      let (stx, stxN) \u2190 withBindingBodyUnusedName (preserveName := preserve) fun stxN => return (\u2190 delab, stxN)\n      delabGroup (curNames.push stxN) curDep stx\n@[builtin_delab forallE]\ndef delabForall : Delab := do\n  delabForallBinders fun curNames dependent stxBody => do\n    let e \u2190 getExpr\n    let prop \u2190 try isProp e catch _ => pure false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Builtins.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Builtins.lean",
+    "definition_name": "ppPiBinderNames"
+  }
+}

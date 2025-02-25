@@ -1,0 +1,10 @@
+{
+  "content": "| .a a => 1 + A.size m n a\nend\nend Mutual3\n#guard_msgs in\ndef T.size2 : T 37 \u2192 Nat\n  | a => 0\n  | b t => 1 + T.size2 t\ntermination_by structural t => t\nend FixedIndex\nnamespace IndexIsParameter\ninductive T (n : Nat) : Nat \u2192 Type where\n  | z : T n n\n  | n : T n n \u2192 T n n\n#guard_msgs in\ndef T.a {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_name": "A",
+    "has_proof": true
+  }
+}

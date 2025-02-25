@@ -1,0 +1,9 @@
+{
+  "content": "inductive True : Prop\n  | intro : True\ninductive False : Prop\ninductive Empty : Type\ndef Not (a : Prop) : Prop := a \u2192 False\n@[macro_inline] def False.elim {C : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_name": "True"
+  }
+}

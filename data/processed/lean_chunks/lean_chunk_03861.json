@@ -1,0 +1,10 @@
+{
+  "content": "def leftpad (n : Nat) (a : \u03b1) (xs : Array \u03b1) : Array \u03b1 := mkArray (n - xs.size) a ++ xs\ndef rightpad (n : Nat) (a : \u03b1) (xs : Array \u03b1) : Array \u03b1 := xs ++ mkArray (n - xs.size) a\n@[inline] def reduceOption (as : Array (Option \u03b1)) : Array \u03b1 :=\n  as.filterMap id\ndef eraseReps {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_name": "popWhile_empty",
+    "has_proof": true
+  }
+}

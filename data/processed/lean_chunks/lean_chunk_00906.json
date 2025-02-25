@@ -1,0 +1,9 @@
+{
+  "content": "structure State\nstructure Expr\ndef eval : State \u2192 Expr \u2192 Bool :=\n  fun _ _ => true\ninductive Command where\n  | skip\n  | cond    : Expr \u2192 Command \u2192 Command \u2192 Command\n  | \u00abwhile\u00bb : Expr \u2192 Command \u2192 Command\n  | seq     : Command \u2192 Command \u2192 Command\nopen Command\ninfix:10 \";;\" => Command.seq\ninductive Bigstep : Command \u00d7 State \u2192 State \u2192 Nat \u2192 Prop where\n  | skip    : Bigstep (skip, \u03c3) \u03c3 1\n  | seq     : Bigstep (c\u2081, \u03c3\u2081) \u03c3\u2082 t\u2081 \u2192 Bigstep (c\u2082, \u03c3\u2082) \u03c3\u2083 t\u2082 \u2192 Bigstep (c\u2081 ;; c\u2082, \u03c3\u2081) \u03c3\u2083 (t\u2081 + t\u2082 + 1)\n  | ifTrue  : eval \u03c3\u2081 b = true  \u2192 Bigstep (c\u2081, \u03c3\u2081) \u03c3\u2082 t \u2192 Bigstep (cond b c\u2081 c\u2082, \u03c3\u2081) \u03c3\u2082 (t + 1)\n  | ifFalse : eval \u03c3\u2081 b = false \u2192 Bigstep (c\u2082, \u03c3\u2081) \u03c3\u2082 t \u2192 Bigstep (cond b c\u2081 c\u2082, \u03c3\u2081) \u03c3\u2082 (t + 1)\n#check @Bigstep.seq\nnamespace WithoutAutoImplicit\nset_option autoImplicit false\ninductive Bigstep : Command \u00d7 State \u2192 State \u2192 Nat \u2192 Prop where\n  | skip    {\u03c3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ctorAutoParams.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ctorAutoParams.lean",
+    "definition_name": "State"
+  }
+}

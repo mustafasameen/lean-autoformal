@@ -1,0 +1,10 @@
+{
+  "content": "def eqnThmSuffixBase := \"eq\"\ndef eqnThmSuffixBasePrefix := eqnThmSuffixBase ++ \"_\"\ndef eqn1ThmSuffix := eqnThmSuffixBasePrefix ++ \"1\"\nexample : eqn1ThmSuffix = \"eq_1\" := rfl\ndef ensureEqnReservedNamesAvailable (declName : Name) : CoreM Unit := do\n  ensureReservedNameAvailable declName eqUnfoldThmSuffix\n  ensureReservedNameAvailable declName unfoldThmSuffix\n  ensureReservedNameAvailable declName eqn1ThmSuffix\nbuiltin_initialize registerReservedNamePredicate fun env n =>\n  match n with\n  | .str p s =>\n    (isEqnReservedNameSuffix s || s == unfoldThmSuffix || s == eqUnfoldThmSuffix)\n    && env.isSafeDefinition p\n    && !isMatcherCore env p\n  | _ => false\ndef GetEqnsFn := Name \u2192 MetaM (Option (Array Name))\nprivate builtin_initialize getEqnsFnsRef : IO.Ref (List GetEqnsFn) \u2190 IO.mkRef []\ndef registerGetEqnsFn (f : GetEqnsFn) : IO Unit := do\n  unless (\u2190 initializing) do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_name": "eqnThmSuffixBase",
+    "has_proof": false
+  }
+}

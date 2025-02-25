@@ -1,0 +1,10 @@
+{
+  "content": "theorem coe_castSucc (i : Fin n) : (i.castSucc : Nat) = i := rfl\n@[simp] theorem castSucc_mk (n i : Nat) (h : i < n) : castSucc \u27e8i, h\u27e9 = \u27e8i, Nat.lt.step h\u27e9 := rfl\n@[simp] theorem cast_castSucc {n' : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "coe_castSucc",
+    "has_proof": false
+  }
+}

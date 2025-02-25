@@ -1,0 +1,10 @@
+{
+  "content": "theorem id_hom' (M : Comon_ C) : (\ud835\udfd9 M : Hom M M).hom = \ud835\udfd9 M.X := rfl\n@[simp]\ntheorem comp_hom' {M N K : Comon_ C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "id_hom",
+    "has_proof": false
+  }
+}

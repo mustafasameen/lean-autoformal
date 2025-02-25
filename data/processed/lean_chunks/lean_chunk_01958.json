@@ -1,0 +1,10 @@
+{
+  "content": "theorem neg_comp : (-f) \u226b g = -f \u226b g :=\n  map_neg (rightComp P g) f\ntheorem comp_neg : f \u226b (-g) = -f \u226b g :=\n  map_neg (leftComp R f) g\ntheorem comp_zero : f \u226b (0 : Q \u27f6 R) = 0 :=\n  show leftComp R f 0 = 0 from map_zero _\ntheorem zero_comp : (0 : P \u27f6 Q) \u226b g = 0 :=\n  show rightComp P g 0 = 0 from map_zero _\nend Preadditive\nend CategoryTheory\nend Mathlib.CategoryTheory.Preadditive.Basic\nsection Mathlib.CategoryTheory.Preadditive.Basic\nnamespace CategoryTheory\nopen Preadditive\nvariable {C : Type u\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "neg_comp",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "macro_rules | `(\u2039$type\u203a) => `((by assumption : $type))\nsyntax \"get_elem_tactic_trivial\" : tactic\nmacro_rules | `(tactic| get_elem_tactic_trivial) => `(tactic| omega)\nmacro_rules | `(tactic| get_elem_tactic_trivial) => `(tactic| simp +arith; done)\nmacro_rules | `(tactic| get_elem_tactic_trivial) => `(tactic| trivial)\nmacro \"get_elem_tactic\" : tactic =>\n  `(tactic| first\n    | done\n    | assumption\n    | get_elem_tactic_trivial\n    | fail \"failed to prove index is valid, possible solutions:\n  - Use `have`-expressions to prove the index is valid\n  - Use `a[i]!` notation instead, runtime check is performed, and 'Panic' error message is produced if index is not valid\n  - Use `a[i]?` notation instead, result is an `Option` type\n  - Use `a[i]'h` notation instead, where `h` is a proof that index is valid\"\n   )\nsyntax (name := Lean.Parser.Syntax.exact?) \"exact?%\" : term\nset_option linter.unusedVariables.funArgs false in\nabbrev autoParam.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "DecideConfig",
+    "imports": "Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\""
+  }
+}

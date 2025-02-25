@@ -1,0 +1,10 @@
+{
+  "content": "def x := T.mk \"PrettyLong\" (some <| .mk \"PrettyLong\" none)\ntheorem equivalent: Run.run x = Run.run x := by\n  apply Eq.refl (runT x)\nexample : Run.run x = Run.run x := by\n  simp (config := { decide := false }) [Run.run]\nend Ex1\nnamespace Ex2\ninductive Wrapper where\n  | wrap: Wrapper\ndef Wrapper.extend: Wrapper \u2192 (Unit \u00d7 Unit)\n  | .wrap => ((), ())\nmutual\ninductive Op where\n  | mk: String \u2192 Block \u2192 Op\ninductive Assign where\n  | mk : String \u2192 Op \u2192 Assign\ninductive Block where\n  | mk: Assign \u2192 Block\n  | empty: Block\nend\nmutual\ndef runOp: Op \u2192 Wrapper\n  | .mk _ r => let r' := runBlock r",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyUnfoldingPerfIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyUnfoldingPerfIssue.lean",
+    "definition_name": "x",
+    "has_proof": true
+  }
+}

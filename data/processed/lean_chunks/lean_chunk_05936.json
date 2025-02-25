@@ -1,0 +1,10 @@
+{
+  "content": "rw [Int.add_comm]; exact bdiv_add_bmod' x m\ntheorem bmod_eq_self_sub_mul_bdiv (x : Int) (m : Nat) : bmod x m = x - m * bdiv x m := by\n  rw [\u2190 Int.add_sub_cancel (bmod x m), bmod_add_bdiv]\ntheorem bmod_eq_self_sub_bdiv_mul (x : Int) (m : Nat) : bmod x m = x - bdiv x m * m := by\n  rw [\u2190 Int.add_sub_cancel (bmod x m), bmod_add_bdiv']\ntheorem bmod_pos (x : Int) (m : Nat) (p : x % m < (m + 1) / 2) : bmod x m = x % m := by\n  simp [bmod_def, p]\ntheorem bmod_neg (x : Int) (m : Nat) (p : x % m \u2265 (m + 1) / 2) : bmod x m = (x % m) - m := by\n  simp [bmod_def, Int.not_lt.mpr p]\n@[simp]\ntheorem bmod_one_is_zero (x : Int) : Int.bmod x 1 = 0 := by\n  simp [Int.bmod]\n@[simp]\ntheorem bmod_add_cancel (x : Int) (n : Nat) : Int.bmod (x + n) n = Int.bmod x n := by\n  simp [bmod_def]\n@[simp]\ntheorem bmod_add_mul_cancel (x : Int) (n : Nat) (k : Int) : Int.bmod (x + n * k) n = Int.bmod x n := by\n  simp [bmod_def]\n@[simp]\ntheorem bmod_sub_cancel (x : Int) (n : Nat) : Int.bmod (x - n) n = Int.bmod x n := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "emod_bmod_congr",
+    "has_proof": true
+  }
+}

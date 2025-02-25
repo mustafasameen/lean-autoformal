@@ -1,0 +1,9 @@
+{
+  "content": "(\"rev\", toJson rev),\n        (\"inputRev\", toJson inputRev?),\n        (\"subDir\", toJson subDir?),\n      ]\n  Json.mkObj fields\ninstance : ToJson PackageEntry := \u27e8PackageEntry.toJson\u27e9\nprotected def fromJson? (json : Json) : Except String PackageEntry := do\n  let obj \u2190 JsonObject.fromJson? json |>.mapError (s!\"package entry: {\u00b7}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Manifest.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Manifest.lean",
+    "definition_name": "PackageEntry"
+  }
+}

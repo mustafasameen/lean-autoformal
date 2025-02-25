@@ -1,0 +1,10 @@
+{
+  "content": "| .inl a => go xs (acc\u2081.push a) acc\u2082\n    | .inr b => go xs acc\u2081 (acc\u2082.push b)\n@[specialize] private unsafe def mapMonoMImp [Monad m] (as : List \u03b1) (f : \u03b1 \u2192 m \u03b1) : m (List \u03b1) := do\n  match as with\n  | [] => return as\n  | b :: bs =>\n    let b'  \u2190 f b\n    let bs' \u2190 mapMonoMImp bs f\n    if ptrEq b' b && ptrEq bs' bs then\n      return as\n    else\n      return b' :: bs'\n@[implemented_by mapMonoMImp] def mapMonoM [Monad m] (as : List \u03b1) (f : \u03b1 \u2192 m \u03b1) : m (List \u03b1) :=\n  match as with\n  | [] => return []\n  | a :: as => return (\u2190 f a) :: (\u2190 mapMonoM as f)\ndef mapMono (as : List \u03b1) (f : \u03b1 \u2192 \u03b1) : List \u03b1 :=\n  Id.run <| as.mapMonoM f\nmacro \"sizeOf_list_dec\" : tactic =>\n  `(tactic| first\n    | with_reducible apply sizeOf_lt_of_mem; assumption; done\n    | with_reducible\n        apply Nat.lt_of_lt_of_le (sizeOf_lt_of_mem ?h)\n        case' h => assumption\n      simp +arith)\nmacro_rules | `(tactic| decreasing_trivial) => `(tactic| sizeOf_list_dec)\ntheorem append_cancel_left {as bs cs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_name": "get",
+    "has_proof": true
+  }
+}

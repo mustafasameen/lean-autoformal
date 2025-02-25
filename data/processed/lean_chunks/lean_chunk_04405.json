@@ -1,0 +1,9 @@
+{
+  "content": "cancelAux fuel m\u2081 m\u2082 ((Nat.sub k\u2081 k\u2082, v\u2081) :: r\u2081) r\u2082\n      else\n        cancelAux fuel m\u2081 m\u2082 r\u2081 r\u2082\ndef hugeFuel := 1000000\ndef Poly.cancel (p\u2081 p\u2082 : Poly) : Poly \u00d7 Poly :=\n  cancelAux hugeFuel p\u2081 p\u2082 [] []\ndef Poly.isNum? (p : Poly) : Option Nat :=\n  match p with\n  | [] => some 0\n  | [(k, v)] => bif v == fixedVar then some k else none\n  | _ => none\ndef Poly.isZero (p : Poly) : Bool :=\n  match p with\n  | [] => true\n  | _  => false\ndef Poly.isNonZero (p : Poly) : Bool :=\n  match p with\n  | [] => false\n  | (k, v) :: p => bif v == fixedVar then k > 0 else isNonZero p\ndef Poly.denote_eq (ctx : Context) (mp : Poly \u00d7 Poly) : Prop := mp.1.denote ctx = mp.2.denote ctx\ndef Poly.denote_le (ctx : Context) (mp : Poly \u00d7 Poly) : Prop := mp.1.denote ctx \u2264 mp.2.denote ctx\ndef Expr.toPoly (e : Expr) :=\n  go 1 e []\nwhere\n  go (coeff : Nat) : Expr \u2192 (Poly \u2192 Poly)\n    | .num k    => bif k == 0 then id else ((coeff * k, fixedVar) :: \u00b7)\n    | .var i    => ((coeff, i) :: \u00b7)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Expr"
+  }
+}

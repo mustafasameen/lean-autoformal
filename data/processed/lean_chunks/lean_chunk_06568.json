@@ -1,0 +1,9 @@
+{
+  "content": "let timeoutTask : ServerTask (Unit \u2295 Except \u03b5 (AsyncList \u03b5 \u03b1)) \u2190\n    if timeoutMs == 0 then\n      pure <| ServerTask.pure (Sum.inl ())\n    else\n      ServerTask.BaseIO.asTask do\n        IO.sleep timeoutMs\n        return .inl ()\n  go timeoutTask xs\nwhere\n  go (timeoutTask : ServerTask (Unit \u2295 Except \u03b5 (AsyncList \u03b5 \u03b1)))\n      (xs : AsyncList \u03b5 \u03b1) : BaseIO (List \u03b1 \u00d7 Option \u03b5 \u00d7 Bool) := do\n    match xs with\n    | cons hd tl =>\n      let \u27e8tl, e?, isComplete\u27e9 \u2190 go timeoutTask tl\n      return \u27e8hd :: tl, e?, isComplete\u27e9\n    | nil => return \u27e8[], none, true\u27e9\n    | delayed tl =>\n      let tl : ServerTask (Except \u03b5 (AsyncList \u03b5 \u03b1)) := tl\n      let tl := tl.mapCheap .inr\n      let cancelTk? := do return (\u2190 cancelTk?).mapCheap .inl\n      let tasks : { t : List _ // t.length > 0 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/AsyncList.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/AsyncList.lean",
+    "definition_name": "AsyncList"
+  }
+}

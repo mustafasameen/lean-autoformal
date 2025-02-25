@@ -1,0 +1,9 @@
+{
+  "content": "if stx.getNumArgs == 0 then mkHoleFrom ref else \u27e8stx[1]\u27e9\ndef expandBinderModifier (optBinderModifier : Syntax) : Option BinderModifier :=\n  if optBinderModifier.isNone then\n    none\n  else\n    some \u27e8optBinderModifier[0]\u27e9\ndef matchBinder (stx : Syntax) : MacroM (Array BinderSyntaxView) := do\n  let k := stx.getKind\n  if stx.isIdent || k == ``Term.hole then\n    return #[{ id := (\u2190 expandBinderIdent stx), type := mkHoleFrom stx, info := .default }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_name": "BinderSyntaxView"
+  }
+}

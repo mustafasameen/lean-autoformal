@@ -1,0 +1,9 @@
+{
+  "content": "structure LazyCodeAction where\nstructure CodeActionResolveData where\n  params : CodeActionParams\n  providerResultIndex : Nat\n  deriving ToJson, FromJson\ndef CodeAction.getFileSource! (ca : CodeAction) : DocumentUri :=\n  let r : Except String DocumentUri := do\n    let some data := ca.data?\n      | throw s!\"no data param on code action {ca.title}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_name": "LazyCodeAction"
+  }
+}

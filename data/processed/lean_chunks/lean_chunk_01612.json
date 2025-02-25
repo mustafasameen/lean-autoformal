@@ -1,0 +1,9 @@
+{
+  "content": "instance Var.nameCoe : Coe String Var := \u27e8Var.mk\u27e9\nstructure A : Type := (u : Unit)\nstructure B : Type := (u : Unit)\ndef a : A := A.mk ()\ndef b : B := B.mk ()\ndef Foo.chalk : A \u2192 List Var \u2192 Unit := fun _ _ => ()\ndef Bar.chalk : B \u2192 Unit := fun _ => ()\ninstance listCoe {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeIssue3.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeIssue3.lean",
+    "definition_name": "Var"
+  }
+}

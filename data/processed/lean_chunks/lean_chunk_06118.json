@@ -1,0 +1,10 @@
+{
+  "content": "theorem seq_eq_bind {\u03b1 \u03b2 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_name": "seq_eq_bind",
+    "has_proof": false
+  }
+}

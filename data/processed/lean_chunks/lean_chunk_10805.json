@@ -1,0 +1,9 @@
+{
+  "content": "data.log.replay\n        return true\n      else\n        go\n    else if (\u2190 getIsOldMode) && (\u2190 oldTrace.checkUpToDate info) then\n      return true\n    else\n      go\n  else\n    if (\u2190 depTrace.checkAgainstTime info) then\n      return true\n    else\n      go\nwhere\n  go := do\n    if (\u2190 getNoBuild) then\n      IO.Process.exit noBuildCode.toUInt8\n    else\n      updateAction action\n      let iniPos \u2190 getLogPos\nbuild\n      let log := (\u2190 getLog).takeFrom iniPos\n      writeTraceFile traceFile depTrace log\n      return false\n@[inline] def buildUnlessUpToDate\n  [CheckExists \u03b9] [GetMTime \u03b9] (info : \u03b9)\n  (depTrace : BuildTrace) (traceFile : FilePath) (build : JobM PUnit)\n  (action : JobAction := .build) (oldTrace := depTrace.mtime)\n: JobM PUnit := do\n  discard <| buildUnlessUpToDate? info depTrace traceFile build action oldTrace\ndef clearFileHash (file : FilePath) : IO Unit := do\n  try\n    IO.FS.removeFile <| file.toString ++ \".hash\"\n  catch\n    | .noFileOrDirectory .. => pure ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "platformTrace"
+  }
+}

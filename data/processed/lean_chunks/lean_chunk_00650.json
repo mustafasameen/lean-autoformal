@@ -1,0 +1,9 @@
+{
+  "content": "structure PreOpposite (\u03b1 : Type _) : Type _ where\n  op' ::\n  unop' : \u03b1\ndef MulOpposite (\u03b1 : Type _) : Type _ := PreOpposite \u03b1\ndef AddOpposite (\u03b1 : Type _) : Type _ := PreOpposite \u03b1\npostfix:max \"\u1d50\u1d52\u1d56\" => MulOpposite\npostfix:max \"\u1d43\u1d52\u1d56\" => AddOpposite\nnamespace MulOpposite\ndef unop : \u03b1\u1d50\u1d52\u1d56 \u2192 \u03b1 :=\n  PreOpposite.unop'\nend MulOpposite\nnamespace AddOpposite\ndef op : \u03b1 \u2192 \u03b1\u1d43\u1d52\u1d56 :=\n  PreOpposite.op'\ndef unop : \u03b1\u1d43\u1d52\u1d56 \u2192 \u03b1 :=\n  PreOpposite.unop'\ninstance instZero [Zero \u03b1] : Zero \u03b1\u1d43\u1d52\u1d56 where zero := op 0\ninstance instAdd [Add \u03b1] : Add \u03b1\u1d43\u1d52\u1d56 where add x y := op (unop y + unop x)\ninstance instNeg [Neg \u03b1] : Neg \u03b1\u1d43\u1d52\u1d56 where neg x := op <| -(unop x)\nend AddOpposite\nend Mathlib.Algebra.Opposites\nsection Mathlib.Algebra.Group.Hom.Defs\nvariable {M N A B : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "PreOpposite"
+  }
+}

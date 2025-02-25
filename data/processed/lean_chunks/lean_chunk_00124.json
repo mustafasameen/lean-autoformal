@@ -1,0 +1,9 @@
+{
+  "content": "structure Rational where\n  num : Int\n  den : Nat\n  inv : den \u2260 0\n@[default_instance 200]\ninstance : OfNat Rational n where\n  ofNat := { num := n, den := 1, inv := by decide }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/defaultInstanceWithPrio.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/defaultInstanceWithPrio.lean",
+    "definition_name": "Rational"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def Decl.elimDeadBranches (decls : Array Decl) : CompilerM (Array Decl) := do\n  let mut assignments := decls.map fun _ => {}\n  let initialVal i :=\n    if decls[i]!.safe then .bot else .top\n  let mut funVals := decls.size.fold (init := .empty) fun i _ p => p.push (initialVal i)\n  let ctx := { decls }\n  let mut state := { assignments, funVals }\n  (_, state) \u2190 inferMain |>.run ctx |>.run state\n  funVals := state.funVals\n  assignments := state.assignments\n  modifyEnv fun e =>\n    decls.size.fold (init := e) fun i _ env =>\n      addFunctionSummary env decls[i].name funVals[i]!\n  decls.mapIdxM fun i decl => if decl.safe then elimDead assignments[i]! decl else return decl\ndef elimDeadBranches : Pass :=\n  { name := `elimDeadBranches, run := Decl.elimDeadBranches, phase := .mono }\nbuiltin_initialize\n  registerTraceClass `Compiler.elimDeadBranches (inherited := true)\nend Lean.Compiler.LCNF",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

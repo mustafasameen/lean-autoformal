@@ -1,0 +1,9 @@
+{
+  "content": "partial def betaRev (f : Expr) (revArgs : Array Expr) (useZeta := false) (preserveMData := false) : Expr :=\n  if revArgs.size == 0 then f\n  else\n    let sz := revArgs.size\n    let rec go (e : Expr) (i : Nat) : Expr :=\n      let done (_ : Unit) : Expr :=\n        let n := sz - i\n        mkAppRevRange (e.instantiateRange n sz revArgs) 0 n revArgs\n      match e with\n      | .lam _ _ b _ =>\n        if i + 1 < sz then\n          go b (i+1)\n        else\n          b.instantiate revArgs\n      | .letE _ _ v b _ =>\n        if useZeta && i < sz then\n          go (b.instantiate1 v) i\n        else\n          done ()\n      | .mdata _ b =>\n        if preserveMData then\n          done ()\n        else\n          go b i\n      | _ => done ()\n    go f 0\ndef beta (f : Expr) (args : Array Expr) : Expr :=\n  betaRev f args.reverse\ndef getNumHeadLambdas : Expr \u2192 Nat\n  | .lam _ _ b _ => getNumHeadLambdas b + 1\n  | .mdata _ b => getNumHeadLambdas b\n  | _ => 0\ndef isHeadBetaTargetFn (useZeta : Bool) : Expr \u2192 Bool",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "ExprStructEq"
+  }
+}

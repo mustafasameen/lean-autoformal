@@ -1,0 +1,10 @@
+{
+  "content": "class Baz (\u03b1 : Type) where\n  baz (x : Nat) : Nat\n  baz' (x : Nat) : Nat :=\n    let y := 5\n    3\ninstance instBaz (\u03b1 \u03b2 : Type) : Baz \u03b1 where\n  baz (x : Nat) := 5\nstructure State where\n  fieldA : Nat\n  fieldB : Nat\nabbrev M := StateT State Id\ndef modifyState : M Unit := do\n  let s \u2190 get\n  modify fun s => { s with fieldA := s.fieldA + 1 }\ndef modifyState' : M Unit := do\n  modify fun s => { s with fieldA := 1}\ndef modifyStateUnnecessaryWith : M Unit := do\n  modify fun s => { s with fieldA := 1, fieldB := 2 }\ndef universeParam.{u} (T : Type u) (t : T) : T := t\nopen Lean in\ninitialize tc : Unit \u2190 registerTraceClass `Baz\nregister_option opt : Nat := {\n  defValue := 3\n  descr := \"test option\"\n}\nopaque foo (x : Nat) : Nat\nopaque foo' (x : Nat) : Nat :=\n  let y := 5\n  3\nsection\nvariable (bar)\nvariable (bar' : (x : Nat) \u2192 Nat)\nvariable {\u03b1 \u03b2} [inst : ToString \u03b1]\nend\n@[specialize]\ndef specializeDef (x : Nat) : Nat := 3\n@[implemented_by specializeDef]\ndef implementedByDef (x : Nat) : Nat :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_name": "autoImplicitVariable",
+    "has_proof": true
+  }
+}

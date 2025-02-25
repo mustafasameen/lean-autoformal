@@ -1,0 +1,10 @@
+{
+  "content": "rw [extract_loop_of_ge (h := Nat.le_of_not_lt h)]\n      rw [append_empty]\ntheorem extract_loop_eq (xs ys : Array \u03b1) (size start : Nat) (h : start + size \u2264 xs.size) :\n  extract.loop xs size start ys = ys ++ xs.extract start (start + size) := by\n  simp only [extract, Nat.sub_eq, mkEmpty_eq]\n  rw [extract_loop_eq_aux, Nat.min_eq_left h, Nat.add_sub_cancel_left]\ntheorem size_extract_loop (xs ys : Array \u03b1) (size start : Nat) :\n    (extract.loop xs size start ys).size = ys.size + min size (xs.size - start) := by\n  induction size using Nat.recAux generalizing start ys with\n  | zero => rw [extract_loop_zero, Nat.zero_min, Nat.add_zero]\n  | succ size ih =>\n    if h : start < xs.size then\n      rw [extract_loop_succ (h:=h), ih, size_push, Nat.add_assoc, \u2190Nat.add_min_add_left,\n        Nat.sub_succ, Nat.one_add, Nat.one_add, Nat.succ_pred_eq_of_pos (Nat.sub_pos_of_lt h)]\n    else\n      have h := Nat.le_of_not_gt h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "filter_reverse",
+    "has_proof": true
+  }
+}

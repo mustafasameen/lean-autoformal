@@ -1,0 +1,9 @@
+{
+  "content": "completeNamespaces ctx id danglingDot\ndef idCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)\n    (lctx              : LocalContext)\n    (stx               : Syntax)\n    (id                : Name)\n    (hoverInfo         : HoverInfo)\n    (danglingDot       : Bool)\n    : CancellableM (Array CompletionItem) :=\n  runM params completionInfoPos ctx lctx do\n    idCompletionCore ctx stx id hoverInfo danglingDot\ndef dotCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)\n    (info              : TermInfo)\n    : CancellableM (Array CompletionItem) :=\n  runM params completionInfoPos ctx info.lctx do\n    let nameSet \u2190 try\n      getDotCompletionTypeNames (\u2190 instantiateMVars (\u2190 inferType info.expr))\n    catch _ =>\n      pure RBTree.empty\n    if nameSet.isEmpty then\n      return\n    forEligibleDeclsWithCancellationM fun declName c => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

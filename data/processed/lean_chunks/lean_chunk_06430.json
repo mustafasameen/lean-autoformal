@@ -1,0 +1,9 @@
+{
+  "content": "structure ToForInTermResult where\n  uvars      : Array Var\n  term       : Syntax\ndef mkForInBody  (_ : Syntax) (forInBody : CodeBlock) : M ToForInTermResult := do\n  let ctx \u2190 read\n  let uvars := forInBody.uvars\n  let uvars := varSetToArray uvars\n  let term \u2190 liftMacroM <| ToTerm.run forInBody.code ctx.m ctx.returnType uvars (if hasReturn forInBody.code then ToTerm.Kind.forInWithReturn else ToTerm.Kind.forIn)\n  return \u27e8uvars, term\u27e9\ndef ensureInsideFor : M Unit :=\n  unless (\u2190 read).insideFor do\n    throwError \"invalid `do` element, it must be inside `for`\"\ndef ensureEOS (doElems : List Syntax) : M Unit :=\n  unless doElems.isEmpty do\n    throwError \"must be last element in a `do` sequence\"\nvariable (baseId : Name) in\nprivate partial def expandLiftMethodAux (inQuot : Bool) (inBinder : Bool) : Syntax \u2192 StateT (List Syntax) M Syntax\n  | stx@(Syntax.node i k args) =>\n    if k == choiceKind then do\n      let alts \u2190 stx.getArgs.mapM (expandLiftMethodAux inQuot inBinder \u00b7 |>.run [])",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "ToForInTermResult"
+  }
+}

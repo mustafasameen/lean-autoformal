@@ -1,0 +1,9 @@
+{
+  "content": "(f : A \u2243 B) (g : B \u2243 C) : A \u2243 C :=\n  \u27e8g.1 \u2218 f.1, biinvTrans f.2 g.2\u27e9\n  def ideqv (A : Type u) : A \u2243 A :=\n  \u27e8id, (\u27e8id, idp\u27e9, \u27e8id, idp\u27e9)\u27e9\nend Equiv\ndef transport {A : Type u} (B : A \u2192 Type v) {a b : A} (p : a = b) : B a \u2192 B b :=\nby { induction p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "propset"
+  }
+}

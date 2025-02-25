@@ -1,0 +1,10 @@
+{
+  "content": "theorem filter_none (p : \u03b1 \u2192 Bool) : none.filter p = none := rfl\ntheorem filter_some : Option.filter p (some a) = if p a then some a else none := rfl\ntheorem isSome_filter_of_isSome (p : \u03b1 \u2192 Bool) (o : Option \u03b1) (h : (o.filter p).isSome) :\n    o.isSome := by\n  cases o <;> simp at h \u22a2\n@[simp] theorem filter_eq_none {p : \u03b1 \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "filter_none",
+    "has_proof": true
+  }
+}

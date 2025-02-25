@@ -1,0 +1,9 @@
+{
+  "content": "throw <| .userError s!\"AddConstAsyncResult.commitConst: constant {res.constName} not found in async context\"\n  res.commitSignature info.toConstantVal\n  let kind' := .ofConstantInfo info\n  if res.kind != kind' then\n    throw <| .userError s!\"AddConstAsyncResult.commitConst: constant has kind {repr kind'} but expected {repr res.kind}\"\n  let sig := res.sigPromise.result!.get\n  if sig.levelParams != info.levelParams then\n    throw <| .userError s!\"AddConstAsyncResult.commitConst: constant has level params {info.levelParams} but expected {sig.levelParams}\"\n  if sig.type != info.type then\n    throw <| .userError s!\"AddConstAsyncResult.commitConst: constant has type {info.type} but expected {sig.type}\"\n  res.infoPromise.resolve info\n  res.extensionsPromise.resolve env.checkedWithoutAsync.extensions\ndef AddConstAsyncResult.commitCheckEnv (res : AddConstAsyncResult) (env : Environment) :\n    IO Unit := do\n  let some _ := env.findAsync? res.constName",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

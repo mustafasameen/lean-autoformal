@@ -1,0 +1,10 @@
+{
+  "content": "structure DataFrame where\n  header     : Header\n  rows       : List Row\n  consistent : rowsOfTypes rows header.colTypes := by simp\nnamespace DataFrame\n@[simp] def empty (header : Header := []) : DataFrame :=\n  \u27e8header, [], by simp\u27e9\ntheorem consistentConcatOfConsistentRow\n    {df : DataFrame}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/946.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/946.lean",
+    "definition_name": "DataFrame",
+    "has_proof": true
+  }
+}

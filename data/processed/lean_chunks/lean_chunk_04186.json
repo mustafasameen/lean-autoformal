@@ -1,0 +1,10 @@
+{
+  "content": "theorem and_twoPow (x : BitVec w) (i : Nat) :\n    x &&& (twoPow w i) = if x.getLsbD i then twoPow w i else 0#w := by\n  ext j h\n  simp only [getElem_and, getLsbD_twoPow]\n  by_cases hj : i = j <;> by_cases hx : x.getLsbD i <;> simp_all <;> omega\ntheorem twoPow_and (x : BitVec w) (i : Nat) :\n    (twoPow w i) &&& x = if x.getLsbD i then twoPow w i else 0#w := by\n  rw [BitVec.and_comm, and_twoPow]\n@[simp]\ntheorem mul_twoPow_eq_shiftLeft (x : BitVec w) (i : Nat) :\n    x * (twoPow w i) = x <<< i := by\n  apply eq_of_toNat_eq\n  simp only [toNat_mul, toNat_twoPow, toNat_shiftLeft, Nat.shiftLeft_eq]\n  by_cases hi : i < w\n  \u00b7 have hpow : 2^i < 2^w := Nat.pow_lt_pow_of_lt (by omega) (by omega)\n    rw [Nat.mod_eq_of_lt hpow]\n  \u00b7 have hpow : 2 ^ i % 2 ^ w = 0 := by\n      rw [Nat.mod_eq_zero_of_dvd]\n      apply Nat.pow_dvd_pow 2 (by omega)\n    simp [Nat.mul_mod, hpow]\ntheorem twoPow_mul_eq_shiftLeft (x : BitVec w) (i : Nat) :\n    (twoPow w i) * x = x <<< i := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "and_twoPow",
+    "has_proof": true
+  }
+}

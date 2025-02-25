@@ -1,0 +1,10 @@
+{
+  "content": "def test := get_config? test |>.getD \"Test\" |>.capitalize\npackage inundation where\n  buildDir := defaultBuildDir / test\n@[default_target]\nlean_lib Inundation where\n  srcDir := \"test\"\n  roots := #[.mkSimple test]\nscript nop :=\n  return 0\npartial def num2letters (n : Nat) : String :=\n  if n >= 26 then\n    num2letters (n / 26 - 1) ++ num2letters (n % 26)\n  else\n    Char.toString <| .ofNat <| 'A'.toNat + n\nscript mkTree (args : List String) := do\n  let some numPkgs := if h : args.length > 0 then args[0].toNat? else some 10\n    | return 1\n  let wsDir := (\u2190 getWorkspace).dir\n  let treeDir := wsDir / \"test\" / \"tree\"\n  let config \u2190 IO.FS.readFile (wsDir / \"lakefile.lean\")\n  let mut depsConfig := config ++ \"\\n\"\n  for i in [:numPkgs] do\n    let pkgName := num2letters i\n    let config := config.replace \"inundation\" pkgName\n    let pkgDir := treeDir / pkgName\n    IO.FS.createDirAll pkgDir\n    IO.FS.writeFile (pkgDir / \"lakefile.lean\") config",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/inundation/lakefile.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/inundation/lakefile.lean",
+    "definition_name": "test",
+    "imports": "{test}.{num2letters layer}{idx}\\n\""
+  }
+}

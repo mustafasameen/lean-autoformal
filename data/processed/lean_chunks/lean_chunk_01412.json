@@ -1,0 +1,9 @@
+{
+  "content": "class MulZeroClass (M\u2080 : Type u) extends Mul M\u2080, Zero M\u2080 where\n  zero_mul : \u2200 a : M\u2080, 0 * a = 0\n  mul_zero : \u2200 a : M\u2080, a * 0 = 0\nclass SemigroupWithZero (S\u2080 : Type u) extends Semigroup S\u2080, MulZeroClass S\u2080\nclass MulZeroOneClass (M\u2080 : Type u) extends MulOneClass M\u2080, MulZeroClass M\u2080\nclass MonoidWithZero (M\u2080 : Type u) extends Monoid M\u2080, MulZeroOneClass M\u2080, SemigroupWithZero M\u2080\nclass GroupWithZero (G\u2080 : Type u) extends MonoidWithZero G\u2080, DivInvMonoid G\u2080 where\n  inv_zero : (0 : G\u2080)\u207b\u00b9 = 0\n  mul_inv_cancel (a : G\u2080) : a \u2260 0 \u2192 a * a\u207b\u00b9 = 1\nend Mathlib.Algebra.GroupWithZero.Defs\nsection Mathlib.Algebra.Group.Hom.Defs\nvariable {\u03b9 \u03b1 \u03b2 M N A B P : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "MulZeroClass"
+  }
+}

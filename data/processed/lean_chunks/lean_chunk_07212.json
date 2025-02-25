@@ -1,0 +1,9 @@
+{
+  "content": "structure BorrowInfState where\ndef updateParamMap (k : ParamMap.Key) : M Unit := do\n  let s \u2190 get\n  match s.paramMap[k]? with\n  | some ps => do\n    let ps \u2190 ps.mapM fun (p : Param) => do\n      if !p.borrow then pure p\n      else if (\u2190 isOwned p.x) then\n        markModified\n        pure { p with borrow := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Borrow.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Borrow.lean",
+    "definition_name": "BorrowInfState"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem monotone_findSomeRevM?\n    (f : \u03b3 \u2192 \u03b1 \u2192 m (Option \u03b2)) (xs : Array \u03b1) (hmono : monotone f) :\n    monotone (fun x => xs.findSomeRevM? (f x)) := by\n  unfold Array.findSomeRevM?\n  suffices \u2200 i (h : i \u2264 xs.size), monotone (fun x => Array.findSomeRevM?.find (f x) xs i h) by apply this\n  intros i h\n  induction i, h using Array.findSomeRevM?.find.induct with\n  | case1 =>\n    unfold Array.findSomeRevM?.find\n    apply monotone_const\n  | case2 _ _ _ ih =>\n    unfold Array.findSomeRevM?.find\n    apply monotone_bind\n    \u00b7 apply monotone_apply\n      apply hmono\n    \u00b7 apply monotone_of_monotone_apply\n      intro y\n      cases y with\n      | none => apply ih\n      | some y => apply monotone_const\n@[partial_fixpoint_monotone]\ntheorem monotone_findRevM?\n    {m : Type \u2192 Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_name": "monotone_findSomeRevM",
+    "has_proof": true
+  }
+}

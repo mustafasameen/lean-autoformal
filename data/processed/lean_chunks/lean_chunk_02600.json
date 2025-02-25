@@ -1,0 +1,10 @@
+{
+  "content": "theorem or_congr (h\u2081 : a \u2194 c) (h\u2082 : b \u2194 d) : (a \u2228 b) \u2194 (c \u2228 d) := \u27e8.imp h\u2081.mp h\u2082.mp, .imp h\u2081.mpr h\u2082.mpr\u27e9\ntheorem or_congr_left (h : a \u2194 b) : a \u2228 c \u2194 b \u2228 c := or_congr h .rfl\ntheorem or_congr_right (h : b \u2194 c) : a \u2228 b \u2194 a \u2228 c := or_congr .rfl h\ntheorem or_left_comm  : a \u2228 (b \u2228 c) \u2194 b \u2228 (a \u2228 c) := by rw [\u2190 or_assoc, \u2190 or_assoc, @or_comm a b]\ntheorem or_right_comm : (a \u2228 b) \u2228 c \u2194 (a \u2228 c) \u2228 b := by rw [or_assoc, or_assoc, @or_comm b]\ntheorem or_or_or_comm : (a \u2228 b) \u2228 c \u2228 d \u2194 (a \u2228 c) \u2228 b \u2228 d := by rw [\u2190 or_assoc, @or_right_comm a, or_assoc]\ntheorem or_or_distrib_left : a \u2228 b \u2228 c \u2194 (a \u2228 b) \u2228 a \u2228 c := by rw [or_or_or_comm, or_self]\ntheorem or_or_distrib_right : (a \u2228 b) \u2228 c \u2194 (a \u2228 c) \u2228 b \u2228 c := by rw [or_or_or_comm, or_self]\ntheorem or_rotate : a \u2228 b \u2228 c \u2194 b \u2228 c \u2228 a := by simp only [or_left_comm, Or.comm]\ntheorem or_iff_left  (hb : \u00acb) : a \u2228 b \u2194 a := or_iff_left_iff_imp.mpr  hb.elim\ntheorem or_iff_right (ha : \u00aca) : a \u2228 b \u2194 b := or_iff_right_iff_imp.mpr ha.elim",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "or_congr",
+    "has_proof": true
+  }
+}

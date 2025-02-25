@@ -1,0 +1,9 @@
+{
+  "content": "let decl    := doLetArrow[2]\n    if decl.getKind == ``Parser.Term.doIdDecl then\n      let y := decl[0]\n      checkNotShadowingMutable #[y]\n      let doElem := decl[3]\n      let k \u2190 withNewMutableVars #[y] (isMutableLet doLetArrow) (doSeqToCode doElems)\n      match isDoExpr? doElem with\n      | some _      => return mkVarDeclCore #[y] doLetArrow k\n      | none =>\n        checkLetArrowRHS doElem\n        let c \u2190 doSeqToCode [doElem]\n        match doElems with\n        | []       => pure c\n        | kRef::_  => concat c kRef y k\n    else if decl.getKind == ``Parser.Term.doPatDecl then\n      let pattern := decl[0]\n      let doElem  := decl[2]\n      let optElse := decl[3]\n      if optElse.isNone then withFreshMacroScope do\n        let auxDo \u2190 if isMutableLet doLetArrow then\n          `(do let%$doLetArrow __discr \u2190 $doElem; let%$doLetArrow mut $pattern:term := __discr)\n        else\n          `(do let%$doLetArrow __discr \u2190 $doElem; let%$doLetArrow $pattern:term := __discr)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

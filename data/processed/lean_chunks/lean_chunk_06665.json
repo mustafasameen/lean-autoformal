@@ -1,0 +1,9 @@
+{
+  "content": "structure ParserState where\n  stxStack : SyntaxStack := .empty\n  lhsPrec  : Nat := 0\n  pos      : String.Pos := 0\n  cache    : ParserCache\n  errorMsg : Option Error := none\n  recoveredErrors : Array (String.Pos \u00d7 SyntaxStack \u00d7 Error) := #[]\nnamespace ParserState\n@[inline]\ndef hasError (s : ParserState) : Bool :=\n  s.errorMsg != none\ndef stackSize (s : ParserState) : Nat :=\n  s.stxStack.size\ndef restore (s : ParserState) (iniStackSz : Nat) (iniPos : String.Pos) : ParserState :=\n  { s with stxStack := s.stxStack.shrink iniStackSz, errorMsg := none, pos := iniPos }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_name": "ParserState"
+  }
+}

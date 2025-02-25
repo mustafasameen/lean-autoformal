@@ -1,0 +1,9 @@
+{
+  "content": "| _ => none\n@[inline]\ndef ofNat! (n : Nat) : Weekday :=\n  match ofNat? n with\n  | some res => res\n  | none => panic! \"invalid weekday\"\ndef next : Weekday \u2192 Weekday\n  | .monday => .tuesday\n  | .tuesday => .wednesday\n  | .wednesday => .thursday\n  | .thursday => .friday\n  | .friday => .saturday\n  | .saturday => .sunday\n  | .sunday => .monday\ndef isWeekend : Weekday \u2192 Bool\n  | .saturday => true\n  | .sunday => true\n  | _ => false\nend Weekday\nend Time\nend Std",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Weekday.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Weekday.lean",
+    "definition_name": "Ordinal"
+  }
+}

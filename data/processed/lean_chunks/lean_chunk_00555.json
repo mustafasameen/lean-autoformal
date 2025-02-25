@@ -1,0 +1,9 @@
+{
+  "content": "def nat  := mkConst `Nat\ndef succ := mkConst `Nat.succ\ndef add  := mkAppN (mkConst `Add.add [levelZero]) #[nat, mkConst `Nat.add]\ndef tst1 : MetaM Unit :=\ndo let d : DiscrTree Nat := {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/meta3.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/meta3.lean",
+    "definition_name": "nat"
+  }
+}

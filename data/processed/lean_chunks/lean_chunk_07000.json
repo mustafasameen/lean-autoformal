@@ -1,0 +1,9 @@
+{
+  "content": "def generateMeasures (numMeasures : Array Nat) : MetaM (Array MutualMeasure) := do\n  let some arg_measures := generateCombinations? numMeasures\n      | throwError \"Too many combinations\"\n  let func_measures :=\n    if numMeasures.size > 1 then\n      (List.range numMeasures.size).toArray\n    else\n      #[]\n  return arg_measures.map .args ++ func_measures.map .func\npartial def solve {m}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_name": "MutualMeasure"
+  }
+}

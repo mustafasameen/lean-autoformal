@@ -1,0 +1,10 @@
+{
+  "content": "theorem lex_eq_true_iff_lex [DecidableEq \u03b1] (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) :\n    lex l\u2081 l\u2082 lt = true \u2194 Lex (fun x y => lt x y) l\u2081 l\u2082 := by\n  simp [lex_eq_decide_lex]\ntheorem lex_eq_true_iff_exists [BEq \u03b1] (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) :\n    lex l\u2081 l\u2082 lt = true \u2194\n      (l\u2081.isEqv (l\u2082.take l\u2081.length) (\u00b7 == \u00b7) \u2227 l\u2081.length < l\u2082.length) \u2228\n        (\u2203 (i : Nat) (h\u2081 : i < l\u2081.length) (h\u2082 : i < l\u2082.length),\n          (\u2200 j, (hj : j < i) \u2192\n            l\u2081[j]'(Nat.lt_trans hj h\u2081) == l\u2082[j]'(Nat.lt_trans hj h\u2082)) \u2227 lt l\u2081[i] l\u2082[i]) := by\n  induction l\u2081 generalizing l\u2082 with\n  | nil =>\n    cases l\u2082 with\n    | nil => simp [lex]\n    | cons b bs => simp [lex]\n  | cons a l\u2081 ih =>\n    cases l\u2082 with\n    | nil => simp [lex]\n    | cons b l\u2082 =>\n      simp [cons_lex_cons, Bool.or_eq_true, Bool.and_eq_true, ih, isEqv, length_cons]\n      constructor\n      \u00b7 rintro (hab | \u27e8hab, \u27e8h\u2081, h\u2082\u27e9 | \u27e8i, h\u2081, h\u2082, w\u2081, w\u2082\u27e9\u27e9)\n        \u00b7 exact .inr \u27e80, by simp [hab]\u27e9\n        \u00b7 exact .inl \u27e8\u27e8hab, h\u2081\u27e9, by simpa using h\u2082\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_name": "lex_eq_true_iff_lex",
+    "has_proof": true
+  }
+}

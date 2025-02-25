@@ -1,0 +1,9 @@
+{
+  "content": "inductive isOddList : List \u03b1 \u2192 Prop\n| cons (h : \u03b1) {t : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive2.lean",
+    "definition_name": "isOddList"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def MacroScope := Nat\nabbrev MacroScopes := List MacroScope\nstructure SourceInfo :=\n(leading  : Substring)\n(pos      : Nat)\n(trailing : Substring)\ndef mkUniqIdRef : IO (IO.Ref Nat) :=\nIO.mkRef 0\n@[init mkUniqIdRef]\nconstant nextUniqId : IO.Ref Nat := default _\nstructure SyntaxNodeKind :=\n(name : Name) (id : Nat)\ninstance : Inhabited SyntaxNodeKind :=\n\u27e8{name := default _, id := default _}\u27e9\ninstance : BEq SyntaxNodeKind :=\n\u27e8\u03bb k\u2081 k\u2082, k\u2081.id == k\u2082.id\u27e9\ndef mkNameToKindTable : IO (IO.Ref (NameMap Nat)) :=\nIO.mkRef {}\n@[init mkNameToKindTable]\nconstant nameToKindTable : IO.Ref (NameMap Nat) := default _\ndef nextKind (k : Name) : IO SyntaxNodeKind :=\ndo m \u2190 nameToKindTable.get,\n   when (m.contains k) (throw $ IO.userError (\"Error kind '\" ++ toString k ++ \"' already exists\")),\n   id \u2190 nextUniqId.get,\n   nameToKindTable.set (m.insert k id),\n   nextUniqId.set (id+1),\n   pure { name := k, id := id }\ndef mkNullKind : IO SyntaxNodeKind := nextKind `null",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

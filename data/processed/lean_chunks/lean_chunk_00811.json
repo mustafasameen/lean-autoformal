@@ -1,0 +1,10 @@
+{
+  "content": "theorem zero_lt_of_lt : {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/doNotation3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/doNotation3.lean",
+    "definition_name": "zero_lt_of_lt",
+    "has_proof": false
+  }
+}

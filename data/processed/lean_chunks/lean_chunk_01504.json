@@ -1,0 +1,9 @@
+{
+  "content": "class Foo (\u03b1 : Type u) extends Add \u03b1 :=\n(x : \u03b1)\nclass Boo (\u03b1 : Type u) extends Foo \u03b1 :=\n(y : \u03b1 := x + x)\n#check @Boo.y._default\n#check { add := Nat.add, x := 10 : Boo Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct1.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct1.lean",
+    "definition_name": "Foo"
+  }
+}

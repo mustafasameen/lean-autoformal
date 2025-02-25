@@ -1,0 +1,9 @@
+{
+  "content": "structure A (\u03b1 : Type u) :=\n(x : \u03b1) (f : \u03b1 \u2192 \u03b1 := \u03bb x => x)\nstructure B (\u03b1 : Type u) extends A \u03b1 :=\n(y : \u03b1 := f (f x)) (g : \u03b1 \u2192 \u03b1 \u2192 \u03b1 := \u03bb x y => f x)\nstructure C (\u03b1 : Type u) extends B \u03b1 :=\n(z : \u03b1 := g x y) (x := f z)\nend Ex1\nopen Ex1\ndef c1 : C Nat := { x := 1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInst3.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInst3.lean",
+    "definition_name": "A"
+  }
+}

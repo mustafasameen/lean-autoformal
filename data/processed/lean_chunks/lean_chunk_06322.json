@@ -1,0 +1,9 @@
+{
+  "content": "unless name.isAtomic do\n        throwErrorAt ident \"invalid field name '{name.eraseMacroScopes}', field names must be atomic\"\n      let declName := structDeclName ++ name\n      let declName \u2190 applyVisibility fieldModifiers.visibility declName\n      addDocString' declName fieldModifiers.docString?\n      return views.push {\n        ref        := ident\n        modifiers  := fieldModifiers\n        binderInfo := binfo\n        declName\n        name\n        nameId     := ident\n        rawName\n        binders\n        type?\n        value?\n      }\ndef structureSyntaxToView (modifiers : Modifiers) (stx : Syntax) : TermElabM StructView := do\n  checkValidInductiveModifier modifiers\n  let isClass   := stx[0].getKind == ``Parser.Command.classTk\n  let modifiers := if isClass then modifiers.addAttr { name := `class } else modifiers\n  let declId    := stx[1]\n  let \u27e8name, declName, levelNames\u27e9 \u2190 Term.expandDeclId (\u2190 getCurrNamespace) (\u2190 Term.getLevelNames) declId modifiers",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

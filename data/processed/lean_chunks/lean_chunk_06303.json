@@ -1,0 +1,9 @@
+{
+  "content": "withReducible do\n    let todo : Array Expr := .mkEmpty initCapacity\n    let keys : Array Key := .mkEmpty initCapacity\n    mkPathAux (root := true) (todo.push e) keys noIndexAtArgs\nprivate partial def createNodes (keys : Array Key) (v : \u03b1) (i : Nat) : Trie \u03b1 :=\n  if h : i < keys.size then\n    let k := keys[i]\n    let c := createNodes keys v (i+1)\n    .node #[] #[(k, c)]\n  else\n    .node #[v] #[]\nprivate def insertVal [BEq \u03b1] (vs : Array \u03b1) (v : \u03b1) : Array \u03b1 :=\n  loop 0\nwhere\n  loop (i : Nat) : Array \u03b1 :=\n    if h : i < vs.size then\n      if v == vs[i] then\n        vs.set i v\n      else\n        loop (i+1)\n    else\n      vs.push v\n  termination_by vs.size - i\nprivate partial def insertAux [BEq \u03b1] (keys : Array Key) (v : \u03b1) : Nat \u2192 Trie \u03b1 \u2192 Trie \u03b1\n  | i, .node vs cs =>\n    if h : i < keys.size then\n      let k := keys[i]\n      let c := Id.run $ cs.binInsertM\n          (fun a b => a.1 < b.1)\n(fun \u27e8_, s\u27e9 => let c := insertAux keys v (i+1) s",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_name": "tmpStar"
+  }
+}

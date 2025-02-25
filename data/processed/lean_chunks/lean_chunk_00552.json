@@ -1,0 +1,9 @@
+{
+  "content": "inductive expression : Nat \u2192 Type\n| const : (n : Nat) \u2192 expression n\ndef uext {w:Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/633.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/633.lean",
+    "definition_name": "expression"
+  }
+}

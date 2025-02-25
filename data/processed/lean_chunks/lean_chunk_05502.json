@@ -1,0 +1,10 @@
+{
+  "content": "| [],    _, _ => []\n  | c::cs, i, p =>\n    if i = p then (c'::cs) else c::(utf8SetAux c' cs (i + c) p)\n@[extern \"lean_string_utf8_set\"]\ndef set : String \u2192 (@& Pos) \u2192 Char \u2192 String\n  | \u27e8s\u27e9, i, c => \u27e8utf8SetAux c s 0 i\u27e9\ndef modify (s : String) (i : Pos) (f : Char \u2192 Char) : String :=\n  s.set i <| f <| s.get i\n@[extern \"lean_string_utf8_next\"]\ndef next (s : @& String) (p : @& Pos) : Pos :=\n  let c := get s p\n  p + c\ndef utf8PrevAux : List Char \u2192 Pos \u2192 Pos \u2192 Pos\n  | [],    _, _ => 0\n  | c::cs, i, p =>\n    let i' := i + c\n    if i' = p then i else utf8PrevAux cs i' p\n@[extern \"lean_string_utf8_prev\"]\ndef prev : (@& String) \u2192 (@& Pos) \u2192 Pos\n  | \u27e8s\u27e9, p => if p = 0 then 0 else utf8PrevAux s 0 p\n@[inline] def front (s : String) : Char :=\n  get s 0\n@[inline] def back (s : String) : Char :=\n  get s (prev s s.endPos)\n@[extern \"lean_string_utf8_at_end\"]\ndef atEnd : (@& String) \u2192 (@& Pos) \u2192 Bool\n  | s, p => p.byteIdx \u2265 utf8ByteSize s\n@[extern \"lean_string_utf8_get_fast\"]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "decidableLT",
+    "has_proof": true
+  }
+}

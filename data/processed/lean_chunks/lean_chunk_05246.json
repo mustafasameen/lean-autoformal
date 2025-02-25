@@ -1,0 +1,10 @@
+{
+  "content": "def rotateRight (xs : List \u03b1) (i : Nat := 1) : List \u03b1 :=\n  let len := xs.length\n  if len \u2264 1 then\n    xs\n  else\n    let i := len - i % len\n    let ys := xs.take i\n    let zs := xs.drop i\n    zs ++ ys\n@[simp] theorem rotateRight_nil : ([] : List \u03b1).rotateRight n = [] := rfl\ninductive Pairwise : List \u03b1 \u2192 Prop\n  | cons : \u2200 {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "isSuffixOf_nil_left",
+    "has_proof": true
+  }
+}

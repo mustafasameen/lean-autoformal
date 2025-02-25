@@ -1,0 +1,10 @@
+{
+  "content": "theorem toCNF.go_marks :\n    (go aig start h state).val.cache.marks[start]'(by have := (go aig start h state).val.cache.hmarks; omega) = true :=\n  (go aig start h state).property.trueAt\ntheorem toCNF.go_sat (aig : AIG Nat) (start : Nat) (h1 : start < aig.decls.size) (assign1 : Nat \u2192 Bool)\n    (state : toCNF.State aig) :\n    (go aig start h1 state).val.Sat (cnfSatAssignment aig assign1)  := by\n  have := (go aig start h1 state).val.inv assign1\n  rw [State.sat_iff]\n  simp [this]\ntheorem toCNF.go_as_denote' (aig : AIG Nat) (start) (h1) (assign1) :\n    \u27e6aig, \u27e8start, h1\u27e9, assign1\u27e7 \u2192 (go aig start h1 (.empty aig)).val.eval (cnfSatAssignment aig assign1) := by\n  have := go_sat aig start h1 assign1 (.empty aig)\n  simp only [State.Sat, CNF.sat_def] at this\n  simp [this]\ntheorem toCNF.go_as_denote (aig : AIG Nat) (start) (h1) (assign1) :\n    ((\u27e6aig, \u27e8start, h1\u27e9, assign1\u27e7 && (go aig start h1 (.empty aig)).val.eval (cnfSatAssignment aig assign1)) = sat?)\n      \u2192",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "toCNF",
+    "has_proof": true
+  }
+}

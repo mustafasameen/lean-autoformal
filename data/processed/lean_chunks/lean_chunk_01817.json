@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo where\n  | mk : Nat \u2192 Foo\n  | boo : String \u2192 Foo\ninstance : ToString Foo where\n  toString o := match o with\n    | .mk n => aux1 n\n    | .boo s => aux2 s\nwhere\n  aux1 (n : Nat) : String :=\n    s!\".mk {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/instanceWhereDecls.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/instanceWhereDecls.lean",
+    "definition_name": "Foo"
+  }
+}

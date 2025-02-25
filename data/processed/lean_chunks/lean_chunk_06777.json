@@ -1,0 +1,9 @@
+{
+  "content": "variable (cfg : BacktrackConfig)\nvariable (trace : Name := .anonymous)\nvariable (next : MVarId \u2192 (List MVarId \u2192 MetaM (Option (List MVarId))) \u2192 MetaM (List MVarId))\nprivate def run (goals : List MVarId) (n : Nat) (curr acc : List MVarId) : MetaM (List MVarId) := do\n  match n with\n  | 0 => do\n    throwError \"backtrack exceeded the recursion limit\"\n  | n + 1 => do\n  let procResult? \u2190 try\n    cfg.proc goals curr\n  catch e =>\n    withTraceNode trace\n      (return m!\"{exceptEmoji \u00b7}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Backtrack.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Backtrack.lean",
+    "definition_name": "BacktrackConfig"
+  }
+}

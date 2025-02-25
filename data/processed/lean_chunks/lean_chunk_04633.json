@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_of_norm_eq_of_divCoeffs {ctx : Context}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "eq_of_norm_eq_of_divCoeffs",
+    "has_proof": false
+  }
+}

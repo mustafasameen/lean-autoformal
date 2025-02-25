@@ -1,0 +1,10 @@
+{
+  "content": "theorem Clause.of_maxLiteral_eq_some (c : Clause Nat) (h : c.maxLiteral = some maxLit) :\n    \u2200 lit, Mem lit c \u2192 lit \u2264 maxLit := by\n  intro lit hlit\n  simp only [maxLiteral, List.max?_eq_some_iff', List.mem_map, forall_exists_index, and_imp,\n    forall_apply_eq_imp_iff\u2082] at h\n  simp only [Mem] at hlit\n  rcases h with \u27e8_, hbar\u27e9\n  cases hlit\n  all_goals\n    have := hbar (lit, _) (by assumption)\n    omega\ntheorem Clause.maxLiteral_eq_some_of_mem (c : Clause Nat) (h : Mem l c) :\n    \u2203 maxLit, c.maxLiteral = some maxLit := by\n  dsimp [Mem] at h\n  cases h <;> rename_i h\n  all_goals\n    have h1 := List.ne_nil_of_mem h\n    have h2 := not_congr <| @List.max?_eq_none_iff _ (c.map (\u00b7.1)) _\n    simp [\u2190 Option.ne_none_iff_exists', h1, h2, maxLiteral]\ntheorem Clause.of_maxLiteral_eq_none (c : Clause Nat) (h : c.maxLiteral = none) :\n    \u2200 lit, \u00acMem lit c := by\n  intro lit hlit\n  simp only [maxLiteral, List.max?_eq_none_iff, List.map_eq_nil_iff] at h\n  simp only [h, not_mem_nil] at hlit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/RelabelFin.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/RelabelFin.lean",
+    "definition_name": "Clause",
+    "has_proof": true
+  }
+}

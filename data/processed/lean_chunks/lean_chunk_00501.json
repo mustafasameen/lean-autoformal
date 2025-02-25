@@ -1,0 +1,10 @@
+{
+  "content": "theorem decideEqTrue' : [s : Decidable p] \u2192 p \u2192 Eq (decide p) true\n  | isTrue  _, _   => rfl\n  | isFalse h\u2081, h\u2082 => absurd h\u2082 h\u2081\ntheorem decideEqFalse : {p : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_name": "decideEqTrue",
+    "has_proof": false
+  }
+}

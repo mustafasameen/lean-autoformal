@@ -1,0 +1,10 @@
+{
+  "content": "theorem nonempty_Prop {p : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_name": "nonempty_Prop",
+    "has_proof": false
+  }
+}

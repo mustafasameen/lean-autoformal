@@ -1,0 +1,9 @@
+{
+  "content": "@[combinator_parenthesizer eoi] def eoi.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkNoImmediateColon] def checkNoImmediateColon.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer skip] def skip.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer pushNone] def pushNone.parenthesizer : Parenthesizer := goLeft\n@[combinator_parenthesizer hygieneInfoNoAntiquot] def hygieneInfoNoAntiquot.parenthesizer : Parenthesizer := goLeft\n@[combinator_parenthesizer interpolatedStr]\ndef interpolatedStr.parenthesizer (p : Parenthesizer) : Parenthesizer := do\n  visitArgs $ (\u2190 getCur).getArgs.reverse.forM fun chunk =>\n    if chunk.isOfKind interpolatedStrLitKind then\n      goLeft\n    else\n      p\n@[combinator_parenthesizer _root_.ite, macro_inline] def ite {_ : Type} (c : Prop) [Decidable c] (t e : Parenthesizer) : Parenthesizer :=\n  if c then t else e\nopen Parser\nabbrev ParenthesizerAliasValue := AliasValue Parenthesizer",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_name": "rawIdentNoAntiquot"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_id : Except.map (\u03b5 := \u03b5) (\u03b1 := \u03b1) (\u03b2 := \u03b1) id = id := by\n  apply funext\n  intro e\n  simp [Except.map]; cases e <;> rfl\n@[always_inline, inline]\nprotected def mapError (f : \u03b5 \u2192 \u03b5') : Except \u03b5 \u03b1 \u2192 Except \u03b5' \u03b1\n  | Except.error err => Except.error <| f err\n  | Except.ok v      => Except.ok v\n@[always_inline, inline]\nprotected def bind (ma : Except \u03b5 \u03b1) (f : \u03b1 \u2192 Except \u03b5 \u03b2) : Except \u03b5 \u03b2 :=\n  match ma with\n  | Except.error err => Except.error err\n  | Except.ok v      => f v\n@[always_inline, inline]\ndef orelse' [MonadExcept \u03b5 m] {\u03b1 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Except.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Except.lean",
+    "definition_name": "map_id",
+    "has_proof": true
+  }
+}

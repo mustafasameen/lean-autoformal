@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_enumFrom (f : \u03b1 \u2192 \u03b2) (n : Nat) (l : List \u03b1) :\n    map (Prod.map id f) (enumFrom n l) = enumFrom n (map f l) := by\n  induction l generalizing n <;> simp_all\n@[deprecated fst_mem_of_mem_zipIdx (since := \"2025-01-21\")]\ntheorem snd_mem_of_mem_enumFrom {x : Nat \u00d7 \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "map_enumFrom",
+    "has_proof": true
+  }
+}

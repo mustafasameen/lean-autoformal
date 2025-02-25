@@ -1,0 +1,9 @@
+{
+  "content": "def p := (1, 2)\n#guard_msgs in\nrun_meta check (Expr.proj ``Exists 0 (mkConst ``p))\nrun_meta check (Expr.proj ``Prod 0 (mkConst ``p))\nrun_meta check (Expr.proj ``Prod 1 (mkConst ``p))\n#guard_msgs in\nrun_meta check (Expr.proj ``Prod 2 (mkConst ``p))\ndef n := 1\n#guard_msgs in\nrun_meta check (Expr.proj ``Nat 0 (mkConst ``n))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5660.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5660.lean",
+    "definition_name": "p"
+  }
+}

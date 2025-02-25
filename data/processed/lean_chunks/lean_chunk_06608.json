@@ -1,0 +1,10 @@
+{
+  "content": "msgs.forM fun msg => msg.toString >>= IO.println\n          throw (IO.userError \"failed to parse file\")\n      else\n        parse state msgs (stxs.push stx)\n  parse s msgs stxs\ndef testParseModule (env : Environment) (fname contents : String) : IO (TSyntax ``Parser.Module.module) := do\n  let inputCtx := mkInputContext contents fname\n  let (header, state, messages) \u2190 parseHeader inputCtx\n  let cmds \u2190 testParseModuleAux env inputCtx state messages #[]\n  let stx := mkNode `Lean.Parser.Module.module #[header, mkListNode cmds]\n  pure \u27e8stx.raw.updateLeading\u27e9\ndef testParseFile (env : Environment) (fname : System.FilePath) : IO (TSyntax ``Parser.Module.module) := do\n  let contents \u2190 IO.FS.readFile fname\n  testParseModule env fname.toString contents\nend Parser\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_name": "header",
+    "imports": "|| s.isOfKind ``Command.eoi"
+  }
+}

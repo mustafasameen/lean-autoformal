@@ -1,0 +1,9 @@
+{
+  "content": "structure CacheEntry where\n  key : Expr\n  declName : Name\n  deriving Inhabited\ndef addEntry (cache : Cache) (e : CacheEntry) : Cache :=\n  cache.insert e.key e.declName\nbuiltin_initialize specCacheExt : SimplePersistentEnvExtension CacheEntry Cache \u2190\n  registerSimplePersistentEnvExtension {\n    addEntryFn    := addEntry\n    addImportedFn := fun es => (mkStateFromImportedEntries addEntry {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Specialize.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Specialize.lean",
+    "definition_name": "CacheEntry"
+  }
+}

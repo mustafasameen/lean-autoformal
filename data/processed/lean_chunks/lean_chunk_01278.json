@@ -1,0 +1,9 @@
+{
+  "content": "instance Nat.zero' : Zero' Nat where\n  zero := 0\nexample :\n    0 = if (b : Bool) then\n      (@OfNat.ofNat.{0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2282.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2282.lean",
+    "definition_name": "Nat"
+  }
+}

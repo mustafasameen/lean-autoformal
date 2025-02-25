@@ -1,0 +1,10 @@
+{
+  "content": "theorem nonempty_or_impossible (f : CNF \u03b1) : Nonempty \u03b1 \u2228 \u2203 n, f = List.replicate n [] := by\n  induction f with\n  | nil => exact Or.inr \u27e80, rfl\u27e9\n  | cons c x ih => match c with\n    | [] => cases ih with\n      | inl h => left; exact h\n      | inr h =>\n        obtain \u27e8n, rfl\u27e9 := h\n        right\n        exact \u27e8n + 1, rfl\u27e9\n    | \u27e8a, b\u27e9 :: c => exact Or.inl \u27e8a\u27e9\ntheorem unsat_relabel_iff {f : CNF \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Relabel.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Relabel.lean",
+    "definition_name": "nonempty_or_impossible",
+    "has_proof": true
+  }
+}

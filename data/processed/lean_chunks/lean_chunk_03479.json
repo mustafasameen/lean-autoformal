@@ -1,0 +1,10 @@
+{
+  "content": "instance UInt8.instOfNat : OfNat UInt8 n := \u27e8UInt8.ofNat n\u27e9\ndef UInt16.ofNatTruncate (n : Nat) : UInt16 :=\n  if h : n < UInt16.size then\n    UInt16.ofNatLT n h\n  else\n    UInt16.ofNatLT (UInt16.size - 1) (by decide)\nabbrev Nat.toUInt16 := UInt16.ofNat\n@[extern \"lean_uint16_to_nat\"]\ndef UInt16.toNat (n : UInt16) : Nat := n.toBitVec.toNat\n@[extern \"lean_uint16_to_uint8\"]\ndef UInt16.toUInt8 (a : UInt16) : UInt8 := a.toNat.toUInt8\n@[extern \"lean_uint8_to_uint16\"]\ndef UInt8.toUInt16 (a : UInt8) : UInt16 := \u27e8\u27e8a.toNat, Nat.lt_trans a.toBitVec.isLt (by decide)\u27e9\u27e9\ninstance UInt16.instOfNat : OfNat UInt16 n := \u27e8UInt16.ofNat n\u27e9\ndef UInt32.ofNatTruncate (n : Nat) : UInt32 :=\n  if h : n < UInt32.size then\n    UInt32.ofNatLT n h\n  else\n    UInt32.ofNatLT (UInt32.size - 1) (by decide)\nabbrev Nat.toUInt32 := UInt32.ofNat\n@[extern \"lean_uint32_to_uint8\"]\ndef UInt32.toUInt8 (a : UInt32) : UInt8 := a.toNat.toUInt8\n@[extern \"lean_uint32_to_uint16\"]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/BasicAux.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/BasicAux.lean",
+    "definition_name": "UInt8",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def actionTerminalToTerm (action : Syntax) : M Syntax := withRef action <| withFreshMacroScope do\n  let ctx \u2190 read\n  let u \u2190 mkUVarTuple\n  match ctx.kind with\n  | .regular         => if ctx.uvars.isEmpty then pure action else ``(Bind.bind $action fun y => Pure.pure (MProd.mk y $u))\n  | .forIn           => ``(Bind.bind $action fun (_ : PUnit) => Pure.pure (ForInStep.yield $u))\n  | .forInWithReturn => ``(Bind.bind $action fun (_ : PUnit) => Pure.pure (ForInStep.yield (MProd.mk none $u)))\n  | .nestedBC        => unreachable!\n  | .nestedPR        => ``(Bind.bind $action fun y => (Pure.pure (DoResultPR.\u00abpure\u00bb y $u)))\n  | .nestedSBC       => ``(Bind.bind $action fun y => (Pure.pure (DoResultSBC.\u00abpureReturn\u00bb y $u)))\n  | .nestedPRBC      => ``(Bind.bind $action fun y => (Pure.pure (DoResultPRBC.\u00abpure\u00bb y $u)))\ndef seqToTerm (action : Syntax) (k : Syntax) : M Syntax := withRef action <| withFreshMacroScope do\n  if action.getKind == ``Parser.Term.doDbgTrace then\n    let msg := action[1]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "DoIfView"
+  }
+}

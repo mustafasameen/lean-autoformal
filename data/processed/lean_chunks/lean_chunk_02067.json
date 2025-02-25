@@ -1,0 +1,10 @@
+{
+  "content": "theorem simple8 (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z := by\nintro h1; intro _; intro h3\nrefine' Eq.trans ?pre ?post\ncase post => exact h1\ncase pre => exact h3\ntheorem simple9 (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z := by\nintros h1 _ h3\ntrace_state\nfocus\n  refine' Eq.trans ?pre ?post\n  first\n    | exact h1\n      assumption\n    | exact y\n      exact h3\n      assumption\ntheorem simple9b (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z := by\nintros h1 _ h3\ntrace_state\nfocus\n  refine' Eq.trans ?pre ?post\n  first\n    | exact h1\n    | exact y; exact h3\n  assumption\ntheorem simple9c (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z := by\n  intros h1 _ h3\n  solve\n    | exact h1\n    | refine' Eq.trans ?pre ?post; exact y; exact h3; assumption\n    | exact h3\ntheorem simple9d (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z := by\n  intros h1 _ h3\n  refine' Eq.trans ?pre ?post\n  solve\n    | exact h1\n    | exact y\n    | exact h3\n  solve\n    | exact h1\n    | exact h3\n  solve\n    | exact h1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_name": "simple8",
+    "has_proof": true
+  }
+}

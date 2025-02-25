@@ -1,0 +1,10 @@
+{
+  "content": "@[deprecated foldr_cons_eq_append (since := \"2024-08-22\")] abbrev foldr_self_append := @foldr_cons_eq_append\n@[simp] theorem foldl_flip_cons_eq_append (l : List \u03b1) (f : \u03b1 \u2192 \u03b2) (l' : List \u03b2) :\n    l.foldl (fun xs y => f y :: xs) l' = (l.map f).reverse ++ l' := by\n  induction l generalizing l' <;> simp [*]\n@[simp] theorem foldr_append_eq_append (l : List \u03b1) (f : \u03b1 \u2192 List \u03b2) (l' : List \u03b2) :\n    l.foldr (f \u00b7 ++ \u00b7) l' = (l.map f).flatten ++ l' := by\n  induction l <;> simp [*]\n@[simp] theorem foldl_append_eq_append (l : List \u03b1) (f : \u03b1 \u2192 List \u03b2) (l' : List \u03b2) :\n    l.foldl (\u00b7 ++ f \u00b7) l' = l' ++ (l.map f).flatten := by\n  induction l generalizing l'<;> simp [*]\n@[simp] theorem foldr_flip_append_eq_append (l : List \u03b1) (f : \u03b1 \u2192 List \u03b2) (l' : List \u03b2) :\n    l.foldr (fun x ys => ys ++ f x) l' = l' ++ (l.map f).reverse.flatten := by\n  induction l generalizing l' <;> simp [*]\n@[simp] theorem foldl_flip_append_eq_append (l : List \u03b1) (f : \u03b1 \u2192 List \u03b2) (l' : List \u03b2) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "reverse_flatten",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| throwError \"invalid projection name {subProjName}\"\n          let args := e.getAppArgs\n          if let some major := args[numParams]? then\n            if (\u2190 getNestedProjectionArg major) == parent then\n              if let some existingFieldInfo := findFieldInfo? infos (.mkSimple subFieldName) then\n                return TransformStep.done <| mkAppN existingFieldInfo.fvar args[numParams+1:args.size]\n      return TransformStep.done e\n    let projType \u2190 Meta.transform projType (post := visit)\n    if projType.containsFVar parent.fvarId! then\n      throwError \"unsupported dependent field in {fieldName} : {projType}\"\n    if let some info := getFieldInfo? (\u2190 getEnv) (\u2190 getStructureName parentType) fieldName then\n      if let some autoParamExpr := info.autoParam? then\n        return (\u2190 mkAppM ``autoParam #[projType, autoParamExpr])\n    return projType\nprivate def toVisibility (fieldInfo : StructureFieldInfo) : CoreM Visibility := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

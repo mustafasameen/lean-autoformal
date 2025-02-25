@@ -1,0 +1,10 @@
+{
+  "content": "simp only [List.get_eq_getElem] at hidx\n        exact Exists.intro idx hidx\n      rcases idx_exists with \u27e8idx, hidx\u27e9\n      apply Exists.intro idx \u2218 And.intro idx.2\n      rw [hidx]\n      simp only [(\u00b7 \u22a8 \u00b7)]\n      exact of_decide_eq_true pc2\n    \u00b7 simp only [Clause.toList, DefaultClause.toList] at pc1\n      rw [c_clause_rw] at pc1\n      have idx_exists : \u2203 idx : Fin c_arr.size, c_arr[idx] = (i, true) := by\n        rcases List.get_of_mem pc1 with \u27e8idx, hidx\u27e9\n        simp only [List.get_eq_getElem] at hidx\n        exact Exists.intro idx hidx\n      rcases idx_exists with \u27e8idx, hidx\u27e9\n      apply Exists.intro idx \u2218 And.intro idx.2\n      rw [hidx]\n      simp only [(\u00b7 \u22a8 \u00b7)]\n      exact of_decide_eq_true pc2\ntheorem incompatible_of_reducedToEmpty {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddSound.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddSound.lean",
+    "definition_name": "with",
+    "has_proof": true
+  }
+}

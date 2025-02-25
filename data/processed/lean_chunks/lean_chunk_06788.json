@@ -1,0 +1,9 @@
+{
+  "content": "style: { color: $(s!\"hsl({(t * 120).round} 95% {60 * ((t - 0.5)^2 + 0.75)}%)\") },\n    title: $(if showValueInHoverText then s!\"Apply suggestion ({t})\" else \"Apply suggestion\")\n  }\nstructure Suggestion where\n  preInfo? : Option String := none\n  style? : Option SuggestionStyle := none\n  messageData? : Option MessageData := none\n  toCodeActionTitle? : Option (String \u2192 String) := none\n  deriving Inhabited\ndef Suggestion.toJsonAndInfoM (s : Suggestion) (w : Option Nat := none) (indent column : Nat := 0) :\n    CoreM (Json \u00d7 String \u00d7 Option String) := do\n  let text \u2190 s.suggestion.prettyExtra w indent column\n  let mut json := [(\"suggestion\", (text : Json))]\n  if let some preInfo := s.preInfo? then json := (\"preInfo\", preInfo) :: json\n  if let some postInfo := s.postInfo? then json := (\"postInfo\", postInfo) :: json\n  if let some style := s.style? then json := (\"style\", toJson style) :: json\n  return (Json.mkObj json, text, s.toCodeActionTitle?.map (\u00b7 text))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "SuggestionStyle"
+  }
+}

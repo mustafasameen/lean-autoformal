@@ -1,0 +1,9 @@
+{
+  "content": "def expectedEndOfInput := \"expected end of input\"\n@[inline]\ndef eof : Parsec \u03b9 Unit := fun it =>\n  if Input.hasNext it then\n    .error it expectedEndOfInput\n  else\n    .success it ()\n@[inline]\ndef isEof : Parsec \u03b9 Bool := fun it =>\n  .success it (!Input.hasNext it)\n@[specialize]\npartial def manyCore (p : Parsec \u03b9 \u03b1) (acc : Array \u03b1) : Parsec \u03b9 <| Array \u03b1 :=\n  tryCatch p (manyCore p <| acc.push \u00b7) (fun _ => pure acc)\n@[inline]\ndef many (p : Parsec \u03b9 \u03b1) : Parsec \u03b9 <| Array \u03b1 := manyCore p #[]\n@[inline]\ndef many1 (p : Parsec \u03b9 \u03b1) : Parsec \u03b9 <| Array \u03b1 := do manyCore p #[\u2190 p]\ndef unexpectedEndOfInput := \"unexpected end of input\"\n@[inline]\ndef any : Parsec \u03b9 elem := fun it =>\n  if h : Input.hasNext it then\n    let c := Input.curr' it h\n    let it' := Input.next' it h\n    .success it' c\n  else\n    .error it unexpectedEndOfInput\n@[inline]\ndef satisfy (p : elem \u2192 Bool) : Parsec \u03b9 elem := attempt do\n  let c \u2190 any\n  if p c then return c else fail \"condition not satisfied\"\n@[inline]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Internal/Parsec/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Internal/Parsec/Basic.lean",
+    "definition_name": "expectedEndOfInput"
+  }
+}

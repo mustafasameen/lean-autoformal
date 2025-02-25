@@ -1,0 +1,9 @@
+{
+  "content": "def testEscaping :=\n  assert! (pathToUri \"~/git/lean4\") == \"file:///~/git/lean4\"\n  true\ndef testNeverEscape :=\n  let do_not_quote := String.join [\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\n                      \"abcdefghijklmnopqrstuvwxyz\",\n                      \"0123456789\",\n                      \"_.-~<>\\\"{}|\\\\^`\"]\n  let result := escapeUri do_not_quote\n  assert! result == do_not_quote\n  true\ndef testShouldEscape :=\n  let controls := String.mk ((List.range 31).map (fun c => Char.ofNat c))\n  let should_quote := String.join [controls,\n                      \"#%[]\",\n(Char.ofNat 127).toString]\n  assert! should_quote.data.all (\u03bb c =>\n    let x := (escapeUri c.toString)\n    x.length == 3 && x.take 1 == \"%\")\n  true\ndef testPartialEscape :=\n  assert! (escapeUri \"ab[]cd\") == \"ab%5B%5Dcd\"\n  true\ndef testSpaceEscape :=\n  assert! (escapeUri \" \") == \"%20\"\n  true\ndef testUnicodeEscape :=\n  assert! (escapeUri \"\ud83d\ude35\") == \"%F0%9F%98%B5\"\n  assert! (escapeUri \"\\u6f22\\u5b57\") == \"%E6%BC%A2%E5%AD%97\"\n  true",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_name": "testEscaping"
+  }
+}

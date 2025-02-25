@@ -1,0 +1,10 @@
+{
+  "content": "def forwardWeight := 2\ndef localHypotheses (except : List FVarId := []) : MetaM (Array (Expr \u00d7 Bool \u00d7 Nat)) := do\n  let r \u2190 getLocalHyps\n  let mut result := #[]\n  for h in r do\n    if except.contains h.fvarId! then continue\n    let (_, _, type) \u2190 forallMetaTelescopeReducing (\u2190 inferType h)\n    let type \u2190 whnfR type\n    match type.getAppFnArgs with\n    | (``Eq, #[_, _, _])\n    | (``Iff, #[_, _]) => do\n      result := result.push (h, false, forwardWeight)\n                    |>.push (h, true, backwardWeight)\n    | _ => pure ()\n  return result\ndef droppedKeys : List (List LazyDiscrTree.Key) := [[.star], [.const `Eq 3, .star, .star, .star]]\ndef createModuleTreeRef : MetaM (LazyDiscrTree.ModuleDiscrTreeRef (Name \u00d7 RwDirection)) :=\n  LazyDiscrTree.createModuleTreeRef addImport droppedKeys\nprivate def ExtState := IO.Ref (Option (LazyDiscrTree (Name \u00d7 RwDirection)))\nprivate builtin_initialize ExtState.default : IO.Ref (Option (LazyDiscrTree (Name \u00d7 RwDirection))) \u2190 do\n  IO.mkRef .none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "forwardWeight",
+    "has_proof": false
+  }
+}

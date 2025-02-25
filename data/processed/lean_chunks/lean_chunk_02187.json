@@ -1,0 +1,9 @@
+{
+  "content": "class SemilatticeSup (\u03b1 : Type u) extends Sup \u03b1, PartialOrder \u03b1 where\n  protected le_sup_left : \u2200 a b : \u03b1, a \u2264 a \u2294 b\n  protected le_sup_right : \u2200 a b : \u03b1, b \u2264 a \u2294 b\n  protected sup_le : \u2200 a b c : \u03b1, a \u2264 c \u2192 b \u2264 c \u2192 a \u2294 b \u2264 c\nsection SemilatticeSup\nvariable [SemilatticeSup \u03b1] {a b c : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "SemilatticeSup"
+  }
+}

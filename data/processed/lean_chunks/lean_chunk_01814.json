@@ -1,0 +1,10 @@
+{
+  "content": "inductive RBColor where\n  | red\n  | black\ninductive RBNode (\u03b1 : Type u) where\n  | nil\n  | node (c : RBColor) (l : RBNode \u03b1) (v : \u03b1) (r : RBNode \u03b1)\nnamespace RBNode\nopen RBColor\ninductive Balanced : RBNode \u03b1 \u2192 RBColor \u2192 Nat \u2192 Prop where\n  | protected nil : Balanced nil black 0\n  | protected red : Balanced x black n \u2192 Balanced y black n \u2192 Balanced (node red x v y) red n\n  | protected black : Balanced x c\u2081 n \u2192 Balanced y c\u2082 n \u2192 Balanced (node black x v y) black (n + 1)\n@[inline] def balance1 : RBNode \u03b1 \u2192 \u03b1 \u2192 RBNode \u03b1 \u2192 RBNode \u03b1\n  | node red (node red a x b) y c, z, d\n  | node red a x (node red b y c), z, d => node red (node black a x b) y (node black c z d)\n  | a,                             x, b => node black a x b\n@[inline] def balance2 : RBNode \u03b1 \u2192 \u03b1 \u2192 RBNode \u03b1 \u2192 RBNode \u03b1\n  | a, x, node red (node red b y c) z d\n  | a, x, node red b y (node red c z d) => node red (node black a x b) y (node black c z d)\n  | a, x, b                             => node black a x b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_name": "RBColor",
+    "has_proof": false
+  }
+}

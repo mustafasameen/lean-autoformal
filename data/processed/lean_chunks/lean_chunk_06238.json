@@ -1,0 +1,9 @@
+{
+  "content": "let e := e.toCtorIfLit\n  matchConstCtor e.getAppFn (fun _ => pure none) fun ctorVal _ =>\n    let numArgs := e.getAppNumArgs\n    let idx := ctorVal.numParams + i\n    if idx < numArgs then\n      return some (e.getArg! idx)\n    else\n      return none\ndef project? (e : Expr) (i : Nat) : MetaM (Option Expr) := do\n  projectCore? (\u2190 whnf e) i\nprivate def whnfDelayedAssigned? (f' : Expr) (e : Expr) : MetaM (Option Expr) := do\n  if f'.isMVar then\n    match (\u2190 getDelayedMVarAssignment? f'.mvarId!) with\n    | none => return none\n    | some { fvars, mvarIdPending } =>\n      let args := e.getAppArgs\n      if fvars.size > args.size then\n        return none\n      else\n        let newVal \u2190 instantiateMVars (mkMVar mvarIdPending)\n        if newVal.hasExprMVar then\n           return none\n        else\n           let newVal := newVal.abstract fvars\n           let result := newVal.instantiateRevRange 0 fvars.size args\n           return mkAppRange result fvars.size args.size args\n  else\n    return none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

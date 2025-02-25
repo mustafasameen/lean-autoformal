@@ -1,0 +1,10 @@
+{
+  "content": "theorem erase_eq_eraseP' (a : \u03b1) (l : List \u03b1) : l.erase a = l.eraseP (\u00b7 == a) := by\n  induction l\n  \u00b7 simp\n  \u00b7 next b t ih =>\n    rw [erase_cons, eraseP_cons, ih]\n    if h : b == a then simp [h] else simp [h]\ntheorem erase_eq_eraseP [LawfulBEq \u03b1] (a : \u03b1) : \u2200 l : List \u03b1,  l.erase a = l.eraseP (a == \u00b7)\n  | [] => rfl\n  | b :: l => by\n    if h : a = b then simp [h] else simp [h, Ne.symm h, erase_eq_eraseP a l]\n@[simp] theorem erase_eq_nil_iff [LawfulBEq \u03b1] {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_name": "erase_eq_eraseP",
+    "has_proof": true
+  }
+}

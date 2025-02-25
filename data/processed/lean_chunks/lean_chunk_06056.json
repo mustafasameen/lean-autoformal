@@ -1,0 +1,10 @@
+{
+  "content": "theorem drop_take : \u2200 (i j : Nat) (l : List \u03b1), drop i (take j l) = take (j - i) (drop i l)\n  | 0, _, _ => by simp\n  | _, 0, _ => by simp\n  | _, _, [] => by simp\n  | i+1, j+1, h :: t => by\n    simp [take_succ_cons, drop_succ_cons, drop_take i j t]\n    congr 1\n    omega\n@[simp] theorem drop_take_self : drop i (take i l) = [] := by\n  rw [drop_take]\n  simp\ntheorem take_reverse {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "drop_take",
+    "has_proof": true
+  }
+}

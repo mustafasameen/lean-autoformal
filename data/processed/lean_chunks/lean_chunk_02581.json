@@ -1,0 +1,10 @@
+{
+  "content": "theorem bne_eq_false_iff_eq [BEq \u03b1] [LawfulBEq \u03b1] {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "bne_eq_false_iff_eq",
+    "has_proof": false
+  }
+}

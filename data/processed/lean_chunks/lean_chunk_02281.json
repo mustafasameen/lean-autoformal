@@ -1,0 +1,9 @@
+{
+  "content": "inductive Ty\u209b (l : List Unit): Type\n| U : Ty\u209b l\nopen Ty\u209b\ninductive Var\u209a (d : Unit): List Unit \u2192 Type\n| vz : Var\u209a d [d']\n| vs : Var\u209a d l \u2192 Var\u209a d (B\u209b :: l)\ninductive Tm\u209b {l : List Unit}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue6015.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue6015.lean",
+    "definition_name": "Ty\u209b"
+  }
+}

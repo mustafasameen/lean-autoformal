@@ -1,0 +1,10 @@
+{
+  "content": "def foo := @id\ndef bar := @id\ntheorem foo_eq {\u03b1} (x : \u03b1) : foo x = bar x := rfl\nexample {p : Nat \u2192 Prop} {x} (h : x = bar 1) : p x := by\n  simp [*, \u2190 foo_eq]\n  show p (foo 1)\n  admit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathport18.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathport18.lean",
+    "definition_name": "foo",
+    "has_proof": true
+  }
+}

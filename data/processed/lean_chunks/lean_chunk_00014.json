@@ -1,0 +1,9 @@
+{
+  "content": "inductive HollomOrder : Nat \u00d7 Nat \u00d7 Nat \u2192 Nat \u00d7 Nat \u00d7 Nat \u2192 Prop\n  | twice {x y n u v m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/omega_stress.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/omega_stress.lean",
+    "definition_name": "HollomOrder"
+  }
+}

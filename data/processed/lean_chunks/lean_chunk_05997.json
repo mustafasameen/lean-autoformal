@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertIdx_zero (s : List \u03b1) (x : \u03b1) : insertIdx 0 x s = x :: s :=\n  rfl\n@[simp]\ntheorem insertIdx_succ_nil (n : Nat) (a : \u03b1) : insertIdx (n + 1) a [] = [] :=\n  rfl\n@[simp]\ntheorem insertIdx_succ_cons (s : List \u03b1) (hd x : \u03b1) (i : Nat) :\n    insertIdx (i + 1) x (hd :: s) = hd :: insertIdx i x s :=\n  rfl\ntheorem length_insertIdx : \u2200 i as, (insertIdx i a as).length = if i \u2264 as.length then as.length + 1 else as.length\n  | 0, _ => by simp\n  | n + 1, [] => by simp\n  | n + 1, a :: as => by\n    simp only [insertIdx_succ_cons, length_cons, length_insertIdx, Nat.add_le_add_iff_right]\n    split <;> rfl\ntheorem length_insertIdx_of_le_length (h : i \u2264 length as) : length (insertIdx i a as) = length as + 1 := by\n  simp [length_insertIdx, h]\ntheorem length_insertIdx_of_length_lt (h : length as < i) : length (insertIdx i a as) = length as := by\n  simp [length_insertIdx, h]\n@[simp]\ntheorem eraseIdx_insertIdx (i : Nat) (l : List \u03b1) : (l.insertIdx i a).eraseIdx i = l := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/InsertIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/InsertIdx.lean",
+    "definition_name": "insertIdx_zero",
+    "has_proof": true
+  }
+}

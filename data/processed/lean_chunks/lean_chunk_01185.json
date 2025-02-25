@@ -1,0 +1,9 @@
+{
+  "content": "@[reducible]\n  def betree.Internal.pivot (x : betree.Internal) :=\n    match x with | betree.Internal.mk _ x1 _ _ => x1\n  @[reducible]\n  def betree.Internal.left (x : betree.Internal) :=\n    match x with | betree.Internal.mk _ _ x1 _ => x1\n  @[reducible]\n  def betree.Internal.right (x : betree.Internal) :=\n    match x with | betree.Internal.mk _ _ _ x1 => x1\n  structure betree.Params where\n    min_flush_size : Isize\n    split_size : Isize\n  structure betree.NodeIdCounter where\n    next_node_id : Isize\n  structure betree.BeTree where\n    params : betree.Params\n    node_id_cnt : betree.NodeIdCounter\n    root : betree.Node\n  def betree_utils.load_internal_node\n  :\n  Isize \u2192 State \u2192 Result (State \u00d7 (betree.List (Isize \u00d7 betree.Message))) :=\n  fun _ _ => .fail .panic\n  def betree_utils.store_internal_node\n    :\n    Isize \u2192 betree.List (Isize \u00d7 betree.Message) \u2192 State \u2192 Result (State\n      \u00d7 Unit) :=\n    fun _ _ _ => .fail .panic\n  def betree_utils.load_leaf_node",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_name": "betree"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem Exists.imp (h : \u2200 a, p a \u2192 q a) : (\u2203 a, p a) \u2192 \u2203 a, q a\n  | \u27e8a, hp\u27e9 => \u27e8a, h a hp\u27e9\ntheorem Exists.imp' {\u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "Exists",
+    "has_proof": false
+  }
+}

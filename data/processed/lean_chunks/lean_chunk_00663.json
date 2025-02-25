@@ -1,0 +1,9 @@
+{
+  "content": "class AddCommMonoid (M : Type u) extends AddMonoid M\ndef SubNegMonoid.sub' {G : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "AddCommMonoid"
+  }
+}

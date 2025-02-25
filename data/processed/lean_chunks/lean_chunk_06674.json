@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_doc, inline] def ppGroup (p : Parser) : Parser := ppRealFill (ppIndent p)\n@[builtin_doc, inline] def ppDedent : Parser \u2192 Parser := id\n@[builtin_doc, inline] def ppAllowUngrouped : Parser := skip\n@[builtin_doc, inline] def ppDedentIfGrouped : Parser \u2192 Parser := id\n@[builtin_doc, inline] def ppHardLineUnlessUngrouped : Parser := skip\nend Parser\nsection\nopen PrettyPrinter Parser\n@[combinator_formatter ppHardSpace] def ppHardSpace.formatter : Formatter := Formatter.pushWhitespace \" \"\n@[combinator_formatter ppSpace] def ppSpace.formatter : Formatter := Formatter.pushLine\n@[combinator_formatter ppLine] def ppLine.formatter : Formatter := Formatter.pushWhitespace \"\\n\"\n@[combinator_formatter ppRealFill] def ppRealFill.formatter (p : Formatter) : Formatter := Formatter.fill p\n@[combinator_formatter ppRealGroup] def ppRealGroup.formatter (p : Formatter) : Formatter := Formatter.group p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_name": "identWithPartialTrailingDot"
+  }
+}

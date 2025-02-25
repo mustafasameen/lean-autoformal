@@ -1,0 +1,10 @@
+{
+  "content": "recommended_spelling \"and\" for \"\u2227\" in [And, \u00abterm_\u2227_\u00bb]\n```\nwill do the following:\n* Adds the sentence \"The recommended spelling of `\u2227` in identifiers is `and` (some additional info).\"\n  to the end of the docstring for `And` and for `\u2227`. If the additional info is more than a single\n  line, it will be placed below the sentence instead of in parentheses.\n* Registers this information in an environment extension, so that it will later be possible to\n  generate a table with all recommended spellings.\nYou can add attach the recommended spelling to as many declarations as you want. It is recommended\nto attach the recommended spelling to all relevant parsers as well as the declaration the parsers\nrefer to (if such a declaration exists). Note that the `inherit_doc` attribute does *not* copy\nrecommended spellings, so even though the parser for `\u2227` uses `@[inherit_doc And]`, we have to\nattach the recommended spelling to both `And` and `\u00abterm_\u2227_\u00bb`.",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

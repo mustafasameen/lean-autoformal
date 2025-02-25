@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex4 (a b d e: Nat) : (f1 a b d e |>.c) = b + e :=\n  rfl\nstructure B2 where\n  a : Nat\n  b : Nat\n  c : Nat\nstructure C2 extends B2 where\n  d : Nat\n  e : Nat\n  c := b + e\nstructure D2 extends A, C2\ndef f2 (a b d e : Nat) : D2 :=\n  { a, b, d, e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diamond3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diamond3.lean",
+    "definition_name": "ex4",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem filterRevM_congr [Monad m] {as bs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_name": "filterRevM_congr",
+    "has_proof": false
+  }
+}

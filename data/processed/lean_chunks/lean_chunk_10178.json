@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_eq {f : \u03b4 \u2192 (a : \u03b1) \u2192 \u03b2 a \u2192 \u03b4}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/AssocList/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/AssocList/Lemmas.lean",
+    "definition_name": "foldl_eq",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Tree (\u03b1 : Type _) : Type _\n| leaf : \u03b1 \u2192 Tree \u03b1\n| branch : Tree \u03b1 \u2192 Tree \u03b1 \u2192 Tree \u03b1\ninductive Path {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/Dorais1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/Dorais1.lean",
+    "definition_name": "Tree"
+  }
+}

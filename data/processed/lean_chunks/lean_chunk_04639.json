@@ -1,0 +1,10 @@
+{
+  "content": "theorem Poly.gcd_dvd_const {ctx : Context}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem addEquality_sat (w : c + Coeffs.dot x y = 0) :\n    Constraint.sat' { lowerBound := some (-c), upperBound := some (-c) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_name": "addEquality_sat",
+    "has_proof": false
+  }
+}

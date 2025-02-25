@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertIdx_zero (xs : Vector \u03b1 n) (x : \u03b1) : xs.insertIdx 0 x = (#v[x] ++ xs).cast (by omega) := by\n  cases xs\n  simp\ntheorem eraseIdx_insertIdx (i : Nat) (xs : Vector \u03b1 n) (h : i \u2264 n) :\n    (xs.insertIdx i a).eraseIdx i = xs := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp_all [Array.eraseIdx_insertIdx]\ntheorem insertIdx_eraseIdx_of_ge {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/InsertIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/InsertIdx.lean",
+    "definition_name": "insertIdx_zero",
+    "has_proof": true
+  }
+}

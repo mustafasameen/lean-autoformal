@@ -1,0 +1,10 @@
+{
+  "content": "apply Bigstep.ifTrue heq ih\n@[simp] def Expr.constProp (e : Expr) (\u03c3 : State) : Expr :=\n  match e with\n  | val v => v\n  | var x => match \u03c3.find? x with\n    | some v => val v\n    | none   => var x\n  | bin lhs op rhs => bin (lhs.constProp \u03c3) op (rhs.constProp \u03c3)\n  | una op arg => una op (arg.constProp \u03c3)\n@[simp] theorem Expr.constProp_nil (e : Expr) : e.constProp [] = e := by\n  induction e <;> simp [*]\ndef State.length_erase_le (\u03c3 : State) (x : Var) : (\u03c3.erase x).length \u2264 \u03c3.length := by\n  match \u03c3 with\n  | [] => simp\n  | (y, v) :: \u03c3 =>\n    by_cases hxy : x = y <;> simp [hxy]\n    next => exact Nat.le_trans (length_erase_le \u03c3 y) (by simp +arith)\n    next => simp +arith [length_erase_le \u03c3 x]\ndef State.length_erase_lt (\u03c3 : State) (x : Var) : (\u03c3.erase x).length < \u03c3.length.succ :=\n  Nat.lt_of_le_of_lt (length_erase_le ..) (by simp +arith)\n@[simp] def State.join (\u03c3\u2081 \u03c3\u2082 : State) : State :=\n  match \u03c3\u2081 with\n  | [] => []\n  | (x, v) :: \u03c3\u2081 =>\nlet \u03c3\u2081' := erase \u03c3\u2081 x",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Stmt",
+    "has_proof": true
+  }
+}

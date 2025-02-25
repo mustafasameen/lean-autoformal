@@ -1,0 +1,10 @@
+{
+  "content": "@[inline]\ndef toDays (leap : Bool) (month : Ordinal) : Day.Offset :=\n  toSeconds leap month\n  |>.convert\n@[inline]\nprivate def monthSizesNonLeap : { val : Array Day.Ordinal // val.size = 12 } :=\n  \u27e8#[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], by decide\u27e9\n@[inline]\nprivate def cumulativeSizes : { val : Array Day.Offset // val.size = 12 } :=\n  \u27e8#[0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334], by decide\u27e9\ndef days (leap : Bool) (month : Ordinal) : Day.Ordinal :=\n  if month.val = 2 then\n    if leap then 29 else 28\n  else\n    let \u27e8months, p\u27e9 := monthSizesNonLeap\n    let index : Fin 12 := (month.sub 1).toFin (by decide)\n    let idx : Fin months.size := index.cast (by rw [p])\n    months[idx]\ntheorem days_gt_27 (leap : Bool) (i : Month.Ordinal) : days leap i > 27 := by\n  match i with\n  | \u27e82, _\u27e9 =>\n    simp [days]\n    split <",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Month.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Month.lean",
+    "definition_name": "Ordinal",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem monotone_foldlM_loop\n    (f : \u03b3 \u2192 \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (xs : Array \u03b1) (stop : Nat) (h : stop \u2264 xs.size) (i j : Nat) (b : \u03b2)\n    (hmono : monotone f) : monotone (fun x => Array.foldlM.loop (f x) xs stop h i j b) := by\n  induction i, j, b using Array.foldlM.loop.induct (h := h) with\n  | case1 =>\n    simp only [Array.foldlM.loop, \u2193reduceDIte, *]\n    apply monotone_const\n  | case2 _ _ _ _ _ ih =>\n    unfold Array.foldlM.loop\n    simp only [\u2193reduceDIte, *]\n    apply monotone_bind\n    \u00b7 apply monotone_apply\n      apply monotone_apply\n      apply hmono\n    \u00b7 apply monotone_of_monotone_apply\n      apply ih\n  | case3 =>\n    simp only [Array.foldlM.loop, \u2193reduceDIte, *]\n    apply monotone_const\n@[partial_fixpoint_monotone]\ntheorem monotone_foldlM\n    (f : \u03b3 \u2192 \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (init : \u03b2) (xs : Array \u03b1) (start stop : Nat) (hmono : monotone f) :\n    monotone (fun x => xs.foldlM (f x) init start stop) := by\n  unfold Array.foldlM\n  split <;> apply monotone_foldlM_loop (hmono := hmono)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_name": "monotone_foldlM_loop",
+    "has_proof": true
+  }
+}

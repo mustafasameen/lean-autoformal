@@ -1,0 +1,9 @@
+{
+  "content": "def reportStuckSyntheticMVars (ignoreStuckTC := false) : TermElabM Unit := do\n  let pendingMVars \u2190 modifyGet fun s => (s.pendingMVars, { s with pendingMVars := [] })\n  for mvarId in pendingMVars do\n    reportStuckSyntheticMVar mvarId ignoreStuckTC\nprivate def getSomeSyntheticMVarsRef : TermElabM Syntax := do\n  for mvarId in (\u2190 get).pendingMVars do\n    if let some decl \u2190 getSyntheticMVarDecl? mvarId then\n      if decl.stx.getPos?.isSome then\n        return decl.stx\n  return .missing\nprivate def throwStuckAtUniverseCnstr : TermElabM Unit := do\n  let entries \u2190 getPostponed\n  let mut found : Std.HashSet (Level \u00d7 Level) := {}\n  let mut uniqueEntries := #[]\n  for entry in entries do\n    let mut lhs := entry.lhs\n    let mut rhs := entry.rhs\n    if Level.normLt rhs lhs then\n      (lhs, rhs) := (rhs, lhs)\n    unless found.contains (lhs, rhs) do\n      found := found.insert (lhs, rhs)\n      uniqueEntries := uniqueEntries.push entry\n  for h : i in [1:uniqueEntries.size] do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "reportStuckSyntheticMVars"
+  }
+}

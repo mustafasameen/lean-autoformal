@@ -1,0 +1,10 @@
+{
+  "content": "theorem getLsbD_extract (hi lo : Nat) (x : BitVec n) (i : Nat) :\n    getLsbD (extractLsb hi lo x) i = (i \u2264 (hi-lo) && getLsbD x (lo+i)) := by\n  simp [getLsbD, Nat.lt_succ]\n@[simp] theorem getLsbD_extractLsb {hi lo : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getLsbD_extract",
+    "has_proof": true
+  }
+}

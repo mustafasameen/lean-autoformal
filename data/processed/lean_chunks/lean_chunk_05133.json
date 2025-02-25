@@ -1,0 +1,10 @@
+{
+  "content": "theorem countP_eq_countP_filter_add (l : List \u03b1) (p q : \u03b1 \u2192 Bool) :\n    l.countP p = (l.filter q).countP p + (l.filter fun a => !q a).countP p :=\n  countP_append .. \u25b8 Perm.countP_eq _ (filter_append_perm _ _).symm\ntheorem Perm.count_eq [DecidableEq \u03b1] {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_name": "countP_eq_countP_filter_add",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| mul_left \u2983a b c\u2984 : Rel r a b \u2192 Rel r (a * c) (b * c)\n  | mul_right \u2983a b c\u2984 : Rel r b c \u2192 Rel r (a * b) (a * c)\nend RingQuot\nset_option synthInstance.maxHeartbeats 400 in\ninstance instAlgebra' (R M : Type _) [CommRing R] (I : Ideal (Quot_r R M)) :\n    Algebra R ((Quot_r R M) \u29f8 I) := inferInstance",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddMonoidAlgebra"
+  }
+}

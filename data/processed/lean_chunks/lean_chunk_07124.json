@@ -1,0 +1,9 @@
+{
+  "content": "functionSummariesExt.addEntry (env.addExtraName fid) (fid, v)\ndef getFunctionSummary? (env : Environment) (fid : Name) : Option Value :=\n  match env.getModuleIdxFor? fid with\n  | some modIdx => findAtSorted? (functionSummariesExt.getModuleEntries env modIdx) fid\n  | none        => functionSummariesExt.getState env |>.find? fid\nabbrev Assignment := Std.HashMap FVarId Value\nstructure InterpContext where\n  decls     : Array Decl\n  currFnIdx : Nat := 0\nstructure InterpState where\n  assignments : Array Assignment\n  funVals     : PArray Value\nabbrev InterpM := ReaderT InterpContext StateRefT InterpState CompilerM\ndef getAssignment : InterpM Assignment := do\n  return (\u2190 get).assignments[(\u2190 read).currFnIdx]!\ndef getFunVal (funIdx : Nat) : InterpM Value := do\n  return (\u2190 get).funVals[funIdx]!\ndef findFunVal? (declName : Name) : InterpM (Option Value) := do\n  match (\u2190 read).decls.findIdx? (\u00b7.name == declName) with\n  | some idx => return some (\u2190 getFunVal idx)\n  | none => return none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

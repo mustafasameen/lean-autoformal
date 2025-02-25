@@ -1,0 +1,10 @@
+{
+  "content": "theorem reverse_flatten (L : List (List \u03b1)) :\n    L.flatten.reverse = (L.map reverse).reverse.flatten := by\n  induction L <;> simp_all\n@[simp] theorem foldlM_append [Monad m] [LawfulMonad m] (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b) (l l' : List \u03b1) :\n    (l ++ l').foldlM f b = l.foldlM f b >>= l'.foldlM f := by\n  induction l generalizing b <;> simp [*]\n@[simp] theorem foldrM_cons [Monad m] [LawfulMonad m] (a : \u03b1) (l) (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (b) :\n    (a :: l).foldrM f b = l.foldrM f b >>= f a := by\n  simp only [foldrM]\n  induction l <;> simp_all\ntheorem foldl_eq_foldlM (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b) (l : List \u03b1) :\n    l.foldl f b = l.foldlM (m := Id) f b := by\n  induction l generalizing b <;> simp [*, foldl]\ntheorem foldr_eq_foldrM (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b) (l : List \u03b1) :\n    l.foldr f b = l.foldrM (m := Id) f b := by\n  induction l <;> simp [*, foldr]\n@[simp] theorem id_run_foldlM (f : \u03b2 \u2192 \u03b1 \u2192 Id \u03b2) (b) (l : List \u03b1) :\n    Id.run (l.foldlM f b) = l.foldl f b := (foldl_eq_foldlM f b l).symm",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "reverse_flatten",
+    "has_proof": true
+  }
+}

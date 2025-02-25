@@ -1,0 +1,9 @@
+{
+  "content": "Bounded.LE.mk data h\ndef OfYear (leap : Bool) := Bounded.LE 1 (.ofNat (if leap then 366 else 365))\ninstance : Repr (OfYear leap) where\n  reprPrec r p := reprPrec r.val p\ninstance : ToString (OfYear leap) where\n  toString r := toString r.val\nnamespace OfYear\n@[inline]\ndef ofNat (data : Nat) (h : data \u2265 1 \u2227 data \u2264 (if leap then 366 else 365) := by decide) : OfYear leap :=\n  Bounded.LE.ofNat' data h\nend OfYear\ninstance : OfNat (Ordinal.OfYear leap) n :=\n  match leap with\n  | true => inferInstanceAs (OfNat (Bounded.LE 1 (1 + (365 : Nat))) n)\n  | false => inferInstanceAs (OfNat (Bounded.LE 1 (1 + (364 : Nat))) n)\ninstance : Inhabited (Ordinal.OfYear leap) where\n  default := by\n    refine \u27e81, And.intro (by decide) ?_\u27e9\n    split <",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Day.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Day.lean",
+    "definition_name": "Ordinal"
+  }
+}

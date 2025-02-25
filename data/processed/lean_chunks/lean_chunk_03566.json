@@ -1,0 +1,10 @@
+{
+  "content": "theorem induction_zero {motive : Fin (n + 1) \u2192 Sort _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "induction_zero",
+    "has_proof": false
+  }
+}

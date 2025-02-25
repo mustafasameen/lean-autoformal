@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  x : Nat\n  w : UInt64\n  y : Float\n  z : Float\n@[noinline] def mkFoo (x : Nat) : Foo :=\n  { x := x, w := x.toUInt64, y := x.toFloat / 3, z := x.toFloat / 2 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/float.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/float.lean",
+    "definition_name": "Foo"
+  }
+}

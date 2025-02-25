@@ -1,0 +1,10 @@
+{
+  "content": "let y := 5\n  3\nset_option linter.unusedVariables.funArgs false in\ndef nolintFunArgs (w : Nat) : Nat :=\n  let a := 5\n  let f (x : Nat) := 3\n  let g := fun (y : Nat) => 3\n  f <| g <| h <| 2\nwhere\n  h (z : Nat) := 3\nset_option linter.unusedVariables.patternVars false in\ndef nolintPatternVars (x : Option (Option Nat)) : Nat :=\n  match x with\n  | some (some y) => (fun z => 1) 2\n  | _ => 0\nset_option linter.unusedVariables.analyzeTactics true in\nset_option linter.unusedVariables.patternVars false in\ntheorem nolintPatternVarsInduction (n : Nat) : True := by\n  induction n with\n  | zero => exact True.intro\n  | succ m =>\n    have h : True := by simp\n    exact True.intro\ninductive Foo (\u03b1 : Type)\n  | foo (x : Nat) (y : Nat)\nstructure Bar (\u03b1 : Type) where\n  bar (x : Nat) : Nat\n  bar' (x : Nat) : Nat := 3\nclass Baz (\u03b1 : Type) where\n  baz (x : Nat) : Nat\n  baz' (x : Nat) : Nat :=\n    let y := 5\n    3\ninstance instBaz (\u03b1 \u03b2 : Type) : Baz \u03b1 where\n  baz (x : Nat) := 5\nstructure State where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_name": "autoImplicitVariable",
+    "has_proof": true
+  }
+}

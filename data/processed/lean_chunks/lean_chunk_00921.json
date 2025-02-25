@@ -1,0 +1,10 @@
+{
+  "content": "theorem f'_ne_none (n : Nat) : f' n \u2260 none := by\n  match n with\n  | 0   => simp (config := { decide := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bugNatLitDiscrTree.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bugNatLitDiscrTree.lean",
+    "definition_name": "f",
+    "has_proof": true
+  }
+}

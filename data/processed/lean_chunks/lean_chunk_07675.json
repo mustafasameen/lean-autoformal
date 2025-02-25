@@ -1,0 +1,9 @@
+{
+  "content": "(h2 : IsDAG \u03b1 decls) :\n      Bool :=\n    match h3 : decls[x] with\n    | .const b => b\n    | .atom v => assign v\n    | .gate lhs rhs linv rinv =>\n      have := h2 h1 h3\n      let lval := go lhs decls assign (by omega) h2\n      let rval := go rhs decls assign (by omega) h2\n      xor lval linv && xor rval rinv\nscoped syntax \"\u27e6\" term \", \" term \"\u27e7\" : term\nscoped syntax \"\u27e6\" term \", \" term \", \" term \"\u27e7\" : term\nmacro_rules\n| `(\u27e6$entry, $assign\u27e7) => `(denote $assign $entry)\n| `(\u27e6$aig, $ref, $assign\u27e7) => `(denote $assign (Entrypoint.mk $aig $ref))\n@[app_unexpander AIG.denote]\ndef unexpandDenote : Lean.PrettyPrinter.Unexpander\n  | `($(_) {aig := $aig, start := $start, inv := $hbound}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_name": "RefVec"
+  }
+}

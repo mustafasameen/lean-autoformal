@@ -1,0 +1,9 @@
+{
+  "content": "structure Pass where\n  name : Name\n  run' : MVarId \u2192 PreProcessM (Option MVarId)\nnamespace Pass\n@[inline]\ndef run (pass : Pass) (goal : MVarId) : PreProcessM (Option MVarId) := do\n  withTraceNode `Meta.Tactic.bv (fun _ => return m!\"Running pass: {pass.name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/Frontend/Normalize/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/Frontend/Normalize/Basic.lean",
+    "definition_name": "Pass"
+  }
+}

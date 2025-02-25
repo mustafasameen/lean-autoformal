@@ -1,0 +1,10 @@
+{
+  "content": "@[extern \"lean_uint64_of_nat\"]\ndef UInt64.ofNatLT (n : @& Nat) (h : LT.lt n UInt64.size) : UInt64 where\n  toBitVec := BitVec.ofNatLT n h\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_uint64_dec_eq\"]\ndef UInt64.decEq (a b : UInt64) : Decidable (Eq a b) :=\n  match a, b with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m)\n      (fun h => isTrue (h \u25b8 rfl))\n      (fun h => isFalse (fun h' => UInt64.noConfusion h' (fun h' => absurd h' h)))\ninstance : DecidableEq UInt64 := UInt64.decEq\ninstance : Inhabited UInt64 where\n  default := UInt64.ofNatLT 0 (of_decide_eq_true rfl)\nstructure USize where\n  ofBitVec ::\n  toBitVec : BitVec System.Platform.numBits\nattribute [extern \"lean_usize_of_nat_mk\"] USize.ofBitVec\nattribute [extern \"lean_usize_to_nat\"] USize.toBitVec\n@[extern \"lean_usize_of_nat\"]\ndef USize.ofNatLT (n : @& Nat) (h : LT.lt n USize.size) : USize where\n  toBitVec := BitVec.ofNatLT n h\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_usize_dec_eq\"]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat",
+    "has_proof": false
+  }
+}

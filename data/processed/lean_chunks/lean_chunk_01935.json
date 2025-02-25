@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo (G: Fin 0) (m: Nat) where\n  n: Nat\n  f: Fin m\ninductive Bar {G: Fin 0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1361.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1361.lean",
+    "definition_name": "Foo"
+  }
+}

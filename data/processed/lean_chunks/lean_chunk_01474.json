@@ -1,0 +1,10 @@
+{
+  "content": "theorem t5 {x y : BitVec 4096}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_bitblast_stress.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_bitblast_stress.lean",
+    "definition_name": "t5",
+    "has_proof": false
+  }
+}

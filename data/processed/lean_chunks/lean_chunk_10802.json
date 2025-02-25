@@ -1,0 +1,9 @@
+{
+  "content": "structure BuildMetadata where\n  depHash : Hash\n  log : Log\n  deriving ToJson\ndef BuildMetadata.ofHash (h : Hash) : BuildMetadata :=\n  {depHash := h, log := {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "BuildMetadata"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "declare_bitwise_uint_theorems UInt16 16\ndeclare_bitwise_uint_theorems UInt32 32\ndeclare_bitwise_uint_theorems UInt64 64\ndeclare_bitwise_uint_theorems USize System.Platform.numBits\n@[simp, int_toBitVec]\ntheorem Bool.toBitVec_toUInt8 {b : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Bitwise.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Bitwise.lean",
+    "definition_name": "toBitVec_and",
+    "has_proof": true
+  }
+}

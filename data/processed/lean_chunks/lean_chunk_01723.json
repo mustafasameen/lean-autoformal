@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_comp_map (f : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 \u03b3) : List.map g \u2218 List.map f = List.map (g \u2218 f) :=\n  sorry\ntheorem map_map (f : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 \u03b3) (xs : List \u03b1) : (xs.map f |>.map g) = xs.map (g \u2218 f) :=\n  sorry\ntheorem ex1 (f : Nat \u2192 Nat) (xs : List Nat) : (xs.map f |>.map f) = xs.map (f \u2218 f) := by\n  fail_if_success simp\n  simp [map_map]\n  done\ntheorem ex2 (f : Nat \u2192 Nat) : List.map f \u2218 List.map f \u2218 List.map f = List.map (f \u2218 f \u2218 f) := by\n  simp\nattribute [simp] map_map\ntheorem ex3 (f : Nat \u2192 Nat) (xs : List Nat) : (xs.map f |>.map f |>.map f) = xs.map (fun x => f (f (f x))) := by\n  simp (config := { unfoldPartialApp := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/discrTreeSimp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/discrTreeSimp.lean",
+    "definition_name": "map_comp_map",
+    "has_proof": true
+  }
+}

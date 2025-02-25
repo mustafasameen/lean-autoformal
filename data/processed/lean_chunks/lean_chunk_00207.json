@@ -1,0 +1,9 @@
+{
+  "content": "def h := List Nat\nend\nstructure Bla (x : List Bla) where\n  val : Nat\ninductive Foo : List Foo -> Type\n  | x : Foo []\nmutual\ninductive Ex1 : Ex2 \u2192 Type\n  inductive Ex2 : Type\nend\nstructure Bar :=\n  (x : Na)\n(y : Nat := foobar)\n#print Bar.mk",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoImplicitForbidden.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoImplicitForbidden.lean",
+    "definition_name": "h"
+  }
+}

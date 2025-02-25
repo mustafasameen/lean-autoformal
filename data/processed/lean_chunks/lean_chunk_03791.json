@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_eq_getElem?_toList (xs : Array \u03b1) (i : Nat) : xs[i]? = xs.toList[i]? := by\n  rw [getElem?_def]\n  split <;> simp_all\n@[deprecated LawfulGetElem.getElem?_def (since := \"2024-12-08\")]\ntheorem getElem?_eq {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

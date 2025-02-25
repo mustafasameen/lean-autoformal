@@ -1,0 +1,9 @@
+{
+  "content": "let pat := mkNode ``Parser.Term.matchExprPat #[optVar, alt.funName, mkNullNode alt.pvars]\n        let termAlt := mkNode ``Parser.Term.matchExprAlt #[mkAtomFrom alt.ref \"|\", pat, mkAtomFrom alt.ref \"=>\", rhs]\n        termAlts := termAlts.push termAlt\n      let elseBranch := mkNode ``Parser.Term.matchExprElseAlt #[mkAtomFrom ref \"|\", mkHole ref, mkAtomFrom ref \"=>\", (\u2190 toTerm elseBranch)]\n      let termMatchExprAlts := mkNode ``Parser.Term.matchExprAlts #[mkNullNode termAlts, elseBranch]\n      let body := mkNode ``Parser.Term.matchExpr #[mkAtomFrom ref \"match_expr\", d', mkAtomFrom ref \"with\", termMatchExprAlts]\n      if meta then\n        `(Bind.bind (instantiateMVarsIfMVarApp $d) fun discr => $body)\n      else\n        `(let discr := $d; $body)\ndef run (code : Code) (m : Syntax) (returnType : Syntax) (uvars : Array Var := #[]) (kind := Kind.regular) : MacroM Syntax :=\n  toTerm code { m, returnType, kind, uvars }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "DoIfView"
+  }
+}

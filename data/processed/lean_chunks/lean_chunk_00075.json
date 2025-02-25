@@ -1,0 +1,10 @@
+{
+  "content": "def autoImplicitVariable [Inhabited \u03b1] := 5\ndef unusedArrow : (x : Nat) \u2192 Nat := fun x => x\ndef mutVariable (x : Nat) : Nat := Id.run <| do\n  let mut y := 5\n  if x == 5 then\n    y := 3\n  y\ndef mutVariableDo (list : List Nat) : Nat := Id.run <| do\n  let mut sum := 0\n  for elem in list do\n    sum := sum + elem\n  return sum\ndef mutVariableDo2 (list : List Nat) : Nat := Id.run <| do\n  let mut sum := 0\n  for _ in list do\n    sum := sum.add 1\n  return sum\ndef unusedVariablesPattern (_x : Nat) : Nat :=\n  let _y := 5\n  3\nset_option linter.unusedVariables false in\ndef nolintUnusedVariables (x : Nat) : Nat :=\n  let y := 5\n  3\nset_option linter.all false in\ndef nolintAll (x : Nat) : Nat :=\n  let y := 5\n  3\nset_option linter.all false in\nset_option linter.unusedVariables true in\ndef lintUnusedVariables (x : Nat) : Nat :=\n  let y := 5\n  3\nset_option linter.unusedVariables.funArgs false in\ndef nolintFunArgs (w : Nat) : Nat :=\n  let a := 5\n  let f (x : Nat) := 3\n  let g := fun (y : Nat) => 3",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_name": "autoImplicitVariable",
+    "has_proof": true
+  }
+}

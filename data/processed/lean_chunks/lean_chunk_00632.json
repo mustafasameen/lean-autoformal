@@ -1,0 +1,9 @@
+{
+  "content": "inductive Ty\n  | base\n  | arr (a b : Ty)\ndef Cxt := List Ty\ninductive Var : (g : Cxt) \u2192 (a : Ty) \u2192 Type\n  | vz {g a}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/renaming.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/renaming.lean",
+    "definition_name": "Ty"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def waitIfContainsMVar := leading_parser\n  \"wait_if_contains_mvar% \" >> \"?\" >> ident >> \"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "waitIfContainsMVar"
+  }
+}

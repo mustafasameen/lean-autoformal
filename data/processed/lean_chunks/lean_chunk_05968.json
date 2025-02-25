@@ -1,0 +1,10 @@
+{
+  "content": "theorem zipIdxLE_trans (trans : \u2200 a b c, le a b \u2192 le b c \u2192 le a c)\n    (a b c : \u03b1 \u00d7 Nat) : zipIdxLE le a b \u2192 zipIdxLE le b c \u2192 zipIdxLE le a c := by\n  simp only [zipIdxLE]\n  split <;> split <;> split <;> rename_i ab\u2082 ba\u2082 bc\u2082\n  \u00b7 simp_all\n    intro ab\u2081\n    intro h\n    refine \u27e8trans _ _ _ ab\u2082 bc\u2082, ?_\u27e9\n    rcases h with (cd\u2082 | bc\u2081)\n    \u00b7 exact Or.inl (Decidable.byContradiction\n        (fun ca\u2082 => by simp_all [trans _ _ _ (by simpa using ca\u2082) ab\u2082]))\n    \u00b7 exact Or.inr (Nat.le_trans ab\u2081 bc\u2081)\n  \u00b7 simp_all\n  \u00b7 simp_all\n    intro h\n    refine \u27e8trans _ _ _ ab\u2082 bc\u2082, ?_\u27e9\n    left\n    rcases h with (cb\u2082 | _)\n    \u00b7 exact (Decidable.byContradiction\n        (fun ca\u2082 => by simp_all [trans _ _ _ (by simpa using ca\u2082) ab\u2082]))\n    \u00b7 exact (Decidable.byContradiction\n        (fun ca\u2082 => by simp_all [trans _ _ _ bc\u2082 (by simpa using ca\u2082)]))\n  \u00b7 simp_all\n  \u00b7 simp_all\n  \u00b7 simp_all\n  \u00b7 simp_all\n  \u00b7 simp_all\ntheorem zipIdxLE_total (total : \u2200 a b, le a b || le b a)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_name": "zipIdxLE_trans",
+    "has_proof": true
+  }
+}

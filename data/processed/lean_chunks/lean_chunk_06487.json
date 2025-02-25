@@ -1,0 +1,9 @@
+{
+  "content": "synthesizeSyntheticMVars (postpone := .no) (ignoreStuckTC := ignoreStuckTC)\n@[inline] def withSynthesize [MonadFunctorT TermElabM m] (k : m \u03b1) (postpone := PostponeBehavior.no) : m \u03b1 :=\n  monadMap (m := TermElabM) (withSynthesizeImp \u00b7 postpone) k\nprivate partial def withSynthesizeLightImp (k : TermElabM \u03b1) : TermElabM \u03b1 := do\n  let pendingMVarsSaved := (\u2190 get).pendingMVars\n  modify fun s => { s with pendingMVars := [] }\n  try\n    let a \u2190 k\n    synthesizeSyntheticMVars (postpone := .yes)\n    return a\n  finally\n    modify fun s => { s with pendingMVars := s.pendingMVars ++ pendingMVarsSaved }\ndef elabTermAndSynthesize (stx : Syntax) (expectedType? : Option Expr) : TermElabM Expr :=\n  withRef stx do\n    instantiateMVars (\u2190 withSynthesize <| elabTerm stx expectedType?)\ndef runPendingTacticsAt (e : Expr) : TermElabM Unit := do\n  for mvarId in (\u2190 getMVars e) do\n    let mvarId \u2190 getDelayedMVarRoot mvarId",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "reportStuckSyntheticMVars"
+  }
+}

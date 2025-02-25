@@ -1,0 +1,9 @@
+{
+  "content": "private def shouldAddAsStar (fName : Name) (e : Expr) : MetaM Bool := do\n  isOffset fName e\ndef mkNoindexAnnotation (e : Expr) : Expr :=\n  mkAnnotation `noindex e\ndef hasNoindexAnnotation (e : Expr) : Bool :=\n  annotation? `noindex e |>.isSome\npartial def reduce (e : Expr) : MetaM Expr := do\n  let e \u2190 whnfCore e\n  match (\u2190 unfoldDefinition? e) with\n  | some e => reduce e\n  | none => match e.etaExpandedStrict? with\n    | some e => reduce e\n    | none   => return e\nprivate def isBadKey (fn : Expr) : Bool :=\n  match fn with\n  | .lit ..     => false\n  | .const ..   => false\n  | .fvar ..    => false\n  | .proj ..    => false\n  | .forallE .. => false\n  | _           => true\nprivate partial def reduceUntilBadKey (e : Expr) : MetaM Expr := do\n  let e \u2190 step e\n  match e.etaExpandedStrict? with\n  | some e => reduceUntilBadKey e\n  | none   => return e\nwhere\n  step (e : Expr) := do\n    let e \u2190 whnfCore e\n    match (\u2190 unfoldDefinition? e) with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_name": "tmpStar"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "go e\nend NormalizePattern\nprivate def checkTypeFVars (thmVars : FVarIdSet) (fvarsFound : FVarIdSet) (type : Expr) : Bool :=\n  let typeFVars := (collectFVars {} type).fvarIds\n  typeFVars.all fun fvarId => !thmVars.contains fvarId || fvarsFound.contains fvarId\nprivate def canBeSynthesized (thmVars : FVarIdSet) (fvarsFound : FVarIdSet) (instType : Expr) : MetaM Bool := do\n  forallTelescopeReducing instType fun xs type => type.withApp fun classFn classArgs => do\n    for x in xs do\n      unless checkTypeFVars thmVars fvarsFound (\u2190 inferType x) do return false\n    forallBoundedTelescope (\u2190 inferType classFn) type.getAppNumArgs fun params _ => do\n      for param in params, classArg in classArgs do\n        let paramType \u2190 inferType param\n        if !paramType.isAppOf ``semiOutParam && !paramType.isAppOf ``outParam then\n          unless checkTypeFVars thmVars fvarsFound classArg do\n            return false\n      return true\ninductive CheckCoverageResult where\n|\n    missing (pos : List Nat)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

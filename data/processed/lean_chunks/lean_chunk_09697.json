@@ -1,0 +1,9 @@
+{
+  "content": "structure TreeMap (\u03b1 : Type u) (\u03b2 : Type v) (cmp : \u03b1 \u2192 \u03b1 \u2192 Ordering := by exact compare) where\n@[inline, inherit_doc DTreeMap.Const.getEntryGE!]\ndef getEntryGE! [Inhabited (\u03b1 \u00d7 \u03b2)] (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Const.getEntryGE! t.inner k\n@[inline, inherit_doc DTreeMap.Const.getEntryGT!]\ndef getEntryGT! [Inhabited (\u03b1 \u00d7 \u03b2)] (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Const.getEntryGT! t.inner k\n@[inline, inherit_doc DTreeMap.Const.getEntryLE!]\ndef getEntryLE! [Inhabited (\u03b1 \u00d7 \u03b2)] (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Const.getEntryLE! t.inner k\n@[inline, inherit_doc DTreeMap.Const.getEntryLT!]\ndef getEntryLT! [Inhabited (\u03b1 \u00d7 \u03b2)] (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Const.getEntryLT! t.inner k\n@[inline, inherit_doc DTreeMap.Const.getEntryGED]\ndef getEntryGED (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1 \u00d7 \u03b2) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Const.getEntryGED t.inner k fallback\n@[inline, inherit_doc DTreeMap.Const.getEntryGTD]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Basic.lean",
+    "definition_name": "TreeMap"
+  }
+}

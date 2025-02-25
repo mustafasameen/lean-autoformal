@@ -1,0 +1,9 @@
+{
+  "content": "instance of the pattern in the target expression{indentExpr lhs}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrite.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrite.lean",
+    "definition_name": "of"
+  }
+}

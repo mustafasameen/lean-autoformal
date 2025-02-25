@@ -1,0 +1,10 @@
+{
+  "content": "theorem imp_true_iff (\u03b1 : Sort u) : (\u03b1 \u2192 True) \u2194 True := iff_true_intro (fun _ => trivial)\ntheorem false_imp_iff (a : Prop) : (False \u2192 a) \u2194 True := iff_true_intro False.elim\ntheorem true_imp_iff {\u03b1 : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "imp_true_iff",
+    "has_proof": false
+  }
+}

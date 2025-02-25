@@ -1,0 +1,10 @@
+{
+  "content": "rfl\n@[simp]\ntheorem eval_replicate : eval assign (.replicate n expr) = BitVec.replicate n (expr.eval assign) := by\n  rfl\n@[simp]\ntheorem eval_signExtend : eval assign (.signExtend v expr) = BitVec.signExtend v (eval assign expr) := by\n  rfl\n@[simp]\ntheorem eval_shiftLeft : eval assign (.shiftLeft lhs rhs) = (eval assign lhs) <<< (eval assign rhs) := by\n  rfl\n@[simp]\ntheorem eval_shiftRight : eval assign (.shiftRight lhs rhs) = (eval assign lhs) >>> (eval assign rhs) := by\n  rfl\n@[simp]\ntheorem eval_arithShiftRight :\n    eval assign (.arithShiftRight lhs rhs) = BitVec.sshiftRight' (eval assign lhs) (eval assign rhs) := by\n  rfl\nend BVExpr\ninductive BVBinPred where\n  | eq\n  | ult\nnamespace BVBinPred\ndef toString : BVBinPred \u2192 String\n  | eq => \"==\"\n  | ult => \"<u\"\ninstance : ToString BVBinPred := \u27e8toString\u27e9\ndef eval : BVBinPred \u2192 (BitVec w \u2192 BitVec w \u2192 Bool)\n  | .eq => (\u00b7 == \u00b7)\n  | .ult => BitVec.ult\n@[simp] theorem eval_eq : eval .eq = ((\u00b7 == \u00b7) : BitVec w \u2192 BitVec w \u2192 Bool) := by rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_name": "eval_var",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "rfl\ntheorem ExprCnstr.denote_toPoly (ctx : Context) (c : ExprCnstr) : c.toPoly.denote ctx = c.denote ctx := by\n  cases c; rename_i eq lhs rhs\n  simp [ExprCnstr.denote, PolyCnstr.denote, ExprCnstr.toPoly];\n  by_cases h : eq = true <;> simp [h]\n  \u00b7 simp [Poly.denote_eq]\n  \u00b7 simp [Poly.denote_le]\nattribute [local simp] ExprCnstr.denote_toPoly\ntheorem ExprCnstr.denote_toNormPoly (ctx : Context) (c : ExprCnstr) : c.toNormPoly.denote ctx = c.denote ctx := by\n  cases c; rename_i eq lhs rhs\n  simp [ExprCnstr.denote, PolyCnstr.denote, ExprCnstr.toNormPoly]\n  by_cases h : eq = true <;> simp [h]\n  \u00b7 rw [Poly.denote_eq_cancel_eq]; simp [Poly.denote_eq, Expr.toNormPoly, Poly.norm]\n  \u00b7 rw [Poly.denote_le_cancel_eq]; simp [Poly.denote_le, Expr.toNormPoly, Poly.norm]\nattribute [local simp] ExprCnstr.denote_toNormPoly\ntheorem Poly.of_isZero (ctx : Context) {p : Poly}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

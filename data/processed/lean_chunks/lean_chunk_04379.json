@@ -1,0 +1,10 @@
+{
+  "content": "theorem Poly.denote_insert (ctx : Context) (k : Nat) (v : Var) (p : Poly) :\n    (p.insert k v).denote ctx = p.denote ctx + k * v.denote ctx := by\n  match p with\n  | [] => simp\n  | (k', v') :: p =>\n    by_cases h\u2081 : Nat.blt v v'\n    \u00b7 simp [h\u2081]\n    \u00b7 by_cases h\u2082 : Nat.beq v v'\n      \u00b7 simp only [insert, h\u2081, h\u2082, cond_false, cond_true]\n        simp [Nat.eq_of_beq_eq_true h\u2082]\n      \u00b7 simp only [insert, h\u2081, h\u2082, cond_false, cond_true]\n        simp [denote_insert]\nattribute [local simp] Poly.denote_insert\ntheorem Poly.denote_norm_go (ctx : Context) (p : Poly) (r : Poly) : (norm.go p r).denote ctx = p.denote ctx + r.denote ctx := by\n  match p with\n  | [] => simp\n  | (k, v):: p => simp [denote_norm_go]\nattribute [local simp] Poly.denote_norm_go\ntheorem Poly.denote_sort (ctx : Context) (m : Poly) : m.norm.denote ctx = m.denote ctx := by\n  simp\nattribute [local simp] Poly.denote_sort\ntheorem Poly.denote_append (ctx : Context) (p q : Poly) : (p ++ q).denote ctx = p.denote ctx + q.denote ctx := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

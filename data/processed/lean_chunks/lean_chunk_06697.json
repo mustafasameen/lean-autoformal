@@ -1,0 +1,9 @@
+{
+  "content": "inductive IsCollisionNode : Node \u03b1 \u03b2 \u2192 Prop where\n  | mk (keys : Array \u03b1) (vals : Array \u03b2) (h : keys.size = vals.size) : IsCollisionNode (Node.collision keys vals h)\nabbrev CollisionNode (\u03b1 \u03b2) := { n : Node \u03b1 \u03b2 // IsCollisionNode n }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_name": "IsCollisionNode"
+  }
+}

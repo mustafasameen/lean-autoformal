@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  x : Nat\n  b : Bool\n#check { x := 10, b := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInstError.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/structInstError.lean",
+    "definition_name": "Foo"
+  }
+}

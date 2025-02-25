@@ -1,0 +1,9 @@
+{
+  "content": "def simpArg := simpStar.binary `orelse (simpErase.binary `orelse simpLemma)\ndef dsimpArg := simpErase.binary `orelse simpLemma\nsyntax simpTraceArgsRest := optConfig (discharger)? (&\" only\")? (simpArgs)? (ppSpace location)?\nsyntax (name := simpTrace) \"simp?\" \"!\"? simpTraceArgsRest : tactic\n@[inherit_doc simpTrace]\nmacro tk:\"simp?!\" rest:simpTraceArgsRest : tactic => `(tactic| simp?%$tk ! $rest)\nsyntax dsimpTraceArgsRest := optConfig (&\" only\")? (dsimpArgs)? (ppSpace location)?\n@[inherit_doc simpTrace]\nsyntax (name := dsimpTrace) \"dsimp?\" \"!\"? dsimpTraceArgsRest : tactic\n@[inherit_doc simpTrace]\nmacro tk:\"dsimp?!\" rest:dsimpTraceArgsRest : tactic => `(tactic| dsimp?%$tk ! $rest)\nsyntax (name := simpa) \"simpa\" \"?\"? \"!\"? simpaArgsRest : tactic\n@[inherit_doc simpa] macro \"simpa!\" rest:simpaArgsRest : tactic =>\n  `(tactic| simpa ! $rest:simpaArgsRest)\n@[inherit_doc simpa] macro \"simpa?\" rest:simpaArgsRest : tactic =>\n  `(tactic| simpa ? $rest:simpaArgsRest)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "simpArg"
+  }
+}

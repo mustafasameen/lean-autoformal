@@ -1,0 +1,9 @@
+{
+  "content": "instance : BEq CtorInfo := \u27e8CtorInfo.beq\u27e9\ndef CtorInfo.isRef (info : CtorInfo) : Bool :=\n  info.size > 0 || info.usize > 0 || info.ssize > 0\ndef CtorInfo.isScalar (info : CtorInfo) : Bool :=\n  !info.isRef\ninductive Expr where\n  | ctor (i : CtorInfo) (ys : Array Arg)\n  | reset (n : Nat) (x : VarId)\n  |  proj (i : Nat) (x : VarId)\n  | sproj (n : Nat) (offset : Nat) (x : VarId)\n  | pap (c : FunId) (ys : Array Arg)\n  | box (ty : IRType) (x : VarId)\n  | isShared (x : VarId)\n@[export lean_ir_mk_ctor_expr]  def mkCtorExpr (n : Name) (cidx : Nat) (size : Nat) (usize : Nat) (ssize : Nat) (ys : Array Arg) : Expr :=\n  Expr.ctor \u27e8n, cidx, size, usize, ssize\u27e9 ys\n@[export lean_ir_mk_proj_expr]  def mkProjExpr (i : Nat) (x : VarId) : Expr := Expr.proj i x\n@[export lean_ir_mk_uproj_expr] def mkUProjExpr (i : Nat) (x : VarId) : Expr := Expr.uproj i x\n@[export lean_ir_mk_sproj_expr] def mkSProjExpr (n : Nat) (offset : Nat) (x : VarId) : Expr := Expr.sproj n offset x",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_name": "VarId"
+  }
+}

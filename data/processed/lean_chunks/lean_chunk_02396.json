@@ -1,0 +1,10 @@
+{
+  "content": "theorem simple_fold_monotonic\u2081 (a: Array \u03b1) (f: \u03b2 \u2192 \u03b1 \u2192 \u03b2) (i: Nat) {P: \u03b1 \u2192 \u03b2 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/omega.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/omega.lean",
+    "definition_name": "simple_fold_monotonic\u2081",
+    "has_proof": false
+  }
+}

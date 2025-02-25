@@ -1,0 +1,9 @@
+{
+  "content": "if let .fvar fvarId := arg then\n      handleFunVar fvarId\n  handleFunVar (var : FVarId) : InterpM Unit := do\n    if let some funDecl \u2190 findFunDecl? var then\n      funDecl.params.forM (updateVarAssignment \u00b7.fvarId .top)\n      interpFunCall funDecl #[]\n  interpFunCall (funDecl : FunDecl) (args : Array Arg) : InterpM Unit := do\n    let updated \u2190 updateFunDeclParamsAssignment funDecl.params args\n    if updated then\n      resetNestedFunDeclParams funDecl.value\n      interpCode funDecl.value\ndef inferStep : InterpM Bool := do\n  let ctx \u2190 read\n  for h : idx in [0:ctx.decls.size] do\n    let decl := ctx.decls[idx]\n    if !decl.safe then\n      continue\n    let currentVal \u2190 getFunVal idx\n    withReader (fun ctx => { ctx with currFnIdx := idx }) do\n      decl.params.forM fun p => updateVarAssignment p.fvarId .top\n      decl.value.forCodeM interpCode\n    let newVal \u2190 getFunVal idx\n    if currentVal != newVal then\n      return true\n  return false\npartial def inferMain : InterpM Unit := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

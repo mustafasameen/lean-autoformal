@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_zipIdx :\n    \u2200 (l : List \u03b1) i j, (zipIdx l i)[j]? = l[j]?.map fun a => (a, i + j)\n  | [], _, _ => rfl\n  | _ :: _, _, 0 => by simp\n  | _ :: l, n, m + 1 => by\n    simp only [zipIdx_cons, getElem?_cons_succ]\n    exact (getElem?_zipIdx l (n + 1) m).trans <| by rw [Nat.add_right_comm]; rfl\n@[simp]\ntheorem getElem_zipIdx (l : List \u03b1) (j) (i : Nat) (h : i < (l.zipIdx j).length) :\n    (l.zipIdx j)[i] = (l[i]'(by simpa [length_zipIdx] using h), j + i) := by\n  simp only [length_zipIdx] at h\n  rw [getElem_eq_getElem?_get]\n  simp only [getElem?_zipIdx, getElem?_eq_getElem h]\n  simp\n@[simp]\ntheorem tail_zipIdx (l : List \u03b1) (i : Nat) : (zipIdx l i).tail = zipIdx l.tail (i + 1) := by\n  induction l generalizing i with\n  | nil => simp\n  | cons _ l ih => simp [ih, zipIdx_cons]\ntheorem map_snd_add_zipIdx_eq_zipIdx (l : List \u03b1) (n k : Nat) :\n    map (Prod.map id (\u00b7 + n)) (zipIdx l k) = zipIdx l (n + k) :=\n  ext_getElem? fun i \u21a6 by simp [(\u00b7 \u2218 \u00b7), Nat.add_comm, Nat.add_left_comm]; rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

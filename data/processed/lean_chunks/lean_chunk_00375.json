@@ -1,0 +1,10 @@
+{
+  "content": "def hugeFuel := 100000000\nstructure Context (\u03b1 : Type u) extends Env \u03b1 where\n  map : List \u03b1\ndef Var.denote (ctx : Context \u03b1) (v : Var) : \u03b1 :=\n  go ctx.map v (ctx.ofInt 0)\nwhere\n  go : List \u03b1 \u2192 Nat \u2192 \u03b1 \u2192 \u03b1\n   | [],    i,   d  => d\n   | a::as, 0,   d  => a\n   | _::as, i+1, d  => go as i d\ninductive Expr where\n  | num (i : Nat)\n  | var (v : Var)\n  | add (a b : Expr)\n  | mul (a b : Expr)\n  | sub (a b : Expr)\n  deriving Inhabited\ndef Expr.denote (ctx : Context \u03b1) : Expr \u2192 \u03b1\n  | num n   => ctx.ofInt n\n  | var v   => v.denote ctx\n  | add a b => ctx.add (a.denote ctx) (b.denote ctx)\n  | mul a b => ctx.mul (a.denote ctx) (b.denote ctx)\n  | sub a b => ctx.sub (a.denote ctx) (b.denote ctx)\nabbrev Mon := List Var\ndef Mon.denote (ctx : Context \u03b1) : Mon \u2192 \u03b1\n  | [] => ctx.ofInt 1\n  | v::vs => ctx.mul (v.denote ctx) (denote ctx vs)\ndef Mon.mul (m\u2081 m\u2082 : Mon) : Mon :=\n  go hugeFuel m\u2081 m\u2082\nwhere\n  go (fuel : Nat) (m\u2081 m\u2082 : Mon) : Mon :=\n    match fuel with\n    | 0 => m\u2081 ++ m\u2082\n    | fuel + 1 =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_name": "hugeFuel",
+    "has_proof": true
+  }
+}

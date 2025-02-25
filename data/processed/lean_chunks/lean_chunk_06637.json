@@ -1,0 +1,9 @@
+{
+  "content": "checkPrec maxPrec >> charLit\n@[builtin_term_parser] def sort := leading_parser\n  \"Sort\" >> optional (checkWsBefore \"\" >> checkPrec leadPrec >> checkColGt >> levelParser maxPrec)\n@[builtin_term_parser] def prop := leading_parser\n  \"Prop\"\n@[builtin_term_parser] def hole := leading_parser\n  \"_\"\n@[builtin_term_parser] def syntheticHole := leading_parser\n  \"?\" >> (ident <|> \"_\")\n@[builtin_term_parser] def omission := leading_parser\n  \"\u22ef\"\ndef binderIdent : Parser  := ident <|> hole\n@[builtin_term_parser] def \u00absorry\u00bb := leading_parser\n  \"sorry\"\n@[builtin_term_parser] def cdot   := leading_parser\n  symbol \"\u00b7\" <|> \".\"\n@[builtin_term_parser] def typeAscription := leading_parser\n  \"(\" >> (withoutPosition (withoutForbidden (termParser >> \" :\" >> optional (ppSpace >> termParser)))) >> \")\"\n@[builtin_term_parser] def paren := leading_parser\n  \"(\" >> withoutPosition (withoutForbidden (ppDedentIfGrouped termParser)) >> \")\"\n@[builtin_term_parser] def anonymousCtor := leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

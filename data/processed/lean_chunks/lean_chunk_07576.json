@@ -1,0 +1,9 @@
+{
+  "content": "structure Header where\n  version : UInt8\n  isutcnt : UInt32\n  isstdcnt : UInt32\n  leapcnt : UInt32\n  timecnt : UInt32\n  typecnt : UInt32\n  charcnt : UInt32\n  deriving Repr, Inhabited\nstructure LocalTimeType where\n  gmtOffset : Int32\n  isDst : Bool\n  abbreviationIndex : UInt8\n  deriving Repr, Inhabited\nstructure LeapSecond where\n  transitionTime : Int64\n  correction : Int64\n  deriving Repr, Inhabited\nstructure TZifV1 where\n  header : Header\n  transitionTimes : Array Int32\n  transitionIndices : Array UInt8\n  localTimeTypes : Array LocalTimeType\n  abbreviations : Array String\n  leapSeconds : Array LeapSecond\n  stdWallIndicators : Array Bool\n  utLocalIndicators : Array Bool\n  deriving Repr, Inhabited\nstructure TZifV2 extends TZifV1 where\n  footer : Option String\n  deriving Repr, Inhabited\nstructure TZif where\n  v1 : TZifV1\n  v2 : Option TZifV2\n  deriving Repr, Inhabited\nprivate def toUInt32 (bs : ByteArray) : UInt32 :=\n  assert! bs.size == 4\n  (bs.get! 0).toUInt32 <<< 0x18 |||",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_name": "Header"
+  }
+}

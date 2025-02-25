@@ -1,0 +1,10 @@
+{
+  "content": "instance (a b : UInt32) : Decidable (LE.le a b) := UInt32.decLe a b\ninstance : Max UInt32 := maxOfLe\ninstance : Min UInt32 := minOfLe\nstructure UInt64 where\n  ofBitVec ::\n  toBitVec: BitVec 64\nattribute [extern \"lean_uint64_of_nat_mk\"] UInt64.ofBitVec\nattribute [extern \"lean_uint64_to_nat\"] UInt64.toBitVec\n@[extern \"lean_uint64_of_nat\"]\ndef UInt64.ofNatLT (n : @& Nat) (h : LT.lt n UInt64.size) : UInt64 where\n  toBitVec := BitVec.ofNatLT n h\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_uint64_dec_eq\"]\ndef UInt64.decEq (a b : UInt64) : Decidable (Eq a b) :=\n  match a, b with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m)\n      (fun h => isTrue (h \u25b8 rfl))\n      (fun h => isFalse (fun h' => UInt64.noConfusion h' (fun h' => absurd h' h)))\ninstance : DecidableEq UInt64 := UInt64.decEq\ninstance : Inhabited UInt64 where\n  default := UInt64.ofNatLT 0 (of_decide_eq_true rfl)\nstructure USize where\n  ofBitVec ::\n  toBitVec : BitVec System.Platform.numBits",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat",
+    "has_proof": false
+  }
+}

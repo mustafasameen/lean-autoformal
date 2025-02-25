@@ -1,0 +1,9 @@
+{
+  "content": "sepBy (keyvalCore val >> trailingWs) \",\" (chAtom ',' (trailingFn := wsFn)) false >>\n  chAtom '}'\ndef arrayCore (val : Parser) : Parser := nodeWithAntiquot \"array\" `Lake.Toml.array $\n  chAtom '[' [\"array\"] (trailingFn := trailingFn) >>\n  sepBy (val >> trailingSep) \",\" (chAtom ',' (trailingFn := trailingFn)) true >>\n  chAtom ']'\ndef string : Parser :=\n  nodeWithAntiquot \"string\" `Lake.Toml.string $ setExpected [\"string\"] $\n  mlBasicString <|> basicString <|> mlLiteralString <|> literalString\nprotected def true : Parser :=\n  lit `Lake.Toml.true $ strFn \"true\"\nprotected def false : Parser :=\n  lit `Lake.Toml.false $ strFn \"false\"\ndef boolean : Parser :=\n  nodeWithAntiquot \"boolean\" `Lake.Toml.boolean $\n  Toml.true <|> Toml.false\ndef numeralAntiquot :=\n  mkAntiquot \"float\" `Lake.Toml.float (anonymous := false) <|>\n  mkAntiquot \"decInt\" `Lake.Toml.decInt (anonymous := false) <|>\n  mkAntiquot \"binNum\" `Lake.Toml.binNum (anonymous := false) <|>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Toml/Grammar.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Toml/Grammar.lean",
+    "definition_name": "table"
+  }
+}

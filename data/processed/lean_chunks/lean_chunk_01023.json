@@ -1,0 +1,9 @@
+{
+  "content": "class MonoidHomClass' (F : Type _) (M N : outParam (Type _)) [outParam (MulOneClass M)]\n   [outParam (MulOneClass N)] extends OneHomClass F M N, MulHomClass F M N\ninstance [MonoidHomClass' F M N] : CoeTC F (M \u2192* N) :=\n  \u27e8fun f => { toFun := f, map_one' := map_one f, map_mul' := map_mul f }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1907orig.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1907orig.lean",
+    "definition_name": "MonoidHomClass"
+  }
+}

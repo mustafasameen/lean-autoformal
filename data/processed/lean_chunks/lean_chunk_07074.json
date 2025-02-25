@@ -1,0 +1,9 @@
+{
+  "content": "| 15 => .ok .string\n    | 16 => .ok .number\n    | 17 => .ok .boolean\n    | 18 => .ok .array\n    | 19 => .ok .object\n    | 20 => .ok .key\n    | 21 => .ok .null\n    | 22 => .ok .enumMember\n    | 23 => .ok .struct\n    | 24 => .ok .event\n    | 25 => .ok .operator\n    | 26 => .ok .typeParameter\n    | j  => .error s!\"invalid symbol kind {j}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "CompletionOptions"
+  }
+}

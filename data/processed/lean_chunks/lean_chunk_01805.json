@@ -1,0 +1,9 @@
+{
+  "content": "inductive LHS {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/depElim1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/depElim1.lean",
+    "definition_name": "LHS"
+  }
+}

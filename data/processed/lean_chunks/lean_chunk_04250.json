@@ -1,0 +1,10 @@
+{
+  "content": "@[deprecated mulRec_eq_mul_signExtend_setWidth (since := \"2024-09-18\"),\n  inherit_doc mulRec_eq_mul_signExtend_setWidth]\nabbrev mulRec_eq_mul_signExtend_truncate := @mulRec_eq_mul_signExtend_setWidth\ntheorem getLsbD_mul (x y : BitVec w) (i : Nat) :\n    (x * y).getLsbD i = (mulRec x y w).getLsbD i := by\n  simp only [mulRec_eq_mul_signExtend_setWidth]\n  rw [setWidth_setWidth_of_le]\n  \u00b7 simp\n  \u00b7 omega\ntheorem getMsbD_mul (x y : BitVec w) (i : Nat) :\n    (x * y).getMsbD i = (mulRec x y w).getMsbD i := by\n  simp only [mulRec_eq_mul_signExtend_setWidth]\n  rw [setWidth_setWidth_of_le]\n  \u00b7 simp\n  \u00b7 omega\ntheorem getElem_mul {x y : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "slt_eq_ult",
+    "has_proof": true
+  }
+}

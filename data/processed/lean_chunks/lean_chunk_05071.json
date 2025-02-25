@@ -1,0 +1,10 @@
+{
+  "content": "theorem eraseIdx_toArray (l : List \u03b1) (i : Nat) (h : i < l.toArray.size) :\n    l.toArray.eraseIdx i h = (l.eraseIdx i).toArray := by\n  rw [Array.eraseIdx]\n  split <;> rename_i h'\n  \u00b7 rw [eraseIdx_toArray]\n    simp only [swap_toArray, Fin.getElem_fin, toList_toArray, mk.injEq]\n    rw [eraseIdx_set_gt (by simp), eraseIdx_set_eq]\n    simp\n  \u00b7 simp at h h'\n    have t : i = l.length - 1 := by omega\n    simp [t]\ntermination_by l.length - i\ndecreasing_by\n  rename_i h\n  simp at h\n  simp\n  omega\n@[simp] theorem eraseIdxIfInBounds_toArray (l : List \u03b1) (i : Nat) :\n    l.toArray.eraseIdxIfInBounds i = (l.eraseIdx i).toArray := by\n  rw [Array.eraseIdxIfInBounds]\n  split\n  \u00b7 simp\n  \u00b7 simp_all [eraseIdx_eq_self.2]\n@[simp] theorem eraseP_toArray {as : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "eraseIdx_toArray",
+    "has_proof": true
+  }
+}

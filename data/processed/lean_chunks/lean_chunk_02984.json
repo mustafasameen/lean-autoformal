@@ -1,0 +1,9 @@
+{
+  "content": "structure AttributeExtensionOLeanEntry where\n  builderId : Name\n  ref : Name\n  args : List DataValue\ndef mkAttributeImplOfEntry (e : AttributeExtensionOLeanEntry) : IO AttributeImpl := do\n  let table \u2190 attributeImplBuilderTableRef.get\n  match table[e.builderId]? with\n  | none         => throw (IO.userError (\"unknown attribute implementation builder '\" ++ toString e.builderId ++ \"'\"))\n  | some builder => IO.ofExcept <| builder e.ref e.args\nstructure AttributeExtensionState where\n  newEntries : List AttributeExtensionOLeanEntry := []\n  map        : Std.HashMap Name AttributeImpl\n  deriving Inhabited\nabbrev AttributeExtension := PersistentEnvExtension AttributeExtensionOLeanEntry (AttributeExtensionOLeanEntry \u00d7 AttributeImpl) AttributeExtensionState\nprivate def AttributeExtension.mkInitial : IO AttributeExtensionState := do\n  let map \u2190 attributeMapRef.get\n  pure { map := map }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_name": "AttributeExtensionOLeanEntry"
+  }
+}

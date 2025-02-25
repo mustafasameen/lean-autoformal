@@ -1,0 +1,10 @@
+{
+  "content": "theorem cond_eq_true_distrib : \u2200(c t f : Bool),\n    (cond c t f = true) = ite (c = true) (t = true) (f = true) := by\n  decide\n@[simp] theorem cond_eq_false_distrib : \u2200(c t f : Bool),\n    (cond c t f = false) = ite (c = true) (t = false) (f = false) := by decide\nprotected theorem cond_true  {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_name": "cond_eq_true_distrib",
+    "has_proof": true
+  }
+}

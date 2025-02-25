@@ -1,0 +1,10 @@
+{
+  "content": "theorem myif_congr {x y u v : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpPreIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpPreIssue.lean",
+    "definition_name": "myif_congr",
+    "has_proof": false
+  }
+}

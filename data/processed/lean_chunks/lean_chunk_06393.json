@@ -1,0 +1,9 @@
+{
+  "content": "inductive HeadCheck where\n  | shape (k : List SyntaxNodeKind) (arity : Option Nat)\n  | slice (numPrefix numSuffix : Nat)\n  | other (pat : Syntax)\nopen HeadCheck\n  | covered (f : Alt \u2192 TermElabM Alt) (exhaustive : Bool)\n  | undecided\ninstance : Repr MatchResult where\n  reprPrec\n    | .covered _ e, _ => f!\"covered _ {repr e}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_name": "HeadCheck"
+  }
+}

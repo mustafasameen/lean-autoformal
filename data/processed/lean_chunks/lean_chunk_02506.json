@@ -1,0 +1,10 @@
+{
+  "content": "macro:max x:term noWs \"[\" i:term \"]\" noWs \"!\" : term => `(getElem! $x $i)\nrecommended_spelling \"getElem\" for \"xs[i]\" in [GetElem.getElem, \u00abterm__[_]\u00bb]\nrecommended_spelling \"getElem\" for \"xs[i]'h\" in [GetElem.getElem, \u00abterm__[_]'_\u00bb]\nrecommended_spelling \"getElem?\" for \"xs[i]?\" in [GetElem?.getElem?, \u00abterm__[_]_?\u00bb]\nrecommended_spelling \"getElem!\" for \"xs[i]!\" in [GetElem?.getElem!, \u00abterm__[_]_!\u00bb]\ninstance (priority := low) [GetElem coll idx elem valid] [\u2200 xs i, Decidable (valid xs i)] :\n    GetElem? coll idx elem valid where\n  getElem? xs i := decidableGetElem? xs i\ntheorem getElem_congr [GetElem coll idx elem valid] {c d : coll}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "outOfBounds_eq_default",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def tmpStar := mkMVar tmpMVarId\ninstance : Inhabited (DiscrTree \u03b1) where\n  default := {}\nprivate def ignoreArg (a : Expr) (i : Nat) (infos : Array ParamInfo) : MetaM Bool := do\n  if h : i < infos.size then\n    let info := infos[i]\n    if info.isInstImplicit then\n      return true\n    else if info.isImplicit || info.isStrictImplicit then\n      return !(\u2190 isType a)\n    else\n      isProof a\n  else\n    isProof a\nprivate partial def pushArgsAux (infos : Array ParamInfo) : Nat \u2192 Expr \u2192 Array Expr \u2192 MetaM (Array Expr)\n  | i, .app f a, todo => do\n    if (\u2190 ignoreArg a i infos) then\n      pushArgsAux infos (i-1) f (todo.push tmpStar)\n    else\n      pushArgsAux infos (i-1) f (todo.push a)\n  | _, _, todo => return todo\nprivate partial def isNumeral (e : Expr) : Bool :=\n  if e.isRawNatLit then true\n  else\n    let f := e.getAppFn\n    if !f.isConst then false\n    else\n      let fName := f.constName!\n      if fName == ``Nat.succ && e.getAppNumArgs == 1 then isNumeral e.appArg!",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_name": "tmpStar"
+  }
+}

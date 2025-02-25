@@ -1,0 +1,9 @@
+{
+  "content": "class IsDomain (\u03b1 : Type u) [Semiring \u03b1] : Prop extends IsCancelMulZero \u03b1, Nontrivial \u03b1\nend Mathlib.Algebra.Ring.Defs\nsection Mathlib.Data.Int.Basic\ninstance : CommRing Int where\n  mul_comm := sorry\nmul_one := Int.mul_one\nadd_zero := Int.add_zero\nend Mathlib.Data.Int.Basic\nsection Mathlib.Algebra.Ring.Regular\nsection IsDomain\ninstance IsDomain.toCancelCommMonoidWithZero [CommSemiring \u03b1] [IsDomain \u03b1] :\n    CancelCommMonoidWithZero \u03b1 := { }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_name": "IsDomain"
+  }
+}

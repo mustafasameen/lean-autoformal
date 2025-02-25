@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_of_mem_flatten : x \u2208 flatten xss \u2192 \u2203 xs, xs \u2208 xss \u2227 x \u2208 xs := mem_flatten.1\ntheorem mem_flatten_of_mem (ml : xs \u2208 xss) (ma : a \u2208 xs) : a \u2208 flatten xss := mem_flatten.2 \u27e8xs, ml, ma\u27e9\ntheorem forall_mem_flatten {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "exists_of_mem_flatten",
+    "has_proof": false
+  }
+}

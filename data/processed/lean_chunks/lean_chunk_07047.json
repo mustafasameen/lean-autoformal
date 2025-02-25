@@ -1,0 +1,9 @@
+{
+  "content": "inductive CompletionIdentifier where\n  | const (declName : Name)\n  | fvar  (id       : FVarId)\n  deriving FromJson, ToJson\nstructure ResolvableCompletionItemData extends CompletionItemData where\ndef CompletionItem.resolve\n    (item : CompletionItem)\n    (id   : CompletionIdentifier)\n    : MetaM CompletionItem := do\n  let env \u2190 getEnv\n  let lctx \u2190 getLCtx\n  let mut item := item\n  if item.detail?.isNone then\n    let type? := match id with\n      | .const declName =>\n        env.find? declName |>.map ConstantInfo.type\n      | .fvar id =>\n        lctx.find? id |>.map LocalDecl.type\n    let detail? \u2190 type?.mapM fun type =>\n      consumeImplicitPrefix type fun typeWithoutImplicits =>\n        return toString (\u2190 Meta.ppExpr typeWithoutImplicits)\n    item := { item with detail? := detail? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionResolution.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionResolution.lean",
+    "definition_name": "CompletionIdentifier"
+  }
+}

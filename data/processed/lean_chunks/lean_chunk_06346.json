@@ -1,0 +1,9 @@
+{
+  "content": "let s \u2190 get\n        match (\u2190 liftMacroM <| expandMacroImpl? s.env stx) with\n        | some (decl, stxNew?) =>\n          withInfoTreeContext (mkInfoTree := mkInfoTree decl stx) do\n            let stxNew \u2190 liftMacroM <| liftExcept stxNew?\n            withMacroExpansion stx stxNew do\n              if let some snap := (\u2190read).snap? then\n                let cmds := if stxNew.isOfKind nullKind then stxNew.getArgs else #[stxNew]\n                let nextMacroScope := (\u2190 get).nextMacroScope\n                let hasTraces := (\u2190 getTraceState).traces.size > 0\n                let oldSnap? := do\n                  let oldSnap \u2190 snap.old?\n                  let oldSnap \u2190 oldSnap.val.get.toTyped? MacroExpandedSnapshot\n                  guard <| oldSnap.macroDecl == decl && oldSnap.newNextMacroScope == nextMacroScope\n                  guard <| !oldSnap.hasTraces && !hasTraces\n                  return oldSnap\n                let oldCmds? := oldSnap?.map fun old =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Command.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Command.lean",
+    "definition_name": "MacroExpandedSnapshot"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if (\u2190 getTransparency) matches .instances | .reducible then\n    withTransparency .instances <| withCanUnfoldPred canUnfoldAtMatcher do\n      whnf e\n  else\n    whnf e\ndef reduceMatcher? (e : Expr) : MetaM ReduceMatcherResult := do\n  let .const declName declLevels := e.getAppFn\n    | return .notMatcher\n  let some info \u2190 getMatcherInfo? declName\n    | return .notMatcher\n  let args := e.getAppArgs\n  let prefixSz := info.numParams + 1 + info.numDiscrs\n  if args.size < prefixSz + info.numAlts then\n    return ReduceMatcherResult.partialApp\n  let constInfo \u2190 getConstInfo declName\n  let mut f \u2190 instantiateValueLevelParams constInfo declLevels\n  if (\u2190 getTransparency) matches .instances | .reducible then\n    f \u2190 unfoldNestedDIte f\n  let auxApp := mkAppN f args[0:prefixSz]\n  let auxAppType \u2190 inferType auxApp\n  forallBoundedTelescope auxAppType info.numAlts fun hs _ => do\n    let auxApp \u2190 whnfMatcher (mkAppN auxApp hs)\n    let auxAppFn := auxApp.getAppFn\n    let mut i := prefixSz",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "ReduceMatcherResult"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "withPosition (\"dbg_trace\" >> (interpolatedStr termParser <|> termParser)) >>\n  optSemicolon termParser\n@[builtin_term_parser] def showTermElabImpl :=\n  leading_parser:leadPrec \"show_term_elab \" >> termParser\ndef matchExprPat := leading_parser optional (atomic (ident >> \"@\")) >> ident >> many binderIdent\ndef matchExprAlt (rhsParser : Parser) := leading_parser \"| \" >> ppIndent (matchExprPat >> \" => \" >> rhsParser)\ndef matchExprElseAlt (rhsParser : Parser) := leading_parser \"| \" >> ppIndent (hole >> \" => \" >> rhsParser)\ndef matchExprAlts (rhsParser : Parser) :=\n  leading_parser withPosition $\n    many (ppLine >> checkColGe \"irrelevant\" >> notFollowedBy (symbol \"| \" >> \" _ \") \"irrelevant\" >> matchExprAlt rhsParser)\n    >> (ppLine >> checkColGe \"else-alternative for `match_expr`, i.e., `| _ => ...`\" >> matchExprElseAlt rhsParser)\n@[builtin_term_parser] def matchExpr := leading_parser:leadPrec\n  \"match_expr \" >> termParser >> \" with\" >> ppDedent (matchExprAlts termParser)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "defaultOrOfNonempty"
+  }
+}

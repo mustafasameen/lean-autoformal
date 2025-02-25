@@ -1,0 +1,10 @@
+{
+  "content": "theorem fix_eq (hwf : WellFounded r) (F : \u2200 x, (\u2200 y, r y x \u2192 C y) \u2192 C x) (x : \u03b1) :\n    fix hwf F x = F x (fun y _ => fix hwf F y) :=\n  fixFEq F x (apply hwf x)\nend WellFounded\nopen WellFounded\ndef emptyWf {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_name": "fix_eq",
+    "has_proof": false
+  }
+}

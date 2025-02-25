@@ -1,0 +1,9 @@
+{
+  "content": "instance liftCoerceFn {a\u2081 a\u2082 b\u2081 b\u2082 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_coerce.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_coerce.lean",
+    "definition_name": "liftCoerceFn"
+  }
+}

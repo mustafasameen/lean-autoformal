@@ -1,0 +1,10 @@
+{
+  "content": "theorem Bool.not_eq_true'  (b : Bool) : ((!b) = true) = (b = false) := by simp\ntheorem Bool.not_eq_false' (b : Bool) : ((!b) = false) = (b = true) := by simp\n@[simp] theorem Bool.not_eq_true (b : Bool) : (\u00ac(b = true)) = (b = false) := by cases b <;> decide\n@[simp] theorem Bool.not_eq_false (b : Bool) : (\u00ac(b = false)) = (b = true) := by cases b <;> decide\n@[simp] theorem decide_eq_true_eq [Decidable p] : (decide p = true) = p :=\n  propext <| Iff.intro of_decide_eq_true decide_eq_true\n@[simp] theorem decide_eq_false_iff_not {_ : Decidable p}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "Bool",
+    "has_proof": true
+  }
+}

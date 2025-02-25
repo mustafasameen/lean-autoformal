@@ -1,0 +1,9 @@
+{
+  "content": "instance decidableBallLT :\n  \u2200 (n : Nat) (P : \u2200 k, k < n \u2192 Prop) [\u2200 n h, Decidable (P n h)], Decidable (\u2200 n h, P n h)\n| 0, _, _ => isTrue fun _ => (by cases \u00b7)\n| n + 1, P, H =>\n  match decidableBallLT n (P \u00b7 <| lt_succ_of_lt \u00b7) with\n  | isFalse h => isFalse (h fun _ _ => \u00b7 _ _)\n  | isTrue h =>\n    match H n Nat.le.refl with\n    | isFalse p => isFalse (p <| \u00b7 _ _)\n    | isTrue p => isTrue fun _ h' => (Nat.lt_succ_iff_lt_or_eq.1 h').elim (h _) fun hn => hn \u25b8 p\ninstance decidableForallFin (P : Fin n \u2192 Prop) [DecidablePred P] : Decidable (\u2200 i, P i) :=\n  decidable_of_iff (\u2200 k h, P \u27e8k, h\u27e9) \u27e8fun m \u27e8k, h\u27e9 => m k h, fun m k h => m \u27e8k, h\u27e9\u27e9\ninstance decidableBallLE (n : Nat) (P : \u2200 k, k \u2264 n \u2192 Prop) [\u2200 n h, Decidable (P n h)] :\n    Decidable (\u2200 n h, P n h) :=\n  decidable_of_iff (\u2200 (k) (h : k < succ n), P k (le_of_lt_succ h))\n    \u27e8fun m k h => m k (lt_succ_of_le h), fun m k _ => m k _\u27e9\ninstance decidableExistsLT [h : DecidablePred p] : DecidablePred fun n => \u2203 m : Nat, m < n \u2227 p m",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "decidableBallLT"
+  }
+}

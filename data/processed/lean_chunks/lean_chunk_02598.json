@@ -1,0 +1,9 @@
+{
+  "content": "instance Repr for TransparencyMode, EtaStructMode, DSimp.Config, Simp.Config\ndef Occurrences.contains : Occurrences \u2192 Nat \u2192 Bool\n  | all,      _   => true\n  | pos idxs, idx => idxs.contains idx\n  | neg idxs, idx => !idxs.contains idx\ndef Occurrences.isAll : Occurrences \u2192 Bool\n  | all => true\n  | _   => false\ninductive ApplyNewGoals where\n  | nonDependentFirst | nonDependentOnly | all\n  synthAssignedInstances := true\n  allowSynthFailures := false\n  approx : Bool := true\nnamespace Rewrite\nabbrev NewGoals := ApplyNewGoals\nstructure Config where\n  transparency : TransparencyMode := .reducible\n  offsetCnstrs : Bool := true\n  occs : Occurrences := .all\n  newGoals : NewGoals := .nonDependentFirst\nend Rewrite\nnamespace Omega\n  splitDisjunctions : Bool := true\n  splitNatSub : Bool := true\n  splitNatAbs : Bool := true\n  splitMinMax : Bool := true\nend Omega\nnamespace CheckTactic\ninductive CheckGoalType {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Meta.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Meta.lean",
+    "definition_name": "Repr"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "abbrev TransformM     := ReaderT FrontendConfig $ ExceptT Message Id\nabbrev Transformer    := SyntaxNode \u2192 TransformM (Option Syntax)\ndef noExpansion : TransformM (Option Syntax) := pure none\n@[inline] def Syntax.case {\u03b1 : Type} (n : Syntax) (k : SyntaxNodeKind) (fn : SyntaxNode \u2192 TransformM (Option \u03b1)) : TransformM (Option \u03b1) :=\nmatch n with\n| Syntax.node k' args s := if k == k' then fn \u27e8Syntax.node k' args s, IsNode.mk _ _ _\u27e9 else pure none\n| _                     := pure none\n@[inline] def TransformM.orCase {\u03b1 : Type} (x y : TransformM (Option \u03b1)) : TransformM (Option \u03b1) :=\n\u03bb cfg, match x cfg with\n | Except.ok none := y cfg\n | other          := other\ninfix `<?>`:2 := TransformM.orCase\nset_option pp.implicit true\nset_option trace.compiler.boxed true\ndef flipIf : Transformer :=\n\u03bb n, withIf n $ \u03bb c t e,\n  c.case notKind $ \u03bb c, withNot c $ \u03bb c',\n    pure $ updateIf n c' e t\ndef letTransformer : Transformer :=\n\u03bb n, withLet n $ \u03bb lhs val body,",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

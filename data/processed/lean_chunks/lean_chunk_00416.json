@@ -1,0 +1,9 @@
+{
+  "content": "structure nodeData :=\n(find : Node) (rank : Nat := 0)\nabbreviation ufData := Array nodeData\nabbreviation M (\u03b1 : Type) := ExceptT (StateT id ufData) String \u03b1\n@[inline] def read : M ufData := ExceptT.lift StateT.read\n@[inline] def write (s : ufData) : M Unit := ExceptT.lift (StateT.write s)\n@[inline] def updt (f : ufData \u2192 ufData) : M Unit := ExceptT.lift (StateT.updt f)\n@[inline] def error {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/uf1.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/uf1.lean",
+    "definition_name": "nodeData"
+  }
+}

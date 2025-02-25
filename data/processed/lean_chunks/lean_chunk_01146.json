@@ -1,0 +1,9 @@
+{
+  "content": "inductive MCType\n| bv : Nat \u2192 MCType\nopen MCType\ninductive Reg : MCType \u2192 Type\n| rax (n : Nat) : Reg (bv n)\ninductive Expr : MCType \u2192 Type\n| r : \u2200{tp:MCType}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeIssue1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeIssue1.lean",
+    "definition_name": "MCType"
+  }
+}

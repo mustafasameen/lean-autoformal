@@ -1,0 +1,9 @@
+{
+  "content": "instance addGroup : AddGroup c.Quotient :=\n  { (Function.Surjective.addGroup Quotient.mk''\n      Quotient.surjective_Quotient_mk'' sorry sorry sorry : AddGroup c.Quotient) with\n    toAddMonoid := AddCon.addMonoid _\n    toNeg := AddCon.hasNeg _\n    toSub := AddCon.hasSub _ }\nend AddCon\nend Mathlib.GroupTheory.Congruence\nsection Mathlib.GroupTheory.GroupAction.Opposite\nvariable {\u03b1}\ninstance Add.toHasOppositeVAdd [Add \u03b1] : VAdd \u03b1\u1d43\u1d52\u1d56 \u03b1 :=\n  \u27e8fun c x => x + c.unop\u27e9\ninstance AddMonoid.toOppositeVAdd [AddMonoid \u03b1] : VAdd \u03b1\u1d43\u1d52\u1d56 \u03b1 where\n  vadd := (\u00b7 +\u1d65 \u00b7)\nend Mathlib.GroupTheory.GroupAction.Opposite\nsection Mathlib.GroupTheory.Subgroup.Basic\nvariable {A : Type _} [AddGroup A]\nstructure AddSubgroup (G : Type _) [AddGroup G] extends AddSubmonoid G where\nnamespace AddSubgroup\ninstance : SetLike (AddSubgroup A) A where\n  coe s := s.carrier\nend AddSubgroup\nend Mathlib.GroupTheory.Subgroup.Basic\nsection Mathlib.GroupTheory.GroupAction.Basic\nuniverse u v\nnamespace VAdd",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem wf (f : \u03b1 \u2192 \u03b2) (h : WellFounded r) : WellFounded (InvImage r f) :=\n  \u27e8fun a => accessible f (apply h (f a))\u27e9\nend InvImage\n@[reducible] def invImage (f : \u03b1 \u2192 \u03b2) (h : WellFoundedRelation \u03b2) : WellFoundedRelation \u03b1 where\n  rel := InvImage h.rel f\n  wf  := InvImage.wf f h.wf\nopen Relation\ntheorem Acc.transGen (h : Acc r a) : Acc (TransGen r) a := by\n  induction h with\n  | intro x _ H =>\n    refine Acc.intro x fun y hy \u21a6 ?_\n    cases hy with\n    | single hyx =>\n      exact H y hyx\n    | tail hyz hzx =>\n      exact (H _ hzx).inv hyz\ntheorem acc_transGen_iff : Acc (TransGen r) a \u2194 Acc r a :=\n  \u27e8Subrelation.accessible TransGen.single, Acc.transGen\u27e9\ntheorem WellFounded.transGen (h : WellFounded r) : WellFounded (TransGen r) :=\n  \u27e8fun a \u21a6 (h.apply a).transGen\u27e9\n@[deprecated Acc.transGen (since := \"2024-07-16\")] abbrev TC.accessible := @Acc.transGen\n@[deprecated WellFounded.transGen (since := \"2024-07-16\")] abbrev TC.wf := @WellFounded.transGen\nnamespace Nat",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_name": "wf",
+    "has_proof": true
+  }
+}

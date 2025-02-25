@@ -1,0 +1,9 @@
+{
+  "content": "instance instAddSemigroup [AddSemigroup \u03b1] : AddSemigroup \u03b1\u1d43\u1d52\u1d56 where\n  add_assoc x y z := sorry\ninstance instAddZeroClass [AddZeroClass \u03b1] : AddZeroClass \u03b1\u1d43\u1d52\u1d56 where\n  toAdd := instAdd\n  toZero := instZero\n  zero_add _ := sorry\n  add_zero _ := sorry\ninstance instAddMonoid [AddMonoid \u03b1] : AddMonoid \u03b1\u1d43\u1d52\u1d56 :=\n  { instAddZeroClass with\n    toAddSemigroup := instAddSemigroup\n    nsmul := fun n a => op <| n \u2022 a.unop }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "instAddSemigroup"
+  }
+}

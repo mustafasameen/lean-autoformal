@@ -1,0 +1,10 @@
+{
+  "content": "theorem dep_congr [DecidableEq \u03b9] {p : \u03b9 \u2192 Set \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/988.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/988.lean",
+    "definition_name": "dep_congr",
+    "has_proof": false
+  }
+}

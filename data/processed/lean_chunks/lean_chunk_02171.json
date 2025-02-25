@@ -1,0 +1,9 @@
+{
+  "content": "instance mulAction (R) [\u2200 i, MulAction R (f i)] : MulAction R (\u2200 i : I, f i) where\n  smul := (\u00b7 \u2022 \u00b7)\ninstance mulActionWithZero (R) [Zip R] [\u2200 i, Zip (f i)] [\u2200 i, MulActionWithZero R (f i)] :\n    MulActionWithZero R (\u2200 i, f i) :=\n { pi.mulAction _, pi.smulWithZero _ with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedtc.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedtc.lean",
+    "definition_name": "mulAction"
+  }
+}

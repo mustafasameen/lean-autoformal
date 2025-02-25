@@ -1,0 +1,9 @@
+{
+  "content": "let tType \u2190 whnf (\u2190 inferType t)\n  matchConstStructureLike tType.getAppFn (fun _ => return false) fun _ _ ctorVal => do\n    if ctorVal.numFields != 0 then\n      return false\n    else if (\u2190 useEtaStruct ctorVal.induct) then\n      Meta.isExprDefEqAux tType (\u2190 inferType s)\n    else\n      return false\nprivate def isDefEqProjInst (t : Expr) (s : Expr) : MetaM LBool := do\n  if (\u2190 getTransparency) != .instances then return .undef\n  let t? \u2190 unfoldProjInstWhenInstances? t\n  let s? \u2190 unfoldProjInstWhenInstances? s\n  if t?.isSome || s?.isSome then\n    toLBoolM <| Meta.isExprDefEqAux (t?.getD t) (s?.getD s)\n  else\n    return .undef\nprivate def isExprDefEqExpensive (t : Expr) (s : Expr) : MetaM Bool := do\n  whenUndefDo (isDefEqEta t s) do\n  whenUndefDo (isDefEqEta s t) do\n  if (\u2190 isDefEqProj t s) then return true\n  let t' \u2190 whnfCore t\n  let s' \u2190 whnfCore s\n  if t != t' || s != s' then\n    Meta.isExprDefEqAux t' s'\n  else\n    whenUndefDo (isDefEqNative t s) do\n    whenUndefDo (isDefEqNat t s) do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "DeltaStepResult"
+  }
+}

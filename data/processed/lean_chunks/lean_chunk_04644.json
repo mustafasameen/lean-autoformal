@@ -1,0 +1,10 @@
+{
+  "content": "exists k\u2081 * k - k\u2082 * x\ndef dvd_elim_cert (k\u2081 : Int) (p\u2081 : Poly) (k\u2082 : Int) (p\u2082 : Poly) : Bool :=\n  match p\u2081 with\n  | .add a _ p => k\u2082 == gcd k\u2081 a && p\u2082 == p\n  | _ => false\ntheorem dvd_elim (ctx : Context) (k\u2081 : Int) (p\u2081 : Poly) (k\u2082 : Int) (p\u2082 : Poly)\n    : dvd_elim_cert k\u2081 p\u2081 k\u2082 p\u2082 \u2192 k\u2081 \u2223 p\u2081.denote' ctx \u2192 k\u2082 \u2223 p\u2082.denote' ctx := by\n  rcases p\u2081 <;> simp [dvd_elim_cert]\n  next a _ p =>\n  intro _ _; subst k\u2082 p\u2082\n  rw [Int.add_comm]\n  apply dvd_gcd_of_dvd\nprivate theorem dvd_solve_combine' {x : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "norm_dvd",
+    "has_proof": true
+  }
+}

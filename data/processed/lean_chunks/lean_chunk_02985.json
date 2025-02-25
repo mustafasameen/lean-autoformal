@@ -1,0 +1,9 @@
+{
+  "content": "inductive AttributeApplicationTime where\n  | afterTypeChecking | afterCompilation | beforeElaboration\n  deriving Inhabited, BEq\nabbrev AttrM := CoreM\ninstance : MonadLift ImportM AttrM where\n  monadLift x := do liftM (m := IO) (x { env := (\u2190 getEnv), opts := (\u2190 getOptions) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_name": "AttributeApplicationTime"
+  }
+}

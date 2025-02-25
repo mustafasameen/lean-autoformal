@@ -1,0 +1,10 @@
+{
+  "content": "theorem pred_toNat : \u2200 i : Int, (i - 1).toNat = i.toNat - 1\n  | 0 => rfl\n  | (_+1:Nat) => by simp [ofNat_add]\n  | -[_+1] => rfl\ntheorem toNat_sub_toNat_neg : \u2200 n : Int, \u2191n.toNat - \u2191(-n).toNat = n\n  | 0 => rfl\n  | (_+1:Nat) => Int.sub_zero _\n  | -[_+1] => Int.zero_sub _\n@[simp] theorem toNat_add_toNat_neg_eq_natAbs : \u2200 n : Int, n.toNat + (-n).toNat = n.natAbs\n  | 0 => rfl\n  | (_+1:Nat) => Nat.add_zero _\n  | -[_+1] => Nat.zero_add _\n@[simp] theorem toNat_neg_nat : \u2200 n : Nat, (-(n : Int)).toNat = 0\n  | 0 => rfl\n  | _+1 => rfl\nprotected theorem le_of_not_le {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "pred_toNat",
+    "has_proof": true
+  }
+}

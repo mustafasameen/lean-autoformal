@@ -1,0 +1,9 @@
+{
+  "content": "saveState      := Meta.saveState\n  restoreState s := s.restore\npartial def elim (mvarId : MVarId) (fvarId : FVarId) : M Bool := do\n  if (\u2190 get) == 0 then\n    trace[Meta.Tactic.contradiction] \"elimEmptyInductive out-of-fuel\"\n    return false\n  modify (\u00b7 - 1)\n  commitWhen do\n    let subgoals \u2190 try mvarId.cases fvarId catch ex => trace[Meta.Tactic.contradiction] \"{ex.toMessageData}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Contradiction.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Contradiction.lean",
+    "definition_name": "Contradiction"
+  }
+}

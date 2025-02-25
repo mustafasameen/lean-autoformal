@@ -1,0 +1,10 @@
+{
+  "content": "theorem filter_reverse' (p : \u03b1 \u2192 Bool) (xs : Array \u03b1) (w : stop = xs.size) :\n     (xs.reverse.filter p 0 stop) = (xs.filter p).reverse := by\n  subst w\n  cases xs\n  simp\ntheorem filter_reverse (p : \u03b1 \u2192 Bool) (xs : Array \u03b1) : (xs.reverse.filter p) = (xs.filter p).reverse := by\n  cases xs\n  simp\ntheorem reverse_flatten (xss : Array (Array \u03b1)) :\n    xss.flatten.reverse = (xss.map reverse).reverse.flatten := by\n  cases xss using array\u2082_induction\n  simp [flatten_toArray, List.reverse_flatten, Function.comp_def]\ntheorem extract_loop_zero (xs ys : Array \u03b1) (start : Nat) : extract.loop xs 0 start ys = ys := by\n  rw [extract.loop]; split <;> rfl\ntheorem extract_loop_succ (xs ys : Array \u03b1) (size start : Nat) (h : start < xs.size) :\n    extract.loop xs (size+1) start ys = extract.loop xs size (start+1) (ys.push xs[start]) := by\n  rw [extract.loop, dif_pos h]; rfl\ntheorem extract_loop_of_ge (xs ys : Array \u03b1) (size start : Nat) (h : start \u2265 xs.size) :\n    extract.loop xs size start ys = ys := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "filter_reverse",
+    "has_proof": true
+  }
+}

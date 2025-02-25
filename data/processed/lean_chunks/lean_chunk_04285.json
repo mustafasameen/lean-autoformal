@@ -1,0 +1,10 @@
+{
+  "content": "theorem gcd_dvd_gcd_of_dvd_right {m k : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "gcd_dvd_gcd_of_dvd_right",
+    "has_proof": false
+  }
+}

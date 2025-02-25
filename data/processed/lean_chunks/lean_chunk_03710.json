@@ -1,0 +1,10 @@
+{
+  "content": "theorem append_inj_right {xs\u2081 xs\u2082 ys\u2081 ys\u2082 : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "append_inj_right",
+    "has_proof": false
+  }
+}

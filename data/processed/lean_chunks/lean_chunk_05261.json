@@ -1,0 +1,10 @@
+{
+  "content": "@[inherit_doc min?, deprecated min? (since := \"2024-09-29\")] abbrev minimum? := @min?\ndef max? [Max \u03b1] : List \u03b1 \u2192 Option \u03b1\n  | []    => none\n  | a::as => some <| as.foldl max a\n@[inherit_doc max?, deprecated max? (since := \"2024-09-29\")] abbrev maximum? := @max?\ndef intersperse (sep : \u03b1) : List \u03b1 \u2192 List \u03b1\n  | []    => []\n  | [x]   => [x]\n  | x::xs => x :: sep :: intersperse sep xs\n@[simp] theorem intersperse_nil (sep : \u03b1) : ([] : List \u03b1).intersperse sep = [] := rfl\n@[simp] theorem intersperse_single (sep : \u03b1) : [x].intersperse sep = [x] := rfl\n@[simp] theorem intersperse_cons\u2082 (sep : \u03b1) :\n    (x::y::zs).intersperse sep = x::sep::((y::zs).intersperse sep) := rfl\ndef intercalate (sep : List \u03b1) (xs : List (List \u03b1)) : List \u03b1 :=\n  (intersperse sep xs).flatten\ndef eraseDups {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "range_zero",
+    "has_proof": false
+  }
+}

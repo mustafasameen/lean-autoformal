@@ -1,0 +1,10 @@
+{
+  "content": "theorem addString_byteIdx (p : Pos) (s : String) :\n    (p + s).byteIdx = p.byteIdx + s.utf8ByteSize := rfl\ntheorem addString_eq (p : Pos) (s : String) : p + s = \u27e8p.byteIdx + s.utf8ByteSize\u27e9 := rfl\ntheorem zero_addString_byteIdx (s : String) : ((0 : Pos) + s).byteIdx = s.utf8ByteSize := by\n  simp only [addString_byteIdx, byteIdx_zero, Nat.zero_add]\ntheorem zero_addString_eq (s : String) : (0 : Pos) + s = \u27e8s.utf8ByteSize\u27e9 := by\n  rw [\u2190 zero_addString_byteIdx]\ntheorem le_iff {i\u2081 i\u2082 : Pos}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "addString_byteIdx",
+    "has_proof": true
+  }
+}

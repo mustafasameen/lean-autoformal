@@ -1,0 +1,10 @@
+{
+  "content": "theorem unsat_of_limplies_and_incompatible (\u03b1 : Type u) {\u03c31 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Entails.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Entails.lean",
+    "definition_name": "unsat_of_limplies_and_incompatible",
+    "has_proof": false
+  }
+}

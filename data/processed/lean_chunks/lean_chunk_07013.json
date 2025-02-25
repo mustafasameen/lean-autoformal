@@ -1,0 +1,9 @@
+{
+  "content": "let caps \u2190 names.mapM evalCodeActionProvider\n        return (\u2190 builtinCodeActionProviders.get).toList.toArray ++ Array.zip names caps\n      caps.flatMapM fun (providerName, cap) => do\n        RequestM.checkCancelled\n        let cas \u2190 cap params snap\n        cas.mapIdxM fun i lca => do\n          if lca.lazy?.isNone then return lca.eager\n          let data : CodeActionResolveData := {\n            params, providerName, providerResultIndex := i\n          }\n          let j : Json := toJson data\n          let ca := { lca.eager with data? := some j }\n          return ca\nbuiltin_initialize\n  registerLspRequestHandler \"textDocument/codeAction\" CodeActionParams (Array CodeAction) handleCodeAction\ndef handleCodeActionResolve (param : CodeAction) : RequestM (RequestTask CodeAction) := do\n  let doc \u2190 readDoc\n  let some data := param.data?\n    | throw (RequestError.invalidParams \"Expected a data field on CodeAction.\")",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_name": "CodeActionProvider"
+  }
+}

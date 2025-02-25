@@ -1,0 +1,10 @@
+{
+  "content": "For example, if a theorem `@[grind =] theorem foo_idempotent : foo (foo x) = foo x` is annotated,\\\n      `grind` will add an instance of this theorem to the local context whenever it encounters the pattern `foo (foo x)`.\"\n    applicationTime := .afterCompilation\n    add := fun declName stx attrKind => MetaM.run' do\n      match (\u2190 getAttrKindFromOpt stx) with\n      | .ematch .user => throwInvalidUsrModifier\n      | .ematch k => addEMatchAttr declName attrKind k\n      | .cases eager => addCasesAttr declName eager attrKind\n      | .intro =>\n        if let some info \u2190 isCasesAttrPredicateCandidate? declName false then\n          for ctor in info.ctors do\n            addEMatchAttr ctor attrKind .default\n        else\n          throwError \"invalid `[grind intro]`, `{declName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Attr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Attr.lean",
+    "definition_name": "AttrKind",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "return .canonType\n  else\n    return .visit\nunsafe def canonImpl (e : Expr) : GoalM Expr := do\n  visit e |>.run' mkPtrMap\nwhere\n  visit (e : Expr) : StateRefT (PtrMap Expr Expr) GoalM Expr := do\n    unless e.isApp || e.isForall do return e\n    if let some r := (\u2190 get).find? e then\n      return r\n    let e' \u2190 match e with\n      | .app .. => e.withApp fun f args => do\n        if f.isConstOf ``Lean.Grind.nestedProof && args.size == 2 then\n          let prop := args[0]!\n          let prop' \u2190 visit prop\n          if let some r := (\u2190 get').proofCanon.find? prop' then\n            pure r\n          else\n            let e' := if ptrEq prop prop' then e else mkAppN f (args.set! 0 prop')\n            modify' fun s => { s with proofCanon := s.proofCanon.insert prop' e' }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Canon.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Canon.lean",
+    "definition_name": "ShouldCanonResult"
+  }
+}

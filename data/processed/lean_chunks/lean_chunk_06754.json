@@ -1,0 +1,9 @@
+{
+  "content": "fun initial g => solveByElim [] (maxDepth := 6) (exfalso := initial) g)\n    (allowFailure : MVarId \u2192 MetaM Bool := fun _ => pure true)\n    (leavePercentHeartbeats : Nat := 10) :\n    MetaM (Option (Array (List MVarId \u00d7 MetavarContext))) := do\n  (tactic true [goal] *> pure none) <|>\n  librarySearch' goal (tactic false) allowFailure leavePercentHeartbeats\nend LibrarySearch\nend Lean.Meta.LibrarySearch",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_name": "CandidateFinder"
+  }
+}

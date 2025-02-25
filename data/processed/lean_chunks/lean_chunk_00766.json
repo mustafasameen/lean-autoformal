@@ -1,0 +1,10 @@
+{
+  "content": "theorem id_tensorHom (X : C) {Y\u2081 Y\u2082 : C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "id_tensorHom",
+    "has_proof": false
+  }
+}

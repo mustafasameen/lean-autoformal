@@ -1,0 +1,9 @@
+{
+  "content": "def Univ := Univ'.{0}\n#check (Univ : Univ)\nexample : Sort (imax u v + 1) := Unit \u2192 Sort (imax u v)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1781.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1781.lean",
+    "definition_name": "Univ"
+  }
+}

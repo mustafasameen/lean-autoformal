@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_hom (f : \u03b1\u2081 \u2192 \u03b1\u2082) (g\u2081 : \u03b1\u2081 \u2192 \u03b2 \u2192 \u03b1\u2081) (g\u2082 : \u03b1\u2082 \u2192 \u03b2 \u2192 \u03b1\u2082) (xs : Array \u03b2) (init : \u03b1\u2081)\n    (H : \u2200 x y, g\u2082 (f x) y = f (g\u2081 x y)) : xs.foldl g\u2082 (f init) = f (xs.foldl g\u2081 init) := by\n  cases xs\n  simp\n  rw [List.foldl_hom _ _ _ _ _ H]\ntheorem foldr_hom (f : \u03b2\u2081 \u2192 \u03b2\u2082) (g\u2081 : \u03b1 \u2192 \u03b2\u2081 \u2192 \u03b2\u2081) (g\u2082 : \u03b1 \u2192 \u03b2\u2082 \u2192 \u03b2\u2082) (xs : Array \u03b1) (init : \u03b2\u2081)\n    (H : \u2200 x y, g\u2082 x (f y) = f (g\u2081 x y)) : xs.foldr g\u2082 (f init) = f (xs.foldr g\u2081 init) := by\n  cases xs\n  simp\n  rw [List.foldr_hom _ _ _ _ _ H]\ntheorem foldl_rel {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "foldl_hom",
+    "has_proof": true
+  }
+}

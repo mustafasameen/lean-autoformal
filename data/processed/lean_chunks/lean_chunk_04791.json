@@ -1,0 +1,10 @@
+{
+  "content": "@[extern \"lean_int_dec_eq\"]\nprotected def decEq (a b : @& Int) : Decidable (a = b) :=\n  match a, b with\n  | ofNat a, ofNat b => match decEq a b with\n    | isTrue h  => isTrue  <| h \u25b8 rfl\n    | isFalse h => isFalse <| fun h' => Int.noConfusion h' (fun h' => absurd h' h)\n  | ofNat _, -[_ +1] => isFalse <| fun h => Int.noConfusion h\n  | -[_ +1], ofNat _ => isFalse <| fun h => Int.noConfusion h\n  | -[a +1], -[b +1] => match decEq a b with\n    | isTrue h  => isTrue  <| h \u25b8 rfl\n    | isFalse h => isFalse <| fun h' => Int.noConfusion h' (fun h' => absurd h' h)\ninstance : DecidableEq Int := Int.decEq\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_int_dec_nonneg\"]\nprivate def decNonneg (m : @& Int) : Decidable (NonNeg m) :=\n  match m with\n  | ofNat m => isTrue <| NonNeg.mk m\n  | -[_ +1] => isFalse <| fun h => nomatch h\n@[extern \"lean_int_dec_le\"]\ninstance decLe (a b : @& Int) : Decidable (a \u2264 b) :=\n  decNonneg _\n@[extern \"lean_int_dec_lt\"]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_name": "instOfNat",
+    "has_proof": true
+  }
+}

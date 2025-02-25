@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkArray_one : mkArray 1 a = #[a] := rfl\ntheorem map_const' (xs : Array \u03b1) (b : \u03b2) : map (fun _ => b) xs = mkArray xs.size b :=\n  map_const xs b\n@[simp] theorem set_mkArray_self : (mkArray n a).set i a h = mkArray n a := by\n  apply Array.ext'\n  simp\n@[simp] theorem setIfInBounds_mkArray_self : (mkArray n a).setIfInBounds i a = mkArray n a := by\n  apply Array.ext'\n  simp\n@[simp] theorem mkArray_append_mkArray : mkArray n a ++ mkArray m a = mkArray (n + m) a := by\n  apply Array.ext'\n  simp\ntheorem append_eq_mkArray_iff {xs ys : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "mkArray_one",
+    "has_proof": true
+  }
+}

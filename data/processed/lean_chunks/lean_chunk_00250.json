@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex2 (x z : Nat) (h : f (f x) = x) (h' : z = x) : (let y := f (f x); y) = z := by\n  simp (config := { zeta := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simpZetaFalse.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simpZetaFalse.lean",
+    "definition_name": "ex2",
+    "has_proof": true
+  }
+}

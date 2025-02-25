@@ -1,0 +1,9 @@
+{
+  "content": "structure PPFns where\n  ppExprWithInfos : PPContext \u2192 Expr \u2192 IO FormatWithInfos\n  ppConstNameWithInfos : PPContext \u2192 Name \u2192 IO FormatWithInfos\n  ppTerm : PPContext \u2192 Term \u2192 IO Format\n  ppLevel : PPContext \u2192 Level \u2192 BaseIO Format\n  ppGoal : PPContext \u2192 MVarId \u2192 IO Format\n  deriving Inhabited\ndef formatRawTerm (ctx : PPContext) (stx : Term) : Format :=\n  stx.raw.formatStx (some <| pp.raw.maxDepth.get ctx.opts) (pp.raw.showInfo.get ctx.opts)\ndef formatRawGoal (mvarId : MVarId) : Format :=\n  \"goal \" ++ format (mkMVar mvarId)\nbuiltin_initialize ppFnsRef : IO.Ref PPFns \u2190\n  IO.mkRef {\n    ppExprWithInfos := fun _ e => return format (toString e)\n    ppConstNameWithInfos := fun _ n => return format n\n    ppTerm := fun ctx stx => return formatRawTerm ctx stx\n    ppLevel := fun _ l => return format l\n    ppGoal := fun _ mvarId => return formatRawGoal mvarId\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/PPExt.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/PPExt.lean",
+    "definition_name": "PPFns"
+  }
+}

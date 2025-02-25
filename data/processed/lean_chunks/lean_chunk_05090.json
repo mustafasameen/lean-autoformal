@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 apply mem_cons_self\n          \u00b7 exact mem_cons_of_mem _ (mem_cons_of_mem _ m)) b)\n        simp [ih, List.foldlM_map]\n    | .yield b =>\n      simp [ih, List.foldlM_map]\ntheorem forIn_eq_foldlM [Monad m] [LawfulMonad m]\n    (f : \u03b1 \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) (init : \u03b2) (l : List \u03b1) :\n    forIn l init f = ForInStep.value <$>\n      l.foldlM (fun b a => match b with\n        | .yield b => f a b\n        | .done b => pure (.done b)) (ForInStep.yield init) := by\n  induction l generalizing init with\n  | nil => simp\n  | cons a as ih =>\n    simp only [foldlM_cons, bind_pure_comp, forIn_cons, _root_.map_bind]\n    congr 1\n    funext x\n    match x with\n    | .done b =>\n      clear ih\n      dsimp\n      induction as with\n      | nil => simp\n      | cons a as ih => simp [ih]\n    | .yield b =>\n      simp [ih]\ntheorem allM_eq_not_anyM_not [Monad m] [LawfulMonad m] (p : \u03b1 \u2192 m Bool) (as : List \u03b1) :\n    allM p as = (! \u00b7) <$> anyM ((! \u00b7) <$> p \u00b7) as := by\n  induction as with\n  | nil => simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_name": "forIn",
+    "has_proof": true
+  }
+}

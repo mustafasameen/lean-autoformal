@@ -1,0 +1,9 @@
+{
+  "content": "def nat  := mkConst `Nat\ndef succ := mkConst `Nat.succ\ndef tst1 : MetaM Unit :=\nwithLocalDeclD `n nat fun n => do\nlet n1    := mkApp succ n\nlet vecN1 := mkApp2 (mkConst `Vec) nat n1\nwithLocalDeclD `xs vecN1 fun xs => do\ngeneralizeTelescope #[n1, xs] fun ys => do\nlet t \u2190 mkLambdaFVars ys ys.back!\ntrace[Meta.debug] t\npure ()\n#guard_msgs in\n#eval tst2\ndef failIfSuccess (x : MetaM Unit) : MetaM Unit := do\nlet worked \u2190 try x",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/generalizeTelescope.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/generalizeTelescope.lean",
+    "definition_name": "nat"
+  }
+}

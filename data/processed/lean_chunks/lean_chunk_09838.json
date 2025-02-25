@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldRev_eq_foldr_keys {f : \u03b4 \u2192 (a : \u03b1) \u2192 \u03b4}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_name": "foldRev_eq_foldr_keys",
+    "has_proof": false
+  }
+}

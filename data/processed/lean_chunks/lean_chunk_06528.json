@@ -1,0 +1,9 @@
+{
+  "content": "| _, hole .. => pure none\ndef InfoTree.collectNodesBottomUpM [Monad m] (p : ContextInfo \u2192 Info \u2192 PersistentArray InfoTree \u2192 List \u03b1 \u2192 m (List \u03b1)) (i : InfoTree) : m (List \u03b1) :=\n  (\u00b7.getD []) <$> i.visitM (m := m) (postNode := fun ci i cs as => do p ci i cs (as.filterMap id).flatten)\ndef InfoTree.collectNodesBottomUp (p : ContextInfo \u2192 Info \u2192 PersistentArray InfoTree \u2192 List \u03b1 \u2192 List \u03b1) (i : InfoTree) : List \u03b1 :=\n  i.collectNodesBottomUpM (m := Id) p\npartial def InfoTree.deepestNodesM [Monad m] (p : ContextInfo \u2192 Info \u2192 PersistentArray InfoTree \u2192 m (Option \u03b1)) (infoTree : InfoTree) : m (List \u03b1) :=\n  infoTree.collectNodesBottomUpM fun ctx i cs rs => do\n    if rs.isEmpty then\n      match \u2190 p ctx i cs with\n      | some r => return [r]\n      | none   => return []\n    else\n      return rs\npartial def InfoTree.deepestNodes (p : ContextInfo \u2192 Info \u2192 PersistentArray InfoTree \u2192 Option \u03b1) (infoTree : InfoTree) : List \u03b1 :=\n  infoTree.deepestNodesM (m := Id) p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_name": "InfoWithCtx"
+  }
+}

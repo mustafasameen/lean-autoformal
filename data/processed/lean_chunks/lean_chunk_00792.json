@@ -1,0 +1,9 @@
+{
+  "content": "class CategoryStruct (obj : Type u) : Type max u (v + 1) extends Quiver.{v + 1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "CategoryStruct"
+  }
+}

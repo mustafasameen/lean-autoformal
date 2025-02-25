@@ -1,0 +1,9 @@
+{
+  "content": "def test := \"test\"\nend X\nnamespace Y\nnamespace X end X\nopen _root_.X\n#guard_msgs in\n#check test",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3045.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3045.lean",
+    "definition_name": "test"
+  }
+}

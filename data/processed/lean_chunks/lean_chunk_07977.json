@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertMany_nil (h : m.WF) :\n    insertMany m [] = m :=\n  ext (HashMap.Raw.insertManyIfNewUnit_nil h.1)\n@[simp]\ntheorem insertMany_list_singleton (h : m.WF) {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_name": "insertMany_nil",
+    "has_proof": false
+  }
+}

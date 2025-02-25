@@ -1,0 +1,9 @@
+{
+  "content": "class DivInvMonoid (G : Type u) extends Monoid G, Inv G, Div G where\nclass SubNegMonoid (G : Type u) extends AddMonoid G, Neg G, Sub G where\nclass Group (G : Type u) extends DivInvMonoid G where\nclass AddGroup (A : Type u) extends SubNegMonoid A where\nclass AddCommGroup (G : Type u) extends AddGroup G, AddCommMonoid G\nend Mathlib.Algebra.Group.Defs\nsection Mathlib.Logic.Nontrivial\nclass Nontrivial (\u03b1 : Type _) : Prop where\nend Mathlib.Logic.Nontrivial\nsection Mathlib.Algebra.GroupWithZero.Defs\nclass MulZeroClass (M\u2080 : Type u) extends Mul M\u2080, Zero M\u2080 where\nclass IsLeftCancelMulZero (M\u2080 : Type u) [Mul M\u2080] [Zero M\u2080] : Prop where\nclass IsRightCancelMulZero (M\u2080 : Type u) [Mul M\u2080] [Zero M\u2080] : Prop where\nclass IsCancelMulZero (M\u2080 : Type u) [Mul M\u2080] [Zero M\u2080] : Prop\n  extends IsLeftCancelMulZero M\u2080, IsRightCancelMulZero M\u2080\nclass NoZeroDivisors (M\u2080 : Type _) [Mul M\u2080] [Zero M\u2080] : Prop where\nclass SemigroupWithZero (S\u2080 : Type u) extends Semigroup S\u2080, MulZeroClass S\u2080",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_name": "Inv"
+  }
+}

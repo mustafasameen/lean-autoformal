@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_as_aig : \u2200 (b : Bool), (true && !b) = !b := by\n  decide\nprivate theorem or_as_aig : \u2200 (a b : Bool), (!(!a && !b)) = (a || b) := by\n  decide\nprivate theorem xor_as_aig : \u2200 (a b : Bool), (!(a && b) && !(!a && !b)) = (a ^^ b) := by\n  decide\nprivate theorem beq_as_aig : \u2200 (a b : Bool), (!(a && !b) && !(!a && b)) = (a == b) := by\n  decide\nprivate theorem imp_as_aig : \u2200 (a b : Bool), (!(a && !b)) = (!a || b) := by\n  decide\nvariable {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedGatesLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedGatesLemmas.lean",
+    "definition_name": "not_as_aig",
+    "has_proof": true
+  }
+}

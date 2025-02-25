@@ -1,0 +1,9 @@
+{
+  "content": "if t.isObj then\n    if v < UInt32.size then\n      callLeanUnsignedToNatFn builder v\n    else\n      callLeanCStrToNatFn builder v\n  else\n    LLVM.constInt (\u2190 toLLVMType t) (UInt64.ofNat v)\ndef toHexDigit (c : Nat) : String :=\n  String.singleton c.digitChar\ndef quoteString (s : String) : String :=\n  let q := \"\\\"\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

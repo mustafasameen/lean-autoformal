@@ -1,0 +1,9 @@
+{
+  "content": "@[combinator_formatter ppRealGroup] def ppRealGroup.formatter (p : Formatter) : Formatter := Formatter.group p\n@[combinator_formatter ppIndent] def ppIndent.formatter (p : Formatter) : Formatter := Formatter.indent p\n@[combinator_formatter ppDedent] def ppDedent.formatter (p : Formatter) : Formatter := do\n  let opts \u2190 getOptions\n  Formatter.indent p (some ((0:Int) - Std.Format.getIndent opts))\n@[combinator_formatter ppAllowUngrouped] def ppAllowUngrouped.formatter : Formatter := do\n  modify ({ \u00b7 with mustBeGrouped := false })\n@[combinator_formatter ppDedentIfGrouped] def ppDedentIfGrouped.formatter (p : Formatter) : Formatter := do\n  Formatter.concat p\n  let indent := Std.Format.getIndent (\u2190 getOptions)\n  unless (\u2190 get).isUngrouped do\n    modify fun st => { st with stack := st.stack.modify (st.stack.size - 1) (\u00b7.nest (0 - indent)) }\n@[combinator_formatter ppHardLineUnlessUngrouped] def ppHardLineUnlessUngrouped.formatter : Formatter := do\n  if (\u2190 get).isUngrouped then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_name": "identWithPartialTrailingDot"
+  }
+}

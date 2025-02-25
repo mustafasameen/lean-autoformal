@@ -1,0 +1,9 @@
+{
+  "content": "#guard_msgs in\n#eval ShortDate.formatBuilder date\u2081.month date\u2081.day date\u2081.year\n#guard_msgs in\n#eval Formats.sqlDate.format (DateTime.ofPlainDate (PlainDate.ofDaysSinceUNIXEpoch \u27e8-700000\u27e9) .UTC)\n#guard_msgs in\n#eval Formats.sqlDate.format (DateTime.ofPlainDate (PlainDate.ofDaysSinceUNIXEpoch \u27e8-720000\u27e9) .UTC)\n#guard_msgs in\n#eval Formats.sqlDate.format (DateTime.ofPlainDate (PlainDate.ofDaysSinceUNIXEpoch \u27e8-750000\u27e9) .UTC)\n#guard_msgs in\n#eval Formats.sqlDate.format (DateTime.ofPlainDate (PlainDate.ofDaysSinceUNIXEpoch \u27e8-800000\u27e9) .UTC)\n#guard_msgs in\n#eval PlainDate.ofDaysSinceUNIXEpoch \u27e8-800000\u27e9\n#guard_msgs in\n#eval PlainDate.ofDaysSinceUNIXEpoch \u27e8-800000\u27e9\n#guard_msgs in\n#eval date(\"2002-07-14\")\n#guard_msgs in\n#eval time(\"14:13:12\")\n#guard_msgs in\n#eval zoned(\"2002-07-14T14:13:12Z\")\n#guard_msgs in\n#eval zoned(\"2002-07-14T14:13:12+09:00\")\n#guard_msgs in\n#eval zoned(\"2002-07-14T14:13:12+09:00\").format \"uuuu-MM-dd\"\n#guard_msgs in\n#eval zoned(\"2002-07-14T14:13:12+09:00\").format \"HH-mm-ss\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_name": "date\u2081"
+  }
+}

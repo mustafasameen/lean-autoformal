@@ -1,0 +1,9 @@
+{
+  "content": "structure Position where\n  line   : Nat\n  column : Nat\n  deriving Inhabited, DecidableEq, Repr, ToJson, FromJson\nnamespace Position\nprotected def lt : Position \u2192 Position \u2192 Bool\n  | \u27e8l\u2081, c\u2081\u27e9, \u27e8l\u2082, c\u2082\u27e9 => Prod.lexLt (l\u2081, c\u2081) (l\u2082, c\u2082)\ninstance : ToFormat Position :=\n  \u27e8fun \u27e8l, c\u27e9 => \"\u27e8\" ++ format l ++ \", \" ++ format c ++ \"\u27e9\"\u27e9\ninstance : ToString Position :=\n  \u27e8fun \u27e8l, c\u27e9 => \"\u27e8\" ++ toString l ++ \", \" ++ toString c ++ \"\u27e9\"\u27e9\ninstance : ToExpr Position where\n  toExpr p   := mkAppN (mkConst ``Position.mk) #[toExpr p.line, toExpr p.column]\n  toTypeExpr := mkConst ``Position\nend Position\n  source    : String\n  positions : Array String.Pos\n  deriving Inhabited\nclass MonadFileMap (m : Type \u2192 Type) where\n  getFileMap : m FileMap\nexport MonadFileMap (getFileMap)\nnamespace FileMap\ndef getLine (fmap : FileMap) (x : Nat) : Nat :=\n  min (x + 1) fmap.getLastLine\npartial def ofString (s : String) : FileMap :=\n  let rec loop (i : String.Pos) (line : Nat) (ps : Array String.Pos) : FileMap :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Position.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Position.lean",
+    "definition_name": "Position"
+  }
+}

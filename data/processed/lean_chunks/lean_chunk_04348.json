@@ -1,0 +1,10 @@
+{
+  "content": "theorem two_pow_pred_add_two_pow_pred (h : 0 < w) :\n    2 ^ (w - 1) + 2 ^ (w - 1) = 2 ^ w := by\n  rw [\u2190 Nat.pow_pred_mul h]\n  omega\n@[simp]\nprotected theorem two_pow_sub_two_pow_pred (h : 0 < w) :\n    2 ^ w - 2 ^ (w - 1) = 2 ^ (w - 1) := by\n  simp [\u2190 Nat.two_pow_pred_add_two_pow_pred h]\n@[simp]\nprotected theorem two_pow_pred_mod_two_pow (h : 0 < w) :\n    2 ^ (w - 1) % 2 ^ w = 2 ^ (w - 1) := by\n  rw [mod_eq_of_lt]\n  apply Nat.pow_pred_lt_pow (by omega) h\nprotected theorem pow_lt_pow_iff_pow_mul_le_pow {a n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "two_pow_pred_add_two_pow_pred",
+    "has_proof": true
+  }
+}

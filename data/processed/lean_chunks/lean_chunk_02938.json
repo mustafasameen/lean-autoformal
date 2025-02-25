@@ -1,0 +1,10 @@
+{
+  "content": "def insert (ext : MapDeclarationExtension \u03b1) (env : Environment) (declName : Name) (val : \u03b1) : Environment :=\n  have : Inhabited Environment := \u27e8env\u27e9\nassert! env.getModuleIdxFor? declName |>.isNone\n  ext.addEntry env (declName, val)\ndef find? [Inhabited \u03b1] (ext : MapDeclarationExtension \u03b1) (env : Environment) (declName : Name) : Option \u03b1 :=\n  match env.getModuleIdxFor? declName with\n  | some modIdx =>\n    match (ext.getModuleEntries env modIdx).binSearch (declName, default) (fun a b => Name.quickLt a.1 b.1) with\n    | some e => some e.2\n    | none   => none\n  | none => (ext.getState env).find? declName\ndef contains [Inhabited \u03b1] (ext : MapDeclarationExtension \u03b1) (env : Environment) (declName : Name) : Bool :=\n  match env.getModuleIdxFor? declName with\n  | some modIdx => (ext.getModuleEntries env modIdx).binSearchContains (declName, default) (fun a b => Name.quickLt a.1 b.1)\n  | none        => (ext.getState env).contains declName\nend MapDeclarationExtension",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

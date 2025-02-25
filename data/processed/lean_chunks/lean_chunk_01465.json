@@ -1,0 +1,9 @@
+{
+  "content": "class Category (obj : Type u) : Type max u (v + 1) where\n  Hom : obj \u2192 obj \u2192 Type v\n  comp : \u2200 {X Y Z : obj}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat.lean",
+    "definition_name": "Category"
+  }
+}

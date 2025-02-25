@@ -1,0 +1,9 @@
+{
+  "content": "section Mathlib.Data.Int.Cast.Defs\nclass AddGroupWithOne (R : Type u) extends IntCast2 R, AddMonoidWithOne R, AddGroup R where\nend Mathlib.Data.Int.Cast.Defs\nsection Mathlib.Algebra.Ring.Defs\nclass NonUnitalNonAssocSemiring (\u03b1 : Type u) extends AddCommMonoid \u03b1, MulZeroClass \u03b1\nclass NonUnitalSemiring (\u03b1 : Type u) extends NonUnitalNonAssocSemiring \u03b1, SemigroupWithZero \u03b1\nclass NonAssocSemiring (\u03b1 : Type u) extends NonUnitalNonAssocSemiring \u03b1, MulZeroOneClass \u03b1,\n    AddCommMonoidWithOne \u03b1\nclass Semiring (\u03b1 : Type u) extends NonUnitalSemiring \u03b1, NonAssocSemiring \u03b1, MonoidWithZero \u03b1\nclass Ring (R : Type u) extends Semiring R, AddCommGroup R, AddGroupWithOne R\nclass CommSemiring (R : Type u) extends Semiring R, CommMonoid R\nclass CommRing (\u03b1 : Type u) extends Ring \u03b1, CommMonoid \u03b1\ninstance CommRing.toCommSemiring [s : CommRing \u03b1] : CommSemiring \u03b1 :=\n  { s with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_name": "Inv"
+  }
+}

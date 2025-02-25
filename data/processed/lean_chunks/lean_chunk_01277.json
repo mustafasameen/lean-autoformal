@@ -1,0 +1,9 @@
+{
+  "content": "instance Zero'.toOfNat0 {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2282.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2282.lean",
+    "definition_name": "Zero"
+  }
+}

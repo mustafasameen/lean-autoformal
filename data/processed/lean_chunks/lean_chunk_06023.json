@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_take' (xs : List \u03b1) {i j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "getElem_take",
+    "has_proof": false
+  }
+}

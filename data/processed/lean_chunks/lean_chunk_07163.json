@@ -1,0 +1,9 @@
+{
+  "content": "structure Pass where\n  occurrence : Nat := 0\n  phase : Phase\n  phaseOut : Phase := phase\n  phaseInv : phaseOut \u2265 phase := by simp +arith +decide\n  name : Name\n  run : Array Decl \u2192 CompilerM (Array Decl)\ninstance : Inhabited Pass where\n  default := { phase := .base, name := default, run := fun decls => return decls }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PassManager.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PassManager.lean",
+    "definition_name": "Pass"
+  }
+}

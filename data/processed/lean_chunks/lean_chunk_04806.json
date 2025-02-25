@@ -1,0 +1,10 @@
+{
+  "content": "theorem isLeft_inl : (inl x : \u03b1 \u2295 \u03b2).isLeft = true := rfl\n@[simp] theorem isLeft_inr : (inr x : \u03b1 \u2295 \u03b2).isLeft = false := rfl\n@[simp] theorem isRight_inl : (inl x : \u03b1 \u2295 \u03b2).isRight = false := rfl\n@[simp] theorem isRight_inr : (inr x : \u03b1 \u2295 \u03b2).isRight = true := rfl\n@[simp] theorem getLeft_inl (h : (inl x : \u03b1 \u2295 \u03b2).isLeft) : (inl x).getLeft h = x := rfl\n@[simp] theorem getRight_inr (h : (inr x : \u03b1 \u2295 \u03b2).isRight) : (inr x).getRight h = x := rfl\n@[simp] theorem getLeft?_inl : (inl x : \u03b1 \u2295 \u03b2).getLeft? = some x := rfl\n@[simp] theorem getLeft?_inr : (inr x : \u03b1 \u2295 \u03b2).getLeft? = none := rfl\n@[simp] theorem getRight?_inl : (inl x : \u03b1 \u2295 \u03b2).getRight? = none := rfl\n@[simp] theorem getRight?_inr : (inr x : \u03b1 \u2295 \u03b2).getRight? = some x := rfl\nend get\nprotected def map (f : \u03b1 \u2192 \u03b1') (g : \u03b2 \u2192 \u03b2') : \u03b1 \u2295 \u03b2 \u2192 \u03b1' \u2295 \u03b2' :=\n  Sum.elim (inl \u2218 f) (inr \u2218 g)\n@[simp] theorem map_inl (f : \u03b1 \u2192 \u03b1') (g : \u03b2 \u2192 \u03b2') (x : \u03b1) : (inl x).map f g = inl (f x) := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Basic.lean",
+    "definition_name": "isLeft_inl",
+    "has_proof": false
+  }
+}

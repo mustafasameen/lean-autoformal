@@ -1,0 +1,9 @@
+{
+  "content": "| arrayElem j :: arrayEnd :: is      => go acc (json j :: arrayEnd :: is)\n  | arrayElem j :: is                  => go acc (json j :: comma :: is)\n  | arrayEnd :: is                     => go (acc ++ \"]\") is\n  | objectField k j :: objectEnd :: is => go (renderString k acc ++ \":\") (json j :: objectEnd :: is)\n  | objectField k j :: is              => go (renderString k acc ++ \":\") (json j :: comma :: is)\n  | objectEnd :: is                    => go (acc ++ \"}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Printer.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Printer.lean",
+    "definition_name": "CompressWorkItem"
+  }
+}

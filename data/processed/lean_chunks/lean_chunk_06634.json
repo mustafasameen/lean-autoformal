@@ -1,0 +1,9 @@
+{
+  "content": "def nestedTactic := tacticSeqBracketed\ndef matchRhs  := Term.hole <|> Term.syntheticHole <|> tacticSeq\ndef matchAlts := Term.matchAlts (rhsParser := matchRhs)\n@[builtin_tactic_parser] def \u00abmatch\u00bb := leading_parser:leadPrec\n  \"match \" >> optional Term.generalizingParam >>\n  optional Term.motive >> sepBy1 Term.matchDiscr \", \" >>\n  \" with \" >> ppDedent matchAlts\n@[builtin_tactic_parser] def introMatch := leading_parser\n  nonReservedSymbol \"intro\" >> matchAlts\nbuiltin_initialize\n  register_parser_alias \"matchRhsTacticSeq\" matchRhs\nend Tactic\nend Parser\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Tactic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Tactic.lean",
+    "definition_name": "nestedTactic"
+  }
+}

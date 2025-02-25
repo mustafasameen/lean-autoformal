@@ -1,0 +1,9 @@
+{
+  "content": "(Raw\u2080.insertIfNew \u27e8m, h\u27e9 a b).1\nelse m\n@[inline] def containsThenInsert [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) (b : \u03b2 a) :\n    Bool \u00d7 Raw \u03b1 \u03b2 :=\n  if h : 0 < m.buckets.size then\n    let \u27e8replaced, \u27e8r, _\u27e9\u27e9 := Raw\u2080.containsThenInsert \u27e8m, h\u27e9 a b\n    \u27e8replaced, r\u27e9\nelse (false, m)\n@[inline] def getThenInsertIfNew? [BEq \u03b1] [Hashable \u03b1] [LawfulBEq \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1)\n    (b : \u03b2 a) : Option (\u03b2 a) \u00d7 Raw \u03b1 \u03b2 :=\n  if h : 0 < m.buckets.size then\n    let \u27e8previous, \u27e8r, _\u27e9\u27e9 := Raw\u2080.getThenInsertIfNew? \u27e8m, h\u27e9 a b\n    \u27e8previous, r\u27e9\nelse (none, m)\n@[inline] def containsThenInsertIfNew [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) (b : \u03b2 a) :\n    Bool \u00d7 Raw \u03b1 \u03b2 :=\n  if h : 0 < m.buckets.size then\n    let \u27e8previous, \u27e8r, _\u27e9\u27e9 := Raw\u2080.containsThenInsertIfNew \u27e8m, h\u27e9 a b\n    \u27e8previous, r\u27e9\nelse (false, m)\n@[inline] def get? [BEq \u03b1] [LawfulBEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) : Option (\u03b2 a) :=\n  if h : 0 < m.buckets.size then\n    Raw\u2080.get? \u27e8m, h\u27e9 a\nelse none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Raw.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Raw.lean",
+    "definition_name": "empty"
+  }
+}

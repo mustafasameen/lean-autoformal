@@ -1,0 +1,9 @@
+{
+  "content": "inductive Term : Type\n| id2: Term -> Term -> Term\ninductive Brx: Term -> Prop\n| id2: Brx z -> Brx (Term.id2 n z)\ndef Brx.interp {a}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1074a.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1074a.lean",
+    "definition_name": "Term"
+  }
+}

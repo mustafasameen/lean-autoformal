@@ -1,0 +1,9 @@
+{
+  "content": "class Vec (X : Type) extends Add X, Inhabited X\nclass Vec' (X : Type) extends Vec X\ndef differential {X Y : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/790.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/790.lean",
+    "definition_name": "Vec"
+  }
+}

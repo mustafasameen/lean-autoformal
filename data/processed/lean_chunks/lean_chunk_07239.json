@@ -1,0 +1,9 @@
+{
+  "content": "@[export lean_ir_add_decl]\ndef addDeclAux (env : Environment) (decl : Decl) : Environment :=\n  declMapExt.addEntry (env.addExtraName decl.name) decl\ndef getDecls (env : Environment) : List Decl :=\n  declMapExt.getEntries env\ndef getEnv : CompilerM Environment := do\n  let s \u2190 get",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_name": "tracePrefixOptionName"
+  }
+}

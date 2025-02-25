@@ -1,0 +1,9 @@
+{
+  "content": "| _, _ => false\n  def completeNamespaces (ctx : ContextInfo) (id : Name) (danglingDot : Bool) : M Unit := do\n    let env \u2190 getEnv\n    let add (ns : Name) (ns' : Name) : M Unit :=\n      if danglingDot then\n        addNamespaceCompletionItem (ns.replacePrefix (ns' ++ id) Name.anonymous)\n      else\n        addNamespaceCompletionItem (ns.replacePrefix ns' Name.anonymous)\n    env.getNamespaceSet |>.forM fun ns => do\nunless ns.isInternal || env.contains ns do\n        for openDecl in ctx.openDecls do\n          match openDecl with\n          | OpenDecl.simple ns' _      =>\n            if matchNamespace ns (ns' ++ id) danglingDot then\n              add ns ns'\n              return ()\n          | _ => pure ()\n        let rec visitNamespaces (ns' : Name) : M Unit := do\n          if matchNamespace ns (ns' ++ id) danglingDot then\n            add ns ns'\n          else\n            match ns' with\n            | Name.str p .. => visitNamespaces p\n            | _ => return ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

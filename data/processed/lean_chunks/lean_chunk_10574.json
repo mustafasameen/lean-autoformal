@@ -1,0 +1,10 @@
+{
+  "content": "theorem Ordered.compare_right [Ord \u03b1] {sz k v l r}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Ordered.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Ordered.lean",
+    "definition_name": "Ordered",
+    "has_proof": false
+  }
+}

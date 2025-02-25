@@ -1,0 +1,9 @@
+{
+  "content": "structure ReplicateTarget (aig : AIG \u03b1) (combined : Nat) where\n  {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/Replicate.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/Replicate.lean",
+    "definition_name": "ReplicateTarget"
+  }
+}

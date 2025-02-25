@@ -1,0 +1,9 @@
+{
+  "content": "inductive EmbedFmt\n  | goal (ctx : Elab.ContextInfo) (lctx : LocalContext) (g : MVarId)\n  | trace (cls : Name) (msg : Format) (collapsed : Bool)\n    (children : StrictOrLazy (Array Format) (Array MessageData))\n  chopUpChildren (cls : Name) (blockSize : Nat) (children : Subarray MessageData) :\n      Array MessageData :=\nif blockSize > 0 && children.size > blockSize + 1 then\n      let more := chopUpChildren cls blockSize children[blockSize:]\n      children[:blockSize].toArray.push <|\n        .trace { collapsed := true, cls }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveDiagnostic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveDiagnostic.lean",
+    "definition_name": "EmbedFmt"
+  }
+}

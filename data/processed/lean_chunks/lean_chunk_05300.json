@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_left : \u2200 l\u2081 l\u2082 : List \u03b1, take (length l\u2081) (l\u2081 ++ l\u2082) = l\u2081\n  | [], _ => rfl\n  | a :: l\u2081, l\u2082 => congrArg (cons a) (take_left l\u2081 l\u2082)\n@[simp]\ntheorem take_left' {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_name": "take_left",
+    "has_proof": false
+  }
+}

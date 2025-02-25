@@ -1,0 +1,9 @@
+{
+  "content": "inductive predicate\"\n      | .infer =>\n        if let some declName \u2190 Grind.isCasesAttrCandidate? declName false then\n          params := { params with casesTypes := params.casesTypes.insert declName false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_name": "predicate"
+  }
+}

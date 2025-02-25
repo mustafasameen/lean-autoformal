@@ -1,0 +1,9 @@
+{
+  "content": "structure EqnInfo extends EqnInfoCore where\n  recArgPos : Nat\n  declNames : Array Name\n  numFixed  : Nat\n  deriving Inhabited\nprivate partial def mkProof (declName : Name) (type : Expr) : MetaM Expr := do\n  trace[Elab.definition.structural.eqns] \"proving: {type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Structural/Eqns.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Structural/Eqns.lean",
+    "definition_name": "EqnInfo"
+  }
+}

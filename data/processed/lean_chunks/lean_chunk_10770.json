@@ -1,0 +1,9 @@
+{
+  "content": "package or its dependencies. It merely verifies that one is specified.\n\"\ndef helpPack :=\n\"Pack build artifacts into a archive for distribution\nUSAGE:\n  lake pack [<file.tgz>]\nPacks the root package's `buildDir` into a gzip tar archive using `tar`.\nIf a path for the archive is not specified, creates a archive in the package's\nLake directory (`.lake`) named according to its `buildArchive` setting.\nDoes NOT build any artifacts. It just packs the existing ones.\"\ndef helpUnpack :=\n\"Unpack build artifacts from a distributed archive\nUSAGE:\n  lake unpack [<file.tgz>]\nUnpack build artifacts from the gzip tar archive `file.tgz` into the root\npackage's `buildDir`. If a path for the archive is not specified, uses the\nthe package's `buildArchive` in its Lake directory (`.lake`).\"\ndef helpUpload :=\n\"Upload build artifacts to a GitHub release\nUSAGE:\n  lake upload <tag>\nPacks the root package's `buildDir` into a `tar.gz` archive using `tar` and",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

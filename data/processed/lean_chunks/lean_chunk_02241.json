@@ -1,0 +1,9 @@
+{
+  "content": "instance liftCoercePair\u2081 {a\u2081 a\u2082 b : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_coerce.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_coerce.lean",
+    "definition_name": "liftCoercePair\u2081"
+  }
+}

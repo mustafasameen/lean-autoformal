@@ -1,0 +1,9 @@
+{
+  "content": "match type with\n      | .forallE n d b bi =>\n        if fvarsSizeLtMaxFVars fvars maxFVars? then\n          let d     := d.instantiateRevRange j fvars.size fvars\n          let d     := if cleanupAnnotations then d.cleanupAnnotations else d\n          let fvarId \u2190 mkFreshFVarId\n          let lctx  := lctx.mkLocalDecl fvarId n d bi\n          let fvar  := mkFVar fvarId\n          let fvars := fvars.push fvar\n          process lctx fvars j b\n        else\n          let type := type.instantiateRevRange j fvars.size fvars",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

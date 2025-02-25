@@ -1,0 +1,10 @@
+{
+  "content": "theorem CongrGood {x y: Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1118.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1118.lean",
+    "definition_name": "CongrGood",
+    "has_proof": false
+  }
+}

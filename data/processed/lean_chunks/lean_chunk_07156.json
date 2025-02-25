@@ -1,0 +1,9 @@
+{
+  "content": "inductive CodeDecl where\n  | let (decl : LetDecl)\n  | fun (decl : FunDecl)\n  | jp (decl : FunDecl)\n  deriving Inhabited\ndef CodeDecl.fvarId : CodeDecl \u2192 FVarId\n  | .let decl | .fun decl | .jp decl => decl.fvarId\ndef attachCodeDecls (decls : Array CodeDecl) (code : Code) : Code :=\n  go decls.size code\nwhere\n  go (i : Nat) (code : Code) : Code :=\n    if i > 0 then\n      match decls[i-1]! with\n      | .let decl => go (i-1) (.let decl code)\n      | .fun decl => go (i-1) (.fun decl code)\n      | .jp decl => go (i-1) (.jp decl code)\n    else\n      code\nmutual\n  private unsafe def eqImp (c\u2081 c\u2082 : Code) : Bool :=\n    if ptrEq c\u2081 c\u2082 then\n      true\n    else match c\u2081, c\u2082 with\n      | .let d\u2081 k\u2081, .let d\u2082 k\u2082 => d\u2081 == d\u2082 && eqImp k\u2081 k\u2082\n      | .fun d\u2081 k\u2081, .fun d\u2082 k\u2082\n      | .jp d\u2081 k\u2081, .jp d\u2082 k\u2082 => eqFunDecl d\u2081 d\u2082 && eqImp k\u2081 k\u2082\n      | .cases c\u2081, .cases c\u2082 => eqCases c\u2081 c\u2082\n      | .jmp j\u2081 as\u2081, .jmp j\u2082 as\u2082 => j\u2081 == j\u2082 && as\u2081 == as\u2082\n      | .return r\u2081, .return r\u2082 => r\u2081 == r\u2082",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Basic.lean",
+    "definition_name": "CodeDecl"
+  }
+}

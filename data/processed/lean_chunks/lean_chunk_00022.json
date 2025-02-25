@@ -1,0 +1,9 @@
+{
+  "content": "let mut r := eq.const\n      for (i, coeff) in eq.coeffs do\n        if assignment[i]!.isNone then\n          assignment := readSolution i assignment\n        r := r + coeff*assignment[i]!.get!\n      return assignment.set! varIdx (some r)\npartial def solveProblem' (p : Problem) : Solution := Id.run <| do\n  match readSolution? p with\n  | some solution => return solution\n  | none =>\n    let p := eliminateSingletons p\n    match readSolution? p with\n    | some solution => return solution\n    | none =>\n      let p := addAuxEquation p\n      return solveProblem' p\ndef isSatAssignment (p : Problem) (assignment : Array Int) : Bool :=\n  \u00ac p.equations.any fun _ (eq : Equation) => Id.run <| do\n    let mut r := 0\n    for (i, coeff) in eq.coeffs do\n      r := r + coeff*assignment[i]!\n    return r \u2260 eq.const\ndef solveProblem (p : Problem) : Solution :=\n  let nVars := p.nVars\n  match solveProblem' p with\n  | Solution.unsat =>\n    Solution.unsat\n  | Solution.sat assignment =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_name": "Solution"
+  }
+}

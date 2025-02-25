@@ -1,0 +1,10 @@
+{
+  "content": "instance instNatPowNat : NatPow Nat := \u27e8Nat.pow\u27e9\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_nat_dec_eq\"]\ndef Nat.beq : (@& Nat) \u2192 (@& Nat) \u2192 Bool\n  | zero,   zero   => true\n  | zero,   succ _ => false\n  | succ _, zero   => false\n  | succ n, succ m => beq n m\ntheorem Nat.eq_of_beq_eq_true : {n m : Nat} \u2192 Eq (beq n m) true \u2192 Eq n m\n  | zero,   zero,   _ => rfl\n  | zero,   succ _, h => Bool.noConfusion h\n  | succ _, zero,   h => Bool.noConfusion h\n  | succ n, succ m, h =>\n    have : Eq (beq n m) true := h\n    have : Eq n m := eq_of_beq_eq_true this\n    this \u25b8 rfl\ntheorem Nat.ne_of_beq_eq_false : {n m : Nat} \u2192 Eq (beq n m) false \u2192 Not (Eq n m)\n  | zero,   zero,   h\u2081, _  => Bool.noConfusion h\u2081\n  | zero,   succ _, _,  h\u2082 => Nat.noConfusion h\u2082\n  | succ _, zero,   _,  h\u2082 => Nat.noConfusion h\u2082\n  | succ n, succ m, h\u2081, h\u2082 =>\n    have : Eq (beq n m) false := h\u2081\n    Nat.noConfusion h\u2082 (fun h\u2082 => absurd h\u2082 (ne_of_beq_eq_false this))\n@[reducible, extern \"lean_nat_dec_eq\"]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Pattern : Type where\n  | inaccessible (e : Expr) : Pattern\n  | var          (fvarId : FVarId) : Pattern\n  | ctor         (ctorName : Name) (us : List Level) (params : List Expr) (fields : List Pattern) : Pattern\n  | val          (e : Expr) : Pattern\n  | arrayLit     (type : Expr) (xs : List Pattern) : Pattern\n  | as           (varId : FVarId) (p : Pattern) (hId : FVarId) : Pattern\n  deriving Inhabited\nnamespace Pattern\npartial def toMessageData : Pattern \u2192 MessageData\n  | inaccessible e         => m!\".({e}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_name": "Pattern"
+  }
+}

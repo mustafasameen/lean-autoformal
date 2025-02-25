@@ -1,0 +1,9 @@
+{
+  "content": "`(let __src := $source; $r)\nstructure ExplicitSourceView where\n  structName : Name\n  deriving Inhabited\nstructure SourcesView where\n  implicit : Option Syntax\n  deriving Inhabited\nprivate def mkSourcesWithSyntax (sources : Array Syntax) : Syntax :=\n  let ref := sources[0]!\n  let stx := Syntax.mkSep sources (mkAtomFrom ref \", \")\n  mkNullNode #[stx, mkAtomFrom ref \"with \"]\nprivate def getStructSources (structStx : Syntax) : TermElabM SourcesView :=\n  withRef structStx do\n    let explicitSource := structStx[1]\n    let implicitSource := structStx[3]\n    let explicit \u2190 if explicitSource.isNone then\n      pure #[]\n    else\n      explicitSource[0].getSepArgs.mapM fun stx => do\n        let some src \u2190 isLocalIdent? stx | unreachable!\n        addTermInfo' stx src\n        let srcType \u2190 whnf (\u2190 inferType src)\n        tryPostponeIfMVar srcType\n        let structName \u2190 getStructureName srcType\n        return { stx, structName }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_name": "field"
+  }
+}

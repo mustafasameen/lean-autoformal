@@ -1,0 +1,9 @@
+{
+  "content": "instance functorCategoryPreadditive : Preadditive (C \u2964 D) where\n  homGroup F G :=\n    { add_assoc := by\n        intros\n        ext\n        apply add_assoc\n      zero_add := by\n        intros\n        ext\n        apply zero_add\n      add_zero := by\n        intros\n        ext\n        apply add_zero\n      neg_add_cancel := by\n        intros\n        dsimp only\n        ext\n        apply neg_add_cancel }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "functorCategoryPreadditive"
+  }
+}

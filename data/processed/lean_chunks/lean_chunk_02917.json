@@ -1,0 +1,9 @@
+{
+  "content": "structure Environment where\n  private mk ::\n  checkedWithoutAsync : Kernel.Environment\n  checked             : Task Kernel.Environment := .pure checkedWithoutAsync\n  private asyncConsts : AsyncConsts := {}\nprivate def modifyCheckedAsync (env : Environment) (f : Kernel.Environment \u2192 Kernel.Environment) : Environment :=\n  { env with checked := env.checked.map (sync := true) f, checkedWithoutAsync := f env.checkedWithoutAsync }\ndef asyncMayContain (env : Environment) (declName : Name) : Bool :=\n  env.asyncCtx?.all (\u00b7.mayContain declName)\n@[extern \"lean_elab_add_decl\"]\nprivate opaque addDeclCheck (env : Environment) (maxHeartbeats : USize) (decl : @& Declaration)\n  (cancelTk? : @& Option IO.CancelToken) : Except Kernel.Exception Environment\n@[extern \"lean_elab_add_decl_without_checking\"]\nprivate opaque addDeclWithoutChecking (env : Environment) (decl : @& Declaration) :\n  Except Kernel.Exception Environment",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

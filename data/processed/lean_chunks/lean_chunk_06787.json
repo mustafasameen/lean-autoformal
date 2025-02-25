@@ -1,0 +1,9 @@
+{
+  "content": "def SuggestionStyle := Json deriving Inhabited, ToJson\ndef SuggestionStyle.error (decorated := true) : SuggestionStyle :=\n  let style := if decorated then\n    json% {\ncolor: \"var(\ntextDecoration: \"underline wavy var(\n    }\nelse json% { color: \"var(\n  json% { className: \"pointer dim\", style: $style }\ndef SuggestionStyle.warning (decorated := true) : SuggestionStyle :=\n  if decorated then\n    json% {\n      className: \"gold pointer dim\",\nstyle: { textDecoration: \"underline wavy var(\n    }\n  else json% { className: \"gold pointer dim\" }\ndef SuggestionStyle.asHypothesis : SuggestionStyle :=\n  json% { className: \"goal-hyp pointer dim\" }\ndef SuggestionStyle.value (t : Float) (showValueInHoverText := true) : SuggestionStyle :=\n  let t := min (max t 0) 1\n  json% {\n    className: \"pointer dim\",\n    style: { color: $(s!\"hsl({(t * 120).round} 95% {60 * ((t - 0.5)^2 + 0.75)}%)\") },\n    title: $(if showValueInHoverText then s!\"Apply suggestion ({t})\" else \"Apply suggestion\")\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "SuggestionStyle"
+  }
+}

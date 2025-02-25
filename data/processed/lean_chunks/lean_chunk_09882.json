@@ -1,0 +1,10 @@
+{
+  "content": "theorem get?_insertMany_list_of_mem [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.1.WF)\n    {l : List (\u03b1 \u00d7 \u03b2)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_name": "get",
+    "has_proof": false
+  }
+}

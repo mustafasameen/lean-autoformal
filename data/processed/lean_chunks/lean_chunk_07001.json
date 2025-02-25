@@ -1,0 +1,9 @@
+{
+  "content": "structure EditableDocumentCore where\n  initSnap : Language.Lean.InitialSnapshot\n  diagnosticsRef : IO.Ref (Array Widget.InteractiveDiagnostic)\n  reporter : ServerTask Unit\nnamespace EditableDocument\n  expireTime      : Nat\nnamespace RpcSession\ndef keepAliveTimeMs : Nat :=\n  30000\ndef new : IO (UInt64 \u00d7 RpcSession) := do\n  let newId \u2190 ByteArray.toUInt64LE! <$> IO.getRandomBytes 8\n  let newSesh := {\n    objects := {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/Utils.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/Utils.lean",
+    "definition_name": "EditableDocumentCore"
+  }
+}

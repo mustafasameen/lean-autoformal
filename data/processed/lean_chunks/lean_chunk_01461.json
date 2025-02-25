@@ -1,0 +1,10 @@
+{
+  "content": "theorem flip_obj_obj (F : C \u2964 D \u2964 E) (k : D) : (F.flip.obj k).obj = fun j => (F.obj j).obj k := rfl\n@[simp] theorem flip_obj_map (F : C \u2964 D \u2964 E) (k : D) {X Y : C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_cat.lean",
+    "definition_name": "flip_obj_obj",
+    "has_proof": false
+  }
+}

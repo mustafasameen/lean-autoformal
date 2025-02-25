@@ -1,0 +1,9 @@
+{
+  "content": "for fieldName in fieldNames do\n      let .str _ fieldName := fieldName | continue\n      if ! containsSuccessiveCharacters idStr fieldName then\n        continue\n      let item := { label := fieldName, detail? := \"field\", documentation? := none, kind? := CompletionItemKind.field }\n      addItem item\ndef optionCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)\n    (stx               : Syntax)\n    (caps              : ClientCapabilities)\n    : IO (Array CompletionItem) :=\n  ctx.runMetaM {} do\n    let (partialName, trailingDot) :=\n      match stx[1].getSubstring? (withLeading := false) (withTrailing := false) with\n| none => (\"\", false)\n      | some ss =>\n        if !ss.str.atEnd ss.stopPos && ss.str.get ss.stopPos == '.' then\n          (ss.toString ++ \".\", true)\n        else\n          (ss.toString, false)\n    let (decls : RBMap _ _ _) \u2190 getOptionDecls\n    let opts \u2190 getOptions\n    let mut items := #[]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

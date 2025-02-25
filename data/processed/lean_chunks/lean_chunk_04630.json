@@ -1,0 +1,10 @@
+{
+  "content": "(lhs.sub rhs).norm == .add 1 x (.add (-1) y (.num 0))\ntheorem norm_eq_var (ctx : Context) (lhs rhs : Expr) (x y : Var) (h : norm_eq_var_cert lhs rhs x y)\n    : (lhs.denote ctx = rhs.denote ctx) = (x.denote ctx = y.denote ctx) := by\n  simp [norm_eq_var_cert] at h\n  replace h := congrArg (Poly.denote ctx) h\n  simp at h\n  rw [\u2190Int.sub_eq_zero, h, \u2190 @Int.sub_eq_zero (Var.denote ctx x), Int.sub_eq_add_neg]\ndef norm_eq_var_const_cert (lhs rhs : Expr) (x : Var) (k : Int) : Bool :=\n  (lhs.sub rhs).norm == .add 1 x (.num (-k))\ntheorem norm_eq_var_const (ctx : Context) (lhs rhs : Expr) (x : Var) (k : Int) (h : norm_eq_var_const_cert lhs rhs x k)\n    : (lhs.denote ctx = rhs.denote ctx) = (x.denote ctx = k) := by\n  simp [norm_eq_var_const_cert] at h\n  replace h := congrArg (Poly.denote ctx) h\n  simp at h\n  rw [\u2190Int.sub_eq_zero, h, Int.add_comm, \u2190 Int.sub_eq_add_neg, Int.sub_eq_zero]\nprivate theorem mul_eq_zero_iff (a k : Int) (h\u2081 : k > 0) : k * a = 0 \u2194 a = 0 := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

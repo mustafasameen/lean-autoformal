@@ -1,0 +1,10 @@
+{
+  "content": "instance rel : WellFoundedRelation (Term \u00d7 Term) := measure (\u03bb (u, v) => depth u + depth v)\ntheorem decr_left (l\u2081 r\u2081 l\u2082 r\u2082 : Term) :\n  rel.rel (l\u2081, l\u2082) (Term.Cons l\u2081 r\u2081, Term.Cons l\u2082 r\u2082) := by\n  suffices h : depth l\u2081 + depth l\u2082 < depth (Term.Cons l\u2081 r\u2081) + depth (Term.Cons l\u2082 r\u2082) from h\n  admit\ntheorem decr_right (l\u2081 r\u2081 l\u2082 r\u2082 : Term) (f : Subst) :\n  rel.rel (act f r\u2081, act f r\u2082) (Term.Cons l\u2081 r\u2081, Term.Cons l\u2082 r\u2082) := by\n  suffices h : depth (act f r\u2081) + depth (act f r\u2082) < depth (Term.Cons l\u2081 r\u2081) + depth (Term.Cons l\u2082 r\u2082) from h\n  admit\ndef robinson (u v : Term) : { f : Option Subst // P f u v }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/robinson.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/robinson.lean",
+    "definition_name": "rel",
+    "has_proof": true
+  }
+}

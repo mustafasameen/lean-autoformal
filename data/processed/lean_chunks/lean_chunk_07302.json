@@ -1,0 +1,10 @@
+{
+  "content": "inductive Gate\n  | and\n  | xor\n  | beq\n  | or\nnamespace Gate\ndef toString : Gate \u2192 String\n  | and => \"&&\"\n  | xor => \"^^\"\n  | beq => \"==\"\n  | or => \"||\"\ndef eval : Gate \u2192 Bool \u2192 Bool \u2192 Bool\n  | and => (\u00b7 && \u00b7)\n  | xor => (\u00b7 ^^ \u00b7)\n  | beq => (\u00b7 == \u00b7)\n  | or => (\u00b7 || \u00b7)\nend Gate\ninductive BoolExpr (\u03b1 : Type)\n  | literal : \u03b1 \u2192 BoolExpr \u03b1\n  | const : Bool \u2192 BoolExpr \u03b1\n  | not : BoolExpr \u03b1 \u2192 BoolExpr \u03b1\n  | gate : Gate \u2192 BoolExpr \u03b1 \u2192 BoolExpr \u03b1 \u2192 BoolExpr \u03b1\n  | ite : BoolExpr \u03b1 \u2192 BoolExpr \u03b1 \u2192 BoolExpr \u03b1 \u2192 BoolExpr \u03b1\nnamespace BoolExpr\ndef toString [ToString \u03b1] : BoolExpr \u03b1 \u2192 String\n  | literal a => ToString.toString a\n  | const b => ToString.toString b\n  | not x => \"!\" ++ toString x\n  | gate g x y => \"(\" ++ toString x ++ \" \" ++ g.toString ++ \" \" ++ toString y ++ \")\"\n  | ite d l r => \"(if \" ++ toString d ++ \" \" ++ toString l ++ \" \" ++ toString r ++ \")\"\ninstance [ToString \u03b1] : ToString (BoolExpr \u03b1) := \u27e8toString\u27e9\ndef eval (a : \u03b1 \u2192 Bool) : BoolExpr \u03b1 \u2192 Bool\n  | .literal l => a l",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Basic.lean",
+    "definition_name": "Gate",
+    "has_proof": false
+  }
+}

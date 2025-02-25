@@ -1,0 +1,9 @@
+{
+  "content": "structure Equivalence (C : Type u\u2081) (D : Type u\u2082) [Category.{v\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "Equivalence"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\ndef isCtorParam (f : Expr) (i : Nat) : CoreM Bool := do\n  let .const declName _ := f | return false\n  let .ctorInfo info \u2190 getConstInfo declName | return false\n  return i < info.numParams\ndef checkAppArgs (f : Expr) (args : Array Arg) : CheckM Unit := do\n  let mut fType \u2190 inferType f\n  let mut j := 0\n  for h : i in [:args.size] do\n    let arg := args[i]\n    if fType.isErased then\n      return ()\n    fType := fType.headBeta\n    let (d, b) \u2190\n      match fType with\n      | .forallE _ d b _ => pure (d, b)\n      | _ =>\n        fType := instantiateRevRangeArgs fType j i args |>.headBeta\n        match fType with\n        | .forallE _ d b _ => j := i; pure (d, b)\n        | _ => return ()\n    let expectedType := instantiateRevRangeArgs d j i args\n    if (\u2190 checkTypes) then\n      let argType \u2190 arg.inferType\n      unless (\u2190 InferType.compatibleTypes argType expectedType) do\n        throwError \"type mismatch at LCNF application{indentExpr (mkAppN f (args.map Arg.toExpr))}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Check.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Check.lean",
+    "definition_name": "State"
+  }
+}

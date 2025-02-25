@@ -1,0 +1,9 @@
+{
+  "content": "instance top : Top (WithTop \u03b1) := \u27e8none\u27e9\nexample {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/regressions3210.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/regressions3210.lean",
+    "definition_name": "top"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def mkDischarge? (useDecide := false) : MetaM Simp.Discharge :=\n  return discharge? (\u2190 getLCtx).numIndices useDecide\ndef splitIfAt? (mvarId : MVarId) (e : Expr) (hName? : Option Name) : MetaM (Option (ByCasesSubgoal \u00d7 ByCasesSubgoal)) := mvarId.withContext do\n  let e \u2190 instantiateMVars e\n  if let some (cond, decInst) \u2190 findIfToSplit? e then\n    let hName \u2190 match hName? with\n      | none       => mkFreshUserName `h\n      | some hName => pure hName\n    trace[Meta.Tactic.splitIf] \"splitting on {decInst}\"\n    return some (\u2190 mvarId.byCasesDec cond decInst hName)\n  else\n    trace[Meta.Tactic.splitIf] \"could not find if to split:{indentExpr e}\"\n    return none\nend SplitIf\nopen SplitIf\ndef simpIfTarget (mvarId : MVarId) (useDecide := false) : MetaM MVarId := do\n  let mut ctx \u2190 getSimpContext\n  if let (some mvarId', _) \u2190 simpTarget mvarId ctx {} (\u2190 mvarId.withContext <| mkDischarge? useDecide) (mayCloseGoal := false) then\n    return mvarId'\n  else\n    unreachable!",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/SplitIf.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/SplitIf.lean",
+    "definition_name": "mkDischarge"
+  }
+}

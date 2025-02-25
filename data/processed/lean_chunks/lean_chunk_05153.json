@@ -1,0 +1,10 @@
+{
+  "content": "theorem cons_subset : a :: l \u2286 m \u2194 a \u2208 m \u2227 l \u2286 m := by\n  simp only [subset_def, mem_cons, or_imp, forall_and, forall_eq]\n@[simp] theorem subset_nil {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "cons_subset",
+    "has_proof": true
+  }
+}

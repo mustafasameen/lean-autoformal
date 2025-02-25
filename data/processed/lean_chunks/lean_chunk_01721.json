@@ -1,0 +1,10 @@
+{
+  "content": "theorem foo1 : True := by decide\ntheorem foo2 : True := by decide +kernel\n#guard_msgs in\ntheorem foo3 : False := by decide\n#guard_msgs in\ntheorem foo4 : False := by decide +kernel\n@[irreducible] def irred {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideTacticKernel.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideTacticKernel.lean",
+    "definition_name": "foo1",
+    "has_proof": true
+  }
+}

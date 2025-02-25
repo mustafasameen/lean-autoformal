@@ -1,0 +1,9 @@
+{
+  "content": "IO.println s!\"{t.format \"w\"}\"\n#guard_msgs in\n#eval\n  let r := PlainDateTime.mk (PlainDate.ofYearMonthDayClip 19343232432 1 4) (PlainTime.mk 25 64 3 0)\n  let s := r.toLeanDateTimeString\n  let r := PlainDateTime.parse s\n  (s, r, datetime(\"1932-01-02T05:04:03.000000000\"))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_name": "date\u2081"
+  }
+}

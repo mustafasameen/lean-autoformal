@@ -1,0 +1,9 @@
+{
+  "content": "def ModuleRefs := Std.HashMap RefIdent RefInfo\nnamespace ModuleRefs\ndef toLspModuleRefs (refs : ModuleRefs) : BaseIO Lsp.ModuleRefs := do\n  let refs \u2190 refs.toList.mapM fun (k, v) => do\n    return (k, \u2190 v.toLspRefInfo)\n  return Std.HashMap.ofList refs\nend ModuleRefs\nend Lean.Server\nnamespace Lean.Lsp.RefInfo\nopen Server\ndef merge (a : RefInfo) (b : RefInfo) : RefInfo where\n  definition? := b.definition?.orElse fun _ => a.definition?\n  usages      := a.usages.append b.usages\ndef findReferenceLocation?\n    (self        : RefInfo)\n    (pos         : Lsp.Position)\n    (includeStop : Bool := false)\n    : Option Location := do\n  if let some loc := self.definition? then\n    if contains loc.range pos then\n      return loc\n  for loc in self.usages do\n    if contains loc.range pos then\n      return loc\n  none\nwhere\n  contains (range : Lsp.Range) (pos : Lsp.Position) : Bool :=\n    range.start <= pos && (if includeStop then pos <= range.end else pos < range.end)\ndef findAt",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

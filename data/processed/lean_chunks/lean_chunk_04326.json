@@ -1,0 +1,10 @@
+{
+  "content": "theorem ne_zero_of_mul_ne_zero_right (h : n * m \u2260 0) : m \u2260 0 :=\n  (Nat.mul_ne_zero_iff.1 h).2\nprotected theorem le_mul_of_pos_left (m) (h : 0 < n) : m \u2264 n * m :=\n  Nat.le_trans (Nat.le_of_eq (Nat.one_mul _).symm) (Nat.mul_le_mul_right _ h)\nprotected theorem le_mul_of_pos_right (n) (h : 0 < m) : n \u2264 n * m :=\n  Nat.le_trans (Nat.le_of_eq (Nat.mul_one _).symm) (Nat.mul_le_mul_left _ h)\nprotected theorem mul_lt_mul_of_lt_of_le (hac : a < c) (hbd : b \u2264 d) (hd : 0 < d) :\n    a * b < c * d :=\n  Nat.lt_of_le_of_lt (Nat.mul_le_mul_left _ hbd) (Nat.mul_lt_mul_of_pos_right hac hd)\nprotected theorem mul_lt_mul_of_lt_of_le' (hac : a < c) (hbd : b \u2264 d) (hb : 0 < b) :\n    a * b < c * d :=\n  Nat.mul_lt_mul_of_lt_of_le hac hbd (Nat.lt_of_lt_of_le hb hbd)\nprotected theorem mul_lt_mul_of_le_of_lt (hac : a \u2264 c) (hbd : b < d) (hc : 0 < c) :\n    a * b < c * d :=\n  Nat.lt_of_le_of_lt (Nat.mul_le_mul_right _ hac) (Nat.mul_lt_mul_of_pos_left hbd hc)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "ne_zero_of_mul_ne_zero_right",
+    "has_proof": false
+  }
+}

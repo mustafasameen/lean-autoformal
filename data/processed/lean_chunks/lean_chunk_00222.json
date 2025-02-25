@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo where\n| mk (\u03b1 : Type) : \u03b1 \u2192 Foo\nexample : Foo := by\n  have h : Type := ?a\n  refine .mk ?a ?b\naxiom neq3 {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/refineFiltersOldMVars.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/refineFiltersOldMVars.lean",
+    "definition_name": "Foo"
+  }
+}

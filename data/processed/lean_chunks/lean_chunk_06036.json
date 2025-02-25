@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_add (l : List \u03b1) (i j : Nat) : l.take (i + j) = l.take i ++ (l.drop i).take j := by\n  suffices take (i + j) (take i l ++ drop i l) = take i l ++ take j (drop i l) by\n    rw [take_append_drop] at this\n    assumption\n  rw [take_append_eq_append_take, take_of_length_le, append_right_inj]\n  \u00b7 simp only [take_eq_take_iff, length_take, length_drop]\n    omega\n  apply Nat.le_trans (m := i)\n  \u00b7 apply length_take_le\n  \u00b7 apply Nat.le_add_right\ntheorem take_one {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "take_add",
+    "has_proof": true
+  }
+}

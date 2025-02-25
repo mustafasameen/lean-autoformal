@@ -1,0 +1,9 @@
+{
+  "content": "| .information => .info\n| .warning => .warning\n| .error => .error\nprotected def LogLevel.toMessageSeverity : LogLevel \u2192 MessageSeverity\n| .info | .trace => .information\n| .warning => .warning\n| .error => .error\ndef Verbosity.minLogLv : Verbosity \u2192 LogLevel\n| .quiet => .warning\n| .normal =>  .info\n| .verbose => .trace\nstructure LogEntry where\n  level : LogLevel\n  message : String\n  deriving Inhabited, ToJson, FromJson\nprotected def LogEntry.toString (self : LogEntry) (useAnsi := false) : String :=\n  if useAnsi then\n    let {level := lv, message := msg}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Log.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Log.lean",
+    "definition_name": "LogLevel"
+  }
+}

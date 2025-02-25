@@ -1,0 +1,10 @@
+{
+  "content": "theorem filter_filter (q) : \u2200 l, filter p (filter q l) = filter (fun a => p a && q a) l\n  | [] => rfl\n  | a :: l => by by_cases hp : p a <;> by_cases hq : q a <;> simp [hp, hq, filter_filter _ l]\ntheorem foldl_filter (p : \u03b1 \u2192 Bool) (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (l : List \u03b1) (init : \u03b2) :\n    (l.filter p).foldl f init = l.foldl (fun x y => if p y then f x y else x) init := by\n  induction l generalizing init with\n  | nil => rfl\n  | cons a l ih =>\n    simp only [filter_cons, foldl_cons]\n    split <;> simp [ih]\ntheorem foldr_filter (p : \u03b1 \u2192 Bool) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (l : List \u03b1) (init : \u03b2) :\n    (l.filter p).foldr f init = l.foldr (fun x y => if p x then f x y else y) init := by\n  induction l generalizing init with\n  | nil => rfl\n  | cons a l ih =>\n    simp only [filter_cons, foldr_cons]\n    split <;> simp [ih]\ntheorem filter_map (f : \u03b2 \u2192 \u03b1) (l : List \u03b2) : filter p (map f l) = map f (filter (p \u2218 f) l) := by\n  induction l with\n  | nil => rfl\n  | cons a l IH => by_cases h : p (f a) <;> simp [*]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "filter_filter",
+    "has_proof": true
+  }
+}

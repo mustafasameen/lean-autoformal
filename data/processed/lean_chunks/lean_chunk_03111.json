@@ -1,0 +1,9 @@
+{
+  "content": "class STWorld (\u03c3 : outParam Type) (m : Type \u2192 Type)\ninstance {\u03c3 m n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/ST.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/ST.lean",
+    "definition_name": "STWorld"
+  }
+}

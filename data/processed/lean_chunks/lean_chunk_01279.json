@@ -1,0 +1,10 @@
+{
+  "content": "def x := 10\nnamespace Foo\ndef x := true\n#check x\n#check _root_.x\ntheorem ex1 : x = true := rfl\ntheorem ex2 : _root_.x = 10 := rfl\nend Foo\ntheorem ex3 : x = 10 := rfl\ntheorem ex4 : _root_.x = 10 := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/root.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/root.lean",
+    "definition_name": "x",
+    "has_proof": false
+  }
+}

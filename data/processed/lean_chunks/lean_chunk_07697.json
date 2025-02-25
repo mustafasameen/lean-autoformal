@@ -1,0 +1,9 @@
+{
+  "content": "structure IfInput (aig : AIG \u03b1) (w : Nat) where\n  discr : Ref aig\n  lhs : RefVec aig w\n  rhs : RefVec aig w\ndef ite (aig : AIG \u03b1) (input : IfInput aig w) : RefVecEntry \u03b1 w :=\n  let \u27e8discr, lhs, rhs\u27e9 := input\n  go aig 0 (by omega) discr lhs rhs .empty\nwhere\n  go {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/If.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/If.lean",
+    "definition_name": "IfInput"
+  }
+}

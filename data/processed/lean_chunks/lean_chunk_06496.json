@@ -1,0 +1,9 @@
+{
+  "content": "structure Discr where\n  expr : Expr\n  isDep     : Bool\n  alts      : Array MatchAltView\nprivate partial def elabMatchTypeAndDiscrs (discrStxs : Array Syntax) (matchOptMotive : Syntax) (matchAltViews : Array MatchAltView) (expectedType : Expr)\n      : TermElabM ElabMatchTypeAndDiscrsResult := do\n  if matchOptMotive.isNone then\n    elabDiscrs 0 #[]\n  else\n    let matchTypeStx := matchOptMotive[0][3]\n    let matchType \u2190 elabType matchTypeStx\n    let (discrs, isDep) \u2190 elabDiscrsWithMatchType matchType\n    return { discrs := discrs, matchType := matchType, isDep := isDep, alts := matchAltViews }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_name": "Discr"
+  }
+}

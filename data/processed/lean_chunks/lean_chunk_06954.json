@@ -1,0 +1,9 @@
+{
+  "content": "addLocalInstancesForParamsAux k xs (i+1) (map.insert inst.fvarId! i)\n        else\n          addLocalInstancesForParamsAux k xs (i+1) map\n      catch _ =>\n        addLocalInstancesForParamsAux k xs (i+1) map\n  addLocalInstancesForParams {\u03b1} (xs : Array Expr) (k : LocalInst2Index \u2192 TermElabM \u03b1) : TermElabM \u03b1 := do\n    if addHypotheses then\n      addLocalInstancesForParamsAux k xs.toList 0 {}\n    else\n      k {}\n  collectUsedLocalsInsts (usedInstIdxs : IndexSet) (localInst2Index : LocalInst2Index) (e : Expr) : IndexSet :=\n    if localInst2Index.isEmpty then\n      usedInstIdxs\n    else\n      let visit {\u03c9} : StateRefT IndexSet (ST \u03c9) Unit :=\n        e.forEachWhere Expr.isFVar fun e =>\n          let fvarId := e.fvarId!\n          match localInst2Index.find? fvarId with\n          | some idx => modify (\u00b7.insert idx)\n          | none => pure ()\n      runST (fun _ => visit |>.run usedInstIdxs) |>.2\n  mkInstanceCmdWith (assumingParamIdxs : IndexSet) : TermElabM Syntax := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

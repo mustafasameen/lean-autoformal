@@ -1,0 +1,10 @@
+{
+  "content": "@[deprecated Acc.transGen (since := \"2024-07-16\")] abbrev TC.accessible := @Acc.transGen\n@[deprecated WellFounded.transGen (since := \"2024-07-16\")] abbrev TC.wf := @WellFounded.transGen\nnamespace Nat\ndef lt_wfRel : WellFoundedRelation Nat where\n  rel := (\u00b7 < \u00b7)\n  wf  := by\n    apply WellFounded.intro\n    intro n\n    induction n with\n    | zero      =>\n      apply Acc.intro 0\n      intro _ h\n      apply absurd h (Nat.not_lt_zero _)\n    | succ n ih =>\n      apply Acc.intro (Nat.succ n)\n      intro m h\n      have : m = n \u2228 m < n := Nat.eq_or_lt_of_le (Nat.le_of_succ_le_succ h)\n      match this with\n      | Or.inl e => subst e; assumption\n      | Or.inr e => exact Acc.inv ih e\n@[elab_as_elim] protected noncomputable def strongRecOn\n    {motive : Nat \u2192 Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_name": "wf",
+    "has_proof": true
+  }
+}

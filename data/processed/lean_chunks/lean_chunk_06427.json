@@ -1,0 +1,9 @@
+{
+  "content": "Syntax.mkApp (mkIdentFrom ref j) args\npartial def toTerm (c : Code) : M Syntax := do\n  let term \u2190 go c\n  if let some ref := c.getRef? then\n    annotate ref term\n  else\n    return term\nwhere\n  go (c : Code) : M Syntax := do\n    match c with\n    | .return ref val     => withRef ref <| returnToTerm val\n    | .continue ref       => withRef ref continueToTerm\n    | .break ref          => withRef ref breakToTerm\n    | .action e           => actionTerminalToTerm e\n    | .joinpoint j ps b k => mkJoinPoint j ps (\u2190 toTerm b) (\u2190 toTerm k)\n    | .jmp ref j args     => return mkJmp ref j args\n    | .decl _ stx k       => declToTerm stx (\u2190 toTerm k)\n    | .reassign _ stx k   => reassignToTerm stx (\u2190 toTerm k)\n    | .seq stx k          => seqToTerm stx (\u2190 toTerm k)\n    | .ite ref _ o c t e  => withRef ref <| do mkIte o c (\u2190 toTerm t) (\u2190 toTerm e)\n    | .match ref genParam discrs optMotive alts =>\n      let mut termAlts := #[]\n      for alt in alts do\n        let rhs \u2190 toTerm alt.rhs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "DoIfView"
+  }
+}

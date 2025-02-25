@@ -1,0 +1,9 @@
+{
+  "content": "class MonadRef (m : Type \u2192 Type) where\n  withRef {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "MonadRef"
+  }
+}

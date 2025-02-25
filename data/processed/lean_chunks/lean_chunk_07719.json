@@ -1,0 +1,10 @@
+{
+  "content": "theorem numLiterals_pos {f : CNF Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/RelabelFin.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/RelabelFin.lean",
+    "definition_name": "numLiterals_pos",
+    "has_proof": false
+  }
+}

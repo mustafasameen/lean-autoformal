@@ -1,0 +1,9 @@
+{
+  "content": "class Lattice (\u03b1 : Type u) extends SemilatticeSup \u03b1, SemilatticeInf \u03b1\nnamespace Subtype\nprotected def semilatticeSup [SemilatticeSup \u03b1] {P : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "Lattice"
+  }
+}

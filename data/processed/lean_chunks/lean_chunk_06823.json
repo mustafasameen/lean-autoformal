@@ -1,0 +1,9 @@
+{
+  "content": "inductive SimpLetCase where\n| dep\n| nondepDepVar\n| nondep\ndef getSimpLetCase (n : Name) (t : Expr) (b : Expr) : MetaM SimpLetCase := do\n  withLocalDeclD n t fun x => do\n    let bx := b.instantiate1 x\n    if (\u2190 isTypeCorrect bx) then\n      let bxType \u2190 whnf (\u2190 inferType bx)\n      if (\u2190 dependsOn bxType x.fvarId!) then\n        return SimpLetCase.nondepDepVar\n      else\n        return SimpLetCase.nondep\n    else\n      return SimpLetCase.dep\ndef withNewLemmas {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Main.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Main.lean",
+    "definition_name": "SimpLetCase"
+  }
+}

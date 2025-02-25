@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 rw [\u2190 reverse_reverse l\u2081, append_assoc, \u2190 reverse_append, \u2190 reverse_append, e,\n      reverse_reverse]\n  \u00b7 rw [append_assoc, \u2190 reverse_append, \u2190 reverse_append, e]\ntheorem IsInfix.reverse : l\u2081 <:+: l\u2082 \u2192 reverse l\u2081 <:+: reverse l\u2082 :=\n  reverse_infix.2\ntheorem IsSuffix.reverse : l\u2081 <:+ l\u2082 \u2192 reverse l\u2081 <+: reverse l\u2082 :=\n  reverse_prefix.2\ntheorem IsPrefix.reverse : l\u2081 <+: l\u2082 \u2192 reverse l\u2081 <:+ reverse l\u2082 :=\n  reverse_suffix.2\ntheorem IsPrefix.head {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "IsPrefix",
+    "has_proof": true
+  }
+}

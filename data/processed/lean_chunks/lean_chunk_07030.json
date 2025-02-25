@@ -1,0 +1,9 @@
+{
+  "content": "let .const .. := resultTypeFn\n      | return ()\n    let nameSet \u2190 try\n      getDotCompletionTypeNames resultTypeFn\n    catch _ =>\n      pure RBTree.empty\n    forEligibleDeclsWithCancellationM fun declName c => do\n      let unnormedTypeName := declName.getPrefix\n      if ! nameSet.contains unnormedTypeName then\n        return\n      let some declName \u2190 normPrivateName? declName\n        | return\n      let typeName := declName.getPrefix\n      if ! (\u2190 isDotIdCompletionMethod typeName c) then\n        return\n      let completionKind \u2190 getCompletionKindForDecl c\n      if id.isAnonymous then\n        addUnresolvedCompletionItem (.mkSimple c.name.getString!) (.const c.name) completionKind\n        return\n      let some label \u2190 matchDecl? typeName id (danglingDot := false) declName | pure ()\n      addUnresolvedCompletionItem label (.const c.name) completionKind\ndef fieldIdCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

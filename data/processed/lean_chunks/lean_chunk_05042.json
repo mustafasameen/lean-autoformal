@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_le [DecidableEq \u03b1] [LT \u03b1] [DecidableLT \u03b1] [DecidableEq \u03b2] [LT \u03b2] [DecidableLT \u03b2]\n    [Std.Irrefl (\u00b7 < \u00b7 : \u03b1 \u2192 \u03b1 \u2192 Prop)]\n    [Std.Asymm (\u00b7 < \u00b7 : \u03b1 \u2192 \u03b1 \u2192 Prop)]\n    [Std.Antisymm (\u00ac \u00b7 < \u00b7 : \u03b1 \u2192 \u03b1 \u2192 Prop)]\n    [Std.Irrefl (\u00b7 < \u00b7 : \u03b2 \u2192 \u03b2 \u2192 Prop)]\n    [Std.Asymm (\u00b7 < \u00b7 : \u03b2 \u2192 \u03b2 \u2192 Prop)]\n    [Std.Antisymm (\u00ac \u00b7 < \u00b7 : \u03b2 \u2192 \u03b2 \u2192 Prop)]\n    {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_name": "map_le",
+    "has_proof": false
+  }
+}

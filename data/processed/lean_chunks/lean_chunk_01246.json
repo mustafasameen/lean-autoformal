@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (h\u2081 : a = 0) (h\u2082 : a + b = 0) : f (b + c) = c := by\n  simp_all\n  simp [f]\ntheorem ex2 (h\u2081 : a = 0) (h\u2082 : a + b = 0) : f (b + c) = c := by\n  simp_all [f]\ntheorem ex3 (h\u2081 : a = 0) (h\u2082 : a + b = 0) : f (b + c) = c := by\n  simp_all only [f]\n  rw [Nat.zero_add] at h\u2082\n  simp [h\u2082]\ntheorem ex4 (h\u2081 : a = f a) (h\u2082 : b + 0 = 0) : f b = 0 := by\n  simp_all (config := { decide := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp_all.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp_all.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

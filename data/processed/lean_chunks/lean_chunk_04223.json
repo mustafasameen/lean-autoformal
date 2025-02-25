@@ -1,0 +1,10 @@
+{
+  "content": "theorem iunfoldr.eq_test\n    {f : Fin w \u2192 \u03b1 \u2192 \u03b1 \u00d7 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Folds.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Folds.lean",
+    "definition_name": "iunfoldr",
+    "has_proof": false
+  }
+}

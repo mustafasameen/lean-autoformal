@@ -1,0 +1,9 @@
+{
+  "content": "def mainModule (env : Environment) : Name :=\n  env.header.mainModule\ndef getModuleIdxFor? (env : Environment) (declName : Name) : Option ModuleIdx :=\n  env.checkedWithoutAsync.const2ModIdx[declName]?\ndef isConstructor (env : Environment) (declName : Name) : Bool :=\n  match env.find? declName with\n  | some (.ctorInfo _) => true\n  | _                  => false\ndef isSafeDefinition (env : Environment) (declName : Name) : Bool :=\n  match env.find? declName with\n  | some (.defnInfo { safety := .safe, .. }) => true\n  | _ => false\ndef getModuleIdx? (env : Environment) (moduleName : Name) : Option ModuleIdx :=\n  env.header.moduleNames.findIdx? (\u00b7 == moduleName)\nend Environment\nnamespace ConstantInfo\ndef instantiateTypeLevelParams (c : ConstantInfo) (ls : List Level) : Expr :=\n  c.type.instantiateLevelParams c.levelParams ls\ndef instantiateValueLevelParams! (c : ConstantInfo) (ls : List Level) : Expr :=\n  c.value!.instantiateLevelParams c.levelParams ls\nend ConstantInfo",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

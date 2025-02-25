@@ -1,0 +1,10 @@
+{
+  "content": "(fun ca\u2082 => by simp_all [trans _ _ _ bc\u2082 (by simpa using ca\u2082)]))\n  \u00b7 simp_all\n  \u00b7 simp_all\n  \u00b7 simp_all\n  \u00b7 simp_all\n  \u00b7 simp_all\ntheorem zipIdxLE_total (total : \u2200 a b, le a b || le b a)\n    (a b : \u03b1 \u00d7 Nat) : zipIdxLE le a b || zipIdxLE le b a := by\n  simp only [zipIdxLE]\n  split <;> split\n  \u00b7 simpa using Nat.le_total a.2 b.2\n  \u00b7 simp\n  \u00b7 simp\n  \u00b7 have := total a.1 b.1\n    simp_all\ntheorem mem_merge {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_name": "zipIdxLE_trans",
+    "has_proof": true
+  }
+}

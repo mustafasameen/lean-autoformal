@@ -1,0 +1,9 @@
+{
+  "content": "else\n      pure <| lines.push line\n  read #[]\ndef writeBinFile (fname : FilePath) (content : ByteArray) : IO Unit := do\n  let h \u2190 Handle.mk fname Mode.write\n  h.write content\ndef writeFile (fname : FilePath) (content : String) : IO Unit := do\n  let h \u2190 Handle.mk fname Mode.write\n  h.putStr content\ndef Stream.putStrLn (strm : FS.Stream) (s : String) : IO Unit :=\n  strm.putStr (s.push '\\n')\nstructure DirEntry where\n  root     : FilePath\n  fileName : String\n  deriving Repr\ndef DirEntry.path (entry : DirEntry) : FilePath :=\n  entry.root / entry.fileName\ninductive FileType where\n  | dir\n  | file\n  | symlink\n  | other\n  deriving Repr, BEq\nstructure SystemTime where\n  sec  : Int\n  nsec : UInt32\n  deriving Repr, BEq, Ord, Inhabited\ninstance : LT SystemTime := ltOfOrd\ninstance : LE SystemTime := leOfOrd\nstructure Metadata where\n  accessed : SystemTime\n  modified : SystemTime\n  byteSize : UInt64\n  type     : FileType\n  deriving Repr\nend FS\nend IO\nnamespace System.FilePath\nopen IO",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "FS"
+  }
+}

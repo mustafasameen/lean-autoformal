@@ -1,0 +1,10 @@
+{
+  "content": "theorem div_le_self (n k : Nat) : n / k \u2264 n := by\n  induction n using Nat.strongRecOn with\n  | ind n ih =>\n    rw [div_eq]\n    cases (inferInstance : Decidable (0 < k \u2227 k \u2264 n)) with\n    | isFalse h => simp [h]\n    | isTrue h =>\n      suffices (n - k) / k + 1 \u2264 n by simp [h, this]\n      have \u27e8hK, hKN\u27e9 := h\n      have hSub : n - k < n := sub_lt (Nat.lt_of_lt_of_le hK hKN) hK\n      have : (n - k) / k \u2264 n - k := ih (n - k) hSub\n      exact succ_le_of_lt (Nat.lt_of_le_of_lt this hSub)\ntheorem div_lt_self {n k : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "div_le_self",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance BarANat (\u03b1 : Type) : Bar \u03b1 Nat := {u:=()}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals2.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals2.lean",
+    "definition_name": "BarANat"
+  }
+}

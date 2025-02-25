@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_erase_le [TransCmp cmp] (h : t.WF) {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/RawLemmas.lean",
+    "definition_name": "size_erase_le",
+    "has_proof": false
+  }
+}

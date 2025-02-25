@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_term_parser] def \u00abhave\u00bb := leading_parser:leadPrec\n  withPosition (\"have\" >> haveDecl) >> optSemicolon termParser\n@[builtin_term_parser] def \u00abletI\u00bb := leading_parser\n  withPosition (\"letI \" >> haveDecl) >> optSemicolon termParser\ndef \u00abscoped\u00bb := leading_parser \"scoped \"\ndef \u00ablocal\u00bb  := leading_parser \"local \"\n@[builtin_doc] def terminationBy := leading_parser\n  \"termination_by \" >> (\n  (nonReservedSymbol \"tailrecursion\") <|>\n  (optional (nonReservedSymbol \"structural \") >>\n   optional (atomic (many (ppSpace >> Term.binderIdent) >> \" => \")) >>\n   termParser))\n@[inherit_doc terminationBy, builtin_doc]\ndef terminationBy? := leading_parser\n  \"termination_by?\"\n@[builtin_doc] def partialFixpoint := leading_parser\n  withPosition (\n    \"partial_fixpoint\" >>\n    optional (checkColGt \"indentation\" >> nonReservedSymbol \"monotonicity \" >>\n              checkColGt \"indented monotonicity proof\" >> termParser))\n@[builtin_doc] def decreasingBy := leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

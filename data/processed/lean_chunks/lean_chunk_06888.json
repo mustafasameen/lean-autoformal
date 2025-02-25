@@ -1,0 +1,9 @@
+{
+  "content": "structure EvalTacticFailure where\n  exception : Exception\n  state : SavedState\npartial def evalTactic (stx : Syntax) : TacticM Unit := do\n  profileitM Exception \"tactic execution\" (decl := stx.getKind) (\u2190 getOptions) <|\n  withRef stx <| withIncRecDepth <| withFreshMacroScope <| match stx with\n    | .node _ k _    =>\n      if k == nullKind then\n        Term.withoutTacticIncrementality true <| withTacticInfoContext stx do\n          stx.getArgs.forM evalTactic\n      else withTraceNode `Elab.step (fun _ => return stx) (tag := stx.getKind.toString) do\n        let evalFns := tacticElabAttribute.getEntries (\u2190 getEnv) stx.getKind\n        let macros  := macroAttribute.getEntries (\u2190 getEnv) stx.getKind\n        if evalFns.isEmpty && macros.isEmpty then\n          throwErrorAt stx \"tactic '{stx.getKind}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Basic.lean",
+    "definition_name": "EvalTacticFailure"
+  }
+}

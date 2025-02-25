@@ -1,0 +1,9 @@
+{
+  "content": "inductive datatype{indentExpr xType}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Structural/FindRecArg.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Structural/FindRecArg.lean",
+    "definition_name": "datatype"
+  }
+}

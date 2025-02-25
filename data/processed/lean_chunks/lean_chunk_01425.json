@@ -1,0 +1,9 @@
+{
+  "content": "toFun := f\n  map_add' := sorry\ninstance [AddHomClass F M N] : CoeTC F (AddHom M N) :=\n  \u27e8AddHomClass.toAddHom\u27e9\nend Add\nvariable [MulOneClass M] [MulOneClass N] [AddZeroClass A] [AddZeroClass B]\nstructure MonoidHom (M : Type _) (N : Type _) [MulOneClass M] [MulOneClass N] extends\n  OneHom M N, M \u2192\u2099* N\ninfixr:25 \" \u2192* \" => MonoidHom\nclass MonoidHomClass (F : Type _) (M N : outParam (Type _)) [MulOneClass M] [MulOneClass N]\n  [FunLike F M N] : Prop\n  extends MulHomClass F M N, OneHomClass F M N\ninstance MonoidHom.instFunLike : FunLike (M \u2192* N) M N where\n  coe f := f.toFun\ninstance AddMonoidHom.instFunLike : FunLike (A \u2192+ B) A B where\n  coe f := f.toFun\ndef MonoidHomClass.toMonoidHom [FunLike F M N] [MonoidHomClass F M N] (f : F) : M \u2192* N :=\n  { (f : M \u2192\u2099* N), (f : OneHom M N) with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "OneHom"
+  }
+}

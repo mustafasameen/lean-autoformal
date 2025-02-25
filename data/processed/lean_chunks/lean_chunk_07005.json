@@ -1,0 +1,9 @@
+{
+  "content": "structure InlayHintState where\n  oldInlayHints      : Array Elab.InlayHintInfo\n  oldFinishedSnaps   : Nat\n  lastEditTimestamp? : Option Nat\n  deriving TypeName, Inhabited\ndef InlayHintState.init : InlayHintState := {\n  oldInlayHints := #[]\n  oldFinishedSnaps := 0\n  lastEditTimestamp? := none\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/InlayHints.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/InlayHints.lean",
+    "definition_name": "InlayHintState"
+  }
+}

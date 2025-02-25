@@ -1,0 +1,9 @@
+{
+  "content": "def foo1 :=  Foo.mk Type Nat\nrun_meta Compiler.compile #[``foo1]\ndef Tuple (\u03b1 : Type u) : Nat \u2192 Type u\n  | 0   => PUnit\n  | 1   => \u03b1\n  | n+2 => \u03b1 \u00d7 Tuple \u03b1 (n+1)\ndef mkConstTuple (a : \u03b1) : (n : Nat) \u2192 Tuple \u03b1 n\n  | 0 => \u27e8\u27e9\n  | 1 => a\n  | n+2 => (a, mkConstTuple a (n+1))\ndef Tuple.map (f : \u03b1 \u2192 \u03b2) (xs : Tuple \u03b1 n) : Tuple \u03b2 n :=\n  match n with\n  | 0 => \u27e8\u27e9\n  | 1 => f xs\n  | _+2 => match xs with\n    | (a, xs) => (f a, Tuple.map f xs)\ndef Tuple.example (a b : Nat) :=\n  Tuple.map (n := 2) (\u00b7 + 1) (a, b)\nrun_meta Compiler.compile #[``mkConstTuple]\nrun_meta Compiler.compile #[``Tuple.map]\nrun_meta Compiler.compile #[``Tuple.example]\ndef gebner1 (x : UInt64) : UInt64 := assert! x > 0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lcnf1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lcnf1.lean",
+    "definition_name": "foo1"
+  }
+}

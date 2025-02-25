@@ -1,0 +1,9 @@
+{
+  "content": "Syntax.node ifKind [ifTk, condNode, thenTk, thenNode, elseTk, elseNode].toArray []\n@[inline] def mkIf (c t e : Syntax) : Syntax :=\nmkIfAux (mkAtom \"if\") c (mkAtom \"then\") t (mkAtom \"else\") e\n@[inline] def withIf {\u03b1 : Type} (n : SyntaxNode) (fn : Syntax \u2192 Syntax \u2192 Syntax \u2192 \u03b1) : \u03b1 :=\nwithArgs n $ \u03bb args, fn (args.get 1) (args.get 3) (args.get 5)\n@[inline] def updateIf (src : SyntaxNode) (c t e : Syntax) : Syntax :=\nupdateArgs src $ \u03bb args,\n  let args := args.set 1 c in\n  let args := args.set 3 t in\n  let args := args.set 5 e in\n  args\n@[inline] def mkLetAux (letTk : Syntax) (lhs : Syntax) (assignTk : Syntax) (val : Syntax) (inTk : Syntax) (body : Syntax) : Syntax :=\nSyntax.node letKind [letTk, lhs, assignTk, val, inTk, body].toArray []\n@[inline] def mkLet (lhs : Syntax) (val : Syntax) (body : Syntax) : Syntax :=\nmkLetAux (mkAtom \"let\") lhs (mkAtom \":=\") val (mkAtom \"in\") body\n@[inline] def withLet {\u03b1 : Type} (n : SyntaxNode) (fn : Syntax \u2192 Syntax \u2192 Syntax \u2192 \u03b1) : \u03b1 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

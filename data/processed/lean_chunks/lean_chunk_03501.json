@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_refl (a : Fin n) : a \u2264 a := by simp [le_def]\n@[simp] protected theorem lt_irrefl (a : Fin n) : \u00ac a < a := by simp\nprotected theorem le_trans {a b c : Fin n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "le_refl",
+    "has_proof": true
+  }
+}

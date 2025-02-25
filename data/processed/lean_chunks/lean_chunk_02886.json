@@ -1,0 +1,9 @@
+{
+  "content": "structure StructureResolutionOrderResult where\n  resolutionOrder : Array Name\n  conflicts : Array StructureResolutionOrderConflict := #[]\n  deriving Inhabited\npartial def computeStructureResolutionOrder [Monad m] [MonadEnv m]\n    (structName : Name) (relaxed : Bool) : m StructureResolutionOrderResult := do\n  let env \u2190 getEnv\n  if let some resOrder := getStructureResolutionOrder? env structName then\n    return { resolutionOrder := resOrder }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_name": "StructureResolutionOrderResult"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "ppDedent ppSpace >> ppRealFill (\"else \" >> doSeq))\n@[builtin_doElem_parser] def doUnless := leading_parser\n  \"unless \" >> withForbidden \"do\" termParser >> \" do \" >> doSeq\ndef doForDecl := leading_parser\n  optional (atomic (ident >> \" : \")) >> termParser >> \" in \" >> withForbidden \"do\" termParser\n@[builtin_doElem_parser] def doFor    := leading_parser\n  \"for \" >> sepBy1 doForDecl \", \" >> \"do \" >> doSeq\ndef doMatchAlts := ppDedent <| matchAlts (rhsParser := doSeq)\n@[builtin_doElem_parser] def doMatch := leading_parser:leadPrec\n  \"match \" >> optional Term.generalizingParam >> optional Term.motive >>\n  sepBy1 matchDiscr \", \" >> \" with\" >> doMatchAlts\ndef doMatchExprAlts := ppDedent <| matchExprAlts (rhsParser := doSeq)\ndef optMetaFalse :=\n  optional (atomic (\"(\" >> nonReservedSymbol \"meta\" >>  \" := \" >> nonReservedSymbol \"false\" >> \") \"))\n@[builtin_doElem_parser] def doMatchExpr := leading_parser:leadPrec\n  \"match_expr \" >> optMetaFalse >> termParser >> \" with\" >> doMatchExprAlts",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_name": "doSeqIndent"
+  }
+}

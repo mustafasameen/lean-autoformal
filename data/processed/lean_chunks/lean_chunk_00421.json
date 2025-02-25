@@ -1,0 +1,9 @@
+{
+  "content": "id \u2190 nextUniqId.get,\n   nameToKindTable.set (m.insert k id),\n   nextUniqId.set (id+1),\n   pure { name := k, id := id }\ndef mkNullKind : IO SyntaxNodeKind := nextKind `null\n@[init mkNullKind] constant nullKind : SyntaxNodeKind := default _\ninductive Syntax\n| missing\n| node   (kind : SyntaxNodeKind) (args : Array Syntax) (scopes : MacroScopes)\n| atom   (info : Option SourceInfo) (val : String)\n| ident  (info : Option SourceInfo) (rawVal : Substring) (val : Name) (preresolved : List Name) (scopes : MacroScopes)\ninstance : Inhabited Syntax :=\n\u27e8Syntax.missing\u27e9\ndef SyntaxNodeKind.fix : SyntaxNodeKind \u2192 IO SyntaxNodeKind\n| {name := n, ..} := do\n  m \u2190 nameToKindTable.get,\n  match m.find n with\n  | some id := pure {name := n, id := id}\n  | none    := throw $ IO.userError (\"Error unknown Syntax kind '\" ++ toString n ++ \"'\")\npartial def Syntax.fixKinds : Syntax \u2192 IO Syntax\n| (Syntax.node k args scopes) := do\n  k \u2190 k.fix,\n  args \u2190 args.mmap Syntax.fixKinds,\n  pure (Syntax.node k args scopes)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

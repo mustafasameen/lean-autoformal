@@ -1,0 +1,10 @@
+{
+  "content": "induction p with\n  | num k' => simp; rw [Int.mul_comm, cdiv_add_cmod]\n  | add k' v p ih =>\n    simp; intro h\u2081 h\u2082\n    replace h\u2081 := div_mul_cancel_of_mod_zero h\u2081\n    rw [\u2190 ih h\u2082]\n    rw [Int.mul_right_comm, h\u2081, Int.add_assoc]\nattribute [local simp] Expr.denote\ntheorem Expr.denote_toPoly'_go (ctx : Context) (e : Expr) :\n  (toPoly'.go k e p).denote ctx = k * e.denote ctx + p.denote ctx := by\n    induction k, e using Expr.toPoly'.go.induct generalizing p with\n  | case1 k k' h =>\n    simp only [toPoly'.go, h, cond_true]\n    simp [eq_of_beq h]\n  | case2 k k' h =>\n    simp only [toPoly'.go, h, cond_false]\n    simp [Var.denote]\n  | case3 k i => simp [toPoly'.go]\n  | case4 k a b iha ihb => simp [toPoly'.go, iha, ihb]\n  | case5 k a b iha ihb =>\n    simp [toPoly'.go, iha, ihb, Int.mul_sub]\n    rw [Int.sub_eq_add_neg, \u2190Int.neg_mul, Int.add_assoc]\n  | case6 k k' a h\n  | case8 k a k' h =>\n    simp only [toPoly'.go, h, cond_false]\n    simp [eq_of_beq h]\n  | case7 k a k' h ih =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

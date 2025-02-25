@@ -1,0 +1,9 @@
+{
+  "content": "structure SubgoalsResult where\n  subgoals     : List Expr\n  instVal      : Expr\n  instTypeBody : Expr\ndef getSubgoals (lctx : LocalContext) (localInsts : LocalInstances) (xs : Array Expr) (inst : Instance) : MetaM SubgoalsResult := do\n  let mut instVal := inst.val\n  let mut instType \u2190 inferType instVal\n  let mut mvars := #[]\n  let mut subst := #[]\n  repeat do\n    if let .forallE _ d b _ := instType then\n      let d := d.instantiateRev subst\n      let mvar \u2190 mkFreshExprMVarAt lctx localInsts (\u2190 mkForallFVars xs d)\n      subst := subst.push (mkAppN mvar xs)\n      instVal := mkApp instVal (mkAppN mvar xs)\n      instType := b\n      mvars := mvars.push mvar\n    else\n      instType \u2190 whnf (instType.instantiateRev subst)\n      instVal := instVal.instantiateRev subst\n      subst := #[]\n      unless instType.isForall do break\n  return {\n    instVal := instVal.instantiateRev subst\n    instTypeBody := instType.instantiateRev subst\n    subgoals := inst.synthOrder.map (mvars[\u00b7]!) |>.toList\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SynthInstance.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SynthInstance.lean",
+    "definition_name": "SubgoalsResult"
+  }
+}

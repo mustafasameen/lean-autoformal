@@ -1,0 +1,9 @@
+{
+  "content": "fw.stdout.readLspMessage\n        catch err =>\n          let exitCode \u2190 fw.waitForProc\n          try fw.proc.kill catch _ => pure ()\n          match exitCode with\n          | 0 =>\n            fw.errorPendingRequests o ErrorCode.contentModified\n              (s!\"The file worker for {fw.doc.uri}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_name": "ServerContext"
+  }
+}

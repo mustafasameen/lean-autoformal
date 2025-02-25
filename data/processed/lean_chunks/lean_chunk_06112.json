@@ -1,0 +1,10 @@
+{
+  "content": "theorem id_map' [Functor m] [LawfulFunctor m] (x : m \u03b1) : (fun a => a) <$> x = x :=\n  id_map x\n@[simp] theorem Functor.map_map [Functor f] [LawfulFunctor f] (m : \u03b1 \u2192 \u03b2) (g : \u03b2 \u2192 \u03b3) (x : f \u03b1) :\n    g <$> m <$> x = (fun a => g (m a)) <$> x :=\n  (comp_map _ _ _).symm\nclass LawfulApplicative (f : Type u \u2192 Type v) [Applicative f] : Prop extends LawfulFunctor f where\n  seqLeft_eq  (x : f \u03b1) (y : f \u03b2)     : x <* y = const \u03b2 <$> x <*> y\n  seqRight_eq (x : f \u03b1) (y : f \u03b2)     : x *> y = const \u03b1 id <$> x <*> y\n  pure_seq    (g : \u03b1 \u2192 \u03b2) (x : f \u03b1)   : pure g <*> x = g <$> x\n  map_pure    (g : \u03b1 \u2192 \u03b2) (x : \u03b1)     : g <$> (pure x : f \u03b1) = pure (g x)\n  seq_pure    {\u03b1 \u03b2 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_name": "id_map",
+    "has_proof": false
+  }
+}

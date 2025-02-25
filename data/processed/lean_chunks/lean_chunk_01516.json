@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (a : Nat) : (g a |>.x) = 10 :=\n  rfl\nstructure B extends A where\n  y : Nat\ndef f (a : Nat) : B :=\n  { y := a }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structPrivateFieldBug.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structPrivateFieldBug.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

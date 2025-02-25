@@ -1,0 +1,9 @@
+{
+  "content": "instance implicit:\\n\\\n                variable was originally declared without an explicit type\"\n          `(bracketedBinderF| [$(\u27e8id\u27e9) : $ty])\n      for id in ids.reverse do\n        if let some idx := binderIds.findFinIdx? fun binderId => binderId.raw.isIdent && binderId.raw.getId == id.raw.getId then\n          binderIds := binderIds.eraseIdx idx\n          modifiedVarDecls := true\n          let newBinder \u2190 mkBinder id binderInfo\n          if binderInfo.isInstImplicit then\n            try\n              runTermElabM fun _ => Term.withSynthesize <| Term.withAutoBoundImplicit <|\n                Term.elabBinder newBinder fun _ => pure ()\n            catch e =>\n              throwErrorAt binder m!\"cannot update binder annotation of variable '{id}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/BuiltinCommand.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/BuiltinCommand.lean",
+    "definition_name": "implicit"
+  }
+}

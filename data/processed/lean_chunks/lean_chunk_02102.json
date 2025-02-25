@@ -1,0 +1,10 @@
+{
+  "content": "theorem Expr.eval_constProp_of_sub (e : Expr) (h : \u03c3' \u227c \u03c3) : (e.constProp \u03c3').eval \u03c3 = e.eval \u03c3 := by\n  induction e with simp [*]\n  | var x =>\n    split <;> simp\n    next he => rw [State.get_of_find? (h he)]\ntheorem Expr.eval_constProp_of_eq_of_sub {e : Expr}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

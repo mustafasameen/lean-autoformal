@@ -1,0 +1,9 @@
+{
+  "content": "| ex           => ex\npartial def varsToUnderscore : Example \u2192 Example\n  | var _        => underscore\n  | ctor n exs   => ctor n $ exs.map varsToUnderscore\n  | arrayLit exs => arrayLit $ exs.map varsToUnderscore\n  | ex           => ex\npartial def toMessageData : Example \u2192 MessageData\n  | var fvarId        => mkFVar fvarId\n  | ctor ctorName []  => mkConst ctorName\n  | ctor ctorName exs => m!\"({.ofConstName ctorName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_name": "Example"
+  }
+}

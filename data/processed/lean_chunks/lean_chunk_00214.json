@@ -1,0 +1,9 @@
+{
+  "content": "instance R.Ring : Ring R := { add := foo }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/PPInstances.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/PPInstances.lean",
+    "definition_name": "R"
+  }
+}

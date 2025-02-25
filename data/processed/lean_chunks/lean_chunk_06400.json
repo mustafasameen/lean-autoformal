@@ -1,0 +1,9 @@
+{
+  "content": "if quoted == stx' then\n                covered pure (exhaustive := true)\n              else\n                uncovered\n            else\n              undecided\n          | shape ks sz =>\n            if ks == [kind] && sz == argPats.size then\n              covered (fun (pats, rhs) => pure (argPats.toList ++ pats, rhs)) (exhaustive := true)\n            else\n              uncovered\n          | _ => undecided,\n        doMatch := fun yes no => do\n          let (cond, newDiscrs) \u2190 if lit then\n            let cond \u2190 `(Syntax.matchesLit __discr $(quote kind) $(quote (isLit? kind quoted).get!))\n            pure (cond, [])\n          else\n            let cond \u2190 match kind with\n            | `null => `(Syntax.matchesNull __discr $(quote argPats.size))\n            | `ident => `(Syntax.matchesIdent __discr $(quote quoted.getId))\n            | _     => `(Syntax.isOfKind __discr $(quote kind))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_name": "ArrayStxBuilder"
+  }
+}

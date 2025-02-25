@@ -1,0 +1,9 @@
+{
+  "content": "let instParents := parents.filter fun parent => isClass env parent.structName\n  let resOrders : Array (Array Name) \u2190 instParents.mapM fun parent => getStructureResolutionOrder parent.structName\n  let instParents := instParents.filter fun parent =>\n    !resOrders.any (fun resOrder => resOrder[1:].any (\u00b7 == parent.structName))\n  for instParent in instParents do\n    addInstance instParent.projFn AttributeKind.global (eval_prio default)\n@[builtin_inductive_elab Lean.Parser.Command.\u00abstructure\u00bb]\ndef elabStructureCommand : InductiveElabDescr where\n  mkInductiveView (modifiers : Modifiers) (stx : Syntax) := do\n    let view \u2190 structureSyntaxToView modifiers stx\n    trace[Elab.structure] \"view.levelNames: {view.levelNames}\"\n    return {\n      view := view.toInductiveView\n      elabCtors := fun rs r params => do\n        withParents view rs r.indFVar fun parentFieldInfos parents =>\n        withFields parents view.fields parentFieldInfos fun fieldInfos => do\n        withRef view.ref do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

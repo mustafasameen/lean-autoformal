@@ -1,0 +1,10 @@
+{
+  "content": "theorem RProdSubLex (a : \u03b1 \u00d7 \u03b2) (b : \u03b1 \u00d7 \u03b2) (h : RProd ra rb a b) : Prod.Lex ra rb a b := by\n  cases h with\n  | intro h\u2081 h\u2082 => exact Prod.Lex.left _ _ h\u2081\ndef rprod (ha : WellFoundedRelation \u03b1) (hb : WellFoundedRelation \u03b2) : WellFoundedRelation (\u03b1 \u00d7 \u03b2) where\n  rel := RProd ha.rel hb.rel\n  wf  := by\n    apply Subrelation.wf (r := Prod.Lex ha.rel hb.rel) (h\u2082 := (lex ha hb).wf)\n    intro a b h\n    exact RProdSubLex a b h\nend\nend Prod\nnamespace PSigma\nsection\nvariable {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_name": "RProdSubLex",
+    "has_proof": true
+  }
+}

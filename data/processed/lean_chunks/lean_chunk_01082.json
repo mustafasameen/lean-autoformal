@@ -1,0 +1,9 @@
+{
+  "content": "mul_zero : \u2200 a : M\u2080, a * 0 = 0\nclass SemigroupWithZero (S\u2080 : Type u) extends Semigroup S\u2080, MulZeroClass S\u2080\nclass MulZeroOneClass (M\u2080 : Type u) extends MulOneClass M\u2080, MulZeroClass M\u2080\nclass MonoidWithZero (M\u2080 : Type u) extends Monoid M\u2080, MulZeroOneClass M\u2080, SemigroupWithZero M\u2080\nclass CommMonoidWithZero (M\u2080 : Type _) extends CommMonoid M\u2080, MonoidWithZero M\u2080\nend Mathlib.Algebra.GroupWithZero.Defs\nsection Mathlib.Data.Nat.Cast.Defs\nclass AddMonoidWithOne (R : Type u) extends AddMonoid R, One R where\nclass AddCommMonoidWithOne (R : Type _) extends AddMonoidWithOne R, AddCommMonoid R\nend Mathlib.Data.Nat.Cast.Defs\nsection Mathlib.Data.Int.Cast.Defs\nclass AddGroupWithOne (R : Type u) extends AddMonoidWithOne R, AddGroup R where\nclass AddCommGroupWithOne (R : Type u)\n  extends AddCommGroup R, AddGroupWithOne R, AddCommMonoidWithOne R\nend Mathlib.Data.Int.Cast.Defs\nsection Mathlib.Algebra.Group.Basic\nvariable [SubtractionMonoid \u03b1]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "instZero"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "= fun _y => (fun z => z) := by\n  grind\nexample :\n    ((fun x => (fun t (_y : \u03b1) => t) (fun z => x z)) (fun (z : \u03b1 \u2192 \u03b1 \u2192 \u03b1) x => ((fun _y => z) x) x))\n    = fun _y => (fun z => z) := by\n  grind\nend\nsection\nvariable (h : True \u2194 \u2200 (a : Nat) (_ : a > 0), True)\nexample : True \u2194 \u2200 (a : Nat) (_ : a > 0), True := by\n  grind\nend\nsection\nexample {a b c d e f g h i j k l m n o p q r s t u v w x y z : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_name": "inv_mul_cancel_left",
+    "has_proof": true
+  }
+}

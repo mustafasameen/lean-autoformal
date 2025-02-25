@@ -1,0 +1,10 @@
+{
+  "content": "theorem toListRev_eq (xs : Array \u03b1) : xs.toListRev = xs.toList.reverse := by\n  rw [toListRev, \u2190 foldl_toList, \u2190 List.foldr_reverse, List.foldr_cons_nil]\n@[simp] theorem appendList_nil (xs : Array \u03b1) : xs ++ ([] : List \u03b1) = xs := Array.ext' (by simp)\n@[simp] theorem appendList_cons (xs : Array \u03b1) (a : \u03b1) (l : List \u03b1) :\n    xs ++ (a :: l) = xs.push a ++ l := Array.ext' (by simp)\ntheorem foldl_toList_eq_flatMap (l : List \u03b1) (acc : Array \u03b2)\n    (F : Array \u03b2 \u2192 \u03b1 \u2192 Array \u03b2) (G : \u03b1 \u2192 List \u03b2)\n    (H : \u2200 acc a, (F acc a).toList = acc.toList ++ G a) :\n    (l.foldl F acc).toList = acc.toList ++ l.flatMap G := by\n  induction l generalizing acc <;> simp [*, List.flatMap]\ntheorem foldl_toList_eq_map (l : List \u03b1) (acc : Array \u03b2) (G : \u03b1 \u2192 \u03b2) :\n    (l.foldl (fun acc a => acc.push (G a)) acc).toList = acc.toList ++ l.map G := by\n  induction l generalizing acc <;> simp [*]\n@[deprecated getElem?_eq_getElem (since := \"2024-12-11\")]\ntheorem getElem?_lt\n    (xs : Array \u03b1) {i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toListRev_eq",
+    "has_proof": true
+  }
+}

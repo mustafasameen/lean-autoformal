@@ -1,0 +1,10 @@
+{
+  "content": "| nodeRight : (b : \u03b2) \u2192 (left : Tree \u03b1 \u03b2) \u2192 (right : Tree \u03b1 \u03b2) \u2192 TreeElem2 b right \u2192 TreeElem2 b (Tree.node left right)\nnamespace Ex1\ndef findSomeRevM? [Monad m] (as : Array \u03b1) (f : \u03b1 \u2192 m (Option \u03b2)) : m (Option \u03b2) :=\n  pure none\ndef findSomeRev? (as : Array \u03b1) (f : \u03b1 \u2192 Option \u03b2) : Option \u03b2 :=\n  Id.run <| findSomeRevM? as f\nend Ex1\ndef apply {\u03b1 : Type u\u2081} {\u03b2 : \u03b1 \u2192 Type u\u2082} (f : (a : \u03b1) \u2192 \u03b2 a) (a : \u03b1) : \u03b2 a :=\n  f a\ndef pair (a : \u03b1\u2081) := (a, a)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits1.lean",
+    "definition_name": "f",
+    "has_proof": false
+  }
+}

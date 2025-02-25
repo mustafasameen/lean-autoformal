@@ -1,0 +1,9 @@
+{
+  "content": "def Package.fetchOptRelease := @maybeFetchBuildCacheWithWarning\ndef Package.recBuildExtraDepTargets (self : Package) : FetchM (Job Unit) :=\n  withRegisterJob s!\"{self.name}:extraDep\" do\n  let mut job := Job.nil\n  if self.name \u2260 (\u2190 getWorkspace).root.name then\n    job := job.add (\u2190 self.maybeFetchBuildCacheWithWarning)\n  for target in self.extraDepTargets do\n    job := job.mix (\u2190 self.fetchTargetJob target)\n  return job\ndef Package.getBarrelUrl (self : Package) : JobM String := do\n  if self.scope.isEmpty then\n    error \"package has no Reservoir scope\"\n  let repo := GitRepo.mk self.dir\n  let some rev \u2190 repo.getHeadRevision?\n    | error \"failed to resolve HEAD revision\"\n  let pkgName := self.name.toString (escape := false)\n  let env \u2190 getLakeEnv\n  let mut url := Reservoir.pkgApiUrl env self.scope pkgName\n  if env.toolchain.isEmpty then\n    error \"Lean toolchain not known",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Package.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Package.lean",
+    "definition_name": "Package"
+  }
+}

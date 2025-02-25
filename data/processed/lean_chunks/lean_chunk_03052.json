@@ -1,0 +1,9 @@
+{
+  "content": "| letE .. => true\n  | _       => false\ndef isLit : Expr \u2192 Bool\n  | lit .. => true\n  | _      => false\ndef appFn! : Expr \u2192 Expr\n  | app f _ => f\n  | _       => panic! \"application expected\"\ndef appArg! : Expr \u2192 Expr\n  | app _ a => a\n  | _       => panic! \"application expected\"\ndef appFn!' : Expr \u2192 Expr\n  | mdata _ b => appFn!' b\n  | app f _   => f\n  | _         => panic! \"application expected\"\ndef appArg!' : Expr \u2192 Expr\n  | mdata _ b => appArg!' b\n  | app _ a   => a\n  | _         => panic! \"application expected\"\ndef appArg (e : Expr) (h : e.isApp) : Expr :=\n  match e, h with\n  | .app _ a, _ => a\ndef appFn (e : Expr) (h : e.isApp) : Expr :=\n  match e, h with\n  | .app f _, _ => f\ndef sortLevel! : Expr \u2192 Level\n  | sort u => u\n  | _      => panic! \"sort expected\"\ndef litValue! : Expr \u2192 Literal\n  | lit v => v\n  | _     => panic! \"literal expected\"\ndef isRawNatLit : Expr \u2192 Bool\n  | lit (Literal.natVal _) => true\n  | _                      => false\ndef rawNatLit? : Expr \u2192 Option Nat",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

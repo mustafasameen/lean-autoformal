@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo\n | somefoo : Foo\n | bar : Bar \u2192 Foo\ninductive Bar\n | somebar : Bar\n | foobar : Foo \u2192 Bar \u2192 Bar\nend\nmutual\n  private def Foo.toString : Foo \u2192 String\n    | Foo.somefoo => \"foo\"\n    | Foo.bar b => Bar.toString b\n  def _root_.Bar.toString : Bar \u2192 String\n    | Bar.somebar => \"bar\"\n    | Bar.foobar f b => Foo.toString f ++ Bar.toString b\nend\nnamespace Ex2\nmutual\ninductive Foo\n | somefoo : Foo\n | bar : Bar \u2192 Foo \u2192 Foo\ninductive Bar\n | somebar : Bar\n | foobar : Foo \u2192 Bar \u2192 Bar\nend\nmutual\n  private def Foo.toString : Foo \u2192 String\n    | Foo.somefoo => go 2 ++ toString.go 2 ++ Foo.toString.go 2\n    | Foo.bar b f => Foo.toString f ++ Bar.toString b\n  where\n    go (x : Nat) := s!\"foo {x}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/qualifiedNamesRec.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/qualifiedNamesRec.lean",
+    "definition_name": "Foo"
+  }
+}

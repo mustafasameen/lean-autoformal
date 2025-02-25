@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertIdx_comm (a b : \u03b1) (i j : Nat) (xs : Array \u03b1) (_ : i \u2264 j) (_ : j \u2264 xs.size) :\n    (xs.insertIdx i a).insertIdx (j + 1) b (by simpa) =\n      (xs.insertIdx j b).insertIdx i a (by simp; omega) := by\n  rcases xs with \u27e8xs\u27e9\n  simpa using List.insertIdx_comm a b i j _ (by simpa) (by simpa)\ntheorem mem_insertIdx {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/InsertIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/InsertIdx.lean",
+    "definition_name": "insertIdx_comm",
+    "has_proof": true
+  }
+}

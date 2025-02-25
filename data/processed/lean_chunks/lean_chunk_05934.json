@@ -1,0 +1,10 @@
+{
+  "content": "theorem mul_fmod_left (a b : Int) : (a * b).fmod b = 0 :=\n  if h : b = 0 then by simp [h, Int.mul_zero] else by\n    rw [Int.fmod_def, Int.mul_fdiv_cancel _ h, Int.mul_comm, Int.sub_self]\n@[simp] theorem mul_fmod_right (a b : Int) : (a * b).fmod a = 0 := by\n  rw [Int.mul_comm, mul_fmod_left]\n@[simp] theorem fmod_self {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "mul_fmod_left",
+    "has_proof": true
+  }
+}

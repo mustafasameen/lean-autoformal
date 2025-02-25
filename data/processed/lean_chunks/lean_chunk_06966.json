@@ -1,0 +1,9 @@
+{
+  "content": "structure Fact where\n  constraint : Constraint\ndef tidy (f : Fact) : Fact :=\n  match f.justification.tidy? with\n  | some \u27e8_, _, justification\u27e9 => { justification }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Omega/Core.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Omega/Core.lean",
+    "definition_name": "Fact"
+  }
+}

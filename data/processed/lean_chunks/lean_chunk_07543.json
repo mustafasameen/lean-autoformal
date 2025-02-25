@@ -1,0 +1,9 @@
+{
+  "content": "s ++ \"\".pushn a (n - s.length)\nprivate def pad (size : Nat)  (n : Int) (cut : Bool := false) : String :=\n  let (sign, n) := if n < 0 then (\"-\", -n) else (\"\", n)\n  let numStr := toString n\n  if numStr.length > size then\n    sign ++ if cut then numStr.drop (numStr.length - size) else numStr\n  else\n    sign ++ leftPad size '0' numStr\nprivate def rightTruncate (size : Nat)  (n : Int) (cut : Bool := false) : String :=\n  let (sign, n) := if n < 0 then (\"-\", -n) else (\"\", n)\n  let numStr := toString n\n  if numStr.length > size then\n    sign ++ if cut then numStr.take size else numStr\n  else\n    sign ++ rightPad size '0' numStr\nprivate def formatMonthLong : Month.Ordinal \u2192 String\n  | \u27e81, _\u27e9 => \"January\"\n  | \u27e82, _\u27e9 => \"February\"\n  | \u27e83, _\u27e9 => \"March\"\n  | \u27e84, _\u27e9 => \"April\"\n  | \u27e85, _\u27e9 => \"May\"\n  | \u27e86, _\u27e9 => \"June\"\n  | \u27e87, _\u27e9 => \"July\"\n  | \u27e88, _\u27e9 => \"August\"\n  | \u27e89, _\u27e9 => \"September\"\n  | \u27e810, _\u27e9 => \"October\"\n  | \u27e811, _\u27e9 => \"November\"\n  | \u27e812, _\u27e9 => \"December\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "FormatPart"
+  }
+}

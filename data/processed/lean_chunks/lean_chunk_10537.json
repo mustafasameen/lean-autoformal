@@ -1,0 +1,10 @@
+{
+  "content": "theorem applyCell_eq_applyPartition [Ord \u03b1] (k : \u03b1) (l : Impl \u03b1 \u03b2)\n    (f : (c : Cell \u03b1 \u03b2 (compare k)) \u2192 (l.contains' (compare k) \u2192 c.contains) \u2192 \u03b4) :\n    applyCell k l f = applyPartition (compare k) l (fun _ c hc _ => f c hc) := by\n  rw [applyPartition]\n  suffices \u2200 L u v, (hL : l.contains' (compare k) \u2194 L.contains' (compare k)) \u2192\n      applyCell k l f = applyPartition.go (compare k) L (fun _ c hc _ => f c (hc \u2218 hL.1)) u l hL.2 v from\n    this l [] [] Iff.rfl\n  intro L u v hL\n  induction l generalizing u v L\n  \u00b7 rename_i sz k' v' l r ih\u2081 ih\u2082\n    simp only [applyCell, applyPartition.go]\n    split <;> rename_i hcmp\n    \u00b7 exact ih\u2081 _ _ _ _ (by simpa [contains', hcmp] using hL)\n    \u00b7 rfl\n    \u00b7 exact ih\u2082 _ _ _ _ (by simpa [contains', hcmp] using hL)\n  \u00b7 simp [applyCell, applyPartition, applyPartition.go]\nvariable (\u03b1 \u03b2) in\ninductive ExplorationStep [Ord \u03b1] (k : \u03b1 \u2192 Ordering) where\n  | lt : (a : \u03b1) \u2192 k a = .lt \u2192 \u03b2 a \u2192 List ((a : \u03b1) \u00d7 \u03b2 a) \u2192 ExplorationStep k",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_name": "applyCell_eq_applyPartition",
+    "has_proof": true
+  }
+}

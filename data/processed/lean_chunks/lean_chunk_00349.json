@@ -1,0 +1,9 @@
+{
+  "content": "structure Gen (term : Type) where\n  sofar : Array term := #[]\n  pending : Array (PartialTerm term) := #[]\n  deriving Inhabited\nnamespace Gen\ndef push (s : Gen term) (next : PartialTerm term) (v : term) : Gen term :=\n  let { sofar, pending }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "Gen"
+  }
+}

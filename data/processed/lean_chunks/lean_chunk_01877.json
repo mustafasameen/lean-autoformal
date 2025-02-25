@@ -1,0 +1,10 @@
+{
+  "content": "inductive MyFin : Nat \u2192 Type\n  | z : MyFin (n+1)\n  | s : MyFin n \u2192 MyFin (n+1)\ntheorem ex1 (x : MyFin 0) : False := by\n  contradiction\ninductive Color\n| Red\n| Black\nopen Color\ninductive rbnode : Nat \u2192 Color \u2192 Type where\n  | Leaf : rbnode 1 Black\n  | R {h}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/contradiction1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/contradiction1.lean",
+    "definition_name": "MyFin",
+    "has_proof": true
+  }
+}

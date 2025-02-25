@@ -1,0 +1,9 @@
+{
+  "content": "def breakToTerm : M Syntax := do\n  let ctx \u2190 read\n  let u \u2190 mkUVarTuple\n  match ctx.kind with\n  | .regular         => unreachable!\n  | .forIn           => ``(Pure.pure (ForInStep.done $u))\n  | .forInWithReturn => ``(Pure.pure (ForInStep.done (MProd.mk none $u)))\n  | .nestedBC        => ``(Pure.pure (DoResultBC.\u00abbreak\u00bb $u))\n  | .nestedPR        => unreachable!\n  | .nestedSBC       => ``(Pure.pure (DoResultSBC.\u00abbreak\u00bb $u))\n  | .nestedPRBC      => ``(Pure.pure (DoResultPRBC.\u00abbreak\u00bb $u))\ndef actionTerminalToTerm (action : Syntax) : M Syntax := withRef action <| withFreshMacroScope do\n  let ctx \u2190 read\n  let u \u2190 mkUVarTuple\n  match ctx.kind with\n  | .regular         => if ctx.uvars.isEmpty then pure action else ``(Bind.bind $action fun y => Pure.pure (MProd.mk y $u))\n  | .forIn           => ``(Bind.bind $action fun (_ : PUnit) => Pure.pure (ForInStep.yield $u))\n  | .forInWithReturn => ``(Bind.bind $action fun (_ : PUnit) => Pure.pure (ForInStep.yield (MProd.mk none $u)))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Kind"
+  }
+}

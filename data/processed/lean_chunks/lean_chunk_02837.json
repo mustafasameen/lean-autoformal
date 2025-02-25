@@ -1,0 +1,9 @@
+{
+  "content": "class CoeDep (\u03b1 : Sort u) (_ : \u03b1) (\u03b2 : Sort v) where\n  coe : \u03b2\nattribute [coe_decl] CoeDep.coe\nclass CoeT (\u03b1 : Sort u) (_ : \u03b1) (\u03b2 : Sort v) where\n  coe : \u03b2\nattribute [coe_decl] CoeT.coe\ninstance [CoeHTCT \u03b1 \u03b2] : CoeT \u03b1 a \u03b2 where coe := CoeHTCT.coe a\ninstance [CoeDep \u03b1 a \u03b2] : CoeT \u03b1 a \u03b2 where coe := CoeDep.coe a\ninstance : CoeT \u03b1 a \u03b1 where coe := a\nclass CoeFun (\u03b1 : Sort u) (\u03b3 : outParam (\u03b1 \u2192 Sort v)) where\n  coe : (f : \u03b1) \u2192 \u03b3 f\nattribute [coe_decl] CoeFun.coe\ninstance [CoeFun \u03b1 fun _ => \u03b2] : CoeOut \u03b1 \u03b2 where coe a := CoeFun.coe a\nclass CoeSort (\u03b1 : Sort u) (\u03b2 : outParam (Sort v)) where\nsyntax:1024 (name := coeNotation) \"\u2191\" term:1024 : term\nsyntax:1024 (name := coeSortNotation) \"\u21a5\" term:1024 : term\n@[coe_decl] abbrev Lean.Internal.liftCoeM {m : Type u \u2192 Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Coe.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Coe.lean",
+    "definition_name": "Coe"
+  }
+}

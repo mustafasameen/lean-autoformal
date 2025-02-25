@@ -1,0 +1,9 @@
+{
+  "content": "structure St where\n  m : Unit\n  map : Std.HashMap\nopaque P : St \u2192 Prop\nnoncomputable\ndef go1 (ss : Int) (st0 : St) : Bool :=\n        let st1 := { st0 with map := st0.map.insert }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue5767.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue5767.lean",
+    "definition_name": "St"
+  }
+}

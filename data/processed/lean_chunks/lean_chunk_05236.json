@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEmpty_nil : ([] : List \u03b1).isEmpty = true := rfl\n@[simp] theorem isEmpty_cons : (x :: xs : List \u03b1).isEmpty = false := rfl\ndef elem [BEq \u03b1] (a : \u03b1) : List \u03b1 \u2192 Bool\n  | []    => false\n  | b::bs => match a == b with\n    | true  => true\n    | false => elem a bs\n@[simp] theorem elem_nil [BEq \u03b1] : ([] : List \u03b1).elem a = false := rfl\ntheorem elem_cons [BEq \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "isEmpty_nil",
+    "has_proof": false
+  }
+}

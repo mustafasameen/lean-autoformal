@@ -1,0 +1,10 @@
+{
+  "content": "theorem empty_append (xs : Vector \u03b1 n) : (#v[] : Vector \u03b1 0) ++ xs = xs.cast (by omega) := by\n  rcases xs with \u27e8as, rfl\u27e9\n  simp\ntheorem append_empty (xs : Vector \u03b1 n) : xs ++ (#v[] : Vector \u03b1 0) = xs := by\n  rw [\u2190 toArray_inj, toArray_append, Array.append_empty]\ntheorem getElem_append (xs : Vector \u03b1 n) (ys : Vector \u03b1 m) (i : Nat) (hi : i < n + m) :\n    (xs ++ ys)[i] = if h : i < n then xs[i] else ys[i - n] := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  rcases ys with \u27e8ys, rfl\u27e9\n  simp [Array.getElem_append, hi]\ntheorem getElem_append_left {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "empty_append",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure ElimAltInfo where\n  name      : Name\n  declName? : Option Name\n  numFields : Nat\n  provesMotive : Bool\n  deriving Repr, Inhabited\nstructure ElimInfo where\n  elimExpr   : Expr\n  elimType   : Expr\n  motivePos  : Nat\n  targetsPos : Array Nat := #[]\n  altsInfo   : Array ElimAltInfo := #[]\n  deriving Repr, Inhabited\ndef altArity (motive : Expr) (n : Nat) : Expr \u2192 Nat \u00d7 Bool\n  | .forallE _ _ b _ => altArity motive (n+1) b\n  | .letE _ _ _ b _ => altArity motive (n+1) b\n  | conclusion => (n, conclusion.getAppFn == motive)\ndef getElimExprInfo (elimExpr : Expr) (baseDeclName? : Option Name := none) : MetaM ElimInfo := do\n  let elimType \u2190 inferType elimExpr\n  trace[Elab.induction] \"eliminator {indentExpr elimExpr}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/ElimInfo.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/ElimInfo.lean",
+    "definition_name": "ElimAltInfo"
+  }
+}

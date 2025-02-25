@@ -1,0 +1,10 @@
+{
+  "content": "theorem distinct_keys [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.keys.Pairwise (fun a b => (a == b) = false) :=\n  Raw\u2080.distinct_keys \u27e8m.1, m.2.size_buckets_pos\u27e9 m.2\n@[simp]\ntheorem map_sigma_fst_toList_eq_keys [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.1.toList.map Sigma.fst = m.1.keys  :=\n  Raw\u2080.map_sigma_fst_toList_eq_keys \u27e8m.1, m.2.size_buckets_pos\u27e9\n@[simp]\ntheorem length_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.toList.length = m.size :=\n  Raw\u2080.length_toList \u27e8m.1, m.2.size_buckets_pos\u27e9 m.2\n@[simp]\ntheorem isEmpty_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.toList.isEmpty = m.isEmpty :=\n  Raw\u2080.isEmpty_toList \u27e8m.1, m.2.size_buckets_pos\u27e9 m.2\n@[simp]\ntheorem mem_toList_iff_get?_eq_some [LawfulBEq \u03b1]\n    {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_name": "distinct_keys",
+    "has_proof": false
+  }
+}

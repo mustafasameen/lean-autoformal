@@ -1,0 +1,9 @@
+{
+  "content": "def minN := 4\ndef out (s : String) (n : Nat) (t : UInt32) : IO Unit :=\n  IO.println s!\"{s} of depth {n}\\t check: {t}\"\npartial def sumT (d i t : UInt32) : UInt32 :=\n  if i = 0 then t\n  else\n    let a := check (make d)\n    sumT d (i-1) (t + a)\npartial def depth (d m : Nat) : List (Nat \u00d7 Nat \u00d7 Task UInt32) :=\n  if d \u2264 m then\n    let n := 2 ^ (m - d + minN)\n    (n, d, Task.spawn (fun _ => sumT (.ofNat d) (.ofNat n) 0)) :: depth (d+2) m\n  else []\ndef main : List String \u2192 IO UInt32\n  | [s] => do\n    let n := s.toNat!\n    let maxN := Nat.max (minN + 2) n\n    let stretchN := maxN + 1\n    let c := check (make $ UInt32.ofNat stretchN)\n    out \"stretch tree\" stretchN c\n    let long := make $ UInt32.ofNat maxN\nlet vs := (depth minN maxN)\n    vs.forM (fun (m, d, i) => out s!\"{m}\\t trees\" d i.get)\n    out \"long lived tree\" maxN (check long)\n    return 0\n  | _ => return 1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/binarytrees.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/binarytrees.lean",
+    "definition_name": "minN"
+  }
+}

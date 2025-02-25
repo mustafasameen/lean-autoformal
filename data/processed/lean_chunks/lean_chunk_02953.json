@@ -1,0 +1,9 @@
+{
+  "content": "structure TopDown where\n  firstChoiceOnly : Bool\n  stx : Syntax\ndef topDown (stx : Syntax) (firstChoiceOnly := false) : TopDown := \u27e8firstChoiceOnly, stx\u27e9\npartial instance : ForIn m TopDown Syntax where\n  forIn := fun \u27e8firstChoiceOnly, stx\u27e9 init f => do\n    let rec @[specialize] loop stx b [Inhabited (type_of% b)] := do\n      match (\u2190 f stx b) with\n      | ForInStep.yield b' =>\n        let mut b := b'\n        if let Syntax.node _ k args := stx then\n          if firstChoiceOnly && k == choiceKind then\n            return \u2190 loop args[0]! b\n          else\n            for arg in args do\n              match (\u2190 loop arg b) with\n              | ForInStep.yield b' => b := b'\n              | ForInStep.done b'  => return ForInStep.done b'\n        return ForInStep.yield b\n      | ForInStep.done b => return ForInStep.done b\n    match (\u2190 @loop stx init \u27e8init\u27e9) with\n    | ForInStep.yield b => return b\n    | ForInStep.done b  => return b\npartial def reprint (stx : Syntax) : Option String := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "TopDown"
+  }
+}

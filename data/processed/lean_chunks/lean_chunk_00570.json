@@ -1,0 +1,9 @@
+{
+  "content": "structure Pos where\n  protected succ :: protected pred : Nat\n  deriving Repr\nprotected def Pos.add : Pos \u2192 Pos \u2192 Pos\n  | .succ x, .succ y => .succ (x + y).succ\ninstance : Add Pos := \u27e8Pos.add\u27e9\ninstance (x : Nat) : OfNat Pos x.succ := \u27e8.succ x\u27e9\n@[inline] def Pos.view (p : Pos) : PosView :=\n  match p with\n  | { pred := 0 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/posView.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/posView.lean",
+    "definition_name": "Pos"
+  }
+}

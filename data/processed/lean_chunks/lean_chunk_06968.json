@@ -1,0 +1,9 @@
+{
+  "content": "inductive Justification : Constraint \u2192 Coeffs \u2192 Type\n  | assumption (s : Constraint) (x : Coeffs) (i : Nat) : Justification s x\n  | combine {s t c}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Omega/Core.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Omega/Core.lean",
+    "definition_name": "Justification"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance _root_.Nat.encodable : Encodable Nat :=\n  \u27e8id, some, fun _ => rfl\u27e9\ninstance _root_.Option.encodable {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_name": "_root_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem mod_mod_of_dvd (a : Nat) (h : c \u2223 b) : a % b % c = a % c := by\n  rw (occs := [2]) [\u2190 mod_add_div a b]\n  have \u27e8x, h\u27e9 := h\n  subst h\n  rw [Nat.mul_assoc, add_mul_mod_self_left]\nprotected theorem dvd_of_mul_dvd_mul_left\n    (kpos : 0 < k) (H : k * m \u2223 k * n) : m \u2223 n := by\n  let \u27e8l, H\u27e9 := H\n  rw [Nat.mul_assoc] at H\n  exact \u27e8_, Nat.eq_of_mul_eq_mul_left kpos H\u27e9\nprotected theorem dvd_of_mul_dvd_mul_right (kpos : 0 < k) (H : m * k \u2223 n * k) : m \u2223 n := by\n  rw [Nat.mul_comm m k, Nat.mul_comm n k] at H; exact Nat.dvd_of_mul_dvd_mul_left kpos H\ntheorem dvd_sub {k m n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_name": "mod_mod_of_dvd",
+    "has_proof": true
+  }
+}

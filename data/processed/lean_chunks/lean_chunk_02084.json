@@ -1,0 +1,9 @@
+{
+  "content": "structure Test where\n  x : Nat\nabbrev Cache := HashMap Nat Test\ndef Cache.insert (cache : Cache) (key : Nat) (val : Test) : Cache :=\n  HashMap.insert cache key val\ndef Cache.find? (cache : Cache) (key : Nat) : Option Test :=\n  HashMap.find? cache key\ndef barImpl1 (cache : Cache) (key : Nat) : Test :=\n  match cache.find? key with\n  | some val => val\n  | none => \u27e80\u27e9\ndef barImpl2 (cache : Cache) (key : Nat) : Test :=\n  match (cache.insert key \u27e80\u27e9).find? key with\n  | some val => val\n  | none => \u27e80\u27e9\ndef barImpl3 (cache : Cache) (key : Nat) : Test :=\n  match ((cache.insert key \u27e80\u27e9).insert 0 \u27e80\u27e9).find? key with\n  | some val => val\n  | none => \u27e80\u27e9\ndef barImpl4 (cache : Cache) (key : Nat) : Test :=\n  match (((cache.insert key \u27e80\u27e9).insert 0 \u27e80\u27e9).insert key \u27e8key\u27e9).find? key with\n  | some val => val\n  | none => \u27e80\u27e9\ndef bar := barImpl4\nset_option maxHeartbeats 400 in\ndef test (c1 : Cache) (key : Nat) : Nat :=\n  go c1 key\nwhere\n  go (c1 : Cache) (key : Nat) : Nat :=\n    let val : Test := bar c1 key",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/isDefEqProjIssue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/isDefEqProjIssue.lean",
+    "definition_name": "Test"
+  }
+}

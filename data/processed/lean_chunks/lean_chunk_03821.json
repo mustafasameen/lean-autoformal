@@ -1,0 +1,10 @@
+{
+  "content": "theorem takeWhile_eq_extract_findIdx_not {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Extract.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Extract.lean",
+    "definition_name": "takeWhile_eq_extract_findIdx_not",
+    "has_proof": false
+  }
+}

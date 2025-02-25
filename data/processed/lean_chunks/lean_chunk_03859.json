@@ -1,0 +1,10 @@
+{
+  "content": "let b := bs[i]\n    if a == b then\n      isPrefixOfAux as bs hle (i+1)\n    else\n      false\n  else\n    true\ndecreasing_by simp_wf; decreasing_trivial_pre_omega\ndef isPrefixOf [BEq \u03b1] (as bs : Array \u03b1) : Bool :=\n  if h : as.size \u2264 bs.size then\n    isPrefixOfAux as bs h 0\n  else\n    false\n@[semireducible, specialize]\ndef zipWithAux (as : Array \u03b1) (bs : Array \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (i : Nat) (cs : Array \u03b3) : Array \u03b3 :=\n  if h : i < as.size then\n    let a := as[i]\n    if h : i < bs.size then\n      let b := bs[i]\n      zipWithAux as bs f (i+1) <| cs.push <| f a b\n    else\n      cs\n  else\n    cs\ndecreasing_by simp_wf; decreasing_trivial_pre_omega\n@[inline] def zipWith (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (as : Array \u03b1) (bs : Array \u03b2) : Array \u03b3 :=\n  zipWithAux as bs f 0 #[]\ndef zip (as : Array \u03b1) (bs : Array \u03b2) : Array (\u03b1 \u00d7 \u03b2) :=\n  zipWith Prod.mk as bs\ndef zipWithAll (f : Option \u03b1 \u2192 Option \u03b2 \u2192 \u03b3) (as : Array \u03b1) (bs : Array \u03b2) : Array \u03b3 :=\n  go as bs 0 #[]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_name": "popWhile_empty",
+    "has_proof": true
+  }
+}

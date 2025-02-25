@@ -1,0 +1,10 @@
+{
+  "content": "theorem set_next_add (s : String) (i : Pos) (c : Char) (b\u2081 b\u2082)\n    (h : (s.next i).1 + b\u2081 = s.endPos.1 + b\u2082) :\n    ((s.set i c).next i).1 + b\u2081 = (s.set i c).endPos.1 + b\u2082 := by\n  simp [next, get, set, endPos, utf8ByteSize] at h \u22a2\n  rw [Nat.add_comm i.1, Nat.add_assoc] at h \u22a2\n  let rec foo : \u2200 cs a b\u2081 b\u2082,\n    (utf8GetAux cs a i).utf8Size + b\u2081 = utf8ByteSize.go cs + b\u2082 \u2192\n    (utf8GetAux (utf8SetAux c cs a i) a i).utf8Size + b\u2081 = utf8ByteSize.go (utf8SetAux c cs a i) + b\u2082\n  | [], _, _, _, h => h\n  | c'::cs, a, b\u2081, b\u2082, h => by\n    unfold utf8SetAux\n    apply iteInduction (motive := fun p => (utf8GetAux p a i).utf8Size + b\u2081 = utf8ByteSize.go p + b\u2082) <;>\n      intro h' <;> simp [utf8GetAux, h', utf8ByteSize.go] at h \u22a2\n    next =>\n      rw [Nat.add_assoc, Nat.add_left_comm] at h \u22a2; rw [Nat.add_left_cancel h]\n    next =>\n      rw [Nat.add_assoc] at h \u22a2\n      refine foo cs (a + c') b\u2081 (c'.utf8Size + b\u2082) h\n  exact foo s.1 0 _ _ h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "set_next_add",
+    "has_proof": true
+  }
+}

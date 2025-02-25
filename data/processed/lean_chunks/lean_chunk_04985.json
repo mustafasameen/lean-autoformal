@@ -1,0 +1,10 @@
+{
+  "content": "theorem Pairwise.of_cons (p : (a :: l).Pairwise R) : Pairwise R l :=\n  (pairwise_cons.1 p).2\ntheorem Pairwise.tail : \u2200 {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Pairwise.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Pairwise.lean",
+    "definition_name": "Pairwise",
+    "has_proof": false
+  }
+}

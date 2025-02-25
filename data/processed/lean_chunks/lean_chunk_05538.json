@@ -1,0 +1,10 @@
+{
+  "content": "xs.toArray.allM p = xs.allM p := by\n  cases xs\n  simp\n@[simp] theorem any_toArray (p : \u03b1 \u2192 Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.any p = xs.any p := by\n  cases xs\n  simp\n@[simp] theorem all_toArray (p : \u03b1 \u2192 Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.all p = xs.all p := by\n  cases xs\n  simp\n@[simp] theorem countP_toArray (p : \u03b1 \u2192 Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.countP p = xs.countP p := by\n  cases xs\n  simp\n@[simp] theorem count_toArray [BEq \u03b1] (a : \u03b1) (xs : Vector \u03b1 n) :\n    xs.toArray.count a = xs.count a := by\n  cases xs\n  simp\n@[simp] theorem find?_toArray (p : \u03b1 \u2192 Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.find? p = xs.find? p := by\n  cases xs\n  simp\n@[simp] theorem findSome?_toArray (f : \u03b1 \u2192 Option \u03b2) (xs : Vector \u03b1 n) :\n    xs.toArray.findSome? f = xs.findSome? f := by\n  cases xs\n  simp\n@[simp] theorem findRev?_toArray (p : \u03b1 \u2192 Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.findRev? p = xs.findRev? p := by\n  cases xs\n  simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "toArray_append",
+    "has_proof": true
+  }
+}

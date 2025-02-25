@@ -1,0 +1,9 @@
+{
+  "content": "for typeName in indVal.all do\n    typeInfos := typeInfos.push (\u2190 getConstInfoInduct typeName)\n  let mut auxFunNames := #[]\n  for typeName in indVal.all do\n    match typeName.eraseMacroScopes with\n    | .str _ t => auxFunNames := auxFunNames.push (\u2190 mkFreshUserName <| Name.mkSimple <| fnPrefix ++ t)\n    | _        => auxFunNames := auxFunNames.push (\u2190 mkFreshUserName `instFn)\n  trace[Elab.Deriving.beq] \"{auxFunNames}\"\n  let usePartial := indVal.isNested || typeInfos.size > 1\n  return {\n    typeInfos   := typeInfos\n    auxFunNames := auxFunNames\n    usePartial  := usePartial\n  }\ndef mkLocalInstanceLetDecls (ctx : Context) (className : Name) (argNames : Array Name) : TermElabM (Array (TSyntax ``Parser.Term.letDecl)) := do\n  let mut letDecls := #[]\n  for h : i in [:ctx.typeInfos.size] do\n    let indVal       := ctx.typeInfos[i]\n    let auxFunName   := ctx.auxFunNames[i]!\n    let currArgNames \u2190 mkInductArgNames indVal\n    let numParams    := indVal.numParams",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

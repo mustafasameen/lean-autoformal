@@ -1,0 +1,9 @@
+{
+  "content": "def v := -2\n#guard (v*m1*m2)[0, 0] == -38\ndef ex1 (a b : Nat) (x : Matrix 10 20 Nat) (y : Matrix 20 10 Nat) (z : Matrix 10 10 Nat) : Matrix 10 10 Nat :=\n  a * x * y + b * z\ndef ex2 (a b : Nat) (x : Matrix m n Nat) (y : Matrix n m Nat) (z : Matrix m m Nat) : Matrix m m Nat :=\n  a * x * y + b * z",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/matrix.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/matrix.lean",
+    "definition_name": "v"
+  }
+}

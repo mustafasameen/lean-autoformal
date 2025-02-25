@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_le_add_three {a b c d e f : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "add_le_add_three",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\n visited : PtrSet Expr := mkPtrSet\n counter : Nat := 0\nunsafe abbrev M := StateM State\nunsafe def visit (e : Expr) : M Unit :=\n  unless (\u2190 get).visited.contains e do\n    modify fun { visited, counter }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/NumObjs.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/NumObjs.lean",
+    "definition_name": "State"
+  }
+}

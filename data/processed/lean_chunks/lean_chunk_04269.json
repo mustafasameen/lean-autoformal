@@ -1,0 +1,10 @@
+{
+  "content": "theorem sshiftRightRec_eq (x : BitVec w\u2081) (y : BitVec w\u2082) (n : Nat) :\n    sshiftRightRec x y n = x.sshiftRight' ((y.setWidth (n + 1)).setWidth w\u2082) := by\n  induction n generalizing x y\n  case zero =>\n    ext i\n    simp [twoPow_zero, Nat.reduceAdd, and_one_eq_setWidth_ofBool_getLsbD, setWidth_one]\n  case succ n ih =>\n    simp only [sshiftRightRec_succ_eq, and_twoPow, ih]\n    by_cases h : y.getLsbD (n + 1)\n    \u00b7 rw [setWidth_setWidth_succ_eq_setWidth_setWidth_or_twoPow_of_getLsbD_true h,\n        sshiftRight'_or_of_and_eq_zero (by simp [and_twoPow]), h]\n      simp\n    \u00b7 rw [setWidth_setWidth_succ_eq_setWidth_setWidth_of_getLsbD_false (i := n + 1)\n        (by simp [h])]\n      simp [h]\ntheorem sshiftRight_eq_sshiftRightRec (x : BitVec w\u2081) (y : BitVec w\u2082) :\n    (x.sshiftRight' y).getLsbD i = (sshiftRightRec x y (w\u2082 - 1)).getLsbD i := by\n  rcases w\u2082 with rfl | w\u2082\n  \u00b7 simp [of_length_zero]\n  \u00b7 simp [sshiftRightRec_eq]\ndef ushiftRightRec (x : BitVec w\u2081) (y : BitVec w\u2082) (n : Nat) : BitVec w\u2081 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "sshiftRightRec_eq",
+    "has_proof": true
+  }
+}

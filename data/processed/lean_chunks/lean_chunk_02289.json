@@ -1,0 +1,9 @@
+{
+  "content": "structure Alloc (\u03b1) [BEq \u03b1] [Hashable \u03b1] where\n  map : HashMap \u03b1 Nat\n  next : Nat\nderiving Inhabited\nnamespace Export\nstructure State where\n  names : Alloc Name := \u27e8HashMap.empty.insert Name.anonymous 0, 1\u27e9\n  levels : Alloc Level := \u27e8HashMap.empty.insert levelZero 0, 1\u27e9\n  exprs : Alloc Expr\n  defs : HashSet Name\n  stk : Array (Bool \u00d7 Entry)\nderiving Inhabited\nclass OfState (\u03b1 : Type) [BEq \u03b1] [Hashable \u03b1] where\n  get : State \u2192 Alloc \u03b1\n  modify : (Alloc \u03b1 \u2192 Alloc \u03b1) \u2192 State \u2192 State\ninstance : OfState Name where\n  get s := s.names\n  modify f s := { s with names := f s.names }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/998Export.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/998Export.lean",
+    "definition_name": "Alloc"
+  }
+}

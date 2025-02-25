@@ -1,0 +1,9 @@
+{
+  "content": "inductive ReducibilityStatus where\n  | reducible | semireducible | irreducible\n  deriving Inhabited, Repr, BEq\ndef ReducibilityStatus.toAttrString : ReducibilityStatus \u2192 String\n  | .reducible => \"[reducible]\"\n  | .irreducible => \"[irreducible]\"\n  | .semireducible => \"[semireducible]\"\nbuiltin_initialize reducibilityCoreExt : PersistentEnvExtension (Name \u00d7 ReducibilityStatus) (Name \u00d7 ReducibilityStatus) (NameMap ReducibilityStatus) \u2190\n  registerPersistentEnvExtension {\n    name            := `reducibilityCore\n    mkInitial       := pure {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ReducibilityAttrs.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ReducibilityAttrs.lean",
+    "definition_name": "ReducibilityStatus"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def truncateMaxDepth := 8\npartial def truncate (env : Environment) (v : Value) (s : NameSet) : Value :=\n  go v s truncateMaxDepth\nwhere\n  go (v : Value) (s : NameSet) (depth : Nat) : Value :=\n    match depth with\n    | 0 => top\n    | depth+1 =>\n      match v, s with\n      | ctor i vs, found =>\n        let I := i.name.getPrefix\n        if found.contains I then\n          top\n        else\n          let cont (found' : NameSet) : Value :=\n            ctor i (vs.map fun v => go v found' depth)\n          match env.find? I with\n          | some (ConstantInfo.inductInfo d) =>\n            if d.isRec then cont (found.insert I)\n            else cont found\n          | _ => cont found\n      | choice vs, found =>\n        let newVs := vs.map fun v => go v found depth\n        if newVs.elem top then top\n        else choice newVs\n      | v, _ => v\ndef updateJPParamsAssignment (ys : Array Param) (xs : Array Arg) : M Bool := do\n  let ctx \u2190 read\n  let currFnIdx := ctx.currFnIdx",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_name": "truncateMaxDepth"
+  }
+}

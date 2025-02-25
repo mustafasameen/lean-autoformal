@@ -1,0 +1,10 @@
+{
+  "content": "induction xs, i, h using Array.eraseIdx.induct with\n  | @case1 xs i h h' xs' ih =>\n    unfold eraseIdx\n    simp +zetaDelta [h', xs', ih]\n  | case2 xs i h h' =>\n    unfold eraseIdx\n    simp [h']\ndef eraseIdxIfInBounds (xs : Array \u03b1) (i : Nat) : Array \u03b1 :=\n  if h : i < xs.size then xs.eraseIdx i h else xs\ndef eraseIdx! (xs : Array \u03b1) (i : Nat) : Array \u03b1 :=\n  if h : i < xs.size then xs.eraseIdx i h else panic! \"invalid index\"\ndef erase [BEq \u03b1] (as : Array \u03b1) (a : \u03b1) : Array \u03b1 :=\n  match as.finIdxOf? a with\n  | none   => as\n  | some i => as.eraseIdx i\ndef eraseP (as : Array \u03b1) (p : \u03b1 \u2192 Bool) : Array \u03b1 :=\n  match as.findFinIdx? p with\n  | none   => as\n  | some i => as.eraseIdx i\n@[inline] def insertIdx (as : Array \u03b1) (i : Nat) (a : \u03b1) (_ : i \u2264 as.size := by get_elem_tactic) : Array \u03b1 :=\nlet rec @[semireducible]\n  loop (as : Array \u03b1) (j : Fin as.size) :=\n    if i < j then\n      let j' : Fin as.size := \u27e8j-1, Nat.lt_of_le_of_lt (Nat.pred_le _) j.2\u27e9\n      let as := as.swap j' j",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_name": "popWhile_empty",
+    "has_proof": true
+  }
+}

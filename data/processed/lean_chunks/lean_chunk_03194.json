@@ -1,0 +1,9 @@
+{
+  "content": "class ReprTuple (\u03b1 : Type u) where\n  reprTuple : \u03b1 \u2192 List Format \u2192 List Format\nexport ReprTuple (reprTuple)\ninstance [Repr \u03b1] : ReprTuple \u03b1 where\n  reprTuple a xs := repr a :: xs\ninstance [Repr \u03b1] [ReprTuple \u03b2] : ReprTuple (\u03b1 \u00d7 \u03b2) where\n  reprTuple | (a, b), xs => reprTuple b (repr a :: xs)\nprotected def Prod.repr [Repr \u03b1] [ReprTuple \u03b2] : \u03b1 \u00d7 \u03b2 \u2192 Nat \u2192 Format\n  | (a, b), _ => Format.bracket \"(\" (Format.joinSep (reprTuple b [repr a]).reverse (\",\" ++ Format.line)) \")\"\ninstance [Repr \u03b1] [ReprTuple \u03b2] : Repr (\u03b1 \u00d7 \u03b2) where\n  reprPrec := Prod.repr\ninstance {\u03b2 : \u03b1 \u2192 Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Repr.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Repr.lean",
+    "definition_name": "ReprTuple"
+  }
+}

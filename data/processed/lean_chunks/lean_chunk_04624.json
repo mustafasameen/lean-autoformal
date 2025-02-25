@@ -1,0 +1,10 @@
+{
+  "content": "theorem Poly.denote_mul (ctx : Context) (p : Poly) (k : Int) : (p.mul k).denote ctx = k * p.denote ctx := by\n  induction p <;> simp [mul, denote, *]\n  rw [Int.mul_assoc, Int.mul_add]\nattribute [local simp] Int.add_comm Int.add_assoc Int.add_left_comm Int.add_mul Int.mul_add\nattribute [local simp] Poly.insert Poly.denote Poly.norm Poly.addConst\ntheorem Poly.denote_addConst (ctx : Context) (p : Poly) (k : Int) : (p.addConst k).denote ctx = p.denote ctx + k := by\n  induction p <;> simp [*]\nattribute [local simp] Poly.denote_addConst\ntheorem Poly.denote_insert (ctx : Context) (k : Int) (v : Var) (p : Poly) :\n    (p.insert k v).denote ctx = p.denote ctx + k * v.denote ctx := by\n  fun_induction p.insert k v <;>\n    simp only [insert, cond_true, cond_false, \u2193reduceIte, *] <;>\n    simp_all [\u2190 Int.add_mul]\nattribute [local simp] Poly.denote_insert\ntheorem Poly.denote_norm (ctx : Context) (p : Poly) : p.norm.denote ctx = p.denote ctx := by\n  induction p <;> simp [*]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

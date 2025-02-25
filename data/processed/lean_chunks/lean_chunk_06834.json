@@ -1,0 +1,9 @@
+{
+  "content": "if (\u2190 isEqTrue e) then\n    if (\u2190 (isEqTrue a <&&> isEqTrue b) <||> (isEqFalse a <&&> isEqFalse b)) then\n      return .resolved\n    else\n      return .ready 2\n  else if (\u2190 isEqFalse e) then\n    if (\u2190 (isEqTrue a <&&> isEqFalse b) <||> (isEqFalse a <&&> isEqTrue b)) then\n      return .resolved\n    else\n      return .ready 2\n  else\n    return .notReady\nprivate def selectNextSplit? : GoalM SplitCandidate := do\n  if (\u2190 isInconsistent) then return .none\n  if (\u2190 checkMaxCaseSplit) then return .none\n  go (\u2190 get).split.candidates .none []\nwhere\n  go (cs : List Expr) (c? : SplitCandidate) (cs' : List Expr) : GoalM SplitCandidate := do\n    match cs with\n    | [] =>\n      modify fun s => { s with split.candidates := cs'.reverse }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Split.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Split.lean",
+    "definition_name": "CaseSplitStatus"
+  }
+}

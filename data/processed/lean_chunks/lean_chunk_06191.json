@@ -1,0 +1,9 @@
+{
+  "content": "def isMinor (info : RecursorInfo) (pos : Nat) : Bool :=\n  if pos \u2264 info.motivePos then false\n  else if info.firstIndexPos \u2264 pos && pos \u2264 info.majorPos then false\n  else true\ndef numMinors (info : RecursorInfo) : Nat :=\n  let r := info.numArgs\n  let r := r - info.motivePos - 1\n  r - (info.majorPos + 1 - info.firstIndexPos)\ninstance : ToString RecursorInfo := \u27e8fun info =>\n  \"{\\n\" ++\n  \"  name           := \" ++ toString info.recursorName ++ \"\\n\" ++\n  \"  type           := \" ++ toString info.typeName ++ \"\\n\" ++\n  \"  univs          := \" ++ toString info.univLevelPos ++ \"\\n\" ++\n  \"  depElim        := \" ++ toString info.depElim ++ \"\\n\" ++\n  \"  recursive      := \" ++ toString info.recursive ++ \"\\n\" ++\n  \"  numArgs        := \" ++ toString info.numArgs ++ \"\\n\" ++\n  \"  numParams      := \" ++ toString info.numParams ++ \"\\n\" ++\n  \"  numIndices     := \" ++ toString info.numIndices ++ \"\\n\" ++\n  \"  numMinors      := \" ++ toString info.numMinors ++ \"\\n\" ++",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/RecursorInfo.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/RecursorInfo.lean",
+    "definition_name": "RecursorUnivLevelPos"
+  }
+}

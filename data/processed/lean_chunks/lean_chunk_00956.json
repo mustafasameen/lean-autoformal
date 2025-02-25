@@ -1,0 +1,9 @@
+{
+  "content": "structure Note where\n  pitch : UInt64\n  start : Nat\ndef Note.containsNote (n1 n2 : Note) : Prop :=\n  n1.start \u2264 n2.start\ndef Note.lowerSemitone (n : Note) : Note :=\n  { n with pitch := n.pitch - 1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4413.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4413.lean",
+    "definition_name": "Note"
+  }
+}

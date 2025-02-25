@@ -1,0 +1,10 @@
+{
+  "content": "simp\nattribute [local simp] Poly.denote_sort\ntheorem Poly.denote_append (ctx : Context) (p q : Poly) : (p ++ q).denote ctx = p.denote ctx + q.denote ctx := by\n  match p with\n  | []  => simp\n  | (k, v) :: p => simp [denote_append]\nattribute [local simp] Poly.denote_append\ntheorem Poly.denote_cons (ctx : Context) (k : Nat) (v : Var) (p : Poly) : denote ctx ((k, v) :: p) = k * v.denote ctx + p.denote ctx := by\n  match p with\n  | []     => simp\n  | _ :: m => simp [denote_cons]\nattribute [local simp] Poly.denote_cons\ntheorem Poly.denote_reverseAux (ctx : Context) (p q : Poly) : denote ctx (List.reverseAux p q) = denote ctx (p ++ q) := by\n  match p with\n  | [] => simp [List.reverseAux]\n  | (k, v) :: p => simp [List.reverseAux, denote_reverseAux]\nattribute [local simp] Poly.denote_reverseAux\ntheorem Poly.denote_reverse (ctx : Context) (p : Poly) : denote ctx (List.reverse p) = denote ctx p := by\n  simp [List.reverse]\nattribute [local simp] Poly.denote_reverse",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "def Subst := Nat \u2192 Nat\ndef depth : Term \u2192 Nat\n  | .Var _ => 0\n  | .Cons l r => 1 + depth l + depth r\ndef act (f : Subst) (t : Term) := match t with\n  | .Var i => Term.Var (f i)\n  | .Cons l r => Term.Cons (act f l) (act f r)\ndef strangers (u v : Term) := \u2200 f : Subst, act f u \u2260 act f v\nabbrev P (c : Option Subst) u v := match c with\n  | none => strangers u v\n  | some f => act f u = act f v\ninstance rel : WellFoundedRelation (Term \u00d7 Term) := measure (\u03bb (u, v) => depth u + depth v)\ntheorem decr_left (l\u2081 r\u2081 l\u2082 r\u2082 : Term) :\n  rel.rel (l\u2081, l\u2082) (Term.Cons l\u2081 r\u2081, Term.Cons l\u2082 r\u2082) := by\n  suffices h : depth l\u2081 + depth l\u2082 < depth (Term.Cons l\u2081 r\u2081) + depth (Term.Cons l\u2082 r\u2082) from h\n  admit\ntheorem decr_right (l\u2081 r\u2081 l\u2082 r\u2082 : Term) (f : Subst) :\n  rel.rel (act f r\u2081, act f r\u2082) (Term.Cons l\u2081 r\u2081, Term.Cons l\u2082 r\u2082) := by\n  suffices h : depth (act f r\u2081) + depth (act f r\u2082) < depth (Term.Cons l\u2081 r\u2081) + depth (Term.Cons l\u2082 r\u2082) from h\n  admit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/robinson.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/robinson.lean",
+    "definition_name": "Subst",
+    "has_proof": true
+  }
+}

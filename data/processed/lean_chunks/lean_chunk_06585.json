@@ -1,0 +1,9 @@
+{
+  "content": "def declValEqns      := leading_parser\n  Term.matchAltsWhereDecls\ndef whereStructInst  := leading_parser\n  ppIndent ppSpace >> \"where\" >> Term.structInstFields (sepByIndent Term.structInstField \"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "quot"
+  }
+}

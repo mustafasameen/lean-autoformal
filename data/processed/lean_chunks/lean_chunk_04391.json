@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 have ih := ih (h := h); simp [denote_le] at ih \u22a2\n            have haux : k\u2082 * Var.denote ctx v\u2081 \u2264 k\u2081 * Var.denote ctx v\u2081 := Nat.mul_le_mul_right _ (Nat.le_of_lt (Nat.blt_eq.mp hgtk))\n            rw [Nat.mul_sub_right_distrib, \u2190 Nat.add_assoc, \u2190 Nat.add_sub_assoc haux] at ih\n            have := Nat.le_add_of_sub_le ih\n            simp at this\n            exact this\n          \u00b7 have heqk : k\u2081 = k\u2082 := eq_of_not_blt_eq_true hltk hgtk; subst heqk\n            have ih := ih (h := h); simp [denote_le] at ih \u22a2\n            have := Nat.add_le_add_right ih (k\u2081 * Var.denote ctx v\u2081)\n            simp at this\n            exact this\ntheorem Poly.denote_le_cancel {ctx : Context}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Person :=\n(name : String)\n(age  : Nat := 0)\ninstance : ToString Person :=\n\u27e8fun p => p.name ++ \":\" ++ toString p.age\u27e9\n#eval toString { name := \"John\", age := 30 : Person }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pldi/intro.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pldi/intro.lean",
+    "definition_name": "Person"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let cfg \u2190 getConfig\n      if !decl.isImplementationDetail && !cfg.zetaDelta then\n        if !(\u2190 read).zetaDeltaSet.contains fvarId then\n          return e\n      if (\u2190 read).trackZetaDelta then\n        modify fun s => { s with zetaDeltaFVarIds := s.zetaDeltaFVarIds.insert fvarId }\n      whnfEasyCases v k\n  | .mvar mvarId   =>\n    match (\u2190 getExprMVarAssignment? mvarId) with\n    | some v => whnfEasyCases v k\n    | none   => return e\n@[specialize] private def deltaDefinition (c : ConstantInfo) (lvls : List Level)\n    (failK : Unit \u2192 MetaM \u03b1) (successK : Expr \u2192 MetaM \u03b1) : MetaM \u03b1 := do\n  if c.levelParams.length != lvls.length then\n    failK ()\n  else\n    successK (\u2190 instantiateValueLevelParams c lvls)\n@[specialize] private def deltaBetaDefinition (c : ConstantInfo) (lvls : List Level) (revArgs : Array Expr)\n    (failK : Unit \u2192 MetaM \u03b1) (successK : Expr \u2192 MetaM \u03b1) (preserveMData := false) : MetaM \u03b1 := do\n  if c.levelParams.length != lvls.length then\n    failK ()\n  else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

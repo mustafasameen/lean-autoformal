@@ -1,0 +1,10 @@
+{
+  "content": "theorem List.size_toArrayAux (as : List \u03b1) (bs : Array \u03b1) : (as.toArrayAux bs).size = as.length + bs.size := by\n  induction as generalizing bs with\n  | nil => simp [toArrayAux]\n  | cons a as ih => simp +arith [toArrayAux, *]\nprivate theorem List.of_toArrayAux_eq_toArrayAux {as bs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/BasicAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/BasicAux.lean",
+    "definition_name": "List",
+    "has_proof": true
+  }
+}

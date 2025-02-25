@@ -1,0 +1,9 @@
+{
+  "content": "return FilePath.mk ar\n    else\n      let ar := leanArExe sysroot\n      if (\u2190 ar.pathExists) then\n        return ar\n      else if let some ar \u2190 IO.getEnv \"AR\" then\n        return ar\n      else\n        return \"ar\"\n  setCc i := do\n    if let some cc \u2190 IO.getEnv \"LEAN_CC\" then\n      return withCustomCc i cc\n    else\n      let cc := leanCcExe sysroot\n      if (\u2190 cc.pathExists) then\n        return withInternalCc i cc\n      else if let some cc \u2190 IO.getEnv \"CC\" then\n        return withCustomCc i cc\n      else\n        return withCustomCc i \"cc\"\n  @[inline] withCustomCc (i : LeanInstall) cc :=\n    {i with cc}\n  withInternalCc (i : LeanInstall) cc :=\n    let ccLinkFlags := getInternalLinkerFlags sysroot\n    {i with\n      cc, customCc := false\n      ccFlags := i.cFlags ++ getInternalCFlags sysroot\n      ccLinkStaticFlags := ccLinkFlags ++ i.linkStaticFlags\n      ccLinkSharedFlags := ccLinkFlags ++ i.linkSharedFlags\n    }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_name": "findLeanSysroot"
+  }
+}

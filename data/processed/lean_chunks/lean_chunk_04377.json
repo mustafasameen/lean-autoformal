@@ -1,0 +1,10 @@
+{
+  "content": "theorem mul_dvd_mul_left (a : Nat) (h : b \u2223 c) : a * b \u2223 a * c :=\n  Nat.mul_dvd_mul (Nat.dvd_refl a) h\nprotected theorem mul_dvd_mul_right (h: a \u2223 b) (c : Nat) : a * c \u2223 b * c :=\n  Nat.mul_dvd_mul h (Nat.dvd_refl c)\n@[simp] theorem dvd_one {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_name": "mul_dvd_mul_left",
+    "has_proof": false
+  }
+}

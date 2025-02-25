@@ -1,0 +1,9 @@
+{
+  "content": "@[inline]\ndef ofInt (data : Int) (h : 0 \u2264 data \u2227 data \u2264 23) : Ordinal :=\n  Bounded.LE.mk data h\ndef toRelative (ordinal : Ordinal) : Bounded.LE 1 12 :=\n  (ordinal.add 11).emod 12 (by decide) |>.add 1\ndef shiftTo1BasedHour (ordinal : Ordinal) : Bounded.LE 1 24 :=\n  if h : ordinal.val < 1\n    then Internal.Bounded.LE.ofNatWrapping 24 (by decide)\n    else ordinal.truncateBottom (Int.not_lt.mp h) |>.expandTop (by decide)\n@[inline]\ndef ofNat (data : Nat) (h : data \u2264 23) : Ordinal :=\n  Bounded.LE.ofNat data h\n@[inline]\ndef ofFin (data : Fin 24) : Ordinal :=\n  Bounded.LE.ofFin data\n@[inline]\ndef toOffset (ordinal : Ordinal) : Offset :=\n  UnitVal.ofInt ordinal.val\nend Ordinal\nnamespace Offset\n@[inline]\ndef ofNat (data : Nat) : Offset :=\n  UnitVal.ofInt data\n@[inline]\ndef ofInt (data : Int) : Offset :=\n  UnitVal.ofInt data\nend Offset\nend Hour\nend Time\nend Std",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Hour.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Hour.lean",
+    "definition_name": "Ordinal"
+  }
+}

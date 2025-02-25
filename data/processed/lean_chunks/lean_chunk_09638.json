@@ -1,0 +1,9 @@
+{
+  "content": "letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getKeyGE! k t.inner\n@[inline, inherit_doc DTreeMap.getKeyGT!]\ndef getKeyGT! [Inhabited \u03b1] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getKeyGT! k t.inner\n@[inline, inherit_doc DTreeMap.getKeyLE!]\ndef getKeyLE! [Inhabited \u03b1] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getKeyLE! k t.inner\n@[inline, inherit_doc DTreeMap.getKeyLT!]\ndef getKeyLT! [Inhabited \u03b1] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getKeyLT! k t.inner\n@[inline, inherit_doc DTreeMap.getKeyGED]\ndef getKeyGED (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getKeyGED k t.inner fallback\n@[inline, inherit_doc DTreeMap.getKeyGTD]\ndef getKeyGTD (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getKeyGTD k t.inner fallback\n@[inline, inherit_doc DTreeMap.getKeyLED]\ndef getKeyLED (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; Impl.getKeyLED k t.inner fallback",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Raw.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Raw.lean",
+    "definition_name": "Raw"
+  }
+}

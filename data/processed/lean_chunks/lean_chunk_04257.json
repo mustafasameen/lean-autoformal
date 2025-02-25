@@ -1,0 +1,10 @@
+{
+  "content": "theorem umod_eq_of_mul_add_toNat {d n q r : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "umod_eq_of_mul_add_toNat",
+    "has_proof": false
+  }
+}

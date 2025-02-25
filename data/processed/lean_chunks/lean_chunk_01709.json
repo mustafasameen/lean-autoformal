@@ -1,0 +1,10 @@
+{
+  "content": "theorem myid_eq : myid x = x := by simp [myid]\ndef myif (c : Prop) [Decidable c] (a b : \u03b1) : \u03b1 :=\n  if c then a else b\n@[simp \u2193] theorem myif_cond_true (c : Prop) {_ : Decidable c}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpPreIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpPreIssue.lean",
+    "definition_name": "myid_eq",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let info \u2190 getFunInfoNArgs fn nargs\n      let todo \u2190 MatchClone.pushArgsAux info.paramInfo (nargs-1) e todo\n      return (k, todo)\n    match fn with\n    | .lit v     =>\n      return (.lit v, todo)\n    | .const c _ =>\n      unless root do\n        if let some v := MatchClone.toNatLit? e then\n          return (.lit v, todo)\n        if (\u2190 MatchClone.shouldAddAsStar c e) then\n          return (.star, todo)\n      let nargs := e.getAppNumArgs\n      push (.const c nargs) nargs todo\n    | .proj s i a =>\n      let a := if isClass (\u2190 getEnv) s then mkNoindexAnnotation a else a\n      let nargs := e.getAppNumArgs\n      push (.proj s i nargs) nargs (todo.push a)\n    | .fvar _fvarId   =>\n      return (.star, todo)\n    | .mvar mvarId   =>\n      if mvarId == MatchClone.tmpMVarId then\n        return (.star, todo)\n      else\n        failure\n    | .forallE _ d b _ =>\n      let b \u2190 if b.hasLooseBVars then MatchClone.elimLooseBVarsByBeta b else pure b\n      if b.hasLooseBVars then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_name": "TrieIndex"
+  }
+}

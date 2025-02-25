@@ -1,0 +1,10 @@
+{
+  "content": "@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\")]\ntheorem iota_eq_reverse_range' : \u2200 n : Nat, iota n = reverse (range' 1 n)\n  | 0 => rfl\n  | n + 1 => by simp [iota, range'_concat, iota_eq_reverse_range' n, reverse_append, Nat.add_comm]\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\"), simp]\ntheorem length_iota (n : Nat) : length (iota n) = n := by simp [iota_eq_reverse_range']\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\"), simp]\ntheorem iota_eq_nil {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "erase_range",
+    "has_proof": true
+  }
+}

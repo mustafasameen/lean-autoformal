@@ -1,0 +1,9 @@
+{
+  "content": "let headers \u2190 typeInfos.mapM $ mkHeader motives indVal.numParams\n  return {\n    motives := motives\n    typeInfos := typeInfos\n    numParams := indVal.numParams\n    headers := headers\n    belowNames := indVal.all.toArray.map (\u00b7 ++ `below)\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/IndPredBelow.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/IndPredBelow.lean",
+    "definition_name": "predicates"
+  }
+}

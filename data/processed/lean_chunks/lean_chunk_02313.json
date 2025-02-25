@@ -1,0 +1,9 @@
+{
+  "content": "let len := cmds.toList.length\n    let newTerm (s : String) := if len = 1 then baseTypeIdent else mkIdent' s (m+1)\n    let newTerm' (s : String) := if len = 1 then baseIdent else mkIdent' s (m+1)\n    let fieldsStx \u2190 mkFieldsStx type (s!\"x{m}_\") width\n    let nextStruct \u2190\n      `(structure $(mkIdent' \"A\" m) extends $(newTerm \"A\"):term where\n        $fieldsStx:structFields)\n    let structVals \u2190 (List.range width).mapM fun j =>\n      `(Term.structInstField| $(mkIdent' s!\"x{m}_\" j):ident := $val)\n    let nextStructInst \u2190\n      `(def $(mkIdent' \"a\" m) : $(mkIdent' \"A\" m) := { $(newTerm' \"a\"):ident with $structVals.toArray,* })\n    let nextStructInst' \u2190\n      `(def $(mkIdent' \"a'\" m) : $(mkIdent' \"A\" m) := { $(newTerm' \"a'\"):ident with $structVals.toArray,* })\n    let newCmd : TSyntax `command \u2190\n      `($nextStruct:command\n        $nextStructInst\n        $nextStructInst')\n    go val width m (cmds.push newCmd)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInstFast.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInstFast.lean",
+    "definition_name": "baseIdent"
+  }
+}

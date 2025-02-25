@@ -1,0 +1,9 @@
+{
+  "content": "if c then t else e\nopen Parser\nabbrev ParenthesizerAliasValue := AliasValue Parenthesizer\nbuiltin_initialize parenthesizerAliasesRef : IO.Ref (NameMap ParenthesizerAliasValue) \u2190 IO.mkRef {}\ndef registerAlias (aliasName : Name) (v : ParenthesizerAliasValue) : IO Unit := do\n  Parser.registerAliasCore parenthesizerAliasesRef aliasName v\ninstance : Coe Parenthesizer ParenthesizerAliasValue := { coe := AliasValue.const }\ninstance : Coe (Parenthesizer \u2192 Parenthesizer) ParenthesizerAliasValue := { coe := AliasValue.unary }\ninstance : Coe (Parenthesizer \u2192 Parenthesizer \u2192 Parenthesizer) ParenthesizerAliasValue := { coe := AliasValue.binary }\nend Parenthesizer\nopen Parenthesizer\ndef parenthesize (parenthesizer : Parenthesizer) (stx : Syntax) : CoreM Syntax := do\n  trace[PrettyPrinter.parenthesize.input] \"{format stx}\"\n  let opts \u2190 getOptions\n  catchInternalId backtrackExceptionId\n    (do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_name": "rawIdentNoAntiquot"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Preorder (\u03b1 : Type _) extends LE \u03b1, LT \u03b1 where\n  le_refl : \u2200 a : \u03b1, a \u2264 a\n  le_trans : \u2200 a b c : \u03b1, a \u2264 b \u2192 b \u2264 c \u2192 a \u2264 c\n  lt := fun a b => a \u2264 b \u2227 \u00acb \u2264 a\n  lt_iff_le_not_le : \u2200 a b : \u03b1, a < b \u2194 a \u2264 b \u2227 \u00acb \u2264 a := by intros; rfl\nend Preorder\nsection PartialOrder\nclass PartialOrder (\u03b1 : Type _) extends Preorder \u03b1 where\n  le_antisymm : \u2200 a b : \u03b1, a \u2264 b \u2192 b \u2264 a \u2192 a = b\nend PartialOrder\nsection LinearOrder\nclass LinearOrder (\u03b1 : Type _) extends PartialOrder \u03b1, Min \u03b1, Max \u03b1, Ord \u03b1 where\n  le_total (a b : \u03b1) : a \u2264 b \u2228 b \u2264 a\n  decidableLE : DecidableRel (\u00b7 \u2264 \u00b7 : \u03b1 \u2192 \u03b1 \u2192 Prop)\n  decidableEq : DecidableEq \u03b1\n  decidableLT : DecidableRel (\u00b7 < \u00b7 : \u03b1 \u2192 \u03b1 \u2192 Prop)\n  min := fun a b => if a \u2264 b then a else b\n  max := fun a b => if a \u2264 b then b else a\n  min_def : \u2200 a b, min a b = if a \u2264 b then a else b := by intros; rfl\n  max_def : \u2200 a b, max a b = if a \u2264 b then b else a := by intros; rfl\n  compare a b := compareOfLessAndEq a b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_mod_cast.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_mod_cast.lean",
+    "definition_name": "Preorder"
+  }
+}

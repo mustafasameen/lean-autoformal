@@ -1,0 +1,10 @@
+{
+  "content": "inductive Wk: Nat -> Nat -> Type 0 where\n  | id: Wk n n\n  | step: Wk m n -> Wk (Nat.succ m) n\ndef wk_comp : Wk n m \u2192 Wk m l \u2192 Wk n l\n  | Wk.id, \u03c3 => \u03c3\n  | Wk.step \u03c1, \u03c3 => Wk.step (wk_comp \u03c1 \u03c3)\ntheorem wk_comp_id_id {\u03c1: Wk m n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/837.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/837.lean",
+    "definition_name": "Wk",
+    "has_proof": false
+  }
+}

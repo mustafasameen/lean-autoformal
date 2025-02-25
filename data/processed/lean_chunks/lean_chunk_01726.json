@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_true_of_not_eq_false {b : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralMutual.lean",
+    "definition_name": "eq_true_of_not_eq_false",
+    "has_proof": false
+  }
+}

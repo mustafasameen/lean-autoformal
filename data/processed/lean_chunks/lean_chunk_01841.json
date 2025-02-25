@@ -1,0 +1,9 @@
+{
+  "content": "class CommAddSemigroup (\u03b1 : Type u) extends Add \u03b1 where\n    addComm : {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/270.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/270.lean",
+    "definition_name": "CommAddSemigroup"
+  }
+}

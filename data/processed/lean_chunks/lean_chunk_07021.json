@@ -1,0 +1,9 @@
+{
+  "content": "add ns ns'\n          else\n            match ns' with\n            | Name.str p .. => visitNamespaces p\n            | _ => return ()\n        visitNamespaces ctx.currNamespace\nend IdCompletionUtils\nsection DotCompletionUtils\n  private def unfoldeDefinitionGuarded? (e : Expr) : MetaM (Option Expr) :=\n    try unfoldDefinition? e catch _ => pure none\n  private def isDotIdCompletionMethod (typeName : Name) (info : ConstantInfo) : MetaM Bool := do\n    forallTelescopeReducing info.type fun _ type =>\n      isDefEqToAppOf type.consumeMData typeName\n  private def stripPrivatePrefix (n : Name) : Name :=\n    match n with\n    | .num _ 0 => if isPrivatePrefix n then .anonymous else n\n    | _ => n\n  private partial def cmpModPrivate (n\u2081 n\u2082 : Name) : Ordering :=\n    let n\u2081 := stripPrivatePrefix n\u2081\n    let n\u2082 := stripPrivatePrefix n\u2082\n    match n\u2081, n\u2082 with\n    | .anonymous, .anonymous => Ordering.eq\n    | .anonymous, _          => Ordering.lt\n    | _,          .anonymous => Ordering.gt",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

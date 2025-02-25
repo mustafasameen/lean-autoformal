@@ -1,0 +1,9 @@
+{
+  "content": "class L (F : Sort u) (\u03b1 : outParam (Sort v)) (\u03b2 : outParam (\u03b1 \u2192 Sort w)) where\n  coe : F \u2192 \u2200 a : \u03b1, \u03b2 a\ninstance {F : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5359.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5359.lean",
+    "definition_name": "L"
+  }
+}

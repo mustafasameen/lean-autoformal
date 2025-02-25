@@ -1,0 +1,9 @@
+{
+  "content": "class instance type is not definitionally equal to expected type, synthesized{indentExpr val}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Term.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Term.lean",
+    "definition_name": "instance"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem Clause.eval_nil (a : \u03b1 \u2192 Bool) : Clause.eval a [] = false := rfl\n@[simp] theorem Clause.eval_cons (a : \u03b1 \u2192 Bool) :\n    Clause.eval a (i :: c) = (a i.1 == i.2 || Clause.eval a c) := rfl\ndef eval (a : \u03b1 \u2192 Bool) (f : CNF \u03b1) : Bool := f.all fun c => c.eval a\n@[simp] theorem eval_nil (a : \u03b1 \u2192 Bool) : eval a [] = true := rfl\n@[simp] theorem eval_cons (a : \u03b1 \u2192 Bool) : eval a (c :: f) = (c.eval a && eval a f) := rfl\n@[simp] theorem eval_append (a : \u03b1 \u2192 Bool) (f1 f2 : CNF \u03b1) :\n    eval a (f1 ++ f2) = (eval a f1 && eval a f2) := List.all_append\ndef Sat (a : \u03b1 \u2192 Bool) (f : CNF \u03b1) : Prop := eval a f = true\ndef Unsat (f : CNF \u03b1) : Prop := \u2200 a, eval a f = false\ntheorem sat_def (a : \u03b1 \u2192 Bool) (f : CNF \u03b1) : Sat a f \u2194 (eval a f = true) := by rfl\ntheorem unsat_def (f : CNF \u03b1) : Unsat f \u2194 (\u2200 a, eval a f = false) := by rfl\n@[simp] theorem not_unsat_nil : \u00acUnsat ([] : CNF \u03b1) :=\n  fun h => by simp [unsat_def] at h\n@[simp] theorem sat_nil {assign : \u03b1 \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Basic.lean",
+    "definition_name": "Clause",
+    "has_proof": true
+  }
+}

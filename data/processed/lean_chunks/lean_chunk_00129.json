@@ -1,0 +1,9 @@
+{
+  "content": "inductive Tree (\u03b1 \u03b2 : Type) :=\n  | leaf1 : \u03b1 \u2192 Tree \u03b1 \u03b2\n  | leaf2 : \u03b2 \u2192 Tree \u03b1 \u03b2\n  | node : Tree \u03b1 \u03b2 \u2192 Tree \u03b1 \u03b2 \u2192 Tree \u03b1 \u03b2\ninductive TreeElem1 : \u03b1 \u2192 Tree \u03b1 \u03b2 \u2192 Prop\n  | leaf1     : (a : \u03b1) \u2192 TreeElem1 a (Tree.leaf1 (\u03b2 := \u03b2) a)\n  | nodeLeft  : (a : \u03b1) \u2192 (left : Tree \u03b1 \u03b2) \u2192 (right : Tree \u03b1 \u03b2) \u2192 TreeElem1 a left  \u2192 TreeElem1 a (Tree.node left right)\n  | nodeRight : (a : \u03b1) \u2192 (left : Tree \u03b1 \u03b2) \u2192 (right : Tree \u03b1 \u03b2) \u2192 TreeElem1 a right \u2192 TreeElem1 a (Tree.node left right)\ninductive TreeElem2 : \u03b2 \u2192 Tree \u03b1 \u03b2 \u2192 Prop\n  | leaf2     : (b : \u03b2) \u2192 TreeElem2 b (Tree.leaf2 (\u03b1 := \u03b1) b)\n  | nodeLeft  : (b : \u03b2) \u2192 (left : Tree \u03b1 \u03b2) \u2192 (right : Tree \u03b1 \u03b2) \u2192 TreeElem2 b left  \u2192 TreeElem2 b (Tree.node left right)\n  | nodeRight : (b : \u03b2) \u2192 (left : Tree \u03b1 \u03b2) \u2192 (right : Tree \u03b1 \u03b2) \u2192 TreeElem2 b right \u2192 TreeElem2 b (Tree.node left right)\nnamespace Ex1\ndef findSomeRevM? [Monad m] (as : Array \u03b1) (f : \u03b1 \u2192 m (Option \u03b2)) : m (Option \u03b2) :=\n  pure none\ndef findSomeRev? (as : Array \u03b1) (f : \u03b1 \u2192 Option \u03b2) : Option \u03b2 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits1.lean",
+    "definition_name": "Tree"
+  }
+}

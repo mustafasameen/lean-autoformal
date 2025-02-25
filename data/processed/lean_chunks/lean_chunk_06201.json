@@ -1,0 +1,9 @@
+{
+  "content": "let t' \u2190 whnfCore t\n  let s' \u2190 whnfCore s\n  if t != t' || s != s' then\n    Meta.isExprDefEqAux t' s'\n  else\n    whenUndefDo (isDefEqNative t s) do\n    whenUndefDo (isDefEqNat t s) do\n    whenUndefDo (isDefEqOffset t s) do\n    whenUndefDo (isDefEqDelta t s) do\n    if (\u2190 (isDefEqEtaStruct t s <||> isDefEqEtaStruct s t)) then\n      return true\n    if t.isConst && s.isConst then\n      if t.constName! == s.constName! then isListLevelDefEqAux t.constLevels! s.constLevels! else return false\n    else if (\u2190 pure t.isApp <&&> pure s.isApp <&&> isDefEqApp t s) then\n      return true\n    else\n      whenUndefDo (isDefEqProjInst t s) do\n      whenUndefDo (isDefEqStringLit t s) do\n      if (\u2190 isDefEqUnitLike t s) then return true else\n      isDefEqOnFailure t s\ninductive DefEqCacheKind where\n| transient\n| permanent\nprivate def getDefEqCacheKind (t s : Expr) : MetaM DefEqCacheKind := do\n  if t.hasMVar || s.hasMVar || (\u2190 read).canUnfold?.isSome then\n    return .transient\n  else\n    return .permanent",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "DeltaStepResult"
+  }
+}

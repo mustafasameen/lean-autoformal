@@ -1,0 +1,9 @@
+{
+  "content": "structure KeyedDeclsAttribute (\u03b3 : Type) where\n  defn : KeyedDeclsAttribute.Def \u03b3\n  tableRef : IO.Ref (KeyedDeclsAttribute.Table \u03b3)\n  ext : KeyedDeclsAttribute.Extension \u03b3\n  deriving Nonempty\nnamespace KeyedDeclsAttribute\nprivate def Table.insert (table : Table \u03b3) (v : AttributeEntry \u03b3) : Table \u03b3 :=\n  match table.find? v.key with\n  | some vs => SMap.insert table v.key (v::vs)\n  | none    => SMap.insert table v.key [v]\ndef ExtensionState.insert (s : ExtensionState \u03b3) (v : AttributeEntry \u03b3) :  ExtensionState \u03b3 := {\n  table      := s.table.insert v\n  newEntries := v.toOLeanEntry :: s.newEntries\n  declNames  := s.declNames.insert v.declName\n  erased     := s.erased.erase v.declName\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/KeyedDeclsAttribute.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/KeyedDeclsAttribute.lean",
+    "definition_name": "KeyedDeclsAttribute"
+  }
+}

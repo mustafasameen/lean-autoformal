@@ -1,0 +1,10 @@
+{
+  "content": "mulRec x y s = x * ((y.setWidth (s + 1)).setWidth w) := by\n  induction s\n  case zero =>\n    simp only [mulRec_zero_eq, ofNat_eq_ofNat, Nat.reduceAdd]\n    by_cases y.getLsbD 0\n    case pos hy =>\n      simp only [hy, \u2193reduceIte, setWidth_one_eq_ofBool_getLsb_zero,\n        ofBool_true, ofNat_eq_ofNat]\n      rw [setWidth_ofNat_one_eq_ofNat_one_of_lt (by omega)]\n      simp\n    case neg hy =>\n      simp [hy, setWidth_one_eq_ofBool_getLsb_zero]\n  case succ s' hs =>\n    rw [mulRec_succ_eq, hs]\n    have heq :\n      (if y.getLsbD (s' + 1) = true then x <<< (s' + 1) else 0) =\n        (x * (y &&& (BitVec.twoPow w (s' + 1)))) := by\n      simp only [ofNat_eq_ofNat, and_twoPow]\n      by_cases hy : y.getLsbD (s' + 1) <;> simp [hy]\n    rw [heq, \u2190 BitVec.mul_add, \u2190 setWidth_setWidth_succ_eq_setWidth_setWidth_add_twoPow]\n@[deprecated mulRec_eq_mul_signExtend_setWidth (since := \"2024-09-18\"),\n  inherit_doc mulRec_eq_mul_signExtend_setWidth]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "slt_eq_ult",
+    "has_proof": true
+  }
+}

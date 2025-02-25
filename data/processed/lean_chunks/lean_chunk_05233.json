@@ -1,0 +1,10 @@
+{
+  "content": "simp\n@[simp] theorem concat_eq_append (as : List \u03b1) (a : \u03b1) : as.concat a = as ++ [a] := by\n  induction as <;> simp [concat, *]\ntheorem reverseAux_eq_append (as bs : List \u03b1) : reverseAux as bs = reverseAux as [] ++ bs := by\n  induction as generalizing bs with\n  | nil => simp [reverseAux]\n  | cons a as ih =>\n    simp [reverseAux]\n    rw [ih (a :: bs), ih [a], append_assoc]\n    rfl\n@[simp] theorem reverse_cons (a : \u03b1) (as : List \u03b1) : reverse (a :: as) = reverse as ++ [a] := by\n  simp [reverse, reverseAux]\n  rw [\u2190 reverseAux_eq_append]\ndef flatten : List (List \u03b1) \u2192 List \u03b1\n  | []      => []\n  | l :: L => l ++ flatten L\n@[simp] theorem flatten_nil : List.flatten ([] : List (List \u03b1)) = [] := rfl\n@[simp] theorem flatten_cons : (l :: L).flatten = l ++ L.flatten := rfl\n@[deprecated flatten (since := \"2024-10-14\"), inherit_doc flatten] abbrev join := @flatten\n@[inline] protected def singleton {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "map_cons",
+    "has_proof": true
+  }
+}

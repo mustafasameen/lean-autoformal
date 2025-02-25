@@ -1,0 +1,9 @@
+{
+  "content": "structure cmplx where\n  X : Nat \u2192 Type\n  d : \u2200 i j, X i \u2192 X j\n  shape : \u2200 i j, \u00ac i = j + 1 \u2192 d i j = sorry\ndef augment (C : cmplx) {X : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match_lit_regression.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match_lit_regression.lean",
+    "definition_name": "cmplx"
+  }
+}

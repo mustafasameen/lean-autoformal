@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\n  commandState : Command.State\n  parserState  : Parser.ModuleParserState\n  cmdPos       : String.Pos\n  commands     : Array Syntax := #[]\nderiving Nonempty\nstructure Context where\n  inputCtx : Parser.InputContext\nabbrev FrontendM := ReaderT Context $ StateRefT State IO\ndef setCommandState (commandState : Command.State) : FrontendM Unit :=\n  modify fun s => { s with commandState := commandState }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Frontend.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Frontend.lean",
+    "definition_name": "State"
+  }
+}

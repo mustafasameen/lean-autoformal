@@ -1,0 +1,10 @@
+{
+  "content": "rw [containsThenInsert, insert_eq_insert\u2098]\ntheorem containsThenInsert!_snd_eq_insert\u2098 [Ord \u03b1] (t : Impl \u03b1 \u03b2) (htb : t.Balanced) (a : \u03b1) (b : \u03b2 a) :\n    (t.containsThenInsert! a b).2 = t.insert\u2098 a b htb := by\n  rw [containsThenInsert!_snd_eq_containsThenInsert_snd, containsThenInsert_snd_eq_insert\u2098]\ntheorem insertIfNew_eq_insertIfNew! [Ord \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_name": "containsThenInsert",
+    "has_proof": true
+  }
+}

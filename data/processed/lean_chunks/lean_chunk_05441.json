@@ -1,0 +1,10 @@
+{
+  "content": "theorem idxOf?_nil [BEq \u03b1] : ([] : List \u03b1).idxOf? a = none := rfl\ntheorem idxOf?_cons [BEq \u03b1] (a : \u03b1) (xs : List \u03b1) (b : \u03b1) :\n    (a :: xs).idxOf? b = if a == b then some 0 else (xs.idxOf? b).map (\u00b7 + 1) := by\n  simp [idxOf?]\n@[simp] theorem idxOf?_eq_none_iff [BEq \u03b1] [LawfulBEq \u03b1] {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "idxOf",
+    "has_proof": true
+  }
+}

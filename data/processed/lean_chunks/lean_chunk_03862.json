@@ -1,0 +1,10 @@
+{
+  "content": "structure Mem (as : Array \u03b1) (a : \u03b1) : Prop where\n  val : a \u2208 as.toList\ninstance : Membership \u03b1 (Array \u03b1) where\n  mem := Mem\ntheorem mem_def {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_name": "Mem",
+    "has_proof": false
+  }
+}

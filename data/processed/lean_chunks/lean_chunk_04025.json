@@ -1,0 +1,10 @@
+{
+  "content": "theorem setWidth_eq (x : BitVec n) : setWidth n x = x := by\n  apply eq_of_toNat_eq\n  let \u27e8x, lt_n\u27e9 := x\n  simp [setWidth]\n@[simp] theorem setWidth_zero (m n : Nat) : setWidth m 0#n = 0#m := by\n  apply eq_of_toNat_eq\n  simp [toNat_setWidth]\n@[simp] theorem ofNat_toNat (m : Nat) (x : BitVec n) : BitVec.ofNat m x.toNat = setWidth m x := by\n  apply eq_of_toNat_eq\n  simp\ntheorem nat_eq_toNat {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "setWidth_eq",
+    "has_proof": true
+  }
+}

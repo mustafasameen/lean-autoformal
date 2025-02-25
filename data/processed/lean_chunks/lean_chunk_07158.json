@@ -1,0 +1,9 @@
+{
+  "content": "| _, _ => false\nend\n@[implemented_by eqImp] protected opaque Code.beq : Code \u2192 Code \u2192 Bool\ninstance : BEq Code where\n  beq := Code.beq\n@[implemented_by eqFunDecl] protected opaque FunDecl.beq : FunDecl \u2192 FunDecl \u2192 Bool\ninstance : BEq FunDecl where\n  beq := FunDecl.beq\ndef AltCore.getCode : Alt \u2192 Code\n  | .default k => k\n  | .alt _ _ k => k\ndef AltCore.getParams : Alt \u2192 Array Param\n  | .default _ => #[]\n  | .alt _ ps _ => ps\ndef AltCore.forCodeM [Monad m] (alt : Alt) (f : Code \u2192 m Unit) : m Unit := do\n  match alt with\n  | .default k => f k\n  | .alt _ _ k => f k\nprivate unsafe def updateAltCodeImp (alt : Alt) (k' : Code) : Alt :=\n  match alt with\n  | .default k => if ptrEq k k' then alt else .default k'\n  | .alt ctorName ps k => if ptrEq k k' then alt else .alt ctorName ps k'\n@[implemented_by updateAltCodeImp] opaque AltCore.updateCode (alt : Alt) (c : Code) : Alt\nprivate unsafe def updateAltImp (alt : Alt) (ps' : Array Param) (k' : Code) : Alt :=\n  match alt with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Basic.lean",
+    "definition_name": "CodeDecl"
+  }
+}

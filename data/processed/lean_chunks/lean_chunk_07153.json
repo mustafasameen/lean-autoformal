@@ -1,0 +1,9 @@
+{
+  "content": "structure BaseFloatContext where\n  decls : List CodeDecl := []\nstructure FloatState where\n  decision : Std.HashMap FVarId Decision\n  newArms : Std.HashMap Decision (List CodeDecl)\nabbrev BaseFloatM :=  ReaderT BaseFloatContext CompilerM\nabbrev FloatM := StateRefT FloatState BaseFloatM\ndef withNewCandidate (decl : CodeDecl) (x : BaseFloatM \u03b1) : BaseFloatM \u03b1 :=\n  withReader (fun r => { r with decls := decl :: r.decls }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/FloatLetIn.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/FloatLetIn.lean",
+    "definition_name": "BaseFloatContext"
+  }
+}

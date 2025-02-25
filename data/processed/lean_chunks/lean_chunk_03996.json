@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofFin_eq_ofNat : @BitVec.ofFin w (Fin.mk x lt) = BitVec.ofNat w x := by\n  simp only [BitVec.ofNat, Fin.ofNat', lt, Nat.mod_eq_of_lt]\ntheorem toNat_ne_iff_ne {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "ofFin_eq_ofNat",
+    "has_proof": true
+  }
+}

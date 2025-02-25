@@ -1,0 +1,9 @@
+{
+  "content": "structure RefVec (aig : AIG \u03b1) (w : Nat) where\n  refs : Array Nat\n  hlen : refs.size = w\n  hrefs : \u2200 (h : i < w), refs[i] < aig.decls.size\nstructure RefVecEntry (\u03b1 : Type) [DecidableEq \u03b1] [Hashable \u03b1] [DecidableEq \u03b1] (w : Nat) where\n  aig : AIG \u03b1\n  vec : RefVec aig w\nstructure ShiftTarget (aig : AIG \u03b1) (w : Nat) where\n  vec : AIG.RefVec aig w\n  distance : Nat\nstructure ArbitraryShiftTarget (aig : AIG \u03b1) (m : Nat) where\n  n : Nat\n  target : AIG.RefVec aig m\n  distance : AIG.RefVec aig n\nstructure ExtendTarget (aig : AIG \u03b1) (newWidth : Nat) where\n  w : Nat\n  vec : AIG.RefVec aig w\ndef denote (assign : \u03b1 \u2192 Bool) (entry : Entrypoint \u03b1) : Bool :=\n  go entry.ref.gate entry.aig.decls assign entry.ref.hgate entry.aig.invariant\nwhere\n  go (x : Nat) (decls : Array (Decl \u03b1)) (assign : \u03b1 \u2192 Bool) (h1 : x < decls.size)\n      (h2 : IsDAG \u03b1 decls) :\n      Bool :=\n    match h3 : decls[x] with\n    | .const b => b\n    | .atom v => assign v\n    | .gate lhs rhs linv rinv =>\n      have := h2 h1 h3",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_name": "RefVec"
+  }
+}

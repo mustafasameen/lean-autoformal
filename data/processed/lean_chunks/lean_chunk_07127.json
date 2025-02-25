@@ -1,0 +1,9 @@
+{
+  "content": "ret := (\u2190 findVarValue param.fvarId) == .bot\n      updateVarAssignment param.fvarId .top\n  return ret\nprivate partial def resetNestedFunDeclParams : Code \u2192 InterpM Unit\n| .let _ k => resetNestedFunDeclParams k\n| .jp decl k | .fun decl k => do\n  decl.params.forM (resetVarAssignment \u00b7.fvarId)\n  resetNestedFunDeclParams k\n| .cases cs =>\n  cs.alts.forM (resetNestedFunDeclParams \u00b7.getCode)\n| .return .. | .unreach .. | .jmp .. => return ()\npartial def interpCode : Code \u2192 InterpM Unit\n| .let decl k => do\n  let val \u2190 interpLetValue decl.value\n  updateVarAssignment decl.fvarId val\n  if let .fvar fvarId args := decl.value then\n    if let some funDecl \u2190 findFunDecl? fvarId then\n      interpFunCall funDecl args\n  interpCode k\n| .jp decl k | .fun decl k => do\n  interpCode decl.value\n  interpCode k\n| .jmp fn args => do\n  let jp \u2190 getFunDecl fn\n  args.forM handleFunArg\n  interpFunCall jp args\n| .cases cs => do\n  let discrVal \u2190 findVarValue cs.discr\n  for alt in cs.alts do\n    match alt with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

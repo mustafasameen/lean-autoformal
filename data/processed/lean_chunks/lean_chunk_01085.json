@@ -1,0 +1,9 @@
+{
+  "content": "instance addCommSemigroup [\u2200 i, AddCommSemigroup <| f i] : AddCommSemigroup (\u2200 i : I, f i) :=\n  { addSemigroup with\n    add_comm := sorry\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "addCommSemigroup"
+  }
+}

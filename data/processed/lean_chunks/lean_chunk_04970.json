@@ -1,0 +1,10 @@
+{
+  "content": "theorem get?_zero (l : List \u03b1) : l.get? 0 = l.head? := by cases l <;> rfl\ntheorem get_of_eq {l l' : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "get",
+    "has_proof": true
+  }
+}

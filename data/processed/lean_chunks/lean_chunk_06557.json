@@ -1,0 +1,9 @@
+{
+  "content": "structure ServerContext where\n    hIn                 : FS.Stream\n    hOut                : FS.Stream\n    hLog                : FS.Stream\n    initParams          : InitializeParams\n    workerPath          : System.FilePath\n    srcSearchPath       : System.SearchPath\n    references          : IO.Ref References\n    serverRequestData   : IO.Ref ServerRequestData\n    importData          : IO.Ref ImportData\n  abbrev ServerM := ReaderT ServerContext IO\n  def updateFileWorkers (val : FileWorker) : ServerM Unit := do\n    (\u2190read).fileWorkersRef.modify (fun fileWorkers => fileWorkers.insert val.doc.uri val)\n  def findFileWorker? (uri : DocumentUri) : ServerM (Option FileWorker) :=\n    return (\u2190 (\u2190read).fileWorkersRef.get).find? uri\n  def eraseFileWorker (uri : DocumentUri) : ServerM Unit := do\n    let s \u2190 read\n    s.importData.modify (\u00b7.eraseImportsOf uri)\n    s.fileWorkersRef.modify (fun fileWorkers => fileWorkers.erase uri)\n    let some module \u2190 s.srcSearchPath.searchModuleNameOfUri uri",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_name": "ServerContext"
+  }
+}

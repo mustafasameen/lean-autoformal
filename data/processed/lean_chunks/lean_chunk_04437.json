@@ -1,0 +1,10 @@
+{
+  "content": "theorem compare_def_lt (a b : Nat) :\n    compare a b = if a < b then .lt else if b < a then .gt else .eq := by\n  simp only [compare, compareOfLessAndEq]\n  split\n  \u00b7 rfl\n  \u00b7 next h =>\n    match Nat.lt_or_eq_of_le (Nat.not_lt.1 h) with\n    | .inl h => simp [h, Nat.ne_of_gt h]\n    | .inr rfl => simp\ntheorem compare_def_le (a b : Nat) :\n    compare a b = if a \u2264 b then if b \u2264 a then .eq else .lt else .gt := by\n  rw [compare_def_lt]\n  split\n  \u00b7 next hlt => simp [Nat.le_of_lt hlt, Nat.not_le.2 hlt]\n  \u00b7 next hge =>\n    split\n    \u00b7 next hgt => simp [Nat.le_of_lt hgt, Nat.not_le.2 hgt]\n    \u00b7 next hle => simp [Nat.not_lt.1 hge, Nat.not_lt.1 hle]\nprotected theorem compare_swap (a b : Nat) : (compare a b).swap = compare b a := by\n  simp only [compare_def_le]; (repeat' split) <;> try rfl\n  next h1 h2 => cases h1 (Nat.le_of_not_le h2)\nprotected theorem compare_eq_eq {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Compare.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Compare.lean",
+    "definition_name": "compare_def_lt",
+    "has_proof": true
+  }
+}

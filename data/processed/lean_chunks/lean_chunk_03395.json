@@ -1,0 +1,10 @@
+{
+  "content": "theorem monotone_of_monotone_apply [PartialOrder \u03b3] [\u2200 x, PartialOrder (\u03b2 x)] (f : \u03b3 \u2192 (\u2200 x, \u03b2 x))\n  (h : \u2200 y, monotone (fun x => f x y)) : monotone f :=\n  fun x y hxy z => h z x y hxy\ntheorem monotone_apply [PartialOrder \u03b3] [\u2200 x, PartialOrder (\u03b2 x)] (a : \u03b1) (f : \u03b3 \u2192 \u2200 x, \u03b2 x)\n    (h : monotone f) :\n    monotone (fun x => f x a) := fun _ _ hfg => h _ _ hfg a\ntheorem chain_apply [\u2200 x, PartialOrder (\u03b2 x)] {c : (\u2200 x, \u03b2 x) \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "monotone_of_monotone_apply",
+    "has_proof": false
+  }
+}

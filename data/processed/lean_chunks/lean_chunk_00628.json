@@ -1,0 +1,9 @@
+{
+  "content": "inductive D\n  | mk (x y z : Nat) : D\n#guard_msgs in\n#eval show CoreM Unit from do\n  let env \u2190 getEnv\n  IO.println (getStructureFields env ``Kernel.Environment)\n  check $ getStructureFields env `S4 == #[`toS2, `toS3, `s]\n  check $ getStructureFields env `S1 == #[`x, `y]\n  check $ isSubobjectField? env `S4 `toS2 == some `S2\n  check $ getStructureSubobjects env `S4 == #[`S2, `S3]\n  check $ findField? env `S4 `x == some `S1\n  check $ findField? env `S4 `x1 == none\n  check $ isStructure env `S1\n  check $ isStructure env `S2\n  check $ isStructure env `S3\n  check $ isStructure env `S4\n  check $ isStructure env `S5\n  check $ !isStructure env `Nat\n  check $ !isStructure env `D\n  check $ getPathToBaseStructure? env `S1 `S4 == some [`S4.toS2, `S2.toS1]\n  IO.println (getStructureFieldsFlattened env `S4)\n  IO.println (getPathToBaseStructure? env `S1 `S4)\n  IO.println (getStructureSubobjects env `S4)\n  IO.println (\u2190 getAllParentStructures `S4)\n  pure ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure.lean",
+    "definition_name": "D"
+  }
+}

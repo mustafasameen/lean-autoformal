@@ -1,0 +1,9 @@
+{
+  "content": "def registerAlias (aliasName : Name) (v : FormatterAliasValue) : IO Unit := do\n  Parser.registerAliasCore formatterAliasesRef aliasName v\ninstance : Coe Formatter FormatterAliasValue := { coe := AliasValue.const }\ninstance : Coe (Formatter \u2192 Formatter) FormatterAliasValue := { coe := AliasValue.unary }\ninstance : Coe (Formatter \u2192 Formatter \u2192 Formatter) FormatterAliasValue := { coe := AliasValue.binary }\nend Formatter\nopen Formatter\nregister_builtin_option pp.oneline : Bool := {\n  defValue := false\n  group    := \"pp\"\n  descr    := \"(pretty printer) elide all but first line of pretty printer output\"\n}\ndef format (formatter : Formatter) (stx : Syntax) : CoreM Format := do\n  trace[PrettyPrinter.format.input] \"{Std.format stx}\"\n  let options \u2190 getOptions\n  let table := Parser.getTokenTable (\u2190 getEnv)\n  catchInternalId backtrackExceptionId\n    (do\n      let (_, st) \u2190 (concat formatter { table, options }).run { stxTrav := .fromSyntax stx }\n      let mut f := st.stack[0]!",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_name": "nonReservedSymbolNoAntiquot"
+  }
+}

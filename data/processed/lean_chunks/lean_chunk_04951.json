@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_dropLast (f : \u03b1 \u2192 \u03b2) (l : List \u03b1) : l.dropLast.map f = (l.map f).dropLast := by\n  induction l with\n  | nil => rfl\n  | cons x xs ih => cases xs <;> simp [ih]\n@[simp] theorem dropLast_append_of_ne_nil {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "map_dropLast",
+    "has_proof": true
+  }
+}

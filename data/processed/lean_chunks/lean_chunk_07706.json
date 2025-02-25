@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkAtomCached_le_size (aig : AIG \u03b1) (var : \u03b1) :\n    aig.decls.size \u2264 (aig.mkAtomCached var).aig.decls.size := by\n  dsimp only [mkAtomCached]\n  split\n  \u00b7 simp\n  \u00b7 simp +arith\ninstance : LawfulOperator \u03b1 (fun _ => \u03b1) mkAtomCached where\n  le_size := mkAtomCached_le_size\n  decl_eq := mkAtomCached_decl_eq\n@[simp]\ntheorem mkAtomCached_eval_eq_mkAtom_eval {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_name": "mkAtomCached_le_size",
+    "has_proof": true
+  }
+}

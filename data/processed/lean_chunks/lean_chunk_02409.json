@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  private val : Nat\n  name : String\n#check { name := \"leo\", val := 15 : Foo }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/pkg/prv/Prv/Foo.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/pkg/prv/Prv/Foo.lean",
+    "definition_name": "Foo"
+  }
+}

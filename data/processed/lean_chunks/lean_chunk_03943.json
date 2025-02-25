@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_erase [LawfulBEq \u03b1] (a : \u03b1) (xs : Array \u03b1) :\n    (xs.erase a).size = if a \u2208 xs then xs.size - 1 else xs.size := by\n  rw [erase_eq_eraseP, size_eraseP]\n  congr\n  simp [mem_iff_getElem, eq_comm (a := a)]\ntheorem size_erase_le (a : \u03b1) (xs : Array \u03b1) : (xs.erase a).size \u2264 xs.size := by\n  rcases xs with \u27e8xs\u27e9\n  simpa using List.length_erase_le a xs\ntheorem le_size_erase [LawfulBEq \u03b1] (a : \u03b1) (xs : Array \u03b1) : xs.size - 1 \u2264 (xs.erase a).size := by\n  rcases xs with \u27e8xs\u27e9\n  simpa using List.le_length_erase a xs\ntheorem mem_of_mem_erase {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_name": "size_erase",
+    "has_proof": true
+  }
+}

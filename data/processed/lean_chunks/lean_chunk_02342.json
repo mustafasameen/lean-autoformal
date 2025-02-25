@@ -1,0 +1,10 @@
+{
+  "content": "theorem S2_ext {x y : S2 \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3643.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3643.lean",
+    "definition_name": "S2_ext",
+    "has_proof": false
+  }
+}

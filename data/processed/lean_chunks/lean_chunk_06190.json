@@ -1,0 +1,9 @@
+{
+  "content": "inductive RecursorUnivLevelPos where\n| motive\n| majorType (idx : Nat)\ninstance : ToString RecursorUnivLevelPos := \u27e8fun\n  | RecursorUnivLevelPos.motive        => \"<motive-univ>\"\n  | RecursorUnivLevelPos.majorType idx => toString idx\u27e9\nstructure RecursorInfo where\n  recursorName  : Name\n  typeName      : Name\n  univLevelPos  : List RecursorUnivLevelPos\n  depElim       : Bool\n  recursive     : Bool\nnumArgs       : Nat\n  majorPos      : Nat\nparamsPos     : List (Option Nat)\nindicesPos    : List Nat\nproduceMotive : List Bool\nnamespace RecursorInfo\ndef numParams (info : RecursorInfo) : Nat := info.paramsPos.length\ndef numIndices (info : RecursorInfo) : Nat := info.indicesPos.length\ndef motivePos (info : RecursorInfo) : Nat := info.numParams\ndef firstIndexPos (info : RecursorInfo) : Nat := info.majorPos - info.numIndices\ndef isMinor (info : RecursorInfo) (pos : Nat) : Bool :=\n  if pos \u2264 info.motivePos then false\n  else if info.firstIndexPos \u2264 pos && pos \u2264 info.majorPos then false\n  else true",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/RecursorInfo.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/RecursorInfo.lean",
+    "definition_name": "RecursorUnivLevelPos"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure S (\u03b1 : Nat \u2192 Type u) where\nvariable {\u03b1 : Nat \u2192 Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5359.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5359.lean",
+    "definition_name": "S"
+  }
+}

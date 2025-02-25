@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_id_fun : map (id : \u03b1 \u2192 \u03b1) = id := by\n  funext xs\n  induction xs <;> simp_all\ntheorem map_id' (xs : Array \u03b1) : map (fun (a : \u03b1) => a) xs = xs := map_id xs\ntheorem array\u2082_induction (P : Array (Array \u03b1) \u2192 Prop) (of : \u2200 (xss : List (List \u03b1)), P (xss.map List.toArray).toArray)\n    (xss : Array (Array \u03b1)) : P xss := by\n  specialize of (xss.toList.map toList)\n  simpa [\u2190 toList_map, Function.comp_def, map_id] using of\ntheorem array\u2083_induction (P : Array (Array (Array \u03b1)) \u2192 Prop)\n    (of : \u2200 (xss : List (List (List \u03b1))), P ((xss.map (fun xs => xs.map List.toArray)).map List.toArray).toArray)\n    (xss : Array (Array (Array \u03b1))) : P xss := by\n  specialize of ((xss.toList.map toList).map (fun as => as.map toList))\n  simpa [\u2190 toList_map, Function.comp_def, map_id] using of\n@[congr]\ntheorem filterMap_congr {as bs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "map_id_fun",
+    "has_proof": true
+  }
+}

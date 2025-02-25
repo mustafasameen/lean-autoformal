@@ -1,0 +1,9 @@
+{
+  "content": "inductive Result where\n  | fail : Result\n  | success : Nat \u2192 Result\ndef record_result (r:ProofRecord nt) : Result :=\n  if r.success then\n    Result.success r.lengthofspan\n  else\n    Result.fail\nend ProofRecord\ndef PreProof (nt : Type) := Array (ProofRecord nt)\ndef record_match [dnt : DecidableEq nt] (r:ProofRecord nt) (n:nt) (i:Nat) : Bool :=\n  r.leftnonterminal = n && r.position = i\nopen Expression\nsection well_formed\nvariable {t nt : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_name": "Result"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem toFin_ofNat (n : Nat) : toFin (no_index (OfNat.ofNat n)) = OfNat.ofNat n := rfl\n  @[deprecated toFin_ofNat (since := \"2025-02-12\")]\n  theorem val_ofNat (n : Nat) : toFin (no_index (OfNat.ofNat n)) = OfNat.ofNat n := rfl\n  @[simp, int_toBitVec]\n  theorem toBitVec_ofNat (n : Nat) : toBitVec (no_index (OfNat.ofNat n)) = BitVec.ofNat _ n := rfl\n  @[simp]\n  theorem ofBitVec_ofNat (n : Nat) : ofBitVec (BitVec.ofNat _ n) = OfNat.ofNat n := rfl\n  @[deprecated ofBitVec_ofNat (since := \"2025-02-12\")]\n  theorem mk_ofNat (n : Nat) : ofBitVec (BitVec.ofNat _ n) = OfNat.ofNat n := rfl\n  )\n  if let some nbits := bits.raw.isNatLit? then\n    if nbits > 8 then\n      cmds := cmds.push <| \u2190\n        `(@[simp] theorem toNat_toUInt8 (x : $typeName) : x.toUInt8.toNat = x.toNat % 2 ^ 8 := rfl)\n    if nbits < 16 then\n      cmds := cmds.push <| \u2190\n        `(@[simp] theorem toNat_toUInt16 (x : $typeName) : x.toUInt16.toNat = x.toNat := rfl)\n    else if nbits > 16 then\n      cmds := cmds.push <| \u2190",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_name": "toFin_ofNat",
+    "has_proof": false
+  }
+}

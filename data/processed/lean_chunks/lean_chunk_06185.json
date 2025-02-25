@@ -1,0 +1,9 @@
+{
+  "content": "trace[PrettyPrinter.parenthesize.input] \"{format stx}\"\n  let opts \u2190 getOptions\n  catchInternalId backtrackExceptionId\n    (do\n      let (_, st) \u2190 (parenthesizer { forceParens := getPPParens opts }).run { stxTrav := Syntax.Traverser.fromSyntax stx }\n      pure st.stxTrav.cur)\n    (fun _ => throwError \"parenthesize: uncaught backtrack exception\")\ndef parenthesizeCategory (cat : Name) (stx : Syntax) :=\n  parenthesize (categoryParser.parenthesizer cat 0) stx\ndef parenthesizeTerm := parenthesizeCategory `term\ndef parenthesizeTactic := parenthesizeCategory `tactic\ndef parenthesizeCommand := parenthesizeCategory `command\nbuiltin_initialize\n  registerTraceClass `PrettyPrinter.parenthesize\n  registerTraceClass `PrettyPrinter.parenthesize.backtrack (inherited := true)\n  registerTraceClass `PrettyPrinter.parenthesize.input (inherited := true)\nend PrettyPrinter\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_name": "rawIdentNoAntiquot"
+  }
+}

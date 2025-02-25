@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_clearUnit (assignments : Array Assignment) (l : Literal (PosFin n)) :\n    (clearUnit assignments l).size = assignments.size := by\n  simp [clearUnit]\ntheorem size_clearUnit_foldl {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_name": "size_clearUnit",
+    "has_proof": true
+  }
+}

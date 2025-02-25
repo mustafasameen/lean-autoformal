@@ -1,0 +1,9 @@
+{
+  "content": "instance addCommGroup : AddCommGroup (M \u29f8 p) :=\n  QuotientAddGroup.Quotient.addCommGroup p.toAddSubgroup\nsection Module\nvariable {S : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "addCommGroup"
+  }
+}

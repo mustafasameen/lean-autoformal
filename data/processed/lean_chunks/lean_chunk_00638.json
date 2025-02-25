@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex2 : f2 (10, 20) { y := 5 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/intromacro.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/intromacro.lean",
+    "definition_name": "ex2",
+    "has_proof": false
+  }
+}

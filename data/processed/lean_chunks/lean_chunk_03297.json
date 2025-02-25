@@ -1,0 +1,9 @@
+{
+  "content": "instance\ninstance {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/NeZero.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/NeZero.lean",
+    "definition_name": "instance"
+  }
+}

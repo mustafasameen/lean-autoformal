@@ -1,0 +1,10 @@
+{
+  "content": "def NonemptyType := Subtype fun \u03b1 : Type u => Nonempty \u03b1\ninstance : Inhabited NonemptyType.{u} where\n  default := \u27e8PUnit, \u27e8\u27e8\u27e9\u27e9\u27e9\nstructure ULift.{r, s} (\u03b1 : Type s) : Type (max s r) where\ndown : \u03b1\ntheorem ULift.down_up {\u03b1 : Type u} (a : \u03b1) : Eq (down (up.{v} a)) a := rfl\nclass inductive Decidable (p : Prop) where\n  | isTrue (h : p) : Decidable p\n@[inline_if_reduce, nospecialize] def Decidable.decide (p : Prop) [h : Decidable p] : Bool :=\n  h.casesOn (fun _ => false) (fun _ => true)\nexport Decidable (isTrue isFalse decide)\nabbrev DecidableRel {\u03b1 : Sort u} {\u03b2 : Sort v} (r : \u03b1 \u2192 \u03b2 \u2192 Prop) :=\n  (a : \u03b1) \u2192 (b : \u03b2) \u2192 Decidable (r a b)\nabbrev DecidableEq (\u03b1 : Sort u) :=\n  (a b : \u03b1) \u2192 Decidable (Eq a b)\n@[inline] def Bool.decEq (a b : Bool) : Decidable (Eq a b) :=\n   match a, b with\n   | false, false => isTrue rfl\n   | false, true  => isFalse (fun h => Bool.noConfusion h)\n   | true, false  => isFalse (fun h => Bool.noConfusion h)\n   | true, true   => isTrue rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

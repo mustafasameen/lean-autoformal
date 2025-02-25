@@ -1,0 +1,9 @@
+{
+  "content": "let f := recArgs[argPos]!\n        let r := mkApp f majorArg\n        let recArity := majorPos + 1\n        successK <| mkAppRange r recArity recArgs.size recArgs\n      | _ => failK ()\n    else\n      failK ()\n  match recVal.kind with\n  | QuotKind.lift => process 5 3\n  | QuotKind.ind  => process 4 3\n  | _             => failK ()\n  partial def getStuckMVar? (e : Expr) : MetaM (Option MVarId) := do\n    match e with\n    | .mdata _ e  => getStuckMVar? e\n    | .proj _ _ e => getStuckMVar? (\u2190 whnf e)\n    | .mvar .. =>\n      let e \u2190 instantiateMVars e\n      match e with\n      | .mvar mvarId => return some mvarId\n      | _ => getStuckMVar? e\n    | .app f .. =>\n      let f := f.getAppFn\n      match f with\n      | .mvar .. =>\n        let e \u2190 instantiateMVars e\n        match e.getAppFn with\n        | .mvar mvarId => return some mvarId\n        | _ => getStuckMVar? e\n      | .const fName _ =>\n        match (\u2190 getEnv).find? fName with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

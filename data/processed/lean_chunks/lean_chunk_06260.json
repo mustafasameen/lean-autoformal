@@ -1,0 +1,9 @@
+{
+  "content": "mkFreshExprMVarWithIdCore mvarId type kind userName\ndef mkFreshLevelMVars (num : Nat) : MetaM (List Level) :=\n  num.foldM (init := []) fun _ _ us =>\n    return (\u2190 mkFreshLevelMVar)::us\ndef mkFreshLevelMVarsFor (info : ConstantInfo) : MetaM (List Level) :=\n  mkFreshLevelMVars info.numLevelParams\ndef mkConstWithFreshMVarLevels (declName : Name) : MetaM Expr := do\n  let info \u2190 getConstInfo declName\n  return mkConst declName (\u2190 mkFreshLevelMVarsFor info)\ndef _root_.Lean.MVarId.findDecl? (mvarId : MVarId) : MetaM (Option MetavarDecl) :=\n  return (\u2190 getMCtx).findDecl? mvarId\ndef _root_.Lean.MVarId.getDecl (mvarId : MVarId) : MetaM MetavarDecl := do\n  match (\u2190 mvarId.findDecl?) with\n  | some d => pure d\n  | none   => throwError \"unknown metavariable '?{mvarId.name}'\"\ndef _root_.Lean.MVarId.getKind (mvarId : MVarId) : MetaM MetavarKind :=\n  return (\u2190 mvarId.getDecl).kind\ndef _root_.Lean.MVarId.setKind (mvarId : MVarId) (kind : MetavarKind) : MetaM Unit :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

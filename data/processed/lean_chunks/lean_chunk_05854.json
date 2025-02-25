@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] protected theorem or_self (x : Nat) : x ||| x = x := by\n   apply Nat.eq_of_testBit_eq\n   simp\nprotected theorem or_comm (x y : Nat) : x ||| y = y ||| x := by\n   apply Nat.eq_of_testBit_eq\n   simp [Bool.or_comm]\nprotected theorem or_assoc (x y z : Nat) : (x ||| y) ||| z = x ||| (y ||| z) := by\n   apply Nat.eq_of_testBit_eq\n   simp [Bool.or_assoc]\ntheorem and_or_distrib_left (x y z : Nat) : x &&& (y ||| z) = (x &&& y) ||| (x &&& z) := by\n   apply Nat.eq_of_testBit_eq\n   simp [Bool.and_or_distrib_left]\ntheorem and_distrib_right (x y z : Nat) : (x ||| y) &&& z = (x &&& z) ||| (y &&& z) := by\n   apply Nat.eq_of_testBit_eq\n   simp [Bool.and_or_distrib_right]\ntheorem or_and_distrib_left (x y z : Nat) : x ||| (y &&& z) = (x ||| y) &&& (x ||| z) := by\n   apply Nat.eq_of_testBit_eq\n   simp [Bool.or_and_distrib_left]\ntheorem or_and_distrib_right (x y z : Nat) : (x &&& y) ||| z = (x ||| z) &&& (y ||| z) := by\n   apply Nat.eq_of_testBit_eq\n   simp [Bool.or_and_distrib_right]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "testBit_mod_two_pow",
+    "has_proof": true
+  }
+}

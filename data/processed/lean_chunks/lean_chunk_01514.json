@@ -1,0 +1,9 @@
+{
+  "content": "structure F (\u03b1) extends D \u03b1, E \u03b1\nstructure G (\u03b1) extends E \u03b1, D \u03b1\ndef f : F Unit := have := s; have := i; have := c; have := ()\n                  { op }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1158.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1158.lean",
+    "definition_name": "F"
+  }
+}

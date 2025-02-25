@@ -1,0 +1,9 @@
+{
+  "content": "structure Tree where cs : List Tree\ndef Tree.rev (t : Tree) : Option Tree := do\n  Tree.mk (\u2190 t.cs.reverse.mapM (Tree.rev \u00b7))\npartial_fixpoint\ndef Tree.rev' (t : Tree) : Option Tree := do\n  let mut cs := []\n  for c in t.cs do\n    cs := (\u2190 c.rev') :: cs\n  return Tree.mk cs\npartial_fixpoint\n#guard_msgs in\ndef VarName.computeLfp {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint.lean",
+    "definition_name": "Tree"
+  }
+}

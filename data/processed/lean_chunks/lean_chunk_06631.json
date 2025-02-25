@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_doElem_parser] def doMatchExpr := leading_parser:leadPrec\n  \"match_expr \" >> optMetaFalse >> termParser >> \" with\" >> doMatchExprAlts\ndef doCatch      := leading_parser\n  ppDedent ppLine >> atomic (\"catch \" >> binderIdent) >> optional (\" : \" >> termParser) >> darrow >> doSeq\ndef doCatchMatch := leading_parser\n  ppDedent ppLine >> \"catch \" >> doMatchAlts\ndef doFinally    := leading_parser\n  ppDedent ppLine >> \"finally \" >> doSeq\n@[builtin_doElem_parser] def doTry    := leading_parser\n  \"try \" >> doSeq >> many (doCatch <|> doCatchMatch) >> optional doFinally\n@[builtin_doElem_parser] def doContinue  := leading_parser \"continue\"\n@[builtin_doElem_parser] def doReturn    := leading_parser:leadPrec\n  withPosition (\"return\" >> optional (ppSpace >> checkLineEq >> termParser))\n@[builtin_doElem_parser] def doDbgTrace  := leading_parser:leadPrec\n  \"dbg_trace \" >> ((interpolatedStr termParser) <|> termParser)\n@[builtin_doElem_parser] def doAssert    := leading_parser:leadPrec",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_name": "doSeqIndent"
+  }
+}

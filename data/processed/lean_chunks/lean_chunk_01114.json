@@ -1,0 +1,9 @@
+{
+  "content": "def AddMonoidAlgebra :=\n  G \u2192\u2080 k\ninstance AddMonoidAlgebra.addCommMonoid : AddCommMonoid (AddMonoidAlgebra k G) :=\n  inferInstanceAs (AddCommMonoid (G \u2192\u2080 k))\nend\nnamespace AddMonoidAlgebra\nvariable {k G}\nsection\nvariable [Semiring k] [NonUnitalNonAssocSemiring R]\nabbrev single (a : G) (b : k) : AddMonoidAlgebra k G := Finsupp.single a b\nend\nsection Mul\nvariable [Semiring k] [Add G]\ninstance hasMul : Mul (AddMonoidAlgebra k G) :=\n  \u27e8fun f g => 0\u27e9\ninstance nonUnitalNonAssocSemiring : NonUnitalNonAssocSemiring (AddMonoidAlgebra k G) :=\n  { Finsupp.addCommMonoid with\n    zero := 0\n    mul := (\u00b7 * \u00b7)\n    add := (\u00b7 + \u00b7)\n    left_distrib := sorry\n    right_distrib := sorry\n    zero_mul := sorry\n    mul_zero := sorry\n    nsmul := fun n f => n \u2022 f\n    nsmul_zero := sorry\n    nsmul_succ := sorry }\nend Mul\nsection One\nvariable [Semiring k] [Zero G] [NonAssocSemiring R]\ninstance one : One (AddMonoidAlgebra k G) :=\n  \u27e8single 0 1\u27e9\nend One",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddMonoidAlgebra"
+  }
+}

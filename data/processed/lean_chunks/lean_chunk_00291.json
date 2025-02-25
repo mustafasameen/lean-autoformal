@@ -1,0 +1,9 @@
+{
+  "content": "case mkA b IH => exact trivial\n  case A => exact trivial\n  case mkB b IH => exact trivial\nexample (a : A) : True := by\n  induction a using A.rec (motive_2 := fun b => True)\n  case mkA b IH => exact trivial\n  case A => exact trivial\n  case mkB b IH => exact trivial\nexample (a : A) : True := by\n  induction a using A_rec (motive_2 := fun b => True)\n  case mkA b IH => exact trivial\n  case A => exact trivial\n  case mkB b IH => exact trivial\nend Ex3\nnamespace Ex4\nset_option linter.unusedVariables false in\nexample\n  (\u03b1 : Type u)\n  (ela : \u2200 {motive : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_name": "A"
+  }
+}

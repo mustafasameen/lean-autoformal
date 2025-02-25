@@ -1,0 +1,9 @@
+{
+  "content": "def Foo := List Nat\ndef Foo.mk (l : List Nat) : Foo := l\n#guard_msgs in #eval do return Foo.mk [1,2,3]\ninductive Baz\n  | a | b\ndef returns : Lean.CoreM Nat := do\n  IO.println \"hi\"\n  return 2\n#guard_msgs in #eval returns\ndef throwsEx : Lean.CoreM Nat := do\n  IO.println \"hi\"\n  throwError \"ex\"\n#guard_msgs in #eval throwsEx\n#guard_msgs in #eval\n  let rec fact (n : Nat) : Nat :=\n    match n with\n    | 0 => 1\n    | n' + 1 => n * fact n'\n  fact 5",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/eval.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/eval.lean",
+    "definition_name": "Foo"
+  }
+}

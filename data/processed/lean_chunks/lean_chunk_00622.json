@@ -1,0 +1,9 @@
+{
+  "content": "validate \u27e8#[0]\u27e9 => \"\\x00\"\nvalidate \u27e8#[0x80]\u27e9 => \u21af\nvalidate \u27e8#[0x80, 0x1]\u27e9 => \u21af\nvalidate \u27e8#[0xc0, 0x81]\u27e9 => \u21af\nvalidate \u27e8#[0xc8, 0x81]\u27e9 => \"\u0201\"\nvalidate \u27e8#[0xc8, 0x81, 0xc8, 0x81]\u27e9 => \"\u0201\u0201\"\nvalidate \u27e8#[0xe0, 0x81]\u27e9 => \u21af\nvalidate \u27e8#[0xe0, 0x81, 0x81]\u27e9 => \u21af\nvalidate \u27e8#[0xe1, 0x81, 0x81]\u27e9 => \"\\u1041\"\nvalidate \u27e8#[0xed, 0x9f, 0xbf]\u27e9 => \"\\ud7ff\"\nvalidate \u27e8#[0xed, 0xa0, 0xb0]\u27e9 => \u21af\nvalidate \u27e8#[0xed, 0xbf, 0xbf]\u27e9 => \u21af\nvalidate \u27e8#[0xee, 0x80, 0x80]\u27e9 => \"\\ue000\"\nvalidate \u27e8#[0xf1, 0x81, 0x81, 0x81]\u27e9 => \"\ud8c4\udc41\"\nvalidate \u27e8#[0xf8, 0x81, 0x81, 0x81, 0x81]\u27e9 => \u21af\nvalidate \u27e8#[0x24, 0xc2, 0xa3, 0xe2, 0x82, 0xac, 0xf0, 0x90, 0x8d, 0x88]\u27e9 => \"$\u00a3\u20ac\ud800\udf48\"\ndef check_eq {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/utf8\u82f1\u8a9e.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/utf8\u82f1\u8a9e.lean",
+    "definition_name": "DecidableEq"
+  }
+}

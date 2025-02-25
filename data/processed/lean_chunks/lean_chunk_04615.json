@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_zero_resolve_left (a c d p x : Int) (h\u2081 : p \u2264 a * x) :\n    0 \u2264 resolve_left a c d p x := by\n  simp [h\u2081]\ntheorem cooper_resolution_dvd_left\n    {a b c d s p q : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Cooper.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Cooper.lean",
+    "definition_name": "le_zero_resolve_left",
+    "has_proof": true
+  }
+}

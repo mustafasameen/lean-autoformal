@@ -1,0 +1,9 @@
+{
+  "content": "class HasInf (P : Type u) where\n  inf : P \u2192 P \u2192 P\ninfix:70 \" \u2293 \" => HasInf.inf\ninstance {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/implicitApplyIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/implicitApplyIssue.lean",
+    "definition_name": "HasInf"
+  }
+}

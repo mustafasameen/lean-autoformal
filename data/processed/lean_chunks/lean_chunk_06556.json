@@ -1,0 +1,9 @@
+{
+  "content": "structure RequestIDTranslation where\n    sourceUri : DocumentUri\n    localID   : RequestID\n  abbrev PendingServerRequestMap := RBMap RequestID RequestIDTranslation compare\n  structure ServerRequestData where\n    pendingServerRequests : PendingServerRequestMap\n    freshServerRequestID  : Nat\n  def ServerRequestData.trackOutboundRequest\n      (data      : ServerRequestData)\n      (sourceUri : DocumentUri)\n      (localID   : RequestID)\n      : RequestID \u00d7 ServerRequestData :=\n    let globalID := data.freshServerRequestID\n    let data := {\n      pendingServerRequests := data.pendingServerRequests.insert globalID \u27e8sourceUri, localID\u27e9\n      freshServerRequestID  := globalID + 1\n    }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_name": "RequestIDTranslation"
+  }
+}

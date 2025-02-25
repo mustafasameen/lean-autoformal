@@ -1,0 +1,10 @@
+{
+  "content": "set saved\n    let args := e.getAppArgs\n    for arg in args, support in supportMask do\n      unless support do\n        collect arg\n  | .forallE _ d b _ =>\n    if (\u2190 pure e.isArrow <&&> isProp d <&&> isProp b) then\n      collect d\n      collect b\n  | _ => return ()\nprivate def collectPatterns? (proof : Expr) (xs : Array Expr) (searchPlaces : Array Expr) : MetaM (Option (List Expr \u00d7 List HeadIndex)) := do\n  let go : CollectorM (Option (List Expr)) := do\n    for place in searchPlaces do\n      let place \u2190 preprocessPattern place\n      collect place\n      if (\u2190 get).done then\n        return some ((\u2190 get).patterns.toList)\n    return none\n  let (some ps, s) \u2190 go { proof, xs } |>.run' {} |>.run {}\n    | return none\n  return some (ps, s.symbols.toList)\nprivate partial def collectGroundPattern? (proof : Expr) (xs : Array Expr) (searchPlaces : Array Expr) : MetaM (Option (Expr \u00d7 List HeadIndex)) := do\n  unless (\u2190 checkCoverage proof xs.size {}) matches .ok do\n    return none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

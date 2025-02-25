@@ -1,0 +1,9 @@
+{
+  "content": "let n\u2082 := stripPrivatePrefix n\u2082\n    match n\u2081, n\u2082 with\n    | .anonymous, .anonymous => Ordering.eq\n    | .anonymous, _          => Ordering.lt\n    | _,          .anonymous => Ordering.gt\n    | .num p\u2081 i\u2081, .num p\u2082 i\u2082 =>\n      match compare i\u2081 i\u2082 with\n      | Ordering.eq => cmpModPrivate p\u2081 p\u2082\n      | ord         => ord\n    | .num _ _,   .str _ _   => Ordering.lt\n    | .str _ _,   .num _ _   => Ordering.gt\n    | .str p\u2081 n\u2081, .str p\u2082 n\u2082 =>\n      match compare n\u2081 n\u2082 with\n      | Ordering.eq => cmpModPrivate p\u2081 p\u2082\n      | ord         => ord\n  private def NameSetModPrivate := RBTree Name cmpModPrivate\n  private partial def getDotCompletionTypeNames (type : Expr) : MetaM NameSetModPrivate :=\n    return (\u2190 visit type |>.run RBTree.empty).2\n  where\n    visit (type : Expr) : StateRefT NameSetModPrivate MetaM Unit := do\n      let .const typeName _ := type.getAppFn | return ()\n      modify fun s => s.insert typeName\n      if isStructure (\u2190 getEnv) typeName then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

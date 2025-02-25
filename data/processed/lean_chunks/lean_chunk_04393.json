@@ -1,0 +1,10 @@
+{
+  "content": "theorem Poly.denote_le_cancel_eq (ctx : Context) (m\u2081 m\u2082 : Poly) : denote_le ctx (cancel m\u2081 m\u2082) = denote_le ctx (m\u2081, m\u2082) :=\n  propext <| Iff.intro (fun h => of_denote_le_cancel h) (fun h => denote_le_cancel h)\nattribute [local simp] Poly.denote_le_cancel_eq\ntheorem Expr.denote_toPoly_go (ctx : Context) (e : Expr) :\n  (toPoly.go k e p).denote ctx = k * e.denote ctx + p.denote ctx := by\n  induction k, e using Expr.toPoly.go.induct generalizing p with\n  | case1 k k' h =>\n    simp [toPoly.go, eq_of_beq h]\n  | case2 k k' h =>\n    simp [toPoly.go, h, Var.denote]\n  | case3 k i => simp [toPoly.go]\n  | case4 k a b iha ihb => simp [toPoly.go, iha, ihb]\n  | case5 k k' a h => simp [toPoly.go, h, eq_of_beq h]\n  | case6 k a k' h ih =>\n    simp only [toPoly.go, denote, mul_eq]\n    simp [h, cond_false, ih, Nat.mul_assoc]\n  | case7 k a k' h =>\n    simp only [toPoly.go, denote, mul_eq]\n    simp [h, eq_of_beq h]\n  | case8 k a k' h ih =>\n    simp only [toPoly.go, denote, mul_eq]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

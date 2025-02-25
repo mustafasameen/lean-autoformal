@@ -1,0 +1,9 @@
+{
+  "content": "structure Field where\n    lhs   : List FieldLHS\n    expr? : Option Expr := none\n    deriving Inhabited\n  structure StructInstView where\n    structName : Name\n    fields : List Field\ndef Field.isSimple : Field \u2192 Bool\n  | { lhs := [_], .. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_name": "Field"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "cases a; simp +arith [USize.toNat, BitVec.toNat]\n@[simp] protected theorem Char.sizeOf (a : Char) : sizeOf a = a.toNat + 4 := by\n  cases a; simp +arith [Char.toNat]\n@[simp] protected theorem Subtype.sizeOf {\u03b1 : Sort u_1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SizeOfLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SizeOfLemmas.lean",
+    "definition_name": "Fin",
+    "has_proof": true
+  }
+}

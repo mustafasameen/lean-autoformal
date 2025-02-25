@@ -1,0 +1,9 @@
+{
+  "content": "@[reducible] def mkStr4 (s\u2081 s\u2082 s\u2083 s\u2084 : String) : Name :=\n  .str (.str (.str (.str .anonymous s\u2081) s\u2082) s\u2083) s\u2084\n@[reducible] def mkStr6 (s\u2081 s\u2082 s\u2083 s\u2084 s\u2085 s\u2086 : String) : Name :=\n  .str (.str (.str (.str (.str (.str .anonymous s\u2081) s\u2082) s\u2083) s\u2084) s\u2085) s\u2086\n@[reducible] def mkStr8 (s\u2081 s\u2082 s\u2083 s\u2084 s\u2085 s\u2086 s\u2087 s\u2088 : String) : Name :=\n  .str (.str (.str (.str (.str (.str (.str (.str .anonymous s\u2081) s\u2082) s\u2083) s\u2084) s\u2085) s\u2086) s\u2087) s\u2088\ndef appendCore : Name \u2192 Name \u2192 Name\n  | n, .anonymous => n\n  | n, .str p s => .str (appendCore n p) s\n  | n, .num p d => .num (appendCore n p) d\nend Name\ndef maxRecDepthErrorMessage : String :=\n  \"maximum recursion depth has been reached\\nuse `set_option maxRecDepth <num>` to increase limit\\nuse `set_option diagnostics true` to get diagnostic information\"\ninductive SourceInfo where\n  | original (leading : Substring) (pos : String.Pos) (trailing : Substring) (endPos : String.Pos)\n  | synthetic (pos : String.Pos) (endPos : String.Pos) (canonical := false)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Name"
+  }
+}

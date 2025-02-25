@@ -1,0 +1,9 @@
+{
+  "content": "if since?.isNone then\n        logWarning \"`[deprecated]` attribute should specify the date or library version at which the deprecation was introduced, using `(since := \\\"...\\\")`\"\n      return { newName?, text?, since? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/Deprecated.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/Deprecated.lean",
+    "definition_name": "DeprecationEntry"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def tst := leading_parser \"(|\" >> termParser >> Parser.optional (symbol \", \" >> termParser) >> \"|)\"\ndef tst2 : Parser := symbol \"(||\" >> termParser >> symbol \"||)\"\n@[term_parser] def boo : ParserDescr :=\nParserDescr.node `boo 10\n  (ParserDescr.binary `andthen\n    (ParserDescr.symbol \"[|\")\n    (ParserDescr.binary `andthen\n      (ParserDescr.cat `term 0)\n      (ParserDescr.symbol \"|]\")))\n@[term_parser] def boo2 : ParserDescr :=\nParserDescr.node `boo2 10 (ParserDescr.parser `tst2)\nopen Lean.Elab.Term\n@[term_elab tst] def elabTst : TermElab :=\nadaptExpander $ fun stx => match stx with\n | `((| $e |)) => pure e\n | _           => throwUnsupportedSyntax\n@[term_elab boo] def elabBoo : TermElab :=\nfun stx expected? =>\n  elabTerm (stx.getArg 1) expected?\n@[term_elab boo2] def elabBool2 : TermElab :=\nadaptExpander $ fun stx => match stx with\n | `((|| $e ||)) => `($e + 1)\n | _             => throwUnsupportedSyntax\n#guard_msgs in\n#eval runCore \"#check (| id 1 |)\"\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/termParserAttr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/termParserAttr.lean",
+    "definition_name": "tst"
+  }
+}

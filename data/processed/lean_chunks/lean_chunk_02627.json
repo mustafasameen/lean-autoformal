@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_eq : \u2203 a, a = a' := \u27e8_, rfl\u27e9\n@[simp] theorem exists_eq' : \u2203 a, a' = a := \u27e8_, rfl\u27e9\n@[simp] theorem exists_eq_left : (\u2203 a, a = a' \u2227 p a) \u2194 p a' :=\n  \u27e8fun \u27e8_, e, h\u27e9 => e \u25b8 h, fun h => \u27e8_, rfl, h\u27e9\u27e9\n@[simp] theorem exists_eq_right : (\u2203 a, p a \u2227 a = a') \u2194 p a' :=\n  (exists_congr <| by exact fun a => And.comm).trans exists_eq_left\n@[simp] theorem exists_and_left : (\u2203 x, b \u2227 p x) \u2194 b \u2227 (\u2203 x, p x) :=\n  \u27e8fun \u27e8x, h, hp\u27e9 => \u27e8h, x, hp\u27e9, fun \u27e8h, x, hp\u27e9 => \u27e8x, h, hp\u27e9\u27e9\n@[simp] theorem exists_and_right : (\u2203 x, p x \u2227 b) \u2194 (\u2203 x, p x) \u2227 b := by simp [And.comm]\n@[simp] theorem exists_eq_left' : (\u2203 a, a' = a \u2227 p a) \u2194 p a' := by simp [@eq_comm _ a']\n@[simp] theorem exists_eq_right' : (\u2203 a, p a \u2227 a' = a) \u2194 p a' := by simp [@eq_comm _ a']\n@[simp] theorem forall_eq_or_imp : (\u2200 a, a = a' \u2228 q a \u2192 p a) \u2194 p a' \u2227 \u2200 a, q a \u2192 p a := by\n  simp only [or_imp, forall_and, forall_eq]\n@[simp] theorem exists_eq_or_imp : (\u2203 a, (a = a' \u2228 q a) \u2227 p a) \u2194 p a' \u2228 \u2203 a, q a \u2227 p a := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "exists_eq",
+    "has_proof": true
+  }
+}

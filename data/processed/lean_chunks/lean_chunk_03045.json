@@ -1,0 +1,9 @@
+{
+  "content": "(t.data.hasExprMVar || b.data.hasExprMVar)\n        (t.data.hasLevelMVar || b.data.hasLevelMVar)\n        (t.data.hasLevelParam || b.data.hasLevelParam)\n    | .letE _ t v b _ =>\n      let d := (max (max t.data.approxDepth.toUInt32 v.data.approxDepth.toUInt32) b.data.approxDepth.toUInt32) + 1\n      mkDataForLet (mixHash d.toUInt64 <| mixHash t.data.hash <| mixHash v.data.hash b.data.hash)\n        (max (max t.data.looseBVarRange.toNat v.data.looseBVarRange.toNat) (b.data.looseBVarRange.toNat - 1))\n        d\n        (t.data.hasFVar || v.data.hasFVar || b.data.hasFVar)\n        (t.data.hasExprMVar || v.data.hasExprMVar || b.data.hasExprMVar)\n        (t.data.hasLevelMVar || v.data.hasLevelMVar || b.data.hasLevelMVar)\n        (t.data.hasLevelParam || v.data.hasLevelParam || b.data.hasLevelParam)\n    | .lit l => mkData (mixHash 3 (hash l))\nderiving Repr\ninstance : Inhabited Expr where\n  default := .const `_inhabitedExprDummy []\nnamespace Expr\ndef hasFVar (e : Expr) : Bool :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

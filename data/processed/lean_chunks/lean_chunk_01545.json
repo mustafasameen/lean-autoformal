@@ -1,0 +1,9 @@
+{
+  "content": "def four1 := double 2\nwhere double (n : Nat) : Nat := 2 * n\ndef four2 := double 2\nwhere double : Nat \u2192 Nat := fun n => 2 * n\ndef four3 := double 2\nwhere double(n : Nat) : Nat := 2 * n\ndef four4 := double 2\nwhere double: Nat \u2192 Nat := fun n => 2 * n\ndef four5 := let double(n : Nat) : Nat := 2 * n\n             double 2\ndef four6 := let double: Nat \u2192 Nat := fun n => 2 * n\n             double 2\ndef four7 := let rec double: Nat \u2192 Nat := fun n => 2 * n\n             double 2",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/696.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/696.lean",
+    "definition_name": "four1"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "(balLeft l v r).RedRed (cr = red) (n + 1) := by\n  unfold balLeft; split\n  \u00b7 next a x b => exact\n    let \u27e8ca, cb, ha, hb\u27e9 := hl.of_red\n    match cr with\n    | red => .redred rfl (.black ha hb) hr\n    | black => .balanced (.red (.black ha hb) hr)\n  \u00b7 next H => exact match hl with\n    | .redred .. => nomatch H _ _ _ rfl\n    | .balanced hl => match hr with\n      | .black ha hb =>\n        let \u27e8c, h\u27e9 := RedRed.balance2 hl (.redred trivial ha hb); .balanced h\n      | .red (.black ha hb) (.black hc hd) =>\n        let \u27e8c, h\u27e9 := RedRed.balance2 hb (.redred trivial hc hd); .redred rfl (.black hl ha) h\nprotected theorem RedRed.imp (h : p \u2192 q) : RedRed p t n \u2192 RedRed q t n\n  | .balanced h => .balanced h\n  | .redred hp ha hb => .redred (h hp) ha hb\nprotected theorem RedRed.of_false (h : \u00acp) : RedRed p t n \u2192 \u2203 c, Balanced t c n\n  | .balanced h => \u27e8_, h\u27e9\n  | .redred hp .. => nomatch h hp\nprotected theorem Balanced.append {l r : RBNode \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_name": "Balanced",
+    "has_proof": true
+  }
+}

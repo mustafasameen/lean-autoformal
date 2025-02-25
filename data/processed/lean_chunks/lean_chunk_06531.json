@@ -1,0 +1,9 @@
+{
+  "content": "if let .ofTermInfo ti := info then\n        if ti.expr.isApp then\n          results := results.filter (\u00b7.2.info.stx != info.stx)\n    unless results.isEmpty do\nreturn results\n    if info.stx.isOfKind nullKind || info.toElabInfo?.any (\u00b7.elaborator == `Lean.Elab.Tactic.evalWithAnnotateState) then\n      return results\n    unless (info matches .ofFieldInfo _ | .ofOptionInfo _ || info.toElabInfo?.isSome) && info.contains hoverPos includeStop do\n      return results\n    let r := info.range?.get!\n    let priority := (\n      if r.stop == hoverPos then 0 else 1,\n      Int.negOfNat (r.stop - r.start).byteIdx,\n      if info matches .ofTermInfo { expr := .fvar .., .. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_name": "InfoWithCtx"
+  }
+}

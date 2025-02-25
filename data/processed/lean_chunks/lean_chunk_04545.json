@@ -1,0 +1,10 @@
+{
+  "content": "theorem get_some (x : \u03b1) (h : isSome (some x)) : (some x).get h = x := rfl\n@[inline] def toList : Option \u03b1 \u2192 List \u03b1\n  | none => .nil\n  | some a => .cons a .nil\n@[inline] def toArray : Option \u03b1 \u2192 Array \u03b1\n  | none => List.toArray .nil\n  | some a => List.toArray (.cons a .nil)\ndef liftOrGet (f : \u03b1 \u2192 \u03b1 \u2192 \u03b1) : Option \u03b1 \u2192 Option \u03b1 \u2192 Option \u03b1\n  | none, none => none\n  | some a, none => some a\n  | none, some b => some b\n  | some a, some b => some (f a b)\ninductive Rel (r : \u03b1 \u2192 \u03b2 \u2192 Prop) : Option \u03b1 \u2192 Option \u03b2 \u2192 Prop\n  | none : Rel r none none\n@[inline] protected def mapA [Applicative m] {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_name": "get_some",
+    "has_proof": false
+  }
+}

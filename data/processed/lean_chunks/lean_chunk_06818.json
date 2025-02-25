@@ -1,0 +1,9 @@
+{
+  "content": "inductive SimpEntry where\n  | thm      : SimpTheorem \u2192 SimpEntry\n  | toUnfold : Name \u2192 SimpEntry\n  | toUnfoldThms : Name \u2192 Array Name \u2192 SimpEntry\n  deriving Inhabited\nabbrev SimpExtension := SimpleScopedEnvExtension SimpEntry SimpTheorems\ndef SimpExtension.getTheorems (ext : SimpExtension) : CoreM SimpTheorems :=\n  return ext.getState (\u2190 getEnv)\ndef addSimpTheorem (ext : SimpExtension) (declName : Name) (post : Bool) (inv : Bool) (attrKind : AttributeKind) (prio : Nat) : MetaM Unit := do\n  let simpThms \u2190 mkSimpTheoremsFromConst declName post inv prio\n  for simpThm in simpThms do\n    ext.add (SimpEntry.thm simpThm) attrKind\ndef mkSimpExt (name : Name := by exact decl_name%) : IO SimpExtension :=\n  registerSimpleScopedEnvExtension {\n    name     := name\n    initial  := {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/SimpTheorems.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/SimpTheorems.lean",
+    "definition_name": "SimpEntry"
+  }
+}

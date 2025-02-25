@@ -1,0 +1,9 @@
+{
+  "content": "class Algebra (R : Type u) (A : Type v) [Mul R] [Mul A] extends SMul R A,\n  R \u2192* A where\nend Mathlib.Algebra.Algebra.Basic\nsection Mathlib.Algebra.Module.LocalizedModule\nnamespace LocalizedModule\nuniverse u v\nvariable {R : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Algebra"
+  }
+}

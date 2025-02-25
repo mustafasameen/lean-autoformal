@@ -1,0 +1,9 @@
+{
+  "content": "def Ex.abc' := #['a', 'b', 'c']\ndef Ex.abc := abc'.toSubarray\ndef Ex.abcde : Subarray Char := #['a','b','c','d','e'].toSubarray\ndef Ex.bcde : Subarray Char := #['b','c','d','e'].toSubarray\n#guard_msgs in\n#eval matchPrefix Ex.abcde Ex.abc\n#guard_msgs in\n#eval matchPrefix #[\"A\"].toSubarray #[\"B\"].toSubarray\n#guard_msgs in\n#eval matchPrefix #[\"A\", \"A\", \"B\"].toSubarray #[\"A\", \"A\", \"X\"].toSubarray\ndef Ex.xyzabc : Subarray Char := #['x', 'y', 'z', 'a', 'b', 'c'].toSubarray\ndef Ex.xyzab : Subarray Char := #['x', 'y', 'z', 'a', 'b'].toSubarray\n#guard_msgs in\n#eval matchSuffix Ex.abc Ex.xyzab\n#guard_msgs in\n#eval lcs  (#[1].toSubarray) (#[].toSubarray)\n#guard_msgs in\n#eval lcs  (#[1,3].toSubarray) (#[1,2,3].toSubarray)\n#guard_msgs in\n#eval lcs (\"A,C,D,E,F,G\".split (\u00b7==',') |>.toArray).toSubarray (\"A,Y,Z,D,E,F\".split (\u00b7==',') |>.toArray).toSubarray",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diff.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diff.lean",
+    "definition_name": "Ex"
+  }
+}

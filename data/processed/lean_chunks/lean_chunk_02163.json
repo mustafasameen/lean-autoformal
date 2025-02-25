@@ -1,0 +1,10 @@
+{
+  "content": "inductive Decl where\n  | const (b : Bool)\n  | atom (idx : Nat)\n  | gate (l r : Nat) (linv rinv : Bool)\n  deriving BEq, Hashable, DecidableEq\ndef Cache (_decls : Array Decl) := HashMap Decl Nat\n@[irreducible]\ndef Cache.find? (cache : Cache decls) (decl : Decl) : Option Nat :=\n  match cache.val.find? decl with\n  | some hit =>\n    if h1:hit < decls.size then\n      if decls[hit]'h1 = decl then\n        some hit\n      else\n        none\n    else\n      none\n  | none => none\ntheorem Cache.find?_bounds {decls : Array Decl}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3731.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3731.lean",
+    "definition_name": "Decl",
+    "has_proof": false
+  }
+}

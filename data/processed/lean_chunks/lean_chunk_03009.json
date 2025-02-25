@@ -1,0 +1,9 @@
+{
+  "content": "| \u27e8.lam _ _ b _, p\u27e9 => \u27e8b, p.pushBindingBody\u27e9\n  | _ => panic! \"subexpr is not a binder\"\ndef bindingDomain! : SubExpr \u2192 SubExpr\n  | \u27e8.forallE _ t _ _, p\u27e9 => \u27e8t, p.pushBindingDomain\u27e9\n  | \u27e8.lam _ t _ _, p\u27e9 => \u27e8t, p.pushBindingDomain\u27e9\n  | _ => panic! \"subexpr is not a binder\"\ninstance : ToJson FVarId := \u27e8fun f => toJson f.name\u27e9\ninstance : ToJson MVarId := \u27e8fun f => toJson f.name\u27e9\ninstance : FromJson FVarId := \u27e8fun j => FVarId.mk <$> fromJson? j\u27e9\ninstance : FromJson MVarId := \u27e8fun j => MVarId.mk <$> fromJson? j\u27e9\n  | hyp : FVarId \u2192 GoalLocation\n  | hypValue : FVarId \u2192 SubExpr.Pos \u2192 GoalLocation\nstructure GoalsLocation where\ndef Expr.traverseAppWithPos {M} [Monad M] (visit : Pos \u2192 Expr \u2192 M Expr) (p : Pos) (e : Expr) : M Expr :=\n  match e with\n  | .app f a =>\n    e.updateApp!\n      <$> traverseAppWithPos visit p.pushAppFn f\n      <*> visit p.pushAppArg a\n  | e => visit p e\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_name": "SubExpr"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Arity : Type\n  | left | right | mul | bottom\n  def signature : Sum Arity \ud835\udfce \u2192 Nat\n  | Sum.inl Arity.mul     => 2\n  | Sum.inl Arity.left    => 1\n  | Sum.inl Arity.right   => 1\n  | Sum.inl Arity.bottom  => 0\nend Precategory\ndef Precategory : Type (u + 1) :=\nAlg.{0, 0, u, 0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "Arity"
+  }
+}

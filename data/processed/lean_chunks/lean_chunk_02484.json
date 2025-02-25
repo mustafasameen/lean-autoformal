@@ -1,0 +1,9 @@
+{
+  "content": "inductive Sum (\u03b1 : Type u) (\u03b2 : Type v) where\n  | inr (val : \u03b2) : Sum \u03b1 \u03b2\n@[inherit_doc] infixr:30 \" \u2295 \" => Sum\ninductive PSum (\u03b1 : Sort u) (\u03b2 : Sort v) where\n  | inr (val : \u03b2) : PSum \u03b1 \u03b2\n@[inherit_doc] infixr:30 \" \u2295' \" => PSum\n@[reducible] def  PSum.inhabitedLeft {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "Sum"
+  }
+}

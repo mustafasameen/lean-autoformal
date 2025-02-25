@@ -1,0 +1,9 @@
+{
+  "content": "structure AttributeImplCore where\ninductive AttributeKind\n  | global | local | scoped\n  deriving BEq, Inhabited\ninstance : ToString AttributeKind where\n  toString\n    | .global => \"global\"\n    | .local  => \"local\"\n    | .scoped => \"scoped\"\nstructure AttributeImpl extends AttributeImplCore where\ndef registerBuiltinAttribute (attr : AttributeImpl) : IO Unit := do\n  let m \u2190 attributeMapRef.get\n  if m.contains attr.name then throw (IO.userError (\"invalid builtin attribute declaration, '\" ++ toString attr.name ++ \"' has already been used\"))\n  unless (\u2190 initializing) do\n    throw (IO.userError \"failed to register attribute, attributes can only be registered during initialization\")\n  attributeMapRef.modify fun m => m.insert attr.name attr\ndef Attribute.Builtin.ensureNoArgs (stx : Syntax) : AttrM Unit := do\n  if stx.getKind == `Lean.Parser.Attr.simple && stx[1].isNone && stx[2].isNone then\n    return ()\n  else if stx.getKind == `Lean.Parser.Attr.\u00abclass\u00bb then\n    return ()\n  else match stx with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_name": "AttributeImplCore"
+  }
+}

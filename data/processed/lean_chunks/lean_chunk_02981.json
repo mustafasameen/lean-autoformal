@@ -1,0 +1,9 @@
+{
+  "content": "let ext : PersistentEnvExtension Name Name NameSet \u2190 registerPersistentEnvExtension {\n    name            := ref\n    mkInitial       := pure {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_name": "AttributeImplCore"
+  }
+}

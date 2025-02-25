@@ -1,0 +1,9 @@
+{
+  "content": "inductive Finn : Nat \u2192 Type where\n  | fzero : {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funInduction.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funInduction.lean",
+    "definition_name": "Finn"
+  }
+}

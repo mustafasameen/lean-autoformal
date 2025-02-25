@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldrM_wfParam [Monad m] [LawfulMonad m] (xs : Array \u03b1) (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) :\n    (wfParam xs).foldrM f = xs.attach.unattach.foldrM f := by\n  simp [wfParam]\n@[wf_preprocess] theorem foldrM_unattach [Monad m] [LawfulMonad m] (P : \u03b1 \u2192 Prop) (xs : Array (Subtype P)) (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) :\n    xs.unattach.foldrM f = xs.foldrM fun \u27e8x, h\u27e9 b =>\n      binderNameHint x f <| binderNameHint h () <| binderNameHint b (f x) <|\n      f (wfParam x) b := by\n  simp [wfParam]\n@[simp] theorem mapM_subtype [Monad m] [LawfulMonad m] {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_name": "foldrM_wfParam",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def findFunVal? (declName : Name) : InterpM (Option Value) := do\n  match (\u2190 read).decls.findIdx? (\u00b7.name == declName) with\n  | some idx => return some (\u2190 getFunVal idx)\n  | none => return none\ndef modifyAssignment (f : Assignment \u2192 Assignment) : InterpM Unit := do\n  let ctx \u2190 read\n  let currFnIdx := ctx.currFnIdx\n  modify fun s => { s with assignments := s.assignments.modify currFnIdx f }\ndef findVarValue (var : FVarId) : InterpM Value := do\n  let assignment \u2190 getAssignment\n  return assignment.getD var .bot\ndef findArgValue (arg : Arg) : InterpM Value := do\n  match arg with\n  | .fvar fvarId => findVarValue fvarId\n  | _ => return .top\ndef updateVarAssignment (var : FVarId) (newVal : Value) : InterpM Unit := do\n  let val \u2190 findVarValue var\n  let updatedVal := .merge val newVal\n  modifyAssignment (\u00b7.insert var updatedVal)\ndef resetVarAssignment (var : FVarId) : InterpM Unit := do\n  modifyAssignment (\u00b7.insert var .bot)\ndef updateCurrFnSummary (v : Value) : InterpM Unit := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

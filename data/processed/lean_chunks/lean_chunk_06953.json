@@ -1,0 +1,9 @@
+{
+  "content": "def implicitBinderF := Parser.Term.implicitBinder\nprivate def instBinderF     := Parser.Term.instBinder\nprivate def mkInhabitedInstanceUsing (inductiveTypeName : Name) (ctorName : Name) (addHypotheses : Bool) : CommandElabM Bool := do\n  match (\u2190 liftTermElabM mkInstanceCmd?) with\n  | some cmd =>\n    elabCommand cmd\n    return true\n  | none =>\n    return false\nwhere\n  addLocalInstancesForParamsAux {\u03b1} (k : LocalInst2Index \u2192 TermElabM \u03b1) : List Expr \u2192 Nat \u2192 LocalInst2Index \u2192 TermElabM \u03b1\n    | [], _, map    => k map\n    | x::xs, i, map =>\n      try\n        let instType \u2190 mkAppM `Inhabited #[x]\n        if (\u2190 isTypeCorrect instType) then\n          withLocalDeclD (\u2190 mkFreshUserName `inst) instType fun inst => do\n            trace[Elab.Deriving.inhabited] \"adding local instance {instType}\"\n            addLocalInstancesForParamsAux k xs (i+1) (map.insert inst.fvarId! i)\n        else\n          addLocalInstancesForParamsAux k xs (i+1) map\n      catch _ =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

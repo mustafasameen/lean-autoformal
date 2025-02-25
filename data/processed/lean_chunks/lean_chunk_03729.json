@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_mkArray : (mkArray n a).map f = mkArray n (f a) := by\n  apply Array.ext'\n  simp\ntheorem filter_mkArray (w : stop = n) :\n    (mkArray n a).filter p 0 stop = if p a then mkArray n a else #[] := by\n  apply Array.ext'\n  simp only [w, toList_filter', toList_mkArray, List.filter_replicate]\n  split <;> simp_all\n@[simp] theorem filter_mkArray_of_pos (w : stop = n) (h : p a) :\n    (mkArray n a).filter p 0 stop = mkArray n a := by\n  simp [filter_mkArray, h, w]\n@[simp] theorem filter_mkArray_of_neg (w : stop = n) (h : \u00ac p a) :\n    (mkArray n a).filter p 0 stop = #[] := by\n  simp [filter_mkArray, h, w]\ntheorem filterMap_mkArray {f : \u03b1 \u2192 Option \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "map_mkArray",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "instance decidableBallLE (n : Nat) (P : \u2200 k, k \u2264 n \u2192 Prop) [\u2200 n h, Decidable (P n h)] :\n    Decidable (\u2200 n h, P n h) :=\n  decidable_of_iff (\u2200 (k) (h : k < succ n), P k (le_of_lt_succ h))\n    \u27e8fun m k h => m k (lt_succ_of_le h), fun m k _ => m k _\u27e9\ninstance decidableExistsLT [h : DecidablePred p] : DecidablePred fun n => \u2203 m : Nat, m < n \u2227 p m\n  | 0 => isFalse (by simp only [not_lt_zero, false_and, exists_const, not_false_eq_true])\n  | n + 1 =>\n    @decidable_of_decidable_of_iff _ _ (@instDecidableOr _ _ (decidableExistsLT (p := p) n) (h n))\n      (by simp only [Nat.lt_succ_iff_lt_or_eq, or_and_right, exists_or, exists_eq_left])\ninstance decidableExistsLE [DecidablePred p] : DecidablePred fun n => \u2203 m : Nat, m \u2264 n \u2227 p m :=\n  fun n => decidable_of_iff (\u2203 m, m < n + 1 \u2227 p m)\n    (exists_congr fun _ => and_congr_left' Nat.lt_succ_iff)\ninstance decidableExistsLE' {p : (m : Nat) \u2192 m \u2264 k \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "shiftLeft_zero",
+    "has_proof": true
+  }
+}

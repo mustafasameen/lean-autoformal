@@ -1,0 +1,10 @@
+{
+  "content": "theorem inv_mul_cancel_left [Group \u03b1] (a b : \u03b1) : a\u207b\u00b9 * (a * b) = b := by\n  rw [\u2190 mul_assoc, mul_left_inv, one_mul]\ntheorem inv_eq_of_mul_eq_one [Group \u03b1] {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/alg.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/alg.lean",
+    "definition_name": "inv_mul_cancel_left",
+    "has_proof": true
+  }
+}

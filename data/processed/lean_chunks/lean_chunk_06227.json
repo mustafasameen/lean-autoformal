@@ -1,0 +1,9 @@
+{
+  "content": "match getStructureInfo? (\u2190 getEnv) ctorVal.induct with\n  | none => return mkProj ctorVal.induct i major\n  | some info => match info.getProjFn? i with\n    | none => return mkProj ctorVal.induct i major\n    | some projFn => return mkApp (mkAppN (mkConst projFn us) params) major\nprivate def toCtorWhenStructure (inductName : Name) (major : Expr) : MetaM Expr := do\n  unless (\u2190 useEtaStruct inductName) do\n    return major\n  let env \u2190 getEnv\n  if !isStructureLike env inductName then\n    return major\n  else if let some _ \u2190 isConstructorApp? major then\n    return major\n  else\n    let majorType \u2190 inferType major\n    let majorType \u2190 instantiateMVars (\u2190 whnf majorType)\n    let majorTypeI := majorType.getAppFn\n    if !majorTypeI.isConstOf inductName then\n      return major\n    match majorType.getAppFn with\n    | Expr.const d us =>\n      if (\u2190 whnfD (\u2190 inferType majorType)) == mkSort levelZero then\nreturn major\n      else\n        let some ctorName \u2190 getFirstCtor d | pure major",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

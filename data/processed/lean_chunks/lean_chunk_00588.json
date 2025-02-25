@@ -1,0 +1,9 @@
+{
+  "content": "class Primcodable (\u03b1 : Type _) extends Encodable \u03b1 where\n  prim : Nat.Primrec fun n => Encodable.encode (decode n)\nnamespace Primcodable\ninstance (priority := 10) ofDenumerable (\u03b1) [Denumerable \u03b1] : Primcodable \u03b1 := \u27e8sorry\u27e9\ninstance option {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_name": "Primcodable"
+  }
+}

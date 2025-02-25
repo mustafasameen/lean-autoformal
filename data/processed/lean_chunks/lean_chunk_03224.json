@@ -1,0 +1,10 @@
+{
+  "content": "theorem swap_then (o\u2081 o\u2082 : Ordering) : (o\u2081.then o\u2082).swap = o\u2081.swap.then o\u2082.swap := by\n  cases o\u2081 <;> rfl\ntheorem then_eq_lt {o\u2081 o\u2082 : Ordering}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_name": "swap_then",
+    "has_proof": true
+  }
+}

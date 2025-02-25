@@ -1,0 +1,9 @@
+{
+  "content": "addUnresolvedCompletionItem bestLabel (.const declName) (\u2190 getCompletionKindForDecl c)\n  RequestCancellation.check\n  let matchAlias (ns : Name) (alias : Name) : Bool :=\n    if ns.isPrefixOf alias then\n      let alias := alias.replacePrefix ns Name.anonymous\n      matchAtomic id alias danglingDot\n    else\n      false\n  let eligibleHeaderDecls \u2190 getEligibleHeaderDecls env\n  let addAlias (alias : Name) (declNames : List Name) : M Unit := do\n    declNames.forM fun declName => do\n      if allowCompletion eligibleHeaderDecls env declName then\n        addUnresolvedCompletionItemForDecl (.mkSimple alias.getString!) declName\n  for openDecl in ctx.openDecls do\n    match openDecl with\n    | OpenDecl.explicit openedId resolvedId =>\n      if allowCompletion eligibleHeaderDecls env resolvedId then\n        if matchAtomic id openedId danglingDot then\n          addUnresolvedCompletionItemForDecl (.mkSimple openedId.getString!) resolvedId\n    | OpenDecl.simple ns _      =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

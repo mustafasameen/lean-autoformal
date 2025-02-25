@@ -1,0 +1,10 @@
+{
+  "content": "theorem mapIdx_induction (f : Nat \u2192 \u03b1 \u2192 \u03b2) (xs : Array \u03b1)\n    (motive : Nat \u2192 Prop) (h0 : motive 0)\n    (p : (i : Nat) \u2192 \u03b2 \u2192 (h : i < xs.size) \u2192 Prop)\n    (hs : \u2200 i h, motive i \u2192 p i (f i xs[i]) h \u2227 motive (i + 1)) :\n    motive xs.size \u2227 \u2203 eq : (xs.mapIdx f).size = xs.size,\n      \u2200 i h, p i ((xs.mapIdx f)[i]) h :=\n  mapFinIdx_induction xs (fun i a _ => f i a) motive h0 p hs\ntheorem mapIdx_spec (f : Nat \u2192 \u03b1 \u2192 \u03b2) (xs : Array \u03b1)\n    (p : (i : Nat) \u2192 \u03b2 \u2192 (h : i < xs.size) \u2192 Prop) (hs : \u2200 i h, p i (f i xs[i]) h) :\n    \u2203 eq : (xs.mapIdx f).size = xs.size,\n      \u2200 i h, p i ((xs.mapIdx f)[i]) h :=\n  (mapIdx_induction _ _ (fun _ => True) trivial p fun _ _ _ => \u27e8hs .., trivial\u27e9).2\n@[simp] theorem size_mapIdx (f : Nat \u2192 \u03b1 \u2192 \u03b2) (xs : Array \u03b1) : (xs.mapIdx f).size = xs.size :=\n  (mapIdx_spec (p := fun _ _ _ => True) (hs := fun _ _ => trivial)).1\n@[simp] theorem getElem_mapIdx (f : Nat \u2192 \u03b1 \u2192 \u03b2) (xs : Array \u03b1) (i : Nat)\n    (h : i < (xs.mapIdx f).size) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/MapIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/MapIdx.lean",
+    "definition_name": "mapIdx_induction",
+    "has_proof": true
+  }
+}

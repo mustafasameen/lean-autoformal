@@ -1,0 +1,10 @@
+{
+  "content": "theorem dvd_emod_add_of_dvd_add {a c d x : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Cooper.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Cooper.lean",
+    "definition_name": "dvd_emod_add_of_dvd_add",
+    "has_proof": false
+  }
+}

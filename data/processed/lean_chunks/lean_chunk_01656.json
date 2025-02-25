@@ -1,0 +1,10 @@
+{
+  "content": "theorem Expr.denote_op (ctx : Context \u03b1) (a b : Expr) : denote ctx (Expr.op a b) = ctx.op (denote ctx a) (denote ctx b) :=\n  rfl\ntheorem Expr.denote_var (ctx : Context \u03b1) (i : Nat) : denote ctx (Expr.var i) = ctx.vars.getIdx i ctx.unit :=\n  rfl\ndef Expr.concat : Expr \u2192 Expr \u2192 Expr\n  | Expr.op a b, c => Expr.op a (concat b c)\n  | Expr.var i, c  => Expr.op (Expr.var i) c\ntheorem Expr.concat_op (a b c : Expr) : concat (Expr.op a b) c = Expr.op a (concat b c) :=\n  rfl\ntheorem Expr.concat_var (i : Nat) (c : Expr) : concat (Expr.var i) c = Expr.op (Expr.var i) c :=\n  rfl\ntheorem Expr.denote_concat (ctx : Context \u03b1) (a b : Expr) : denote ctx (concat a b) = denote ctx (Expr.op a b) := by\n  induction a with\n  | var i => rfl\n  | op _ _ _ ih => rw [concat_op, denote_op, ih, denote_op, denote_op, denote_op, ctx.assoc]\ndef Expr.flat : Expr \u2192 Expr\n  | Expr.op a b => concat (flat a) (flat b)\n  | Expr.var i  => Expr.var i",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/flat_expr.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/flat_expr.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

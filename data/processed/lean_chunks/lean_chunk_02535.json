@@ -1,0 +1,9 @@
+{
+  "content": "structure StateFactoryImpl where\n  (Map Set : Type)\n  mkState : Unit \u2192 Map \u00d7 Set\n  mapFind? (m : Map) (k : Object) : Option Object\n  mapInsert (m : Map) (k v : Object) : Map\n  setFind? (m : Set) (k : Object) : Option Object\n  setInsert (m : Set) (o : Object) : Set\nopaque StateFactoryPointed : NonemptyType\nabbrev StateFactory : Type := StateFactoryPointed.type\ninstance : Nonempty StateFactory := StateFactoryPointed.property\n@[extern \"lean_sharecommon_eq\"]\nunsafe opaque Object.eq (a b : @& Object) : Bool\n@[extern \"lean_sharecommon_hash\"]\nunsafe opaque Object.hash (a : @& Object) : UInt64\nstructure StateFactoryBuilder where\n  Map (\u03b1 _\u03b2 : Type) [BEq \u03b1] [Hashable \u03b1] : Type\n  mkMap {\u03b1 \u03b2 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/ShareCommon.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/ShareCommon.lean",
+    "definition_name": "StateFactoryImpl"
+  }
+}

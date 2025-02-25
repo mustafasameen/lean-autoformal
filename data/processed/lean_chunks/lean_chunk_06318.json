@@ -1,0 +1,9 @@
+{
+  "content": "if modifiers.isUnsafe then\n    throwError \"invalid use of 'unsafe' in field declaration\"\n  if modifiers.attrs.size != 0 then\n    throwError \"invalid use of attributes in field declaration\"\nprivate def expandFields (structStx : Syntax) (structModifiers : Modifiers) (structDeclName : Name) : TermElabM (Array StructFieldView) := do\n  if structStx[5][0].isToken \":=\" then\n    let cmd := if structStx[0].getKind == ``Parser.Command.classTk then \"class\" else \"structure\"\n    withRef structStx[0] <| Linter.logLintIf Linter.linter.deprecated structStx[5][0]\n      s!\"{cmd} ... :=' has been deprecated in favor of '{cmd} ... where'.\"\n  let fieldBinders := if structStx[5].isNone then #[] else structStx[5][2][0].getArgs\n  fieldBinders.foldlM (init := #[]) fun (views : Array StructFieldView) fieldBinder => withRef fieldBinder do\n    let mut fieldBinder := fieldBinder\n    if fieldBinder.getKind == ``Parser.Command.structSimpleBinder then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

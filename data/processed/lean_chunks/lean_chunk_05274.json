@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 simp [*]\n@[inline] def dropLastTR (l : List \u03b1) : List \u03b1 := l.toArray.pop.toList\n@[csimp] theorem dropLast_eq_dropLastTR : @dropLast = @dropLastTR := by\n  funext \u03b1 l; simp [dropLastTR]\n  @[specialize] go : List \u03b1 \u2192 Array \u03b1 \u2192 List \u03b1\n  | [], _ => l\n  | a::as, acc => bif b == a then acc.toListAppend (c::as) else go as (acc.push a)\n@[csimp] theorem replace_eq_replaceTR : @List.replace = @replaceTR := by\n  funext \u03b1 _ l b c; simp [replaceTR]\n  suffices \u2200 xs acc, l = acc.toList ++ xs \u2192\n      replaceTR.go l b c xs acc = acc.toList ++ xs.replace b c from\n    (this l #[] (by simp)).symm\n  intro xs; induction xs with intro acc\n  | nil => simp [replace, replaceTR.go]\n  | cons x xs IH =>\n    simp only [replaceTR.go, Array.toListAppend_eq, replace]\n    split\n    \u00b7 simp [*]\n    \u00b7 intro h; rw [IH] <;> simp_all\ndef modifyTR (f : \u03b1 \u2192 \u03b1) (n : Nat) (l : List \u03b1) : List \u03b1 := go l n #[] where\n  go : Nat \u2192 List \u03b1 \u2192 Array \u03b1 \u2192 List \u03b1\n  | 0, l, acc => acc.toListAppend (a :: l)\n  | _, [], acc => acc.toList",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_name": "set_eq_setTR",
+    "has_proof": true
+  }
+}

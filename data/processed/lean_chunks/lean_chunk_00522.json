@@ -1,0 +1,9 @@
+{
+  "content": "def A.B1.verySpecificDefinitionNameOfCompletionOpenNamespaces := 1\nopen A B1\nnamespace A\ndef c2 : Nat := verySpecificDefinitionNameOfCompletionOpenNamespaces",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/completionOpenNamespaces.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/completionOpenNamespaces.lean",
+    "definition_name": "A"
+  }
+}

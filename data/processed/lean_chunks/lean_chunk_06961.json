@@ -1,0 +1,9 @@
+{
+  "content": "match (\u2190 derivingHandlersRef.get).find? className with\n    | some handlers =>\n      for handler in handlers do\n        if (\u2190 handler typeNames) then\n          return ()\n      defaultHandler className typeNames\n    | none => defaultHandler className typeNames\nprivate def tryApplyDefHandler (className : Name) (declName : Name) : CommandElabM Bool :=\n  liftTermElabM do\n    Term.processDefDeriving className declName\n@[builtin_command_elab \u00abderiving\u00bb] def elabDeriving : CommandElab\n  | `(deriving instance $[$classes],* for $[$declNames],*) => do\n     let declNames \u2190 liftCoreM <| declNames.mapM realizeGlobalConstNoOverloadWithInfo\n     for cls in classes do\n       try\n         let className \u2190 liftCoreM <| realizeGlobalConstNoOverloadWithInfo cls\n         withRef cls do\n           if declNames.size == 1 then\n             if (\u2190 tryApplyDefHandler className declNames[0]!) then\n               return ()\n           applyDerivingHandlers className declNames\n       catch ex =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Basic.lean",
+    "definition_name": "DerivingHandler"
+  }
+}

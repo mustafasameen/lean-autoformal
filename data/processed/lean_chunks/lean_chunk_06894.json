@@ -1,0 +1,9 @@
+{
+  "content": "def simpParamsPos := 4\ndef mkSimpContext (stx : Syntax) (eraseLocal : Bool) (kind := SimpKind.simp)\n    (ignoreStarArg : Bool := false) (simpTheorems : CoreM SimpTheorems := getSimpTheorems) :\n    TacticM MkSimpContextResult := do\n  if !stx[2].isNone then\n    if kind == SimpKind.simpAll then\n      throwError \"'simp_all' tactic does not support 'discharger' option\"\n    if kind == SimpKind.dsimp then\n      throwError \"'dsimp' tactic does not support 'discharger' option\"\n  let dischargeWrapper \u2190 mkDischargeWrapper stx[2]\n  let simpOnly := !stx[simpOnlyPos].isNone\n  let simpTheorems \u2190 if simpOnly then\n    simpOnlyBuiltins.foldlM (\u00b7.addConst \u00b7) ({} : SimpTheorems)\n  else\n    simpTheorems\n  let simprocs \u2190 if simpOnly then pure {} else Simp.getSimprocs\n  let congrTheorems \u2190 getSimpCongrTheorems\n  let ctx \u2190 Simp.mkContext\n     (config := (\u2190 elabSimpConfig stx[1] (kind := kind)))\n     (simpTheorems := #[simpTheorems])\n     congrTheorems",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "simpParamsPos"
+  }
+}

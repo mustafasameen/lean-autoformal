@@ -1,0 +1,10 @@
+{
+  "content": "theorem Or.resolve_left  (h: Or a b) (na : Not a) : b := h.elim (absurd \u00b7 na) id\ntheorem Or.resolve_right (h: Or a b) (nb : Not b) : a := h.elim id (absurd \u00b7 nb)\ntheorem Or.neg_resolve_left  (h : Or (Not a) b) (ha : a) : b := h.elim (absurd ha) id\ntheorem Or.neg_resolve_right (h : Or a (Not b)) (nb : b) : a := h.elim id (absurd nb)\ninductive Bool : Type where\n  | true : Bool\nexport Bool (false true)\n@[pp_using_anonymous_constructor]\nstructure Subtype {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Or",
+    "has_proof": false
+  }
+}

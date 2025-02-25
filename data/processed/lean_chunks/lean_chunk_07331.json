@@ -1,0 +1,10 @@
+{
+  "content": "rw [AIG.LawfulVecOperator.decl_eq (f := blastShiftRight.twoPowShift)]\n    apply AIG.LawfulVecOperator.lt_size_of_lt_aig_size (f := blastShiftRight.twoPowShift)\n    assumption\n  \u00b7 simp [\u2190 hgo]\ntermination_by n - 1 - curr\ninstance : AIG.LawfulVecOperator \u03b1 AIG.ArbitraryShiftTarget blastShiftRight where\n  le_size := by\n    intros\n    unfold blastShiftRight\n    dsimp only\n    split\n    \u00b7 simp\n    \u00b7 refine Nat.le_trans ?_ (by apply blastShiftRight.go_le_size)\n      apply AIG.LawfulVecOperator.le_size (f := blastShiftRight.twoPowShift)\n  decl_eq := by\n    intros\n    unfold blastShiftRight\n    dsimp only\n    split\n    \u00b7 simp\n    \u00b7 rw [blastShiftRight.go_decl_eq]\n      rw [AIG.LawfulVecOperator.decl_eq (f := blastShiftRight.twoPowShift)]\n      apply AIG.LawfulVecOperator.lt_size_of_lt_aig_size (f := blastShiftRight.twoPowShift)\n      assumption\nnamespace blastArithShiftRight\ndef twoPowShift (aig : AIG \u03b1) (target : TwoPowShiftTarget aig w) : AIG.RefVecEntry \u03b1 w :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftRight.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftRight.lean",
+    "definition_name": "blastShiftRight",
+    "has_proof": true
+  }
+}

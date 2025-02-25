@@ -1,0 +1,9 @@
+{
+  "content": "structure MacroStackElem where\n  before : Syntax\n  after : Syntax\nabbrev MacroStack := List MacroStackElem\n      if (\u2190 getEnv).contains kind && (\u2190 getInfoState).enabled then\n        addConstInfo stx[1] kind none\n      return kind\n    onAdded       := fun builtin declName => do\n      if builtin then\n        declareBuiltinDocStringAndRanges declName\n  } attrDeclName\nunsafe def mkMacroAttributeUnsafe (ref : Name) : IO (KeyedDeclsAttribute Macro) :=\n  mkElabAttribute Macro `builtin_macro `macro Name.anonymous `Lean.Macro \"macro\" ref\n@[implemented_by mkMacroAttributeUnsafe]\nopaque mkMacroAttribute (ref : Name) : IO (KeyedDeclsAttribute Macro)\nbuiltin_initialize macroAttribute : KeyedDeclsAttribute Macro \u2190 mkMacroAttribute decl_name%\ndef expandMacroImpl? (env : Environment) : Syntax \u2192 MacroM (Option (Name \u00d7 Except Macro.Exception Syntax)) := fun stx => do\n  for e in macroAttribute.getEntries env stx.getKind do\n    try\n      let stx' \u2190 withFreshMacroScope (e.value stx)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Util.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Util.lean",
+    "definition_name": "MacroStackElem"
+  }
+}

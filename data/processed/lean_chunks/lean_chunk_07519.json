@@ -1,0 +1,9 @@
+{
+  "content": "ofHourMinuteSecondsNano hour minute second 0\ndef toMilliseconds (time : PlainTime) : Millisecond.Offset :=\n  time.hour.toOffset.toMilliseconds +\n  time.minute.toOffset.toMilliseconds +\n  time.second.toOffset.toMilliseconds +\n  time.nanosecond.toOffset.toMilliseconds\ndef toNanoseconds (time : PlainTime) : Nanosecond.Offset :=\n  time.hour.toOffset.toNanoseconds +\n  time.minute.toOffset.toNanoseconds +\n  time.second.toOffset.toNanoseconds +\n  time.nanosecond.toOffset\ndef toSeconds (time : PlainTime) : Second.Offset :=\n  time.hour.toOffset.toSeconds +\n  time.minute.toOffset.toSeconds +\n  time.second.toOffset\ndef toMinutes (time : PlainTime) : Minute.Offset :=\n  time.hour.toOffset.toMinutes +\n  time.minute.toOffset +\n  time.second.toOffset.toMinutes\ndef toHours (time : PlainTime) : Hour.Offset :=\n  time.hour.toOffset\ndef ofNanoseconds (nanos : Nanosecond.Offset) : PlainTime :=\n  have totalSeconds := nanos.ediv 1000000000",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_name": "PlainTime"
+  }
+}

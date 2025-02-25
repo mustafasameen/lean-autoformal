@@ -1,0 +1,10 @@
+{
+  "content": "rel.rel (act f r\u2081, act f r\u2082) (Term.Cons l\u2081 r\u2081, Term.Cons l\u2082 r\u2082) := by\n  suffices h : depth (act f r\u2081) + depth (act f r\u2082) < depth (Term.Cons l\u2081 r\u2081) + depth (Term.Cons l\u2082 r\u2082) from h\n  admit\ndef robinson (u v : Term) : { f : Option Subst // P f u v } := match u, v with\n  | .Cons l\u2081 r\u2081, .Cons l\u2082 r\u2082 => match robinson l\u2081 l\u2082 with\n    | \u27e8 none, h \u27e9 => \u27e8 none, sorry \u27e9\n    | \u27e8 some f, h \u27e9 => match robinson (act f r\u2081) (act f r\u2082) with\n      | \u27e8 none, h \u27e9 => \u27e8 none, sorry \u27e9\n      | \u27e8 some g, h \u27e9 => \u27e8 some (g \u2218 f), sorry \u27e9\n  | .Var i, .Cons l r => \u27e8 none, sorry \u27e9\n  | .Cons l r, .Var i => \u27e8 none, sorry \u27e9\n  | .Var i, .Var j =>\n    if i = j then \u27e8 some id, sorry \u27e9\n    else \u27e8 some \u03bb n => if n = i then j else n, sorry \u27e9\ntermination_by (u, v)\ndecreasing_by\n  \u00b7 apply decr_left _ _ _ _\n  \u00b7 apply decr_right _ _ _ _ _\nattribute [simp] robinson\nset_option pp.proofs true\n#check robinson.eq_1\n#check robinson.eq_2\n#check robinson.eq_3\n#check robinson.eq_4",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/robinson.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/robinson.lean",
+    "definition_name": "Subst",
+    "has_proof": true
+  }
+}

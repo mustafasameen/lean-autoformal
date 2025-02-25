@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_mem_empty (a : \u03b1) : \u00ac a \u2208 #v[] := nofun\n@[simp] theorem mem_push {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "not_mem_empty",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure ConfigTrace where\n  platform : String\n  leanHash : String\n  configHash : Hash\n  options : NameMap String\n  deriving ToJson, FromJson\ndef importConfigFile (cfg : LoadConfig) : LogIO Environment := do\n  let some configName := FilePath.mk <$> cfg.configFile.fileName\n    | error \"invalid configuration file name\"\n  let olean := cfg.lakeDir / configName.withExtension \"olean\"\n  let traceFile := cfg.lakeDir / configName.withExtension \"olean.trace\"\n  let lockFile := cfg.lakeDir / configName.withExtension \"olean.lock\"\n  let acquireTrace h : IO IO.FS.Handle := id do\n    let hLock \u2190 IO.FS.Handle.mk lockFile .write\n    if (\u2190 hLock.tryLock) then\n      h.unlock\n      let h \u2190 IO.FS.Handle.mk traceFile .readWrite\n      h.lock\n      hLock.unlock\n      return h\n    else\n      h.unlock\n      error <| s!\"could not acquire an exclusive configuration lock; \" ++\n        \"another process may already be reconfiguring the package\"\n  let configHash \u2190 computeTextFileHash cfg.configFile",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Lean/Elab.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Lean/Elab.lean",
+    "definition_name": "ConfigTrace"
+  }
+}

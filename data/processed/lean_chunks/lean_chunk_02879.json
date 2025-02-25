@@ -1,0 +1,9 @@
+{
+  "content": "class has already been declared '{.ofConstName clsName true}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Class.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Class.lean",
+    "definition_name": "has"
+  }
+}

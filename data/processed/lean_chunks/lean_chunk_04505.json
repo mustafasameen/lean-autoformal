@@ -1,0 +1,10 @@
+{
+  "content": "theorem elim_none (x : \u03b2) (f : \u03b1 \u2192 \u03b2) : none.elim x f = x := rfl\n@[simp] theorem elim_some (x : \u03b2) (f : \u03b1 \u2192 \u03b2) (a : \u03b1) : (some a).elim x f = f a := rfl\n@[simp] theorem getD_map (f : \u03b1 \u2192 \u03b2) (x : \u03b1) (o : Option \u03b1) :\n  (o.map f).getD (f x) = f (getD o x) := by cases o <;> rfl\nsection choice\nattribute [local instance] Classical.propDecidable\n@[simp] theorem or_some' {o : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "elim_none",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "#guard_msgs in\n#eval datetimetz.subMonthsRollOver 1\n#guard_msgs in\n#eval datetimetz.addYearsClip 1\n#guard_msgs in\n#eval datetimetz.addYearsClip 1\n#guard_msgs in\n#eval datetimetz.addYearsRollOver 1\n#guard_msgs in\n#eval datetimetz.subYearsRollOver 1\n#guard_msgs in\n#eval datetimetz.addHours 1\n#guard_msgs in\n#eval datetimetz.subHours 1\n#guard_msgs in\n#eval datetimetz.addMinutes 10\n#guard_msgs in\n#eval datetimetz.subMinutes 10\n#guard_msgs in\n#eval datetimetz.addSeconds 60\n#guard_msgs in\n#eval datetimetz.subSeconds 60\ndef now := zoned(\"2024-08-29T10:56:43.276801081+02:00\")\n#guard_msgs in\n#eval now\n#guard_msgs in\n#eval now.addDays 1\n#guard_msgs in\n#eval datetimetz.subSeconds 60\n#guard_msgs in\n#eval date(\"2024-11-17\").alignedWeekOfMonth\n#guard_msgs in\n#eval date(\"2024-11-18\").alignedWeekOfMonth\n#guard_msgs in\n#eval date(\"2024-01-21\").alignedWeekOfMonth\n#guard_msgs in\n#eval date(\"2024-01-22\").alignedWeekOfMonth",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeOperations.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeOperations.lean",
+    "definition_name": "date"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "unless (\u2190 isDefEq tArg dArg) do\n            failure\n        for i in [info.numParams : tArgs.size] do\n          let tArg := tArgs[i]!\n          let dArg := dArgs[i]!\n          unless (\u2190 isDefEq tArg dArg) do\n            return i :: (\u2190 goIndex tArg dArg)\n        failure\nprivate partial def eraseIndices (type : Expr) : MetaM Expr := do\n  let type' \u2190 whnfD type\n  matchConstInduct type'.getAppFn (fun _ => return type) fun info _ => do\n    let args := type'.getAppArgs\n    let params \u2190 args[:info.numParams].toArray.mapM eraseIndices\n    let result := mkAppN type'.getAppFn params\n    let resultType \u2190 inferType result\n    let (newIndices, _, _) \u2190  forallMetaTelescopeReducing resultType (some (args.size - info.numParams))\n    return mkAppN result newIndices\nprivate def withPatternElabConfig (x : TermElabM \u03b1) : TermElabM \u03b1 :=\n  withoutErrToSorry <| withReader (fun ctx => { ctx with inPattern := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_name": "PatternElabException"
+  }
+}

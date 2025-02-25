@@ -1,0 +1,9 @@
+{
+  "content": "instance instP : DecidablePred P :=\n  fun\n  | 0 => isTrue \u27e80, rfl\u27e9\n  | 1 => isFalse (by intro \u27e8k, h\u27e9; omega)\n  | n + 2 =>\n    dbg_trace \"step\";\n    match instP n with\n    | isTrue h => isTrue (by have \u27e8k, h\u27e9 := h; exact \u27e8k + 1, by omega\u27e9)\n    | isFalse h => isFalse (by intro \u27e8k, h'\u27e9; apply h; exists k - 1; omega)\n#guard_msgs in\nexample : False := by native_decide\n#guard_msgs in\nexample : False := by first | native_decide | fail \"second case\"\n#guard_msgs in\nexample (x : Nat) (h : x < 5) : x + 1 \u2264 5 := by native_decide\nexample (x : Nat) (h : x < 5) : x + 1 \u2264 5 := by native_decide +revert\n#guard_msgs in #check show False by native_decide\ninstance (p : PUnit.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideNative.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideNative.lean",
+    "definition_name": "instP"
+  }
+}

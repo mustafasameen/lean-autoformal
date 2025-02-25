@@ -1,0 +1,9 @@
+{
+  "content": "inductive V (\u03b1 : Bool \u2192 Type) : Bool \u2192 Type\n  | mk\u2081 {b}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/281.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/281.lean",
+    "definition_name": "V"
+  }
+}

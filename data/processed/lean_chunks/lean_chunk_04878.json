@@ -1,0 +1,10 @@
+{
+  "content": "theorem head_tail (l : List \u03b1) (h : l.tail \u2260 []) :\n    (tail l).head h = l[1]'(one_lt_length_of_tail_ne_nil h) := by\n  cases l with\n  | nil => simp at h\n  | cons _ l => simp [head_eq_getElem]\n@[simp] theorem head?_tail (l : List \u03b1) : (tail l).head? = l[1]? := by\n  simp [head?_eq_getElem?]\n@[simp] theorem getLast_tail (l : List \u03b1) (h : l.tail \u2260 []) :\n    (tail l).getLast h = l.getLast (ne_nil_of_tail_ne_nil h) := by\n  simp only [getLast_eq_getElem, length_tail, getElem_tail]\n  congr\n  match l with\n  | _ :: _ :: l => simp\ntheorem getLast?_tail (l : List \u03b1) : (tail l).getLast? = if l.length = 1 then none else l.getLast? := by\n  match l with\n  | [] => simp\n  | [a] => simp\n  | _ :: _ :: l =>\n    simp only [tail_cons, length_cons, getLast?_cons_cons]\n    rw [if_neg]\n    rintro \u27e8\u27e9\n@[simp] theorem length_map (as : List \u03b1) (f : \u03b1 \u2192 \u03b2) : (as.map f).length = as.length := by\n  induction as with\n  | nil => simp [List.map]\n  | cons _ as ih => simp [List.map, ih]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "head_tail",
+    "has_proof": true
+  }
+}

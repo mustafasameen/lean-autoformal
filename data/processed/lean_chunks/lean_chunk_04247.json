@@ -1,0 +1,10 @@
+{
+  "content": "match s with\n  | 0 => cur\n  | s + 1 => mulRec x y s + cur\ntheorem mulRec_zero_eq (x y : BitVec w) :\n    mulRec x y 0 = if y.getLsbD 0 then x else 0 := by\n  simp [mulRec]\ntheorem mulRec_succ_eq (x y : BitVec w) (s : Nat) :\n    mulRec x y (s + 1) = mulRec x y s + if y.getLsbD (s + 1) then (x <<< (s + 1)) else 0 := rfl\ntheorem setWidth_setWidth_succ_eq_setWidth_setWidth_add_twoPow (x : BitVec w) (i : Nat) :\n    setWidth w (x.setWidth (i + 1)) =\n      setWidth w (x.setWidth i) + (x &&& twoPow w i) := by\n  rw [add_eq_or_of_and_eq_zero]\n  \u00b7 ext k h\n    simp only [getElem_setWidth, getLsbD_setWidth, h, getLsbD_eq_getElem, getElem_or, getElem_and,\n      getElem_twoPow]\n    by_cases hik : i = k\n    \u00b7 subst hik\n      simp [h]\n    \u00b7 by_cases hik' : k < (i + 1)\n      \u00b7 have hik'' : k < i := by omega\n        simp [hik', hik'']\n        omega\n      \u00b7 have hik'' : \u00ac (k < i) := by omega\n        simp [hik', hik'']\n        omega\n  \u00b7 ext k",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "slt_eq_ult",
+    "has_proof": true
+  }
+}

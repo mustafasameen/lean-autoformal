@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\nellipsis      : Bool\n  explicit      : Bool\n  resultIsOutParamSupport : Bool\n  args                 : List Arg\n  etaArgs              : Array Expr   := #[]\n  instMVars            : Array MVarId := #[]\n  propagateExpected    : Bool\n  resultTypeOutParam?  : Option MVarId := none\nabbrev M := ReaderT Context (StateRefT State TermElabM)\ndef trySynthesizeAppInstMVars : M Unit := do\n  let instMVars \u2190 (\u2190 get).instMVars.filterM fun instMVar => do\n    unless (\u2190 instantiateMVars (\u2190 inferType (.mvar instMVar))).isMVar do try\n      if (\u2190 synthesizeInstMVarCore instMVar) then\n        return false\n      catch _ => pure ()\n    return true\n  modify ({ \u00b7 with instMVars }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/App.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/App.lean",
+    "definition_name": "Context"
+  }
+}

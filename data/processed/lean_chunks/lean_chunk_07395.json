@@ -1,0 +1,10 @@
+{
+  "content": "def\n  specialize f'_def rfl\n  have f_liff_f' := rupAdd_sound f empty rupHints f' f_readyForRupAdd\n  rw [\u2190 rupAddSuccess] at f_liff_f'\n  specialize f_liff_f' rfl\n  rw [f'_def] at f_liff_f'\n  intro p pf\n  specialize f_liff_f' p\n  rw [f_liff_f', sat_iff_forall] at pf\n  have empty_in_f' : empty \u2208 toList (Formula.insert f empty) := by\n    rw [Formula.insert_iff]\n    exact Or.inl rfl\n  specialize pf empty empty_in_f'\n  simp [(\u00b7 \u22a8 \u00b7), Clause.eval, List.any_eq_true, decide_eq_true_eq, Prod.exists, Bool.exists_bool,\n    empty_eq, List.any_nil] at pf\ntheorem addRupCaseSound [DecidableEq \u03b1] [Clause \u03b1 \u03b2] [Entails \u03b1 \u03c3] [Formula \u03b1 \u03b2 \u03c3] (f : \u03c3)\n    (f_readyForRupAdd : ReadyForRupAdd f)\n    (f_readyForRatAdd : ReadyForRatAdd f) (c : \u03b2) (f' : \u03c3) (rupHints : Array Nat)\n    (heq : performRupAdd f c rupHints = (f', true))\n    (restPrf : List (Action \u03b2 \u03b1)) (restPrfWellFormed : \u2200 (a : Action \u03b2 \u03b1), a \u2208 restPrf \u2192 WellFormedAction a)\n    (ih : \u2200 (f : \u03c3),",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_name": "specialize",
+    "has_proof": true
+  }
+}

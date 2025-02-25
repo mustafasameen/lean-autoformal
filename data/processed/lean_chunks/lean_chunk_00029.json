@@ -1,0 +1,9 @@
+{
+  "content": "inductive A : Nat \u2192 Prop\ndef Lean.MVarId.getType'' (mvarId : MVarId) : MetaM Expr := do\n  instantiateMVars (\u2190 whnf (\u2190 mvarId.getType))\nelab \"the_target\" : tactic => Tactic.withMainContext do\n  dbg_trace \"target : {\u2190 (\u2190 getMainGoal).getType'}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/2505.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/2505.lean",
+    "definition_name": "A"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem balanceR_eq_balanceR! {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_name": "balanceR_eq_balanceR",
+    "has_proof": false
+  }
+}

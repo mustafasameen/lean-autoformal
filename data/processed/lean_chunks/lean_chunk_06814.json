@@ -1,0 +1,9 @@
+{
+  "content": "go (i+1) (acc.push (v, .some iv)) (vars ++ #[v,iv]) (args ++ #[atoms[i], inst])\n    else\n      let proof \u2190 k acc\n      let proof \u2190 mkLambdaFVars vars proof\n      let proof := mkAppN proof args\n      return proof\n  go 0 #[] #[] #[]\ndef buildNormProof (preContext : PreContext) (l r : Expr) : MetaM (Lean.Expr \u00d7 Lean.Expr) := do\n  let (atoms, acExpr) \u2190 toACExpr preContext.op l r\n  let proof \u2190 abstractAtoms preContext atoms fun varsData => do\n    let \u03b1 \u2190 inferType atoms[0]!\n    let u \u2190 getLevel \u03b1\n    let context \u2190 mkContext \u03b1 u varsData\n    let isNeutrals := varsData.map (\u00b7.2.isSome)\n    let vars := varsData.map (\u00b7.1)\n    let acExprNormed := Data.AC.evalList ACExpr preContext $ Data.AC.norm (preContext, isNeutrals) acExpr\n    let lhs := convert acExpr\n    let rhs := convert acExprNormed\n    let proof := mkAppN (mkConst ``Context.eq_of_norm [u]) #[\u03b1, context, lhs, rhs, \u2190mkEqRefl (mkConst ``Bool.true)]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_name": "PreExpr"
+  }
+}

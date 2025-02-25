@@ -1,0 +1,10 @@
+{
+  "content": "theorem eval_literal : eval a (.literal l) = a l := rfl\n@[simp] theorem eval_const : eval a (.const b) = b := rfl\n@[simp] theorem eval_not : eval a (.not x) = !eval a x := rfl\n@[simp] theorem eval_gate : eval a (.gate g x y) = g.eval (eval a x) (eval a y) := rfl\n@[simp] theorem eval_ite : eval a (.ite d l r) = bif d.eval a then l.eval a else r.eval a := rfl\ndef Sat (a : \u03b1 \u2192 Bool) (x : BoolExpr \u03b1) : Prop := eval a x = true\ndef Unsat (x : BoolExpr \u03b1) : Prop := \u2200 f, eval f x = false\ntheorem sat_and {x y : BoolExpr \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Basic.lean",
+    "definition_name": "eval_literal",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_total (x y : BitVec n) : x \u2264 y \u2228 y \u2264 x := by\n  simp only [le_def]\n  apply Nat.le_total\nprotected theorem le_antisymm {x y : BitVec n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "le_total",
+    "has_proof": true
+  }
+}

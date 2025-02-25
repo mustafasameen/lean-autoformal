@@ -1,0 +1,10 @@
+{
+  "content": "theorem liftRel_inl_inl : LiftRel r s (inl a) (inl c) \u2194 r a c :=\n  \u27e8fun h => by cases h; assumption, LiftRel.inl\u27e9\n@[simp] theorem not_liftRel_inl_inr : \u00acLiftRel r s (inl a) (inr d) := nofun\n@[simp] theorem not_liftRel_inr_inl : \u00acLiftRel r s (inr b) (inl c) := nofun\n@[simp] theorem liftRel_inr_inr : LiftRel r s (inr b) (inr d) \u2194 s b d :=\n  \u27e8fun h => by cases h; assumption, LiftRel.inr\u27e9\ninstance {r : \u03b1 \u2192 \u03b3 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Basic.lean",
+    "definition_name": "liftRel_inl_inl",
+    "has_proof": true
+  }
+}

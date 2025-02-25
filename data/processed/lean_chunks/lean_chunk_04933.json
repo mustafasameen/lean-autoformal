@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_filterMap (f : \u03b1 \u2192 Option \u03b2) (g : \u03b3 \u2192 \u03b2 \u2192 \u03b3) (l : List \u03b1) (init : \u03b3) :\n    (l.filterMap f).foldl g init = l.foldl (fun x y => match f y with | some b => g x b | none => x) init := by\n  induction l generalizing init with\n  | nil => rfl\n  | cons a l ih =>\n    simp only [filterMap_cons, foldl_cons]\n    cases f a <;> simp [ih]\ntheorem foldr_filterMap (f : \u03b1 \u2192 Option \u03b2) (g : \u03b2 \u2192 \u03b3 \u2192 \u03b3) (l : List \u03b1) (init : \u03b3) :\n    (l.filterMap f).foldr g init = l.foldr (fun x y => match f x with | some b => g b y | none => y) init := by\n  induction l generalizing init with\n  | nil => rfl\n  | cons a l ih =>\n    simp only [filterMap_cons, foldr_cons]\n    cases f a <;> simp [ih]\ntheorem foldl_map_hom (g : \u03b1 \u2192 \u03b2) (f : \u03b1 \u2192 \u03b1 \u2192 \u03b1) (f' : \u03b2 \u2192 \u03b2 \u2192 \u03b2) (a : \u03b1) (l : List \u03b1)\n    (h : \u2200 x y, f' (g x) (g y) = g (f x y)) :\n    (l.map g).foldl f' (g a) = g (l.foldl f a) := by\n  induction l generalizing a\n  \u00b7 simp\n  \u00b7 simp [*, h]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "reverse_flatten",
+    "has_proof": true
+  }
+}

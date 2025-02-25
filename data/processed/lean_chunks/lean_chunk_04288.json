@@ -1,0 +1,10 @@
+{
+  "content": "theorem gcd_mul_left_left (m n : Nat) : gcd (m * n) n = n :=\n  Nat.dvd_antisymm (gcd_dvd_right _ _) (dvd_gcd (Nat.dvd_mul_left _ _) (Nat.dvd_refl _))\n@[simp] theorem gcd_mul_left_right (m n : Nat) : gcd n (m * n) = n := by\n  rw [gcd_comm, gcd_mul_left_left]\n@[simp] theorem gcd_mul_right_left (m n : Nat) : gcd (n * m) n = n := by\n  rw [Nat.mul_comm, gcd_mul_left_left]\n@[simp] theorem gcd_mul_right_right (m n : Nat) : gcd n (n * m) = n := by\n  rw [gcd_comm, gcd_mul_right_left]\n@[simp] theorem gcd_gcd_self_right_left (m n : Nat) : gcd m (gcd m n) = gcd m n :=\n  Nat.dvd_antisymm (gcd_dvd_right _ _) (dvd_gcd (gcd_dvd_left _ _) (Nat.dvd_refl _))\n@[simp] theorem gcd_gcd_self_right_right (m n : Nat) : gcd m (gcd n m) = gcd n m := by\n  rw [gcd_comm n m, gcd_gcd_self_right_left]\n@[simp] theorem gcd_gcd_self_left_right (m n : Nat) : gcd (gcd n m) m = gcd n m := by\n  rw [gcd_comm, gcd_gcd_self_right_right]\n@[simp] theorem gcd_gcd_self_left_left (m n : Nat) : gcd (gcd m n) m = gcd m n := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "gcd_mul_left_left",
+    "has_proof": true
+  }
+}

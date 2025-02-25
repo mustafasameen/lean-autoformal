@@ -1,0 +1,10 @@
+{
+  "content": "class HasMem (\u03b1 : outParam $ Type u) (\u03b2 : Type v) where\n    mem : \u03b1 \u2192 \u03b2 \u2192 Prop\nclass PartialOrder (P : Type u) extends LE P where\n  refl (s : P) : s \u2264 s\n  antisymm (s t : P) : s \u2264 t \u2192 t \u2264 s \u2192 s = t\n  trans (s t u : P) : s \u2264 t \u2192 t \u2264 u \u2192 s \u2264 u\ntheorem LE.le.trans {P : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/implicitLambdaIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/implicitLambdaIssue.lean",
+    "definition_name": "HasMem",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| Expr.const d us =>\n      if (\u2190 whnfD (\u2190 inferType majorType)) == mkSort levelZero then\nreturn major\n      else\n        let some ctorName \u2190 getFirstCtor d | pure major\n        let ctorInfo \u2190 getConstInfoCtor ctorName\n        let params := majorType.getAppArgs.shrink ctorInfo.numParams\n        let mut result := mkAppN (mkConst ctorName us) params\n        for i in [:ctorInfo.numFields] do\n          result := mkApp result (\u2190 mkProjFn ctorInfo us params i major)\n        return result\n    | _ => return major\nprivate def isWFRec (declName : Name) : Bool :=\n  declName == ``Acc.rec || declName == ``WellFounded.rec\nprivate def cleanupNatOffsetMajor (e : Expr) : MetaM Expr := do\n  let some (e, k) \u2190 isOffset? e | return e\n  if k = 0 then\n    return e\n  else if k = 1 then\n    return mkNatSucc e\n  else\n    return mkNatSucc (mkNatAdd e (toExpr (k - 1)))\n        let nparams := majorArgs.size - rule.nfields\n        let rhs := mkAppRange rhs nparams majorArgs.size majorArgs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

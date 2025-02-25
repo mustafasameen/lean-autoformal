@@ -1,0 +1,9 @@
+{
+  "content": "def flipIf : Transformer :=\n\u03bb n, withIf n $ \u03bb c t e,\n  c.case notKind $ \u03bb c, withNot c $ \u03bb c',\n    pure $ updateIf n c' e t\ndef letTransformer : Transformer :=\n\u03bb n, withLet n $ \u03bb lhs val body,\n (lhs.case letLhsIdKind $ \u03bb lhs, withLetLhsId lhs $ \u03bb id binders type,\n   if binders.getNumChildren == 0 then\n     type.case optionNoneKind $ \u03bb _,\n       let newLhs := updateLhsId lhs id binders (mkOptionSome hole) in\n       pure (some (updateLet n newLhs val body))\n   else\n     noExpansion)\n <?>\n (lhs.case letLhsPatternKind $ \u03bb lhs,\n   noExpansion)\n@[inline] def Syntax.isNode {\u03b1 : Type} (n : Syntax) (fn : SyntaxNodeKind \u2192 SyntaxNode \u2192 TransformM (Option \u03b1)) : TransformM (Option \u03b1) :=\nmatch n with\n| Syntax.node k args s := fn k \u27e8Syntax.node k args s, IsNode.mk _ _ _\u27e9\n| other                := pure none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem isNe_iff_ne_eq {o : Ordering}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_name": "isNe_iff_ne_eq",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofNat_toNat (a : Int) : (a.toNat : Int) = max a 0 := by\n  match a with\n  | Int.ofNat n => simp\n  | Int.negSucc n => simp\ntheorem self_le_toNat (a : Int) : a \u2264 toNat a := by rw [toNat_eq_max]; apply Int.le_max_left\n@[simp] theorem le_toNat {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "ofNat_toNat",
+    "has_proof": true
+  }
+}

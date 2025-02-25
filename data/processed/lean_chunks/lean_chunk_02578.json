@@ -1,0 +1,10 @@
+{
+  "content": "theorem decide_not [g : Decidable p] [h : Decidable (Not p)] : decide (Not p) = !(decide p) := by\n  cases g <;> (rename_i gp; simp [gp])\ntheorem not_decide_eq_true [h : Decidable p] : ((!decide p) = true) = \u00ac p := by simp\n@[simp] theorem heq_eq_eq (a b : \u03b1) : HEq a b = (a = b) := propext <| Iff.intro eq_of_heq heq_of_eq\n@[simp] theorem cond_true (a b : \u03b1) : cond true a b = a := rfl\n@[simp] theorem cond_false (a b : \u03b1) : cond false a b = b := rfl\n@[simp] theorem beq_self_eq_true [BEq \u03b1] [LawfulBEq \u03b1] (a : \u03b1) : (a == a) = true := LawfulBEq.rfl\ntheorem beq_self_eq_true' [DecidableEq \u03b1] (a : \u03b1) : (a == a) = true := by simp\n@[simp] theorem bne_self_eq_false [BEq \u03b1] [LawfulBEq \u03b1] (a : \u03b1) : (a != a) = false := by simp [bne]\ntheorem bne_self_eq_false' [DecidableEq \u03b1] (a : \u03b1) : (a != a) = false := by simp\nset_option linter.missingDocs false in\n@[deprecated decide_false (since := \"2024-11-05\")] abbrev decide_False := decide_false\nset_option linter.missingDocs false in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "decide_not",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "inductive Tree\n  | leaf\u2081\n  | leaf\u2082\n  | node : Tree \u2192 Tree \u2192 Tree\ndef Tree.isLeaf\u2081 : Tree \u2192 Bool\n  | leaf\u2081 => true\n  | _     => false\ntheorem tst13 (x : Tree) (h : x = Tree.leaf\u2081) : x.isLeaf\u2081 = true := by\n  cases x with\n  | leaf\u2081 => rfl\n  | _     => injection h\ntheorem tst14 (x : Tree) (h : x = Tree.leaf\u2081) : x.isLeaf\u2081 = true := by\n  induction x with\n  | leaf\u2081 => rfl\n  | _     => injection h\ninductive Vec (\u03b1 : Type) : Nat \u2192 Type\n  | nil  : Vec \u03b1 0\n  | cons : (a : \u03b1) \u2192 {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/induction1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/induction1.lean",
+    "definition_name": "Tree",
+    "has_proof": true
+  }
+}

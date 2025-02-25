@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex3 (p q r : Prop) (h1 : p \u2228 q) (h2 : p \u2192 q) : q := by\n  cases h1\n  { skip\nskip }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/tacUnsolvedGoalsErrors.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/tacUnsolvedGoalsErrors.lean",
+    "definition_name": "ex3",
+    "has_proof": true
+  }
+}

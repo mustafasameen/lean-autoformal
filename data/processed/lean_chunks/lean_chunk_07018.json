@@ -1,0 +1,9 @@
+{
+  "content": "return some declName\n        else\n          return none\n    return none\n  private def forEligibleDeclsWithCancellationM [Monad m] [MonadEnv m]\n      [MonadLiftT (ST IO.RealWorld) m] [MonadCancellable m] [MonadLiftT IO m]\n      (f : Name \u2192 ConstantInfo \u2192 m PUnit) : m PUnit := do\n    let _ \u2190 StateT.run (s := 0) <| forEligibleDeclsM fun decl ci => do\n      modify (\u00b7 + 1)\n      if (\u2190 get) >= 10000 then\n        RequestCancellation.check\n        set <| 0\n      f decl ci\nend Utils\nsection IdCompletionUtils\n  private def matchAtomic (id : Name) (declName : Name) (danglingDot : Bool) : Bool :=\n    if danglingDot then\n      false\n    else\n      match id, declName with\n      | .str .anonymous s\u2081, .str .anonymous s\u2082 => containsSuccessiveCharacters s\u2081 s\u2082\n      | _, _ => false\n  private partial def truncate (id : Name) (newLen : Nat) : Name :=\n    let rec go (id : Name) : Name \u00d7 Nat :=\n      match id with\n      | Name.anonymous => (id, 0)\n      | Name.num ..    => unreachable!",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

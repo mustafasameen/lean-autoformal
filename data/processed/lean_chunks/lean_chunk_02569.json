@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem not_and : \u00ac(a \u2227 b) \u2194 (a \u2192 \u00acb) := and_imp\n@[simp] theorem or_self (p : Prop) : (p \u2228 p) = p := propext \u27e8fun | .inl h | .inr h => h, .inl\u27e9\ninstance : Std.IdempotentOp Or := \u27e8or_self\u27e9\n@[simp] theorem or_true (p : Prop) : (p \u2228 True) = True := eq_true (.inr trivial)\n@[simp] theorem true_or (p : Prop) : (True \u2228 p) = True := eq_true (.inl trivial)\n@[simp] theorem or_false (p : Prop) : (p \u2228 False) = p := propext \u27e8fun (.inl h) => h, .inl\u27e9\n@[simp] theorem false_or (p : Prop) : (False \u2228 p) = p := propext \u27e8fun (.inr h) => h, .inr\u27e9\ninstance : Std.LawfulIdentity Or False where\n  left_id := false_or\n  right_id := or_false\n@[simp] theorem iff_self (p : Prop) : (p \u2194 p) = True := eq_true .rfl\n@[simp] theorem iff_true (p : Prop) : (p \u2194 True) = p := propext \u27e8(\u00b7.2 trivial), fun h => \u27e8fun _ => trivial, fun _ => h\u27e9\u27e9\n@[simp] theorem true_iff (p : Prop) : (True \u2194 p) = p := propext \u27e8(\u00b7.1 trivial), fun h => \u27e8fun _ => h, fun _ => trivial\u27e9\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "and_true",
+    "has_proof": true
+  }
+}

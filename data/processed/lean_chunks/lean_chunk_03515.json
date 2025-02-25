@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_antisymm_iff {x y : Fin n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "le_antisymm_iff",
+    "has_proof": false
+  }
+}

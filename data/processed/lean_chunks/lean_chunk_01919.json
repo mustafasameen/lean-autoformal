@@ -1,0 +1,10 @@
+{
+  "content": "theorem aux (a b c : Nat) (h\u2081 : a = b) (h\u2082 : c = b) : a = c := by\n  have aux := h\u2082.symm\n  subst aux\n  subst h\u2081\n  exact rfl\ndef ex1 : {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/new_frontend2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/new_frontend2.lean",
+    "definition_name": "aux",
+    "has_proof": true
+  }
+}

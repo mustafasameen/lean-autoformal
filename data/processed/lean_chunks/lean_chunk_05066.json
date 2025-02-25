@@ -1,0 +1,10 @@
+{
+  "content": "rw [\u2190 getElem_cons_drop_succ_eq_drop h\u2081, takeWhile_cons]\n        split <;> simp_all\n      \u00b7 simp_all [drop_eq_nil_of_le]\n@[simp] theorem takeWhile_toArray (p : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    l.toArray.takeWhile p = (l.takeWhile p).toArray := by\n  simp [Array.takeWhile, takeWhile_go_toArray]\nprivate theorem popWhile_toArray_aux (p : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    l.reverse.toArray.popWhile p = (l.dropWhile p).reverse.toArray := by\n  induction l with\n  | nil => simp\n  | cons a l ih =>\n    unfold popWhile\n    simp [ih, dropWhile_cons]\n    split\n    \u00b7 rfl\n    \u00b7 simp\n@[simp] theorem popWhile_toArray (p : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    l.toArray.popWhile p = (l.reverse.dropWhile p).reverse.toArray := by\n  simp [\u2190 popWhile_toArray_aux]\n@[simp] theorem setIfInBounds_toArray (l : List \u03b1) (i : Nat) (a : \u03b1) :\n    l.toArray.setIfInBounds i a  = (l.set i a).toArray := by\n  apply ext'\n  simp only [setIfInBounds]\n  split\n  \u00b7 simp\n  \u00b7 simp_all [List.set_eq_of_length_le]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance BEq, Hashable for Import\ndef importModulesUsingCache (imports : Array Import) (opts : Options) (trustLevel : UInt32) : IO Environment := do\n  if let some env := (\u2190 importEnvCache.get)[imports]? then\n    return env\n  let env \u2190 importModules imports opts trustLevel\n  importEnvCache.modify (\u00b7.insert imports env)\n  return env\ndef configModuleName : Name := `lakefile\n@[extern \"lake_environment_add\"]\nprivate opaque addToEnv (env : Environment) (_ : ConstantInfo) : Environment\ndef importConfigFileCore (olean : FilePath) (leanOpts : Options) : IO Environment := do\n  let (mod, _) \u2190 readModuleData olean\n  let env \u2190 importModulesUsingCache mod.imports leanOpts 1024\n  let env := mod.constants.foldl addToEnv env\n  let extDescrs \u2190 persistentEnvExtensionsRef.get\n  let extNameIdx \u2190 mkExtNameMap 0\n  let env := mod.entries.foldl (init := env) fun env (extName, ents) =>\n    if lakeExts.contains extName then\n      match extNameIdx[extName]? with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Lean/Elab.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Lean/Elab.lean",
+    "definition_name": "BEq"
+  }
+}

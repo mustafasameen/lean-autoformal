@@ -1,0 +1,9 @@
+{
+  "content": "inductive ConstantInfo where\n  | axiomInfo    (val : AxiomVal)\n  | defnInfo     (val : DefinitionVal)\n  | thmInfo      (val : TheoremVal)\n  | opaqueInfo   (val : OpaqueVal)\n  | quotInfo     (val : QuotVal)\n  | inductInfo   (val : InductiveVal)\n  | ctorInfo     (val : ConstructorVal)\n  | recInfo      (val : RecursorVal)\n  deriving Inhabited\nnamespace ConstantInfo\ndef toConstantVal : ConstantInfo \u2192 ConstantVal\n  | .defnInfo     {toConstantVal := d, ..}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_name": "ConstantInfo"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem singleton_eq_toVector_singleton (a : \u03b1) : #v[a] = #[a].toVector := rfl\n@[simp] theorem mem_append {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "singleton_eq_toVector_singleton",
+    "has_proof": false
+  }
+}

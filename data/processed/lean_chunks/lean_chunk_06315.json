@@ -1,0 +1,9 @@
+{
+  "content": "def defaultCtorName := `mk\nprivate def expandCtor (structStx : Syntax) (structModifiers : Modifiers) (structDeclName : Name) : TermElabM CtorView := do\n  let useDefault := do\n    let declName := structDeclName ++ defaultCtorName\n    let ref := structStx[1].mkSynthetic\n    addDeclarationRangesFromSyntax declName ref\n    pure { ref, declId := ref, modifiers := default, declName }\n  if structStx[5].isNone then\n    useDefault\n  else\n    let optCtor := structStx[5][1]\n    if optCtor.isNone then\n      useDefault\n    else\n      let ctor := optCtor[0]\n      withRef ctor do\n      let ctorModifiers \u2190 elabModifiers ctor[0]\n      checkValidCtorModifier ctorModifiers\n      if ctorModifiers.isPrivate && structModifiers.isPrivate then\n        throwError \"invalid 'private' constructor in a 'private' structure\"\n      if ctorModifiers.isProtected && structModifiers.isPrivate then\n        throwError \"invalid 'protected' constructor in a 'private' structure\"\n      let name := ctor[1].getId",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

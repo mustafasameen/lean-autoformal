@@ -1,0 +1,9 @@
+{
+  "content": "structure TrivialStructureInfo where\n  ctorName  : Name\n  numParams : Nat\n  fieldIdx  : Nat\n  deriving Inhabited, Repr\ndef hasTrivialStructure? (declName : Name) : CoreM (Option TrivialStructureInfo) := do\n  if isRuntimeBultinType declName then return none\n  let .inductInfo info \u2190 getConstInfo declName | return none\n  if info.isUnsafe || info.isRec then return none\n  let [ctorName] := info.ctors | return none\n  let mask \u2190 getRelevantCtorFields ctorName\n  let mut result := none\n  for h : i in [:mask.size] do\n    if mask[i] then\n      if result.isSome then return none\n      result := some { ctorName, fieldIdx := i, numParams := info.numParams }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/MonoTypes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/MonoTypes.lean",
+    "definition_name": "TrivialStructureInfo"
+  }
+}

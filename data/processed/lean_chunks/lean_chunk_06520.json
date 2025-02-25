@@ -1,0 +1,9 @@
+{
+  "content": "inductive BinOpKind where\n| regular\n| lazy\n| leftact\n| rightact\nderiving BEq\nprivate inductive Tree where\n  | term (ref : Syntax) (infoTrees : PersistentArray InfoTree) (val : Expr)\n  | binop (ref : Syntax) (kind : BinOpKind) (f : Expr) (lhs rhs : Tree)\n  | unop (ref : Syntax) (f : Expr) (arg : Tree)\n  | macroExpansion (macroName : Name) (stx stx' : Syntax) (nested : Tree)\nprivate partial def toTree (s : Syntax) : TermElabM Tree := do\n  let result \u2190 go s\n  synthesizeSyntheticMVars (postpone := .yes)\n  return result\nwhere\n  go (s : Syntax) := do\n    match s with\n    | `(binop% $f $lhs $rhs) => processBinOp s .regular f lhs rhs\n    | `(binop_lazy% $f $lhs $rhs) => processBinOp s .lazy f lhs rhs\n    | `(unop% $f $arg) => processUnOp s f arg\n    | `(leftact% $f $lhs $rhs) => processBinOp s .leftact f lhs rhs\n    | `(rightact% $f $lhs $rhs) => processBinOp s .rightact f lhs rhs\n    | `(($e)) =>\n      if hasCDot e then\n        processLeaf s\n      else\n        go e\n    | _ =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_name": "BinOpKind"
+  }
+}

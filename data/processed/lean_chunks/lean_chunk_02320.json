@@ -1,0 +1,10 @@
+{
+  "content": "theorem t1 : n = n := by induction n <;> rfl\n#guard_msgs in\ntheorem t2 : \u2203 (n : Nat), n = n := by exists n\nvariable {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/variable.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/variable.lean",
+    "definition_name": "t1",
+    "has_proof": true
+  }
+}

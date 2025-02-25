@@ -1,0 +1,10 @@
+{
+  "content": "theorem head_eq_of_cons_eq (H : h\u2081 :: t\u2081 = h\u2082 :: t\u2082) : h\u2081 = h\u2082 := (cons.inj H).1\ntheorem tail_eq_of_cons_eq (H : h\u2081 :: t\u2081 = h\u2082 :: t\u2082) : t\u2081 = t\u2082 := (cons.inj H).2\ntheorem cons_inj_right (a : \u03b1) {l l' : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "head_eq_of_cons_eq",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem rotateLeft_replicate (n) (a : \u03b1) : rotateLeft (replicate m a) n = replicate m a := by\n  cases n with\n  | zero => simp\n  | succ n =>\n    suffices 1 < m \u2192 m - (n + 1) % m + min ((n + 1) % m) m = m by\n      simpa [rotateLeft]\n    intro h\n    rw [Nat.min_eq_left (Nat.le_of_lt (Nat.mod_lt _ (by omega)))]\n    have : (n + 1) % m < m := Nat.mod_lt _ (by omega)\n    omega\n@[simp] theorem length_zipWith (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (l\u2081 l\u2082) :\n    length (zipWith f l\u2081 l\u2082) = min (length l\u2081) (length l\u2082) := by\n  induction l\u2081 generalizing l\u2082 <;> cases l\u2082 <;>\n    simp_all [succ_min_succ, Nat.zero_min, Nat.min_zero]\ntheorem lt_length_left_of_zipWith {f : \u03b1 \u2192 \u03b2 \u2192 \u03b3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "rotateLeft_replicate",
+    "has_proof": true
+  }
+}

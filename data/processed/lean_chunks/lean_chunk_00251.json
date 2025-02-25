@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex3 (x z : Nat) : (let \u03b1 := Nat; (fun x : \u03b1 => 0 + x)) = id := by\n  simp (config := { zeta := false, failIfUnchanged := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simpZetaFalse.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simpZetaFalse.lean",
+    "definition_name": "ex3",
+    "has_proof": true
+  }
+}

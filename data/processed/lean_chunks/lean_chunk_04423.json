@@ -1,0 +1,10 @@
+{
+  "content": "theorem pow_succ (n m : Nat) : n^(succ m) = n^m * n :=\n  rfl\nprotected theorem pow_add_one (n m : Nat) : n^(m + 1) = n^m * n :=\n  rfl\nprotected theorem pow_zero (n : Nat) : n^0 = 1 := rfl\ntheorem pow_le_pow_left {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "pow_succ",
+    "has_proof": false
+  }
+}

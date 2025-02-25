@@ -1,0 +1,9 @@
+{
+  "content": "structure ConstructorVal extends ConstantVal where\n  cidx    : Nat\n  numFields : Nat\n  isUnsafe : Bool\n  deriving Inhabited, BEq\n@[export lean_mk_constructor_val]\ndef mkConstructorValEx (name : Name) (levelParams : List Name) (type : Expr) (induct : Name) (cidx numParams numFields : Nat) (isUnsafe : Bool) : ConstructorVal := {\n  name, levelParams, type, induct, cidx, numParams, numFields, isUnsafe\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_name": "ConstructorVal"
+  }
+}

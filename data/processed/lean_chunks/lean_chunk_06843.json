@@ -1,0 +1,9 @@
+{
+  "content": "def GrindTactic := Goal \u2192 GrindM (Option (List Goal))\ndef GrindTactic.try (x : GrindTactic) : GrindTactic := fun g => do\n  let some gs \u2190 x g | return some [g]\n  return some gs\ndef applyToAll (x : GrindTactic)  (goals : List Goal) : GrindM (List Goal) := do\n  go goals []\nwhere\n  go (goals : List Goal) (acc : List Goal) : GrindM (List Goal) := do\n    match goals with\n    | [] => return acc.reverse\n    | goal :: goals => match (\u2190 x goal) with\n      | none => go goals (goal :: acc)\n      | some goals' => go goals (goals' ++ acc)\npartial def GrindTactic.andThen (x y : GrindTactic) : GrindTactic := fun goal => do\n  let some goals \u2190 x goal | return none\n  applyToAll y goals\ninstance : AndThen GrindTactic where\n  andThen a b := GrindTactic.andThen a (b ())\npartial def GrindTactic.iterate (x : GrindTactic) : GrindTactic := fun goal => do\n  go [goal] []\nwhere\n  go (todo : List Goal) (result : List Goal) : GrindM (List Goal) := do\n    match todo with\n    | [] => return result",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Combinators.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Combinators.lean",
+    "definition_name": "GrindTactic"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive RBColor where\n  | red | black\ninductive RBNode (\u03b1 : Type u) (\u03b2 : \u03b1 \u2192 Type v) where\n  | leaf                                                                                        : RBNode \u03b1 \u03b2\n  | node  (color : RBColor) (lchild : RBNode \u03b1 \u03b2) (key : \u03b1) (val : \u03b2 key) (rchild : RBNode \u03b1 \u03b2) : RBNode \u03b1 \u03b2\nnamespace RBNode\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/RBMap.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/RBMap.lean",
+    "definition_name": "RBColor"
+  }
+}

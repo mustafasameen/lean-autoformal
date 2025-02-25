@@ -1,0 +1,9 @@
+{
+  "content": "instance pred2subtype {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeSort1.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeSort1.lean",
+    "definition_name": "pred2subtype"
+  }
+}

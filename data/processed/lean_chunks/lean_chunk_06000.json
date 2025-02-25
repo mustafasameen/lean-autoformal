@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertIdx_of_length_lt (l : List \u03b1) (x : \u03b1) (i : Nat) (h : l.length < i) :\n    insertIdx i x l = l := by\n  induction l generalizing i with\n  | nil =>\n    cases i\n    \u00b7 simp at h\n    \u00b7 simp\n  | cons x l ih =>\n    cases i\n    \u00b7 simp at h\n    \u00b7 simp only [Nat.succ_lt_succ_iff, length] at h\n      simpa using ih _ h\n@[simp]\ntheorem insertIdx_length_self (l : List \u03b1) (x : \u03b1) : insertIdx l.length x l = l ++ [x] := by\n  induction l with\n  | nil => simp\n  | cons x l ih => simpa using ih\ntheorem length_le_length_insertIdx (l : List \u03b1) (x : \u03b1) (i : Nat) :\n    l.length \u2264 (insertIdx i x l).length := by\n  simp only [length_insertIdx]\n  split <;> simp\ntheorem length_insertIdx_le_succ (l : List \u03b1) (x : \u03b1) (i : Nat) :\n    (insertIdx i x l).length \u2264 l.length + 1 := by\n  simp only [length_insertIdx]\n  split <;> simp\ntheorem getElem_insertIdx_of_lt {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/InsertIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/InsertIdx.lean",
+    "definition_name": "insertIdx_of_length_lt",
+    "has_proof": true
+  }
+}

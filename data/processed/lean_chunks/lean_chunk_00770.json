@@ -1,0 +1,10 @@
+{
+  "content": "theorem op_hom_rightUnitor (X : C) : (\u03c1_ X).hom.op = (\u03c1_ (op X)).inv := rfl\n@[simp] theorem unop_hom_rightUnitor (X : C\u1d52\u1d56) : (\u03c1_ X).hom.unop = (\u03c1_ (unop X)).inv := rfl\n@[simp] theorem op_inv_rightUnitor (X : C) : (\u03c1_ X).inv.op = (\u03c1_ (op X)).hom := rfl\n@[simp] theorem unop_inv_rightUnitor (X : C\u1d52\u1d56) : (\u03c1_ X).inv.unop = (\u03c1_ (unop X)).hom := rfl\nend CategoryTheory\nend Mathlib.CategoryTheory.Monoidal.Opposite\nsection Mathlib.CategoryTheory.Monoidal.Transport\nuniverse v\u2081 v\u2082 u\u2081 u\u2082\nnoncomputable section\nopen CategoryTheory Category MonoidalCategory\nnamespace CategoryTheory.Monoidal\nvariable {C : Type u\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "op_hom_rightUnitor",
+    "has_proof": false
+  }
+}

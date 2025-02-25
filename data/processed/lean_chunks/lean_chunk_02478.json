@@ -1,0 +1,10 @@
+{
+  "content": "structure Thunk (\u03b1 : Type u) : Type u where\n  mk ::\n@[extern \"lean_thunk_pure\"] protected def Thunk.pure (a : \u03b1) : Thunk \u03b1 :=\n  \u27e8fun _ => a\u27e9\n@[extern \"lean_thunk_get_own\"] protected def Thunk.get (x : @& Thunk \u03b1) : \u03b1 :=\n  x.fn ()\n@[inline] protected def Thunk.bind (x : Thunk \u03b1) (f : \u03b1 \u2192 Thunk \u03b2) : Thunk \u03b2 :=\n  \u27e8fun _ => (f x.get).get\u27e9\n@[simp] theorem Thunk.sizeOf_eq [SizeOf \u03b1] (a : Thunk \u03b1) : sizeOf a = 1 + sizeOf a.get := by\n   cases a; rfl\ninstance thunkCoe : CoeTail \u03b1 (Thunk \u03b1) where\n  coe a := \u27e8fun _ => a\u27e9\nstructure Iff (a b : Prop) : Prop where\n  mp : a \u2192 b\nrecommended_spelling \"iff\" for \"<->\" in [Iff, \u00abterm_<->_\u00bb]\ninductive Sum (\u03b1 : Type u) (\u03b2 : Type v) where\n  | inr (val : \u03b2) : Sum \u03b1 \u03b2\n@[inherit_doc] infixr:30 \" \u2295 \" => Sum\ninductive PSum (\u03b1 : Sort u) (\u03b2 : Sort v) where\n  | inr (val : \u03b2) : PSum \u03b1 \u03b2\n@[inherit_doc] infixr:30 \" \u2295' \" => PSum\n@[reducible] def  PSum.inhabitedLeft {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "Thunk",
+    "has_proof": true
+  }
+}

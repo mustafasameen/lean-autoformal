@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem append_nil (as : List \u03b1) : as ++ [] = as := by\n  induction as with\n  | nil => rfl\n  | cons a as ih =>\n    simp_all only [HAppend.hAppend, Append.append, List.append]\ninstance : Std.LawfulIdentity (\u03b1 := List \u03b1) (\u00b7 ++ \u00b7) [] where\n  left_id := nil_append\n  right_id := append_nil\n@[simp] theorem length_append (as bs : List \u03b1) : (as ++ bs).length = as.length + bs.length := by\n  induction as with\n  | nil => simp\n  | cons _ as ih => simp [ih, Nat.succ_add]\n@[simp] theorem append_assoc (as bs cs : List \u03b1) : (as ++ bs) ++ cs = as ++ (bs ++ cs) := by\n  induction as with\n  | nil => rfl\n  | cons a as ih => simp [ih]\ninstance : Std.Associative (\u03b1 := List \u03b1) (\u00b7 ++ \u00b7) := \u27e8append_assoc\u27e9\ntheorem append_cons (as : List \u03b1) (b : \u03b1) (bs : List \u03b1) : as ++ b :: bs = as ++ [b] ++ bs := by\n  simp\n@[simp] theorem concat_eq_append (as : List \u03b1) (a : \u03b1) : as.concat a = as ++ [a] := by\n  induction as <;> simp [concat, *]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "map_cons",
+    "has_proof": true
+  }
+}

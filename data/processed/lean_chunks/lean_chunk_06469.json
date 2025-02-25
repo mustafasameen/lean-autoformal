@@ -1,0 +1,9 @@
+{
+  "content": "structure ElabElimInfo where\n  elimType   : Expr\n  majorsPos : Array Nat := #[]\n  deriving Repr, Inhabited\ndef getElabElimExprInfo (elimExpr : Expr) : MetaM ElabElimInfo := do\n  let elimType \u2190 inferType elimExpr\n  trace[Elab.app.elab_as_elim] \"eliminator {indentExpr elimExpr}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/App.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/App.lean",
+    "definition_name": "ElabElimInfo"
+  }
+}

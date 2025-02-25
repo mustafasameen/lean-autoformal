@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo :=\n(x : Array ((Nat \u00d7 Nat) \u00d7 Bool) := #[])\n(y : Nat := 0)\n#check (b).modifyOp (idx := 1) (fun s => 2)\n#check { b with [1] := 2 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInst4.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInst4.lean",
+    "definition_name": "Foo"
+  }
+}

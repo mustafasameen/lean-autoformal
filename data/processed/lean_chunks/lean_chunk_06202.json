@@ -1,0 +1,9 @@
+{
+  "content": "| permanent\nprivate def getDefEqCacheKind (t s : Expr) : MetaM DefEqCacheKind := do\n  if t.hasMVar || s.hasMVar || (\u2190 read).canUnfold?.isSome then\n    return .transient\n  else\n    return .permanent\nstructure DefEqCacheKeyInfo where\n  kind : DefEqCacheKind\n  key  : DefEqCacheKey\nprivate def mkCacheKey (t s : Expr) : MetaM DefEqCacheKeyInfo := do\n  let kind \u2190 getDefEqCacheKind t s\n  let key \u2190 mkDefEqCacheKey t s\n  return { key, kind }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "DeltaStepResult"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": ": RequestM (RequestTask \u03b2) := do\n  let findTask := doc.cmdSnaps.waitFind? p\n  mapTaskCostly findTask <| waitFindSnapAux notFoundX x\ndef withWaitFindSnapAtPos\n    (lspPos : Lsp.Position)\n    (f : Snapshots.Snapshot \u2192 RequestM \u03b1)\n    : RequestM (RequestTask \u03b1) := do\n  let doc \u2190 readDoc\n  let pos := doc.meta.text.lspPosToUtf8Pos lspPos\n  withWaitFindSnap doc (fun s => s.endPos >= pos)\n    (notFoundX := throw \u27e8.invalidParams, s!\"no snapshot found at {lspPos}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Requests.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Requests.lean",
+    "definition_name": "RequestContext"
+  }
+}

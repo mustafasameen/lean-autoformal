@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote_prefix_cast_ref {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Map.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Map.lean",
+    "definition_name": "denote_prefix_cast_ref",
+    "has_proof": false
+  }
+}

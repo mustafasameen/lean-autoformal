@@ -1,0 +1,10 @@
+{
+  "content": "| some a, _ => some a\n  | none,   b => b ()\ninstance : OrElse (Option \u03b1) where\n  orElse := Option.orElse\n@[always_inline, macro_inline] def or : Option \u03b1 \u2192 Option \u03b1 \u2192 Option \u03b1\n  | some a, _ => some a\n  | none,   b => b\n@[inline] protected def lt (r : \u03b1 \u2192 \u03b2 \u2192 Prop) : Option \u03b1 \u2192 Option \u03b2 \u2192 Prop\n  | none, some _     => True\n  | some x,   some y => r x y\n  | _, _             => False\ninstance (r : \u03b1 \u2192 \u03b2 \u2192 Prop) [s : DecidableRel r] : DecidableRel (Option.lt r)\n  | none,   some _ => isTrue  trivial\n  | some x, some y => s x y\n  | some _, none   => isFalse not_false\n  | none,   none   => isFalse not_false\ndef merge (fn : \u03b1 \u2192 \u03b1 \u2192 \u03b1) : Option \u03b1 \u2192 Option \u03b1 \u2192 Option \u03b1\n  | none  , none   => none\n  | some x, none   => some x\n  | none  , some y => some y\n  | some x, some y => some <| fn x y\n@[simp] theorem getD_none : getD none a = a := rfl\n@[simp] theorem getD_some : getD (some a) b = a := rfl\n@[simp] theorem map_none' (f : \u03b1 \u2192 \u03b2) : none.map f = none := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_name": "isSome_none",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def Quotient :=\n  Quotient c.toSetoid\nprotected def liftOn {\u03b2} {c : AddCon M} (q : c.Quotient) (f : M \u2192 \u03b2) (h : \u2200 a b, c.r a b \u2192 f a = f b) :\n    \u03b2 :=\n  Quotient.liftOn' q f h\ninstance hasAdd : Add c.Quotient :=\n  \u27e8Quotient.map\u2082' (\u00b7 + \u00b7) sorry\u27e9\nend\nsection AddZeroClass\nvariable [AddZeroClass M] [AddZeroClass P] (c : AddCon M)\nvariable (f : M \u2192+ P)\ndef lift : c.Quotient \u2192+ P where\n  toFun x := (AddCon.liftOn x f) sorry\nend AddZeroClass\nsection Monoids\ninstance zero [AddZeroClass M] (c : AddCon M) : Zero c.Quotient where\n  zero := Quotient.mk'' (0 : M)\ninstance _root_.AddCon.Quotient.nsmul {M : Type _} [AddMonoid M] (c : AddCon M) :\n    SMul Nat c.Quotient where\n  smul n := (Quotient.map' (n \u2022 \u00b7)) sorry\ninstance addSemigroup {M : Type _} [AddSemigroup M] (c : AddCon M) : AddSemigroup c.Quotient :=\n  { (Function.Surjective.addSemigroup _ Quotient.surjective_Quotient_mk'' sorry :\n      AddSemigroup c.Quotient) with\n    toAdd := AddCon.hasAdd _ }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

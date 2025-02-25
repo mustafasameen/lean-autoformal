@@ -1,0 +1,10 @@
+{
+  "content": "theorem forM_eq_forM [Monad m'] [LawfulMonad m']\n    {f : (a : \u03b1) \u2192 \u03b2 a \u2192 m' PUnit}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_name": "forM_eq_forM",
+    "has_proof": false
+  }
+}

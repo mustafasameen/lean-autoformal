@@ -1,0 +1,10 @@
+{
+  "content": "rfl\ndef Expr.concat : Expr \u2192 Expr \u2192 Expr\n  | Expr.op a b, c => Expr.op a (concat b c)\n  | Expr.var i, c  => Expr.op (Expr.var i) c\ntheorem Expr.denote_concat (ctx : Context \u03b1) (a b : Expr) : denote ctx (concat a b) = denote ctx (Expr.op a b) := by\n  induction a with\n  | var i => rfl\n  | op _ _ _ ih => simp [denote, concat, ih, ctx.assoc]\ndef Expr.flat : Expr \u2192 Expr\n  | Expr.op a b => concat (flat a) (flat b)\n  | Expr.var i  => Expr.var i\ntheorem Expr.denote_flat (ctx : Context \u03b1) (e : Expr) : denote ctx (flat e) = denote ctx e := by\n  induction e with\n  | var i => rfl\n  | op a b ih\u2081 ih\u2082 => simp [flat, denote, denote_concat, ih\u2081, ih\u2082]\ntheorem Expr.eq_of_flat (ctx : Context \u03b1) (a b : Expr) (h : flat a = flat b) : denote ctx a = denote ctx b := by\n  have h := congrArg (denote ctx) h\n  simp [denote_flat] at h\n  assumption\ndef Expr.length : Expr \u2192 Nat\n  | op a b => 1 + b.length\n  | _      => 1\ndef Expr.sort (e : Expr) : Expr :=\n  loop e.length e\nwhere\n  loop : Nat \u2192 Expr \u2192 Expr",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

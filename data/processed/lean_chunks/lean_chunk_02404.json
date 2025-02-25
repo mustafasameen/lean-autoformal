@@ -1,0 +1,9 @@
+{
+  "content": "def syntaxAbbrev := parser! \"syntax \" >> ident >> \" := \" >> many1 syntaxParser\n@[macro syntaxAbbrev] def elabSyntaxAbbrev : Macro :=\nfun stx => match_syntax stx with\n| `(syntax $id := $p*) => `(declare_syntax_cat $id  syntax:0 $p* : $id)\n| _ => Macro.throwUnsupported\ndef mkSyntaxAtom (n : Name) : Syntax :=\nSyntax.node `Lean.Parser.Syntax.atom #[Lean.mkStxStrLit n.toString, mkNullNode]\ndef addSynonym (env : Environment) (a : Name) (e : Name) : Environment :=\naddAlias env (`_subst ++ a) (e)\ndef getSynonyms (env : Environment) (a : Name) : List Name :=\nmatch (aliasExtension.getState env).find? (`_subst ++ a) with\n| none    => []\n| some es => es\ndef checkPrev (p : Syntax \u2192 Bool) (errorMsg : String) : Parser :=\n{ fn := fun c s =>\n  let prev := s.stxStack.back",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/forthelean/ForTheLean/Prelim.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/forthelean/ForTheLean/Prelim.lean",
+    "definition_name": "syntaxAbbrev"
+  }
+}

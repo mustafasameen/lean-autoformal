@@ -1,0 +1,10 @@
+{
+  "content": "structure A where\n  a : Nat\nstructure B extends A where\n  b : Nat\n  w : a = b\ndef x : A where a := 37\n@[simp] theorem x_a : x.a = 37 := rfl\ndef y : B := { x with b := 37, w := by simp }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/zetaDeltaIssue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/zetaDeltaIssue.lean",
+    "definition_name": "A",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem toArray_range' (start size step) :\n    (range' start size step).toArray = Array.range' start size step := by\n  rfl\ntheorem range'_eq_mk_range' (start size step) :\n    range' start size step = Vector.mk (Array.range' start size step) (by simp) := by\n  rfl\n@[simp] theorem getElem_range' (start size step i) (h : i < size) :\n   (range' start size step)[i] = start + step * i := by\n  simp [range', h]\n@[simp] theorem getElem?_range' (start size step i) :\n   (range' start size step)[i]? = if i < size then some (start + step * i) else none := by\n  simp [getElem?_def, range']\ntheorem range'_succ (s n step) :\n    range' s (n + 1) step = (#v[s] ++ range' (s + step) n step).cast (by omega) := by\n  rw [\u2190 toArray_inj]\n  simp [Array.range'_succ]\ntheorem range'_zero : range' s 0 step = #v[] := by\n  simp\n@[simp] theorem range'_one {s step : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Range.lean",
+    "definition_name": "toArray_range",
+    "has_proof": true
+  }
+}

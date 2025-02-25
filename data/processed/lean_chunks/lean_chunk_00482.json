@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  x1  : Nat := 0\n  x2  : Nat := 0\n  x3  : Nat := 0\n  x4  : Nat := 0\n  x5  : Nat := 0\n  x6  : Nat := 0\n  x7  : Nat := 0\n  x8  : Nat := 0\n  x9  : Nat := 0\n  x10 : Nat := 0\n  y1  : Nat := 0\n  y2  : Nat := 0\n  y3  : Nat := 0\n  y4  : Nat := 0\n  y5  : Nat := 0\n  y6  : Nat := 0\n  y7  : Nat := 0\n  y8  : Nat := 0\n  y9  : Nat := 0\n  y10 : Nat := 0\n  z1  : Nat := 0\n  z2  : Nat := 0\n  z3  : Nat := 0\n  z4  : Nat := 0\n  z5  : Nat := 0\n  z6  : Nat := 0\n  z7  : Nat := 0\n  z8  : Nat := 0\n  z9  : Nat := 0\n  z10 : Nat := 0\n  w1  : Nat := 0\n  w2  : Nat := 0\n  w3  : Nat := 0\n  w4  : Nat := 0\n  w5  : Nat := 0\n  w6  : Nat := 0\n  w7  : Nat := 0\n  w8  : Nat := 0\n  w9  : Nat := 0\n  w10 : Nat := 0\n  xx1  : Nat := 0\n  xx2  : Nat := 0\n  xx3  : Nat := 0\n  xx4  : Nat := 0\n  xx5  : Nat := 0\n  xx6  : Nat := 0\n  xx7  : Nat := 0\n  xx8  : Nat := 0\n  xx9  : Nat := 0\n  xx10 : Nat := 0\n  yy1  : Nat := 0\n  yy2  : Nat := 0\n  yy3  : Nat := 0\n  yy4  : Nat := 0\n  yy5  : Nat := 0\n  yy6  : Nat := 0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/bigctor.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/bigctor.lean",
+    "definition_name": "Foo"
+  }
+}

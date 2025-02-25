@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo : Bool \u2192 Type where\n  | Z  : Foo false\n  | O  : Foo false \u2192 Foo true\n  | E  : Foo true \u2192 Foo false\nopen Foo\ndef toNat : {b : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def4.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def4.lean",
+    "definition_name": "Foo"
+  }
+}

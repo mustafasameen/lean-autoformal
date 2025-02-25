@@ -1,0 +1,9 @@
+{
+  "content": "structure Fun (\u03b1 \u03b2 : Type) : Type where\n  toFun : \u03b1 \u2192 \u03b2\ninstance : CoeFun (Fun \u03b1 \u03b2) (fun _ => \u03b1 \u2192 \u03b2) where\n  coe := Fun.toFun\nexample (f : Fun \u03b1 \u03b1) : \u03b1 \u2192 \u03b1 :=\n  f \u2218 f\nexample (f : Fun \u03b1 \u03b2) : (\u03b3 \u03b4 : Type) \u00d7 (\u03b3 \u2192 \u03b4) :=\n  \u27e8_, _, f\u27e9\nstructure Equiv (\u03b1 : Sort _) (\u03b2 : Sort _) :=\n(toFun    : \u03b1 \u2192 \u03b2)\n(invFun   : \u03b2 \u2192 \u03b1)\nlocal infix:25 \" \u2243 \" => Equiv\nvariable {\u03b1 \u03b2 \u03b3 : Sort _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1725.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1725.lean",
+    "definition_name": "Fun"
+  }
+}

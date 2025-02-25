@@ -1,0 +1,9 @@
+{
+  "content": "def ToolchainVer.defaultOrigin := \"leanprover/lean4\"\ndef ToolchainVer.prOrigin := \"leanprover/lean4-pr-releases\"\ndef ToolchainVer.ofString (ver : String) : ToolchainVer := Id.run do\n  let colonPos := ver.posOf ':'\n  let (origin, tag) :=\n    if h : colonPos < ver.endPos then\n      let pos := ver.next' colonPos (by simp_all [h, String.endPos, String.atEnd])\n      (ver.extract 0 colonPos, ver.extract pos ver.endPos)\n    else\n      (\"\", ver)\n  if tag.startsWith \"v\" then\n    if let .ok ver := StdVer.parse (tag.drop 1) then\n      if origin.isEmpty || origin == defaultOrigin then\n        return .release ver\n    return .other ver\n  else if tag.startsWith \"nightly-\" then\n    if let some date := Date.ofString? (tag.drop \"nightly-\".length) then\n      if origin.isEmpty || origin == defaultOrigin then\n        return .nightly date\n  else if tag.startsWith \"pr-release-\" then\n    if let some n := (tag.drop \"pr-release-\".length).toNat? then\n      if origin.isEmpty || origin == prOrigin then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Version.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Version.lean",
+    "definition_name": "ToolchainVer"
+  }
+}

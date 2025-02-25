@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo.C where\n  x : Nat\n  y : Nat\nstructure Boo.C where\n  x : Nat\n  z : Nat\nstructure D extends Foo.C, toC_1 : Boo.C\ndef f2 (x y z : Nat) : D :=\n  { x, y, z }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/toFieldNameIssue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/toFieldNameIssue.lean",
+    "definition_name": "Foo"
+  }
+}

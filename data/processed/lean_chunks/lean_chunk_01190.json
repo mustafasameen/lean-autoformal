@@ -1,0 +1,10 @@
+{
+  "content": "apply Or.inl\n    rw [time2Eq]\n  | odd i =>\n    apply Exists.intro i\n    apply Or.inr\n    rw [time2Eq]\nopen Nat in\ntheorem ex3b (n : Nat) : Exists (fun m => n = m + m \u2228 n = m + m + 1) := by\n  cases n using parityElim with\n  | even i =>\n    apply Exists.intro i\n    apply Or.inl\n    rw [time2Eq]\n  | odd i =>\n    apply Exists.intro i\n    apply Or.inr\n    rw [time2Eq]\ndef ex4 {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/casesUsing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/casesUsing.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

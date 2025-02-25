@@ -1,0 +1,9 @@
+{
+  "content": "class ToSnapshotTree (\u03b1 : Type) where\npartial def SnapshotTask.cancelRec [ToSnapshotTree \u03b1] (t : SnapshotTask \u03b1) : BaseIO Unit := do\n  if let some cancelTk := t.cancelTk? then\n    cancelTk.set\n  BaseIO.chainTask (sync := true) t.task fun snap => toSnapshotTree snap |>.children.forM cancelRec\nstructure DynamicSnapshot where\n  tree : Thunk SnapshotTree\ninstance : ToSnapshotTree DynamicSnapshot where\n  toSnapshotTree s := s.tree.get\ndef DynamicSnapshot.toTyped? (\u03b1 : Type) [TypeName \u03b1] (snap : DynamicSnapshot) :\n    Option \u03b1 :=\n  snap.val.get? \u03b1\ninstance : Inhabited DynamicSnapshot where\n  default := .ofTyped { diagnostics := .empty : SnapshotLeaf }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Basic.lean",
+    "definition_name": "ToSnapshotTree"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure AddSubgroup (G : Type _) [AddGroup G] extends AddSubmonoid G where\nend Mathlib.GroupTheory.Subgroup.Basic\nsection Mathlib.Algebra.Quotient\nclass HasQuotient (A : outParam <| Type u) (B : Type v) where\n  quotient' : B \u2192 Type max u v\n@[reducible]\ndef HasQuotient.Quotient (A : outParam <| Type u) {B : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddSubgroup"
+  }
+}

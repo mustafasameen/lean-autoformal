@@ -1,0 +1,9 @@
+{
+  "content": "inductive WithAmbientUniverse (\u03b1 : Type u)\n  | foo (a : \u03b1)\n  deriving ToExpr\nuniverse u in\nstructure WithAmbientUniverseTriple.{v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingToExpr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingToExpr.lean",
+    "definition_name": "WithAmbientUniverse"
+  }
+}

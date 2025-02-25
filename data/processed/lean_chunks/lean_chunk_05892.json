@@ -1,0 +1,10 @@
+{
+  "content": "theorem natAbs_div_le_natAbs (a b : Int) : natAbs (a / b) \u2264 natAbs a :=\n  match b, eq_nat_or_neg b with\n  | _, \u27e8n, .inl rfl\u27e9 => aux _ _\n  | _, \u27e8n, .inr rfl\u27e9 => by rw [Int.ediv_neg, natAbs_neg]; apply aux\nwhere\n  aux : \u2200 (a : Int) (n : Nat), natAbs (a / n) \u2264 natAbs a\n  | ofNat _, _ => Nat.div_le_self ..\n  | -[_+1], 0 => Nat.zero_le _\n  | -[_+1], succ _ => Nat.succ_le_succ (Nat.div_le_self _ _)\ntheorem ediv_le_self {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "natAbs_div_le_natAbs",
+    "has_proof": true
+  }
+}

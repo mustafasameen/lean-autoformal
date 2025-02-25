@@ -1,0 +1,9 @@
+{
+  "content": "def f (x := t) : t := f f",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/283.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/283.lean",
+    "definition_name": "f"
+  }
+}

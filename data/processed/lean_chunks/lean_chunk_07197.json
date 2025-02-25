@@ -1,0 +1,9 @@
+{
+  "content": "let origBB \u2190 LLVM.getInsertBlock builder\n  let fn \u2190 builderGetInsertionFn builder\n  if (\u2190 LLVM.countBasicBlocks fn) == 0 then\n    throw \"Attempt to obtain first BB of function without BBs\"\n  let entryBB \u2190 LLVM.getEntryBasicBlock fn\n  match \u2190 LLVM.getFirstInstruction entryBB with\n  | some instr => LLVM.positionBuilderBefore builder instr\n  | none => LLVM.positionBuilderAtEnd builder entryBB\n  let alloca \u2190 LLVM.buildAlloca builder ty name\n  LLVM.positionBuilderAtEnd builder origBB\n  return alloca\ndef buildWhile_ (builder : LLVM.Builder llvmctx) (name : String)\n    (condcodegen : LLVM.Builder llvmctx \u2192 M llvmctx (LLVM.Value llvmctx))\n    (bodycodegen : LLVM.Builder llvmctx \u2192 M llvmctx Unit) : M llvmctx Unit := do\n  let fn \u2190 builderGetInsertionFn builder\n  let nameHeader := name ++ \"header\"\n  let nameBody := name ++ \"body\"\n  let nameMerge := name ++ \"merge\"\n  let headerbb \u2190 LLVM.appendBasicBlockInContext llvmctx fn nameHeader\n  let _ \u2190 LLVM.buildBr builder headerbb",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

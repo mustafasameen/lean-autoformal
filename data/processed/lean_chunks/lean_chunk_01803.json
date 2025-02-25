@@ -1,0 +1,9 @@
+{
+  "content": "| mk l .. => (l.foldl (init := \"\") fun acc _ => acc ++ \"_ \u2192 \") ++ \"_\"\ndef Value.typeStr : Value \u2192 String\n  | nil    => \"nil\"\n  | lit  l => l.typeStr\n  | list _ => \"list\"\n  | lam  l => l.typeStr\ndef Literal.eq : Literal \u2192 Literal \u2192 Bool\n  | bool  b\u2097, bool  b\u1d63 => b\u2097 == b\u1d63\n  | int   i\u2097, int   i\u1d63 => i\u2097 == i\u1d63\n  | float f\u2097, float f\u1d63 => f\u2097 == f\u1d63\n  | int   i\u2097, float f\u1d63 => (.ofInt i\u2097) == f\u1d63\n  | float f\u2097, int   i\u1d63 => f\u2097 == (.ofInt i\u1d63)\n  | str   s\u2097, str   s\u1d63 => s\u2097 == s\u1d63\n  | _       , _        => false\ndef listLiteralEq : List Literal \u2192 List Literal \u2192 Bool\n  | [], [] => true\n  | a :: a' :: as, b :: b' :: bs =>\n    a.eq b && listLiteralEq (a' :: as) (b' :: bs)\n  | _, _   => false\ndef opError (app l r : String) : String :=\n  s!\"I can't perform a '{app}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur1.lean",
+    "definition_name": "NEList"
+  }
+}

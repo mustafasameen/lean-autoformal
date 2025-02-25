@@ -1,0 +1,10 @@
+{
+  "content": "rw [Int.sub_eq_add_neg, \u2190Int.neg_mul, Int.add_assoc]\n  | case6 k k' a h\n  | case8 k a k' h =>\n    simp only [toPoly'.go, h, cond_false]\n    simp [eq_of_beq h]\n  | case7 k a k' h ih =>\n    simp only [toPoly'.go, h, cond_false]\n    simpa [denote, \u2190 Int.mul_assoc] using ih\n  | case9 k a h h ih =>\n    simp only [toPoly'.go, h, cond_false]\n    simp only [mul_def, denote]\n    rw [Int.mul_comm (denote _ _) _]\n    simpa [Int.mul_assoc] using ih\n  | case10 k a ih => simp [toPoly'.go, ih]\ntheorem Expr.denote_norm (ctx : Context) (e : Expr) : e.norm.denote ctx = e.denote ctx := by\n  simp [norm, toPoly', Expr.denote_toPoly'_go]\nattribute [local simp] Expr.denote_norm\ninstance : LawfulBEq Poly where\n  eq_of_beq {a}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "partial def Syntax.fixKinds : Syntax \u2192 IO Syntax\n| (Syntax.node k args scopes) := do\n  k \u2190 k.fix,\n  args \u2190 args.mmap Syntax.fixKinds,\n  pure (Syntax.node k args scopes)\n| other                       := pure other\ninductive IsNode : Syntax \u2192 Prop\n| mk (kind : SyntaxNodeKind) (args : Array Syntax) (scopes : MacroScopes) : IsNode (Syntax.node kind args scopes)\ndef SyntaxNode : Type := {s : Syntax // IsNode s }\ndef notIsNodeMissing (h : IsNode Syntax.missing) : False                   := match h with end\ndef notIsNodeAtom   {info val} (h : IsNode (Syntax.atom info val)) : False := match h with end\ndef notIsNodeIdent  {info rawVal val preresolved scopes} (h : IsNode (Syntax.ident info rawVal val preresolved scopes)) : False := match h with end\ndef unreachIsNodeMissing {\u03b1 : Type} (h : IsNode Syntax.missing) : \u03b1 := False.elim (notIsNodeMissing h)\ndef unreachIsNodeAtom {\u03b1 : Type} {info val} (h : IsNode (Syntax.atom info val)) : \u03b1 := False.elim (notIsNodeAtom h)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

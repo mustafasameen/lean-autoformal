@@ -1,0 +1,10 @@
+{
+  "content": "match env with\n  | [] => 0\n  | KrivineClosure.pair u e :: closures => Nat.max (1 + depth e) (depth closures)\nend Ex2\nnamespace Ex3\nstructure KrivineEnv where\n  env : List KrivineClosure\ndef KrivineEnv.depth (env : KrivineEnv) : Nat :=\n  match env with\n  | { env := [] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/krivine.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/krivine.lean",
+    "definition_name": "KrivineInstruction",
+    "has_proof": false
+  }
+}

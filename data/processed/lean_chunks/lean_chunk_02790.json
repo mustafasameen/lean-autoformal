@@ -1,0 +1,10 @@
+{
+  "content": "| false, false => isTrue rfl\n   | false, true  => isFalse (fun h => Bool.noConfusion h)\n   | true, false  => isFalse (fun h => Bool.noConfusion h)\n   | true, true   => isTrue rfl\n@[inline] instance : DecidableEq Bool :=\n   Bool.decEq\nclass BEq (\u03b1 : Type u) where\n@[macro_inline] def dite {\u03b1 : Sort u} (c : Prop) [h : Decidable c] (t : c \u2192 \u03b1) (e : Not c \u2192 \u03b1) : \u03b1 :=\n  h.casesOn e t\n@[macro_inline] def ite {\u03b1 : Sort u} (c : Prop) [h : Decidable c] (t e : \u03b1) : \u03b1 :=\n  h.casesOn (fun _ => e) (fun _ => t)\n@[macro_inline] instance {p q} [dp : Decidable p] [dq : Decidable q] : Decidable (And p q) :=\n  match dp with\n  | isTrue  hp =>\n    match dq with\n    | isTrue hq  => isTrue \u27e8hp, hq\u27e9\n    | isFalse hq => isFalse (fun h => hq (And.right h))\n  | isFalse hp =>\n    isFalse (fun h => hp (And.left h))\n@[macro_inline] instance [dp : Decidable p] [dq : Decidable q] : Decidable (Or p q) :=\n  match dp with\n  | isTrue  hp => isTrue (Or.inl hp)\n  | isFalse hp =>\n    match dq with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

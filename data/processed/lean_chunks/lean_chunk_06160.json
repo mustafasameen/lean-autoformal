@@ -1,0 +1,9 @@
+{
+  "content": "class MonadHashMapCacheAdapter (\u03b1 \u03b2 : Type) (m : Type \u2192 Type) [BEq \u03b1] [Hashable \u03b1] where\n  getCache    : m (Std.HashMap \u03b1 \u03b2)\n  modifyCache : (Std.HashMap \u03b1 \u03b2 \u2192 Std.HashMap \u03b1 \u03b2) \u2192 m Unit\nnamespace MonadHashMapCacheAdapter\n@[always_inline, inline]\ndef findCached? {\u03b1 \u03b2 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/MonadCache.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/MonadCache.lean",
+    "definition_name": "MonadHashMapCacheAdapter"
+  }
+}

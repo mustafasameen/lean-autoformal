@@ -1,0 +1,10 @@
+{
+  "content": "theorem or_comm : \u2200 (x y : Bool), (x || y) = (y || x) := by decide\ninstance : Std.Commutative (\u00b7 || \u00b7) := \u27e8or_comm\u27e9\ntheorem or_left_comm : \u2200 (x y z : Bool), (x || (y || z)) = (y || (x || z)) := by decide\ntheorem or_right_comm : \u2200 (x y z : Bool), ((x || y) || z) = ((x || z) || y) := by decide\n@[simp] theorem not_and : \u2200 (x y : Bool), (!(x && y)) = (!x || !y) := by decide\n@[simp] theorem and_eq_false_imp : \u2200 {x y : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_name": "or_comm",
+    "has_proof": true
+  }
+}

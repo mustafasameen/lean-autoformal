@@ -1,0 +1,10 @@
+{
+  "content": "theorem pop_range' : (range' s n step).pop = range' s (n - 1) step := by\n  ext <;> simp\ntheorem map_add_range' (a) (s n step) : map (a + \u00b7) (range' s n step) = range' (a + s) n step := by\n  ext <;> simp <;> omega\ntheorem range'_succ_left : range' (s + 1) n step = (range' s n step).map (\u00b7 + 1) := by\n  ext <;> simp <;> omega\ntheorem range'_append (s m n step : Nat) :\n    range' s m step ++ range' (s + step * m) n step = range' s (m + n) step := by\n  ext i h\u2081 h\u2082\n  \u00b7 simp\n  \u00b7 simp only [size_append, size_range'] at h\u2081 h\u2082\n    simp only [getElem_append, size_range', getElem_range', Nat.mul_sub_left_distrib, dite_eq_ite,\n      ite_eq_left_iff, Nat.not_lt]\n    intro h\n    have : step * m \u2264 step * i := by exact mul_le_mul_left step h\n    omega\n@[simp] theorem range'_append_1 (s m n : Nat) :\n    range' s m ++ range' (s + m) n = range' s (m + n) := by simpa using range'_append s m n 1\ntheorem range'_concat (s n : Nat) : range' s (n + 1) step = range' s n step ++ #[s + step * n] := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_name": "pop_range",
+    "has_proof": true
+  }
+}

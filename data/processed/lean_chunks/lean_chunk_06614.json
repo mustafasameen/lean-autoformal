@@ -1,0 +1,9 @@
+{
+  "content": "let kinds := (parserExtension.getState env).kinds\n  kinds.foldl (fun ks k _ => k::ks) []\ndef getTokenTable (env : Environment) : TokenTable :=\n  (parserExtension.getState env).tokens\ndef mkInputContext (input : String) (fileName : String) (normalizeLineEndings := true) : InputContext :=\n  let input' := if normalizeLineEndings then input.crlfToLf else input\n  { input    := input',\n    fileName := fileName,\n    fileMap  := input'.toFileMap }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_name": "ParserAttributeHook"
+  }
+}

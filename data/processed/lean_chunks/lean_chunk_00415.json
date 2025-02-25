@@ -1,0 +1,9 @@
+{
+  "content": "def Term.key : Term \u2192 Key\n| Term.var _    => Key.var\n| Term.app f as => Key.sym f as.size\ndef Term.args : Term \u2192 Array Term\n| Term.var _    => #[]\n| Term.app f as => as\ninductive Trie (\u03b1 : Type)\n| node (vals : List \u03b1) (children : Array (Key \u00d7 Trie)) : Trie\nnamespace Trie\ndef empty {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/DiscrTree.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/DiscrTree.lean",
+    "definition_name": "Term"
+  }
+}

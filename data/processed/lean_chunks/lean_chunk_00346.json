@@ -1,0 +1,9 @@
+{
+  "content": "def someVal := 100\ndef someVal2 : UInt64 := 302\ndef someVal3 : Bool := true\ndef add10 (n : Nat) := n+10\ndef mul10 (n : Nat) := n*10\ndef inc (n : Nat) := n+1\nunsafe def evalNatFn (fName : Name) (n : Nat) : IO Unit :=\ndo f \u2190 evalConst (Nat \u2192 Nat) fName,\n   IO.println (f n)\nunsafe def evalVal (\u03b1 : Type) [Inhabited \u03b1] [ToString \u03b1] (n : Name) : IO Unit :=\ndo v \u2190 evalConst \u03b1 n,\n   IO.println v\nunsafe def main (xs : List String) : IO Unit :=\ndo let x := xs.head.toNat,\nsortConstTable,\n   evalNatFn `add10 x,\n   evalNatFn `mul10 x,\n   evalNatFn `inc x,\n   evalVal Nat `someVal,\n   evalVal UInt64 `someVal2,\n   evalVal Bool `someVal3,\n   pure ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/eval2.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/eval2.lean",
+    "definition_name": "someVal"
+  }
+}

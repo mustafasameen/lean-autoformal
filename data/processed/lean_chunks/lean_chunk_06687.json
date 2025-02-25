@@ -1,0 +1,9 @@
+{
+  "content": "inductive LOption (\u03b1 : Type u) where\n  | none  : LOption \u03b1\n  | some  : \u03b1 \u2192 LOption \u03b1\n  | undef : LOption \u03b1\n  deriving Inhabited, BEq\ninstance [ToString \u03b1] : ToString (LOption \u03b1) where\n  toString\n    | .none   => \"none\"\n    | .undef  => \"undef\"\n    | .some a => \"(some \" ++ toString a ++ \")\"\nend Lean\ndef Option.toLOption {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/LOption.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/LOption.lean",
+    "definition_name": "LOption"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure ApplyWorkspaceEditParams where\n  label? : Option String := none\nstructure TextDocumentItem where\n  languageId : String\n  text : String\n  deriving ToJson, FromJson\nstructure TextDocumentPositionParams where\n  textDocument : TextDocumentIdentifier\n  position : Position\n  deriving ToJson, FromJson\ninstance : ToString TextDocumentPositionParams where\n  toString p := s!\"{p.textDocument.uri}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_name": "ApplyWorkspaceEditParams"
+  }
+}

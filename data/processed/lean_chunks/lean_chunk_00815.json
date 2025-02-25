@@ -1,0 +1,9 @@
+{
+  "content": "inductive dfin : Nat \u2192 Type\n  | fz {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/52_lean3.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/52_lean3.lean",
+    "definition_name": "dfin"
+  }
+}

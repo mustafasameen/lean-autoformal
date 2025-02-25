@@ -1,0 +1,10 @@
+{
+  "content": "(h : i < (extract.loop xs size start ys).size)\n    (h' := getElem_extract_loop_ge_aux xs ys size start hge h) :\n    (extract.loop xs size start ys)[i] = xs[start + i - ys.size] := by\n  induction size using Nat.recAux generalizing start ys with\n  | zero =>\n    rw [size_extract_loop, Nat.zero_min, Nat.add_zero] at h\n    omega\n  | succ size ih =>\n    have : start < xs.size := by\n      apply Nat.lt_of_le_of_lt (Nat.le_add_right start (i - ys.size))\n      rwa [\u2190 Nat.add_sub_assoc hge]\n    have : i < (extract.loop xs size (start+1) (ys.push xs[start])).size := by\n      rwa [\u2190 extract_loop_succ]\n    have heq : (extract.loop xs (size+1) start ys)[i] =\n        (extract.loop xs size (start+1) (ys.push xs[start]))[i] := by\n      congr 1; rw [extract_loop_succ]\n    rw [heq]\n    if hi : ys.size = i then\n      cases hi\n      have h\u2081 : ys.size < (ys.push xs[start]).size := by rw [size_push]; exact Nat.lt_succ_self ..",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "filter_reverse",
+    "has_proof": true
+  }
+}

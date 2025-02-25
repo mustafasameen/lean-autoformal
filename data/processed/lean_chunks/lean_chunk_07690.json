@@ -1,0 +1,10 @@
+{
+  "content": "theorem if_as_bool (d l r : Bool) : (if d then l else r) = ((d && l) || (!d && r))  := by\n  revert d l r\n  decide\n@[simp]\ntheorem denote_mkIfCached {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/If.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/If.lean",
+    "definition_name": "if_as_bool",
+    "has_proof": true
+  }
+}

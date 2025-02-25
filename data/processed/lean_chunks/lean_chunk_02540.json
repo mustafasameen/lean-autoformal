@@ -1,0 +1,10 @@
+{
+  "content": "theorem of_eq_true (h : p = True) : p := h \u25b8 trivial\ntheorem of_eq_false (h : p = False) : \u00ac p := fun hp => False.elim (h.mp hp)\ntheorem eq_true (h : p) : p = True :=\n  propext \u27e8fun _ => trivial, fun _ => h\u27e9\nattribute [simp] cast_heq\ntheorem eq_false (h : \u00ac p) : p = False :=\n  propext \u27e8fun h' => absurd h' h, fun h' => False.elim h'\u27e9\ntheorem eq_false' (h : p \u2192 False) : p = False := eq_false h\ntheorem eq_true_of_decide {p : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "of_eq_true",
+    "has_proof": false
+  }
+}

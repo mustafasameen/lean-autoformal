@@ -1,0 +1,9 @@
+{
+  "content": "return $(mkIdent ctorName):ident $identNames*))\n        pure (stx, ctorInfo.numFields)\n      alts := alts.push alt\n  let alts' := alts.qsort (fun (_, x) (_, y) => x < y)\n  return alts'.map Prod.fst\ndef mkToJsonBody (ctx : Context) (header : Header) (e : Expr): TermElabM Term := do\n  let indName := e.getAppFn.constName!\n  if isStructure (\u2190 getEnv) indName then\n    mkToJsonBodyForStruct header indName\n  else\n    mkToJsonBodyForInduct ctx header indName\ndef mkToJsonAuxFunction (ctx : Context) (i : Nat) : TermElabM Command := do\n  let auxFunName := ctx.auxFunNames[i]!\n  let header     \u2190  mkToJsonHeader ctx.typeInfos[i]!\n  let binders    := header.binders\n  Term.elabBinders binders fun _ => do\n  let type       \u2190 Term.elabTerm header.targetType none\n  let mut body   \u2190 mkToJsonBody ctx header type\n  if ctx.usePartial then\n    let letDecls \u2190 mkLocalInstanceLetDecls ctx ``ToJson header.argNames\n    body \u2190 mkLet letDecls body",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_name": "constructor"
+  }
+}

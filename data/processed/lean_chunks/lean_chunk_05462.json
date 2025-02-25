@@ -1,0 +1,9 @@
+{
+  "content": "class ToFormat (\u03b1 : Type u) where\n  format : \u03b1 \u2192 Format\nexport ToFormat (format)\ninstance : ToFormat Format where\n  format f := f\ninstance : ToFormat String where\n  format s := Format.text s\ndef Format.prefixJoin {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_name": "ToFormat"
+  }
+}

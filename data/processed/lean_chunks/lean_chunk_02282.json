@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_of_not_lt {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1234.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1234.lean",
+    "definition_name": "le_of_not_lt",
+    "has_proof": false
+  }
+}

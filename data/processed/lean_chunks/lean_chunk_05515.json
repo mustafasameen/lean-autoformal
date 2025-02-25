@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_fst_zip (as : Vector \u03b1 n) (bs : Vector \u03b2 n) :\n    map Prod.fst (zip as bs) = as := by\n  rcases as with \u27e8as, rfl\u27e9\n  rcases bs with \u27e8bs, h\u27e9\n  simp [Array.map_fst_zip, h]\ntheorem map_snd_zip (as : Vector \u03b1 n) (bs : Vector \u03b2 n) :\n    map Prod.snd (zip as bs) = bs := by\n  rcases as with \u27e8as, rfl\u27e9\n  rcases bs with \u27e8bs, h\u27e9\n  simp [Array.map_snd_zip, h]\ntheorem map_prod_left_eq_zip {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Zip.lean",
+    "definition_name": "map_fst_zip",
+    "has_proof": true
+  }
+}

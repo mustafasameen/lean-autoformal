@@ -1,0 +1,10 @@
+{
+  "content": "theorem forall\u2082_congr {p q : \u2200 a, \u03b2 a \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "forall\u2082_congr",
+    "has_proof": false
+  }
+}

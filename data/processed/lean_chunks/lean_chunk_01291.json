@@ -1,0 +1,9 @@
+{
+  "content": "class MulAssoc (\u03b1 : Type u) [Mul \u03b1] : Prop where\n    mulAssoc : {a b c : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_name": "MulAssoc"
+  }
+}

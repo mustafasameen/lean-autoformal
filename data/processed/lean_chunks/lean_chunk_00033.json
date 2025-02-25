@@ -1,0 +1,9 @@
+{
+  "content": "def Mine := Id\nclass MyMonad (m) extends Monad m where\n  bind_eq_bind : @bind = @bind := by trivial\ninstance : MyMonad Mine where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/instance1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/instance1.lean",
+    "definition_name": "Mine"
+  }
+}

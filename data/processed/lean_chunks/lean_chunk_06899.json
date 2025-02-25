@@ -1,0 +1,9 @@
+{
+  "content": "match loc with\n  | Location.targets hyps simplifyTarget =>\n    withMainContext do\n      let fvarIds \u2190 getFVarIds hyps\n      go fvarIds simplifyTarget\n  | Location.wildcard =>\n    withMainContext do\n      go (\u2190 (\u2190 getMainGoal).getNondepPropHyps) (simplifyTarget := true)\nwhere\n  go (fvarIdsToSimp : Array FVarId) (simplifyTarget : Bool) : TacticM Simp.Stats := do\n    let mvarId \u2190 getMainGoal\n    let (result?, stats) \u2190 simpGoal mvarId ctx (simprocs := simprocs) (simplifyTarget := simplifyTarget) (discharge? := discharge?) (fvarIdsToSimp := fvarIdsToSimp)\n    match result? with\n    | none => replaceMainGoal []\n    | some (_, mvarId) => replaceMainGoal [mvarId]\n    return stats\ndef withSimpDiagnostics (x : TacticM Simp.Diagnostics) : TacticM Unit := do\n  let stats \u2190 x\n  Simp.reportDiag stats\n@[builtin_tactic Lean.Parser.Tactic.simp] def evalSimp : Tactic := fun stx => withMainContext do withSimpDiagnostics do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "simpParamsPos"
+  }
+}

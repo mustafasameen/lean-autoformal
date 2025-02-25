@@ -1,0 +1,10 @@
+{
+  "content": "inductive Int : Type where\n  | negSucc : Nat \u2192 Int\nattribute [extern \"lean_nat_to_int\"] Int.ofNat\nattribute [extern \"lean_int_neg_succ_of_nat\"] Int.negSucc\ninstance : NatCast Int where natCast n := Int.ofNat n\ninstance instOfNat : OfNat Int n where\n  ofNat := Int.ofNat n\nnamespace Int\nscoped notation \"-[\" n \"+1]\" => negSucc n\ninstance : Inhabited Int := \u27e8ofNat 0\u27e9\n@[simp] theorem default_eq_zero : default = (0 : Int) := rfl\nprotected theorem zero_ne_one : (0 : Int) \u2260 1 := nofun\ndef negOfNat : Nat \u2192 Int\n  | 0      => 0\n  | succ m => negSucc m\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_int_neg\"]\nprotected def neg (n : @& Int) : Int :=\n  match n with\n  | ofNat n   => negOfNat n\n  | negSucc n => succ n\n@[default_instance mid]\ninstance instNegInt : Neg Int where\n  neg := Int.neg\n@[extern \"lean_int_add\"]\nprotected def add (m n : @& Int) : Int :=\n  match m, n with\n  | ofNat m, ofNat n => ofNat (m + n)\n  | ofNat m, -[n +1] => subNatNat m (succ n)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_name": "Int",
+    "has_proof": true
+  }
+}

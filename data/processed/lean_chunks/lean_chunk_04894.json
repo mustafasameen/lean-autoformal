@@ -1,0 +1,10 @@
+{
+  "content": "filterMap g (map f l) = filterMap (g \u2218 f) l := by\n  rw [\u2190 filterMap_eq_map, filterMap_filterMap]; rfl\ntheorem filter_filterMap (f : \u03b1 \u2192 Option \u03b2) (p : \u03b2 \u2192 Bool) (l : List \u03b1) :\n    filter p (filterMap f l) = filterMap (fun x => (f x).filter p) l := by\n  rw [\u2190 filterMap_eq_filter, filterMap_filterMap]\n  congr; funext x; cases f x <;> simp [Option.filter, Option.guard]\ntheorem filterMap_filter (p : \u03b1 \u2192 Bool) (f : \u03b1 \u2192 Option \u03b2) (l : List \u03b1) :\n    filterMap f (filter p l) = filterMap (fun x => if p x then f x else none) l := by\n  rw [\u2190 filterMap_eq_filter, filterMap_filterMap]\n  congr; funext x; by_cases h : p x <;> simp [Option.guard, h]\n@[simp] theorem mem_filterMap {f : \u03b1 \u2192 Option \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "filterMap_eq_filter",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "foldlM.loop f #[] s h i j init = pure init := by\n  unfold foldlM.loop; split\n  \u00b7 split\n    \u00b7 rfl\n    \u00b7 simp at h\n      omega\n  \u00b7 rfl\n@[simp] theorem foldlM_empty [Monad m] (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (init : \u03b2) :\n    foldlM f init #[] start stop = return init := by\n  simp [foldlM]\n@[simp] theorem foldrM_fold_empty [Monad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (init : \u03b2) (i j : Nat) (h) :\n    foldrM.fold f #[] i j h init = pure init := by\n  unfold foldrM.fold\n  split <;> rename_i h\u2081\n  \u00b7 rfl\n  \u00b7 split <;> rename_i h\u2082\n    \u00b7 rfl\n    \u00b7 simp at h\u2082\n@[simp] theorem foldrM_empty [Monad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (init : \u03b2) :\n    foldrM f init #[] start stop = return init := by\n  simp [foldrM]\n@[simp] theorem foldlM_reverse' [Monad m] (xs : Array \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b)\n    (w : stop = xs.size) :\n    xs.reverse.foldlM f b 0 stop = xs.foldrM (fun x y => f y x) b := by\n  subst w\n  rcases xs with \u27e8xs\u27e9\n  simp [List.foldlM_reverse]\n@[simp] theorem foldrM_push' [Monad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (init : \u03b2) (xs : Array \u03b1) (a : \u03b1)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "extract_empty",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "return libFile\ndef buildLeanExe\n  (exeFile : FilePath) (linkJobs : Array (Job FilePath))\n  (weakArgs traceArgs : Array String := #[]) (sharedLean : Bool := false)\n: SpawnM (Job FilePath) :=\n  (Job.collectArray linkJobs).mapM fun links => do\n    addLeanTrace\n    addPureTrace traceArgs\naddPlatformTrace\n    buildFileUnlessUpToDate' exeFile do\n      let lean \u2190 getLeanInstall\n      let args := weakArgs ++ traceArgs ++ lean.ccLinkFlags sharedLean\n      compileExe exeFile links args lean.cc\n    return exeFile\ndef buildLeanSharedLibOfStatic\n  (staticLibJob : Job FilePath)\n  (weakArgs traceArgs : Array String := #[])\n: SpawnM (Job FilePath) :=\n  staticLibJob.mapM fun staticLib => do\n    addLeanTrace\n    addPureTrace traceArgs\naddPlatformTrace\n    let dynlib := staticLib.withExtension sharedLibExt\n    buildFileUnlessUpToDate' dynlib do\n      let lean \u2190 getLeanInstall\n      let baseArgs :=\n        if System.Platform.isOSX then\n          #[s!\"-Wl,-force_load,{staticLib}\"]\n        else\n#[\"-Wl,",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "platformTrace"
+  }
+}

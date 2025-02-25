@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_eq_none_iff : l[i]? = none \u2194 length l \u2264 i :=\n  match l with\n  | [] => by simp; rfl\n  | _ :: l => by\n    cases i with\n    | zero => simp\n    | succ i =>\n      simp only [length_cons, Nat.add_le_add_iff_right]\n      exact getElem?_eq_none_iff (l := l) (i := i)\n@[simp] theorem none_eq_getElem?_iff {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

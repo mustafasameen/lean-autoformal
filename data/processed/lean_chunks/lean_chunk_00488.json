@@ -1,0 +1,9 @@
+{
+  "content": "instance isMonad : Monad LazyList where\n  pure := LazyList.pure\n  bind := LazyList.bind\n  map  := LazyList.map\ninstance : Alternative LazyList where\n  failure := nil\n  orElse  := LazyList.append\npartial def approx : Nat \u2192 LazyList \u03b1 \u2192 List \u03b1\n  | 0,     as           => []\n  | _,     nil          => []\n  | i+1,   cons a as    => a :: approx i as\n  | i+1,   delayed as   => approx (i+1) as.get\npartial def iterate (f : \u03b1 \u2192 \u03b1) : \u03b1 \u2192 LazyList \u03b1\n  | x => cons x (delayed (iterate f (f x)))\npartial def iterate\u2082 (f : \u03b1 \u2192 \u03b1 \u2192 \u03b1) : \u03b1 \u2192 \u03b1 \u2192 LazyList \u03b1\n  | x, y => cons x (delayed (iterate\u2082 f y (f x y)))\npartial def filter (p : \u03b1 \u2192 Bool) : LazyList \u03b1 \u2192 LazyList \u03b1\n  | nil          => nil\n  | cons a as    => delayed (if p a then cons a (filter p as) else filter p as)\n  | delayed as   => delayed (filter p as.get)\nend LazyList\ndef fib : LazyList Nat :=\n  LazyList.iterate\u2082 (\u00b7 + \u00b7) 0 1\ndef iota (i : Nat := 0) : LazyList Nat :=\n  LazyList.iterate Nat.succ i\ndef tst : LazyList String := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/lazylist.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/lazylist.lean",
+    "definition_name": "isMonad"
+  }
+}

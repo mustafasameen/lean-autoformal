@@ -1,0 +1,9 @@
+{
+  "content": "toJson\n    | FoldingRangeKind.comment => \"comment\"\n    | FoldingRangeKind.imports => \"imports\"\n    | FoldingRangeKind.region  => \"region\"\nstructure FoldingRange where\n  startLine : Nat\n  endLine   : Nat\n  kind?     : Option FoldingRangeKind := none\n  deriving ToJson\nstructure RenameOptions where\n  prepareProvider : Bool := false\n  deriving FromJson, ToJson\nstructure RenameParams extends TextDocumentPositionParams where\n  newName : String\n  deriving FromJson, ToJson\nstructure PrepareRenameParams extends TextDocumentPositionParams\n  deriving FromJson, ToJson\nstructure InlayHintParams extends WorkDoneProgressParams where\n  textDocument : TextDocumentIdentifier\n  range        : Range\n  deriving FromJson, ToJson\ninductive InlayHintTooltip\n  | plaintext (text : String)\n  | markdown (markup : MarkupContent)\ninstance : FromJson InlayHintTooltip where\n  fromJson?\n    | .str s => .ok <| .plaintext s\n    | j@(.obj _) => do return .markdown (\u2190 fromJson? j)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "SemanticTokensLegend"
+  }
+}

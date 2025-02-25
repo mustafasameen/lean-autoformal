@@ -1,0 +1,10 @@
+{
+  "content": "theorem subset_cons_self (a : \u03b1) (l : List \u03b1) : l \u2286 a :: l := fun _ => Mem.tail _\ntheorem subset_of_cons_subset {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "subset_cons_self",
+    "has_proof": false
+  }
+}

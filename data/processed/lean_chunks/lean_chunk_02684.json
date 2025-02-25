@@ -1,0 +1,10 @@
+{
+  "content": "@[extern \"lean_nat_sub\"]\nprotected def Nat.sub : (@& Nat) \u2192 (@& Nat) \u2192 Nat\n  | a, 0      => a\n  | a, succ b => pred (Nat.sub a b)\ninstance instSubNat : Sub Nat where\n  sub := Nat.sub\n@[extern \"lean_system_platform_nbits\"] opaque System.Platform.getNumBits : Unit \u2192 Subtype fun (n : Nat) => Or (Eq n 32) (Eq n 64) :=\nfun _ => \u27e864, Or.inr rfl\u27e9\n@[pp_using_anonymous_constructor]\nstructure Fin (n : Nat) where\n  val  : Nat\nstructure BitVec (w : Nat) where\n  ofFin ::\n  toFin : Fin (hPow 2 w)\ndef BitVec.decEq (x y : BitVec n) : Decidable (Eq x y) :=\n  match x, y with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m)\n      (fun h => isTrue (h \u25b8 rfl))\n      (fun h => isFalse (fun h' => BitVec.noConfusion h' (fun h' => absurd h' h)))\ninstance : DecidableEq (BitVec n) := BitVec.decEq\nprotected def BitVec.toNat (x : BitVec n) : Nat := x.toFin.val\ninstance : LT (BitVec n) where lt := (LT.lt \u00b7.toNat \u00b7.toNat)\ninstance (x y : BitVec n) : Decidable (LT.lt x y) :=\n  inferInstanceAs (Decidable (LT.lt x.toNat y.toNat))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat",
+    "has_proof": false
+  }
+}

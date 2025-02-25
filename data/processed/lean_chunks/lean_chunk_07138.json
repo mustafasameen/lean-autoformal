@@ -1,0 +1,9 @@
+{
+  "content": "structure CasesInfo where\n  declName     : Name\n  arity        : Nat\n  numParams    : Nat\n  discrPos     : Nat\n  altsRange    : Std.Range\n  altNumParams : Array Nat\n  motivePos    : Nat\ndef CasesInfo.numAlts (c : CasesInfo) : Nat :=\n  c.altNumParams.size\nprivate def getCasesOnInductiveVal? (declName : Name) : CoreM (Option InductiveVal) := do\n  unless isCasesOnRecursor (\u2190 getEnv) declName do return none\n  let .inductInfo val \u2190 getConstInfo declName.getPrefix | return none\n  return some val\ndef getCasesInfo? (declName : Name) : CoreM (Option CasesInfo) := do\n  let some val \u2190 getCasesOnInductiveVal? declName | return none\n  let numParams    := val.numParams\n  let motivePos    := numParams\nlet arity        := numParams + 1\n+ val.numIndices\n  let altsRange    := [discrPos + 1:arity]\n  let altNumParams \u2190 val.ctors.toArray.mapM fun ctor => do\n    let .ctorInfo ctorVal \u2190 getConstInfo ctor | unreachable!\n    return ctorVal.numFields",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Util.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Util.lean",
+    "definition_name": "CasesInfo"
+  }
+}

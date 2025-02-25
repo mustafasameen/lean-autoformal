@@ -1,0 +1,10 @@
+{
+  "content": "`(tactic| ac_nf0 $[$loc]? <;> try trivial)\nsyntax (name := symm) \"symm\" (location)? : tactic\nsyntax (name := symmSaturate) \"symm_saturate\" : tactic\nnamespace SolveByElim\nsyntax star := \"*\"\nsyntax args := \" [\" SolveByElim.arg,* \"]\"\nsyntax (name := solveByElim)\n  \"solve_by_elim\" \"*\"? optConfig (&\" only\")? (args)? (using_)? : tactic\nsyntax (name := applyAssumption)\n  \"apply_assumption\" optConfig (&\" only\")? (args)? (using_)? : tactic\nsyntax (name := applyRules) \"apply_rules\" optConfig (&\" only\")? (args)? (using_)? : tactic\nend SolveByElim\nsyntax (name := exact?) \"exact?\" (\" using \" (colGt ident),+)? : tactic\nsyntax (name := apply?) \"apply?\" (\" using \" (colGt term),+)? : tactic\nsyntax rewrites_forbidden := \" [\" ((\"-\" ident),*,?) \"]\"\nsyntax (name := rewrites?) \"rw?\" (ppSpace location)? (rewrites_forbidden)? : tactic\nsyntax (name := showTerm) \"show_term \" tacticSeq : tactic\nmacro (name := showTermElab) tk:\"show_term \" t:term : term =>\n  `(term| no_implicit_lambda% (show_term_elab%$tk $t))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "fails",
+    "imports": "Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\""
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "(range' start size step).toArray = Array.range' start size step := by\n  apply ext'\n  simp\n@[simp] theorem toArray_ofFn (f : Fin n \u2192 \u03b1) : (ofFn f).toArray = Array.ofFn f := by\n  ext <;> simp\nend List\nnamespace Array\n@[simp] theorem mapM_id {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_zipWith",
+    "has_proof": true
+  }
+}

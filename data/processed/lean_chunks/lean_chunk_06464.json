@@ -1,0 +1,9 @@
+{
+  "content": "inductive datatype\"\n    if ctorModifiers.isProtected && modifiers.isPrivate then\n      throwError \"invalid 'protected' constructor in a 'private' inductive datatype\"\n    checkValidCtorModifier ctorModifiers\n    let ctorName := ctor.getIdAt 3\n    let ctorName := declName ++ ctorName\n    let ctorName \u2190 withRef ctor[3] <| applyVisibility ctorModifiers.visibility ctorName\n    let (binders, type?) := expandOptDeclSig ctor[4]\n    addDocString' ctorName ctorModifiers.docString?\n    addDeclarationRangesFromSyntax ctorName ctor ctor[3]\n    return { ref := ctor, declId := ctor[3], modifiers := ctorModifiers, declName := ctorName, binders := binders, type? := type? : CtorView }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Inductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Inductive.lean",
+    "definition_name": "datatype"
+  }
+}

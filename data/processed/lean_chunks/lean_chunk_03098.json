@@ -1,0 +1,9 @@
+{
+  "content": "structure Metadata where\n  accessed : SystemTime\n  modified : SystemTime\n  byteSize : UInt64\n  type     : FileType\n  deriving Repr\nend FS\nend IO\nnamespace System.FilePath\nopen IO\n@[extern \"lean_io_read_dir\"]\nopaque readDir : @& FilePath \u2192 IO (Array IO.FS.DirEntry)\n@[extern \"lean_io_metadata\"]\nopaque metadata : @& FilePath \u2192 IO IO.FS.Metadata\ndef isDir (p : FilePath) : BaseIO Bool := do\n  match (\u2190 p.metadata.toBaseIO) with\n  | Except.ok m => return m.type == IO.FS.FileType.dir\n  | Except.error _ => return false\ndef pathExists (p : FilePath) : BaseIO Bool :=\n  return (\u2190 p.metadata.toBaseIO).toBool\npartial def walkDir (p : FilePath) (enter : FilePath \u2192 IO Bool := fun _ => pure true) : IO (Array FilePath) :=\n  Prod.snd <$> StateT.run (go p) #[]\nwhere\n  go p := do\n    if !(\u2190 enter p) then\n      return ()\n    for d in (\u2190 p.readDir) do\n      modify (\u00b7.push d.path)\n      match (\u2190 d.path.metadata.toBaseIO) with\n      | .ok { type := .symlink, .. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "FS"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem iota_inj : iota n = iota n' \u2194 n = n' := by\n  constructor\n  \u00b7 intro h\n    have h' := congrArg List.length h\n    simp at h'\n    exact h'\n  \u00b7 rintro rfl\n    simp\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\")]\ntheorem iota_eq_cons_iff : iota n = a :: xs \u2194 n = a \u2227 0 < n \u2227 xs = iota (n - 1) := by\n  simp [iota_eq_reverse_range']\n  simp [range'_eq_append_iff, reverse_eq_iff]\n  constructor\n  \u00b7 rintro \u27e8k, h, rfl, h'\u27e9\n    rw [eq_comm, range'_eq_singleton] at h'\n    simp only [reverse_inj, range'_inj, or_true, and_true]\n    omega\n  \u00b7 rintro \u27e8rfl, h, rfl\u27e9\n    refine \u27e8n - 1, by simp, rfl, ?_\u27e9\n    rw [eq_comm, range'_eq_singleton]\n    omega\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\")]\ntheorem iota_eq_append_iff : iota n = xs ++ ys \u2194 \u2203 k, k \u2264 n \u2227 xs = (range' (k + 1) (n - k)).reverse \u2227 ys = iota k := by\n  simp only [iota_eq_reverse_range']\n  rw [reverse_eq_append_iff]\n  rw [range'_eq_append_iff]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "iota_inj",
+    "has_proof": true
+  }
+}

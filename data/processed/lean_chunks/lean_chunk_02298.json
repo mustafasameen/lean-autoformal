@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex7 : (Foo.mk\u2081 10 20 30 40).z = 30 :=\nrfl\ndef Foo.addY? : Foo \u00d7 Foo \u2192 Option Nat\n| (mk\u2081 (y := y\u2081) .., mk\u2081 (y := y\u2082) ..) => some (y\u2081 + y\u2082)\n| _ => none\n#eval checkWithMkMatcherInput ``Foo.addY?.match_1\n#guard Foo.addY? (Foo.mk\u2081 1 2 3 4, Foo.mk\u2081 10 20 30 40) == some 22\ntheorem ex8 : Foo.addY? (Foo.mk\u2081 1 2 3 4, Foo.mk\u2081 10 20 30 40) = some 22 :=\nrfl\ninstance {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_name": "ex7",
+    "has_proof": false
+  }
+}

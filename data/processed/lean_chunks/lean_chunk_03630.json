@@ -1,0 +1,10 @@
+{
+  "content": "theorem count_mkArray_self (a : \u03b1) (n : Nat) : count a (mkArray n a) = n := by\n  simp [\u2190 List.toArray_replicate]\ntheorem count_mkArray (a b : \u03b1) (n : Nat) : count a (mkArray n b) = if b == a then n else 0 := by\n  simp [\u2190 List.toArray_replicate, List.count_replicate]\ntheorem filter_beq (xs : Array \u03b1) (a : \u03b1) : xs.filter (\u00b7 == a) = mkArray (count a xs) a := by\n  rcases xs with \u27e8xs\u27e9\n  simp [List.filter_beq]\ntheorem filter_eq {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_name": "count_mkArray_self",
+    "has_proof": true
+  }
+}

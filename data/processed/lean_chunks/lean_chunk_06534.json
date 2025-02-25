@@ -1,0 +1,9 @@
+{
+  "content": "structure Ilean where\n  module     : Name\ndef load (path : System.FilePath) : IO Ilean := do\n  let content \u2190 FS.readFile path\n  match Json.parse content >>= fromJson? with\n    | Except.ok ilean => pure ilean\n    | Except.error msg => throwServerError s!\"Failed to load ilean at {path}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "Ilean"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance MulZeroClass.toSMulWithZero (R : Type) [Mul R] [Zero R] : SMulWithZero R R where\n  smul := (\u00b7 * \u00b7)\nend HSMul_stuff\nsection Algebra_stuff\nclass Algebra (R A : Type) [CommSemiring R] [Semiring A] extends SMul R A,\n  R \u2192+* A where\ndef RingHom.toAlgebra' {R S : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_name": "MulZeroClass"
+  }
+}

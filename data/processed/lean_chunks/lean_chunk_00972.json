@@ -1,0 +1,9 @@
+{
+  "content": "def foo := fun n => (not_and_self_iff _).mp \u27e8Nat.lt_irrefl _, Fin.is_lt _\u27e9\n#guard_msgs in\ndef test : True := by\n  have : ((?a : Nat) < ?a : Prop) := by\n    refine Fin.is_lt ?_\n    done\n  done\nopen Lean Meta\n#guard_msgs in\nrun_meta do\n  let mvarIdNat \u2190 mkFreshExprMVar (.some (.const ``Nat []))\n  let mvarIdFin \u2190 mkFreshExprMVar (.some (.app (.const `Fin []) mvarIdNat))\n  let b \u2190 isDefEq mvarIdNat (mkApp2 (.const ``Fin.val []) mvarIdNat mvarIdFin)\nlogInfo m!\"Defeq?: {b}\"\n  let r \u2190 abstractMVars mvarIdFin (levels := false)\n  logInfo m!\"{r.expr}\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4405.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4405.lean",
+    "definition_name": "foo"
+  }
+}

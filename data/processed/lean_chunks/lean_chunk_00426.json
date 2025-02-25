@@ -1,0 +1,9 @@
+{
+  "content": "match n with\n| \u27e8Syntax.node kind args scopes, _\u27e9 := Syntax.node kind (fn args) scopes\n| \u27e8Syntax.missing, h\u27e9               := unreachIsNodeMissing h\n| \u27e8Syntax.atom _ _, h\u27e9              := unreachIsNodeAtom h\n| \u27e8Syntax.ident _ _ _ _ _, h\u27e9       := unreachIsNodeIdent h\n@[inline] def mkNotAux (tk : Syntax) (c : Syntax) : Syntax :=\nSyntax.node notKind [tk, c].toArray []\n@[inline] def mkNot (c : Syntax) : Syntax :=\nmkNotAux (mkAtom \"not\") c\n@[inline] def withNot {\u03b1 : Type} (n : SyntaxNode) (fn : Syntax \u2192 \u03b1) : \u03b1 :=\nwithArgs n $ \u03bb args, fn (args.get 1)\n@[inline] def updateNot (src : SyntaxNode) (c : Syntax) : Syntax :=\nupdateArgs src $ \u03bb args, args.set 1 c\n@[inline] def mkIfAux (ifTk : Syntax) (condNode : Syntax) (thenTk : Syntax) (thenNode : Syntax) (elseTk : Syntax) (elseNode: Syntax) : Syntax :=\nSyntax.node ifKind [ifTk, condNode, thenTk, thenNode, elseTk, elseNode].toArray []\n@[inline] def mkIf (c t e : Syntax) : Syntax :=\nmkIfAux (mkAtom \"if\") c (mkAtom \"then\") t (mkAtom \"else\") e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

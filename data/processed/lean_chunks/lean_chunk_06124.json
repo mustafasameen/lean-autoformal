@@ -1,0 +1,10 @@
+{
+  "content": "pure_seq    (g : \u03b1 \u2192 \u03b2) (x : f \u03b1)   : pure g <*> x = g <$> x\n  map_pure    (g : \u03b1 \u2192 \u03b2) (x : \u03b1)     : g <$> (pure x : f \u03b1) = pure (g x)\n  seq_pure    {\u03b1 \u03b2 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_name": "LawfulFunctor",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let vars \u2190 vars.mapM fun \u27e8x, inst?\u27e9 =>\n      let isNeutral :=\n        let isNeutralClass := mkApp3 (mkConst ``LawfulIdentity [u]) \u03b1 preContext.op x\n        match inst? with\n        | none => noneE isNeutralClass\n        | some isNeutral => someE isNeutralClass isNeutral\n      return mkApp4 (mkConst ``Variable.mk [u]) \u03b1 preContext.op x isNeutral\n    let vars := vars.toList\n    let vars \u2190 mkListLit (mkApp2 (mkConst ``Variable [u]) \u03b1 preContext.op) vars\n    let comm :=\n      let commClass := mkApp2 (mkConst ``Commutative [u]) \u03b1 preContext.op\n      match preContext.comm with\n      | none => noneE commClass\n      | some comm => someE commClass comm\n    let idem :=\n      let idemClass := mkApp2 (mkConst ``IdempotentOp [u]) \u03b1 preContext.op\n      match preContext.idem with\n      | none => noneE idemClass\n      | some idem => someE idemClass idem\n    return mkApp7 (mkConst ``Lean.Data.AC.Context.mk [u]) \u03b1 preContext.op preContext.assoc comm idem vars arbitrary\n  convert : ACExpr \u2192 Expr",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_name": "PreExpr"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem modCore_eq_mod (n m : Nat) : Nat.modCore n m = n % m := by\n  show Nat.modCore n m = Nat.mod n m\n  match n, m with\n  | 0, _ =>\n    rw [Nat.modCore]\n    exact if_neg fun \u27e8hlt, hle\u27e9 => Nat.lt_irrefl _ (Nat.lt_of_lt_of_le hlt hle)\n  | (_ + 1), _ =>\n    rw [Nat.mod]; dsimp\nrefine iteInduction (fun _ => rfl) (fun h => ?false)\n    rw [Nat.modCore]\n    exact if_neg fun \u27e8_hlt, hle\u27e9 => h hle\ntheorem mod_eq (x y : Nat) : x % y = if 0 < y \u2227 y \u2264 x then (x - y) % y else x := by\n  rw [\u2190Nat.modCore_eq_mod, \u2190Nat.modCore_eq_mod, Nat.modCore]\ndef mod.inductionOn.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "modCore_eq_mod",
+    "has_proof": true
+  }
+}

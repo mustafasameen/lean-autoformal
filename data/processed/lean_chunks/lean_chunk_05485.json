@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_next (s : Substring) (i : String.Pos) (h : i.1 < s.bsize) :\n    i.1 < (s.next i).1 := by\n  simp [next]; rw [if_neg ?a]\n  case a =>\n    refine mt (congrArg String.Pos.byteIdx) (Nat.ne_of_lt ?_)\n    exact (Nat.add_comm .. \u25b8 Nat.add_lt_of_lt_sub h :)\n  apply Nat.lt_sub_of_add_lt\n  rw [Nat.add_comm]; apply String.lt_next\n@[inline] def prev : Substring \u2192 String.Pos \u2192 String.Pos\n  | \u27e8s, b, _\u27e9, p =>\n    let absP := b+p\n    if absP = b then p else { byteIdx := (s.prev absP).byteIdx - b.byteIdx }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "lt_next",
+    "has_proof": true
+  }
+}

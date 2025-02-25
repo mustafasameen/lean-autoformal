@@ -1,0 +1,9 @@
+{
+  "content": "class NonUnitalNonAssocSemiring (\u03b1 : Type u)\nclass NonUnitalSemiring (\u03b1 : Type u) extends NonUnitalNonAssocSemiring \u03b1\nclass Semiring (\u03b1 : Type u) extends NonUnitalSemiring \u03b1\nclass NonUnitalCommSemiring (\u03b1 : Type u) extends NonUnitalSemiring \u03b1\nclass CommSemiring (R : Type u) extends Semiring R\nclass NonUnitalNonAssocRing (\u03b1 : Type u) extends NonUnitalNonAssocSemiring \u03b1\nclass NonUnitalRing (\u03b1 : Type _) extends NonUnitalNonAssocRing \u03b1, NonUnitalSemiring \u03b1\nclass Ring (R : Type u) extends Semiring R\nclass NonUnitalCommRing (\u03b1 : Type u) extends NonUnitalRing \u03b1\nclass CommRing (\u03b1 : Type u) extends Ring \u03b1\ninstance (priority := 100) NonUnitalCommRing.toNonUnitalCommSemiring [s : NonUnitalCommRing \u03b1] :\n    NonUnitalCommSemiring \u03b1 :=\n  { s with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2074.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2074.lean",
+    "definition_name": "NonUnitalNonAssocSemiring"
+  }
+}

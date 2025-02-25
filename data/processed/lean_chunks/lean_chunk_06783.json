@@ -1,0 +1,10 @@
+{
+  "content": "theorem nor a value\"\n    let motiveType \u2190 lambdaTelescope value fun xs _body => do\n      mkForallFVars xs (.sort 0)\n    let motiveArity \u2190 lambdaTelescope value fun xs _body => do\n      pure xs.size\n    let e' \u2190 withLocalDeclD `motive motiveType fun motive => do\n      lambdaTelescope value fun xs body => do\n        let (e',mvars) \u2190 M2.run do\n          let goal := mkAppN motive xs\n          withLocalDeclD `fakeIH (mkConst ``Unit) fun fakeIH =>\n            let isRecCall := fun _ => none\n            buildInductionBody #[fakeIH.fvarId!] #[] goal fakeIH.fvarId! fakeIH.fvarId! isRecCall body\n        let e' \u2190 mkLambdaFVars xs e'\n        let e' \u2190 abstractIndependentMVars mvars (\u2190 motive.fvarId!.getDecl).index e'\n        let e' \u2190 mkLambdaFVars #[motive] e'\n        pure e'\n    unless (\u2190 isTypeCorrect e') do\n      logError m!\"constructed functional cases principle is not type correct:{indentExpr e'}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/FunInd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/FunInd.lean",
+    "definition_name": "nor",
+    "has_proof": false
+  }
+}

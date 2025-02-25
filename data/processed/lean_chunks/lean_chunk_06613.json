@@ -1,0 +1,9 @@
+{
+  "content": "| none     => s.mkUnexpectedError (\"unknown parser category '\" ++ toString catName ++ \"'\")\nbuiltin_initialize\n  categoryParserFnRef.set categoryParserFnImpl\ndef addToken (tk : Token) (kind : AttributeKind) : AttrM Unit := do\n  discard <| ofExcept <| addTokenConfig (parserExtension.getState (\u2190 getEnv)).tokens tk\n  parserExtension.add (ParserExtension.Entry.token tk) kind\ndef addSyntaxNodeKind (env : Environment) (k : SyntaxNodeKind) : Environment :=\n  parserExtension.addEntry env <| ParserExtension.Entry.kind k\ndef isValidSyntaxNodeKind (env : Environment) (k : SyntaxNodeKind) : Bool :=\n  let kinds := (parserExtension.getState env).kinds\n  kinds.contains k || (Internal.isStage0 () && env.contains k)\ndef getSyntaxNodeKinds (env : Environment) : List SyntaxNodeKind :=\n  let kinds := (parserExtension.getState env).kinds\n  kinds.foldl (fun ks k _ => k::ks) []\ndef getTokenTable (env : Environment) : TokenTable :=\n  (parserExtension.getState env).tokens",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_name": "ParserAttributeHook"
+  }
+}

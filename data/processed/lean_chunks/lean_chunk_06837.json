@@ -1,0 +1,9 @@
+{
+  "content": "inductive ShouldCanonResult where\n|\n    canonInst\n|\n    visit\n  deriving Inhabited\ninstance : Repr ShouldCanonResult where\n  reprPrec r _ := match r with\n    | .canonType => \"canonType\"\n    | .canonInst => \"canonInst\"\n    | .canonImplicit => \"canonImplicit\"\n    | .visit => \"visit\"\ndef shouldCanon (pinfos : Array ParamInfo) (i : Nat) (arg : Expr) : MetaM ShouldCanonResult := do\n  if h : i < pinfos.size then\n    let pinfo := pinfos[i]\n    if pinfo.isInstImplicit then\n      return .canonInst\n    else if pinfo.isProp then\n      return .visit\n    else if pinfo.isImplicit then\n      if (\u2190 isTypeFormer arg) then\n        return .canonType\n      else\n        return .canonImplicit\n  if (\u2190 isProp arg) then\n    return .visit\n  else if (\u2190 isTypeFormer arg) then\n    return .canonType\n  else\n    return .visit\nunsafe def canonImpl (e : Expr) : GoalM Expr := do\n  visit e |>.run' mkPtrMap\nwhere\n  visit (e : Expr) : StateRefT (PtrMap Expr Expr) GoalM Expr := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Canon.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Canon.lean",
+    "definition_name": "ShouldCanonResult"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem succ_mul_succ (a b) : succ a * succ b = a * b + a + b + 1 := by\n  rw [succ_mul, mul_succ]; rfl\ntheorem add_one_mul_add_one (a b : Nat) : (a + 1) * (b + 1) = a * b + a + b + 1 := by\n  rw [add_one_mul, mul_add_one]; rfl\ntheorem mul_le_add_right {m k n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "succ_mul_succ",
+    "has_proof": true
+  }
+}

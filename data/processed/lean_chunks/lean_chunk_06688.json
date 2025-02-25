@@ -1,0 +1,9 @@
+{
+  "content": "structure PersistentHashSet (\u03b1 : Type u) [BEq \u03b1] [Hashable \u03b1] where\n  (set : PersistentHashMap \u03b1 Unit)\nabbrev PHashSet (\u03b1 : Type u) [BEq \u03b1] [Hashable \u03b1] := PersistentHashSet \u03b1\nnamespace PersistentHashSet\n@[inline] def empty [BEq \u03b1] [Hashable \u03b1] : PersistentHashSet \u03b1 :=\n  { set := PersistentHashMap.empty }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashSet.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashSet.lean",
+    "definition_name": "PersistentHashSet"
+  }
+}

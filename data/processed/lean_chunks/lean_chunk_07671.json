@@ -1,0 +1,9 @@
+{
+  "content": "structure BinaryInput (aig : AIG \u03b1) where\n  lhs : Ref aig\n  rhs : Ref aig\n@[inline]\ndef BinaryInput.cast {aig1 aig2 : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_name": "BinaryInput"
+  }
+}

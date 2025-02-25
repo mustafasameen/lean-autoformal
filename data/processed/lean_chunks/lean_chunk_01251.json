@@ -1,0 +1,9 @@
+{
+  "content": "structure Magma.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/scopedunifhint.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/scopedunifhint.lean",
+    "definition_name": "Magma"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "rfl := by simp [BEq.beq]\ntheorem beq_eq_true_eq (a b : Nat) : ((a == b) = true) = (a = b) := by simp\ntheorem not_beq_eq_true_eq (a b : Nat) : ((!(a == b)) = true) = \u00ac(a = b) := by simp\n@[simp] protected theorem mul_zero (n : Nat) : n * 0 = 0 :=\n  rfl\ntheorem mul_succ (n m : Nat) : n * succ m = n * m + n :=\n  rfl\ntheorem mul_add_one (n m : Nat) : n * (m + 1) = n * m + n :=\n  rfl\n@[simp] protected theorem zero_mul : \u2200 (n : Nat), 0 * n = 0\n  | 0      => rfl\n  | succ n => mul_succ 0 n \u25b8 (Nat.zero_mul n).symm \u25b8 rfl\ntheorem succ_mul (n m : Nat) : (succ n) * m = (n * m) + m := by\n  induction m with\n  | zero => rfl\n  | succ m ih => rw [mul_succ, add_succ, ih, mul_succ, add_succ, Nat.add_right_comm]\ntheorem add_one_mul (n m : Nat) : (n + 1) * m = (n * m) + m := succ_mul n m\nprotected theorem mul_comm : \u2200 (n m : Nat), n * m = m * n\n  | n, 0      => (Nat.zero_mul n).symm \u25b8 (Nat.mul_zero n).symm \u25b8 rfl\n  | n, succ m => (mul_succ n m).symm \u25b8 (succ_mul m n).symm \u25b8 (Nat.mul_comm n m).symm \u25b8 rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "or_exists_add_one",
+    "has_proof": true
+  }
+}

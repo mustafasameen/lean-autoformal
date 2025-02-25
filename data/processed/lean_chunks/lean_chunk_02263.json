@@ -1,0 +1,10 @@
+{
+  "content": "theorem Equiv.symm.symm (e : \u03b1 \u2243 \u03b2) : e.symm.symm = e :=\nrfl\nstructure Bla where\n  x : Nat\ndef Bla.toNat (b : Bla) : Nat := b.x\ndef Nat.toBla (x : Nat) : Bla := { x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/etaStruct.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/etaStruct.lean",
+    "definition_name": "Equiv",
+    "has_proof": false
+  }
+}

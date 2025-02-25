@@ -1,0 +1,9 @@
+{
+  "content": "instance Sum.nonemptyLeft [h : Nonempty \u03b1] : Nonempty (Sum \u03b1 \u03b2) :=\n  Nonempty.elim h (fun a => \u27e8Sum.inl a\u27e9)\ninstance Sum.nonemptyRight [h : Nonempty \u03b2] : Nonempty (Sum \u03b1 \u03b2) :=\n  Nonempty.elim h (fun b => \u27e8Sum.inr b\u27e9)\ninstance {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "Sum"
+  }
+}

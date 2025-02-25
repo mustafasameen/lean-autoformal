@@ -1,0 +1,10 @@
+{
+  "content": "| cons u us => simp_all [mergeIdem, mergeIdem.loop, evalList]\n        case neg =>\n          simp [mergeIdem_head2, h\u2083, evalList] at *\n          rw [ih]\n        assumption\ntheorem insert_nonEmpty : insert x xs \u2260 [] := by\n  induction xs with\n  | nil => simp [insert]\n  | cons x xs _  => simp [insert]; split <;> simp\ntheorem Context.sort_loop_nonEmpty (xs : List Nat) (h : xs \u2260 []) : sort.loop xs ys \u2260 [] := by\n  induction ys generalizing xs with\n  | nil => simp [sort.loop]; assumption\n  | cons y _  ih => simp [sort.loop]; apply ih; apply insert_nonEmpty\ntheorem Context.evalList_insert\n  (ctx : Context \u03b1)\n  (h : Commutative ctx.op)\n  (x : Nat)\n  (xs : List Nat)\n  : evalList \u03b1 ctx (insert x xs) = evalList \u03b1 ctx (x::xs) := by\n  induction xs using List.two_step_induction with\n  | empty => rfl\n  | single =>\n    simp [insert]\n    split\n    . rfl\n    . simp [evalList, h.1, EvalInformation.evalOp]\n  | step y z zs ih =>\n    simp [insert] at *; split\n    next => rfl\n    next =>\n      split",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

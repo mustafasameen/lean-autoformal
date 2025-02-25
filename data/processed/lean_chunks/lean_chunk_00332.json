@@ -1,0 +1,10 @@
+{
+  "content": "def foo := 10\nexample (x : Nat) : foo + x = 10 + x := by\n  simp [foo]\n  done\ndef g (x : Nat) : Nat := Id.run <| do\n  let x := x\n  return x\nexample : g x = x := by\n  simp [g, bind, pure]\n  rfl\ndef f1 : StateM Nat Unit := do\n  modify fun x => g x\ndef f2 : StateM Nat Unit := do\n  let s \u2190 get\n  set <| g s\nexample : f1 = f2 := by\n  simp (config := {unfoldPartialApp := true}) [f1, f2, bind, StateT.bind, get, getThe, MonadStateOf.get, StateT.get, pure, set, StateT.set, modify, modifyGet, MonadStateOf.modifyGet, StateT.modifyGet]\ndef h (x : Nat) : Sum (Nat \u00d7 Nat) Nat := Sum.inl (x, x)\ndef bla (x : Nat) :=\n  match h x with\n  | Sum.inl (y, z) => y + z\n  | Sum.inr _ => 0\nexample (x : Nat) : bla x = x + x := by\n  simp [bla, h]\nexample (x : Nat) (h : 1 \u2264 x) : x - 1 + 1 + 2 = x + 2 := by\n  simp [h, Nat.sub_add_cancel]\nexample (x : Nat) : (if h : 1 \u2264 x then x - 1 + 1 else 0) = (if _h : 1 \u2264 x then x else 0) := by\n  simp (config := {contextual := true}) [h, Nat.sub_add_cancel]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simp_trace.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simp_trace.lean",
+    "definition_name": "foo",
+    "has_proof": true
+  }
+}

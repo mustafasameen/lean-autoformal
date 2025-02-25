@@ -1,0 +1,10 @@
+{
+  "content": "protected def append : (xs ys : List \u03b1) \u2192 List \u03b1\n  | [],    bs => bs\n  | a::as, bs => a :: List.append as bs\ndef appendTR (as bs : List \u03b1) : List \u03b1 :=\n  reverseAux as.reverse bs\n@[csimp] theorem append_eq_appendTR : @List.append = @appendTR := by\n  apply funext; intro \u03b1; apply funext; intro as; apply funext; intro bs\n  simp [appendTR, reverse]\n  induction as with\n  | nil  => rfl\n  | cons a as ih =>\n    rw [reverseAux, reverseAux_reverseAux]\n    simp [List.append, ih, reverseAux]\ninstance : Append (List \u03b1) := \u27e8List.append\u27e9\n@[simp] theorem append_eq (as bs : List \u03b1) : List.append as bs = as ++ bs := rfl\n@[simp] theorem nil_append (as : List \u03b1) : [] ++ as = as := rfl\n@[simp] theorem cons_append (a : \u03b1) (as bs : List \u03b1) : (a::as) ++ bs = a::(as ++ bs) := rfl\n@[simp] theorem append_nil (as : List \u03b1) : as ++ [] = as := by\n  induction as with\n  | nil => rfl\n  | cons a as ih =>\n    simp_all only [HAppend.hAppend, Append.append, List.append]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "map_cons",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "inductive Assignment\n  | pos\n  | neg\n  | both\n  | unassigned\nderiving Inhabited, DecidableEq, BEq\nnamespace Assignment\ninstance : ToString Assignment where\n  toString := fun a =>\n    match a with\n    | pos => \"pos\"\n    | neg => \"neg\"\n    | both => \"both\"\n    | unassigned => \"unassigned\"\ndef hasPosAssignment (assignment : Assignment) : Bool :=\n  match assignment with\n  | pos => true\n  | neg => false\n  | both => true\n  | unassigned => false\ndef hasNegAssignment (assignment : Assignment) : Bool :=\n  match assignment with\n  | pos => false\n  | neg => true\n  | both => true\n  | unassigned => false\ndef addPosAssignment (oldAssignment : Assignment) : Assignment :=\n  match oldAssignment with\n  | pos => pos\n  | neg => both\n  | both => both\n  | unassigned => pos\ndef removePosAssignment (oldAssignment : Assignment) : Assignment :=\n  match oldAssignment with\n  | pos => unassigned\n| neg => neg\n  | both => neg\n| unassigned => unassigned\ndef addNegAssignment (oldAssignment : Assignment) : Assignment :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_name": "Assignment",
+    "has_proof": false
+  }
+}

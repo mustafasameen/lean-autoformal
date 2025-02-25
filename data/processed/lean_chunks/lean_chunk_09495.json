@@ -1,0 +1,9 @@
+{
+  "content": "def getLED (t : Raw \u03b1 cmp) (k : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  TreeMap.Raw.getKeyLED t.inner k fallback\n@[inline, inherit_doc TreeSet.getLTD]\ndef getLTD (t : Raw \u03b1 cmp) (k : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  TreeMap.Raw.getKeyLTD t.inner k fallback\nvariable {\u03b4 : Type w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Raw.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Raw.lean",
+    "definition_name": "Raw"
+  }
+}

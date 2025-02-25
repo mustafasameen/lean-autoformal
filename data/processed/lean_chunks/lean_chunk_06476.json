@@ -1,0 +1,9 @@
+{
+  "content": "class instance problem is stuck, it is often due to metavariables{indentExpr mvarDecl.type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "instance"
+  }
+}

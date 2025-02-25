@@ -1,0 +1,10 @@
+{
+  "content": "theorem getRight_eq_iff (h : x.isRight) : x.getRight h = b \u2194 x = inr b := by\n  cases x <;> simp at h \u22a2\n@[simp] theorem getLeft?_eq_some_iff : x.getLeft? = some a \u2194 x = inl a := by\n  cases x <;> simp only [getLeft?, Option.some.injEq, inl.injEq, reduceCtorEq]\n@[simp] theorem getRight?_eq_some_iff : x.getRight? = some b \u2194 x = inr b := by\n  cases x <;> simp only [getRight?, Option.some.injEq, inr.injEq, reduceCtorEq]\n@[simp] theorem bnot_isLeft (x : \u03b1 \u2295 \u03b2) : !x.isLeft = x.isRight := by cases x <;> rfl\n@[simp] theorem isLeft_eq_false {x : \u03b1 \u2295 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Lemmas.lean",
+    "definition_name": "getRight_eq_iff",
+    "has_proof": true
+  }
+}

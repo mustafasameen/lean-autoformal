@@ -1,0 +1,10 @@
+{
+  "content": "theorem gcd_eq1 : irred 3 = 3 := by decide\ntheorem gcd_eq2 : irred 3 = 3 := by decide +kernel\ntheorem thm1 : \u2200 x < 100, x * x \u2264 10000 := by decide +kernel\ntheorem thm1' : \u2200 x < 100, x * x \u2264 10000 := by decide +kernel\n#guard_msgs in #print thm1\n#guard_msgs in #print thm1'\n#guard_msgs in\nexample (x : Nat) (h : x < 5) : x + 1 \u2264 5 := by decide +kernel\nexample (x : Nat) (h : x < 5) : x + 1 \u2264 5 := by decide +kernel +revert\ninstance (p : PUnit.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideTacticKernel.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideTacticKernel.lean",
+    "definition_name": "gcd_eq1",
+    "has_proof": true
+  }
+}

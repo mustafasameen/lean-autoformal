@@ -1,0 +1,9 @@
+{
+  "content": "inductive ReduceMatcherResult where\n  | reduced (val : Expr)\n  | stuck   (val : Expr)\n  | notMatcher\n  | partialApp\nprivate def unfoldNestedDIte (e : Expr) : CoreM Expr := do\n  if e.find? (fun e => e.isAppOf ``dite) matches some _ then\n    Core.transform e fun e => do\n      if let .const ``dite us := e then\n        let constInfo \u2190 getConstInfo ``dite\n        let e \u2190 instantiateValueLevelParams constInfo us\n        return .done e\n      else\n        return .continue\n  else\n    return e\ndef canUnfoldAtMatcher (cfg : Config) (info : ConstantInfo) : CoreM Bool := do\n  match cfg.transparency with\n  | .all     => return true\n  | .default => return !(\u2190 isIrreducible info.name)\n  | _ =>\n    if (\u2190 isReducible info.name) || isGlobalInstance (\u2190 getEnv) info.name then\n      return true\n    else if hasMatchPatternAttribute (\u2190 getEnv) info.name then\n      return true\n    else\n      return info.name == ``decEq\n       || info.name == ``Nat.decEq",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "ReduceMatcherResult"
+  }
+}

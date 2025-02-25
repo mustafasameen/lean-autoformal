@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex7 (a : Bool) (p q : Prop) (h\u2081 : a = true \u2192 p) (h\u2082 : a = false \u2192 q) : p \u2228 q :=\n  match (generalizing := false) h:a with\n  | true  => Or.inl $ h\u2081 h\n  | false => Or.inr $ h\u2082 h\ntheorem ex7' (a : Bool) (p q : Prop) (h\u2081 : a = true \u2192 p) (h\u2082 : a = false \u2192 q) : p \u2228 q :=\n  match a with\n  | true  => Or.inl $ h\u2081 rfl\n  | false => Or.inr $ h\u2082 rfl\ndef head {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match3.lean",
+    "definition_name": "ex7",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "exact Nat.lt_of_add_right_lt (Nat.lt_of_succ_le (Nat.le_of_eq h))\u27e9\n    else\n      go l (i + 1) (by simp at h; simpa [\u2190 Nat.add_assoc, Nat.add_right_comm] using h)\n@[inline] def finIdxOf? [BEq \u03b1] (a : \u03b1) : (l : List \u03b1) \u2192 Option (Fin l.length) :=\n  findFinIdx? (\u00b7 == a)\n@[inline] def countP (p : \u03b1 \u2192 Bool) (l : List \u03b1) : Nat := go l 0 where\ndef lookup [BEq \u03b1] : \u03b1 \u2192 List (\u03b1 \u00d7 \u03b2) \u2192 Option \u03b2\n  | _, []        => none\n  | a, (k,b)::as => match a == k with\n    | true  => some b\n    | false => lookup a as\n@[simp] theorem lookup_nil [BEq \u03b1] : ([] : List (\u03b1 \u00d7 \u03b2)).lookup a = none := rfl\ntheorem lookup_cons [BEq \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "idxOf_nil",
+    "has_proof": true
+  }
+}

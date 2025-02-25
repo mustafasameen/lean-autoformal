@@ -1,0 +1,10 @@
+{
+  "content": "theorem Poly.denote'_go_eq_denote (ctx : Context) (p : Poly) (r : Int) : denote'.go ctx r p = p.denote ctx + r := by\n  induction r, p using denote'.go.induct ctx <;> simp [denote'.go, denote]\n  next => rw [Int.add_comm]\n  next ih => simp [denote'.go] at ih; rw [ih]; ac_rfl\n  next ih => simp [denote'.go] at ih; rw [ih]; ac_rfl\ntheorem Poly.denote'_eq_denote (ctx : Context) (p : Poly) : p.denote' ctx = p.denote ctx := by\n  unfold denote' <;> split <;> simp [denote, denote'_go_eq_denote] <;> ac_rfl\ntheorem Poly.denote'_add (ctx : Context) (a : Int) (x : Var) (p : Poly) : (Poly.add a x p).denote' ctx = a * x.denote ctx + p.denote ctx := by\n  simp [Poly.denote'_eq_denote, denote]\ndef Poly.addConst (p : Poly) (k : Int) : Poly :=\n  match p with\n  | .num k' => .num (k+k')\n  | .add k' v' p => .add k' v' (addConst p k)\ndef Poly.insert (k : Int) (v : Var) (p : Poly) : Poly :=\n  match p with\n  | .num k' => .add k v (.num k')\n  | .add k' v' p =>\n    bif Nat.blt v' v then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

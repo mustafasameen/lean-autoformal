@@ -1,0 +1,9 @@
+{
+  "content": "def identWithPartialTrailingDot :=\n  ident >> optional (checkNoWsBefore >> \".\" >> checkNoWsBefore >> ident)\n@[run_builtin_parser_attribute_hooks, builtin_doc] def rawIdent : Parser :=\n  withAntiquot (mkAntiquot \"ident\" identKind) rawIdentNoAntiquot\n@[run_builtin_parser_attribute_hooks, builtin_doc] def hygieneInfo : Parser :=\n  withAntiquot (mkAntiquot \"hygieneInfo\" hygieneInfoKind (anonymous := false)) hygieneInfoNoAntiquot\n@[run_builtin_parser_attribute_hooks, builtin_doc] def numLit : Parser :=\n  withAntiquot (mkAntiquot \"num\" numLitKind) numLitNoAntiquot\n@[run_builtin_parser_attribute_hooks, builtin_doc] def scientificLit : Parser :=\n  withAntiquot (mkAntiquot \"scientific\" scientificLitKind) scientificLitNoAntiquot\n@[run_builtin_parser_attribute_hooks, builtin_doc] def strLit : Parser :=\n  withAntiquot (mkAntiquot \"str\" strLitKind) strLitNoAntiquot\n@[run_builtin_parser_attribute_hooks, builtin_doc] def charLit : Parser :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_name": "identWithPartialTrailingDot"
+  }
+}

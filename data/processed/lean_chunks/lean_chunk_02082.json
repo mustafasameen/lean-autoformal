@@ -1,0 +1,10 @@
+{
+  "content": "structure Func' (\u03b1 : Sort _) (\u03b2 : Sort _) :=\n(toFun    : \u03b1 \u2192 \u03b2)\ndef r : Func' \u03b1 \u03b1 := \u27e8id\u27e9\n@[simp] theorem r_toFun {\u03b1 : Sort u_1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1829.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1829.lean",
+    "definition_name": "Func",
+    "has_proof": false
+  }
+}

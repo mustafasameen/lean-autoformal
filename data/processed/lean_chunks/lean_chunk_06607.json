@@ -1,0 +1,10 @@
+{
+  "content": "unless recovering && ignore do\n        messages := messages.add <| mkErrorMessage inputCtx s.pos s.stxStack errorMsg\n      recovering := true\n      if ignore then\n        continue\n      else\n        stx := s.stxStack.back\n        break\n  return (stx, { pos, recovering }, messages)\npartial def testParseModuleAux (env : Environment) (inputCtx : InputContext) (s : ModuleParserState) (msgs : MessageLog) (stxs  : Array Syntax) : IO (Array Syntax) :=\n  let rec parse (state : ModuleParserState) (msgs : MessageLog) (stxs : Array Syntax) :=\n    match parseCommand inputCtx { env := env, options := {} } state msgs with\n    | (stx, state, msgs) =>\n      if isTerminalCommand stx then\n        if !msgs.hasUnreported then\n          pure stxs\n        else do\n          msgs.forM fun msg => msg.toString >>= IO.println\n          throw (IO.userError \"failed to parse file\")\n      else\n        parse state msgs (stxs.push stx)\n  parse s msgs stxs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_name": "header",
+    "imports": "|| s.isOfKind ``Command.eoi"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_total : \u2200 (x y : Bool), x \u2264 y \u2228 y \u2264 x := by decide\nprotected theorem lt_asymm : \u2200 {x y : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_name": "le_total",
+    "has_proof": true
+  }
+}

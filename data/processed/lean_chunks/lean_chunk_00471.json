@@ -1,0 +1,9 @@
+{
+  "content": "class Fact (p : Prop) :=\n(h : p)\nclass Ring (\u03b1 : Type) :=\n(one : \u03b1)\ninstance ringHasOne {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/zmod.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/zmod.lean",
+    "definition_name": "Fact"
+  }
+}

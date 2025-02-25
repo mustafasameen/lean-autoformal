@@ -1,0 +1,10 @@
+{
+  "content": "let rec loop (i : Nat) (j : Nat) (bs : Array \u03b1) : Array \u03b1 :=\n    dite (LT.lt j as.size)\n      (fun hlt =>\n        match i with\n        | 0           => bs\n        | Nat.succ i' => loop i' (hAdd j 1) (bs.push (as.getInternal j hlt)))\n      (fun _ => bs)\n  let sz' := Nat.sub (min stop as.size) start\n  loop sz' start (mkEmpty sz')\n  bind : {\u03b1 \u03b2 : Type u} \u2192 m \u03b1 \u2192 (\u03b1 \u2192 m \u03b2) \u2192 m \u03b2\nexport Bind (bind)\n  pure {\u03b1 : Type u} : \u03b1 \u2192 f \u03b1\nexport Pure (pure)\nclass Functor (f : Type u \u2192 Type v) : Type (max (u+1) v) where\n  mapConst : {\u03b1 \u03b2 : Type u} \u2192 \u03b1 \u2192 f \u03b2 \u2192 f \u03b1 := Function.comp map (Function.const _)\n  seq : {\u03b1 \u03b2 : Type u} \u2192 f (\u03b1 \u2192 \u03b2) \u2192 (Unit \u2192 f \u03b1) \u2192 f \u03b2\n  seqLeft : {\u03b1 \u03b2 : Type u} \u2192 f \u03b1 \u2192 (Unit \u2192 f \u03b2) \u2192 f \u03b1\n  seqRight : {\u03b1 \u03b2 : Type u} \u2192 f \u03b1 \u2192 (Unit \u2192 f \u03b2) \u2192 f \u03b2\nclass Applicative (f : Type u \u2192 Type v) extends Functor f, Pure f, Seq f, SeqLeft f, SeqRight f where\n  map      := fun x y => Seq.seq (pure x) fun _ => y\n  seqLeft  := fun a b => Seq.seq (Functor.map (Function.const _) a) b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

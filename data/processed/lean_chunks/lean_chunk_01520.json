@@ -1,0 +1,10 @@
+{
+  "content": "theorem Array.sizeOf_lt_of_mem' [DecidableEq \u03b1] [SizeOf \u03b1] {as : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wfOverapplicationIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wfOverapplicationIssue.lean",
+    "definition_name": "Array",
+    "has_proof": false
+  }
+}

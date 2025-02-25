@@ -1,0 +1,9 @@
+{
+  "content": "structure SyntaxGuarded (\u03b1 : Type) where\n  val : \u03b1\nstructure SnapshotBundle (\u03b1 : Type) where\n  old? : Option (SyntaxGuarded (SnapshotTask \u03b1))\n  new  : IO.Promise \u03b1\nstructure SnapshotTree where\n  children : Array (SnapshotTask SnapshotTree)\nderiving Inhabited\nclass ToSnapshotTree (\u03b1 : Type) where\npartial def SnapshotTask.cancelRec [ToSnapshotTree \u03b1] (t : SnapshotTask \u03b1) : BaseIO Unit := do\n  if let some cancelTk := t.cancelTk? then\n    cancelTk.set\n  BaseIO.chainTask (sync := true) t.task fun snap => toSnapshotTree snap |>.children.forM cancelRec\nstructure DynamicSnapshot where\n  tree : Thunk SnapshotTree\ninstance : ToSnapshotTree DynamicSnapshot where\n  toSnapshotTree s := s.tree.get\ndef DynamicSnapshot.toTyped? (\u03b1 : Type) [TypeName \u03b1] (snap : DynamicSnapshot) :\n    Option \u03b1 :=\n  snap.val.get? \u03b1\ninstance : Inhabited DynamicSnapshot where\n  default := .ofTyped { diagnostics := .empty : SnapshotLeaf }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Basic.lean",
+    "definition_name": "SyntaxGuarded"
+  }
+}

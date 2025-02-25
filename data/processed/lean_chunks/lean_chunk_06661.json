@@ -1,0 +1,9 @@
+{
+  "content": "structure InputContext where\n  input    : String\n  fileName : String\n  fileMap  : FileMap\n  deriving Inhabited\nstructure CacheableParserContext where\n  prec               : Nat\n  quotDepth          : Nat := 0\n  suppressInsideQuot : Bool := false\n  savedPos?          : Option String.Pos := none\n  forbiddenTk?       : Option Token := none\n  deriving BEq\nstructure ParserContext extends ParserContextCore where private mk ::\nstructure Error where\n  unexpectedTk : Syntax := .missing\n  unexpected : String := \"\"\n  expected : List String := []\n  deriving Inhabited, BEq\nnamespace Error\nprivate def expectedToString : List String \u2192 String\n  | []       => \"\"\n  | [e]      => e\n  | [e1, e2] => e1 ++ \" or \" ++ e2\n  | e::es    => e ++ \", \" ++ expectedToString es\nprotected def toString (e : Error) : String :=\n  let unexpected := if e.unexpected == \"\" then [] else [e.unexpected]\n  let expected   := if e.expected == [] then [] else\n    let expected := e.expected.toArray.qsort (fun e e' => e < e')",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_name": "InputContext"
+  }
+}

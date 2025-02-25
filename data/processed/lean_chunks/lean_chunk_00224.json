@@ -1,0 +1,9 @@
+{
+  "content": "class Trait (X : Type) where\n  R : Type\nclass One (R : Type) where\n  one : R\nattribute [reducible] Trait.R\ndef add_one {X}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/948.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/948.lean",
+    "definition_name": "Trait"
+  }
+}

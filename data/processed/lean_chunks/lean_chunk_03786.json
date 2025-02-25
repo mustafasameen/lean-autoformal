@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem findRevM?_eq_findM?_reverse\n    [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m Bool) (xs : Array \u03b1) :\n    xs.findRevM? f = xs.reverse.findM? f := by\n  cases xs\n  rw [List.findRevM?_toArray]\n  simp\n@[simp] theorem findSomeRev?_eq_findSome?_reverse (f : \u03b1 \u2192 Option \u03b2) (xs : Array \u03b1) :\n    xs.findSomeRev? f = xs.reverse.findSome? f := by\n  cases xs\n  simp [findSomeRev?, Id.run]\n@[simp] theorem findRev?_eq_find?_reverse (f : \u03b1 \u2192 Bool) (xs : Array \u03b1) :\n    xs.findRev? f = xs.reverse.find? f := by\n  cases xs\n  simp [findRev?, Id.run]\n@[simp] theorem take_size (xs : Array \u03b1) : xs.take xs.size = xs := by\n  cases xs\n  simp\nnamespace List\n@[deprecated setIfInBounds_toArray (since := \"2024-11-24\")] abbrev setD_toArray := @setIfInBounds_toArray\nend List\nnamespace Array\n@[deprecated foldl_toList_eq_flatMap (since := \"2024-10-16\")]\nabbrev foldl_toList_eq_bind := @foldl_toList_eq_flatMap\n@[deprecated foldl_toList_eq_flatMap (since := \"2024-10-16\")]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_ofFn",
+    "has_proof": true
+  }
+}

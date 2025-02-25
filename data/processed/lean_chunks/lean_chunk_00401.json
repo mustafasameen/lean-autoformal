@@ -1,0 +1,10 @@
+{
+  "content": "theorem Fin.strong_induction_on {P : Fin w \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_name": "Fin",
+    "has_proof": false
+  }
+}

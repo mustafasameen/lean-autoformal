@@ -1,0 +1,10 @@
+{
+  "content": "theorem Env.get_init : (Env.init v).get x = v := by rfl\n@[simp] theorem Env.get_set_same {\u03c1 : Env}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/string_simprocs.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/string_simprocs.lean",
+    "definition_name": "Env",
+    "has_proof": true
+  }
+}

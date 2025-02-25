@@ -1,0 +1,9 @@
+{
+  "content": "@[inline] def remoteUrl? (self : Package) : Option String :=\n  if self.remoteUrl.isEmpty then some self.remoteUrl else none\n@[inline] def buildArchiveFile (self : Package) : FilePath :=\n  self.lakeDir / self.buildArchive\n@[inline] def preferReleaseBuild (self : Package) : Bool :=\n  self.config.preferReleaseBuild\n@[inline] def moreGlobalServerArgs (self : Package) : Array String :=\n  self.config.moreGlobalServerArgs\n@[inline] def buildType (self : Package) : BuildType :=\n  self.config.buildType\n@[inline] def dynlibs (self : Package) : TargetArray Dynlib :=\n  self.config.dynlibs\n@[inline] def leanOptions (self : Package) : Array LeanOption :=\n  self.config.leanOptions\n@[inline] def weakLeanArgs (self : Package) : Array String :=\n  self.config.weakLeanArgs\n@[inline] def weakLeancArgs (self : Package) : Array String :=\n  self.config.weakLeancArgs\n@[inline] def weakLinkArgs (self : Package) : Array String :=\n  self.config.weakLinkArgs\n@[inline] def rootDir (self : Package) : FilePath :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_name": "defaultVersionTags"
+  }
+}

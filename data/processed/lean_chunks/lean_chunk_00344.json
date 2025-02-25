@@ -1,0 +1,10 @@
+{
+  "content": "inductive SimpleInd\n| A\n| B\nderiving Hashable\ntheorem \u00abinductive fields have different base hashes\u00bb : \u2200 x, hash x =\nmatch x with\n| SimpleInd.A => 0\n| SimpleInd.B => 1 := \u03bb x => rfl\nmutual\ninductive Foo : Type \u2192 Type\n| A : Int \u2192 (3 = 3) \u2192 String \u2192 Foo Int\n| B : Bar \u2192 Foo String\nderiving Hashable\ninductive Bar\n| C\n| D : Foo String \u2192 Bar\nderiving Hashable\nend\n#eval hash (Foo.A 3 rfl \"bla\")\n#eval hash (Foo.B $ Bar.D $ Foo.B Bar.C)\ninductive ManyConstructors | A | B | C | D | E | F | G | H | I | J | K | L\n| M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z\nderiving Hashable\ntheorem \u00abEach constructor is hashed as a different number to make mixing better\u00bb : \u2200 x, hash x =\nmatch x with\n| ManyConstructors.A => 0\n| ManyConstructors.B => 1\n| ManyConstructors.C => 2\n| ManyConstructors.D => 3\n| ManyConstructors.E => 4\n| ManyConstructors.F => 5\n| ManyConstructors.G => 6\n| ManyConstructors.H => 7\n| ManyConstructors.I => 8\n| ManyConstructors.J => 9\n| ManyConstructors.K => 10",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/hashable.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/hashable.lean",
+    "definition_name": "SimpleInd",
+    "has_proof": false
+  }
+}

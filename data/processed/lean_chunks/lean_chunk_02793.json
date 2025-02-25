@@ -1,0 +1,10 @@
+{
+  "content": "export Min (min)\nclass Trans (r : \u03b1 \u2192 \u03b2 \u2192 Sort u) (s : \u03b2 \u2192 \u03b3 \u2192 Sort v) (t : outParam (\u03b1 \u2192 \u03b3 \u2192 Sort w)) where\nclass HAdd (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hAdd : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass HSub (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hSub : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass HMul (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hMul : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass HDiv (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hDiv : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass HMod (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hMod : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass HPow (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hPow : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass HAppend (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hAppend : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass HOrElse (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hOrElse : \u03b1 \u2192 (Unit \u2192 \u03b2) \u2192 \u03b3\nclass HAndThen (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hAndThen : \u03b1 \u2192 (Unit \u2192 \u03b2) \u2192 \u03b3\n  hAnd : \u03b1 \u2192 \u03b2 \u2192 \u03b3\n  hXor : \u03b1 \u2192 \u03b2 \u2192 \u03b3\n  hOr : \u03b1 \u2192 \u03b2 \u2192 \u03b3",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

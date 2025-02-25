@@ -1,0 +1,9 @@
+{
+  "content": "class magma (\u03b1) where op : \u03b1 \u2192 \u03b1 \u2192 \u03b1\ninfix:70 \" \u22c6 \" => magma.op (self := inferInstance)\nclass leftIdMagma (\u03b1) extends magma \u03b1 where\n  identity : \u03b1\n  id_op (a : \u03b1) : identity \u22c6 a = a := by intros; rfl\nclass rightIdMagma (\u03b1) extends magma \u03b1 where\n  identity : \u03b1\n  op_id (a : \u03b1) : a \u22c6 identity = a := by intros; rfl\nclass semigroup (\u03b1) extends magma \u03b1 where\n  assoc (a b c : \u03b1) : (a \u22c6 b) \u22c6 c = a \u22c6 (b \u22c6 c) := by intros; rfl\nclass idMagma (\u03b1) extends leftIdMagma \u03b1, rightIdMagma \u03b1\nclass monoid (\u03b1) extends idMagma \u03b1, semigroup \u03b1\ndef magmaMonoid : leftIdMagma (base \u2192 base) := {\n  op := Function.comp\n  identity := id\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1158.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1158.lean",
+    "definition_name": "magma"
+  }
+}

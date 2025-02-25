@@ -1,0 +1,10 @@
+{
+  "content": "theorem flatten_replicate_nil : (replicate n ([] : List \u03b1)).flatten = [] := by\n  induction n <;> simp_all [replicate_succ]\n@[simp] theorem flatten_replicate_singleton : (replicate n [a]).flatten = replicate n a := by\n  induction n <;> simp_all [replicate_succ]\n@[simp] theorem flatten_replicate_replicate : (replicate n (replicate m a)).flatten = replicate (n * m) a := by\n  induction n with\n  | zero => simp\n  | succ n ih =>\n    simp only [replicate_succ, flatten_cons, ih, replicate_append_replicate, replicate_inj, or_true,\n      and_true, add_one_mul, Nat.add_comm]\ntheorem flatMap_replicate {\u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "flatten_replicate_nil",
+    "has_proof": true
+  }
+}

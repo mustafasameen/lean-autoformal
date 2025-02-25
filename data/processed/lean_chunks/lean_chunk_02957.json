@@ -1,0 +1,9 @@
+{
+  "content": "| .ident info rawVal val preresolved, .ident info' rawVal' val' preresolved' =>\n    info == info' && rawVal == rawVal' && val == val' && preresolved == preresolved'\n  | _, _ => false\npartial def hasIdent (id : Name) : Syntax \u2192 Bool\n  | ident _ _ id' _ => id == id'\n  | node _ _ args   => args.any (hasIdent id)\n  | _               => false\n@[inline] def modifyArgs (stx : Syntax) (fn : Array Syntax \u2192 Array Syntax) : Syntax :=\n  match stx with\n  | node i k args => node i k (fn args)\n  | stx           => stx\n@[inline] def modifyArg (stx : Syntax) (i : Nat) (fn : Syntax \u2192 Syntax) : Syntax :=\n  match stx with\n  | node info k args => node info k (args.modify i fn)\n  | stx              => stx\n@[specialize] partial def replaceM {m : Type \u2192 Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "BEq"
+  }
+}

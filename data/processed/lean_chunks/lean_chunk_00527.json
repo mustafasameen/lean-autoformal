@@ -1,0 +1,9 @@
+{
+  "content": "def one := 1\nexample : True \u2227 False := by\n  constructor\n  \u00b7 constructor\nexample : Nat := Id.run do (\u2190 1)\n#check (\u00b7 + \u00b7)\ndef my_intro : Nat := 1\nexample : \u03b1 \u2192 \u03b1 := by my_intro _",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/hover.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/hover.lean",
+    "definition_name": "one"
+  }
+}

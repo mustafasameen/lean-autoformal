@@ -1,0 +1,9 @@
+{
+  "content": "def after := PlainDateTime.ofTimestampAssumingUTC \u27e81724859639, \u27e8907641224, by decide\u27e9, by decide\u27e9\ndef duration := after - now\n#guard_msgs in\n#eval now.format \"HH:mm:ss.SSSSSSSSS\"\n#guard_msgs in\n#eval after.format \"HH.mm:ss.SSSSSSSSS\"\n#guard_msgs in\n#eval duration",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeClassOperations.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeClassOperations.lean",
+    "definition_name": "date"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "structure Equiv (\u03b1 : Sort _) (\u03b2 : Sort _) where\n  protected toFun : \u03b1 \u2192 \u03b2\n  protected invFun : \u03b2 \u2192 \u03b1\ninfixl:25 \" \u2243 \" => Equiv\nnamespace Equiv\nprotected def symm (e : \u03b1 \u2243 \u03b2) : \u03b2 \u2243 \u03b1 := \u27e8e.invFun, e.toFun\u27e9\ndef sigmaEquivProd (\u03b1 \u03b2 : Type _) : (\u03a3 _ : \u03b1, \u03b2) \u2243 \u03b1 \u00d7 \u03b2 :=\n  \u27e8fun a => \u27e8a.1, a.2\u27e9, fun a => \u27e8a.1, a.2\u27e9\u27e9\nend Equiv\nend Mathlib.Logic.Equiv.Defs\nsection Mathlib.Data.Nat.Pairing\nnamespace Nat\ndef pair (a b : Nat) : Nat :=\n  if a < b then b * b + a else a * a + a + b\ndef unpair (n : Nat) : Nat \u00d7 Nat :=\n  let s := sqrt n\n  if n - s * s < s then (n - s * s, s) else (s, n - s * s - s)\ntheorem unpair_right_le (n : Nat) : (unpair n).2 \u2264 n := sorry\nend Nat\nend Mathlib.Data.Nat.Pairing\nsection Mathlib.Logic.Encodable.Basic\nopen Nat\nclass Encodable (\u03b1 : Type _) where\n  encode : \u03b1 \u2192 Nat\n  decode : Nat \u2192 Option \u03b1\n  encodek : \u2200 a, decode (encode a) = some a\nnamespace Encodable\ndef ofLeftInjection [Encodable \u03b1] (f : \u03b2 \u2192 \u03b1) (finv : \u03b1 \u2192 Option \u03b2)\n    (linv : \u2200 b, finv (f b) = some b) : Encodable \u03b2 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_name": "Equiv",
+    "has_proof": false
+  }
+}

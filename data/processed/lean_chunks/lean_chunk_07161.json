@@ -1,0 +1,9 @@
+{
+  "content": "let alts \u2190 c.alts.mapMonoM fun alt => return alt.updateCode (\u2190 reduce alt.getCode)\n    return code.updateAlts! alts\n  | .unreach .. | .jmp .. | .return .. => return code\nend ReduceArity\nopen FindUsed ReduceArity Internalize\ndef Decl.reduceArity (decl : Decl) : CompilerM (Array Decl) := do\n  match decl.value with\n  | .code code =>\n    let used \u2190 collectUsedParams decl\n    if used.size == decl.params.size then\nreturn #[decl]\n    else\n      trace[Compiler.reduceArity] \"{decl.name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ReduceArity.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ReduceArity.lean",
+    "definition_name": "Context"
+  }
+}

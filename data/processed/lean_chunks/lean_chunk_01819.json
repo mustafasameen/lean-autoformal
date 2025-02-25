@@ -1,0 +1,10 @@
+{
+  "content": "inductive Foo (f: Fin n): Nat \u2192 Prop\n| mk: Foo f f.val\ntheorem foo {f: Fin n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1253.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1253.lean",
+    "definition_name": "Foo",
+    "has_proof": false
+  }
+}

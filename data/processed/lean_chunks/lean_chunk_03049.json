@@ -1,0 +1,9 @@
+{
+  "content": "@[match_pattern] def mkApp3 (f a b c : Expr) := mkApp (mkAppB f a b) c\n@[match_pattern] def mkApp4 (f a b c d : Expr) := mkAppB (mkAppB f a b) c d\n@[match_pattern] def mkApp5 (f a b c d e : Expr) := mkApp (mkApp4 f a b c d) e\n@[match_pattern] def mkApp6 (f a b c d e\u2081 e\u2082 : Expr) := mkAppB (mkApp4 f a b c d) e\u2081 e\u2082\n@[match_pattern] def mkApp7 (f a b c d e\u2081 e\u2082 e\u2083 : Expr) := mkApp3 (mkApp4 f a b c d) e\u2081 e\u2082 e\u2083\n@[match_pattern] def mkApp8 (f a b c d e\u2081 e\u2082 e\u2083 e\u2084 : Expr) := mkApp4 (mkApp4 f a b c d) e\u2081 e\u2082 e\u2083 e\u2084\n@[match_pattern] def mkApp9 (f a b c d e\u2081 e\u2082 e\u2083 e\u2084 e\u2085 : Expr) := mkApp5 (mkApp4 f a b c d) e\u2081 e\u2082 e\u2083 e\u2084 e\u2085\n@[match_pattern] def mkApp10 (f a b c d e\u2081 e\u2082 e\u2083 e\u2084 e\u2085 e\u2086 : Expr) := mkApp6 (mkApp4 f a b c d) e\u2081 e\u2082 e\u2083 e\u2084 e\u2085 e\u2086\ndef mkLit (l : Literal) : Expr :=\n  .lit l\ndef mkRawNatLit (n : Nat) : Expr :=\n  mkLit (.natVal n)\ndef mkNatLit (n : Nat) : Expr :=\n  let r := mkRawNatLit n\n  mkApp3 (mkConst ``OfNat.ofNat [levelZero]) (mkConst ``Nat) r (mkApp (mkConst ``instOfNatNat) r)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

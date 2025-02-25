@@ -1,0 +1,9 @@
+{
+  "content": "class IntCast (R : Type u) where\n@[coe, reducible, match_pattern] protected def Int.cast {R : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_name": "IntCast"
+  }
+}

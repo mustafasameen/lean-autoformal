@@ -1,0 +1,10 @@
+{
+  "content": "theorem getLast?_singleton (a : \u03b1) : getLast? [a] = a := rfl\ntheorem getLast?_eq_getLast : \u2200 l h, @getLast? \u03b1 l = some (getLast l h)\n  | [], h => nomatch h rfl\n  | _ :: _, _ => rfl\ntheorem getLast?_eq_getElem? : \u2200 (l : List \u03b1), getLast? l = l[l.length - 1]?\n  | [] => rfl\n  | a::l => by\n    rw [getLast?_eq_getLast (a::l) nofun, getLast_eq_getElem, getElem?_eq_getElem]\ntheorem getLast_eq_iff_getLast?_eq_some {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "getLast",
+    "has_proof": true
+  }
+}

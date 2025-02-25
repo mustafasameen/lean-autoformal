@@ -1,0 +1,9 @@
+{
+  "content": "u.substParams (getParamSubst paramNames vs)\ndef geq (u v : Level) : Bool :=\n  go u.normalize v.normalize\nwhere\n  go (u v : Level) : Bool :=\n    u == v ||\n    let k := fun () =>\n      match v with\n      | imax v\u2081 v\u2082 => go u v\u2081 && go u v\u2082\n      | _          =>\n        let v' := v.getLevelOffset\n        (u.getLevelOffset == v' || v'.isZero)\n        && u.getOffset \u2265 v.getOffset\n    match u, v with\n    | _,          zero      => true\n    | u,          max v\u2081 v\u2082 => go u v\u2081 && go u v\u2082\n    | max u\u2081 u\u2082,  v         => go u\u2081 v || go u\u2082 v || k ()\n    | imax _  u\u2082, v         => go u\u2082 v\n    | succ u,     succ v    => go u v\n    | _,          _         => k ()\n  termination_by (u, v)\nend Level\nabbrev LevelMap (\u03b1 : Type)  := Std.HashMap Level \u03b1\nabbrev PersistentLevelMap (\u03b1 : Type) := PHashMap Level \u03b1\nabbrev LevelSet := Std.HashSet Level\nabbrev PersistentLevelSet := PHashSet Level\nabbrev PLevelSet := PersistentLevelSet\ndef Level.collectMVars (u : Level) (s : LMVarIdSet := {}) : LMVarIdSet :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

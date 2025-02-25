@@ -1,0 +1,9 @@
+{
+  "content": "class LawfulVecOperator (\u03b1 : Type) [Hashable \u03b1] [DecidableEq \u03b1]\n    (\u03b2 : AIG \u03b1 \u2192 Nat \u2192 Type) (f : {len : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulVecOperator.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulVecOperator.lean",
+    "definition_name": "LawfulVecOperator"
+  }
+}

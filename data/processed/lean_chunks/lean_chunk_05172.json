@@ -1,0 +1,10 @@
+{
+  "content": "theorem IsInfix.sublist : l\u2081 <:+: l\u2082 \u2192 l\u2081 <+ l\u2082\n  | \u27e8_, _, h\u27e9 => h \u25b8 (sublist_append_right ..).trans (sublist_append_left ..)\nprotected theorem IsInfix.subset (hl : l\u2081 <:+: l\u2082) : l\u2081 \u2286 l\u2082 :=\n  hl.sublist.subset\nprotected theorem IsPrefix.sublist (h : l\u2081 <+: l\u2082) : l\u2081 <+ l\u2082 :=\n  h.isInfix.sublist\nprotected theorem IsPrefix.subset (hl : l\u2081 <+: l\u2082) : l\u2081 \u2286 l\u2082 :=\n  hl.sublist.subset\nprotected theorem IsSuffix.sublist (h : l\u2081 <:+ l\u2082) : l\u2081 <+ l\u2082 :=\n  h.isInfix.sublist\nprotected theorem IsSuffix.subset (hl : l\u2081 <:+ l\u2082) : l\u2081 \u2286 l\u2082 :=\n  hl.sublist.subset\n@[simp] theorem infix_nil : l <:+: [] \u2194 l = [] := \u27e8(sublist_nil.1 \u00b7.sublist), (\u00b7 \u25b8 infix_rfl)\u27e9\n@[simp] theorem prefix_nil : l <+: [] \u2194 l = [] := \u27e8(sublist_nil.1 \u00b7.sublist), (\u00b7 \u25b8 prefix_rfl)\u27e9\n@[simp] theorem suffix_nil : l <:+ [] \u2194 l = [] := \u27e8(sublist_nil.1 \u00b7.sublist), (\u00b7 \u25b8 suffix_rfl)\u27e9\ntheorem eq_nil_of_infix_nil (h : l <:+: []) : l = [] := infix_nil.mp h\ntheorem eq_nil_of_prefix_nil (h : l <+: []) : l = [] := prefix_nil.mp h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "IsInfix",
+    "has_proof": false
+  }
+}

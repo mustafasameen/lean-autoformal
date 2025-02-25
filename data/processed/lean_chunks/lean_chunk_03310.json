@@ -1,0 +1,9 @@
+{
+  "content": "inductive Expr\n  | var (x : Nat)\n  | op (lhs rhs : Expr)\n  deriving Inhabited, Repr, BEq\nopen Std\nstructure Variable {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_name": "Expr"
+  }
+}

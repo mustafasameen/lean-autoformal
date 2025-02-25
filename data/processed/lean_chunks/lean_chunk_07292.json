@@ -1,0 +1,9 @@
+{
+  "content": "instance : Inhabited Duration where\n  default := \u27e80, Bounded.LE.mk 0 (by decide), by decide\u27e9\ninstance : OfNat Duration n where\n  ofNat := by\n    refine \u27e8.ofInt n, \u27e80, by decide\u27e9, ?_\u27e9\n    simp <;> exact Int.le_total n 0 |>.symm\nnamespace Duration\n@[inline]\nprotected def neg (duration : Duration) : Duration := by\n  refine \u27e8-duration.second, duration.nano.neg, ?_\u27e9\n  cases duration.proof with\n  | inl n => exact Or.inr (n.imp Int.neg_le_neg Int.neg_le_neg)\n  | inr n => exact Or.inl (n.imp Int.neg_le_neg Int.neg_le_neg)\n@[inline]\ndef ofSeconds (s : Second.Offset) : Duration := by\n  refine \u27e8s, \u27e80, by decide\u27e9, ?_\u27e9\n  simp <;> exact Int.le_total s.val 0 |>.symm\ndef ofNanoseconds (s : Nanosecond.Offset) : Duration := by\n  refine \u27e8s.tdiv 1000000000, Bounded.LE.byMod s.val 1000000000 (by decide), ?_\u27e9\n  cases Int.le_total s.val 0\n  next n => exact Or.inr (And.intro (tdiv_neg n (by decide)) (mod_nonpos 1000000000 n (by decide)))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Duration.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Duration.lean",
+    "definition_name": "Duration"
+  }
+}

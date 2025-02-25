@@ -1,0 +1,9 @@
+{
+  "content": "|| info.name == ``UInt32.ofNat || info.name == ``UInt32.decEq\n       || info.name == ``UInt64.ofNat || info.name == ``UInt64.decEq\n       || info.name == ``HMod.hMod || info.name == ``Mod.mod\nprivate def whnfMatcher (e : Expr) : MetaM Expr := do\n  if (\u2190 getTransparency) matches .instances | .reducible then\n    withTransparency .instances <| withCanUnfoldPred canUnfoldAtMatcher do\n      whnf e\n  else\n    whnf e\ndef reduceMatcher? (e : Expr) : MetaM ReduceMatcherResult := do\n  let .const declName declLevels := e.getAppFn\n    | return .notMatcher\n  let some info \u2190 getMatcherInfo? declName\n    | return .notMatcher\n  let args := e.getAppArgs\n  let prefixSz := info.numParams + 1 + info.numDiscrs\n  if args.size < prefixSz + info.numAlts then\n    return ReduceMatcherResult.partialApp\n  let constInfo \u2190 getConstInfo declName\n  let mut f \u2190 instantiateValueLevelParams constInfo declLevels\n  if (\u2190 getTransparency) matches .instances | .reducible then\n    f \u2190 unfoldNestedDIte f",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

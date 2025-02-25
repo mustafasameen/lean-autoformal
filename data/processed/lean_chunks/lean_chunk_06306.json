@@ -1,0 +1,9 @@
+{
+  "content": "structure StructParentView where\n  ref        : Syntax\n  name?      : Option Name\nstructure StructFieldView where\n  ref        : Syntax\n  modifiers  : Modifiers\n  binderInfo : BinderInfo\n  declName   : Name\n  name       : Name\n  rawName    : Name\n  binders    : Syntax\n  type?      : Option Syntax\n  value?     : Option Syntax\nstructure StructView extends InductiveView where\n  parents : Array StructParentView\n  fields  : Array StructFieldView\n  deriving Inhabited\ndef StructView.ctor (view : StructView) : CtorView :=\n  view.ctors[0]!\nstructure StructParentInfo where\n  ref         : Syntax\n  fvar?       : Option Expr\n  structName  : Name\n  declName    : Name\ninductive StructFieldKind where\n  | newField\n  | copiedField\n  | fromSubobject\nstructure StructFieldInfo where\n  ref      : Syntax\n  name     : Name\n  kind     : StructFieldKind\n  declName : Name\n  fvar     : Expr\n  value? : Option Expr := none\n  deriving Inhabited, Repr",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "StructParentView"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "(htrue : \u27e6aig, trueRef, assign\u27e7 = true)\n      :\n    \u2200 (idx : Nat) (hidx : idx < w),\n      \u27e6\n        (blastDivSubtractShift aig falseRef trueRef n d wn wr q r).aig,\n        (blastDivSubtractShift aig falseRef trueRef n d wn wr q r).q.get idx hidx,\n        assign\n      \u27e7\n        =\n      (BitVec.divSubtractShift { n := lhs, d := rhs }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_name": "denote_blastShiftConcat",
+    "has_proof": true
+  }
+}

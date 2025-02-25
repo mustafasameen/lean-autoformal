@@ -1,0 +1,10 @@
+{
+  "content": "apply Nat.le_refl\ntheorem div_mul_le_self : \u2200 (m n : Nat), m / n * n \u2264 m\n  | m, 0   => by simp\n  | _, _+1 => (le_div_iff_mul_le (Nat.succ_pos _)).1 (Nat.le_refl _)\ntheorem div_lt_iff_lt_mul (Hk : 0 < k) : x / k < y \u2194 x < y * k := by\n  rw [\u2190 Nat.not_le, \u2190 Nat.not_le]; exact not_congr (le_div_iff_mul_le Hk)\ntheorem pos_of_div_pos {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "div_one",
+    "has_proof": true
+  }
+}

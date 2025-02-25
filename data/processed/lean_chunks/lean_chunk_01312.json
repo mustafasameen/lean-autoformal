@@ -1,0 +1,9 @@
+{
+  "content": "class Foo (\u03b1 : Type v) where foo : \u03b1\ninstance : Foo Bool := \u27e8true\u27e9\n#testDelab @Foo.foo Bool \u27e8true\u27e9\n  expecting Foo.foo\n#testDelab @Foo.foo Bool \u27e8false\u27e9\n  expecting Foo.foo (self := { foo := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_name": "Foo"
+  }
+}

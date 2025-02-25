@@ -1,0 +1,9 @@
+{
+  "content": "def empty (capacity := 8) : Raw\u2080 \u03b1 \u03b2 :=\n  \u27e8\u27e80, mkArray (numBucketsForCapacity capacity).nextPowerOfTwo AssocList.nil\u27e9,\n    by simpa using Nat.pos_of_isPowerOfTwo (Nat.isPowerOfTwo_nextPowerOfTwo _)\u27e9\ndef expand [Hashable \u03b1] (data : { d : Array (AssocList \u03b1 \u03b2) // 0 < d.size }) :\n    { d : Array (AssocList \u03b1 \u03b2) // 0 < d.size } :=\n  let \u27e8data, hd\u27e9 := data\n  let nbuckets := data.size * 2\n  go 0 data \u27e8mkArray nbuckets AssocList.nil, by simpa [nbuckets] using Nat.mul_pos hd Nat.two_pos\u27e9\nwhere\n  go (i : Nat) (source : Array (AssocList \u03b1 \u03b2))\n      (target : { d : Array (AssocList \u03b1 \u03b2) // 0 < d.size }) :\n      { d : Array (AssocList \u03b1 \u03b2) // 0 < d.size } :=\n    if h : i < source.size then\n      let es := source[i]\n      let source := source.set i .nil\n      let target := es.foldl (reinsertAux hash) target\n      go (i+1) source target\n    else target\n  termination_by source.size - i\n@[inline] def insert [BEq \u03b1] [Hashable \u03b1] (m : Raw\u2080 \u03b1 \u03b2) (a : \u03b1) (b : \u03b2 a) : Raw\u2080 \u03b1 \u03b2 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_name": "empty"
+  }
+}

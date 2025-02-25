@@ -1,0 +1,9 @@
+{
+  "content": "def erasedExpr := mkConst ``lcErased\ndef anyExpr := mkConst ``lcAny\ndef _root_.Lean.Expr.isErased (e : Expr) :=\n  e.isAppOf ``lcErased\ndef isPropFormerTypeQuick : Expr \u2192 Bool\n  | .forallE _ _ b _ => isPropFormerTypeQuick b\n  | .sort .zero => true\n  | _ => false\npartial def isPropFormerType (type : Expr) : MetaM Bool := do\n  match isPropFormerTypeQuick type with\n  | true => return true\n  | false => go type #[]\nwhere\n  go (type : Expr) (xs : Array Expr) : MetaM Bool := do\n    match type with\n    | .sort .zero => return true\n    | .forallE n d b c => Meta.withLocalDecl n c (d.instantiateRev xs) fun x => go b (xs.push x)\n    | _ =>\n      let type \u2190 Meta.whnfD (type.instantiateRev xs)\n      match type with\n      | .sort .zero => return true\n      | .forallE .. => go type #[]\n      | _ => return false\ndef isPropFormer (e : Expr) : MetaM Bool := do\n  isPropFormerType (\u2190 Meta.inferType e)\nopen Meta in\npartial def toLCNFType (type : Expr) : MetaM Expr := do\n  if (\u2190 isProp type) then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_name": "erasedExpr"
+  }
+}

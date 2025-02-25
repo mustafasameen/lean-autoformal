@@ -1,0 +1,10 @@
+{
+  "content": "| _,    _,        _        => none\n@[simp, grind =] def UnaryOp.eval : UnaryOp \u2192 Val \u2192 Option Val\n  | .not, .bool b => some (.bool !b)\n  | _,    _       => none\ninductive Stmt where\n  | skip\n  | assign (x : Var) (e : Expr)\n  | seq    (s\u2081 s\u2082 : Stmt)\n  | ite    (c : Expr) (e t : Stmt)\n  | while  (c : Expr) (b : Stmt)\ninfix:150 \" ::= \" => Stmt.assign\ninfixr:130 \";; \"   => Stmt.seq\nabbrev State := List (Var \u00d7 Val)\n@[simp] def State.update (\u03c3 : State) (x : Var) (v : Val) : State :=\n  match \u03c3 with\n  | [] => [(x, v)]\n  | (y, w)::\u03c3 => if x = y then (x, v)::\u03c3 else (y, w) :: update \u03c3 x v\n@[simp] def State.find? (\u03c3 : State) (x : Var) : Option Val :=\n  match \u03c3 with\n  | [] => none\n  | (y, v) :: \u03c3 => if x = y then some v else find? \u03c3 x\ndef State.get (\u03c3 : State) (x : Var) : Val :=\n  \u03c3.find? x |>.getD (.int 0)\n@[simp] def State.erase (\u03c3 : State) (x : Var) : State :=\n  match \u03c3 with\n  | [] => []\n  | (y, v) :: \u03c3 => if x = y then erase \u03c3 x else (y, v) :: erase \u03c3 x\nsection",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_constProp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_constProp.lean",
+    "definition_name": "Val",
+    "has_proof": true
+  }
+}

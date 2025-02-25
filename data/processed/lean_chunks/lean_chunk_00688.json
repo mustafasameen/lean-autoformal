@@ -1,0 +1,9 @@
+{
+  "content": "instance instFunLike : FunLike (M \u2192\u2097[R] M\u2083) M M\u2083 where\n  coe f := f.toFun\nend\nsection\nvariable [AddCommMonoid M] [AddCommMonoid M\u2081] [AddCommMonoid M\u2082] [AddCommMonoid M\u2083]\nvariable {module_M\u2081 : SMul R M\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "instFunLike"
+  }
+}

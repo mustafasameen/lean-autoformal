@@ -1,0 +1,10 @@
+{
+  "content": "scoped instance : BEq MyType where\n        beq _ _ := true\n      def Alias := MyType\n    end N1\n  end Demo\n  open scoped Demo.N1\n  #check Demo.MyType.val == Demo.MyType.val\n  #check Demo.MyType.val \u224b Demo.MyType.val\nend\n```\n-/\n@[builtin_command_parser] def \u00abopen\u00bb    := leading_parser\n  withPosition (\"open\" >> openDecl)\n@[builtin_command_parser] def \u00abmutual\u00bb := leading_parser\n  \"mutual\" >> many1 (ppLine >> notSymbol \"end\" >> commandParser) >>\n  ppDedent (ppLine >> \"end\")\ndef initializeKeyword := leading_parser\n  \"initialize \" <|> \"builtin_initialize \"\n@[builtin_command_parser] def \u00abinitialize\u00bb := leading_parser\n  declModifiers false >> initializeKeyword >>\n  optional (atomic (ident >> Term.typeSpec >> ppSpace >> Term.leftArrow)) >> Term.doSeq\n@[builtin_command_parser] def \u00abin\u00bb  := trailing_parser\n  withOpen (ppDedent (\" in \" >> commandParser))\nadd_decl_doc oldDeclaration\n```\nThis is useful for auto-generated declarations",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

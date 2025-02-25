@@ -1,0 +1,9 @@
+{
+  "content": "structure CancelToken where\n  private ref : IO.Ref Bool\nderiving Nonempty\nnamespace CancelToken\ndef set (tk : CancelToken) : BaseIO Unit :=\n  tk.ref.set true\ndef withIsolatedStreams [Monad m] [MonadFinally m] [MonadLiftT BaseIO m] (x : m \u03b1)\n    (isolateStderr := true) : m (String \u00d7 \u03b1) := do\n  let bIn \u2190 mkRef { : Stream.Buffer }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "CancelToken"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def expandBinderIdent (stx : Syntax) : MacroM Ident :=\n  match stx with\n  | `(_) => (\u27e8\u00b7\u27e9) <$> Elab.Term.mkFreshIdent stx\n  | _    => pure \u27e8stx\u27e9\ndef expandOptIdent (stx : Syntax) : BinderIdent :=\n  if stx.isNone then mkHoleFrom stx else \u27e8stx[0]\u27e9\ndef expandBinderType (ref : Syntax) (stx : Syntax) : Term :=\n  if stx.getNumArgs == 0 then mkHoleFrom ref else \u27e8stx[1]\u27e9\ndef expandBinderModifier (optBinderModifier : Syntax) : Option BinderModifier :=\n  if optBinderModifier.isNone then\n    none\n  else\n    some \u27e8optBinderModifier[0]\u27e9\ndef matchBinder (stx : Syntax) : MacroM (Array BinderSyntaxView) := do\n  let k := stx.getKind\n  if stx.isIdent || k == ``Term.hole then\n    return #[{ id := (\u2190 expandBinderIdent stx), type := mkHoleFrom stx, info := .default }]\n  else if k == ``Lean.Parser.Term.explicitBinder then\n    let ids \u2190 getBinderIds stx[1]\n    let type := stx[2]\n    let modifier? := expandBinderModifier stx[3]\n    ids.mapM fun id => return {\n      id := \u2190 expandBinderIdent id,",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_name": "binder"
+  }
+}

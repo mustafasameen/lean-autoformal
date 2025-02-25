@@ -1,0 +1,9 @@
+{
+  "content": "inductive S where\n  | B\n  | I\nopen S\ninductive Expr : S \u2192 Type where\n  | lit : Int \u2192 Expr I\n  | eq {s : S}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/282.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/282.lean",
+    "definition_name": "S"
+  }
+}

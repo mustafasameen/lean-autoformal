@@ -1,0 +1,10 @@
+{
+  "content": "theorem _root_.isEven_of_isOdd (x : Nat) : isEven (x+1) = isOdd x := by simp [isEven]\n@[scoped simp] theorem _root_.isOdd_of_isEven (x : Nat) : isOdd (x+1) = isEven x := by simp [isOdd]\nexample : isEven (x+1+1) = isEven x := by simp\nend Ex\nexample : isEven (x+1+1) = isEven x := by simp (config := { failIfUnchanged := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/root.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/root.lean",
+    "definition_name": "_root_",
+    "has_proof": true
+  }
+}

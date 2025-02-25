@@ -1,0 +1,9 @@
+{
+  "content": "modifyAssignment (\u00b7.insert var updatedVal)\ndef resetVarAssignment (var : FVarId) : InterpM Unit := do\n  modifyAssignment (\u00b7.insert var .bot)\ndef updateCurrFnSummary (v : Value) : InterpM Unit := do\n  let ctx \u2190 read\n  let env \u2190 getEnv\n  let currFnIdx := ctx.currFnIdx\n  modify fun s => { s with funVals := s.funVals.modify currFnIdx (fun v' => .widening env v v') }\ndef updateFunDeclParamsAssignment (params : Array Param) (args : Array Arg) : InterpM Bool := do\n  let mut ret := false\n  for param in params, arg in args do\n    let paramVal \u2190 findVarValue param.fvarId\n    let argVal \u2190 findArgValue arg\n    let newVal := .merge paramVal argVal\n    if newVal != paramVal then\n      modifyAssignment (\u00b7.insert param.fvarId newVal)\n      ret := true\n  if params.size != args.size then\n    for param in params[args.size:] do\n      ret := (\u2190 findVarValue param.fvarId) == .bot\n      updateVarAssignment param.fvarId .top\n  return ret\nprivate partial def resetNestedFunDeclParams : Code \u2192 InterpM Unit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

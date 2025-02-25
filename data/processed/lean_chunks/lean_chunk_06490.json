@@ -1,0 +1,10 @@
+{
+  "content": "theorem body' linter\"\n}\nregister_builtin_option debug.proofAsSorry : Bool := {\n  defValue := false\n  group    := \"debug\"\n  descr    := \"replace the bodies (proofs) of theorems with `sorry`\"\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualDef.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualDef.lean",
+    "definition_name": "body",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure MacroExpandedSnapshot extends Snapshot where\n  newStx    : Syntax\n  hasTraces : Bool\n  next : Array (SnapshotTask DynamicSnapshot)\nderiving TypeName\nopen Language in\ninstance : ToSnapshotTree MacroExpandedSnapshot where\n  toSnapshotTree s := \u27e8s.toSnapshot, s.next.map (\u00b7.map (sync := true) toSnapshotTree)\u27e9\npartial def elabCommand (stx : Syntax) : CommandElabM Unit := do\n  withLogging <| withRef stx <| withIncRecDepth <| withFreshMacroScope do\n    match stx with\n    | Syntax.node _ k args =>\n      if k == nullKind then\n        withoutCommandIncrementality true do\n          args.forM elabCommand\n      else withTraceNode `Elab.command (fun _ => return stx) (tag :=\n        (if stx.isOfKind ``Parser.Command.declaration then stx[1] else stx).getKind.toString) do\n        let s \u2190 get\n        match (\u2190 liftMacroM <| expandMacroImpl? s.env stx) with\n        | some (decl, stxNew?) =>\n          withInfoTreeContext (mkInfoTree := mkInfoTree decl stx) do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Command.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Command.lean",
+    "definition_name": "MacroExpandedSnapshot"
+  }
+}

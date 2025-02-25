@@ -1,0 +1,10 @@
+{
+  "content": "theorem contains_of_isEmpty [TransCmp cmp] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Lemmas.lean",
+    "definition_name": "contains_of_isEmpty",
+    "has_proof": false
+  }
+}

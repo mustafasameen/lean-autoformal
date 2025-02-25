@@ -1,0 +1,9 @@
+{
+  "content": "inductive Vec (\u03b1 : Type u) : Nat \u2192 Type u\n  | nil : Vec \u03b1 0\n  | cons : \u03b1 \u2192 Vec \u03b1 n \u2192 Vec \u03b1 (n+1)\ndef f1 (xs : Vec \u03b1 n) : Nat :=\n  Vec.casesOn xs 0 fun _ _ => 1\n#guard_msgs in\ndef f2 (xs : Vec \u03b1 n) : Nat :=\n  xs.casesOn 0\ndef f3 (x : Nat) : Nat \u2192 (Nat \u2192 Nat) \u2192 Nat :=\n  x.casesOn\n#guard_msgs in\ndef f3' (x : Nat) : (Nat \u2192 Nat) \u2192 Nat \u2192 Nat :=\n  x.casesOn\ndef f4 (xs : List Nat) : xs \u2260 [] \u2192 xs.length > 0 :=\n  xs.casesOn (by intros; contradiction) (by intros; simp +arith)\ndef f5 (xs : List Nat) (h : xs \u2260 []) : xs.length > 0 :=\n  xs.casesOn (by intros; contradiction) (by intros; simp +arith) h\ndef f6 (x : Nat) :=\n  2 * x.casesOn 0 id\nexample : f6 (x+1) = 2*x := rfl\n@[elab_as_elim]\ndef Foo.induction {P : (\u03b1 : Type) \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/elabAsElim.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/elabAsElim.lean",
+    "definition_name": "Vec"
+  }
+}

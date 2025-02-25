@@ -1,0 +1,9 @@
+{
+  "content": "inductive Example where\n  | var        : FVarId \u2192 Example\n  | underscore : Example\n  | ctor       : Name \u2192 List Example \u2192 Example\n  | val        : Expr \u2192 Example\n  | arrayLit   : List Example \u2192 Example\nnamespace Example\npartial def replaceFVarId (fvarId : FVarId) (ex : Example) : Example \u2192 Example\n  | var x        => if x == fvarId then ex else var x\n  | ctor n exs   => ctor n $ exs.map (replaceFVarId fvarId ex)\n  | arrayLit exs => arrayLit $ exs.map (replaceFVarId fvarId ex)\n  | ex           => ex\npartial def applyFVarSubst (s : FVarSubst) : Example \u2192 Example\n  | var fvarId =>\n    match s.get fvarId with\n    | Expr.fvar fvarId' => var fvarId'\n    | _                 => underscore\n  | ctor n exs   => ctor n $ exs.map (applyFVarSubst s)\n  | arrayLit exs => arrayLit $ exs.map (applyFVarSubst s)\n  | ex           => ex\npartial def varsToUnderscore : Example \u2192 Example\n  | var _        => underscore\n  | ctor n exs   => ctor n $ exs.map varsToUnderscore",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_name": "Example"
+  }
+}

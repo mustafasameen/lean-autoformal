@@ -1,0 +1,9 @@
+{
+  "content": "instance OneHom.funLike : FunLike (OneHom M N) M N where\n  coe := OneHom.toFun\nvariable [FunLike F M N]\ndef OneHomClass.toOneHom [OneHomClass F M N] (f : F) : OneHom M N where\n  toFun := f\n  map_one' := sorry\ninstance [OneHomClass F M N] : CoeTC F (OneHom M N) :=\n  \u27e8OneHomClass.toOneHom\u27e9\nend One\nsection Zero\nvariable [Zero M] [Zero N]\ninstance ZeroHom.funLike : FunLike (ZeroHom M N) M N where\n  coe := ZeroHom.toFun\nvariable [FunLike F M N]\ndef ZeroHomClass.toZeroHom [ZeroHomClass F M N] (f : F) : ZeroHom M N where\n  toFun := f\n  map_zero' := sorry\ninstance [ZeroHomClass F M N] : CoeTC F (ZeroHom M N) :=\n  \u27e8ZeroHomClass.toZeroHom\u27e9\nend Zero\nsection Mul\nvariable [Mul M] [Mul N]\nstructure MulHom (M : Type _) (N : Type _) [Mul M] [Mul N] where\n  protected toFun : M \u2192 N\n  protected map_mul' : \u2200 x y, toFun (x * y) = toFun x * toFun y\ninfixr:25 \" \u2192\u2099* \" => MulHom\nclass MulHomClass (F : Type _) (M N : outParam (Type _)) [Mul M] [Mul N] [FunLike F M N] : Prop where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "OneHom"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class MulAction (\u03b1 : Type _) (\u03b2 : Type _) [Monoid \u03b1] extends SMul \u03b1 \u03b2 where\nclass IsScalarTower (M N \u03b1 : Type _) [SMul M N] [SMul N \u03b1] [SMul M \u03b1] : Prop where\nsection\nvariable [Monoid M] [MulAction M \u03b1]\ninstance (priority := 910) Monoid.toMulAction : MulAction M M where\n  smul := (\u00b7 * \u00b7)\nend\nclass SMulZeroClass (M A : Type _) [Zero A] extends SMul M A where\nclass DistribSMul (M A : Type _) [AddZeroClass A] extends SMulZeroClass M A where\nclass DistribMulAction (M A : Type _) [Monoid M] [AddMonoid A] extends MulAction M A where\nsection\nvariable [Monoid M] [AddMonoid A] [DistribMulAction M A]\ninstance (priority := 100) DistribMulAction.toDistribSMul : DistribSMul M A :=\n  { \u2039DistribMulAction M A\u203a with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "MulAction"
+  }
+}

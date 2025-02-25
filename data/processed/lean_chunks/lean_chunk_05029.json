@@ -1,0 +1,10 @@
+{
+  "content": "theorem append_cancel_left_eq (as bs cs : List \u03b1) : (as ++ bs = as ++ cs) = (bs = cs) := by\n  apply propext; apply Iff.intro\n  next => apply append_cancel_left\n  next => intro h; simp [h]\n@[simp] theorem append_cancel_right_eq (as bs cs : List \u03b1) : (as ++ bs = cs ++ bs) = (as = cs) := by\n  apply propext; apply Iff.intro\n  next => apply append_cancel_right\n  next => intro h; simp [h]\ntheorem sizeOf_get [SizeOf \u03b1] (as : List \u03b1) (i : Fin as.length) : sizeOf (as.get i) < sizeOf as := by\n  match as, i with\n  | a::as, \u27e80, _\u27e9  => simp +arith [get]\n  | a::as, \u27e8i+1, h\u27e9 =>\n    have ih := sizeOf_get as \u27e8i, Nat.le_of_succ_le_succ h\u27e9\n    apply Nat.lt_trans ih\n    simp +arith\ntheorem not_lex_antisymm [DecidableEq \u03b1] {r : \u03b1 \u2192 \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_name": "append_cancel_left_eq",
+    "has_proof": true
+  }
+}

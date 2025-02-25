@@ -1,0 +1,9 @@
+{
+  "content": "class ToMessageData (\u03b1 : Type) where\n  toMessageData : \u03b1 \u2192 MessageData\nexport ToMessageData (toMessageData)\ndef stringToMessageData (str : String) : MessageData :=\n  let lines := str.split (\u00b7 == '\\n')\n  let lines := lines.map (MessageData.ofFormat \u2218 format)\n  MessageData.joinSep lines (MessageData.ofFormat Format.line)\ninstance [ToFormat \u03b1] : ToMessageData \u03b1 := \u27e8MessageData.ofFormat \u2218 format\u27e9\ninstance : ToMessageData Expr          := \u27e8MessageData.ofExpr\u27e9\ninstance : ToMessageData Level         := \u27e8MessageData.ofLevel\u27e9\ninstance : ToMessageData Name          := \u27e8MessageData.ofName\u27e9\ninstance : ToMessageData String        := \u27e8stringToMessageData\u27e9\ninstance : ToMessageData Syntax        := \u27e8MessageData.ofSyntax\u27e9\ninstance : ToMessageData (TSyntax k)   := \u27e8(MessageData.ofSyntax \u00b7)\u27e9\ninstance : ToMessageData Format        := \u27e8MessageData.ofFormat\u27e9\ninstance : ToMessageData MVarId        := \u27e8MessageData.ofGoal\u27e9\n@[default_instance]\ninstance : ToMessageData MessageData   := \u27e8id\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_name": "ToMessageData"
+  }
+}

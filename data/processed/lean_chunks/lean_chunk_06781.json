@@ -1,0 +1,9 @@
+{
+  "content": "if pos == recursorInfo.firstIndexPos then\n        let (recursor, recursorType) \u2190 indices.foldlM (init := (recursor, recursorType)) fun (recursor, recursorType) index => do\n          let recursor := mkApp recursor index\n          let recursorType \u2190 getTypeBody mvarId recursorType index\n          pure (recursor, recursorType)\n        let recursor := mkApp recursor major\n        let recursorType \u2190 getTypeBody mvarId recursorType major\n        loop (pos+1+indices.size) minorIdx recursor recursorType true subgoals\n      else\n        let tag \u2190 mvarId.getTag\n        if minorIdx \u2265 numMinors then throwTacticEx `induction mvarId \"ill-formed recursor\"\n        match recursorType with\n        | Expr.forallE n d _ c =>\n          let d := d.headBeta\n          if c.isInstImplicit && givenNames.isEmpty then\n            match (\u2190 synthInstance? d) with\n            | some inst =>\n              let recursor := mkApp recursor inst\n              let recursorType \u2190 getTypeBody mvarId recursorType inst",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Induction.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Induction.lean",
+    "definition_name": "AltVarNames"
+  }
+}

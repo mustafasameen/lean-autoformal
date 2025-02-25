@@ -1,0 +1,9 @@
+{
+  "content": "class AddMonoidHomClass (F M N : Type _) [AddZeroClass M] [AddZeroClass N] [FunLike F M N] : Prop\n  extends AddHomClass F M N, ZeroHomClass F M N\nsection One\nvariable [One M] [One N]\nstructure OneHom (M : Type _) (N : Type _) [One M] [One N] where\n  protected toFun : M \u2192 N\n  protected map_one' : toFun 1 = 1\nclass OneHomClass (F : Type _) (M N : outParam (Type _)) [One M] [One N] [FunLike F M N] : Prop where\n  map_one : \u2200 f : F, f 1 = 1\ninstance OneHom.funLike : FunLike (OneHom M N) M N where\n  coe := OneHom.toFun\nvariable [FunLike F M N]\ndef OneHomClass.toOneHom [OneHomClass F M N] (f : F) : OneHom M N where\n  toFun := f\n  map_one' := sorry\ninstance [OneHomClass F M N] : CoeTC F (OneHom M N) :=\n  \u27e8OneHomClass.toOneHom\u27e9\nend One\nsection Zero\nvariable [Zero M] [Zero N]\ninstance ZeroHom.funLike : FunLike (ZeroHom M N) M N where\n  coe := ZeroHom.toFun\nvariable [FunLike F M N]\ndef ZeroHomClass.toZeroHom [ZeroHomClass F M N] (f : F) : ZeroHom M N where\n  toFun := f\n  map_zero' := sorry",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "ZeroHom"
+  }
+}

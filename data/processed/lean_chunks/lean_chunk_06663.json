@@ -1,0 +1,9 @@
+{
+  "content": "structure TokenCacheEntry where\n  startPos : String.Pos := 0\n  stopPos  : String.Pos := 0\n  token    : Syntax := Syntax.missing\nstructure ParserCacheKey extends CacheableParserContext where\n  parserName : Name\n  pos        : String.Pos\n  deriving BEq\ninstance : Hashable ParserCacheKey where\n  hash k := hash (k.pos, k.parserName)\nstructure ParserCacheEntry where\n  stx      : Syntax\n  lhsPrec  : Nat\n  newPos   : String.Pos\n  errorMsg : Option Error\nstructure ParserCache where\n  tokenCache  : TokenCacheEntry\n  parserCache : Std.HashMap ParserCacheKey ParserCacheEntry\ndef initCacheForInput (input : String) : ParserCache where\ntokenCache  := { startPos := input.endPos + ' '\nstructure SyntaxStack where\n  private raw  : Array Syntax\n  private drop : Nat\nnamespace SyntaxStack\ndef toSubarray (stack : SyntaxStack) : Subarray Syntax :=\n  stack.raw.toSubarray stack.drop\ndef empty : SyntaxStack where\n  raw  := #[]\n  drop := 0\ndef size (stack : SyntaxStack) : Nat :=\n  stack.raw.size - stack.drop",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_name": "TokenCacheEntry"
+  }
+}

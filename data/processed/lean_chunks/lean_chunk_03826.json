@@ -1,0 +1,10 @@
+{
+  "content": "rw [\u2190 foldlM_reverse, \u2190 foldlM_toArray, \u2190 Array.filterM, filterM_toArray]\n  simp only [filterM, bind_pure_comp, Functor.map_map, reverse_toArray, reverse_reverse]\n@[simp] theorem filterMapM_toArray' [Monad m] [LawfulMonad m] (l : List \u03b1) (f : \u03b1 \u2192 m (Option \u03b2)) (w : stop = l.length) :\n    l.toArray.filterMapM f 0 stop = toArray <$> l.filterMapM f := by\n  subst w\n  rw [filterMapM_toArray]\n@[simp] theorem flatMapM_toArray [Monad m] [LawfulMonad m] (l : List \u03b1) (f : \u03b1 \u2192 m (Array \u03b2)) :\n    l.toArray.flatMapM f = toArray <$> l.flatMapM (fun a => Array.toList <$> f a) := by\n  simp only [Array.flatMapM, bind_pure_comp, foldlM_toArray, flatMapM]\n  conv => lhs; arg 2; change [].reverse.flatten.toArray\n  generalize [] = acc\n  induction l generalizing acc with\n  | nil => simp only [foldlM_nil, flatMapM.loop, map_pure]\n  | cons x xs ih =>\n    simp only [foldlM_cons, bind_map_left, flatMapM.loop, _root_.map_bind]\n    congr; funext xs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_name": "forM_append",
+    "has_proof": true
+  }
+}

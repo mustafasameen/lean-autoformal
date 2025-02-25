@@ -1,0 +1,9 @@
+{
+  "content": "inductive WellFormed (cmp : \u03b1 \u2192 \u03b1 \u2192 Ordering) : PrefixTreeNode \u03b1 \u03b2 \u2192 Prop where\n  | emptyWff  : WellFormed cmp empty\n  | insertWff : WellFormed cmp t \u2192 WellFormed cmp (insert t cmp k val)\nend PrefixTreeNode\ndef PrefixTree (\u03b1 : Type u) (\u03b2 : Type v) (cmp : \u03b1 \u2192 \u03b1 \u2192 Ordering) : Type (max u v) :=\n  { t : PrefixTreeNode \u03b1 \u03b2 // t.WellFormed cmp }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PrefixTree.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PrefixTree.lean",
+    "definition_name": "WellFormed"
+  }
+}

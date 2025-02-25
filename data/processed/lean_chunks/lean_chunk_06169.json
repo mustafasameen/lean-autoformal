@@ -1,0 +1,9 @@
+{
+  "content": "| throwError m!\"not an atom: {stx}\"\n  pushToken info val false\n  goLeft\n@[combinator_formatter charLitNoAntiquot] def charLitNoAntiquot.formatter := visitAtom charLitKind\n@[combinator_formatter strLitNoAntiquot] def strLitNoAntiquot.formatter := visitAtom strLitKind\n@[combinator_formatter nameLitNoAntiquot] def nameLitNoAntiquot.formatter := visitAtom nameLitKind\n@[combinator_formatter numLitNoAntiquot] def numLitNoAntiquot.formatter := visitAtom numLitKind\n@[combinator_formatter scientificLitNoAntiquot] def scientificLitNoAntiquot.formatter := visitAtom scientificLitKind\n@[combinator_formatter fieldIdx] def fieldIdx.formatter := visitAtom fieldIdxKind\n@[combinator_formatter manyNoAntiquot]\ndef manyNoAntiquot.formatter (p : Formatter) : Formatter := do\n  let stx \u2190 getCur\n  visitArgs $ stx.getArgs.size.forM fun _ _ => p\n@[combinator_formatter many1NoAntiquot] def many1NoAntiquot.formatter (p : Formatter) : Formatter := manyNoAntiquot.formatter p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_name": "nonReservedSymbolNoAntiquot"
+  }
+}

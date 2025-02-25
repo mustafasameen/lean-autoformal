@@ -1,0 +1,9 @@
+{
+  "content": "class ToString (\u03b1 : Type u) where\n  toString : \u03b1 \u2192 String\nexport ToString (toString)\ninstance {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/ToString/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/ToString/Basic.lean",
+    "definition_name": "ToString"
+  }
+}

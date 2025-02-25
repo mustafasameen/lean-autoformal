@@ -1,0 +1,9 @@
+{
+  "content": "if stx.getKind == `Lean.Parser.Attr.simple && stx[1].isNone && stx[2].isNone then\n    return ()\n  else if stx.getKind == `Lean.Parser.Attr.\u00abclass\u00bb then\n    return ()\n  else match stx with\n| Syntax.missing => return ()\n    | _              => throwErrorAt stx \"unexpected attribute argument\"\ndef Attribute.Builtin.getIdent? (stx : Syntax) : AttrM (Option Syntax) := do\n  if stx.getKind == `Lean.Parser.Attr.simple then\n    if !stx[1].isNone && stx[1][0].isIdent then\n      return some stx[1][0]\n    else\n      return none\nstructure TagAttribute where\n  attr : AttributeImpl\n  ext  : PersistentEnvExtension Name Name NameSet\n  deriving Inhabited\ndef registerTagAttribute (name : Name) (descr : String)\n    (validate : Name \u2192 AttrM Unit := fun _ => pure ()) (ref : Name := by exact decl_name%) (applicationTime := AttributeApplicationTime.afterTypeChecking) : IO TagAttribute := do\n  let ext : PersistentEnvExtension Name Name NameSet \u2190 registerPersistentEnvExtension {\n    name            := ref",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_name": "AttributeImplCore"
+  }
+}

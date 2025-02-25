@@ -1,0 +1,9 @@
+{
+  "content": "structure HashMap (\u03b1 : Type u) (\u03b2 : Type v) [BEq \u03b1] [Hashable \u03b1] where\n@[inline] def getThenInsertIfNew? (m : HashMap \u03b1 \u03b2) (a : \u03b1) (b : \u03b2) :\n    Option \u03b2 \u00d7 HashMap \u03b1 \u03b2 :=\n  let \u27e8previous, r\u27e9 := DHashMap.Const.getThenInsertIfNew? m.inner a b\n  \u27e8previous, \u27e8r\u27e9\u27e9\n@[inline] def get? (m : HashMap \u03b1 \u03b2) (a : \u03b1) : Option \u03b2 :=\n  DHashMap.Const.get? m.inner a\n@[deprecated get? \"Use `m[a]?` or `m.get? a` instead\" (since := \"2024-08-07\"), inherit_doc get?]\ndef find? (m : HashMap \u03b1 \u03b2) (a : \u03b1) : Option \u03b2 :=\n  m.get? a\n@[inline, inherit_doc DHashMap.contains] def contains (m : HashMap \u03b1 \u03b2)\n    (a : \u03b1) : Bool :=\n  m.inner.contains a\ninstance [BEq \u03b1] [Hashable \u03b1] : Membership \u03b1 (HashMap \u03b1 \u03b2) where\n  mem m a := a \u2208 m.inner\ninstance [BEq \u03b1] [Hashable \u03b1] {m : HashMap \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Basic.lean",
+    "definition_name": "HashMap"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def bar := barImpl4\nset_option maxHeartbeats 400 in\ndef test (c1 : Cache) (key : Nat) : Nat :=\n  go c1 key\nwhere\n  go (c1 : Cache) (key : Nat) : Nat :=\n    let val : Test := bar c1 key\n    have : val.x = (bar c1 key).x := rfl\n    val.x\n#guard_msgs in\nset_option backward.isDefEq.lazyWhnfCore false in\nset_option maxHeartbeats 400 in\ndef test' (c1 : Cache) (key : Nat) : Nat :=\n  go c1 key\nwhere\n  go (c1 : Cache) (key : Nat) : Nat :=\n    let val : Test := bar c1 key\n    have : val.x = (bar c1 key).x := rfl\n    val.x\ndef ack : Nat \u2192 Nat \u2192 Nat\n  | 0,   y   => y+1\n  | x+1, 0   => ack x 1\n  | x+1, y+1 => ack x (ack (x+1) y)\nclass Foo where\n  x : Nat\n  y : Nat\ninstance f (x : Nat) : Foo :=\n  { x, y := ack 10 10 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/isDefEqProjIssue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/isDefEqProjIssue.lean",
+    "definition_name": "Test"
+  }
+}

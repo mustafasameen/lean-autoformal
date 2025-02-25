@@ -1,0 +1,9 @@
+{
+  "content": "let todo : Array Expr := .mkEmpty initCapacity\n  let op root todo e := pushArgs root todo e\n  buildPath op (root := true) (todo.push e) (.mkEmpty initCapacity)\ndef targetPath (e : Expr) : MetaM (Array Key) := do\n  let todo : Array Expr := .mkEmpty initCapacity\n  let op root todo e := do\n        let (k, args) \u2190 MatchClone.getMatchKeyArgs e root\n        pure (k, todo ++ args)\n  buildPath op (root := true) (todo.push e) (.mkEmpty initCapacity)\nprivate def newTrie [Monad m] [MonadState (Array (Trie \u03b1)) m] (e : LazyEntry \u03b1) : m TrieIndex := do\n  modifyGet fun a => let sz := a.size",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_name": "TrieIndex"
+  }
+}

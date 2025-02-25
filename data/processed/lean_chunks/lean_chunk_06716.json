@@ -1,0 +1,9 @@
+{
+  "content": "(`noinline, \"mark definition to never be inlined\", .noinline),\n     (`macro_inline, \"mark definition to always be inlined before ANF conversion\", .macroInline),\n     (`always_inline, \"mark definition to be always inlined\", .alwaysInline)]\n    fun declName kind => do\n      ofExcept <| checkIsDefinition (\u2190 getEnv) declName\n      if kind matches .macroInline then\n        unless (\u2190 isValidMacroInline declName) do\n          throwError \"invalid use of `[macro_inline]` attribute at `{declName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/InlineAttrs.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/InlineAttrs.lean",
+    "definition_name": "InlineAttributeKind"
+  }
+}

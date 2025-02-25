@@ -1,0 +1,10 @@
+{
+  "content": "theorem sum_mkArray_nat (n : Nat) (a : Nat) : (mkVector n a).sum = n * a := by\n  simp [toArray_mkVector]\ntheorem getElem?_reverse' {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "sum_mkArray_nat",
+    "has_proof": true
+  }
+}

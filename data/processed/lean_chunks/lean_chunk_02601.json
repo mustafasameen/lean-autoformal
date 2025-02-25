@@ -1,0 +1,10 @@
+{
+  "content": "theorem or_iff_left  (hb : \u00acb) : a \u2228 b \u2194 a := or_iff_left_iff_imp.mpr  hb.elim\ntheorem or_iff_right (ha : \u00aca) : a \u2228 b \u2194 b := or_iff_right_iff_imp.mpr ha.elim\ntheorem and_or_left : a \u2227 (b \u2228 c) \u2194 (a \u2227 b) \u2228 (a \u2227 c) :=\n  Iff.intro (fun \u27e8ha, hbc\u27e9 => hbc.imp (.intro ha) (.intro ha))\n            (Or.rec (.imp_right .inl) (.imp_right .inr))\ntheorem or_and_left : a \u2228 (b \u2227 c) \u2194 (a \u2228 b) \u2227 (a \u2228 c) :=\n  Iff.intro (Or.rec (fun ha => \u27e8.inl ha, .inl ha\u27e9) (.imp .inr .inr))\n            (And.rec <| .rec (fun _ => .inl \u00b7) (.imp_right \u2218 .intro))\n@[simp] theorem not_or : \u00ac(p \u2228 q) \u2194 \u00acp \u2227 \u00acq := or_imp\ntheorem not_and_of_not_or_not (h : \u00aca \u2228 \u00acb) : \u00ac(a \u2227 b) := h.elim (mt (\u00b7.1)) (mt (\u00b7.2))\n@[simp]\ntheorem if_false_left [h : Decidable p] :\n    ite p False q \u2194 \u00acp \u2227 q := by cases h <;> (rename_i g; simp [g])\n@[simp]\ntheorem if_false_right [h : Decidable p] :\n    ite p q False \u2194 p \u2227 q := by cases h <;> (rename_i g; simp [g])\n@[simp low]\ntheorem if_true_left [h : Decidable p] :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "or_congr",
+    "has_proof": true
+  }
+}

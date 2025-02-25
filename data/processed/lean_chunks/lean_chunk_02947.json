@@ -1,0 +1,10 @@
+{
+  "content": "(namespacesExt.getState env).contains n\n@[extern \"lean_eval_const\"]\nunsafe opaque evalConst (\u03b1) (env : @& Environment) (opts : @& Options) (constName : @& Name) : Except String \u03b1\nprivate def throwUnexpectedType {\u03b1} (typeName : Name) (constName : Name) : ExceptT String Id \u03b1 :=\n  throw (\"unexpected type at '\" ++ toString constName ++ \"', `\" ++ toString typeName ++ \"` expected\")\nunsafe def evalConstCheck (\u03b1) (env : Environment) (opts : Options) (typeName : Name) (constName : Name) : ExceptT String Id \u03b1 :=\n  match env.find? constName with\n  | none      => throw (\"unknown constant '\" ++ toString constName ++ \"'\")\n  | some info =>\n    match info.type with\n    | Expr.const c _ =>\n      if c != typeName then throwUnexpectedType typeName constName\n      else env.evalConst \u03b1 opts constName\n    | _ => throwUnexpectedType typeName constName\ndef hasUnsafe (env : Environment) (e : Expr) : Bool :=\n  let c? := e.find? fun e => match e with\n    | Expr.const c _ =>\n      match env.find? c with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

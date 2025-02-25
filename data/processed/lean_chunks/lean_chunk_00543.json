@@ -1,0 +1,9 @@
+{
+  "content": "def g := fun x => (f x : Bool)\ndef h := fun x => (f x : String)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/amb.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/amb.lean",
+    "definition_name": "g"
+  }
+}

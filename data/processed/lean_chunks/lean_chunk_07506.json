@@ -1,0 +1,9 @@
+{
+  "content": "def\n  performRupAdd := performRupAdd\n  rupAdd_result := rupAdd_result\n  rupAdd_sound := rupAdd_sound\n  performRatAdd := performRatAdd\n  ratAdd_result := ratAdd_result\n  ratAdd_sound := ratAdd_sound\nend DefaultFormula\nend Internal\nend LRAT\nend Std.Tactic.BVDecide",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/Instance.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/Instance.lean",
+    "definition_name": "performRupAdd"
+  }
+}

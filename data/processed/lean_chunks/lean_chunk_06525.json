@@ -1,0 +1,9 @@
+{
+  "content": "structure RequestContext where\n  rpcSessions       : RBMap UInt64 (IO.Ref FileWorker.RpcSession) compare\n  srcSearchPathTask : ServerTask SearchPath\n  doc               : FileWorker.EditableDocument\n  hLog              : IO.FS.Stream\n  initParams        : Lsp.InitializeParams\n  cancelTk          : RequestCancellationToken\ndef RequestContext.srcSearchPath (rc : RequestContext) : SearchPath :=\n  rc.srcSearchPathTask.get\nabbrev RequestTask \u03b1 := ServerTask (Except RequestError \u03b1)\nabbrev RequestT m := ReaderT RequestContext <| ExceptT RequestError m\n  | Except.error e => throw (RequestError.ofIoError e)\n  | Except.ok none => notFoundX\n  | Except.ok (some snap) => x snap\ndef withWaitFindSnap (doc : EditableDocument) (p : Snapshot \u2192 Bool)\n    (notFoundX : RequestM \u03b2)\n    (x : Snapshot \u2192 RequestM \u03b2)\n    : RequestM (RequestTask \u03b2) := do\n  let findTask := doc.cmdSnaps.waitFind? p\n  mapTaskCostly findTask <| waitFindSnapAux notFoundX x\ndef withWaitFindSnapAtPos\n    (lspPos : Lsp.Position)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Requests.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Requests.lean",
+    "definition_name": "RequestContext"
+  }
+}

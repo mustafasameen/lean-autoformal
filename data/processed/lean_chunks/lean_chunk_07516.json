@@ -1,0 +1,9 @@
+{
+  "content": "if h\u2081 : mon.val > 10\n      then do\n        year := year + 1\n        pure (Month.Ordinal.ofNat (mon.val - 10) (by omega))\n      else\n        pure (Month.Ordinal.ofNat (mon.val + 2) (by omega))\n  let second : Bounded.LE 0 59 := remSecs.emod 60 (by decide)\n  let minute : Bounded.LE 0 59 := (remSecs.ediv 60 (by decide)).emod 60 (by decide)\n  let hour : Bounded.LE 0 23 := remSecs.ediv 3600 (by decide)\n  let nano : Bounded.LE 0 999999999 := Bounded.LE.byEmod nanos.val 1000000000 (by decide)\n  return {\n    date := PlainDate.ofYearMonthDayClip year hmon (Day.Ordinal.ofFin (Fin.succ mday))\n    time := PlainTime.ofHourMinuteSecondsNano (hour.expandTop (by decide)) minute (second.expandTop (by decide)) nano\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/PlainDateTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/PlainDateTime.lean",
+    "definition_name": "PlainDateTime"
+  }
+}

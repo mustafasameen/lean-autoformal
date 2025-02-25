@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_fst_zip (as : Array \u03b1) (bs : Array \u03b2) (h : as.size \u2264 bs.size) :\n    map Prod.fst (zip as bs) = as := by\n  cases as\n  cases bs\n  simp_all [List.map_fst_zip]\ntheorem map_snd_zip (as : Array \u03b1) (bs : Array \u03b2) (h : bs.size \u2264 as.size) :\n    map Prod.snd (zip as bs) = bs := by\n  cases as\n  cases bs\n  simp_all [List.map_snd_zip]\ntheorem map_prod_left_eq_zip {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_name": "map_fst_zip",
+    "has_proof": true
+  }
+}

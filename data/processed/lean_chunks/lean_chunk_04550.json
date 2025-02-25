@@ -1,0 +1,10 @@
+{
+  "content": "instance DecidableEq for Option\nderiving instance BEq for Option\n@[inline] def isSome : Option \u03b1 \u2192 Bool\n  | some _ => true\n  | none   => false\n@[simp] theorem isSome_none : @isSome \u03b1 none = false := rfl\n@[simp] theorem isSome_some : isSome (some a) = true := rfl\n@[inline] def isEqSome [BEq \u03b1] : Option \u03b1 \u2192 \u03b1 \u2192 Bool\n  | some a, b => a == b\n  | none,   _ => false\n@[inline] protected def bind : Option \u03b1 \u2192 (\u03b1 \u2192 Option \u03b2) \u2192 Option \u03b2\n  | none,   _ => none\n  | some a, f => f a\n@[inline] protected def mapM [Monad m] (f : \u03b1 \u2192 m \u03b2) (o : Option \u03b1) : m (Option \u03b2) := do\n  if let some a := o then\n    return some (\u2190 f a)\n  else\n    return none\ntheorem map_id : (Option.map id : Option \u03b1 \u2192 Option \u03b1) = id :=\n  funext (fun o => match o with | none => rfl | some _ => rfl)\n@[always_inline, inline] protected def all (p : \u03b1 \u2192 Bool) : Option \u03b1 \u2192 Bool\n  | some a => p a\n  | none   => true\n@[always_inline, macro_inline] protected def orElse : Option \u03b1 \u2192 (Unit \u2192 Option \u03b1) \u2192 Option \u03b1\n  | some a, _ => some a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_name": "DecidableEq",
+    "has_proof": false
+  }
+}

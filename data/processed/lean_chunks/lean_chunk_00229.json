@@ -1,0 +1,9 @@
+{
+  "content": "class One (M : Type u) where one : M\ninstance {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond8.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond8.lean",
+    "definition_name": "One"
+  }
+}

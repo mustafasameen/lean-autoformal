@@ -1,0 +1,9 @@
+{
+  "content": "inductive Color\n  | red | black\ninductive Tree where\n  | leaf\n  | node : Color \u2192 Tree \u2192 Nat \u2192 Bool \u2192 Tree \u2192 Tree\n  deriving Inhabited\ndef fold (f : Nat \u2192 Bool \u2192 \u03c3 \u2192 \u03c3) : Tree \u2192 \u03c3 \u2192 \u03c3\n  | .leaf,           b => b\n  | .node _ l k v r, b => fold f r (f k v (fold f l b))\n@[inline]\ndef balance1 : Nat \u2192 Bool \u2192 Tree \u2192 Tree \u2192 Tree\n  | kv, vv, t, .node _ (.node .red l kx vx r\u2081) ky vy r\u2082   => .node .red (.node .black l kx vx r\u2081) ky vy (.node .black r\u2082 kv vv t)\n  | kv, vv, t, .node _ l\u2081 ky vy (.node .red l\u2082 kx vx r)   => .node .red (.node .black l\u2081 ky vy l\u2082) kx vx (.node .black r kv vv t)\n  | kv, vv, t, .node _ l  ky vy r                         => .node .black (.node .red l ky vy r) kv vv t\n  | _,  _,  _, _                                          => .leaf\n@[inline]\ndef balance2 : Tree \u2192 Nat \u2192 Bool \u2192 Tree \u2192 Tree\n  | t, kv, vv, .node _ (.node .red l kx\u2081 vx\u2081 r\u2081) ky vy r\u2082  => .node .red (.node .black t kv vv l) kx\u2081 vx\u2081 (.node .black r\u2081 ky vy r\u2082)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap_checkpoint.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/rbmap_checkpoint.lean",
+    "definition_name": "Color"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "@[combinator_formatter skip] def skip.formatter : Formatter := pure ()\n@[combinator_formatter pushNone] def pushNone.formatter : Formatter := goLeft\n@[combinator_formatter hygieneInfoNoAntiquot] def hygieneInfoNoAntiquot.formatter : Formatter := goLeft\n@[combinator_formatter interpolatedStr]\ndef interpolatedStr.formatter (p : Formatter) : Formatter := do\n  visitArgs $ (\u2190 getCur).getArgs.reverse.forM fun chunk =>\n    match chunk.isLit? interpolatedStrLitKind with\n    | some str => push str *> goLeft\n    | none     => p\n@[combinator_formatter _root_.ite, macro_inline] def ite {_ : Type} (c : Prop) [Decidable c] (t e : Formatter) : Formatter :=\n  if c then t else e\nabbrev FormatterAliasValue := AliasValue Formatter\nbuiltin_initialize formatterAliasesRef : IO.Ref (NameMap FormatterAliasValue) \u2190 IO.mkRef {}\ndef registerAlias (aliasName : Name) (v : FormatterAliasValue) : IO Unit := do\n  Parser.registerAliasCore formatterAliasesRef aliasName v",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_name": "nonReservedSymbolNoAntiquot"
+  }
+}

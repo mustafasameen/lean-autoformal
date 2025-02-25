@@ -1,0 +1,9 @@
+{
+  "content": "variable [SMul R M] [SMul R M']\nvariable (f : M \u2192\u2097[R] M')\nclass IsLocalizedModule (S : Submonoid R) (f : M \u2192\u2097[R] M') : Prop where\nnamespace IsLocalizedModule\nvariable [IsLocalizedModule S f]\nnoncomputable def fromLocalizedModule (f : M \u2192\u2097[R] M') [IsLocalizedModule S f] :\n    LocalizedModule S M \u2192\u2097[R] M' :=\n  sorry\nvariable {S}\nnoncomputable def mk' (m : M) (s : S) : M' :=\n  fromLocalizedModule S f (LocalizedModule.mk m s)\nend IsLocalizedModule\nend Mathlib.Algebra.Module.LocalizedModule\nsection Mathlib.LinearAlgebra.Quotient\nnamespace Submodule\nvariable {R M : Type _} {r : R} {x y : M} [Mul R] [AddCommGroup M] [SMul R M]\nvariable (p : Submodule R M)\nopen LinearMap\ndef quotientRel : Setoid M :=\n  QuotientAddGroup.leftRel p.toAddSubgroup\ninstance hasQuotient : HasQuotient M (Submodule R M) :=\n  \u27e8fun p => Quotient (quotientRel p)\u27e9\nnamespace Quotient\ndef mk {p : Submodule R M} : M \u2192 M \u29f8 p :=\n  Quotient.mk''\ninstance addCommGroup : AddCommGroup (M \u29f8 p) :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive type with only one constructor {indentExpr expectedType}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/BuiltinNotation.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/BuiltinNotation.lean",
+    "definition_name": "type"
+  }
+}

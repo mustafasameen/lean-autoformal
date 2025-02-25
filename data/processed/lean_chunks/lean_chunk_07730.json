@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_of (h : c \u2208 f) (w : Clause.Mem v c) : Mem v f := by\n  apply Exists.intro c\n  constructor <;> assumption\n@[simp] theorem mem_append {v : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Basic.lean",
+    "definition_name": "mem_of",
+    "has_proof": true
+  }
+}

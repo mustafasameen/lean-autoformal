@@ -1,0 +1,9 @@
+{
+  "content": "else\n            failed\n      else\n        let arg \u2190 mkFreshExprMVar d\n        go? (b.instantiate1 arg)\n    | e =>\n      let r := if e.isAppOfArity ``id 2 then e.appArg! else e\n      return some (\u2190 reduceProjs (\u2190 instantiateMVars r) expandedStructNames)\nprivate partial def copyNewFieldsFrom (structDeclName : Name) (infos : Array StructFieldInfo) (parentType : Expr) (k : Array StructFieldInfo \u2192 TermElabM \u03b1) : TermElabM \u03b1 := do\n  copyFields infos {} parentType fun infos _ _ => k infos\nwhere\n  copyFields (infos : Array StructFieldInfo) (expandedStructNames : NameSet) (parentType : Expr) (k : Array StructFieldInfo \u2192 FieldMap \u2192 NameSet \u2192 TermElabM \u03b1) : TermElabM \u03b1 := do\n    let parentStructName \u2190 getStructureName parentType\n    let fieldNames := getStructureFields (\u2190 getEnv) parentStructName\n    let rec copy (i : Nat) (infos : Array StructFieldInfo) (fieldMap : FieldMap) (expandedStructNames : NameSet) : TermElabM \u03b1 := do\n      if h : i < fieldNames.size then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

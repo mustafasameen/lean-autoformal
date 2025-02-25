@@ -1,0 +1,9 @@
+{
+  "content": "return file\n@[inline, deprecated buildFileAfterDep (since := \"2024-12-06\")]\nabbrev buildFileAfterDepList\n  (file : FilePath) (deps : List (Job \u03b1)) (build : List \u03b1 \u2192 JobM PUnit)\n  (extraDepTrace : JobM _ := pure BuildTrace.nil) (text := false)\n: SpawnM (Job FilePath) := do\n  buildFileAfterDep file (.collectList deps) build extraDepTrace text\n@[inline, deprecated buildFileAfterDep (since := \"2024-12-06\")]\ndef buildFileAfterDepArray\n  (file : FilePath) (deps : Array (Job \u03b1)) (build : Array \u03b1 \u2192 JobM PUnit)\n  (extraDepTrace : JobM _ := pure BuildTrace.nil) (text := false)\n: SpawnM (Job FilePath) := do\n  buildFileAfterDep file (.collectArray deps) build extraDepTrace text\ndef inputBinFile (path : FilePath) : SpawnM (Job FilePath) := Job.async do\n  setTrace (\u2190 computeTrace path)\n  return path\ndef inputTextFile (path : FilePath) : SpawnM (Job FilePath) := Job.async do\n  setTrace (\u2190 computeTrace (TextFilePath.mk path))\n  return path",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "platformTrace"
+  }
+}

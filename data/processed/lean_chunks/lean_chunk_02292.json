@@ -1,0 +1,10 @@
+{
+  "content": "def top := \u2200 p : Prop, p \u2192 p\ndef pext := \u2200 (A B : Prop), A \u2192 B \u2192 A = B\ndef supercast (h : pext) (A B : Prop) (a : A) (b : B) : B\n  := @cast A B (h A B a b) a\ndef omega : pext \u2192 top :=\n  \u03bb h A a => supercast h (top \u2192 top) A\n    (\u03bb z: top => z (top \u2192 top) (\u03bb x => x) z) a\ndef Omega : pext \u2192 top :=\n  \u03bb h => omega h (top \u2192 top) (\u03bb x => x) (omega h)\ndef Omega' : pext \u2192 top := \u03bb h => (\u03bb p x => x)\ntheorem loopy : Omega = Omega' := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/91_lean3.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/91_lean3.lean",
+    "definition_name": "top",
+    "has_proof": false
+  }
+}

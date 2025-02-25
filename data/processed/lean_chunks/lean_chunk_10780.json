@@ -1,0 +1,9 @@
+{
+  "content": "let plugins :=\n      if usesLake then plugins.push ws.lakeEnv.lake.sharedLib else plugins\n    let paths : LeanPaths := {\n      oleanPath := ws.leanPath\n      srcPath := ws.leanSrcPath\n      loadDynlibPaths := dynlibs\n      pluginPaths := plugins\n    }\n    let setupOptions : LeanOptions \u2190 do\n      let some moduleName \u2190 searchModuleNameOfFileName path ws.leanSrcPath\n        | pure \u27e8\u2205\u27e9\n      let some module := ws.findModule? moduleName\n        | pure \u27e8\u2205\u27e9\n      let options := module.serverOptions.map fun opt => \u27e8opt.name, opt.value\u27e9\n      pure \u27e8Lean.RBMap.fromArray options Lean.Name.cmp\u27e9\n    IO.println <| Json.compress <| toJson {\n      paths,\n      setupOptions\n      : FileSetupInfo\n    }\ndef serve (config : LoadConfig) (args : Array String) : IO UInt32 := do\n  let (extraEnv, moreServerArgs) \u2190 do\n    let (ws?, log) \u2190 (loadWorkspace config).captureLog\n    log.replay (logger := MonadLog.stderr)\n    if let some ws := ws? then\n      let ctx := mkLakeContext ws",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Serve.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Serve.lean",
+    "definition_name": "invalidConfigEnvVar"
+  }
+}

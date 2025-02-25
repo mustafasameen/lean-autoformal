@@ -1,0 +1,9 @@
+{
+  "content": "class MonadAlwaysExcept (\u03b5 : outParam (Type u)) (m : Type u \u2192 Type v) where\n  except : MonadExceptOf \u03b5 m\ninstance : MonadAlwaysExcept \u03b5 (EIO \u03b5) where\n  except := inferInstance\ninstance [always : MonadAlwaysExcept \u03b5 m] : MonadAlwaysExcept \u03b5 (StateT \u03c3 m) where\n  except := let _ := always.except; inferInstance\ninstance [always : MonadAlwaysExcept \u03b5 m] : MonadAlwaysExcept \u03b5 (StateRefT' \u03c9 \u03c3 m) where\n  except := let _ := always.except; inferInstance\ninstance [always : MonadAlwaysExcept \u03b5 m] : MonadAlwaysExcept \u03b5 (ReaderT \u03c1 m) where\n  except := let _ := always.except; inferInstance\ninstance [always : MonadAlwaysExcept \u03b5 m] [STWorld \u03c9 m] [BEq \u03b1] [Hashable \u03b1] :\n    MonadAlwaysExcept \u03b5 (MonadCacheT \u03b1 \u03b2 m) where\n  except := let _ := always.except; inferInstance\ndef withTraceNode [always : MonadAlwaysExcept \u03b5 m] [MonadLiftT BaseIO m] (cls : Name)\n    (msg : Except \u03b5 \u03b1 \u2192 m MessageData) (k : m \u03b1) (collapsed := true) (tag := \"\") : m \u03b1 := do\n  let _ := always.except\n  let opts \u2190 getOptions",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_name": "MonadAlwaysExcept"
+  }
+}

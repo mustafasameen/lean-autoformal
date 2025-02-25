@@ -1,0 +1,10 @@
+{
+  "content": "theorem flatten_append (xss\u2081 xss\u2082 : Array (Array \u03b1)) :\n    flatten (xss\u2081 ++ xss\u2082) = flatten xss\u2081 ++ flatten xss\u2082 := by\n  induction xss\u2081 using array\u2082_induction\n  induction xss\u2082 using array\u2082_induction\n  simp [\u2190 List.map_append]\ntheorem flatten_push (xss : Array (Array \u03b1)) (xs : Array \u03b1) :\n    flatten (xss.push xs) = flatten xss ++ xs := by\n  induction xss using array\u2082_induction\n  rcases xs with \u27e8l\u27e9\n  have this : [l.toArray] = [l].map List.toArray := by simp\n  simp only [List.push_toArray, flatten_toArray_map, List.append_toArray]\n  rw [this, \u2190 List.map_append, flatten_toArray_map]\n  simp\ntheorem flatten_flatten {xss : Array (Array (Array \u03b1))}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "flatten_append",
+    "has_proof": true
+  }
+}

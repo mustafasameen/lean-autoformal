@@ -1,0 +1,10 @@
+{
+  "content": "theorem dvd_gcd_iff : k \u2223 gcd m n \u2194 k \u2223 m \u2227 k \u2223 n :=\n  \u27e8fun h => let \u27e8h\u2081, h\u2082\u27e9 := gcd_dvd m n; \u27e8Nat.dvd_trans h h\u2081, Nat.dvd_trans h h\u2082\u27e9,\n   fun \u27e8h\u2081, h\u2082\u27e9 => dvd_gcd h\u2081 h\u2082\u27e9\ntheorem gcd_comm (m n : Nat) : gcd m n = gcd n m :=\n  Nat.dvd_antisymm\n    (dvd_gcd (gcd_dvd_right m n) (gcd_dvd_left m n))\n    (dvd_gcd (gcd_dvd_right n m) (gcd_dvd_left n m))\ninstance : Std.Commutative gcd := \u27e8gcd_comm\u27e9\ntheorem gcd_eq_left_iff_dvd : m \u2223 n \u2194 gcd m n = m :=\n  \u27e8fun h => by rw [gcd_rec, mod_eq_zero_of_dvd h, gcd_zero_left],\n   fun h => h \u25b8 gcd_dvd_right m n\u27e9\ntheorem gcd_eq_right_iff_dvd : m \u2223 n \u2194 gcd n m = m := by\n  rw [gcd_comm]; exact gcd_eq_left_iff_dvd\ntheorem gcd_assoc (m n k : Nat) : gcd (gcd m n) k = gcd m (gcd n k) :=\n  Nat.dvd_antisymm\n    (dvd_gcd\n      (Nat.dvd_trans (gcd_dvd_left (gcd m n) k) (gcd_dvd_left m n))\n      (dvd_gcd (Nat.dvd_trans (gcd_dvd_left (gcd m n) k) (gcd_dvd_right m n))\n        (gcd_dvd_right (gcd m n) k)))\n    (dvd_gcd\n      (dvd_gcd (gcd_dvd_left m (gcd n k))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "gcd_dvd",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure S :=\n(x : Nat) (y : Bool) (z : String)\n#check { x := 10, y := true, z := \"hello\" : S }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct_inst_typed.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct_inst_typed.lean",
+    "definition_name": "S"
+  }
+}

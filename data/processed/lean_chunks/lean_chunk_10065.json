@@ -1,0 +1,10 @@
+{
+  "content": "theorem getThenInsertIfNew?_fst_val [BEq \u03b1] [Hashable \u03b1] [LawfulBEq \u03b1] {m : Raw\u2080 \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Raw.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Raw.lean",
+    "definition_name": "getThenInsertIfNew",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure is tagged with the '@[pp_using_anonymous_constructor]' attribute\"\n}\nregister_builtin_option pp.structureInstances.flatten : Bool := {\n  defValue := true\n  group    := \"pp\"\n  descr    := \"(pretty printer) flatten nested structure instances for parent projections\"\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Options.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Options.lean",
+    "definition_name": "is"
+  }
+}

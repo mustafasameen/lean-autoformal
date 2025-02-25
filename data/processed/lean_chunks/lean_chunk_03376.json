@@ -1,0 +1,10 @@
+{
+  "content": "induction i, r using Array.mapM.map.induct xs\n  case case1 ih =>\n    unfold Array.mapM.map\n    simp only [\u2193reduceDIte, *]\n    apply monotone_bind\n    \u00b7 apply monotone_apply\n      apply hmono\n    \u00b7 intro y\n      apply monotone_of_monotone_apply\n      apply ih\n  case case2 =>\n    unfold Array.mapM.map\n    simp only [\u2193reduceDIte, *]\n    apply monotone_const\n@[partial_fixpoint_monotone]\ntheorem monotone_mapFinIdxM (xs : Array \u03b1) (f : \u03b3 \u2192 (i : Nat) \u2192 \u03b1 \u2192 i < xs.size \u2192 m \u03b2)\n    (hmono : monotone f) : monotone (fun x => xs.mapFinIdxM (f x)) := by\n  suffices \u2200 i j (h : i + j = xs.size) r, monotone (fun x => Array.mapFinIdxM.map xs (f x) i j h r) by apply this\n  intros i j h r\n  induction i, j, h, r using Array.mapFinIdxM.map.induct xs\n  case case1 =>\n    apply monotone_const\n  case case2 ih =>\n    apply monotone_bind\n    \u00b7 dsimp\n      apply monotone_apply\n      apply monotone_apply\n      apply monotone_apply\n      apply hmono\n    \u00b7 intro y\n      apply monotone_of_monotone_apply",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_name": "monotone_foldlM_loop",
+    "has_proof": true
+  }
+}

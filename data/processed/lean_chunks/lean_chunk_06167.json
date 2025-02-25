@@ -1,0 +1,9 @@
+{
+  "content": "def nonReservedSymbolNoAntiquot.formatter := symbolNoAntiquot.formatter\n@[combinator_formatter rawCh] def rawCh.formatter (ch : Char) := symbolNoAntiquot.formatter ch.toString\n@[combinator_formatter unicodeSymbolNoAntiquot]\ndef unicodeSymbolNoAntiquot.formatter (sym asciiSym : String) : Formatter := do\n  let Syntax.atom info val \u2190 getCur\n    | throwError m!\"not an atom: {\u2190 getCur}\"\n  if val == sym.trim then\n    pushToken info sym false\n  else\n    pushToken info asciiSym false\n  goLeft\n@[combinator_formatter identNoAntiquot]\ndef identNoAntiquot.formatter : Formatter := do\n  checkKind identKind\n  let stx@(Syntax.ident info _ id _) \u2190 getCur\n    | throwError m!\"not an ident: {\u2190 getCur}\"\n  let id := id.simpMacroScopes\n  let table := (\u2190 read).table\n  let isToken (s : String) : Bool := (table.find? s).isSome\n  withMaybeTag (getExprPos? stx) (pushToken info (id.toString (isToken := isToken)) true)\n  goLeft",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_name": "nonReservedSymbolNoAntiquot"
+  }
+}

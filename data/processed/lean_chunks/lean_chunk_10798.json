@@ -1,0 +1,9 @@
+{
+  "content": "def MTime := SystemTime\nnamespace MTime\ninstance : OfNat MTime (nat_lit 0) := \u27e8\u27e80,0\u27e9\u27e9\ninstance : BEq MTime := inferInstanceAs (BEq SystemTime)\ninstance : Repr MTime := inferInstanceAs (Repr SystemTime)\ninstance : Ord MTime := inferInstanceAs (Ord SystemTime)\ninstance : LT MTime := ltOfOrd\ninstance : LE MTime := leOfOrd\ninstance : Min MTime := minOfLe\ninstance : Max MTime := maxOfLe\ninstance : NilTrace MTime := \u27e80\u27e9\ninstance : MixTrace MTime := \u27e8max\u27e9\nend MTime\nclass GetMTime (\u03b1 : Type u) where\n@[inline] def getFileMTime (file : FilePath) : IO MTime :=\n  return (\u2190 file.metadata).modified\ninstance : GetMTime FilePath := \u27e8getFileMTime\u27e9\ninstance : GetMTime TextFilePath := \u27e8(getFileMTime \u00b7.path)\u27e9\n@[specialize] def MTime.checkUpToDate\n  [GetMTime i] (info : i) (self : MTime)\n: BaseIO Bool := do\n  match (\u2190 getMTime info |>.toBaseIO) with\n  | .ok mtime => return self < mtime\n  | .error _ => return false\nstructure BuildTrace where\n  hash : Hash\n  mtime : MTime\n  deriving Repr\nnamespace BuildTrace",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Trace.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Trace.lean",
+    "definition_name": "MTime"
+  }
+}

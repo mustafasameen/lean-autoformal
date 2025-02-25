@@ -1,0 +1,9 @@
+{
+  "content": "def getRemoteUrl? (remote := Git.defaultRemote) (repo : GitRepo) : BaseIO (Option String) := do\n  repo.captureGit? #[\"remote\", \"get-url\", remote]\ndef getFilteredRemoteUrl? (remote := Git.defaultRemote) (repo : GitRepo) : BaseIO (Option String) := OptionT.run do\n  Git.filterUrl? (\u2190 repo.getRemoteUrl? remote)\n@[inline] def hasNoDiff (repo : GitRepo) : BaseIO Bool := do\nrepo.testGit #[\"diff\", \"\n@[inline] def hasDiff (repo : GitRepo) : BaseIO Bool := do\n  not <$> repo.hasNoDiff",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_name": "getRemoteUrl"
+  }
+}

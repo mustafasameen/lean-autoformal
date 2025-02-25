@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex6 (x y z : Nat) (h\u2081 : x = y) (h\u2082 : z = y) : id (x + 0 = z) :=\nby {\n  show x = z;\n  have h\u2083 : y = z := h\u2082.symm;\n  apply Eq.trans;\n  exact h\u2081;\n  exact h\u2083\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tactic1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tactic1.lean",
+    "definition_name": "ex6",
+    "has_proof": true
+  }
+}

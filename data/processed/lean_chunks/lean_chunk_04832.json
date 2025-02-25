@@ -1,0 +1,10 @@
+{
+  "content": "theorem count_replicate_self (a : \u03b1) (n : Nat) : count a (replicate n a) = n :=\n  (count_eq_length.2 <| fun _ h => (eq_of_mem_replicate h).symm).trans (length_replicate ..)\ntheorem count_replicate (a b : \u03b1) (n : Nat) : count a (replicate n b) = if b == a then n else 0 := by\n  split <;> (rename_i h; simp only [beq_iff_eq] at h)\n  \u00b7 exact \u2039b = a\u203a \u25b8 count_replicate_self ..\n  \u00b7 exact count_eq_zero.2 <| mt eq_of_mem_replicate (Ne.symm h)\ntheorem filter_beq (l : List \u03b1) (a : \u03b1) : l.filter (\u00b7 == a) = replicate (count a l) a := by\n  simp only [count, countP_eq_length_filter, eq_replicate_iff, mem_filter, beq_iff_eq]\n  exact \u27e8trivial, fun _ h => h.2\u27e9\ntheorem filter_eq {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Count.lean",
+    "definition_name": "count_replicate_self",
+    "has_proof": true
+  }
+}

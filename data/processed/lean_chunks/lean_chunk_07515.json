@@ -1,0 +1,9 @@
+{
+  "content": "centenialCycles := centenialCycles - 1\n  remDays := remDays - centenialCycles * daysPer100Y\n  let mut quadrennialCycles := remDays / daysPer4Y;\n  if quadrennialCycles = 25 then\n    quadrennialCycles := quadrennialCycles - 1\n  remDays := remDays - quadrennialCycles * daysPer4Y\n  let mut remYears := remDays / 365;\n  if remYears = 4 then\n    remYears := remYears - 1\n  remDays := remDays - remYears * 365\n  let mut year := 2000 + remYears + 4 * quadrennialCycles + 100 * centenialCycles + 400 * quadracentennialCycles\n  let months := [31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 31, 29];\n  let mut mon : Fin 13 := 0;\n  for monLen in months do\n    mon := mon + 1;\n    if remDays < monLen then\n      break\n    remDays := remDays - monLen\n  let mday : Fin 31 := Fin.ofNat' _ (Int.toNat remDays)\n  let hmon \u2190\n    if h\u2081 : mon.val > 10\n      then do\n        year := year + 1\n        pure (Month.Ordinal.ofNat (mon.val - 10) (by omega))\n      else\n        pure (Month.Ordinal.ofNat (mon.val + 2) (by omega))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/PlainDateTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/PlainDateTime.lean",
+    "definition_name": "PlainDateTime"
+  }
+}

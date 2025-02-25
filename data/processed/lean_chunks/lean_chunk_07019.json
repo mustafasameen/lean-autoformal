@@ -1,0 +1,9 @@
+{
+  "content": "let rec go (id : Name) : Name \u00d7 Nat :=\n      match id with\n      | Name.anonymous => (id, 0)\n      | Name.num ..    => unreachable!\n      | .str p s =>\n        let (p', len) := go p\n        if len + 1 >= newLen then\n          (p', len)\n        else\n          let optDot := if p.isAnonymous then 0 else 1\n          let len'   := len + optDot + s.length\n          if len' \u2264 newLen then\n            (id, len')\n          else\n            (Name.mkStr p (s.extract 0 \u27e8newLen - optDot - len\u27e9), newLen)\n    (go id).1\n  def matchNamespace (ns : Name) (nsFragment : Name) (danglingDot : Bool) : Bool :=\n    if danglingDot then\n      if nsFragment != ns && nsFragment.isPrefixOf ns then\n        true\n      else\n        false\n    else\n      match ns, nsFragment with\n      | .str p\u2081 s\u2081, .str p\u2082 s\u2082 =>\n        if p\u2081 == p\u2082 then containsSuccessiveCharacters s\u2082 s\u2081 else false\n      | _, _ => false\n  def completeNamespaces (ctx : ContextInfo) (id : Name) (danglingDot : Bool) : M Unit := do\n    let env \u2190 getEnv",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

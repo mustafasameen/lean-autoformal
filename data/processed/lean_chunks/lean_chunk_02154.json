@@ -1,0 +1,10 @@
+{
+  "content": "theorem infinite_chain.coinduct_strong {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_coinductive_pred.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_coinductive_pred.lean",
+    "definition_name": "infinite_chain",
+    "has_proof": false
+  }
+}

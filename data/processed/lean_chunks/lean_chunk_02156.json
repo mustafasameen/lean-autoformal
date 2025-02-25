@@ -1,0 +1,10 @@
+{
+  "content": "def a := 10\ndef b := 20\ndef foo (x : List Nat) (y : List Nat) := x ++ y ++ x\ntheorem fooThm : foo x [a, b] = x ++ [a, b] ++ x := rfl\n#guard_msgs (info) in\nset_option trace.grind.internalize true in\nexample : foo x y = z \u2192 False := by\n  fail_if_success grind\n  sorry\ntheorem arrEx [Add \u03b1] (as : Array \u03b1) (h\u2081 : i < as.size) (h\u2082 : i = j) : as[i]+as[j] = as[i] + as[i] := by sorry\n#guard_msgs in\ngrind_pattern arrEx => as[i]+as[j]'(h\u2082\u25b8h\u2081)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_pattern2.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_pattern2.lean",
+    "definition_name": "a",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem get_find?_replicate (n : Nat) (a : \u03b1) (p : \u03b1 \u2192 Bool) (h) : ((replicate n a).find? p).get h = a := by\n  cases n with\n  | zero => simp at h\n  | succ n => simp\ntheorem Sublist.find?_isSome {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "get_find",
+    "has_proof": true
+  }
+}

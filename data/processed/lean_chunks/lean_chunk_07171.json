@@ -1,0 +1,9 @@
+{
+  "content": "if (\u2190 isProp arg) then\n        result := mkApp result erasedExpr\n      else if (\u2190 isPropFormer arg) then\n        result := mkApp result erasedExpr\n      else if (\u2190 isTypeFormer arg) then\n        result := mkApp result (\u2190 toLCNFType arg)\n      else\n        result := mkApp result erasedExpr\n    return result\nmutual\npartial def joinTypes (a b : Expr) : Expr :=\n  joinTypes? a b |>.getD erasedExpr\npartial def joinTypes? (a b : Expr) : Option Expr := do\n  if a.isErased || b.isErased then\nreturn erasedExpr\n  else if a == b then\n    return a\n  else\n    let a' := a.headBeta\n    let b' := b.headBeta\n    if a != a' || b != b' then\n      joinTypes? a' b'\n    else\n      match a, b with\n      | .mdata _ a, b => joinTypes? a b\n      | a, .mdata _ b => joinTypes? a b\n      | .app f a, .app g b =>\n        (do return .app (\u2190 joinTypes? f g) (\u2190 joinTypes? a b))\n         <|>\n        return erasedExpr\n      | .forallE n d\u2081 b\u2081 _, .forallE _ d\u2082 b\u2082 _ =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_name": "erasedExpr"
+  }
+}

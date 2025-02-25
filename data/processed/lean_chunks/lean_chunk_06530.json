@@ -1,0 +1,9 @@
+{
+  "content": "| node i ts => do\n    let a \u2190 match ctx? with\n      | none => pure a\n      | some ctx => f ctx i a\n    ts.foldlM (init := a) (go <| i.updateContext? ctx?)\n  | hole _ => pure a\npartial def InfoTree.foldInfoTree (init : \u03b1) (f : ContextInfo \u2192 InfoTree \u2192 \u03b1 \u2192 \u03b1) : InfoTree \u2192 \u03b1 :=\n  go none init\nwhere\npartial def InfoTree.hoverableInfoAt? (t : InfoTree) (hoverPos : String.Pos) (includeStop := false) (omitAppFns := false) (omitIdentApps := false) : Option InfoWithCtx := Id.run do\n  let results := t.visitM (m := Id) (postNode := fun ctx info children results => do\n    let mut results := results.flatMap (\u00b7.getD [])\n    if omitAppFns && info.stx.isOfKind ``Parser.Term.app && info.stx[0].isIdent then\n        results := results.filter (\u00b7.2.info.stx != info.stx[0])\n    if omitIdentApps && info.stx.isIdent then\n      if let .ofTermInfo ti := info then\n        if ti.expr.isApp then\n          results := results.filter (\u00b7.2.info.stx != info.stx)\n    unless results.isEmpty do\nreturn results",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_name": "InfoWithCtx"
+  }
+}

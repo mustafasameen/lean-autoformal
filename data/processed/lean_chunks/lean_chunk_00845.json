@@ -1,0 +1,9 @@
+{
+  "content": "ZeroHom M N, AddHom M N\ninfixr:25 \" \u2192+ \" => AddMonoidHom\nclass AddMonoidHomClass (F : Type) (M N : outParam Type) [Add M] [Zero M] [Add N] [Zero N]\n  extends AddHomClass F M N, ZeroHomClass F M N\nstructure MonoidHom (M : Type) (N : Type) [Mul M] [One M] [Mul N] [One N] extends\n  OneHom M N, M \u2192\u2099* N\ninfixr:25 \" \u2192* \" => MonoidHom\nclass MonoidHomClass (F : Type) (M N : outParam Type) [Mul M] [One M] [Mul N] [One N]\n  extends MulHomClass F M N, OneHomClass F M N\nstructure MonoidWithZeroHom (M : Type) (N : Type)\n  [Mul M] [Zero M] [One M] [Mul N] [Zero N] [One N] extends ZeroHom M N, MonoidHom M N\ninfixr:25 \" \u2192*\u2080 \" => MonoidWithZeroHom\nstructure NonUnitalRingHom (\u03b1 \u03b2 : Type) [Add \u03b1] [Zero \u03b1] [Mul \u03b1]\n  [Add \u03b2] [Zero \u03b2] [Mul \u03b2] extends \u03b1 \u2192\u2099* \u03b2, \u03b1 \u2192+ \u03b2\nclass MonoidWithZeroHomClass (F : Type) (M N : outParam Type) [Mul M] [Zero M] [One M]\n  [Mul N] [Zero N] [One N] extends MonoidHomClass F M N, ZeroHomClass F M N\ninfixr:25 \" \u2192\u2099+* \" => NonUnitalRingHom",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_name": "ZeroHom"
+  }
+}

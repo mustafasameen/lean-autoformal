@@ -1,0 +1,9 @@
+{
+  "content": "instance field abbreviation, expecting identifier\"\n  | _ => Macro.throwUnsupported\n@[builtin_macro Lean.Parser.Term.structInst] def expandStructInstFields : Macro | stx => do\n  let structInstFields := stx[2]\n  let fields := structInstFields[0].getSepArgs\n  let fields? \u2190 fields.mapM expandStructInstField\n  if fields?.all (\u00b7.isNone) then\n    Macro.throwUnsupported\n  let fields := Array.zipWith Option.getD fields? fields\n  let structInstFields := structInstFields.setArg 0 <| Syntax.mkSep fields (mkAtomFrom stx \", \")\n  return stx.setArg 2 structInstFields\nprivate def expandNonAtomicExplicitSources (stx : Syntax) : TermElabM (Option Syntax) := do\n  let sourcesOpt := stx[1]\n  if sourcesOpt.isNone then\n    return none\n  else\n    let sources := sourcesOpt[0]\n    if sources.isMissing then\n      throwAbortTerm\n    let sources := sources.getSepArgs\n    if (\u2190 sources.allM fun source => return (\u2190 isLocalIdent? source).isSome) then\n      return none\n    if sources.any (\u00b7.isMissing) then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_name": "field"
+  }
+}

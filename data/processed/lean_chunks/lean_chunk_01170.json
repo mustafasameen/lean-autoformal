@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_heapifyUp (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (a : Array \u03b1) (i : Fin a.size) :\n  (heapifyUp lt a i).1.size = a.size := (heapifyUp lt a i).2\ndef singleton (lt) (x : \u03b1) : BinaryHeap \u03b1 lt := \u27e8#[x]\u27e9\ndef get {lt}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/heapSort.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/heapSort.lean",
+    "definition_name": "size_heapifyUp",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem false_eq_true : (false = true) = False := by simp\n@[simp] theorem true_eq_false : (true = false) = False := by simp\n@[simp low] theorem false_eq (b : Bool) : (false = b) = (b = false) := by\n  cases b <;> simp\n@[simp low] theorem true_eq (b : Bool) : (true = b) = (b = true) := by\n  cases b <;> simp\n@[simp] theorem true_beq  : \u2200b, (true  == b) =  b := by decide\n@[simp] theorem false_beq : \u2200b, (false == b) = !b := by decide\ninstance : Std.LawfulIdentity (\u00b7 == \u00b7) true where\n  left_id := true_beq\n  right_id := beq_true\n@[simp] theorem true_bne  : \u2200(b : Bool), (true  != b) = !b := by decide\n@[simp] theorem false_bne : \u2200(b : Bool), (false != b) =  b := by decide\n@[simp] theorem bne_true  : \u2200(b : Bool), (b != true)  = !b := by decide\n@[simp] theorem bne_false : \u2200(b : Bool), (b != false) =  b := by decide\ninstance : Std.LawfulIdentity (\u00b7 != \u00b7) false where\n  left_id := false_bne\n  right_id := bne_false\n@[simp] theorem not_beq_self : \u2200 (x : Bool), ((!x) == x) = false := by decide",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_name": "false_eq_true",
+    "has_proof": true
+  }
+}

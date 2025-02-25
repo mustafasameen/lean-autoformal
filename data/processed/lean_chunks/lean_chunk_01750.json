@@ -1,0 +1,10 @@
+{
+  "content": "theorem test2 {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj2.lean",
+    "definition_name": "test2",
+    "has_proof": false
+  }
+}

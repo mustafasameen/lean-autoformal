@@ -1,0 +1,10 @@
+{
+  "content": "inductive DefKind where\n  | def | instance | theorem | example | opaque | abbrev\n  deriving Inhabited, BEq\ndef DefKind.isTheorem : DefKind \u2192 Bool\n  | .theorem => true\n  | _        => false\ndef DefKind.isExample : DefKind \u2192 Bool\n  | .example => true\n  | _        => false\n  shortDeclName : Name\n  levelNames    : List Name\n  numParams     : Nat\nstructure BodyProcessedSnapshot extends Language.Snapshot where\n  value : Expr\nderiving Nonempty\ninstance : Language.ToSnapshotTree BodyProcessedSnapshot where\n  toSnapshotTree s := \u27e8s.toSnapshot, #[]\u27e9\n  view : DefViewElabHeaderData\n  tacStx? : Option Syntax\n  bodyStx : Syntax\nstructure DefParsed where\n  fullHeaderRef : Syntax\nstructure DefsParsedSnapshot extends Language.Snapshot where\n  headerRef     : Syntax\n  modifiers     : Modifiers\n  declId        : Syntax\n  binders       : Syntax\n  type?         : Option Syntax\n  value         : Syntax\n  headerSnap?   : Option (Language.SnapshotBundle (Option HeaderProcessedSnapshot)) := none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/DefView.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/DefView.lean",
+    "definition_name": "DefKind",
+    "has_proof": false
+  }
+}

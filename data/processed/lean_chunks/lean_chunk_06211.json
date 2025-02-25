@@ -1,0 +1,9 @@
+{
+  "content": "structure InitEntry (\u03b1 : Type) where\n  entry : LazyEntry \u03b1\nnamespace InitEntry\ndef fromExpr (expr : Expr) (value : \u03b1) : MetaM (InitEntry \u03b1) := do\n  let lctx \u2190 getLCtx\n  let linst \u2190 getLocalInstances\n  let lctx := (lctx, linst)\n  let (key, todo) \u2190 LazyDiscrTree.rootKey expr\n  return { key, entry := (todo, lctx, value) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_name": "InitEntry"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertManyIfNewUnit_nil :\n    insertManyIfNewUnit m [] = m :=\n  Subtype.eq (congrArg Subtype.val\n    (Raw\u2080.Const.insertManyIfNewUnit_nil \u27e8m.1, m.2.size_buckets_pos\u27e9) :)\n@[simp]\ntheorem insertManyIfNewUnit_list_singleton {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_name": "insertManyIfNewUnit_nil",
+    "has_proof": false
+  }
+}

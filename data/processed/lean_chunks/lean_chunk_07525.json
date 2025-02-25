@@ -1,0 +1,9 @@
+{
+  "content": "if num = 2 then\n    some (.short)\n  else if num = 4 then\n    some (.full)\n  else\n    none\nend ZoneId\ninductive ZoneName\n  | full\n  deriving Repr, Inhabited\nnamespace ZoneName\ndef classify (letter : Char) (num : Nat) : Option ZoneName :=\n  if letter = 'z' then\n    if num < 4 then\n      some (.short)\n    else if num = 4 then\n      some (.full)\n    else\n      none\n  else if letter = 'v' then\n    if num = 1 then\n      some (.short)\n    else if num = 4 then\n      some (.full)\n    else\n      none\n  else\n    none\nend ZoneName\ninductive OffsetX\n  | hourMinute\n  | hourMinuteSecond\ndef classify (num : Nat) : Option OffsetX :=\n  if num = 1 then\n    some (.hour)\n  else if num = 2 then\n    some (.hourMinute)\n  else if num = 3 then\n    some (.hourMinuteColon)\n  else if num = 4 then\n    some (.hourMinuteSecond)\n  else if num = 5 then\n    some (.hourMinuteSecondColon)\n  else\n    none\nend OffsetX\ninductive OffsetO\n  | full\n  deriving Repr, Inhabited\nnamespace OffsetO",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "Number"
+  }
+}

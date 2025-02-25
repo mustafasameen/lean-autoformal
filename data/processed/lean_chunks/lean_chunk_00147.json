@@ -1,0 +1,9 @@
+{
+  "content": "| 0 => 0\n  | n+1 => bar n\ntermination_by n => n\ndef bar : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => foo n\ntermination_by n => n\nend\nend Mutual3\nnamespace Nested\ndef foo : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => foo n\n  where induct := 1\nend Nested",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/funind_reserved.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/funind_reserved.lean",
+    "definition_name": "foo"
+  }
+}

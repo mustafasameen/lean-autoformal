@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldlM_nil [Monad m] (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b) : [].foldlM f b = pure b := rfl\n@[simp] theorem foldlM_cons [Monad m] (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b) (a) (l : List \u03b1) :\n    (a :: l).foldlM f b = f b a >>= l.foldlM f := by\n  simp [List.foldlM]\n@[inline]\ndef foldrM {m : Type u \u2192 Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Control.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Control.lean",
+    "definition_name": "foldlM_nil",
+    "has_proof": true
+  }
+}

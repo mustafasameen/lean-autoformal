@@ -1,0 +1,9 @@
+{
+  "content": "inductive Empty'\n  deriving ToExpr\ninductive List' (\u03b1 : Type u)\n  | cons (a : \u03b1) (as : List' \u03b1)\n  | nil\n  deriving ToExpr\ninductive Foo\n  | l (x : List Foo)\n  deriving ToExpr\nmutual\ninductive A\n  | nil\n  | cons (a : A) (b : B)\n  deriving ToExpr\ninductive B\n  | cons\u2081 (a : A)\n  | cons\u2082 (a : A) (b : B)\n  deriving ToExpr\nend\n#guard_msgs in\n#eval repr <| toExpr <| A.cons A.nil (B.cons\u2081 A.nil)\n#guard_msgs in\n#eval repr <| toExpr <| B.cons\u2082 A.nil (B.cons\u2081 A.nil)\ninductive WithUniverse.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingToExpr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingToExpr.lean",
+    "definition_name": "Empty"
+  }
+}

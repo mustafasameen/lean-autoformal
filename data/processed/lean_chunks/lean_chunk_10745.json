@@ -1,0 +1,9 @@
+{
+  "content": "let some home := lakeBuildHome? lake | return none\n  let lake : LakeInstall := {home, lake}\n  if (\u2190 lake.libDir / \"Lake.olean\" |>.pathExists) then\n    return lake\n  return none\ndef findLeanInstall? : BaseIO (Option LeanInstall) := do\n  if let some sysroot \u2190 IO.getEnv \"LEAN_SYSROOT\" then\n    return some <| \u2190 LeanInstall.get sysroot\n  let lean \u2190 do\n    if let some lean \u2190 IO.getEnv \"LEAN\" then\n      if lean.trim.isEmpty then\n        return none\n      else\n        pure lean\n    else\n      pure \"lean\"\n  if let some sysroot \u2190 findLeanSysroot? lean then\n    return some <| \u2190 LeanInstall.get sysroot\n  return none\ndef findLakeInstall? : BaseIO (Option LakeInstall) := do\n  if let Except.ok lake \u2190 IO.appPath.toBaseIO then\n    if let some lake \u2190 getLakeInstall? lake then\n      return lake\n  if let some home \u2190 IO.getEnv \"LAKE_HOME\" then\n    return some {home}\n  return none\ndef findInstall? : BaseIO (Option ElanInstall \u00d7 Option LeanInstall \u00d7 Option LakeInstall) := do\n  let elan? \u2190 findElanInstall?",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_name": "findLeanSysroot"
+  }
+}

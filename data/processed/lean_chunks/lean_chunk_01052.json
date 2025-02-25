@@ -1,0 +1,9 @@
+{
+  "content": "structure Finsupp (\u03b1 : Type _) (M : Type _) [Zero M] where\n  toFun : \u03b1 \u2192 M\ninfixr:25 \" \u2192\u2080 \" => Finsupp\nnamespace Finsupp\ninstance funLike [Zero M] : FunLike (\u03b1 \u2192\u2080 M) \u03b1 fun _ => M :=\n  \u27e8toFun\u27e9\ninstance zero [Zero M] : Zero (\u03b1 \u2192\u2080 M) :=\n  \u27e8\u27e80\u27e9\u27e9\ndef single [Zero M] (a : \u03b1) (b : M) : \u03b1 \u2192\u2080 M where\n  toFun :=\n    have : DecidableEq \u03b1 := sorry\n    Pi.single a b\ndef onFinset [Zero M] (f : \u03b1 \u2192 M) : \u03b1 \u2192\u2080 M where\n  toFun := f\ndef mapRange [Zero M] [Zero N] (f : M \u2192 N) (hf : f 0 = 0) (g : \u03b1 \u2192\u2080 M) : \u03b1 \u2192\u2080 N :=\n  onFinset (f \u2218 g)\ndef zipWith [Zero M] [Zero N] [Zero P] (f : M \u2192 N \u2192 P) (hf : f 0 0 = 0) (g\u2081 : \u03b1 \u2192\u2080 M) (g\u2082 : \u03b1 \u2192\u2080 N) : \u03b1 \u2192\u2080 P :=\n  onFinset\n    (fun a => f (g\u2081 a) (g\u2082 a))\nsection AddZeroClass\nvariable [AddZeroClass M]\ninstance add : Add (\u03b1 \u2192\u2080 M) :=\n  \u27e8zipWith (\u00b7 + \u00b7) sorry\u27e9\nend AddZeroClass\ninstance hasNatScalar [AddMonoid M] : SMul Nat (\u03b1 \u2192\u2080 M) :=\n  \u27e8fun n v => v.mapRange ((\u00b7 \u2022 \u00b7) n) sorry\u27e9\ninstance addCommMonoid [AddCommMonoid M] : AddCommMonoid (\u03b1 \u2192\u2080 M) where\n  add_assoc := sorry",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "Finsupp"
+  }
+}

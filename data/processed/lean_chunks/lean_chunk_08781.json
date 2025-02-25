@@ -1,0 +1,9 @@
+{
+  "content": "def empty (capacity := 8) : Raw \u03b1 \u03b2 :=\n  (Raw\u2080.empty capacity).1\ninstance : EmptyCollection (Raw \u03b1 \u03b2) where\n  emptyCollection := empty\ninstance : Inhabited (Raw \u03b1 \u03b2) where\n  default := \u2205\n@[inline] def insert [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) (b : \u03b2 a) : Raw \u03b1 \u03b2 :=\n  if h : 0 < m.buckets.size then\n    (Raw\u2080.insert \u27e8m, h\u27e9 a b).1\nelse m\ninstance [BEq \u03b1] [Hashable \u03b1] : Singleton ((a : \u03b1) \u00d7 \u03b2 a) (Raw \u03b1 \u03b2) :=\n  \u27e8fun \u27e8a, b\u27e9 => Raw.empty.insert a b\u27e9\ninstance [BEq \u03b1] [Hashable \u03b1] : Insert ((a : \u03b1) \u00d7 \u03b2 a) (Raw \u03b1 \u03b2) :=\n  \u27e8fun \u27e8a, b\u27e9 s => s.insert a b\u27e9\ninstance [BEq \u03b1] [Hashable \u03b1] : LawfulSingleton ((a : \u03b1) \u00d7 \u03b2 a) (Raw \u03b1 \u03b2) :=\n  \u27e8fun _ => rfl\u27e9\n@[inline] def insertIfNew [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) (b : \u03b2 a) : Raw \u03b1 \u03b2 :=\n  if h : 0 < m.buckets.size then\n    (Raw\u2080.insertIfNew \u27e8m, h\u27e9 a b).1\nelse m\n@[inline] def containsThenInsert [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) (b : \u03b2 a) :\n    Bool \u00d7 Raw \u03b1 \u03b2 :=\n  if h : 0 < m.buckets.size then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Raw.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Raw.lean",
+    "definition_name": "empty"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure BaseMessage (\u03b1 : Type u) where\n  fileName      : String\n  pos           : Position\n  endPos        : Option Position := none\n  data          : \u03b1\n  deriving Inhabited, ToJson, FromJson\nabbrev Message := BaseMessage MessageData\nstructure SerialMessage extends BaseMessage String where\n@[inline] def serialize (msg : Message) : BaseIO SerialMessage := do\n  return {msg with kind := msg.kind, data := \u2190 msg.data.toString}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_name": "BaseMessage"
+  }
+}

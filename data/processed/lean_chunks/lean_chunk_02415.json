@@ -1,0 +1,9 @@
+{
+  "content": "inductive Ty where\n  | nat\n  | fn : Ty \u2192 Ty \u2192 Ty\n@[reducible] def Ty.denote : Ty \u2192 Type\n  | nat    => Nat\n  | fn a b => a.denote \u2192 b.denote\ninductive Term' (rep : Ty \u2192 Type) : Ty \u2192 Type\n  | var   : rep ty \u2192 Term' rep ty\n  | const : Nat \u2192 Term' rep .nat\n  | plus  : Term' rep .nat \u2192 Term' rep .nat \u2192 Term' rep .nat\n  | lam   : (rep dom \u2192 Term' rep ran) \u2192 Term' rep (.fn dom ran)\n  | app   : Term' rep (.fn dom ran) \u2192 Term' rep dom \u2192 Term' rep ran\n  | let   : Term' rep ty\u2081 \u2192 (rep ty\u2081 \u2192 Term' rep ty\u2082) \u2192 Term' rep ty\u2082\nopen Ty (nat fn)\nnamespace FirstTry\ndef Term (ty : Ty) := (rep : Ty \u2192 Type) \u2192 Term' rep ty\ndef add : Term (fn nat (fn nat nat)) := fun _rep =>\n  .lam fun x => .lam fun y => .plus (.var x) (.var y)\ndef three_the_hard_way : Term nat := fun rep =>\n  .app (.app (add rep) (.const 1)) (.const 2)\nend FirstTry\ndef Term (ty : Ty) := {rep : Ty \u2192 Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/phoas.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/phoas.lean",
+    "definition_name": "Ty"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem for use in heuristic instantiations by the `grind` tactic,\n      using respectively the left-hand side, the right-hand side, or both sides of the theorem.\\\n      When applied to a function, `[grind =]` automatically annotates the equational theorems associated with that function.\\\n      When applied to a theorem `[grind \u2190]` will instantiate the theorem whenever it encounters the conclusion of the theorem\n      (that is, it will use the theorem for backwards reasoning).\\\n      When applied to a theorem `[grind \u2192]` will instantiate the theorem whenever it encounters sufficiently many of the propositional hypotheses\n      (that is, it will use the theorem for forwards reasoning).\\\n      \\\n      The attribute `[grind]` by itself will effectively try `[grind \u2190]` (if the conclusion is sufficient for instantiation) and then `[grind \u2192]`.\\\n      \\\n      The `grind` tactic utilizes annotated theorems to add instances of matching patterns into the local context during proof search.\\",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Attr.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Attr.lean",
+    "definition_name": "for",
+    "has_proof": true
+  }
+}

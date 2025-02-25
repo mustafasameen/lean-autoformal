@@ -1,0 +1,9 @@
+{
+  "content": "instance BaseAsImplicit\u2081 {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals3.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals3.lean",
+    "definition_name": "BaseAsImplicit\u2081"
+  }
+}

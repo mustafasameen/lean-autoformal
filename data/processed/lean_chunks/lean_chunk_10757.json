@@ -1,0 +1,9 @@
+{
+  "content": "the environment is set up).\"\ndef helpLean :=\n\"Elaborate a Lean file in the context of the Lake workspace\nUSAGE:\nlake lean <file> [\nBuild the imports of the given file and then runs `lean` on it using\nthe workspace's root package's additional Lean arguments and the given args\n(in that order). The `lean` process is executed in Lake's environment like\n`lake env lean` (see `lake help env` for how the environment is set up).\"\ndef helpTranslateConfig :=\n\"Translate a Lake configuration file into a different language\nUSAGE:\n  lake translate-config <lang> [<out-file>]\nTranslates the loaded package's configuration into another of\nLake's supported configuration languages (i.e., either `lean` or `toml`).\nThe produced file is written to `out-file` or, if not provided, the path of\nthe configuration file with the new language's extension. If the output file\nalready exists, Lake will error.\nTranslation is lossy. It does not preserve comments or formatting and",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "definition",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "in"
+  }
+}

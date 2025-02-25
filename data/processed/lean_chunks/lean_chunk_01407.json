@@ -1,0 +1,9 @@
+{
+  "content": "class AddMonoid (M : Type u) extends AddSemigroup M, AddZeroClass M where\n  protected nsmul : Nat \u2192 M \u2192 M\n  protected nsmul_zero : \u2200 x, nsmul 0 x = 0 := by intros; rfl\n  protected nsmul_succ : \u2200 (n : Nat) (x), nsmul (n + 1) x = nsmul n x + x := by intros; rfl\nattribute [instance 150] AddSemigroup.toAdd\nattribute [instance 50] AddZeroClass.toAdd\nclass Monoid (M : Type u) extends Semigroup M, MulOneClass M where\n  protected npow : Nat \u2192 M \u2192 M := npowRec\n  protected npow_zero : \u2200 x, npow 0 x = 1 := by intros; rfl\n  protected npow_succ : \u2200 (n : Nat) (x), npow (n + 1) x = npow n x * x := by intros; rfl\n@[default_instance high] instance Monoid.toNatPow {M : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "AddMonoid"
+  }
+}

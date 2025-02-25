@@ -1,0 +1,10 @@
+{
+  "content": "theorem andTrue (p : Prop) : (p \u2227 True) = p :=\n  propext <| Iff.intro (fun \u27e8h, _\u27e9 => h) (fun h => \u27e8h, trivial\u27e9)\nattribute [simp] Nat.add_comm\ntheorem ex1 (x : Nat) : (if x > 3 \u2227 True then 1 else 2) = (if x > 3 then 1 else 2) :=\n by simp\ntheorem ex2 (x : Nat) : (if x = 0 \u2227 True then x + 1 else 2 + x) = (if x = 0 then 1 else x + 2) :=\n  by simp (config := {contextual := true}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ifcongr.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ifcongr.lean",
+    "definition_name": "andTrue",
+    "has_proof": true
+  }
+}

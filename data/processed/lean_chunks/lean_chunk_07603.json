@@ -1,0 +1,10 @@
+{
+  "content": "theorem Inv2.property (decls : Array (Decl \u03b1)) (idx upper : Nat) (map : HashMap \u03b1 Nat)\n    (hidx : idx < upper) (a : \u03b1) (hinv : Inv2 decls upper map)\n    (heq : decls[idx]'(by have := upper_lt_size hinv; omega) = .atom a) :\n    \u2203 n, map[a]? = some n := by\n  induction hinv with\n  | empty => omega\n  | newAtom ih1 ih2 ih3 ih4 ih5 =>\n    next idx' _ a' _ =>\n    replace hidx : idx \u2264 idx' := by omega\n    rw [HashMap.getElem?_insert]\n    match heq2 : a' == a with\n    | false =>\n      simp only [Bool.false_eq_true, \u2193reduceIte]\n      cases Nat.eq_or_lt_of_le hidx with\n      | inl hidxeq =>\n        subst hidxeq\n        simp_all only [beq_eq_false_iff_ne, Decl.atom.injEq]\n      | inr hlt =>\n        exact ih5 hlt heq\n    | true =>\n      exact Option.isSome_iff_exists.mp rfl\n  | oldAtom ih1 ih2 ih3 ih4 ih5 =>\n    simp_all only [true_implies]\n    next idx' _ _ _ =>\n    replace hidx : idx \u2264 idx' := by omega\n    cases Nat.eq_or_lt_of_le hidx with\n    | inl hidxeq =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_name": "Inv2",
+    "has_proof": true
+  }
+}

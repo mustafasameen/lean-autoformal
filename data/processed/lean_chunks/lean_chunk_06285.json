@@ -1,0 +1,9 @@
+{
+  "content": "def hcongrThmSuffixBase := \"hcongr\"\ndef hcongrThmSuffixBasePrefix := hcongrThmSuffixBase ++ \"_\"\ndef mkHCongrWithArityForConst? (declName : Name) (levels : List Level) (numArgs : Nat) : MetaM (Option CongrTheorem) := do\n  try\n    let suffix := hcongrThmSuffixBasePrefix ++ toString numArgs\n    let thmName := Name.str declName suffix\n    unless (\u2190 getEnv).contains thmName do\n      executeReservedNameAction thmName\n    let proof := mkConst thmName levels\n    let type \u2190 inferType proof\n    let some argKinds := congrKindsExt.getState (\u2190 getEnv) |>.find? thmName\n      | unreachable!\n    return some { proof, type, argKinds }\n  catch _ =>\n    return none\ndef mkCongrSimpForConst? (declName : Name) (levels : List Level) : MetaM (Option CongrTheorem) := do\n  try\n    let thmName := Name.str declName congrSimpSuffix\n    unless (\u2190 getEnv).contains thmName do\n      executeReservedNameAction thmName\n    let proof := mkConst thmName levels\n    let type \u2190 inferType proof",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/CongrTheorems.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/CongrTheorems.lean",
+    "definition_name": "hcongrThmSuffixBase"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem eraseIdx_insertIdx (i : Nat) (xs : Array \u03b1) (h : i \u2264 xs.size) :\n    (xs.insertIdx i a).eraseIdx i (by simp; omega) = xs := by\n  rcases xs with \u27e8xs\u27e9\n  simp_all\ntheorem insertIdx_eraseIdx_of_ge {as : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/InsertIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/InsertIdx.lean",
+    "definition_name": "eraseIdx_insertIdx",
+    "has_proof": true
+  }
+}

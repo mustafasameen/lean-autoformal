@@ -1,0 +1,9 @@
+{
+  "content": "let table := (\u2190 read).table\n  let isToken (s : String) : Bool := (table.find? s).isSome\n  withMaybeTag (getExprPos? stx) (pushToken info (id.toString (isToken := isToken)) true)\n  goLeft\n@[combinator_formatter rawIdentNoAntiquot] def rawIdentNoAntiquot.formatter : Formatter := do\n  checkKind identKind\n  let stx@(Syntax.ident info _ id _) \u2190 getCur\n    | throwError m!\"not an ident: {\u2190 getCur}\"\n  withMaybeTag (getExprPos? stx) (pushToken info id.toString true)\n  goLeft\n@[combinator_formatter identEq] def identEq.formatter (_id : Name) := rawIdentNoAntiquot.formatter\ndef visitAtom (k : SyntaxNodeKind) : Formatter := do\n  let stx \u2190 getCur\n  if k != Name.anonymous then\n    checkKind k\n  let Syntax.atom info val \u2190 pure $ stx.ifNode (fun n => n.getArg 0) (fun _ => stx)\n    | throwError m!\"not an atom: {stx}\"\n  pushToken info val false\n  goLeft\n@[combinator_formatter charLitNoAntiquot] def charLitNoAntiquot.formatter := visitAtom charLitKind",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_name": "nonReservedSymbolNoAntiquot"
+  }
+}

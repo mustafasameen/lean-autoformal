@@ -1,0 +1,9 @@
+{
+  "content": "structure LetRecClosure where\n  ref        : Syntax\n  localDecls : Array LocalDecl\n    let userNameAndBinderInfos \u2190 forallBoundedTelescope toLift.type xs.size fun xs _ =>\n      xs.mapM fun x => do\n        let localDecl \u2190 x.fvarId!.getDecl\n        return (localDecl.userName, localDecl.binderInfo)\n    let typeLocalDecls := s.localDecls.map fun localDecl =>\n      if let some (userName, bi) := userNameBinderInfoMap.find? localDecl.fvarId then\n        localDecl.setBinderInfo bi |>.setUserName userName\n      else\n        localDecl\n    let type := Closure.mkForall typeLocalDecls <| Closure.mkForall s.newLetDecls type\n    let val  := Closure.mkLambda s.localDecls <| Closure.mkLambda s.newLetDecls val\n    let c    := mkAppN (Lean.mkConst toLift.declName) s.exprArgs\n    toLift.mvarId.assign c\n    return {\n      ref        := toLift.ref\n      localDecls := s.newLocalDecls\n      closed     := c\n      toLift     := { toLift with val, type }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualDef.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualDef.lean",
+    "definition_name": "LetRecClosure"
+  }
+}

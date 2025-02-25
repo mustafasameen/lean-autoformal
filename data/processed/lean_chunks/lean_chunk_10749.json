@@ -1,0 +1,9 @@
+{
+  "content": "logVerbose \"creating lean-action CI workflow\"\n  let workflowDir := dir / \".github\" / \"workflows\"\n  let workflowFile := workflowDir / \"lean_action_ci.yml\"\n  if (\u2190 workflowFile.pathExists) then\n    logVerbose \"lean-action CI workflow already exists\"\n    return\n  IO.FS.createDirAll workflowDir\n  IO.FS.writeFile workflowFile leanActionWorkflowContents\n  logVerbose s!\"created lean-action CI workflow at '{workflowFile}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Init.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Init.lean",
+    "definition_name": "InitTemplate"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance : Literal UInt64 := mkNatWrapperInstance UInt64.ofNat ``UInt64.ofNat UInt64.toNat\ninstance : Literal Char := mkNatWrapperInstance Char.ofNat ``Char.ofNat Char.toNat\nend Literals\npartial def getPseudoListLiteral (fvarId : FVarId) : CompilerM (Option (List FVarId \u00d7 Expr \u00d7 Level)) := do\n  go fvarId []\nwhere\n  go (fvarId : FVarId) (fvarIds : List FVarId) : CompilerM (Option (List FVarId \u00d7 Expr \u00d7 Level)) := do\n    let some e \u2190 findLetValue? fvarId | return none\n    match e with\n    | .const ``List.nil [u] #[.type \u03b1] =>\n      return some (fvarIds.reverse, \u03b1, u)\n    | .const ``List.cons _ #[_, .fvar h, .fvar t] =>\n      go t (h :: fvarIds)\n    | _ => return none\ndef mkPseudoArrayLiteral (elements : Array FVarId) (typ : Expr) (typLevel : Level) : FolderM LetValue := do\n  let sizeLit \u2190 mkAuxLit elements.size\n  let mut literal \u2190 mkAuxLetDecl <| .const ``Array.mkEmpty [typLevel] #[.type typ, .fvar sizeLit]\n  for element in elements do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_name": "Literal"
+  }
+}

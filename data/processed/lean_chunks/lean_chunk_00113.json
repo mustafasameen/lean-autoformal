@@ -1,0 +1,9 @@
+{
+  "content": "class MulZero (\u03b1 : Type u) extends Mul \u03b1, Zero \u03b1 where\n  zero_mul (a : \u03b1) : 0 * a = 0\n  mul_zero (a : \u03b1) : a * 0 = 0\nclass ZeroNeOne (\u03b1 : Type u) extends Zero \u03b1, One \u03b1 where\n  zero_ne_one : (0:\u03b1) \u2260 1\nclass Semiring (\u03b1 : Type u) extends AddCommMonoid \u03b1, Monoid \u03b1, Distrib \u03b1, MulZero \u03b1\nclass CommSemiring (\u03b1 : Type u) extends Semiring \u03b1, CommMonoid \u03b1\nclass Ring (\u03b1 : Type u) extends AddCommGroup \u03b1, Monoid \u03b1, Distrib \u03b1\nclass CommRing (\u03b1 : Type u) extends Ring \u03b1, CommSemigroup \u03b1\nclass NoZeroDivisors (\u03b1 : Type u) extends Mul \u03b1, Zero \u03b1 where\n  eq_zero_or_eq_zero_of_mul_eq_zero (a b : \u03b1) : a * b = 0 \u2192 a = 0 \u2228 b = 0\nclass IntegralDomain (\u03b1 : Type u) extends CommRing \u03b1, NoZeroDivisors \u03b1, ZeroNeOne \u03b1\nclass DivisionRing (\u03b1 : Type u) extends Ring \u03b1, Inv \u03b1, ZeroNeOne \u03b1 where\n  mul_inv_cancel {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond7.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond7.lean",
+    "definition_name": "Semigroup"
+  }
+}

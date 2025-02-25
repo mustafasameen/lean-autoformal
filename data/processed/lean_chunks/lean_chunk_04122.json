@@ -1,0 +1,10 @@
+{
+  "content": "theorem shiftLeft_add_distrib {x y : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "shiftLeft_add_distrib",
+    "has_proof": false
+  }
+}

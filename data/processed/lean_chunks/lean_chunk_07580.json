@@ -1,0 +1,9 @@
+{
+  "content": "manyN (n.toNat) (parseLeapSecond size)\nprivate def parseIndicators (n : UInt32) : Parser (Array Bool) :=\n  manyN (n.toNat) pbool\nprivate def parseTZifV1 : Parser TZifV1 := do\n  let header \u2190 parseHeader\n  let transitionTimes \u2190 parseTransitionTimes pi32 header.timecnt\n  let transitionIndices \u2190 parseTransitionIndices header.timecnt\n  let localTimeTypes \u2190 parseLocalTimeTypes header.typecnt\n  let abbreviations \u2190 parseAbbreviations localTimeTypes header.charcnt\n  let leapSeconds \u2190 parseLeapSeconds pi32 header.leapcnt\n  let stdWallIndicators \u2190 parseIndicators header.isstdcnt\n  let utLocalIndicators \u2190 parseIndicators header.isutcnt\n  return {\n      header\n      transitionTimes\n      transitionIndices\n      localTimeTypes\n      abbreviations\n      leapSeconds\n      stdWallIndicators\n      utLocalIndicators\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_name": "Header"
+  }
+}

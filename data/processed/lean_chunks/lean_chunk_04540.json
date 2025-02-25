@@ -1,0 +1,10 @@
+{
+  "content": "theorem forM_none [Monad m] (f : \u03b1 \u2192 m PUnit) :\n    none.forM f = pure .unit := rfl\n@[simp] theorem forM_some [Monad m] (f : \u03b1 \u2192 m PUnit) (a : \u03b1) :\n    (some a).forM f = f a := rfl\n@[simp] theorem forM_map [Monad m] [LawfulMonad m] (o : Option \u03b1) (g : \u03b1 \u2192 \u03b2) (f : \u03b2 \u2192 m PUnit) :\n    (o.map g).forM f = o.forM (fun a => f (g a)) := by\n  cases o <;> simp\n@[congr] theorem forIn'_congr [Monad m] [LawfulMonad m] {as bs : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Monadic.lean",
+    "definition_name": "forM_none",
+    "has_proof": true
+  }
+}

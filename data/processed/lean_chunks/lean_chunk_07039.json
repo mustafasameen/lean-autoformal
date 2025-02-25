@@ -1,0 +1,9 @@
+{
+  "content": "catch _ =>\n      pure RBTree.empty\n    if nameSet.isEmpty then\n      return\n    forEligibleDeclsWithCancellationM fun declName c => do\n      let unnormedTypeName := declName.getPrefix\n      if ! nameSet.contains unnormedTypeName then\n        return\n      let some declName \u2190 normPrivateName? declName\n        | return\n      let typeName := declName.getPrefix\n      if ! (\u2190 isDotCompletionMethod typeName c) then\n        return\n      let completionKind \u2190 getCompletionKindForDecl c\n      addUnresolvedCompletionItem (.mkSimple c.name.getString!) (.const c.name) (kind := completionKind)\ndef dotIdCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)\n    (lctx              : LocalContext)\n    (id                : Name)\n    (expectedType?     : Option Expr)\n    : CancellableM (Array CompletionItem) :=\n  runM params completionInfoPos ctx lctx do\n    let some expectedType := expectedType?\n      | return ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

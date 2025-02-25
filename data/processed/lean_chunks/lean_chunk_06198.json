@@ -1,0 +1,9 @@
+{
+  "content": "| .diff t s => tryReduceProjs t s\n  tryReduceProjs (t s : Expr) : MetaM Bool := do\n    match (\u2190 projectCore? t i), (\u2190 projectCore? s i) with\n    | some t, some s => Meta.isExprDefEqAux t s\n    | _, _ => Meta.isExprDefEqAux t s\nprivate def isDefEqProj : Expr \u2192 Expr \u2192 MetaM Bool\n  | .proj m i t, .proj n j s => do\n    if (\u2190 read).inTypeClassResolution then\n      pure (i == j && m == n) <&&> Meta.isExprDefEqAux t s\n    else if !backward.isDefEq.lazyProjDelta.get (\u2190 getOptions) then\n      pure (i == j && m == n) <&&> Meta.isExprDefEqAux t s\n    else if i == j && m == n then\n      isDefEqProjDelta t s i\n    else\n      return false\n  | .proj structName 0 s, v  => isDefEqSingleton structName s v\n  | v, .proj structName 0 s  => isDefEqSingleton structName s v\n  | _, _ => pure false\nwhere\n      return false\n    let some ctorVal := getStructureLikeCtor? (\u2190 getEnv) structName | return false\n    if ctorVal.numFields != 1 then\nreturn false\n    let sType \u2190 whnf (\u2190 inferType s)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "DeltaStepResult"
+  }
+}

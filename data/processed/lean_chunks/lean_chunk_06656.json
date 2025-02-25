@@ -1,0 +1,9 @@
+{
+  "content": "def defaultOrOfNonempty := leading_parser\n  \"default_or_ofNonempty% \" >> optional \"unsafe\"\n@[builtin_term_parser] def noErrorIfUnused := leading_parser\n  \"no_error_if_unused% \" >> termParser\ndef namedArgument  := leading_parser (withAnonymousAntiquot := false)\n  atomic (\"(\" >> ident >> \" := \") >> withoutPosition termParser >> \")\"\n@[builtin_term_parser] def proj     := trailing_parser\n  checkNoWsBefore >> \".\" >> checkNoWsBefore >> (fieldIdx <|> rawIdent)\n@[builtin_term_parser] def completion := trailing_parser\n  checkNoWsBefore >> \".\"\n@[builtin_term_parser] def arrow    := trailing_parser\n  checkPrec 25 >> unicodeSymbol \" \u2192 \" \" -> \" >> termParser 25\ndef identProjKind := `Lean.Parser.Term.identProj\ndef isIdent (stx : Syntax) : Bool :=\n  stx.isAntiquot || stx.isIdent\n@[builtin_term_parser] def namedPattern : TrailingParser := trailing_parser\n  checkStackTop isIdent \"expected preceding identifier\" >>\n  checkNoWsBefore \"no space before '@'\" >> \"@\" >>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "defaultOrOfNonempty"
+  }
+}

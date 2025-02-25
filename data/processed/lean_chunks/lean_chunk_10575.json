@@ -1,0 +1,10 @@
+{
+  "content": "theorem Ordered.compare_right_not_beq_gt [Ord \u03b1] [TransOrd \u03b1] {k : \u03b1 \u2192 Ordering}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Ordered.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Ordered.lean",
+    "definition_name": "Ordered",
+    "has_proof": false
+  }
+}

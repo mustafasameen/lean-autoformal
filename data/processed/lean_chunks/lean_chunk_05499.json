@@ -1,0 +1,10 @@
+{
+  "content": "| \u27e8s\u2081, b\u27e9, \u27e8s\u2082, e\u27e9 =>\n    if s\u2081 \u2260 s\u2082 || b > e then \"\"\n    else s\u2081.extract b e\ndef forward : Iterator \u2192 Nat \u2192 Iterator\n  | it, 0   => it\n  | it, n+1 => forward it.next n\ndef prevn : Iterator \u2192 Nat \u2192 Iterator\n  | it, 0   => it\n  | it, i+1 => prevn it.prev i\nend Iterator\ndef offsetOfPosAux (s : String) (pos : Pos) (i : Pos) (offset : Nat) : Nat :=\n  if i >= pos then offset\n  else if h : s.atEnd i then\n    offset\n  else\n    have := Nat.sub_lt_sub_left (Nat.gt_of_not_le (mt decide_eq_true h)) (lt_next s _)\n    offsetOfPosAux s pos (s.next i) (offset+1)\ntermination_by s.endPos.1 - i.1\n@[inline] def offsetOfPos (s : String) (pos : Pos) : Nat :=\n  offsetOfPosAux s pos 0 0\n@[specialize] def foldlAux {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "Iterator",
+    "has_proof": true
+  }
+}

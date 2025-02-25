@@ -1,0 +1,10 @@
+{
+  "content": "\u2194 (\u2200 (j : Nat), j \u2264 i + 1 \u2192 x.getLsbD j = true) by\n        simpa\n      constructor\n      \u00b7 intro h j hj\n        rcases Nat.le_or_eq_of_le_succ hj with (hj' | rfl)\n        \u00b7 apply h; assumption\n        \u00b7 exact hx\n      \u00b7 intro h j hj; apply h; omega\ntheorem carry_of_and_eq_zero {x y : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "mod_two_pow_succ",
+    "has_proof": true
+  }
+}

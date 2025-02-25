@@ -1,0 +1,9 @@
+{
+  "content": "def date := date(\"1970-01-20\")\n#guard_msgs in\n#eval date.addDays 12\n#guard_msgs in\n#eval date.addMonthsClip 1\n#guard_msgs in\n#eval date.addYearsRollOver 1\n#guard_msgs in\n#eval date.subYearsClip 1\n#guard_msgs in\n#eval date.subMonthsClip 1\ndef datetime := datetime(\"2000-01-20T03:02:01\")\n#guard_msgs in\n#eval datetime.addHours 1\n#guard_msgs in\n#eval datetime.subHours 1\n#guard_msgs in\n#eval datetime.addMinutes 10\n#guard_msgs in\n#eval datetime.subMinutes 10\n#guard_msgs in\n#eval datetime.addSeconds 60\n#guard_msgs in\n#eval datetime.subSeconds 60\n#guard_msgs in\n#eval datetime.addDays 1\n#guard_msgs in\n#eval datetime.subDays 1\n#guard_msgs in\n#eval datetime.addMonthsClip 1\n#guard_msgs in\n#eval datetime.subMonthsClip 1\n#guard_msgs in\n#eval datetime.addMonthsRollOver 1\n#guard_msgs in\n#eval datetime.subMonthsRollOver 1\n#guard_msgs in\n#eval datetime.addYearsClip 1\n#guard_msgs in\n#eval datetime.subYearsClip 1\n#guard_msgs in\n#eval datetime.addYearsRollOver 1\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeOperations.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeOperations.lean",
+    "definition_name": "date"
+  }
+}

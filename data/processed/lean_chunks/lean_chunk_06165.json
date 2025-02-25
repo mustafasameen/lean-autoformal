@@ -1,0 +1,9 @@
+{
+  "content": "class abbrev\"\n@[builtin_missing_docs_handler Parser.Tactic.declareSimpLikeTactic]\ndef checkSimpLike : SimpleHandler := mkSimpleHandler \"simp-like tactic\"\n@[builtin_missing_docs_handler Option.registerBuiltinOption]\ndef checkRegisterBuiltinOption : SimpleHandler := mkSimpleHandler \"option\"\n@[builtin_missing_docs_handler Option.registerOption]\ndef checkRegisterOption : SimpleHandler := mkSimpleHandler \"option\"\n@[builtin_missing_docs_handler registerSimpAttr]\ndef checkRegisterSimpAttr : SimpleHandler := mkSimpleHandler \"simp attr\"\n@[builtin_missing_docs_handler \u00abin\u00bb]\ndef handleIn : Handler := fun _ stx => do\n  if stx[0].getKind == ``\u00abset_option\u00bb then\n    let opts \u2190 Elab.elabSetOption stx[0][1] stx[0][3]\n    withScope (fun scope => { scope with opts }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/MissingDocs.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/MissingDocs.lean",
+    "definition_name": "abbrev"
+  }
+}

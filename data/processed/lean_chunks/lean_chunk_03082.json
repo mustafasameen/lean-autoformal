@@ -1,0 +1,10 @@
+{
+  "content": "structure TheoremVal extends ConstantVal where\n  value : Expr\n  all : List Name := [name]\n  deriving Inhabited, BEq\n@[export lean_mk_theorem_val]\ndef mkTheoremValEx (name : Name) (levelParams : List Name) (type : Expr) (value : Expr) (all : List Name) : TheoremVal := {\n  name, levelParams, type, value, all\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_name": "TheoremVal",
+    "has_proof": false
+  }
+}

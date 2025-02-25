@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_filter : x \u2208 filter p as \u2194 x \u2208 as \u2227 p x := by\n  induction as with\n  | nil => simp [filter]\n  | cons a as ih =>\n    by_cases h : p a\n    \u00b7 simp_all [or_and_left]\n    \u00b7 simp_all [or_and_right]\n@[simp] theorem filter_eq_nil_iff {l}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "mem_filter",
+    "has_proof": true
+  }
+}

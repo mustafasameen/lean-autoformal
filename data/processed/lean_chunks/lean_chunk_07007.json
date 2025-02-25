@@ -1,0 +1,9 @@
+{
+  "content": "structure FileSetupResult where\n  srcSearchPath : SearchPath\n  plugins       : Array System.FilePath\ndef FileSetupResult.ofSuccess (pkgSearchPath : SearchPath) (fileOptions : Options)\n    (plugins : Array System.FilePath) : IO FileSetupResult := do return {\n  kind          := FileSetupResultKind.success\n  srcSearchPath := \u2190 initSrcSearchPath pkgSearchPath,\n  fileOptions, plugins\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/SetupFile.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/SetupFile.lean",
+    "definition_name": "FileSetupResult"
+  }
+}

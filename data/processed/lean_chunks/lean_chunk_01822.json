@@ -1,0 +1,10 @@
+{
+  "content": "theorem bit0_zero {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/unfoldPartialRegression.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/unfoldPartialRegression.lean",
+    "definition_name": "bit0_zero",
+    "has_proof": false
+  }
+}

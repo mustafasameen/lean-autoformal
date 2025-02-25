@@ -1,0 +1,9 @@
+{
+  "content": "def node.arity := 4\ndef mkStx : \u2115 \u2192 Syntax\n| 0 := Syntax.mkNode leaf []\n| (n+1) := Syntax.mkNode node $ (List.replicate node.arity Syntax.missing).map (\u03bb _, mkStx n)\ndef cfg : FrontendConfig := {filename := \"foo\", fileMap := FileMap.fromString \"\", input := \"\"}\ndef test (transformers : List (Name \u00d7 transformer)) (stx : Syntax) : IO Unit :=\nmatch expand stx {cfg with transformers := RBMap.fromList transformers _} with\n| Except.ok _ := pure ()\n| Except.error e := throw e.toString\ndef testNoOp  := test []\ndef testNoExp := test [(`node, \u03bb stx, noExpansion)]\ndef testSimple := test [(`node, \u03bb stx, match stx.asNode with\n  | some n := pure $ Syntax.mkNode \u27e8`node2\u27e9 n.args\n  | none   := pure Syntax.missing)]\npartial def toNode2 : Syntax \u2192 Syntax\n| (Syntax.rawNode \u27e8kind, as, scopes\u27e9) := Syntax.rawNode \u27e8\u27e8`node2\u27e9, as.map toNode2, scopes\u27e9\n| other                               := other\ndef testToNode2 (stx : Syntax) : IO Syntax := pure $ toNode2 stx\ndef main (xs : List String) : IO Unit := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/expander.lean",
+    "definition_name": "node"
+  }
+}

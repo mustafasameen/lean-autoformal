@@ -1,0 +1,9 @@
+{
+  "content": "def paren  := leading_parser\n  \"(\" >> withoutPosition levelParser >> \")\"\n@[builtin_level_parser] def max    := leading_parser\n  nonReservedSymbol \"max\" true  >> many1 (ppSpace >> levelParser maxPrec)\n@[builtin_level_parser] def imax   := leading_parser\n  nonReservedSymbol \"imax\" true >> many1 (ppSpace >> levelParser maxPrec)\n@[builtin_level_parser] def hole   := leading_parser\n  \"_\"\n@[builtin_level_parser] def num    :=\n  checkPrec maxPrec >> numLit\n@[builtin_level_parser] def ident  :=\n  checkPrec maxPrec >> Parser.ident\n@[builtin_level_parser] def addLit := trailing_parser:65\n  \" + \" >> numLit\nend Level\nend Parser\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Level.lean",
+    "definition_name": "paren"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "@[extern \"lean_uint8_to_uint64\"]\ndef BinderInfo.toUInt64 : BinderInfo \u2192 UInt64\n  | .default        => 0\n  | .implicit       => 1\n  | .strictImplicit => 2\n  | .instImplicit   => 3\ndef Expr.mkData\n    (h : UInt64) (looseBVarRange : Nat := 0) (approxDepth : UInt32 := 0)\n    (hasFVar hasExprMVar hasLevelMVar hasLevelParam : Bool := false)\n    : Expr.Data :=\n  let approxDepth : UInt8 := if approxDepth > 255 then 255 else approxDepth.toUInt8\n  assert! (looseBVarRange \u2264 Nat.pow 2 20 - 1)\n  let r : UInt64 :=\n      h.toUInt32.toUInt64 +\n      approxDepth.toUInt64.shiftLeft 32 +\n      hasFVar.toUInt64.shiftLeft 40 +\n      hasExprMVar.toUInt64.shiftLeft 41 +\n      hasLevelMVar.toUInt64.shiftLeft 42 +\n      hasLevelParam.toUInt64.shiftLeft 43 +\n      looseBVarRange.toUInt64.shiftLeft 44\n  r\nstructure FVarId where\n  name : Name\n  deriving Inhabited, BEq, Hashable\ninstance : Repr FVarId where\n  reprPrec n p := reprPrec n.name p\ndef FVarIdSet := RBTree FVarId (Name.quickCmp \u00b7.name \u00b7.name)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

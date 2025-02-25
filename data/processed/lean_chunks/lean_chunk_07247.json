@@ -1,0 +1,9 @@
+{
+  "content": "inductive IRType where\n  | float | uint8 | uint16 | uint32 | uint64 | usize\n  | irrelevant | object | tobject\n  | float32\n  | struct (leanTypeName : Option Name) (types : Array IRType) : IRType\n  | union (leanTypeName : Name) (types : Array IRType) : IRType\n  deriving Inhabited, Repr\nnamespace IRType\npartial def beq : IRType \u2192 IRType \u2192 Bool\n  | float,          float          => true\n  | float32,        float32        => true\n  | uint8,          uint8          => true\n  | uint16,         uint16         => true\n  | uint32,         uint32         => true\n  | uint64,         uint64         => true\n  | usize,          usize          => true\n  | irrelevant,     irrelevant     => true\n  | object,         object         => true\n  | tobject,        tobject        => true\n  | struct n\u2081 tys\u2081, struct n\u2082 tys\u2082 => n\u2081 == n\u2082 && Array.isEqv tys\u2081 tys\u2082 beq\n  | union n\u2081 tys\u2081,  union n\u2082 tys\u2082  => n\u2081 == n\u2082 && Array.isEqv tys\u2081 tys\u2082 beq\n  | _,              _              => false\ninstance : BEq IRType := \u27e8beq\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_name": "IRType"
+  }
+}

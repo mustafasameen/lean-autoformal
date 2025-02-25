@@ -1,0 +1,10 @@
+{
+  "content": "match n with\n    | 0 =>\n      simp [decide_eq_false, succ_sub_succ_eq_sub]\n    | n+1 =>\n      rw [Nat.two_pow_succ_sub_succ_div_two, ih]\n      \u00b7 simp [Nat.succ_lt_succ_iff]\n      \u00b7 omega\n@[simp] theorem testBit_two_pow_sub_one (n i : Nat) : testBit (2^n-1) i = decide (i < n) := by\n  rw [testBit_two_pow_sub_succ]\n  \u00b7 simp\n  \u00b7 exact Nat.two_pow_pos _\ntheorem testBit_bool_to_nat (b : Bool) (i : Nat) :\n    testBit (Bool.toNat b) i = (decide (i = 0) && b) := by\n  cases b <;> cases i <;>\n  simp [testBit_to_div_mod, Nat.pow_succ, Nat.mul_comm _ 2,\n        \u2190Nat.div_div_eq_div_mul _ 2, one_div_two,\n        Nat.mod_eq_of_lt]\ntheorem testBit_bitwise (of_false_false : f false false = false) (x y i : Nat) :\n    (bitwise f x y).testBit i = f (x.testBit i) (y.testBit i) := by\n  induction i using Nat.strongRecOn generalizing x y with\n  | ind i hyp =>\n    unfold bitwise\n    if x_zero : x = 0 then\n      cases p : f false true <;>\n        cases yi : testBit y i <;>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "testBit_mod_two_pow",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "intro h\u2081 h\u2082\n  have := Int.lt_of_le_of_lt h\u2082 h\u2081\n  simp at this\ntheorem eq_norm (ctx : Context) (p\u2081 p\u2082 : Poly) (h : p\u2081.norm == p\u2082) : p\u2081.denote' ctx = 0 \u2192 p\u2082.denote' ctx = 0 := by\n  simp at h\n  replace h := congrArg (Poly.denote ctx) h\n  simp at h\n  simp [*]\ndef eq_coeff_cert (p p' : Poly) (k : Int) : Bool :=\n  p == p'.mul k && k > 0\ntheorem eq_coeff (ctx : Context) (p p' : Poly) (k : Int) : eq_coeff_cert p p' k \u2192 p.denote' ctx = 0 \u2192 p'.denote' ctx = 0 := by\n  simp [eq_coeff_cert]\n  intro _ _; simp [mul_eq_zero_iff, *]\ntheorem eq_unsat (ctx : Context) (p : Poly) : p.isUnsatEq \u2192 p.denote' ctx = 0 \u2192 False := by\n  simp [Poly.isUnsatEq] <;> split <;> simp\ndef eq_unsat_coeff_cert (p : Poly) (k : Int) : Bool :=\n  p.divCoeffs k && k > 0 && cmod p.getConst k < 0\ntheorem eq_unsat_coeff (ctx : Context) (p : Poly) (k : Int) : eq_unsat_coeff_cert p k \u2192 p.denote' ctx = 0 \u2192 False := by\n  simp [eq_unsat_coeff_cert]\n  intro h\u2081 h\u2082 h\u2083\n  have h := poly_eq_zero_eq_false ctx h\u2081 h\u2082 h\u2083; clear h\u2081 h\u2082 h\u2083",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "dvd_solve_combine",
+    "has_proof": true
+  }
+}

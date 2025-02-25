@@ -1,0 +1,9 @@
+{
+  "content": "p.update (\u2190 normExpr p.type)\ndef normParams [MonadLiftT CompilerM m] [Monad m] [MonadFVarSubst m t] (ps : Array Param) : m (Array Param) :=\n  ps.mapMonoM normParam\ndef normLetDecl [MonadLiftT CompilerM m] [Monad m] [MonadFVarSubst m t] (decl : LetDecl) : m LetDecl := do\n  decl.update (\u2190 normExpr decl.type) (\u2190 normLetValue decl.value)\nabbrev NormalizerM (_translator : Bool) := ReaderT FVarSubst CompilerM\ninstance : MonadFVarSubst (NormalizerM t) t where\n  getSubst := read\n@[inline] def withNormFVarResult [MonadLiftT CompilerM m] [Monad m] (result : NormFVarResult) (x : FVarId \u2192 m Code) : m Code := do\n  match result with\n  | .fvar fvarId => x fvarId\n  | .erased => mkReturnErased\nmutual\n  partial def normFunDeclImp (decl : FunDecl) : NormalizerM t FunDecl  := do\n    let type \u2190 normExpr decl.type\n    let params \u2190 normParams decl.params\n    let value \u2190 normCodeImp decl.value\n    decl.update type params value\n  partial def normCodeImp (code : Code) : NormalizerM t Code := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "mkFreshBinderName"
+  }
+}

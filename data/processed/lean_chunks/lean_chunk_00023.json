@@ -1,0 +1,9 @@
+{
+  "content": "return r \u2260 eq.const\ndef solveProblem (p : Problem) : Solution :=\n  let nVars := p.nVars\n  match solveProblem' p with\n  | Solution.unsat =>\n    Solution.unsat\n  | Solution.sat assignment =>\n    let assignment' := assignment.extract 0 nVars\n    if isSatAssignment p assignment' then\n      Solution.sat assignment'\n    else\n      Solution.unsat\ndef error (msg : String) : IO \u03b1 :=\n  throw <| IO.userError s!\"Error: {msg}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_name": "Solution"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "opaque instantiateRevRange (e : @& Expr) (beginIdx endIdx : @& Nat) (subst : @& Array Expr) : Expr\n@[extern \"lean_expr_abstract\"]\nopaque abstract (e : @& Expr) (xs : @& Array Expr) : Expr\ndef replaceFVar (e : Expr) (fvar : Expr) (v : Expr) : Expr :=\n  (e.abstract #[fvar]).instantiate1 v\ndef replaceFVars (e : Expr) (fvars : Array Expr) (vs : Array Expr) : Expr :=\n  (e.abstract fvars).instantiateRev vs\ninstance : ToString Expr where\n  toString := Expr.dbgToString\nstructure ExprStructEq where\n  val : Expr\n  deriving Inhabited\ninstance : Coe Expr ExprStructEq := \u27e8ExprStructEq.mk\u27e9\nnamespace ExprStructEq\nprotected def beq : ExprStructEq \u2192 ExprStructEq \u2192 Bool\n  | \u27e8e\u2081\u27e9, \u27e8e\u2082\u27e9 => Expr.equal e\u2081 e\u2082\nprotected def hash : ExprStructEq \u2192 UInt64\n  | \u27e8e\u27e9 => e.hash\ninstance : BEq ExprStructEq := \u27e8ExprStructEq.beq\u27e9\ninstance : Hashable ExprStructEq := \u27e8ExprStructEq.hash\u27e9\ninstance : ToString ExprStructEq := \u27e8fun e => toString e.val\u27e9\nend ExprStructEq",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

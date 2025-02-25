@@ -1,0 +1,10 @@
+{
+  "content": "structure Point where\n  x : Nat\n  y : Int\n#guard_msgs (error) in\ntheorem ex3 (h : a\u2081 :: { x := a\u2082, y := a\u2083 : Point }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_pre.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_pre.lean",
+    "definition_name": "Point",
+    "has_proof": false
+  }
+}

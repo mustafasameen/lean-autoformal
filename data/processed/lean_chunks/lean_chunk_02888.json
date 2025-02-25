@@ -1,0 +1,9 @@
+{
+  "content": "def casesOnSuffix       := \"casesOn\"\ndef recOnSuffix         := \"recOn\"\ndef brecOnSuffix        := \"brecOn\"\ndef binductionOnSuffix  := \"binductionOn\"\ndef belowSuffix         := \"below\"\ndef ibelowSuffix        := \"ibelow\"\ndef mkCasesOnName (indDeclName : Name) : Name := Name.mkStr indDeclName casesOnSuffix\ndef mkRecOnName (indDeclName : Name) : Name   := Name.mkStr indDeclName recOnSuffix\ndef mkBRecOnName (indDeclName : Name) : Name  := Name.mkStr indDeclName brecOnSuffix\ndef mkBInductionOnName (indDeclName : Name) : Name  := Name.mkStr indDeclName binductionOnSuffix\ndef mkBelowName (indDeclName : Name) : Name := Name.mkStr indDeclName belowSuffix\ndef mkIBelowName (indDeclName : Name) : Name := Name.mkStr indDeclName ibelowSuffix\nbuiltin_initialize auxRecExt : TagDeclarationExtension \u2190 mkTagDeclarationExtension\ndef markAuxRecursor (env : Environment) (declName : Name) : Environment :=\n  auxRecExt.tag env declName\n@[export lean_is_aux_recursor]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/AuxRecursor.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/AuxRecursor.lean",
+    "definition_name": "casesOnSuffix"
+  }
+}

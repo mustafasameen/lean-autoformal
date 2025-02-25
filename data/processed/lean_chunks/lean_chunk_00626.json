@@ -1,0 +1,9 @@
+{
+  "content": "check $ isStructure env `S2\n  check $ isStructure env `S3\n  check $ isStructure env `S4\n  check $ isStructure env `S5\n  check $ !isStructure env `Nat\n  check $ !isStructure env `D\n  check $ getPathToBaseStructure? env `S1 `S4 == some [`S4.toS2, `S2.toS1]\n  IO.println (getStructureFieldsFlattened env `S4)\n  IO.println (getPathToBaseStructure? env `S1 `S4)\n  IO.println (getStructureSubobjects env `S4)\n  IO.println (\u2190 getAllParentStructures `S4)\n  pure ()\ndef dumpStructInfo (structName : Name) : CoreM Unit := do\n  let env \u2190 getEnv\n  let some info := getStructureInfo? env structName\n    | throwError \"no such structure {structName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure.lean",
+    "definition_name": "S1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure RewriteResult where\n  expr : Expr\n  weight : Nat\n  mctx : MetavarContext\n  rfl? : Bool\nprivate def RewriteResult.ppResult (r : RewriteResult) : MetaM String :=\n  return (\u2190 ppExpr r.result.eNew).pretty\ndef solveByElim (goals : List MVarId) (depth : Nat := 6) : MetaM PUnit := do\n  let cfg : SolveByElimConfig := { maxDepth := depth, exfalso := false, symm := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "RewriteResult"
+  }
+}

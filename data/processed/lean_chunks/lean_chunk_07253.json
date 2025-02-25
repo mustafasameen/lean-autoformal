@@ -1,0 +1,9 @@
+{
+  "content": "def AltCore.body : Alt \u2192 FnBody\n  | Alt.ctor _ b  => b\n  | Alt.default b => b\ndef AltCore.setBody : Alt \u2192 FnBody \u2192 Alt\n  | Alt.ctor c _, b  => Alt.ctor c b\n  | Alt.default _, b => Alt.default b\n@[inline] def AltCore.modifyBody (f : FnBody \u2192 FnBody) : AltCore FnBody \u2192 Alt\n  | Alt.ctor c b  => Alt.ctor c (f b)\n  | Alt.default b => Alt.default (f b)\n@[inline] def AltCore.mmodifyBody {m : Type \u2192 Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_name": "IRType"
+  }
+}

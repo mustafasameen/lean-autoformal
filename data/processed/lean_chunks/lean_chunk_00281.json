@@ -1,0 +1,9 @@
+{
+  "content": "inductive T1 : Nat\nmutual\ninductive T1 : Prop\ninductive T2 : Type\nend\nuniverse u v\nmutual\ninductive T1 (x : Nat) : Type u\ninductive T2 (x : Nat) : Nat \u2192 Type v\nend\nmutual\ninductive T1 (b : Bool) (x : Nat)  : Type\ninductive T2 (b : Bool) (x : Bool) : Type\nend\nmutual\ninductive T1 (b : Bool) (x : Nat)  : Type\ninductive T2 (x : Bool) : Type\nend\nmutual\ninductive T1 (b : Bool) (x : Nat)  : Type\ninductive T2 (b : Bool) {x : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/inductive1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/inductive1.lean",
+    "definition_name": "T1"
+  }
+}

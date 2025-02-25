@@ -1,0 +1,10 @@
+{
+  "content": "theorem f_zero (n : Nat) : f n = 0 :=\n  Nat.sub_self n\nexample (n : Nat) : False := by\n  let g := f n\n  have : g + n = n := by\nfail_if_success simp (config := { zeta := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2669.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2669.lean",
+    "definition_name": "f_zero",
+    "has_proof": true
+  }
+}

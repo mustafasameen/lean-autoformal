@@ -1,0 +1,9 @@
+{
+  "content": "structure String.Range where\n  start : String.Pos\n  stop  : String.Pos\n  deriving Inhabited, Repr, BEq, Hashable\ndef String.Range.contains (r : String.Range) (pos : String.Pos) (includeStop := false) : Bool :=\n  r.start <= pos && (if includeStop then pos <= r.stop else pos < r.stop)\ndef String.Range.includes (super sub : String.Range) : Bool :=\n  super.start <= sub.start && super.stop >= sub.stop\ndef String.Range.overlaps (first second : String.Range)\n    (includeFirstStop := false) (includeSecondStop := false) : Bool :=\n  (if includeFirstStop then second.start <= first.stop else second.start < first.stop) &&\n    (if includeSecondStop then first.start <= second.stop else first.start < second.stop)\ndef String.Range.bsize (r : String.Range) : Nat :=\n  r.stop.byteIdx - r.start.byteIdx\nnamespace Lean\ndef SourceInfo.updateTrailing (trailing : Substring) : SourceInfo \u2192 SourceInfo\n  | SourceInfo.original leading pos _ endPos => SourceInfo.original leading pos trailing endPos",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "String"
+  }
+}

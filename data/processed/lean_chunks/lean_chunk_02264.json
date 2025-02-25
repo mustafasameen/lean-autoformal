@@ -1,0 +1,9 @@
+{
+  "content": "structure Equiv (\u03b1 : Sort u) (\u03b2 : Sort v) where\n  toFun    : \u03b1 \u2192 \u03b2\n  invFun   : \u03b2 \u2192 \u03b1\n  left_inv  : \u2200 x, invFun (toFun x) = x\n  right_inv : \u2200 x, toFun (invFun x) = x\ninfix:50 \"\u2243\" => Equiv\ndef Equiv.symm (e : \u03b1 \u2243 \u03b2) : \u03b2 \u2243 \u03b1 :=\n  { toFun     := e.invFun\n    invFun    := e.toFun\n    left_inv  := e.right_inv\n    right_inv := e.left_inv }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/etaStruct.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/etaStruct.lean",
+    "definition_name": "Equiv"
+  }
+}

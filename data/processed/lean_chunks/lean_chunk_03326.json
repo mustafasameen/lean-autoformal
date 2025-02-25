@@ -1,0 +1,10 @@
+{
+  "content": "theorem rfl_true : true = true :=\n  rfl\ntheorem intro_with_eq (p p' q : Prop) (he : p = p') (h : p' \u2192 q) : p \u2192 q :=\n  fun hp => h (he.mp hp)\ntheorem or_eq_of_eq_true_left {a b : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_name": "rfl_true",
+    "has_proof": false
+  }
+}

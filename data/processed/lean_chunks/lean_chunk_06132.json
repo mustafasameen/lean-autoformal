@@ -1,0 +1,9 @@
+{
+  "content": "structure PanelWidgetInstance extends WidgetInstance where\n  name? : Option String := none\n  deriving Server.RpcEncodable\ndef getWidgets (pos : Lean.Lsp.Position) : RequestM (RequestTask GetWidgetsResponse) := do\n  let doc \u2190 readDoc\n  let filemap := doc.meta.text\n  mapTaskCostly (findInfoTreeAtPos doc (filemap.lspPosToUtf8Pos pos) (includeStop := true)) fun\n    | some infoTree@(.context (.commandCtx cc) _) =>\n      ContextInfo.runMetaM { cc with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/UserWidget.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/UserWidget.lean",
+    "definition_name": "PanelWidgetInstance"
+  }
+}

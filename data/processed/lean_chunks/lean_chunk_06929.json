@@ -1,0 +1,9 @@
+{
+  "content": "if mvarId != mvarId' then return some mvarId' else return none\ndef simpIf? (mvarId : MVarId) : MetaM (Option MVarId) := do\n  let mvarId' \u2190 simpIfTarget mvarId (useDecide := true)\n  if mvarId != mvarId' then return some mvarId' else return none\nprivate def findMatchToSplit? (deepRecursiveSplit : Bool) (env : Environment) (e : Expr)\n    (declNames : Array Name) (exceptionSet : ExprSet) : Option Expr :=\n  e.findExt? fun e => Id.run do\n    if e.hasLooseBVars || exceptionSet.contains e then\n      return Expr.FindStep.visit\n    else if let some info := isMatcherAppCore? env e then\n      let args := e.getAppArgs\n      let mut hasFVarDiscr := false\n      for i in [info.getFirstDiscrPos : info.getFirstDiscrPos + info.numDiscrs] do\n        let discr := args[i]!\n        if discr.isFVar then\n          hasFVarDiscr := true\n          break\n      unless hasFVarDiscr do\n        return Expr.FindStep.visit\n      if declNames.isEmpty then\n          return Expr.FindStep.found",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_name": "EqnInfoCore"
+  }
+}

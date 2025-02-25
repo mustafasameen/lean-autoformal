@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (x : Nat) : 0 + x = x := by\n  cases x with\n| zero   => skip\n| succ y => skip\ntheorem ex2 (x : Nat) : 0 + x = x := by\n  induction x with\n| zero      => skip\n| succ y ih => skip\ntheorem ex3 (x : Nat) : 0 + x = x := by\n  cases x with\n  | zero   => rfl\n| succ y => skip\ntheorem ex4 (x : Nat) {y : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/unsolvedIndCases.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/unsolvedIndCases.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem sshiftRightRec_zero_eq (x : BitVec w\u2081) (y : BitVec w\u2082) :\n    sshiftRightRec x y 0 = x.sshiftRight' (y &&& twoPow w\u2082 0) := by\n  simp only [sshiftRightRec]\n@[simp]\ntheorem sshiftRightRec_succ_eq (x : BitVec w\u2081) (y : BitVec w\u2082) (n : Nat) :\n    sshiftRightRec x y (n + 1) = (sshiftRightRec x y n).sshiftRight' (y &&& twoPow w\u2082 (n + 1)) := by\n  simp [sshiftRightRec]\ntheorem sshiftRight'_or_of_and_eq_zero {x : BitVec w\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "sshiftRightRec_zero_eq",
+    "has_proof": true
+  }
+}

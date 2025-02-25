@@ -1,0 +1,9 @@
+{
+  "content": "def _root_.Lean.FVarId.getDecl (fvarId : FVarId) : MetaM LocalDecl := do\n  match (\u2190 getLCtx).find? fvarId with\n  | some d => return d\n  | none   => fvarId.throwUnknown\ndef _root_.Lean.FVarId.getBinderInfo (fvarId : FVarId) : MetaM BinderInfo :=\n  return (\u2190 fvarId.getDecl).binderInfo\ndef _root_.Lean.FVarId.getUserName (fvarId : FVarId) : MetaM Name :=\n  return (\u2190 fvarId.getDecl).userName\ndef getFVarLocalDecl (fvar : Expr) : MetaM LocalDecl :=\n  fvar.fvarId!.getDecl\ndef _root_.Lean.FVarId.hasForwardDeps (fvarId : FVarId) : MetaM Bool := do\n  let decl \u2190 fvarId.getDecl\n  (\u2190 getLCtx).foldlM (init := false) (start := decl.index + 1) fun found other =>\n    if found then\n      return true\n    else\n      localDeclDependsOn other fvarId\ndef getLocalDeclFromUserName (userName : Name) : MetaM LocalDecl := do\n  match (\u2190 getLCtx).findFromUserName? userName with\n  | some d => pure d\n  | none   => throwError \"unknown local declaration '{userName}'\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

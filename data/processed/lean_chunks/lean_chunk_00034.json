@@ -1,0 +1,9 @@
+{
+  "content": "def Foo.g1 := 10\n@[deprecated Foo.g1 (since := \"2022-07-24\")]\ndef f2 (x : Nat) := x + 1\n@[deprecated g1]\ndef f3 (x : Nat) := x + 1\nopen Foo\n@[deprecated g1 \"use g1 instead, f4 is not a good name\"]\ndef f4 (x : Nat) := x + 1\n#eval f2 0 + 1\nset_option linter.deprecated false in\n#eval f2 0 + 1\n#eval f4 0 + 1\n@[deprecated] def Nat.z (x : Nat) := x + 1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/deprecated.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/deprecated.lean",
+    "definition_name": "Foo"
+  }
+}

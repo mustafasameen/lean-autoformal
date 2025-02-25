@@ -1,0 +1,10 @@
+{
+  "content": "theorem find?_singleton (a : \u03b1) (p : \u03b1 \u2192 Bool) : [a].find? p = if p a then some a else none := by\n  simp only [find?]\n  split <;> simp_all\n@[simp] theorem find?_cons_of_pos (l) (h : p a) : find? p (a :: l) = some a := by\n  simp [find?, h]\n@[simp] theorem find?_cons_of_neg (l) (h : \u00acp a) : find? p (a :: l) = find? p l := by\n  simp [find?, h]\n@[simp] theorem find?_eq_none : find? p l = none \u2194 \u2200 x \u2208 l, \u00ac p x := by\n  induction l <;> simp [find?_cons]; split <;> simp [*]\ntheorem find?_eq_some_iff_append :\n    xs.find? p = some b \u2194 p b \u2227 \u2203 as bs, xs = as ++ b :: bs \u2227 \u2200 a \u2208 as, !p a := by\n  induction xs with\n  | nil => simp\n  | cons x xs ih =>\n    simp only [find?_cons, exists_and_right]\n    split <;> rename_i h\n    \u00b7 simp only [Option.some.injEq]\n      constructor\n      \u00b7 rintro rfl\n        exact \u27e8h, [], \u27e8xs, rfl\u27e9, by simp\u27e9\n      \u00b7 rintro \u27e8-, \u27e8as, \u27e8\u27e8bs, h\u2081\u27e9, h\u2082\u27e9\u27e9\u27e9\n        cases as with\n        | nil => simp_all\n        | cons a as =>\n          specialize h\u2082 a (mem_cons_self _ _)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

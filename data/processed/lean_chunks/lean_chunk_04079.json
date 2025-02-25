@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_ushiftRight (x : BitVec n) (i : Nat) :\n    (x >>> i).toNat = x.toNat >>> i := rfl\n@[simp] theorem getLsbD_ushiftRight (x : BitVec n) (i j : Nat) :\n    getLsbD (x >>> i) j = getLsbD x (i+j) := by\n  unfold getLsbD ; simp\n@[simp] theorem getElem_ushiftRight (x : BitVec w) (i n : Nat) (h : i < w) :\n    (x >>> n)[i] = x.getLsbD (n + i) := by\n  simp [getElem_eq_testBit_toNat, toNat_ushiftRight, Nat.testBit_shiftRight, getLsbD]\ntheorem ushiftRight_xor_distrib (x y : BitVec w) (n : Nat) :\n    (x ^^^ y) >>> n = (x >>> n) ^^^ (y >>> n) := by\n  ext\n  simp\ntheorem ushiftRight_and_distrib (x y : BitVec w) (n : Nat) :\n    (x &&& y) >>> n = (x >>> n) &&& (y >>> n) := by\n  ext\n  simp\ntheorem ushiftRight_or_distrib (x y : BitVec w)  (n : Nat) :\n    (x ||| y) >>> n = (x >>> n) ||| (y >>> n) := by\n  ext\n  simp\n@[simp]\ntheorem ushiftRight_zero (x : BitVec w) : x >>> 0 = x := by\n  simp [bitvec_to_nat]\n@[simp]\ntheorem zero_ushiftRight {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toNat_ushiftRight",
+    "has_proof": true
+  }
+}

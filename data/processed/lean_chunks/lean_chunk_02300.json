@@ -1,0 +1,9 @@
+{
+  "content": "inductive C\n| mk\u2081 : Nat \u2192 C\n| mk\u2082 : Nat \u2192 Nat \u2192 C\ndef C.x : C \u2192 Nat\n| C.mk\u2081 x   => x\n| C.mk\u2082 x _ => x\n#eval checkWithMkMatcherInput ``C.x.match_1\ndef head : {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_name": "C"
+  }
+}

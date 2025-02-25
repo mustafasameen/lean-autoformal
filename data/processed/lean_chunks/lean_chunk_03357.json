@@ -1,0 +1,10 @@
+{
+  "content": "theorem Functor.monotone_map [LawfulMonad m] (f : \u03b3 \u2192 m \u03b1) (g : \u03b1 \u2192 \u03b2) (hmono : monotone f) :\n    monotone (fun x => g <$> f x) := by\n  simp only [\u2190 LawfulMonad.bind_pure_comp ]\n  apply monotone_bind _ _ _ hmono\n  apply monotone_const\n@[partial_fixpoint_monotone]\ntheorem Seq.monotone_seq [LawfulMonad m] (f : \u03b3 \u2192 m \u03b1) (g : \u03b3 \u2192 m (\u03b1 \u2192 \u03b2))\n  (hmono\u2081 : monotone g) (hmono\u2082 : monotone f) :\n    monotone (fun x => g x <*> f x) := by\n  simp only [\u2190 LawfulMonad.bind_map ]\n  apply monotone_bind\n  \u00b7 assumption\n  \u00b7 apply monotone_of_monotone_apply\n    intro y\n    apply Functor.monotone_map\n    assumption\n@[partial_fixpoint_monotone]\ntheorem SeqLeft.monotone_seqLeft [LawfulMonad m] (f : \u03b3 \u2192 m \u03b1) (g : \u03b3 \u2192 m \u03b2)\n  (hmono\u2081 : monotone g) (hmono\u2082 : monotone f) :\n    monotone (fun x => g x <* f x) := by\n  simp only [seqLeft_eq]\n  apply Seq.monotone_seq\n  \u00b7 apply Functor.monotone_map\n    assumption\n  \u00b7 assumption\n@[partial_fixpoint_monotone]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_name": "Functor",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "some (.hourMinuteSecond)\n  else if num = 5 then\n    some (.hourMinuteSecondColon)\n  else\n    none\nend OffsetX\ninductive OffsetO\n  | full\n  deriving Repr, Inhabited\nnamespace OffsetO\ndef classify (num : Nat) : Option OffsetO :=\n  match num with\n  | 1 => some (.short)\n  | 4 => some (.full)\n  | _ => none\nend OffsetO\ninductive OffsetZ\n  | full\ndef classify (num : Nat) : Option OffsetZ :=\n  match num with\n  | 1 | 2 | 3 => some (.hourMinute)\n  | 4 => some (.full)\n  | 5 => some (.hourMinuteSecondColon)\n  | _ => none\nend OffsetZ\ninductive Modifier\n  | G (presentation : Text)\n  | y (presentation : Year)\n  | u (presentation : Year)\n  | D (presentation : Number)\n  | MorL (presentation : Number \u2295 Text)\n  | d (presentation : Number)\n  | Qorq (presentation : Number \u2295 Text)\n  | w (presentation : Number)\n  | W (presentation : Number)\n  | E (presentation : Text)\n  | eorc (presentation : Number \u2295 Text)\n  | F (presentation : Number)\n  | a (presentation : Text)\n  | h (presentation : Number)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "Number"
+  }
+}

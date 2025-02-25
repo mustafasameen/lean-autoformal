@@ -1,0 +1,9 @@
+{
+  "content": "def hi := $e)\nmycmd 1\nsyntax \"mycmd'\" ppSpace sepBy1(term, \" + \") : command\n@[inline] def hi := $e))\nmycmd' 1\n#check ({ a := })\nexample : True := by\n  simp [id True.intro]\nexample : Id Nat := do\n  let mut n := 1\n  n := 2\n  n\nopaque foo : Nat\n#check _root_.foo\nnamespace Bar\nopaque foo : Nat\n#check _root_.foo\ndef bar := 1\nstructure Foo := mk ::\n  hi : Nat\ninductive Bar\n  | mk : Bar\ninstance : ToString Nat := \u27e8toString\u27e9\ninstance f : ToString Nat := \u27e8toString\u27e9\nexample : Type 0 := Nat\ndef foo.bar : Nat := 1\nend Bar\nexample : Nat \u2192 Nat \u2192 Nat :=\n  fun x y =>\n    x\nset_option linter.unusedVariables false in\nexample : Nat \u2192 Nat \u2192 Nat := by\n  intro x y\n  exact x\ndef g (n : Nat) : Nat := g 0\ntermination_by n\ndecreasing_by have n' := n",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/hover.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/hover.lean",
+    "definition_name": "hi"
+  }
+}

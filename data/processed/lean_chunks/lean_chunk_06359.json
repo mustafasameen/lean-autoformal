@@ -1,0 +1,9 @@
+{
+  "content": "structure EvalAction where\n  eval : CommandElabM MessageData\n  printVal : Option Expr\nunsafe def elabEvalCoreUnsafe (bang : Bool) (tk term : Syntax) (expectedType? : Option Expr) : CommandElabM Unit := withRef tk do\n  let declName := `_eval\n  let mkAct {t : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/BuiltinEvalCommand.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/BuiltinEvalCommand.lean",
+    "definition_name": "EvalAction"
+  }
+}

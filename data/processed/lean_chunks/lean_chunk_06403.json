@@ -1,0 +1,9 @@
+{
+  "content": "finalize (levelParams : List Name) (params : Array Expr) (replaceIndFVars : Expr \u2192 MetaM Expr) : TermElabM Unit := fun _ _ _ => pure ()\n  deriving Inhabited\nstructure InductiveElabDescr where\n  mkInductiveView : Modifiers \u2192 Syntax \u2192 TermElabM InductiveElabStep1\n  deriving Inhabited\nbuiltin_initialize inductiveElabAttr : KeyedDeclsAttribute InductiveElabDescr \u2190\n  unsafe KeyedDeclsAttribute.init {\n    builtinName := `builtin_inductive_elab,\n    name := `inductive_elab,\n    descr    := \"Register an elaborator for inductive types\",\n    valueTypeName := ``InductiveElabDescr\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "ComputedFieldView"
+  }
+}

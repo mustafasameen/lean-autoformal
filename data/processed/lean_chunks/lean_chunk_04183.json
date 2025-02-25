@@ -1,0 +1,10 @@
+{
+  "content": "omega\n    \u00b7 by_cases hi : Nat.testBit 1 (j - i)\n      \u00b7 obtain hi' := Nat.testBit_one_eq_true_iff_self_eq_zero.mp hi\n        have hij : j = i := by omega\n        simp_all\n      \u00b7 have hij : i \u2260 j := by\n          intro h; subst h\n          simp at hi\n        simp_all\n@[simp]\ntheorem getElem_twoPow {i j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "twoPow_eq",
+    "has_proof": true
+  }
+}

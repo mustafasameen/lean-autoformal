@@ -1,0 +1,10 @@
+{
+  "content": "match env.getModuleIdxFor? declName with\n  | some modIdx => (ext.getModuleEntries env modIdx).binSearchContains declName Name.quickLt\n  | none        => (ext.getState env).contains declName\nend TagDeclarationExtension\ndef MapDeclarationExtension (\u03b1 : Type) := PersistentEnvExtension (Name \u00d7 \u03b1) (Name \u00d7 \u03b1) (NameMap \u03b1)\ndef mkMapDeclarationExtension (name : Name := by exact decl_name%) : IO (MapDeclarationExtension \u03b1) :=\n  registerPersistentEnvExtension {\n    name            := name,\n    mkInitial       := pure {}\n    addImportedFn   := fun _ => pure {}\n    addEntryFn      := fun s (n, v) => s.insert n v\n    exportEntriesFn := fun s => s.toArray\n  }\nnamespace MapDeclarationExtension\ninstance : Inhabited (MapDeclarationExtension \u03b1) :=\n  inferInstanceAs (Inhabited (PersistentEnvExtension ..))\ndef insert (ext : MapDeclarationExtension \u03b1) (env : Environment) (declName : Name) (val : \u03b1) : Environment :=\n  have : Inhabited Environment := \u27e8env\u27e9\nassert! env.getModuleIdxFor? declName |>.isNone",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

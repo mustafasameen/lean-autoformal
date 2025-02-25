@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_insertUnit_fold :\n    \u2200 unitsAcc : Array (Literal (PosFin n)), \u2200 assignments : Array Assignment, \u2200 b : Bool,\n      Array.size (List.foldl insertUnit (unitsAcc, assignments, b) units).2.1 = assignments.size := by\n  induction units\n  \u00b7 simp only [List.foldl, forall_const]\n  \u00b7 next hd tl ih =>\n    intro unitsAcc assignments b\n    simp only [List.foldl]\n    let hd_res := insertUnit (unitsAcc, assignments, b) hd\n    specialize ih hd_res.1 hd_res.2.1 hd_res.2.2\n    rw [ih, size_insertUnit]\ntheorem size_assignments_insertRupUnits {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_name": "size_insertUnit_fold",
+    "has_proof": true
+  }
+}

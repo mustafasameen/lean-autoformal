@@ -1,0 +1,9 @@
+{
+  "content": "structure SavedState extends State where\n@[specialize] def withRestoreOrSaveFull (reusableResult? : Option (\u03b1 \u00d7 SavedState))\n    (act : CoreM \u03b1) : CoreM (\u03b1 \u00d7 SavedState) := do\n  if let some (val, state) := reusableResult? then\n    set state.toState\n    IO.addHeartbeats state.passedHeartbeats.toUInt64\n    return (val, state)\n  let startHeartbeats \u2190 IO.getNumHeartbeats\n  let a \u2190 act\n  let s \u2190 get\n  let stopHeartbeats \u2190 IO.getNumHeartbeats\n  return (a, { toState := s, passedHeartbeats := stopHeartbeats - startHeartbeats }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/CoreM.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/CoreM.lean",
+    "definition_name": "SavedState"
+  }
+}

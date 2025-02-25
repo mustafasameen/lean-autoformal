@@ -1,0 +1,9 @@
+{
+  "content": "| .continue ref       => withRef ref continueToTerm\n    | .break ref          => withRef ref breakToTerm\n    | .action e           => actionTerminalToTerm e\n    | .joinpoint j ps b k => mkJoinPoint j ps (\u2190 toTerm b) (\u2190 toTerm k)\n    | .jmp ref j args     => return mkJmp ref j args\n    | .decl _ stx k       => declToTerm stx (\u2190 toTerm k)\n    | .reassign _ stx k   => reassignToTerm stx (\u2190 toTerm k)\n    | .seq stx k          => seqToTerm stx (\u2190 toTerm k)\n    | .ite ref _ o c t e  => withRef ref <| do mkIte o c (\u2190 toTerm t) (\u2190 toTerm e)\n    | .match ref genParam discrs optMotive alts =>\n      let mut termAlts := #[]\n      for alt in alts do\n        let rhs \u2190 toTerm alt.rhs\n        let termAlt := mkNode ``Parser.Term.matchAlt #[mkAtomFrom alt.ref \"|\", mkNullNode #[alt.patterns], mkAtomFrom alt.ref \"=>\", rhs]\n        termAlts := termAlts.push termAlt\n      let termMatchAlts := mkNode ``Parser.Term.matchAlts #[mkNullNode termAlts]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Kind"
+  }
+}

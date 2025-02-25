@@ -1,0 +1,10 @@
+{
+  "content": "theorem double.inj : double n = double m \u2192 n = m := by\n  intro h\n  induction n generalizing m with\n  | zero => cases m <;> trivial\n  | succ n ih =>\n    cases m with\n    | zero   => contradiction\n    | succ m =>\n      simp [double] at h |-\n      apply ih h\ntheorem double.inj' : double n = double m \u2192 n = m := by\n  intro h\n  induction n generalizing m with\n  | zero => cases m <;> trivial\n  | succ n ih =>\n    cases m with\n    | zero => contradiction\n    | succ m =>\n      simp\n      apply ih\n      simp_all [double]\ntheorem double.inj'' : double n = double m \u2192 n = m := by\n  intro h\n  induction n generalizing m with\n  | zero => cases m <;> trivial\n  | succ n ih =>\n    cases m with\n    | zero   => contradiction\n    | succ m =>\n      simp [ih, double]\n      simp [double] at h\n      apply ih h\ntheorem double.inj''' : double n = double m \u2192 n = m := by\n  fail_if_success simp (config := { maxDischargeDepth := 2 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpDischargeLoop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpDischargeLoop.lean",
+    "definition_name": "double",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "((iunfoldr (fun i c => (c, !(x[i])))) ()).snd = ~~~ x := by\n  simp [\u2190allOnes_sub_eq_not, BitVec.eq_sub_iff_add_eq.mpr (bit_not_add_self x), \u2190negOne_eq_allOnes]\ntheorem bit_neg_eq_neg (x : BitVec w) : -x = (adc (((iunfoldr (fun (i : Fin w) c => (c, !(x[i.val])))) ()).snd) (BitVec.ofNat w 1) false).snd:= by\n  simp only [\u2190 add_eq_adc]\n  rw [iunfoldr_replace_snd ((fun _ => ())) (((iunfoldr (fun (i : Fin w) c => (c, !(x[i.val])))) ()).snd) _ rfl]\n  \u00b7 rw [BitVec.eq_sub_iff_add_eq.mpr (bit_not_add_self x), sub_toAdd, BitVec.add_comm _ (-x)]\n    simp [\u2190 sub_toAdd, BitVec.sub_add_cancel]\n  \u00b7 simp [bit_not_testBit x _]\ntheorem getLsbD_neg {i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "bit_not_testBit",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive FileChangeType\n  | Created\n  | Changed\n  | Deleted\ninstance : FromJson FileChangeType where\n  fromJson? j := do\n    match (\u2190 fromJson? j : Nat) with\n      | 1 => return FileChangeType.Created\n      | 2 => return FileChangeType.Changed\n      | 3 => return FileChangeType.Deleted\n      | _ => throw s!\"expected 1, 2, or 3, got {j}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Workspace.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Workspace.lean",
+    "definition_name": "FileChangeType"
+  }
+}

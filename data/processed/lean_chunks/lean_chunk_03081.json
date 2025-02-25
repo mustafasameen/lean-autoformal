@@ -1,0 +1,9 @@
+{
+  "content": "def logAt (ref : Syntax) (msgData : MessageData) (severity : MessageSeverity := MessageSeverity.error) : m Unit :=\n  unless severity == .error && msgData.hasSyntheticSorry do\n    let severity := if severity == .warning && warningAsError.get (\u2190 getOptions) then .error else severity\n    let ref    := replaceRef ref (\u2190 MonadLog.getRef)\n    let pos    := ref.getPos?.getD 0\n    let endPos := ref.getTailPos?.getD pos\n    let fileMap \u2190 getFileMap\n    let msgData \u2190 addMessageContext msgData\n    logMessage { fileName := (\u2190 getFileName), pos := fileMap.toPosition pos, endPos := fileMap.toPosition endPos, data := msgData, severity := severity }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Log.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Log.lean",
+    "definition_name": "MonadLog"
+  }
+}

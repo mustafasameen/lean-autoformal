@@ -1,0 +1,9 @@
+{
+  "content": "let nameThen := name ++ \"Then\"\n  let nameElse := name ++ \"Else\"\n  let nameMerge := name ++ \"Merge\"\n  let thenbb \u2190 LLVM.appendBasicBlockInContext llvmctx fn nameThen\n  let elsebb \u2190 LLVM.appendBasicBlockInContext llvmctx fn nameElse\n  let mergebb \u2190 LLVM.appendBasicBlockInContext llvmctx fn nameMerge\n  let _ \u2190 LLVM.buildCondBr builder brval thenbb elsebb\n  LLVM.positionBuilderAtEnd builder thenbb\n  let fwd? \u2190 thencodegen builder\n  match fwd? with\n  | .yes => let _ \u2190 LLVM.buildBr builder mergebb\n  | .no => pure ()\n  LLVM.positionBuilderAtEnd builder elsebb\n  let _ \u2190 LLVM.buildBr builder mergebb\n  LLVM.positionBuilderAtEnd builder mergebb\ndef buildIfThenElse_ (builder : LLVM.Builder llvmctx)  (name : String) (brval : LLVM.Value llvmctx)\n    (thencodegen : LLVM.Builder llvmctx \u2192 M llvmctx ShouldForwardControlFlow)\n    (elsecodegen : LLVM.Builder llvmctx \u2192 M llvmctx ShouldForwardControlFlow) : M llvmctx Unit := do\n  let fn \u2190 LLVM.getBasicBlockParent (\u2190 LLVM.getInsertBlock builder)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

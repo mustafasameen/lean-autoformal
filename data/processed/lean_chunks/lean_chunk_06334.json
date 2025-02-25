@@ -1,0 +1,9 @@
+{
+  "content": "let isProp \u2190 Meta.isProp parentType\n  let env \u2190 getEnv\n  let structName := view.declName\n  let sourceFieldNames := getStructureFieldsFlattened env structName\n  let binfo := if view.isClass && isClass env parent.structName then BinderInfo.instImplicit else BinderInfo.default\n  let mut declType \u2190 instantiateMVars (\u2190 mkForallFVars params (\u2190 mkForallFVars #[source] parentType))\n  if view.isClass && isClass env parent.structName then\n    declType := setSourceInstImplicit declType\n  declType := declType.inferImplicit params.size true\n  let rec copyFields (parentType : Expr) : MetaM Expr := do\n    let Expr.const parentStructName us \u2190 pure parentType.getAppFn | unreachable!\n    let parentCtor := getStructureCtor env parentStructName\n    let mut result := mkAppN (mkConst parentCtor.name us) parentType.getAppArgs\n    for fieldName in getStructureFields env parentStructName do\n      if sourceFieldNames.contains fieldName then\n        let fieldVal \u2190 mkProjection source fieldName",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

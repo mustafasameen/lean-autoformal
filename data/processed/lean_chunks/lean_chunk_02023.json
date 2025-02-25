@@ -1,0 +1,10 @@
+{
+  "content": "inductive KrivineInstruction\n  | Access (n: Nat)\n  | Grab (next: KrivineInstruction)\n  | Push (next: KrivineInstruction) (continuation: KrivineInstruction)\ninductive KrivineClosure\n  | pair (i: KrivineInstruction) (e: List KrivineClosure)\nnamespace Ex1\ndef KrivineEnv := List KrivineClosure\nnoncomputable instance : SizeOf KrivineEnv := inferInstanceAs (SizeOf (List KrivineClosure))\n@[simp] theorem KrivineEnv.sizeOf_spec (env : KrivineEnv) : sizeOf env = sizeOf (\u03b1 := List KrivineClosure) env := rfl\ndef KrivineEnv.depth (env : KrivineEnv) : Nat :=\n  match env with\n  | [] => 0\n  | KrivineClosure.pair u e :: closures => Nat.max (1 + depth e) (depth closures)\nend Ex1\nnamespace Ex2\nabbrev KrivineEnv := List KrivineClosure\ndef KrivineEnv.depth (env : KrivineEnv) : Nat :=\n  match env with\n  | [] => 0\n  | KrivineClosure.pair u e :: closures => Nat.max (1 + depth e) (depth closures)\nend Ex2\nnamespace Ex3\nstructure KrivineEnv where\n  env : List KrivineClosure",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/krivine.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/krivine.lean",
+    "definition_name": "KrivineInstruction",
+    "has_proof": false
+  }
+}

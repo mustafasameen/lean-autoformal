@@ -1,0 +1,10 @@
+{
+  "content": "structure TreeSet (\u03b1 : Type u) (cmp : \u03b1 \u2192 \u03b1 \u2192 Ordering := by exact compare) where\n@[inline]\ndef empty : TreeSet \u03b1 cmp :=\n  \u27e8TreeMap.empty\u27e9\ninstance : EmptyCollection (TreeSet \u03b1 cmp) where\n  emptyCollection := empty\ninstance : Inhabited (TreeSet \u03b1 cmp) where\n  default := \u2205\n@[simp]\ntheorem empty_eq_emptyc : (empty : TreeSet \u03b1 cmp) = \u2205 :=\n  rfl\n@[inline]\ndef insert (l : TreeSet \u03b1 cmp) (a : \u03b1) : TreeSet \u03b1 cmp :=\n  \u27e8l.inner.insertIfNew a ()\u27e9\ninstance : Singleton \u03b1 (TreeSet \u03b1 cmp) where\n  singleton e := (\u2205 : TreeSet \u03b1 cmp).insert e\ninstance : Insert \u03b1 (TreeSet \u03b1 cmp) where\n  insert e s := s.insert e\ninstance : LawfulSingleton \u03b1 (TreeSet \u03b1 cmp) where\n  insert_emptyc_eq _ := rfl\n@[inline]\ndef containsThenInsert (t : TreeSet \u03b1 cmp) (a : \u03b1) : Bool \u00d7 TreeSet \u03b1 cmp :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9\n  let p := t.inner.containsThenInsertIfNew a ()\n  (p.1, \u27e8p.2\u27e9)\n@[inline]\ndef contains (l : TreeSet \u03b1 cmp) (a : \u03b1) : Bool :=\n  l.inner.contains a\ninstance : Membership \u03b1 (TreeSet \u03b1 cmp) where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeSet/Basic.lean",
+    "definition_name": "TreeSet",
+    "has_proof": true
+  }
+}

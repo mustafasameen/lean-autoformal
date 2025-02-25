@@ -1,0 +1,10 @@
+{
+  "content": "theorem append_empty (x : Fin i \u2192 Nat) : x ++ empty = x :=\n  funext fun i => dif_pos _\nopaque f : (Fin 0 \u2192 Nat) \u2192 Prop\nexample : f (empty ++ empty) = f empty := by simp only [append_empty]\n@[congr] theorem Array.get_congr (as bs : Array \u03b1) (w : as = bs) (i : Nat) (h : i < as.size) (j : Nat) (hi : i = j) :\n    as[i] = (bs[j]'(w \u25b8 hi \u25b8 h)) := by\n  subst bs; subst j; rfl\nexample (as : Array Nat) (h : 0 + x < as.size) :\n    as[0 + x] = as[x] := by\nsimp\nexample (as : Array (Nat \u2192 Nat)) (h : 0 + x < as.size) :\n    as[0 + x] = as[x]'(Nat.zero_add x \u25b8 h) := by\nsimp\nexample (as : Array (Nat \u2192 Nat)) (h : 0 + x < as.size) :\n    as[0 + x] i = as[x] (0+i) := by\nsimp\nexample [Decidable p] : decide (p \u2227 True) = decide p := by simp\ndef Pi.single [DecidableEq \u03b9] {f : \u03b9 \u2192 Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/988.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/988.lean",
+    "definition_name": "append_empty",
+    "has_proof": true
+  }
+}

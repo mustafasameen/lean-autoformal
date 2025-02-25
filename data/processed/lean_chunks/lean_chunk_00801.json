@@ -1,0 +1,9 @@
+{
+  "content": "instance monMonoidal : MonoidalCategory (Mon_ C) where\n  id_whiskerRight := sorry\nend Mon_\nend Mathlib.CategoryTheory.Monoidal.Mon_\nsection Mathlib.CategoryTheory.Monoidal.Comon_\nuniverse v\u2081 v\u2082 u\u2081 u\u2082 u\nopen CategoryTheory MonoidalCategory\nvariable (C : Type u\u2081) [Category.{v\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "monMonoidal"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Expr where\n  | num  (v : Nat)\n  | var  (i : Var)\n  | add  (a b : Expr)\n  | mulL (k : Nat) (a : Expr)\n  | mulR (a : Expr) (k : Nat)\n  deriving Inhabited\ndef Expr.denote (ctx : Context) : Expr \u2192 Nat\n  | .add a b  => Nat.add (denote ctx a) (denote ctx b)\n  | .num k    => k\n  | .var v    => v.denote ctx\n  | .mulL k e => Nat.mul k (denote ctx e)\n  | .mulR e k => Nat.mul (denote ctx e) k\nabbrev Poly := List (Nat \u00d7 Var)\ndef Poly.denote (ctx : Context) (p : Poly) : Nat :=\n  match p with\n  | [] => 0\n  | (k, v) :: p => Nat.add (Nat.mul k (v.denote ctx)) (denote ctx p)\ndef Poly.insert (k : Nat) (v : Var) (p : Poly) : Poly :=\n  match p with\n  | [] => [(k, v)]\n  | (k', v') :: p =>\n    bif Nat.blt v v' then\n      (k, v) :: (k', v') :: p\n    else bif Nat.beq v v' then\n      (k + k', v') :: p\n    else\n      (k', v') :: insert k v p\ndef Poly.norm (p : Poly) : Poly := go p []\nwhere\n  go (p : Poly) (r : Poly) : Poly :=\n    match p with\n    | [] => r\n    | (k, v) :: p => go p (r.insert k v)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Expr"
+  }
+}

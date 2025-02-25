@@ -1,0 +1,10 @@
+{
+  "content": "theorem bit_not_testBit (x : BitVec w) (i : Fin w) :\n  (((iunfoldr (fun (i : Fin w) c => (c, !(x[i.val])))) ()).snd)[i.val] = !(getLsbD x i.val) := by\n  apply iunfoldr_getLsbD (fun _ => ()) i (by simp)\ntheorem bit_not_add_self (x : BitVec w) :\n  ((iunfoldr (fun (i : Fin w) c => (c, !(x[i.val])))) ()).snd + x  = -1 := by\n  simp only [add_eq_adc]\n  apply iunfoldr_replace_snd (fun _ => false) (-1) false rfl\n  intro i; simp only [adcb, Fin.is_lt, getLsbD_eq_getElem, atLeastTwo_false_right, bne_false,\n    ofNat_eq_ofNat, Fin.getElem_fin, Prod.mk.injEq, and_eq_false_imp]\n  rw [iunfoldr_replace_snd (fun _ => ()) (((iunfoldr (fun i c => (c, !(x[i.val])))) ()).snd)]\n  <;> simp [bit_not_testBit, negOne_eq_allOnes, getElem_allOnes]\ntheorem bit_not_eq_not (x : BitVec w) :\n  ((iunfoldr (fun i c => (c, !(x[i])))) ()).snd = ~~~ x := by\n  simp [\u2190allOnes_sub_eq_not, BitVec.eq_sub_iff_add_eq.mpr (bit_not_add_self x), \u2190negOne_eq_allOnes]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "bit_not_testBit",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| some kenv => .pure kenv\n        | none      => env.checked }\n    asyncEnv := { env with\n      asyncCtx? := some { declPrefix := privateToUserName constName.eraseMacroScopes }\n    }\n    sigPromise, infoPromise, extensionsPromise, checkedEnvPromise\n  }\ndef AddConstAsyncResult.commitSignature (res : AddConstAsyncResult) (sig : ConstantVal) :\n    IO Unit := do\n  if sig.name != res.constName then\n    throw <| .userError s!\"AddConstAsyncResult.commitSignature: constant has name {sig.name} but expected {res.constName}\"\n  res.sigPromise.resolve sig\ndef AddConstAsyncResult.commitConst (res : AddConstAsyncResult) (env : Environment)\n    (info? : Option ConstantInfo := none) :\n    IO Unit := do\n  let info \u2190 match info? <|> env.find? res.constName with\n    | some info => pure info\n    | none =>\n      throw <| .userError s!\"AddConstAsyncResult.commitConst: constant {res.constName} not found in async context\"\n  res.commitSignature info.toConstantVal\n  let kind' := .ofConstantInfo info",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

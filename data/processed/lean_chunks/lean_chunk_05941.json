@@ -1,0 +1,10 @@
+{
+  "content": "theorem bmod_bmod : bmod (bmod x m) m = bmod x m := by\n  rw [bmod, bmod_emod]\n  rfl\n@[simp] theorem bmod_zero : Int.bmod 0 m = 0 := by\n  dsimp [bmod]\n  simp only [Int.zero_sub, ite_eq_left_iff, Int.neg_eq_zero]\n  intro h\n  rw [@Int.not_lt] at h\n  match m with\n  | 0 => rfl\n  | (m+1) =>\n    exfalso\n    rw [natCast_add, ofNat_one, Int.add_assoc, add_ediv_of_dvd_right] at h\n    change _ + 2 / 2 \u2264 0 at h\n    rw [Int.ediv_self, \u2190 ofNat_two, \u2190 ofNat_ediv, add_one_le_iff, \u2190 @Int.not_le] at h\n    exact h (ofNat_nonneg _)\n    all_goals decide\ntheorem dvd_bmod_sub_self {x : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "bmod_bmod",
+    "has_proof": true
+  }
+}

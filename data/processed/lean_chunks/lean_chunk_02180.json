@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_trans [Preorder \u03b1] : \u2200 {a b c : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "le_trans",
+    "has_proof": false
+  }
+}

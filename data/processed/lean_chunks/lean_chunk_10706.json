@@ -1,0 +1,9 @@
+{
+  "content": "let ids \u2190 getBinderIds stx[1]\n    let type := stx[2]\n    let modifier? := expandBinderModifier stx[3]\n    ids.mapM fun id => return {\n      id := \u2190 expandBinderIdent id,\n      type := expandBinderType id type,\n      info := .default,\n      modifier?\n    }\n  else if k == ``Lean.Parser.Term.implicitBinder then\n    let ids \u2190 getBinderIds stx[1]\n    let type := stx[2]\n    ids.mapM fun id => return {\n      id := \u2190 expandBinderIdent id,\n      type := expandBinderType id type,\n      info := .implicit\n    }\n  else if k == ``Lean.Parser.Term.strictImplicitBinder then\n    let ids \u2190 getBinderIds stx[1]\n    let type := stx[2]\n    ids.mapM fun id => do pure {\n      id := \u2190 expandBinderIdent id,\n      type := expandBinderType id type,\n      info := .strictImplicit\n    }\n  else if k == ``Lean.Parser.Term.instBinder then\n    let id := expandOptIdent stx[1]\n    let type := stx[2]\n    return #[{id := \u2190 expandBinderIdent id, type := \u27e8type\u27e9, info := .instImplicit}]\n  else\n    Macro.throwUnsupported",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_name": "binder"
+  }
+}

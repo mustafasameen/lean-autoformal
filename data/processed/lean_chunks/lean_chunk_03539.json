@@ -1,0 +1,10 @@
+{
+  "content": "theorem castAdd_mk (m : Nat) (i : Nat) (h : i < n) :\n    castAdd m \u27e8i, h\u27e9 = \u27e8i, Nat.lt_add_right m h\u27e9 := rfl\n@[simp] theorem castAdd_castLT (m : Nat) (i : Fin (n + m)) (hi : i.val < n) :\n    castAdd m (castLT i hi) = i := rfl\n@[simp] theorem castLT_castAdd (m : Nat) (i : Fin n) :\n    castLT (castAdd m i) (castAdd_lt m i) = i := rfl\n@[simp] theorem cast_succ_eq {n' : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "castAdd_mk",
+    "has_proof": false
+  }
+}

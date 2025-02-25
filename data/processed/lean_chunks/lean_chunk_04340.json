@@ -1,0 +1,10 @@
+{
+  "content": "| zero => rw [Nat.mul_zero, Nat.pow_zero, Nat.pow_zero]\n  | succ _ ih => rw [Nat.mul_succ, Nat.pow_add, Nat.pow_succ, ih]\nprotected theorem pow_mul' (a m n : Nat) : a ^ (m * n) = (a ^ n) ^ m := by\n  rw [\u2190 Nat.pow_mul, Nat.mul_comm]\nprotected theorem pow_right_comm (a m n : Nat) : (a ^ m) ^ n = (a ^ n) ^ m := by\n  rw [\u2190 Nat.pow_mul, Nat.pow_mul']\nprotected theorem mul_pow (a b n : Nat) : (a * b) ^ n = a ^ n * b ^ n := by\n  induction n with\n  | zero => rw [Nat.pow_zero, Nat.pow_zero, Nat.pow_zero, Nat.mul_one]\n  | succ _ ih => rw [Nat.pow_succ, Nat.pow_succ, Nat.pow_succ, Nat.mul_mul_mul_comm, ih]\nprotected theorem one_lt_two_pow (h : n \u2260 0) : 1 < 2 ^ n :=\n  match n, h with\n  | n+1, _ => by\n    rw [Nat.pow_succ', \u2190 Nat.one_mul 1]\n    exact Nat.mul_lt_mul_of_lt_of_le' (by decide) (Nat.two_pow_pos n) (by decide)\n@[simp] protected theorem one_lt_two_pow_iff : 1 < 2 ^ n \u2194 n \u2260 0 :=\n  \u27e8(by intro h p; subst p; simp at h), Nat.one_lt_two_pow\u27e9\nprotected theorem one_le_two_pow : 1 \u2264 2 ^ n :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "one_pow",
+    "has_proof": true
+  }
+}

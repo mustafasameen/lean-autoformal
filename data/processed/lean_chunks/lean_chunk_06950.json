@@ -1,0 +1,9 @@
+{
+  "content": "instance using '{ctorName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_name": "using"
+  }
+}

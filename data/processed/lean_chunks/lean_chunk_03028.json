@@ -1,0 +1,9 @@
+{
+  "content": "| .lit l => mkData (mixHash 3 (hash l))\nderiving Repr\ninstance : Inhabited Expr where\n  default := .const `_inhabitedExprDummy []\nnamespace Expr\ndef hasFVar (e : Expr) : Bool :=\n  e.data.hasFVar\ndef hasExprMVar (e : Expr) : Bool :=\n  e.data.hasExprMVar\ndef hasLevelMVar (e : Expr) : Bool :=\n  e.data.hasLevelMVar\ndef hasMVar (e : Expr) : Bool :=\n  let d := e.data\n  d.hasExprMVar || d.hasLevelMVar\ndef hasLevelParam (e : Expr) : Bool :=\n  e.data.hasLevelParam\ndef approxDepth (e : Expr) : UInt32 :=\n  e.data.approxDepth.toUInt32\ndef looseBVarRange (e : Expr) : Nat :=\n  e.data.looseBVarRange.toNat\ndef binderInfo (e : Expr) : BinderInfo :=\n  match e with\n  | .forallE _ _ _ bi => bi\n  | .lam _ _ _ bi => bi\n  | _ => .default\n@[export lean_expr_hash] def hashEx : Expr \u2192 UInt64 := hash\n@[export lean_expr_has_fvar] def hasFVarEx : Expr \u2192 Bool := hasFVar\n@[export lean_expr_has_expr_mvar] def hasExprMVarEx : Expr \u2192 Bool := hasExprMVar",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

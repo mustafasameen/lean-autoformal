@@ -1,0 +1,10 @@
+{
+  "content": "theorem enumFrom_map (n : Nat) (l : List \u03b1) (f : \u03b1 \u2192 \u03b2) :\n    enumFrom n (l.map f) = (enumFrom n l).map (Prod.map id f) := by\n  induction l with\n  | nil => rfl\n  | cons hd tl IH =>\n    rw [map_cons, enumFrom_cons', enumFrom_cons', map_cons, map_map, IH, map_map]\n    rfl\n@[deprecated zipIdx_append (since := \"2025-01-21\")]\ntheorem enumFrom_append (xs ys : List \u03b1) (n : Nat) :\n    enumFrom n (xs ++ ys) = enumFrom n xs ++ enumFrom (n + xs.length) ys := by\n  induction xs generalizing ys n with\n  | nil => simp\n  | cons x xs IH =>\n    rw [cons_append, enumFrom_cons, IH, \u2190 cons_append, \u2190 enumFrom_cons, length, Nat.add_right_comm,\n      Nat.add_assoc]\n@[deprecated zipIdx_eq_cons_iff (since := \"2025-01-21\")]\ntheorem enumFrom_eq_cons_iff {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "enumFrom_map",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem toListModel_empty : (.empty : Impl \u03b1 \u03b2).toListModel = [] := by\n  simp [empty]\ntheorem ordered_empty [Ord \u03b1] : (.empty : Impl \u03b1 \u03b2).Ordered := by\n  simp [Ordered]\ntheorem ordered_insert\u2098 [Ord \u03b1] [TransOrd \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_name": "toListModel_empty",
+    "has_proof": true
+  }
+}

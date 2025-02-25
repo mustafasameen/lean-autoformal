@@ -1,0 +1,9 @@
+{
+  "content": "structure Time where\n  hour : Nat\n  minute : Nat\n  second : Nat\n  fracExponent : Nat := 0\n  fracMantissa : Nat := 0\n  deriving Inhabited, DecidableEq\nnamespace Time\nabbrev IsValidHour (h : Nat) : Prop :=\n  h \u2264 23\nabbrev IsValidMinute (m : Nat) : Prop :=\n  m \u2264 59\nabbrev IsValidSecond (s : Nat) : Prop :=\n  s \u2264 60\ndef zero : Time :=\n  {hour := 0, minute := 0, second := 0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Toml/Data/DateTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Toml/Data/DateTime.lean",
+    "definition_name": "Time"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance instSMul' : SMul S (M \u29f8 P) :=\n  \u27e8fun a => Quotient.map' ((\u00b7 \u2022 \u00b7) a) fun x y h => sorry\u27e9\nend Quotient\nend Submodule\nend Mathlib.LinearAlgebra.Quotient\nsection Mathlib.RingTheory.Congruence\nstructure RingCon (R : Type _) [Add R] [Mul R] extends Setoid R where\nvariable {\u03b1 R : Type _}\nnamespace RingCon\nsection Basic\nvariable [Add R] [Mul R] (c : RingCon R)\ndef toAddCon : AddCon R :=\n  { c with }\ndef toCon : Con R :=\n  { c with }\nend Basic\nsection Quotient\nsection Basic\nvariable [Add R] [Mul R] (c : RingCon R)\nprotected def Quotient :=\n  Quotient c.toSetoid\nvariable {c}\ndef toQuotient (r : R) : c.Quotient :=\n  @Quotient.mk'' _ c.toSetoid r\nvariable (c)\ninstance : CoeTC R c.Quotient :=\n  \u27e8toQuotient\u27e9\nend Basic\nsection add_mul\nvariable [Add R] [Mul R] (c : RingCon R)\ninstance : Add c.Quotient := inferInstanceAs (Add c.toAddCon.Quotient)\ninstance : Mul c.Quotient := inferInstanceAs (Mul c.toCon.Quotient)\nend add_mul\nsection Zero\nvariable [AddZeroClass R] [Mul R] (c : RingCon R)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddMonoidAlgebra"
+  }
+}

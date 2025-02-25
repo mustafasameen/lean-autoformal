@@ -1,0 +1,9 @@
+{
+  "content": "| Arity.left    => \u03bb (a, _) => dom a\n      | Arity.right   => \u03bb (a, _) => cod a\n      | Arity.bottom  => \u03bb _ => bot,\n    \u03bb z => nomatch z)\u27e9\n  def carrier := \ud835\udc9e.1.1\n  def bottom : \ud835\udc9e.carrier :=\n  \ud835\udc9e.op Arity.bottom \u2605\n  notation \"\u2204\" => bottom _\n  def \u03bc : \ud835\udc9e.carrier \u2192 \ud835\udc9e.carrier \u2192 \ud835\udc9e.carrier :=\n  \u03bb x y => \ud835\udc9e.op Arity.mul (x, y, \u2605)\n  def dom : \ud835\udc9e.carrier \u2192 \ud835\udc9e.carrier :=\n  \u03bb x => \ud835\udc9e.op Arity.left (x, \u2605)\n  def cod : \ud835\udc9e.carrier \u2192 \ud835\udc9e.carrier :=\n  \u03bb x => \ud835\udc9e.op Arity.right (x, \u2605)\n  def following (a b : \ud835\udc9e.carrier) :=\n  \ud835\udc9e.dom a = \ud835\udc9e.cod b\n  def defined (x : \ud835\udc9e.carrier) := x \u2260 \u2204\n  prefix:70 \"\u2203\" => defined _\nend Precategory\nclass category (\ud835\udc9e : Precategory) :=\n(defDec      : \u2200 (a : \ud835\udc9e.carrier), dec (a = \u2204))\n(bottomLeft  : \u2200 a, \ud835\udc9e.\u03bc \u2204 a = \u2204)\n(bottomRight : \u2200 a, \ud835\udc9e.\u03bc a \u2204 = \u2204)\n(bottomDom   : \ud835\udc9e.dom \u2204 = \u2204)\n(bottomCod   : \ud835\udc9e.cod \u2204 = \u2204)\n(domComp     : \u2200 a, \ud835\udc9e.\u03bc a (\ud835\udc9e.dom a) = a)\n(codComp     : \u2200 a, \ud835\udc9e.\u03bc (\ud835\udc9e.cod a) a = a)\n(mulDom      : \u2200 a b, \u2203(\ud835\udc9e.\u03bc a b) \u2192 \ud835\udc9e.dom (\ud835\udc9e.\u03bc a b) = \ud835\udc9e.dom b)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "Alg"
+  }
+}

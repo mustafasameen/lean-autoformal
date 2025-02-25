@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex3 : (10000, 300000) \u2208 { (x, y) | x < y }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/set.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/set.lean",
+    "definition_name": "ex3",
+    "has_proof": false
+  }
+}

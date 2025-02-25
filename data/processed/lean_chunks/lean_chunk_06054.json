@@ -1,0 +1,10 @@
+{
+  "content": "theorem set_eq_take_append_cons_drop (l : List \u03b1) (i : Nat) (a : \u03b1) :\n    l.set i a = if i < l.length then l.take i ++ a :: l.drop (i + 1) else l := by\n  split <;> rename_i h\n  \u00b7 ext1 j\n    by_cases h' : j < i\n    \u00b7 rw [getElem?_append_left (by simp [length_take]; omega), getElem?_set_ne (by omega),\n        getElem?_take_of_lt h']\n    \u00b7 by_cases h'' : j = i\n      \u00b7 subst h''\n        rw [getElem?_set_self \u2039_\u203a, getElem?_append_right, length_take,\n          Nat.min_eq_left (by omega), Nat.sub_self, getElem?_cons_zero]\n        rw [length_take]\n        exact Nat.min_le_left j l.length\n      \u00b7 have h''' : i < j := by omega\n        rw [getElem?_set_ne (by omega), getElem?_append_right, length_take,\n          Nat.min_eq_left (by omega)]\n        \u00b7 obtain \u27e8k, rfl\u27e9 := Nat.exists_eq_add_of_lt h'''\n          have p : i + k + 1 - i = k + 1 := by omega\n          rw [p]\n          rw [getElem?_cons_succ, getElem?_drop]\n          congr 1\n          omega\n        \u00b7 rw [length_take]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "set_eq_take_append_cons_drop",
+    "has_proof": true
+  }
+}

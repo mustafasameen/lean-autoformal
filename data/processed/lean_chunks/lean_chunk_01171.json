@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_popMax {lt}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/heapSort.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/heapSort.lean",
+    "definition_name": "size_popMax",
+    "has_proof": false
+  }
+}

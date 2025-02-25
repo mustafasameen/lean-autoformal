@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_of_succ_lt          (_: a + 1 < b): a < b := sorry\ntheorem succ_pred_eq_of_pos        (_: 0 < v): v - 1 + 1 = v := sorry\nset_option trace.Meta.Tactic.simp true\nset_option Elab.async false\n#guard_msgs in\nexample (h\u2081: k \u2264 v - 1) (h\u2082: 0 < v):\n    (if k \u2264 v - 1 then Fin.mk (v-1+1) sorry else Fin.mk (v-1) sorry) = Fin.mk v sorry (n:=n) := by\n    simp only [\n      h\u2081, h\u2082,\n      ite_true,\n      succ_pred_eq_of_pos\n      , le_of_not_lt\n      , lt_of_succ_lt\n    ]\n#guard_msgs in\nexample (h\u2081: k \u2264 v - 1) (h\u2082: 0 < v):\n    (if k \u2264 v - 1 then Fin.mk (v-1+1) sorry else Fin.mk (v-1) sorry) = Fin.mk v sorry (n:=n) := by\n    simp (config := { memoize := false}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1234.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1234.lean",
+    "definition_name": "lt_of_succ_lt",
+    "has_proof": true
+  }
+}

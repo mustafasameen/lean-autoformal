@@ -1,0 +1,10 @@
+{
+  "content": "| _a::_, 0   => by simp [get!]\n  | _a::l, n+1 => by simpa using get!_eq_getD l n\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]!` instead.\" (since := \"2025-02-12\"), simp]\ntheorem get!_eq_getElem! [Inhabited \u03b1] (l : List \u03b1) (i) : l.get! i = l[i]! := by\n  simp [get!_eq_getD]\n@[simp] theorem isEmpty_iff {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "getElem_concat_length",
+    "has_proof": true
+  }
+}

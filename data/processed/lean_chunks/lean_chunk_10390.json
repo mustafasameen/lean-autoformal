@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_prod_fst_map_toProd_eq_keys {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "map_prod_fst_map_toProd_eq_keys",
+    "has_proof": false
+  }
+}

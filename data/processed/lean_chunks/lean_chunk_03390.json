@@ -1,0 +1,10 @@
+{
+  "content": "refine \u27e8x, hcx, hyx , ?_\u27e9\n      cases h x hcx with\n      | inl hPx => exfalso; apply hx x hcx rel_refl hPx\n      | inr hQx => assumption\n  cases this with\n  | inl hP =>\n    left\n    rw [csup_conj (h := hP) (hchain := hchain)]\n    apply hadm\u2081 _ (chain_conj _ _ hchain)\n    intro x \u27e8hcx, hPx\u27e9\n    exact hPx\n  | inr hQ =>\n    right\n    rw [csup_conj (h := hQ) (hchain := hchain)]\n    apply hadm\u2082 _ (chain_conj _ _ hchain)\n    intro x \u27e8hcx, hQx\u27e9\n    exact hQx\ndef admissible_pi (P : \u03b1 \u2192 \u03b2 \u2192 Prop)\n  (hadm\u2081 : \u2200 y, admissible (fun x => P x y)) : admissible (fun x => \u2200 y, P x y) :=\n    fun c hchain h y => hadm\u2081 y c hchain fun x hx => h x hx y\nend admissibility\nsection fix\nopen PartialOrder CCPO\nvariable {\u03b1  : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "admissible_const_true",
+    "has_proof": true
+  }
+}

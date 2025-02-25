@@ -1,0 +1,9 @@
+{
+  "content": "inductive ReducibilityHints where\n  | opaque  : ReducibilityHints\n  | abbrev  : ReducibilityHints\n  | regular : UInt32 \u2192 ReducibilityHints\n  deriving Inhabited, BEq\n@[export lean_mk_reducibility_hints_regular]\ndef mkReducibilityHintsRegularEx (h : UInt32) : ReducibilityHints :=\n  ReducibilityHints.regular h\n@[export lean_reducibility_hints_get_height]\ndef ReducibilityHints.getHeightEx (h : ReducibilityHints) : UInt32 :=\n  match h with\n  | .regular h => h\n  | _ => 0\nnamespace ReducibilityHints\ndef lt : ReducibilityHints \u2192 ReducibilityHints \u2192 Bool\n  | .abbrev,     .abbrev     => false\n  | .abbrev,     _           => true\n  | .regular d\u2081, .regular d\u2082 => d\u2081 > d\u2082\n  | .regular _,  .opaque     => true\n  | _,           _           => false\nprotected def compare : ReducibilityHints \u2192 ReducibilityHints \u2192 Ordering\n  | .abbrev,     .abbrev     => .eq\n  | .abbrev,     _           => .lt\n  | .regular _,  .abbrev     => .gt\n  | .regular d\u2081, .regular d\u2082 => Ord.compare d\u2082 d\u2081",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_name": "ReducibilityHints"
+  }
+}

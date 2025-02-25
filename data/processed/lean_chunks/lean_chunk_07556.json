@@ -1,0 +1,9 @@
+{
+  "content": "def Ordinal := Bounded.LE 1 31\n  deriving Repr, BEq, LE, LT\ninstance : OfNat Ordinal n :=\n  inferInstanceAs (OfNat (Bounded.LE 1 (1 + (30 : Nat))) n)\ninstance {x y : Ordinal} : Decidable (x \u2264 y) :=\n  inferInstanceAs (Decidable (x.val \u2264 y.val))\ninstance {x y : Ordinal} : Decidable (x < y) :=\n  inferInstanceAs (Decidable (x.val < y.val))\ninstance : Inhabited Ordinal where default := 1\ndef Offset : Type := UnitVal 86400\n  deriving Repr, BEq, Inhabited, Add, Sub, Neg, LE, LT, ToString\ninstance : OfNat Offset n := \u27e8UnitVal.ofNat n\u27e9\ninstance {x y : Offset} : Decidable (x \u2264 y) :=\n  inferInstanceAs (Decidable (x.val \u2264 y.val))\ninstance {x y : Offset} : Decidable (x < y) :=\n  inferInstanceAs (Decidable (x.val < y.val))\nnamespace Ordinal\n@[inline]\ndef ofInt (data : Int) (h : 1 \u2264 data \u2227 data \u2264 31) : Ordinal :=\n  Bounded.LE.mk data h\ndef OfYear (leap : Bool) := Bounded.LE 1 (.ofNat (if leap then 366 else 365))\ninstance : Repr (OfYear leap) where\n  reprPrec r p := reprPrec r.val p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Day.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Day.lean",
+    "definition_name": "Ordinal"
+  }
+}

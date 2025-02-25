@@ -1,0 +1,9 @@
+{
+  "content": "def xs i := by\n    simp only [getElem!, getElem?, decidableGetElem?, get!Internal, getD, getElem]\n    split <",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "xs"
+  }
+}

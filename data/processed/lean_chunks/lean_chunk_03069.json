@@ -1,0 +1,9 @@
+{
+  "content": "e\n    else\n      mkLambda n newBinfo newDomain newBody\n  | _           => panic! \"lambda expected\"\n@[implemented_by updateLambda!Impl]\ndef updateLambda! (e : Expr) (newBinfo : BinderInfo) (newDomain : Expr) (newBody : Expr) : Expr :=\n  match e with\n  | lam n _ _ _ => mkLambda n newBinfo newDomain newBody\n  | _           => panic! \"lambda expected\"\n@[inline] def updateLambdaE! (e : Expr) (newDomain : Expr) (newBody : Expr) : Expr :=\n  match e with\n  | lam n d b bi => updateLambda! (lam n d b bi) bi newDomain newBody\n  | _            => panic! \"lambda expected\"\n@[inline] private unsafe def updateLet!Impl (e : Expr) (newType : Expr) (newVal : Expr) (newBody : Expr) : Expr :=\n  match e with\n  | letE n t v b nonDep =>\n    if ptrEq t newType && ptrEq v newVal && ptrEq b newBody then\n      e\n    else\n      letE n newType newVal newBody nonDep\n  | _              => panic! \"let expression expected\"\n@[implemented_by updateLet!Impl]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

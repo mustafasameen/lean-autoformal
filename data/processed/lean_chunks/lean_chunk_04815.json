@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_uncurry_zip_eq_zipWith (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (l : List \u03b1) (l' : List \u03b2) :\n    map (Function.uncurry f) (l.zip l') = zipWith f l l' := by\n  rw [zip]\n  induction l generalizing l' with\n  | nil => simp\n  | cons hl tl ih =>\n    cases l' <;> simp [ih]\ntheorem map_zip_eq_zipWith (f : \u03b1 \u00d7 \u03b2 \u2192 \u03b3) (l : List \u03b1) (l' : List \u03b2) :\n    map f (l.zip l') = zipWith (Function.curry f) l l' := by\n  rw [zip]\n  induction l generalizing l' with\n  | nil => simp\n  | cons hl tl ih =>\n    cases l' <;> simp [ih]\n@[simp] theorem zip_replicate' {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Zip.lean",
+    "definition_name": "map_uncurry_zip_eq_zipWith",
+    "has_proof": true
+  }
+}

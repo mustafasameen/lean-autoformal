@@ -1,0 +1,10 @@
+{
+  "content": "(ctx : Context \u03b1)\n  (h : Commutative ctx.op)\n  (x : Nat)\n  (xs : List Nat)\n  : evalList \u03b1 ctx (sort (x :: xs)) = evalList \u03b1 ctx (x :: sort xs) := by\n  simp [sort, sort.loop]\n  generalize [] = ys\n  induction xs generalizing x ys with\n  | nil => simp [sort.loop, evalList_insert ctx h]\n  | cons z zs ih =>\n    rw [evalList_sort_loop_swap ctx h]; simp [sort.loop, \u2190ih]; apply evalList_sort_congr ctx h; rw [evalList_insert ctx h]\n    cases h\u2082 : insert x ys with\n    | nil => apply absurd h\u2082; simp [insert_nonEmpty]\n    | cons u us =>\n      cases h\u2083 : insert z ys with\n      | nil => apply absurd h\u2083; simp [insert_nonEmpty]\n      | cons v vs =>\n        simp [evalList, \u2190h\u2082, \u2190h\u2083, evalList_insert ctx h]\n        cases ys\n        . simp [evalList, h.1, EvalInformation.evalOp]\n        . simp [evalList, EvalInformation.evalOp]; rw [h.1, ctx.assoc.1, h.1 (evalList _ _ _)]\n    all_goals simp [insert_nonEmpty]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

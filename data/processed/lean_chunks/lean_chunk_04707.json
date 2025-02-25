@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_le_of_le_sub_left {a b c : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "add_le_of_le_sub_left",
+    "has_proof": false
+  }
+}

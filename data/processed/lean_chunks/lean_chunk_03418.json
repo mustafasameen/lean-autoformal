@@ -1,0 +1,10 @@
+{
+  "content": "instance FlatOrder.instCCPO : CCPO (FlatOrder b) where\n  csup := flat_csup\n  csup_spec := by\n    intro x c hc\n    unfold flat_csup\n    split\n    next hex =>\n      apply Classical.some_spec\u2082 (q := (\u00b7 \u2291 x \u2194 (\u2200 y, c y \u2192 y \u2291 x)))\n      clear hex\n      intro z \u27e8hz, hnb\u27e9\n      constructor\n      \u00b7 intro h y hy\n        apply PartialOrder.rel_trans _ h; clear h\n        cases hc y z hy hz\n        next => assumption\n        next h =>\n          cases h\n          \u00b7 contradiction\n          \u00b7 constructor\n      \u00b7 intro h\n        cases h z hz\n        \u00b7 contradiction\n        \u00b7 constructor\n    next hnotex =>\n      constructor\n      \u00b7 intro h y hy; clear h\n        suffices y = b by rw [this]; exact rel.bot\n        rw [not_exists] at hnotex\n        specialize hnotex y\n        rw [not_and] at hnotex\n        specialize hnotex hy\n        rw [@Classical.not_not] at hnotex\n        assumption\n      \u00b7 intro; exact rel.bot\ntheorem admissible_flatOrder (P : FlatOrder b \u2192 Prop) (hnot : P b) : admissible P := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "FlatOrder",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def foo := ()\ndef foo := ()\nend\n#guard_msgs in\nmutual\nprivate def foo := ()\ndef foo := ()\nend\n#guard_msgs in\nmutual\ndef y :=\n  let rec z := 3\n  z + 2\ndef y.z := 42\nend\n#guard_msgs in #check y.z\n#guard_msgs in\nmutual\ndef a :=\n  b + 2\nwhere b := 4\ndef a.b := 42\nend\n#guard_msgs in #check a.b\n#guard_msgs in\nmutual\n  inductive Bar\n  | foo : Bar\n  inductive Bar.foo\n  | mk : Bar.foo\nend\n#guard_msgs in #check Bar.foo\n#guard_msgs in\nmutual\n  private inductive Private\n  | mk\n  inductive Private\n  | mk\nend\n#guard_msgs in #check Private.mk\n#guard_msgs in\nmutual\n  inductive PrivateConstructor\n  | private priv\n  inductive PrivateConstructor.priv\n  | mk\nend\n#guard_msgs in #check PrivateConstructor.priv\n#guard_msgs in\nmutual\n  inductive Baz\n  | foo.mk : Baz\n  inductive Baz.foo\n  | mk : Baz.foo\nend\n#guard_msgs in #check Baz.foo\n#guard_msgs in\nmutual\n  inductive Foo\n  | bar : Foo\n  inductive Foo\n  | bar : Foo\n  | foo : Foo \u2192 Foo\nend\n#guard_msgs in #check Foo.bar",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6694.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6694.lean",
+    "definition_name": "foo"
+  }
+}

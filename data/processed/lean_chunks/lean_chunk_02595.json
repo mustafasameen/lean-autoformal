@@ -1,0 +1,9 @@
+{
+  "content": "`(tactic| simpa ! $rest:simpaArgsRest)\n@[inherit_doc simpa] macro \"simpa?\" rest:simpaArgsRest : tactic =>\n  `(tactic| simpa ? $rest:simpaArgsRest)\n@[inherit_doc simpa] macro \"simpa?!\" rest:simpaArgsRest : tactic =>\n  `(tactic| simpa ?! $rest:simpaArgsRest)\nsyntax (name := delta) \"delta\" (ppSpace colGt ident)+ (location)? : tactic\nsyntax (name := unfold) \"unfold\" (ppSpace colGt ident)+ (location)? : tactic\nmacro \"refine_lift \" e:term : tactic => `(tactic| focus (refine no_implicit_lambda% $e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "simpArg"
+  }
+}

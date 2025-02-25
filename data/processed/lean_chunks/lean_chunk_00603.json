@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_replicate' : (replicate n a).map f = replicate n (f a) := by\n  grind?\n#print map_replicate'\nattribute [local grind =] getLast?_eq_some_iff in\nattribute [local grind] mem_concat_self in\ntheorem mem_of_getLast?_eq_some' {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_list.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_list.lean",
+    "definition_name": "map_replicate",
+    "has_proof": true
+  }
+}

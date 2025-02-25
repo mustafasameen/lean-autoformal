@@ -1,0 +1,10 @@
+{
+  "content": "<;> simp [h, Nat.testBit_to_div_mod, Nat.div_eq_of_lt]\n@[simp] theorem getElem_one (h : i < w) : (1#w)[i] = decide (i = 0) := by\n  simp [\u2190 getLsbD_eq_getElem, getLsbD_one, h, show 0 < w by omega]\n@[simp] theorem msb_zero : (0#w).msb = false := by simp [BitVec.msb, getMsbD]\n@[simp] theorem msb_one : (1#w).msb = decide (w = 1) := by\n  simp [BitVec.msb, getMsbD_one, \u2190 Bool.decide_and]\n  omega\ntheorem msb_eq_getLsbD_last (x : BitVec w) :\n    x.msb = x.getLsbD (w - 1) := by\n  simp only [BitVec.msb, getMsbD]\n  rcases w  with rfl | w\n  \u00b7 simp [BitVec.eq_nil x]\n  \u00b7 simp\n@[bitvec_to_nat] theorem getLsbD_last (x : BitVec w) :\n    x.getLsbD (w-1) = decide (2 ^ (w-1) \u2264 x.toNat) := by\n  rcases w with rfl | w\n  \u00b7 simp [toNat_of_zero_length]\n  \u00b7 simp only [getLsbD, Nat.testBit_to_div_mod, Nat.succ_sub_succ_eq_sub, Nat.sub_zero]\n    rcases (Nat.lt_or_ge (BitVec.toNat x) (2 ^ w)) with h | h\n    \u00b7 simp [Nat.div_eq_of_lt h, h]\n    \u00b7 simp only [h]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toNat_ofNat",
+    "has_proof": true
+  }
+}

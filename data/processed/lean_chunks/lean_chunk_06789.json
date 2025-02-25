@@ -1,0 +1,9 @@
+{
+  "content": "if let some style := s.style? then json := (\"style\", toJson style) :: json\n  return (Json.mkObj json, text, s.toCodeActionTitle?.map (\u00b7 text))\ninstance : ToMessageData Suggestion where\n  toMessageData s := s.messageData?.getD (toMessageData s.suggestion)\ninstance : Coe SuggestionText Suggestion where\n  coe t := { suggestion := t }\nprivate def addSuggestionCore (ref : Syntax) (suggestions : Array Suggestion)\n    (header : String) (isInline : Bool) (origSpan? : Option Syntax := none)\n    (style? : Option SuggestionStyle := none)\n    (codeActionPrefix? : Option String := none) : CoreM Unit := do\n  if let some range := (origSpan?.getD ref).getRange? then\n    let map \u2190 getFileMap\n    let (indent, column) := getIndentAndColumn map range\n    let suggestions \u2190 suggestions.mapM (\u00b7.toJsonAndInfoM (indent := indent) (column := column))\n    let suggestionTexts := suggestions.map (\u00b7.2)\n    let suggestions := suggestions.map (\u00b7.1)\n    let ref := Syntax.ofRange <| ref.getRange?.getD range",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "SuggestionStyle"
+  }
+}

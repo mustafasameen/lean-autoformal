@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 apply monotone_const\n@[partial_fixpoint_monotone]\ntheorem monotone_mapM (f : \u03b3 \u2192 \u03b1 \u2192 m \u03b2) (xs : Option \u03b1) (hmono : monotone f) :\n    monotone (fun x => xs.mapM (f x)) := by\n  cases xs with\n  | none => apply monotone_const\n  | some x =>\n    apply monotone_bind\n    \u00b7 apply monotone_apply\n      apply hmono\n    \u00b7 apply monotone_const\n@[partial_fixpoint_monotone]\ntheorem monotone_elimM (a : \u03b3 \u2192 m (Option \u03b1)) (n : \u03b3 \u2192 m \u03b2) (s : \u03b3 \u2192 \u03b1 \u2192 m \u03b2)\n    (hmono\u2081 : monotone a) (hmono\u2082 : monotone n) (hmono\u2083 : monotone s) :\n    monotone (fun x => Option.elimM (a x) (n x) (s x)) := by\n  apply monotone_bind\n  \u00b7 apply hmono\u2081\n  \u00b7 apply monotone_of_monotone_apply\n    intro o\n    cases o\n    case none => apply hmono\u2082\n    case some y =>\n      dsimp only [Option.elim]\n      apply monotone_apply\n      apply hmono\u2083\nomit [MonoBind m] in\n@[partial_fixpoint_monotone]\ntheorem monotone_getDM (o : Option \u03b1) (y : \u03b3 \u2192 m \u03b1) (hmono : monotone y) :\n    monotone (fun x => o.getDM (y x)) := by\n  cases o\n  \u00b7 apply hmono",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_name": "Functor",
+    "has_proof": true
+  }
+}

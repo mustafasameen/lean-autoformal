@@ -1,0 +1,9 @@
+{
+  "content": "else\n    return mkNatSucc (mkNatAdd e (toExpr (k - 1)))\n        let nparams := majorArgs.size - rule.nfields\n        let rhs := mkAppRange rhs nparams majorArgs.size majorArgs\n        let rhs := mkAppRange rhs (majorIdx + 1) recArgs.size recArgs\n        successK rhs\n    | none => failK ()\n  else\n    failK ()\nprivate def reduceQuotRec (recVal  : QuotVal) (recArgs : Array Expr) (failK : Unit \u2192 MetaM \u03b1) (successK : Expr \u2192 MetaM \u03b1) : MetaM \u03b1 :=\n  let process (majorPos argPos : Nat) : MetaM \u03b1 :=\n    if h : majorPos < recArgs.size then do\n      let major := recArgs[majorPos]\n      let major \u2190 whnf major\n      match major with\n      | Expr.app (Expr.app (Expr.app (Expr.const majorFn _) _) _) majorArg => do\n        let some (ConstantInfo.quotInfo { kind := QuotKind.ctor, .. }) := (\u2190 getEnv).find? majorFn | failK ()\n        let f := recArgs[argPos]!\n        let r := mkApp f majorArg\n        let recArity := majorPos + 1\n        successK <| mkAppRange r recArity recArgs.size recArgs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem dvd_eq_false' (ctx : Context) (k : Int) (p : Poly) : p.isUnsatDvd k \u2192 (k \u2223 p.denote' ctx) = False := by\n  simp [Poly.isUnsatDvd]\n  intro h\u2081 h\u2082\n  have := Poly.gcd_dvd_const h\u2082\n  have := not_dvd_of_not_mod_zero h\u2081\n  contradiction\ntheorem dvd_unsat (ctx : Context) (k : Int) (p : Poly) : p.isUnsatDvd k \u2192 k \u2223 p.denote' ctx \u2192 False := by\n  intro h\u2081\n  rw [dvd_eq_false' ctx _ _ h\u2081]\n  intro; contradiction\n@[local simp] private theorem mul_dvd_mul_eq {a b c : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "dvd_eq_false",
+    "has_proof": true
+  }
+}

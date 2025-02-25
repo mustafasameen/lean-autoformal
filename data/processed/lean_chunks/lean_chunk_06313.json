@@ -1,0 +1,9 @@
+{
+  "content": "structure constructor name\"\n    addDeclarationRangesFromSyntax field.declName field.ref\n  return {\n    ref := stx\n    declId\n    modifiers\n    isClass\n    shortDeclName := name\n    declName\n    levelNames\n    binders\n    type?\n    allowIndices := false\n    allowSortPolymorphism := false\n    ctors := #[ctor]\n    parents\n    fields\n    computedFields := #[]\n    derivingClasses\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "constructor"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "structure Context where\n  baseName : Name\nstructure State where\n  nextIdx : Nat := 1\nabbrev M := ReaderT Context $ MonadCacheT ExprStructEq Expr $ StateRefT State MetaM\nprivate def mkAuxLemma (e : Expr) : M Expr := do\n  let ctx \u2190 read\n  let s \u2190 get\n  let lemmaName \u2190 mkAuxName (ctx.baseName ++ `proof) s.nextIdx\n  modify fun s => { s with nextIdx := s.nextIdx + 1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/AbstractNestedProofs.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/AbstractNestedProofs.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

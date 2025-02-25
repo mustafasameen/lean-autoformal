@@ -1,0 +1,9 @@
+{
+  "content": "inductive DeltaStepResult where\n  | eq | unknown\n  | cont (t s : Expr)\n  | diff (t s : Expr)\nprivate def isDefEqDeltaStep (t s : Expr) : MetaM DeltaStepResult := do\n  let tInfo? \u2190 isDeltaCandidate? t\n  let sInfo? \u2190 isDeltaCandidate? s\n  match tInfo?, sInfo? with\n  | none,       none       => return .unknown\n  | some _,     none       => unfold t (return .unknown) (k \u00b7 s)\n  | none,       some _     => unfold s (return .unknown) (k t \u00b7)\n  | some tInfo, some sInfo =>\n    match compare tInfo.hints sInfo.hints with\n    | .lt => unfold t (return .unknown) (k \u00b7 s)\n    | .gt => unfold s (return .unknown) (k t \u00b7)\n    | .eq =>\n      if tInfo.name == sInfo.name then\n        if t.isApp && s.isApp && (\u2190 tryHeuristic t s) then\n          return .eq\n        else\n          unfoldBoth t s\n      else\n        unfoldBoth t s\nwhere\n  unfoldBoth (t s : Expr) : MetaM DeltaStepResult := do\n    unfold t\n      (unfold s (return .unknown) (k t \u00b7))\n      (fun t => unfold s (k t s) (k t \u00b7))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "DeltaStepResult"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "`(@[builtin_term_elab $kind:ident] def elabQuot : TermElab := adaptExpander stxQuot.expand)\nelab_stx_quot Parser.Term.quot\nelab_stx_quot Parser.Tactic.quot\nelab_stx_quot Parser.Tactic.quotSeq\nelab_stx_quot Parser.Term.dynamicQuot\nelab_stx_quot Parser.Command.quot\nprivate abbrev Alt := List Term \u00d7 Term\ninductive HeadCheck where\n  | shape (k : List SyntaxNodeKind) (arity : Option Nat)\n  | slice (numPrefix numSuffix : Nat)\n  | other (pat : Syntax)\nopen HeadCheck\n  | covered (f : Alt \u2192 TermElabM Alt) (exhaustive : Bool)\n  | undecided\ninstance : Repr MatchResult where\n  reprPrec\n    | .covered _ e, _ => f!\"covered _ {repr e}\"\n    | .uncovered,   _ => \"uncovered\"\n    | .undecided,   _ => \"undecided\"\nopen MatchResult\n  check : HeadCheck\n  doMatch (yes : (newDiscrs : List Term) \u2192 TermElabM Term) (no : TermElabM Term) : TermElabM Term\n      let numSuffix := quoted.getNumArgs - 1 - idx\n      pure {\n        check    := slice idx numSuffix\n        onMatch  := fun\n          | slice p s =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_name": "ArrayStxBuilder"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkVector_one : mkVector 1 a = #v[a] := rfl\ntheorem map_const' (xs : Vector \u03b1 n) (b : \u03b2) : map (fun _ => b) xs = mkVector n b :=\n  map_const xs b\n@[simp] theorem set_mkVector_self : (mkVector n a).set i a h = mkVector n a := by\n  rw [\u2190 toArray_inj]\n  simp\n@[simp] theorem setIfInBounds_mkVector_self : (mkVector n a).setIfInBounds i a = mkVector n a := by\n  rw [\u2190 toArray_inj]\n  simp\n@[simp] theorem mkVector_append_mkVector : mkVector n a ++ mkVector m a = mkVector (n + m) a := by\n  rw [\u2190 toArray_inj]\n  simp\ntheorem append_eq_mkVector_iff {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "mkVector_one",
+    "has_proof": true
+  }
+}

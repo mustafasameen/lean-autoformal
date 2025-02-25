@@ -1,0 +1,10 @@
+{
+  "content": "theorem count_le_count_map [DecidableEq \u03b2] (xs : Array \u03b1) (f : \u03b1 \u2192 \u03b2) (x : \u03b1) :\n    count x xs \u2264 count (f x) (map f xs) := by\n  rcases xs with \u27e8xs\u27e9\n  simp [List.count_le_count_map, countP_map]\ntheorem count_filterMap {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Count.lean",
+    "definition_name": "count_le_count_map",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Point where\n x : Nat\n y : Nat\nderiving Repr\ndef mkPoint1 (a : Nat) : Point where\nx := 1y := a\ndef mkPoint2 (a : Nat) : Point where\n  x := 1\n  y := a\ndef mkPoint3 (a : Nat) : Point where\n  x := 1; y := a\ndef mkPoint?? (x y : Nat) : Point :=\n  { x y }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/semicolonOrLinebreak.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/semicolonOrLinebreak.lean",
+    "definition_name": "Point"
+  }
+}

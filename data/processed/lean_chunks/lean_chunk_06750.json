@@ -1,0 +1,9 @@
+{
+  "content": "(x.extract n x.size).map f\n        else\n          (y.extract n y.size).map g\n  pure $ res ++ last\nprivate builtin_initialize abortSpeculationId : InternalExceptionId \u2190\n  registerInternalExceptionId `Lean.Meta.LibrarySearch.abortSpeculation\ndef abortSpeculation [MonadExcept Exception m] : m \u03b1 :=\n  throw (Exception.internal abortSpeculationId {})\n@[reducible]\ndef Candidate :=  (MVarId \u00d7 MetavarContext) \u00d7 (Name \u00d7 DeclMod)\ndef librarySearchSymm (searchFn : CandidateFinder) (goal : MVarId) : MetaM (Array Candidate) := do\n  let tgt \u2190 goal.getType\n  let l1 \u2190 searchFn tgt\n  let coreMCtx \u2190 getMCtx\n  let coreGoalCtx := (goal, coreMCtx)\n  if let some symmGoal \u2190 observing? goal.applySymm then\n    let newType \u2190 instantiateMVars  (\u2190 symmGoal.getType)\n    let l2 \u2190 searchFn newType\n    let symmMCtx \u2190 getMCtx\n    let symmGoalCtx := (symmGoal, symmMCtx)\n    setMCtx coreMCtx\n    pure $ interleaveWith (coreGoalCtx, \u00b7) l1 (symmGoalCtx, \u00b7) l2\n  else\n    pure $ l1.map (coreGoalCtx, \u00b7)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_name": "CandidateFinder"
+  }
+}

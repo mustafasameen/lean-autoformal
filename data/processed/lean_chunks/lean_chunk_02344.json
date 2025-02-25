@@ -1,0 +1,9 @@
+{
+  "content": "inductive Formula : Nat \u2192 Type u where\n  | bot                            : Formula n\n  | imp (f\u2081 f\u2082 : Formula     n   ) : Formula n\n  | all (f     : Formula    (n+1)) : Formula n\ndef Formula.count_quantifiers : {n:Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/974.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/974.lean",
+    "definition_name": "Formula"
+  }
+}

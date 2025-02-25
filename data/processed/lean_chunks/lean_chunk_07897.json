@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_iff_contains {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_name": "mem_iff_contains",
+    "has_proof": false
+  }
+}

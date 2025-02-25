@@ -1,0 +1,9 @@
+{
+  "content": "structure CtorHeaderResult where\n  ctorFnType : Expr\n  params     : Array (Name \u00d7 Expr)\nprivate def mkCtorHeaderAux : Nat \u2192 Expr \u2192 Expr \u2192 Array MVarId \u2192 Array (Name \u00d7 Expr) \u2192 TermElabM CtorHeaderResult\n  | 0,   type, ctorFn, instMVars, params => return { ctorFn , ctorFnType := type, instMVars, params }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_name": "CtorHeaderResult"
+  }
+}

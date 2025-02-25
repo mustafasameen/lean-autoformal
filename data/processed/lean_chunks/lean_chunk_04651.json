@@ -1,0 +1,10 @@
+{
+  "content": "simp [eq_unsat_coeff_cert]\n  intro h\u2081 h\u2082 h\u2083\n  have h := poly_eq_zero_eq_false ctx h\u2081 h\u2082 h\u2083; clear h\u2081 h\u2082 h\u2083\n  simp [h]\ndef Poly.coeff (p : Poly) (x : Var) : Int :=\n  match p with\n  | .add a y p => bif x == y then a else coeff p x\n  | .num _ => 0\nprivate theorem eq_add_coeff_insert (ctx : Context) (p : Poly) (x : Var) : p.denote ctx = (p.coeff x) * (x.denote ctx) + (p.insert (-p.coeff x) x).denote ctx := by\n  simp; rw [\u2190 Int.add_assoc, Int.add_neg_cancel_right]\nprivate theorem dvd_of_eq' {a x p : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "dvd_solve_combine",
+    "has_proof": true
+  }
+}

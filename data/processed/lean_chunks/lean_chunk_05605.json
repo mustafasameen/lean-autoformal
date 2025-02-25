@@ -1,0 +1,10 @@
+{
+  "content": "(xs.setIfInBounds i x)[j]? = if i = j then if i < n then some x else none else xs[j]? := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.getElem?_setIfInBounds]\ntheorem getElem?_setIfInBounds_self (xs : Vector \u03b1 n) (i : Nat) (x : \u03b1) :\n    (xs.setIfInBounds i x)[i]? = if i < n then some x else none := by simp [getElem?_setIfInBounds]\n@[simp] theorem getElem?_setIfInBounds_self_of_lt (xs : Vector \u03b1 n) (i : Nat) (x : \u03b1) (h : i < n) :\n    (xs.setIfInBounds i x)[i]? = some x := by simp [getElem?_setIfInBounds, h]\n@[simp] theorem getElem?_setIfInBounds_ne (xs : Vector \u03b1 n) (i : Nat) (x : \u03b1) (j : Nat)\n    (h : i \u2260 j) : (xs.setIfInBounds i x)[j]? = xs[j]? := by simp [getElem?_setIfInBounds, h]\ntheorem setIfInBounds_eq_of_size_le {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "getElem_setIfInBounds",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive NormFVarResult where\n|\n    erased\n  deriving Inhabited\nprivate partial def normFVarImp (s : FVarSubst) (fvarId : FVarId) (translator : Bool) : NormFVarResult :=\n  match s[fvarId]? with\n  | some (.fvar fvarId') =>\n    if translator then\n      .fvar fvarId'\n    else\n      normFVarImp s fvarId' translator\n  | some e =>\n    if e.isErased then\n      .erased\n    else\n      panic! s!\"invalid LCNF substitution of free variable with expression {e}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "NormFVarResult"
+  }
+}

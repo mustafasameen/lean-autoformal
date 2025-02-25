@@ -1,0 +1,10 @@
+{
+  "content": "theorem eval_nil : (lc : LinearCombo).eval .nil = lc.const := by\n  simp [eval]\ndef add (l\u2081 l\u2082 : LinearCombo) : LinearCombo where\n  const := l\u2081.const + l\u2082.const\n  coeffs := l\u2081.coeffs + l\u2082.coeffs\ninstance : Add LinearCombo := \u27e8add\u27e9\n@[simp] theorem add_const {l\u2081 l\u2082 : LinearCombo}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/LinearCombo.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/LinearCombo.lean",
+    "definition_name": "eval_nil",
+    "has_proof": true
+  }
+}

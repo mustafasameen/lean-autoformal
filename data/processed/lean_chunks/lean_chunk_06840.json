@@ -1,0 +1,9 @@
+{
+  "content": "inductive Cnstr where\n|\n    offset (pat : Expr) (k : Nat) (e : Expr)\n|\nprivate def unassigned : Expr := mkConst (Name.mkSimple \"[grind_unassigned]\")\nprivate def assignmentToMessageData (assignment : Array Expr) : Array MessageData :=\n  assignment.reverse.map fun e =>\n    if isSameExpr e unassigned then m!\"_\" else m!\"{e}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatch.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatch.lean",
+    "definition_name": "Cnstr"
+  }
+}

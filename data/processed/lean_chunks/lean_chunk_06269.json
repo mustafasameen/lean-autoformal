@@ -1,0 +1,9 @@
+{
+  "content": "@[inline] private def Context.setTransparency (ctx : Context) (transparency : TransparencyMode) : Context :=\n  let config := { ctx.config with transparency }\n  let configKey : UInt64 := ((ctx.configKey >>> (2 : UInt64)) <<< 2) ||| transparency.toUInt64\n  { ctx with config, configKey }\n@[inline] def withTransparency (mode : TransparencyMode) : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM <| withReader (\u00b7.setTransparency mode)\n@[inline] def withReducible (x : n \u03b1) : n \u03b1 :=\n  withTransparency TransparencyMode.reducible x\n@[inline] def withReducibleAndInstances (x : n \u03b1) : n \u03b1 :=\n  withTransparency TransparencyMode.instances x\n@[inline] def withAtLeastTransparency (mode : TransparencyMode) : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM <| withReader fun ctx =>\n    let modeOld := ctx.config.transparency\n    ctx.setTransparency <| if modeOld.lt mode then mode else modeOld\n@[inline] private def savingCacheImpl (x : MetaM \u03b1) : MetaM \u03b1 := do\n  let savedCache := (\u2190 get).cache",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

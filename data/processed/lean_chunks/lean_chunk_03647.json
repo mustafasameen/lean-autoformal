@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_mem_of_ne_empty (xs : Array \u03b1) (h : xs \u2260 #[]) : \u2203 x, x \u2208 xs := by\n  simpa using List.exists_mem_of_ne_nil xs.toList (by simpa using h)\ntheorem eq_empty_iff_forall_not_mem {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "exists_mem_of_ne_empty",
+    "has_proof": true
+  }
+}

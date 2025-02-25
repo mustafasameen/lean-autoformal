@@ -1,0 +1,10 @@
+{
+  "content": "theorem ushiftRightRec_eq (x : BitVec w\u2081) (y : BitVec w\u2082) (n : Nat) :\n    ushiftRightRec x y n = x >>> (y.setWidth (n + 1)).setWidth w\u2082 := by\n  induction n generalizing x y\n  case zero =>\n    ext i\n    simp only [ushiftRightRec_zero, twoPow_zero, Nat.reduceAdd,\n      and_one_eq_setWidth_ofBool_getLsbD, setWidth_one]\n  case succ n ih =>\n    simp only [ushiftRightRec_succ, and_twoPow]\n    rw [ih]\n    by_cases h : y.getLsbD (n + 1) <;> simp only [h, \u2193reduceIte]\n    \u00b7 rw [setWidth_setWidth_succ_eq_setWidth_setWidth_or_twoPow_of_getLsbD_true h,\n        ushiftRight'_or_of_and_eq_zero]\n      simp [and_twoPow]\n    \u00b7 simp [setWidth_setWidth_succ_eq_setWidth_setWidth_of_getLsbD_false, h]\ntheorem shiftRight_eq_ushiftRightRec (x : BitVec w\u2081) (y : BitVec w\u2082) :\n    x >>> y = ushiftRightRec x y (w\u2082 - 1) := by\n  rcases w\u2082 with rfl | w\u2082\n  \u00b7 simp [of_length_zero]\n  \u00b7 simp [ushiftRightRec_eq]\ntheorem uaddOverflow_eq {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "ushiftRightRec_eq",
+    "has_proof": true
+  }
+}

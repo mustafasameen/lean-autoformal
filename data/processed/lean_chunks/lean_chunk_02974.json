@@ -1,0 +1,9 @@
+{
+  "content": "| ofLazy (f : Option PPContext \u2192 BaseIO Dynamic) (hasSyntheticSorry : MetavarContext \u2192 Bool)\n  deriving Inhabited, TypeName\nnamespace MessageData\ndef lazy (f : PPContext \u2192 BaseIO MessageData)\n    (hasSyntheticSorry : MetavarContext \u2192 Bool := fun _ => false) : MessageData :=\n  .ofLazy (hasSyntheticSorry := hasSyntheticSorry) fun ctx? => do\n    let msg \u2190 match ctx? with\n      | .none =>\npure (.ofFormat \"(invalid MessageData.lazy, missing context)\")\n      | .some ctx => f ctx\n    return Dynamic.mk msg\nvariable (p : Name \u2192 Bool) in\npartial def hasTag : MessageData \u2192 Bool\n  | withContext _ msg       => hasTag msg\n  | withNamingContext _ msg => hasTag msg\n  | nest _ msg              => hasTag msg\n  | group msg               => hasTag msg\n  | compose msg\u2081 msg\u2082       => hasTag msg\u2081 || hasTag msg\u2082\n  | tagged n msg            => p n || hasTag msg\n  | trace data msg msgs     => p data.cls || hasTag msg || msgs.any hasTag\n  | _                       => false\ndef kind : MessageData \u2192 Name",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_name": "MessageSeverity"
+  }
+}

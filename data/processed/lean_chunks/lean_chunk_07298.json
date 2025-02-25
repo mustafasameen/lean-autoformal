@@ -1,0 +1,10 @@
+{
+  "content": "cases g with\n    | and =>\n      simp only [go]\n      rw [AIG.LawfulOperator.decl_eq (f := mkAndCached), rih, lih]\n    | xor =>\n      simp only [go]\n      rw [AIG.LawfulOperator.decl_eq (f := mkXorCached), rih, lih]\n    | beq =>\n      simp only [go]\n      rw [AIG.LawfulOperator.decl_eq (f := mkBEqCached), rih, lih]\n    | or =>\n      simp only [go]\n      rw [AIG.LawfulOperator.decl_eq (f := mkOrCached), rih, lih]\ntheorem go_isPrefix_aig {aig : AIG \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Circuit.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BoolExpr/Circuit.lean",
+    "definition_name": "go_le_size",
+    "has_proof": true
+  }
+}

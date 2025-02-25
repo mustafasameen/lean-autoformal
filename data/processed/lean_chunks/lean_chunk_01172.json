@@ -1,0 +1,9 @@
+{
+  "content": "structure A1 where\n  xs : List A1\nsection\nvariable (a : A1)\n#guard_msgs in #check a.1\nend\nstructure A2 (n : Nat) where\n  x : Fin n\n  xs : List (A2 n)\nsection\nvariable (a : A2 2)\n#guard_msgs in #check a.xs\n#guard_msgs in #check a.2\nend\nsection\nvariable (n : Nat)\nstructure A3 where\n  x : Fin n\n  xs : List A3\nsection\nvariable (\u03b1 : Type _)\nstructure A4 (\u03b2 : Type _) where\n  x : \u03b1\n  y : \u03b2\n  xs : List (A4 \u03b2)\nstructure Foo where\n  name     : String\n  children : List Foo\nstructure Foo' where\n  name     : String\n  n : Nat\n  children : Fin n \u2192 Foo'\ndef Foo'.preorder : Foo' \u2192 String\n  | {name, n, children}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure_recursive.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure_recursive.lean",
+    "definition_name": "A1"
+  }
+}

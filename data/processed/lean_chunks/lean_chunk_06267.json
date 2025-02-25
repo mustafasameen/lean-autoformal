@@ -1,0 +1,9 @@
+{
+  "content": "@[inline] def withConfigWithKey (c : ConfigWithKey) : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM <| withReader fun ctx =>\n    let config := c.config\n    let configKey := c.key\n    { ctx with config, configKey }\n@[inline] def withCanUnfoldPred (p : Config \u2192 ConstantInfo \u2192 CoreM Bool) : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM <| withReader (fun ctx => { ctx with canUnfold? := p })\n@[inline] def withIncSynthPending : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM <| withReader (fun ctx => { ctx with synthPendingDepth := ctx.synthPendingDepth + 1 })\n@[inline] def withInTypeClassResolution : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM <| withReader (fun ctx => { ctx with inTypeClassResolution := true })\n@[inline] def withFreshCache : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM fun x => do\n    let cacheSaved := (\u2190 get).cache\n    modify fun s => { s with cache := {} }\n    try\n      x\n    finally\n      modify fun s => { s with cache := cacheSaved }\n@[inline] def withTrackingZetaDelta : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM fun x =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

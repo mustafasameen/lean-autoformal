@@ -1,0 +1,9 @@
+{
+  "content": "`(mutual\n     $auxDefs:command*\n    end)\ndef mkFromJsonMutualBlock (ctx : Context) : TermElabM Command := do\n  let mut auxDefs := #[]\n  for i in [:ctx.typeInfos.size] do\n    auxDefs := auxDefs.push (\u2190 mkFromJsonAuxFunction ctx i)\n  `(mutual\n     $auxDefs:command*\n    end)\nprivate def mkToJsonInstance (declName : Name) : TermElabM (Array Command) := do\n  let ctx \u2190 mkContext \"toJson\" declName\n  let cmds := #[\u2190 mkToJsonMutualBlock ctx] ++ (\u2190 mkInstanceCmds ctx ``ToJson #[declName])\n  trace[Elab.Deriving.toJson] \"\\n{cmds}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_name": "constructor"
+  }
+}

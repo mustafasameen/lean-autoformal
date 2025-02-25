@@ -1,0 +1,10 @@
+{
+  "content": "ofBitVec ::\n  toBitVec : BitVec 32\nattribute [extern \"lean_uint32_of_nat_mk\"] UInt32.ofBitVec\nattribute [extern \"lean_uint32_to_nat\"] UInt32.toBitVec\n@[extern \"lean_uint32_of_nat\"]\ndef UInt32.ofNatLT (n : @& Nat) (h : LT.lt n UInt32.size) : UInt32 where\n  toBitVec := BitVec.ofNatLT n h\n@[extern \"lean_uint32_to_nat\"]\ndef UInt32.toNat (n : UInt32) : Nat := n.toBitVec.toNat\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_uint32_dec_eq\"]\ndef UInt32.decEq (a b : UInt32) : Decidable (Eq a b) :=\n  match a, b with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m) (fun h => isTrue (h \u25b8 rfl)) (fun h => isFalse (fun h' => UInt32.noConfusion h' (fun h' => absurd h' h)))\ninstance : DecidableEq UInt32 := UInt32.decEq\ninstance : Inhabited UInt32 where\n  default := UInt32.ofNatLT 0 (of_decide_eq_true rfl)\ninstance : LT UInt32 where\n  lt a b := LT.lt a.toBitVec b.toBitVec\ninstance : LE UInt32 where\n  le a b := LE.le a.toBitVec b.toBitVec\n@[extern \"lean_uint32_dec_lt\"]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat",
+    "has_proof": false
+  }
+}

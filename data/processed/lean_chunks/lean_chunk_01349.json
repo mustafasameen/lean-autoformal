@@ -1,0 +1,9 @@
+{
+  "content": "class FooClass (\u03b1 : Type) where\n  foo : \u03b1\nclass BarClass (\u03b1 : Type) where\n  bar : \u03b1\nclass FooBarClass (\u03b1 : Type) where\n  foo : \u03b1\n  bar : \u03b1\ninstance (\u03b1 : Type) [h : FooClass \u03b1] [h' : BarClass \u03b1] : FooBarClass \u03b1 :=\n  { h, h' with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/462.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/462.lean",
+    "definition_name": "FooClass"
+  }
+}

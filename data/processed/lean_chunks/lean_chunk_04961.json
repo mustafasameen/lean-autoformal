@@ -1,0 +1,10 @@
+{
+  "content": "theorem head?_replace (l : List \u03b1) (a b : \u03b1) :\n    (l.replace a b).head? = match l.head? with\n      | none => none\n      | some x => some (if a == x then b else x) := by\n  cases l with\n  | nil => rfl\n  | cons x xs =>\n    simp [replace_cons]\n    split <;> simp_all\ntheorem head_replace (l : List \u03b1) (a b : \u03b1) (w) :\n    (l.replace a b).head w =\n      if a == l.head (by rintro rfl; simp_all) then\n        b\n      else\n        l.head  (by rintro rfl; simp_all) := by\n  apply Option.some.inj\n  rw [\u2190 head?_eq_head, head?_replace, head?_eq_head]\ntheorem replace_append [LawfulBEq \u03b1] {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "head",
+    "has_proof": true
+  }
+}

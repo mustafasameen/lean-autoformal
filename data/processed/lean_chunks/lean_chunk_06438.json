@@ -1,0 +1,9 @@
+{
+  "content": "else if decl.getKind == ``Parser.Term.doPatDecl then\n      let pattern := decl[0]\n      let doElem  := decl[2]\n      let optElse := decl[3]\n      if optElse.isNone then withFreshMacroScope do\n        let auxDo \u2190 `(do let __discr \u2190 $doElem; $pattern:term := __discr)\n        doSeqToCode <| getDoSeqElems (getDoSeq auxDo) ++ doElems\n      else\n        throwError \"reassignment with `|` (i.e., \\\"else clause\\\") is not currently supported\"\n    else\n      throwError \"unexpected kind of `do` reassignment\"\n  partial def doIfToCode (doIf : Syntax) (doElems : List Syntax) : M CodeBlock := do\n    let view := mkDoIfView doIf\n    let thenBranch \u2190 doSeqToCode (getDoSeqElems view.thenBranch)\n    let elseBranch \u2190 doSeqToCode (getDoSeqElems view.elseBranch)\n    let ite \u2190 mkIte view.ref view.optIdent view.cond thenBranch elseBranch\n    concatWith ite doElems\n  partial def doUnlessToCode (doUnless : Syntax) (doElems : List Syntax) : M CodeBlock := withRef doUnless do\n    let cond  := doUnless[1]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class HasType (val : Type) (type : outParam Type) where\n  typeOf : val \u2192 type\nclass Value (val : Type) where\n  render : val \u2192 TermElabM Term\nstructure GenCtx (val : Type) where\n  ops : Array (Array (Op Nat val))\n  maxTermSize : Nat\n  maxVarCount : Nat\n  linst : LocalInstances\ndef var (ctx : GenCtx val) (tp : Nat) (idx : Nat) : Option val :=\n  if g : tp < ctx.vars.size then\n    let a := ctx.vars[tp]'g\n    if h : idx < a.size then\n      some (a[idx]'h)\n    else\n      none\n  else\n    none\nend GenCtx\n  op : Op Nat term\nstructure PartialTerm (term : Type) where\n  remTermSize : Nat\ndef init (maxTermSize : Nat) (maxDepth : Nat) (op : Op Nat term) : term \u2295 PartialTerm term :=\n  if op.args.isEmpty then\n    .inl (op.apply #[])\n  else\n    .inr {\n      termStack := #[PartialApp.fromOp op],\n      remTermSize := maxTermSize - (1 + op.args.size),\n      usedVars := #[]\n    }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "HasType"
+  }
+}

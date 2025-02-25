@@ -1,0 +1,9 @@
+{
+  "content": "inductive TestOutcome\n| skip\n| pass (s : String)\n| fail (s : String)\n| error (e : String)\ndef testInvalid (tomlFile : FilePath) : BaseIO TestOutcome := do\n  match (\u2190 loadToml tomlFile) with\n  | .pass t => return .fail (ppTable t)\n  | .fail l => return .pass (\u2190 mkMessageLogString l)\n  | .error e => return .error (toString e)\n@[inline] def Fin.forM [Monad m] (n) (f : Fin n \u2192 m Unit) : m Unit :=\n  loop 0\nwhere\n  loop (i : Nat) : m Unit := do\n    if h : i < n then let a \u2190 f \u27e8i, h\u27e9; loop (i+1) else pure ()\n  termination_by n - i\nlocal instance [Monad m] : ForIn m (RBNode \u03b1 \u03b2) ((a : \u03b1) \u00d7 \u03b2 a) where\n  forIn t init f := t.forIn init (fun a b acc => f \u27e8a, b\u27e9 acc)\ndef expectBEq [BEq \u03b1] [ToString \u03b1] (actual expected : \u03b1) : Except String Unit := do\n  unless actual == expected do\n    throw s!\"expected '{expected}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/toml/Test.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/toml/Test.lean",
+    "definition_name": "TestOutcome"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure S1 where x : Unit\nstructure S2 where x : Unit\n#testDelab { x := () : S1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_name": "S1"
+  }
+}

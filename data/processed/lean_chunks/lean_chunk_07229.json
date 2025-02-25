@@ -1,0 +1,9 @@
+{
+  "content": "else choice newVs\n      | v, _ => v\ndef updateJPParamsAssignment (ys : Array Param) (xs : Array Arg) : M Bool := do\n  let ctx \u2190 read\n  let currFnIdx := ctx.currFnIdx\n  ys.size.foldM (init := false) fun i _ r => do\n    let y := ys[i]\n    let x := xs[i]!\n    let yVal \u2190 findVarValue y.x\n    let xVal \u2190 findArgValue x\n    let newVal := merge yVal xVal\n    if newVal == yVal then\n      pure r\n    else\n      modify fun s => { s with assignments := s.assignments.modify currFnIdx fun a => a.insert y.x newVal }\n      pure true\nprivate partial def resetNestedJPParams : FnBody \u2192 M Unit\n  | FnBody.jdecl _ ys _ k => do\n    ys.forM resetParamAssignment\n    resetNestedJPParams k\n  | FnBody.case _ _ _ alts =>\n    alts.forM fun alt => match alt with\n      | Alt.ctor _ b  => resetNestedJPParams b\n      | Alt.default b => resetNestedJPParams b\n  | e => do unless e.isTerminal do resetNestedJPParams e.body\npartial def interpFnBody : FnBody \u2192 M Unit\n  | FnBody.vdecl x _ e b => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_name": "truncateMaxDepth"
+  }
+}

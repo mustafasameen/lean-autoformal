@@ -1,0 +1,9 @@
+{
+  "content": "#guard_msgs in\nexample : Q' false true  := by with_reducible apply_rfl\n#guard_msgs in\nexample : R false true   := by with_reducible apply_rfl\n#guard_msgs in\nexample : HEq true 1 := by apply_rfl\n#guard_msgs in\nexample : HEq true 1 := by with_reducible apply_rfl\ninductive S : Bool \u2192 Bool \u2192 Prop where | refl : a = true \u2192 S a a\nattribute [refl] S.refl\n#guard_msgs in\nexample : S true false  := by apply_rfl\n#guard_msgs in\nexample : S true false  := by with_reducible apply_rfl\n#guard_msgs in\nexample : S true true   := by apply_rfl\n#guard_msgs in\nexample : S true true   := by with_reducible apply_rfl\n#guard_msgs in\nexample : S false false := by apply_rfl\n#guard_msgs in\nexample : S false false := by with_reducible apply_rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rflTacticErrors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rflTacticErrors.lean",
+    "definition_name": "true"
+  }
+}

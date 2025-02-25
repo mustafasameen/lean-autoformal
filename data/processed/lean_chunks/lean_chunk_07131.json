@@ -1,0 +1,9 @@
+{
+  "content": "decl.value.forCodeM interpCode\n    let newVal \u2190 getFunVal idx\n    if currentVal != newVal then\n      return true\n  return false\npartial def inferMain : InterpM Unit := do\n  let ctx \u2190 read\n  modify fun s => { s with assignments := ctx.decls.map fun _ => {} }\n  let modified \u2190 inferStep\n  if modified then\n    inferMain\n  else\n    return ()\npartial def elimDead (assignment : Assignment) (decl : Decl) : CompilerM Decl := do\n  trace[Compiler.elimDeadBranches] s!\"Eliminating {decl.name} with {repr (\u2190 assignment.toArray |>.mapM (fun (name, val) => do return (toString (\u2190 getBinderName name), val)))}\"\n  return { decl with value := (\u2190 decl.value.mapCodeM go) }\nwhere\n  go (code : Code) : CompilerM Code := do\n    match code with\n    | .let decl k =>\n      return code.updateLet! decl (\u2190 go k)\n    | .jp decl k | .fun decl k =>\n      return code.updateFun! (\u2190 decl.updateValue (\u2190 go decl.value)) (\u2190 go k)\n    | .cases cs =>\n      let discrVal := assignment.getD cs.discr .bot",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

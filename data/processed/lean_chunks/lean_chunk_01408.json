@@ -1,0 +1,9 @@
+{
+  "content": "class AddCommMonoid (M : Type u) extends AddMonoid M, AddCommSemigroup M\nclass CommMonoid (M : Type u) extends Monoid M, CommSemigroup M\ndef zpowRec {M : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "AddCommMonoid"
+  }
+}

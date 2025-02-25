@@ -1,0 +1,9 @@
+{
+  "content": "| num n => return n\n  | _     => throw \"number expected\"\ndef getObjVal? : Json \u2192 String \u2192 Except String Json\n  | obj kvs, k =>\n    match kvs.find compare k with\n    | some v => return v\n    | none => throw s!\"property not found: {k}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_name": "Json"
+  }
+}

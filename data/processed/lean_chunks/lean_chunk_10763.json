@@ -1,0 +1,9 @@
+{
+  "content": "def helpNew :=\ns!\"Create a Lean package in a new directory\nUSAGE:\n  lake [+<lean-version>] new <name> [<template>][.<language>]\n{newInitHelp}\"\ndef helpInit :=\ns!\"Create a Lean package in the current directory\nUSAGE:\n  lake [+<lean-version>] init [<name>] [<template>][.<language>]\n{newInitHelp}\nYou can create a package with current directory's name via `lake init .`\nor a bare `lake init`.\"\ndef helpBuild :=\n\"Build targets\nUSAGE:\n  lake build [<targets>...]\nA target is specified with a string of the form:\n  [[@]<package>/][<target>|[+]<module>][:<facet>]\nThe optional `@` and `+` markers can be used to disambiguate packages\nand modules from other kinds of targets (i.e., executables and libraries).\nLIBRARY FACETS:         build the library's ...\n  leanArts (default)    Lean artifacts (*.olean, *.ilean, *.c files)\n  static                static artifact (*.a file)\n  shared                shared artifact (*.so, *.dll, or *.dylib file)\nMODULE FACETS:          build the module's ...",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

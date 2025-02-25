@@ -1,0 +1,9 @@
+{
+  "content": "instance implicit:\\n\\\n                {e.toMessageData}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/BuiltinCommand.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/BuiltinCommand.lean",
+    "definition_name": "implicit"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure RingCon (R : Type _) [Add R] [Mul R] extends Setoid R where\nvariable {\u03b1 R : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "RingCon"
+  }
+}

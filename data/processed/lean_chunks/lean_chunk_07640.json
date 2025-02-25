@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkAndCached_le_size (aig : AIG \u03b1) (input : BinaryInput aig) :\n    aig.decls.size \u2264 (aig.mkAndCached input).aig.decls.size := by\n  simp only [mkAndCached]\n  apply LawfulOperator.le_size_of_le_aig_size\n  omega\ntheorem mkAndCached_decl_eq idx (aig : AIG \u03b1) (input : BinaryInput aig) {h : idx < aig.decls.size}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedGatesLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedGatesLemmas.lean",
+    "definition_name": "mkAndCached_le_size",
+    "has_proof": true
+  }
+}

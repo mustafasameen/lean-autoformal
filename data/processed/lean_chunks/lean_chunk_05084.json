@@ -1,0 +1,10 @@
+{
+  "content": "| cons a l ih =>\n    simp only [filter_cons, foldlM_cons]\n    split <;> simp [ih]\ntheorem foldrM_filter [Monad m] [LawfulMonad m] (p : \u03b1 \u2192 Bool) (g : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (l : List \u03b1) (init : \u03b2) :\n    (l.filter p).foldrM g init =\n      l.foldrM (fun x y => if p x then g x y else pure y) init := by\n  induction l generalizing init with\n  | nil => rfl\n  | cons a l ih =>\n    simp only [filter_cons, foldrM_cons]\n    split <;> simp [ih]\n@[simp] theorem foldlM_attachWith [Monad m]\n    (l : List \u03b1) {q : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_name": "filterMapM_nil",
+    "has_proof": true
+  }
+}

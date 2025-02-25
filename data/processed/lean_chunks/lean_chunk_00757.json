@@ -1,0 +1,10 @@
+{
+  "content": "theorem pos_top {s : Sign}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/sign.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/sign.lean",
+    "definition_name": "pos_top",
+    "has_proof": false
+  }
+}

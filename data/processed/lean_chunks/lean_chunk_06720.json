@@ -1,0 +1,9 @@
+{
+  "content": "def Visitor := AtMostOnceData \u2192 AtMostOnceData\n@[inline] def seq (f g : Visitor) : Visitor := fun d =>\n  match f d with\n  | \u27e8found, false\u27e9 => \u27e8found, false\u27e9\n  | other          => g other\ninstance : AndThen Visitor where\n  andThen a b := seq a (b ())\n@[inline] def skip : Visitor := id\n@[inline] def visitFVar (x y : FVarId) : Visitor\n  | d@{result := false, ..} => d\n  | {found := false, result := true} => {found := x == y, result := true}\n  | {found := true,  result := true} => {found := true, result := x != y}\ndef visit (x : FVarId) : Expr \u2192 Visitor\n  | Expr.fvar y          => visitFVar y x\n  | Expr.app f a         => visit x a >> visit x f\n  | Expr.lam _ d b _     => visit x d >> visit x b\n  | Expr.forallE _ d b _ => visit x d >> visit x b\n  | Expr.letE _ t v b _  => visit x t >> visit x v >> visit x b\n  | Expr.mdata _ e       => visit x e\n  | Expr.proj _ _ e      => visit x e\n  | _                    => skip\nend atMostOnce\nopen atMostOnce (visit) in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/AtMostOnce.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/AtMostOnce.lean",
+    "definition_name": "Visitor"
+  }
+}

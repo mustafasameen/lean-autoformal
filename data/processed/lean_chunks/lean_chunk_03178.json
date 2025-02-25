@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_sat'_of_isImpossible (h : isImpossible c) {x y}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_name": "not_sat",
+    "has_proof": false
+  }
+}

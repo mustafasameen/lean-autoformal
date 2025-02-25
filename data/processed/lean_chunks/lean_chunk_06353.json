@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\n  imports : Array Import := #[]\n  pos     : String.Pos := 0\n  error?  : Option String := none\n  deriving Inhabited\ndef Parser := String \u2192 State \u2192 State\ninstance : Inhabited Parser where\n  default := fun _ s => s\n@[inline] def State.setPos (s : State) (pos : String.Pos) : State :=\n  { s with pos := pos }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_name": "State"
+  }
+}

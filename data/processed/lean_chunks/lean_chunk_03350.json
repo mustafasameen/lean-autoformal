@@ -1,0 +1,10 @@
+{
+  "content": "theorem eqNDRec_heq.{u_1, u_2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_name": "eqNDRec_heq",
+    "has_proof": false
+  }
+}

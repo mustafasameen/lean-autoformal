@@ -1,0 +1,9 @@
+{
+  "content": "class CompleteSemilatticeInf (\u03b1 : Type _) extends PartialOrder \u03b1, InfSet \u03b1 where\n  le_sInf : \u2200 s a, (\u2200 b \u2208 s, a \u2264 b) \u2192 a \u2264 sInf s\nsection\nvariable [CompleteSemilatticeInf \u03b1] {s t : Set \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "CompleteSemilatticeInf"
+  }
+}

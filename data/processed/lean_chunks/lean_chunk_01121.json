@@ -1,0 +1,9 @@
+{
+  "content": "section Mathlib.GroupTheory.Coset\ndef QuotientAddGroup.leftRel [AddGroup \u03b1] (s : AddSubgroup \u03b1) : Setoid \u03b1 :=\n  sorry\nend Mathlib.GroupTheory.Coset\nsection Mathlib.GroupTheory.QuotientGroup\nprotected def QuotientAddGroup.con [AddGroup G] (N : AddSubgroup G) : AddCon G where\n  toSetoid := leftRel N\nend Mathlib.GroupTheory.QuotientGroup\nsection Mathlib.LinearAlgebra.Quotient\nnamespace Submodule\nvariable [Ring R] [AddCommGroup M] [Module R M] (p : Submodule R M)\nopen QuotientAddGroup\ndef quotientRel : Setoid M :=\n  QuotientAddGroup.leftRel p.toAddSubgroup\ninstance hasQuotient : HasQuotient M (Submodule R M) :=\n  \u27e8fun p => Quotient (quotientRel p)\u27e9\nnamespace Quotient\ndef mk {p : Submodule R M} : M \u2192 M \u29f8 p :=\n  Quotient.mk''\nvariable {S : Type _} [SMul S R] [SMul S M] [IsScalarTower S R M] (P : Submodule R M)\ninstance instSMul' : SMul S (M \u29f8 P) :=\n  \u27e8fun a => Quotient.map' ((\u00b7 \u2022 \u00b7) a) fun x y h => sorry\u27e9\nend Quotient\nend Submodule\nend Mathlib.LinearAlgebra.Quotient",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddMonoidAlgebra"
+  }
+}

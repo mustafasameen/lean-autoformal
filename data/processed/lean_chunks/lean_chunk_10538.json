@@ -1,0 +1,10 @@
+{
+  "content": "variable (\u03b1 \u03b2) in\ninductive ExplorationStep [Ord \u03b1] (k : \u03b1 \u2192 Ordering) where\n  | lt : (a : \u03b1) \u2192 k a = .lt \u2192 \u03b2 a \u2192 List ((a : \u03b1) \u00d7 \u03b2 a) \u2192 ExplorationStep k\n  | eq : List ((a : \u03b1) \u00d7 \u03b2 a) \u2192 Cell \u03b1 \u03b2 k \u2192 List ((a : \u03b1) \u00d7 \u03b2 a) \u2192 ExplorationStep k\n  | gt : List ((a : \u03b1) \u00d7 \u03b2 a) \u2192 (a : \u03b1) \u2192 k a = .gt \u2192 \u03b2 a \u2192 ExplorationStep k\ndef updateCell [Ord \u03b1] (k : \u03b1) (f : Cell \u03b1 \u03b2 (compare k) \u2192 Cell \u03b1 \u03b2 (compare k))\n    (l : Impl \u03b1 \u03b2) (hl : Balanced l) : SizedBalancedTree \u03b1 \u03b2 (l.size - 1) (l.size + 1) :=\n  match l with\n  | leaf => match (f .empty).inner with\n    | none => \u27e8.leaf, by tree_tac, by tree_tac, by tree_tac\u27e9\n    | some \u27e8k', v'\u27e9 => \u27e8.inner 1 k' v' .leaf .leaf, by tree_tac, by tree_tac, by tree_tac\u27e9\n  | inner sz ky y l r =>\n    match h : compare k ky with\n    | .lt =>\n      let \u27e8newL, h\u2081, h\u2082, h\u2083\u27e9 := updateCell k f l (by tree_tac)\n      \u27e8balance ky y newL r (by tree_tac) (by tree_tac) (by tree_tac), by tree_tac, by tree_tac,\n        by tree_tac\u27e9\n    | .eq => match (f (.ofEq ky y h)).inner with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_name": "applyCell_eq_applyPartition",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem any_nil : [].any f = false := rfl\n@[simp] theorem any_cons : (a::l).any f = (f a || l.any f) := rfl\ndef all : List \u03b1 \u2192 (\u03b1 \u2192 Bool) \u2192 Bool\n  | [], _ => true\n  | h :: t, p => p h && all t p\n@[simp] theorem all_nil : [].all f = true := rfl\n@[simp] theorem all_cons : (a::l).all f = (f a && l.all f) := rfl\ndef or (bs : List Bool) : Bool := bs.any id\n@[simp] theorem or_nil : [].or = false := rfl\n@[simp] theorem or_cons : (a::l).or = (a || l.or) := rfl\ndef and (bs : List Bool) : Bool := bs.all id\n@[simp] theorem and_nil : [].and = true := rfl\n@[simp] theorem and_cons : (a::l).and = (a && l.and) := rfl\n@[specialize] def zipWith (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) : (xs : List \u03b1) \u2192 (ys : List \u03b2) \u2192 List \u03b3\n  | x::xs, y::ys => f x y :: zipWith f xs ys\n  | _,     _     => []\n@[simp] theorem zipWith_nil_left {f : \u03b1 \u2192 \u03b2 \u2192 \u03b3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "any_nil",
+    "has_proof": false
+  }
+}

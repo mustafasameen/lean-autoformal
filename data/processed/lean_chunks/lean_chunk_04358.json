@@ -1,0 +1,10 @@
+{
+  "content": "theorem dvd_refl (a : Nat) : a \u2223 a := \u27e81, by simp\u27e9\n@[simp] protected theorem dvd_zero (a : Nat) : a \u2223 0 := \u27e80, by simp\u27e9\nprotected theorem dvd_mul_left (a b : Nat) : a \u2223 b * a := \u27e8b, Nat.mul_comm b a\u27e9\nprotected theorem dvd_mul_right (a b : Nat) : a \u2223 a * b := \u27e8b, rfl\u27e9\nprotected theorem dvd_trans {a b c : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_name": "dvd_refl",
+    "has_proof": true
+  }
+}

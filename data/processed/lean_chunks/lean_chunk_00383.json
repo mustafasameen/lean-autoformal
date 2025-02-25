@@ -1,0 +1,9 @@
+{
+  "content": "def node.arity := 4\ndef mkStx : \u2115 \u2192 Syntax\n| 0 := review leaf {}\n| (n+1) := review node $ \u27e8(List.replicate node.arity Syntax.missing).map (\u03bb _, mkStx n)\u27e9\ndef cfg : FrontendConfig := {filename := \"foo\", fileMap := FileMap.fromString \"\", input := \"\"}\ndef test (transformers : List (Name \u00d7 transformer)) (stx : Syntax) : IO Unit :=\nmatch expand stx {cfg with transformers := RBMap.fromList transformers _} with\n| Except.ok _ := pure ()\n| Except.error e := throw e.toString\ndef testNoOp  := test []\ndef testNoExp := test [(`node, \u03bb stx, noExpansion)]\ndef testSimple := test [(`node, \u03bb stx, pure $ Syntax.mkNode \u27e8`node2\u27e9 $ let v := view node stx in v.children)]\ndef main (xs : List String) : IO Unit := do\nlet stx := mkStx 11,\n  prof \"testNoOp\" $ testNoOp stx,\n  prof \"testNoExp\" $ testNoExp stx,\n  prof \"testSimple\" $ testSimple stx,\n  pure ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/view_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/view_expander.lean",
+    "definition_name": "node"
+  }
+}

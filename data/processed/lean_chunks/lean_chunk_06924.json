@@ -1,0 +1,9 @@
+{
+  "content": "structure TerminationBy where\n  ref          : Syntax\n  structural   : Bool\n  vars         : TSyntaxArray [`ident, ``Lean.Parser.Term.hole]\n  body         : Term\n  synthetic    : Bool := false\n  deriving Inhabited\nstructure PartialFixpoint where\n  ref       : Syntax\n  term?     : Option Term\n  deriving Inhabited\nstructure TerminationHints where\n  ref : Syntax\n  terminationBy?? : Option Syntax\n  terminationBy? : Option TerminationBy\n  partialFixpoint? : Option PartialFixpoint\n  decreasingBy?  : Option DecreasingBy\n  extraParams : Nat\n  deriving Inhabited\ndef TerminationHints.none : TerminationHints := \u27e8.missing, .none, .none, .none, .none, 0\u27e9\ndef TerminationHints.isNotNone (hints : TerminationHints) : Bool :=\n  hints.terminationBy??.isSome ||\n  hints.terminationBy?.isSome ||\n  hints.decreasingBy?.isSome ||\n  hints.partialFixpoint?.isSome\ndef TerminationHints.rememberExtraParams (headerParams : Nat) (hints : TerminationHints)\n    (value : Expr) : TerminationHints :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/TerminationHint.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/TerminationHint.lean",
+    "definition_name": "TerminationBy"
+  }
+}

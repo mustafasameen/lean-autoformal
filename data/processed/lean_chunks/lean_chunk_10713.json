@@ -1,0 +1,9 @@
+{
+  "content": "structure OrderedTagAttribute where\n  attr : AttributeImpl\n  ext  : PersistentEnvExtension Name Name (Array Name)\n  deriving Inhabited\ndef registerOrderedTagAttribute (name : Name) (descr : String)\n    (validate : Name \u2192 AttrM Unit := fun _ => pure ()) (ref : Name := by exact decl_name%) : IO OrderedTagAttribute := do\n  let ext \u2190 registerPersistentEnvExtension {\n    name            := ref\n    mkInitial       := pure {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/OrderedTagAttribute.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/OrderedTagAttribute.lean",
+    "definition_name": "OrderedTagAttribute"
+  }
+}

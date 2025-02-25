@@ -1,0 +1,9 @@
+{
+  "content": "induction a using @A_rec\n  case mkA b IH =>\nrefine True.rec ?_ IH\n    exact trivial\n  case A => exact trivial\n  case mkB b IH => show True; exact trivial\nexample (a : A) : True := by\n  induction a using fun motive_1 => @A.rec motive_1 (motive_2 := fun b => True)\n  case mkA b IH => exact trivial\n  case A => exact trivial\n  case mkB b IH => exact trivial\nexample (a : A) : True := by\n  induction a using fun motive_1 => @A_rec motive_1 (motive_2 := fun b => True)\n  case mkA b IH => exact trivial\n  case A => exact trivial\n  case mkB b IH => exact trivial\nexample (a : A) : True := by\n  induction a using @A.rec (motive_2 := fun b => True)\n  case mkA b IH => exact trivial\n  case A => exact trivial\n  case mkB b IH => exact trivial\nexample (a : A) : True := by\n  induction a using @A_rec (motive_2 := fun b => True)\n  case mkA b IH => exact trivial\n  case A => exact trivial\n  case mkB b IH => exact trivial\nexample (a : A) : True := by\n  induction a using A.rec (motive_2 := fun b => True)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_name": "A"
+  }
+}

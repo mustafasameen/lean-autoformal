@@ -1,0 +1,10 @@
+{
+  "content": "unfold lratChecker\n    split\n    \u00b7 intro h\n      exfalso\n      simp at h\n    \u00b7 next id rupHints restPrf' _ =>\n      simp [ite_eq_left_iff, Bool.not_eq_true]\n      intro rupAddSuccess\n      exact addEmptyCaseSound f f_readyForRupAdd rupHints rupAddSuccess\n    \u00b7 next id c rupHints restPrf' hprf =>\n      split\n      next f' checkSuccess heq =>\n      split\n      \u00b7 next hCheckSuccess =>\n        intro f'_success\n        simp only [List.cons.injEq] at hprf\n        rw [\u2190 hprf.2] at f'_success\n        rw [hCheckSuccess] at heq\n        exact addRupCaseSound f f_readyForRupAdd f_readyForRatAdd c f' rupHints heq restPrf restPrfWellFormed ih f'_success\n      \u00b7 simp [false_implies]\n    \u00b7 next id c pivot rupHints ratHints restPrf' hprf =>\n      split\n      next f' checkSuccess heq =>\n      split\n      \u00b7 next hCheckSuccess =>\n        intro f'_success\n        simp only [List.cons.injEq] at hprf\n        rw [\u2190 hprf.2] at f'_success\n        rw [hCheckSuccess] at heq",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_name": "specialize",
+    "has_proof": true
+  }
+}

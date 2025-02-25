@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_not : \u00ac\u00aca \u2194 a := Decidable.not_not\n@[simp low] protected theorem dite_not [hn : Decidable (\u00acp)] (x : \u00acp \u2192 \u03b1) (y : \u00ac\u00acp \u2192 \u03b1) :\n    dite (\u00acp) x y = dite p (fun h => y (not_not_intro h)) x := by\n  cases hn <;> rename_i g\n  \u00b7 simp [not_not.mp g]\n  \u00b7 simp [g]\nattribute [local instance] decidable_of_decidable_not in\nexport Classical (imp_iff_right_iff imp_and_neg_imp_iff and_or_imp not_imp)\ntheorem Exists.choose_spec {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Classical.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Classical.lean",
+    "definition_name": "not_not",
+    "has_proof": true
+  }
+}

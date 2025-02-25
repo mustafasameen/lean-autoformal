@@ -1,0 +1,10 @@
+{
+  "content": "apply monotone_bind\n    \u00b7 dsimp\n      apply monotone_apply\n      apply monotone_apply\n      apply monotone_apply\n      apply hmono\n    \u00b7 intro y\n      apply monotone_of_monotone_apply\n      apply ih\n@[partial_fixpoint_monotone]\ntheorem monotone_findSomeM?\n    (f : \u03b3 \u2192 \u03b1 \u2192 m (Option \u03b2)) (xs : Array \u03b1) (hmono : monotone f) :\n    monotone (fun x => xs.findSomeM? (f x)) := by\n  unfold Array.findSomeM?\n  apply monotone_bind\n  \u00b7 apply monotone_forIn\n    apply monotone_of_monotone_apply\n    intro y\n    apply monotone_of_monotone_apply\n    intro r\n    apply monotone_bind\n    \u00b7 apply monotone_apply\n      apply hmono\n    \u00b7 apply monotone_const\n  \u00b7 apply monotone_const\n@[partial_fixpoint_monotone]\ntheorem monotone_findM?\n    {m : Type \u2192 Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Lemmas.lean",
+    "definition_name": "monotone_foldlM_loop",
+    "has_proof": true
+  }
+}

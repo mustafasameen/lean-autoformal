@@ -1,0 +1,9 @@
+{
+  "content": "inductive Nat where\n  | zero : Nat\n  | succ (n : Nat) : Nat\ninstance : Inhabited Nat where\n  default := Nat.zero\nclass OfNat (\u03b1 : Type u) (_ : Nat) where\n  ofNat : \u03b1\n@[default_instance 100]\nclass LE (\u03b1 : Type u) where\nclass LT (\u03b1 : Type u) where\n@[reducible] def GE.ge {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat"
+  }
+}

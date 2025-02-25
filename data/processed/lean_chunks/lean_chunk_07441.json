@@ -1,0 +1,10 @@
+{
+  "content": "theorem deleteOne_preserves_assignments_size {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/Lemmas.lean",
+    "definition_name": "deleteOne_preserves_assignments_size",
+    "has_proof": false
+  }
+}

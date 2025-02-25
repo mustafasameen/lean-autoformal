@@ -1,0 +1,9 @@
+{
+  "content": "| const n,   _   => n\n  | plus a b,  env => a.denote env + b.denote env\n  | app f a,   env => f.denote env (a.denote env)\n  | lam b,     env => fun x => b.denote (x :: env)\n  | \u00ablet\u00bb a b, env => b.denote (a.denote env :: env)\ndef Term.constFold : Term ctx ty \u2192 Term ctx ty\n  | const n   => const n\n  | var h     => var h\n  | app f a   => app f.constFold a.constFold\n  | lam b     => lam b.constFold\n  | \u00ablet\u00bb a b => \u00ablet\u00bb a.constFold b.constFold\n  | plus a b  =>\n    match a.constFold, b.constFold with\n    | const n, const m => const (n+m)\n    | a',      b'      => plus a' b'\n#eval test ``Term.constFold\n#eval test ``Term.denote\n#eval test ``HList.get\n#eval test ``Member.head\n#eval test ``Ty.denote\n#eval test ``MonadControl.liftWith\n#eval test ``MonadControl.restoreM\n#eval test ``Decidable.casesOn\n#eval test ``getConstInfo\n#eval test ``instMonadMetaM\n#eval test ``Lean.Meta.inferType\n#eval test ``Elab.Term.elabTerm\n#eval test ``Nat.add\nstructure Magma where\n  carrier : Type",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/lcnfTypes.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/lcnfTypes.lean",
+    "definition_name": "Member"
+  }
+}

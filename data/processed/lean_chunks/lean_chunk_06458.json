@@ -1,0 +1,9 @@
+{
+  "content": "inductive LVal where\n  | fieldIdx  (ref : Syntax) (i : Nat)\n  | fieldName (ref : Syntax) (name : String) (suffix? : Option Name) (fullRef : Syntax)\ndef LVal.getRef : LVal \u2192 Syntax\n  | .fieldIdx ref _    => ref\n  | .fieldName ref ..  => ref\ndef LVal.isFieldName : LVal \u2192 Bool\n  | .fieldName .. => true\n  | _ => false\ninstance : ToString LVal where\n  toString\n    | .fieldIdx _ i     => toString i\n    | .fieldName _ n .. => n\ndef getLetRecsToLift : TermElabM (List LetRecToLift) := return (\u2190 get).letRecsToLift\ndef withDeclName (name : Name) (x : TermElabM \u03b1) : TermElabM \u03b1 :=\n  withReader (fun ctx => { ctx with declName? := name }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Term.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Term.lean",
+    "definition_name": "LVal"
+  }
+}

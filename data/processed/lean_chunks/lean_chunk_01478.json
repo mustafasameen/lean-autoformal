@@ -1,0 +1,9 @@
+{
+  "content": "class HasSup (\u03b1 : Type u) where\n  sup : \u03b1 \u2192 \u03b1 \u2192 \u03b1\nclass HasInf (\u03b1 : Type u) where\n  inf : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n@[inherit_doc]\ninfixl:68 \" \u2294 \" => HasSup.sup\n@[inherit_doc]\ninfixl:69 \" \u2293 \" => HasInf.inf\nclass SemilatticeSup (\u03b1 : Type u) extends HasSup \u03b1, PartialOrder \u03b1 where\n  protected le_sup_left : \u2200 a b : \u03b1, a \u2264 a \u2294 b\n  protected le_sup_right : \u2200 a b : \u03b1, b \u2264 a \u2294 b\n  protected sup_le : \u2200 a b c : \u03b1, a \u2264 c \u2192 b \u2264 c \u2192 a \u2294 b \u2264 c\nclass SemilatticeInf (\u03b1 : Type u) extends HasInf \u03b1, PartialOrder \u03b1 where\n  protected inf_le_left : \u2200 a b : \u03b1, a \u2293 b \u2264 a\n  protected inf_le_right : \u2200 a b : \u03b1, a \u2293 b \u2264 b\n  protected le_inf : \u2200 a b c : \u03b1, a \u2264 b \u2192 a \u2264 c \u2192 a \u2264 b \u2293 c\nclass Lattice (\u03b1 : Type u) extends SemilatticeSup \u03b1, SemilatticeInf \u03b1\nclass CompleteSemilatticeInf (\u03b1 : Type _) extends PartialOrder \u03b1, InfSet \u03b1 where\n  inf\u209b_le : \u2200 s, \u2200 a, a \u2208 s \u2192 inf\u209b s \u2264 a\n  le_inf\u209b : \u2200 s a, (\u2200 b, b \u2208 s \u2192 a \u2264 b) \u2192 a \u2264 inf\u209b s\nclass CompleteSemilatticeSup (\u03b1 : Type _) extends PartialOrder \u03b1, SupSet \u03b1 where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_name": "HasSup"
+  }
+}

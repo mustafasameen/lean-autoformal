@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_setWidth' (x : BitVec w) (i : Nat) (h : w \u2264 v) (hi : i < v) :\n    (setWidth' h x)[i] = x.getLsbD i := by\n  rw [getElem_eq_testBit_toNat, toNat_setWidth', getLsbD]\n@[simp]\ntheorem getElem_setWidth (m : Nat) (x : BitVec n) (i : Nat) (h : i < m) :\n    (setWidth m x)[i] = x.getLsbD i := by\n  rw [setWidth]\n  split\n  \u00b7 rw [getElem_setWidth']\n  \u00b7 simp [getElem_eq_testBit_toNat, getLsbD]\n    omega\ntheorem getElem?_setWidth' (x : BitVec w) (i : Nat) (h : w \u2264 v) :\n    (setWidth' h x)[i]? = if i < v then some (x.getLsbD i) else none := by\n  simp [getElem?_eq, getElem_setWidth']\ntheorem getElem?_setWidth (m : Nat) (x : BitVec n) (i : Nat) :\n    (x.setWidth m)[i]? = if i < m then some (x.getLsbD i) else none := by\n  simp [getElem?_eq, getElem_setWidth]\n@[simp] theorem getLsbD_setWidth' (ge : m \u2265 n) (x : BitVec n) (i : Nat) :\n    getLsbD (setWidth' ge x) i = getLsbD x i := by\n  simp [getLsbD, toNat_setWidth']\n@[simp] theorem getMsbD_setWidth' (ge : m \u2265 n) (x : BitVec n) (i : Nat) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getElem_setWidth",
+    "has_proof": true
+  }
+}

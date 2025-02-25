@@ -1,0 +1,9 @@
+{
+  "content": "inductive Unit : Type u\n| star : Unit\nattribute [induction_eliminator] Unit.casesOn\nnotation \"\ud835\udfcf\" => Unit\nnotation \"\u2605\" => Unit.star\nnotation \"\u2115\" => Nat\ndef vect (A : Type u) : \u2115 \u2192 Type u\n| Nat.zero   => \ud835\udfcf\n| Nat.succ n => A \u00d7 vect A n\ndef vect.const {A : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lcnfCastIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lcnfCastIssue.lean",
+    "definition_name": "Unit"
+  }
+}

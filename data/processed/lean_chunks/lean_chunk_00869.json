@@ -1,0 +1,9 @@
+{
+  "content": "structure A :=\n(x : Nat := 10)\ndef f : A :=\n{ }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/choiceExpectedTypeBug.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/choiceExpectedTypeBug.lean",
+    "definition_name": "A"
+  }
+}

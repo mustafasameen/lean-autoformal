@@ -1,0 +1,10 @@
+{
+  "content": "lemma makes proof term smaller : {decide <| sizeUsingTactic < sizeWithoutTactic}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/as_aux_lemma.lean",
+    "definition_type": "lemma",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/as_aux_lemma.lean",
+    "definition_name": "makes",
+    "has_proof": true
+  }
+}

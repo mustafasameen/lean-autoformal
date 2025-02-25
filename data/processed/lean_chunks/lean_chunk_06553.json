@@ -1,0 +1,9 @@
+{
+  "content": "inductive GoToKind\n  | declaration | definition | type\n  deriving BEq, ToJson, FromJson\ndef moduleFromDocumentUri (srcSearchPath : SearchPath) (uri : DocumentUri)\n    : IO (Option Name) := do\n  let some modFname := System.Uri.fileUriToPath? uri\n    | return none\n  searchModuleNameOfFileName modFname srcSearchPath\nopen Elab in\ndef locationLinksFromDecl (srcSearchPath : SearchPath) (uri : DocumentUri) (n : Name)\n    (originRange? : Option Range) : MetaM (Array LocationLink) := do\n  unless (\u2190 getEnv).contains n do return #[]\n  let mod? \u2190 findModuleOf? n\n  let modUri? \u2190 match mod? with\n    | some modName => documentUriFromModule srcSearchPath modName\n    | none         => pure <| some uri\n  let ranges? \u2190 findDeclarationRanges? n\n  if let (some ranges, some modUri) := (ranges?, modUri?) then\n    let ll : LocationLink := {\n      originSelectionRange? := originRange?\n      targetUri := modUri\n      targetRange := ranges.range.toLspRange",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/GoTo.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/GoTo.lean",
+    "definition_name": "GoToKind"
+  }
+}

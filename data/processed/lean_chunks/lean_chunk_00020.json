@@ -1,0 +1,9 @@
+{
+  "content": "structure Problem where\n  equations       : HashMap Nat Equation\n  solvedEquations : HashMap Nat Equation\n  nEquations      : Nat\n  nVars           : Nat\n  deriving Inhabited\ndef preprocess? (eqs : HashMap Nat Equation) : Option (HashMap Nat Equation) :=\n  eqs.mapValsM (\u00b7.preprocess?)\ndef eliminateSingleton (p : Problem) (singletonEq : Equation) (varIdx : Nat) : Problem := Id.run <| do\n  let mut eqsWithVarIdx : Array Nat := #[]\n  for (id, eq) in p.equations do\n    if eq.coeffs.contains varIdx then\n      eqsWithVarIdx := eqsWithVarIdx.push id\n  let mut equations := p.equations\n  for id in eqsWithVarIdx do\n    if id == singletonEq.id then\n      continue\n    equations := equations.modify! id fun eq => singletonEq.subst eq varIdx |>.normalize\n  equations := equations.erase singletonEq.id\n  let solvedEquations := p.solvedEquations.insert varIdx <| singletonEq.reorganizeFor varIdx\n  return { p with\n    equations := equations\n    solvedEquations := solvedEquations }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_name": "Problem"
+  }
+}

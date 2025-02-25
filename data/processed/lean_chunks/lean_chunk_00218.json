@@ -1,0 +1,9 @@
+{
+  "content": "instance inst2 : Inhabited Foo :=\n  \u27e8.b\u27e9\nopen Lean Meta\ndef test (declName : Name)  : CoreM Unit := do\n  IO.println s!\"{declName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1878.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1878.lean",
+    "definition_name": "inst2"
+  }
+}

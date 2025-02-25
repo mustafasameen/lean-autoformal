@@ -1,0 +1,10 @@
+{
+  "content": "theorem iff_or_self : \u2200 {a b : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_name": "iff_or_self",
+    "has_proof": false
+  }
+}

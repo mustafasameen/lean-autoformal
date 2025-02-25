@@ -1,0 +1,10 @@
+{
+  "content": "theorem unsat_of_limplies_complement [Entails \u03b1 t] (x : t) (l : Literal \u03b1) :\n    Limplies \u03b1 x l \u2192 Limplies \u03b1 x (Literal.negate l) \u2192 Unsatisfiable \u03b1 x := by\n  intro h1 h2 p px\n  specialize h1 p px\n  specialize h2 p px\n  rw [sat_negate_iff_not_sat] at h2\n  exact h2 h1\nend Literal\nnamespace Clause\ntheorem sat_iff_exists [Clause \u03b1 \u03b2] (p : \u03b1 \u2192 Bool) (c : \u03b2) : p \u22a8 c \u2194 \u2203 l \u2208 toList c, p \u22a8 l := by\n  simp only [(\u00b7 \u22a8 \u00b7), eval]\n  simp only [List.any_eq_true, decide_eq_true_eq, Prod.exists, Bool.exists_bool]\ntheorem limplies_iff_mem [DecidableEq \u03b1] [Clause \u03b1 \u03b2] (l : Literal \u03b1) (c : \u03b2) :\n    Limplies \u03b1 l c \u2194 l \u2208 toList c := by\n  simp only [Limplies, sat_iff_exists, Prod.exists, Bool.exists_bool]\n  constructor\n  \u00b7 intro h\n    let p := fun x : \u03b1 => if x = l.1 then l.2 else (x, false) \u2208 toList c\n    have pl : p \u22a8 l := by simp only [(\u00b7 \u22a8 \u00b7), ite_true, p]\n    specialize h p pl\n    rcases h with \u27e8v, \u27e8h1, h2\u27e9 | \u27e8h1, h2\u27e9\u27e9\n    \u00b7 simp only [(\u00b7 \u22a8 \u00b7), p] at h2\n      split at h2\n      \u00b7 next v_eq_l =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_name": "unsat_of_limplies_complement",
+    "has_proof": true
+  }
+}

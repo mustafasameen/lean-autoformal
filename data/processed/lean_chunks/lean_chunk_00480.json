@@ -1,0 +1,9 @@
+{
+  "content": "structure A :=\n(a : Nat)\nstructure B :=\n(a : Nat)\nstructure C :=\n(a : Nat)\ninstance : HasCoe A B := \u27e8fun s => \u27e8s.1\u27e9\u27e9\ninstance : HasCoe A C := \u27e8fun s => \u27e8s.1\u27e9\u27e9\ndef f {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/issues7.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/issues7.lean",
+    "definition_name": "A"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class L1 (\u03b1 : Type u) where\n  add    : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n  addc1  : \u2200 (x y : \u03b1), @myAdd \u03b1 \u27e8add\u27e9 x y = @myAdd \u03b1 \u27e8add\u27e9 y x\ninstance L1.toAdd [inst : L1 \u03b1] : Add \u03b1 := { inst with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tryHeuristicPerfIssue2.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tryHeuristicPerfIssue2.lean",
+    "definition_name": "L1"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem t4 (a : \u03b1) : a = a := let _ := toString a; rfl\n#guard_msgs in\ntheorem t5 (a : \u03b1) : a = a := _\n#guard_msgs in\ntheorem t6 (a : \u03b1) : a = a := rfl\nvariable {M N : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/variable.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/variable.lean",
+    "definition_name": "t4",
+    "has_proof": false
+  }
+}

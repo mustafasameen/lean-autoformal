@@ -1,0 +1,10 @@
+{
+  "content": "| n, 0      => (Nat.zero_mul n).symm \u25b8 (Nat.mul_zero n).symm \u25b8 rfl\n  | n, succ m => (mul_succ n m).symm \u25b8 (succ_mul m n).symm \u25b8 (Nat.mul_comm n m).symm \u25b8 rfl\ninstance : Std.Commutative (\u03b1 := Nat) (\u00b7 * \u00b7) := \u27e8Nat.mul_comm\u27e9\n@[simp] protected theorem mul_one : \u2200 (n : Nat), n * 1 = n :=\n  Nat.zero_add\n@[simp] protected theorem one_mul (n : Nat) : 1 * n = n :=\n  Nat.mul_comm n 1 \u25b8 Nat.mul_one n\ninstance : Std.LawfulIdentity (\u03b1 := Nat) (\u00b7 * \u00b7) 1 where\n  left_id := Nat.one_mul\n  right_id := Nat.mul_one\nprotected theorem left_distrib (n m k : Nat) : n * (m + k) = n * m + n * k := by\n  induction n with\n  | zero      => repeat rw [Nat.zero_mul]\n  | succ n ih => simp [succ_mul, ih]; rw [Nat.add_assoc, Nat.add_assoc (n*m)]; apply congrArg; apply Nat.add_left_comm\nprotected theorem right_distrib (n m k : Nat) : (n + m) * k = n * k + m * k := by\n  rw [Nat.mul_comm, Nat.left_distrib]; simp [Nat.mul_comm]\nprotected theorem mul_add (n m k : Nat) : n * (m + k) = n * m + n * k :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "or_exists_add_one",
+    "has_proof": true
+  }
+}

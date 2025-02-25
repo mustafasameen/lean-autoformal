@@ -1,0 +1,9 @@
+{
+  "content": "Macro.throwError \"expected non-overloaded constant name\"\n    let aliasName := match aliasName? with\n      | some n => quote (Name.mkSimple n.getString)\n      | none => quote declName.getId\n    `(do Parser.registerAlias $aliasName ``$declName $declName $(info?.getD (Unhygienic.run `({}))) (kind? := some $(kind?.getD (quote fullDeclName)))\n         PrettyPrinter.Formatter.registerAlias $aliasName $(mkIdentFrom declName (declName.getId ++ `formatter))\n         PrettyPrinter.Parenthesizer.registerAlias $aliasName $(mkIdentFrom declName (declName.getId ++ `parenthesizer)))\nbuiltin_initialize\n  register_parser_alias patternIgnore { autoGroupArgs := false }\n  register_parser_alias group { autoGroupArgs := false }\n  register_parser_alias ppHardSpace { stackSz? := some 0 }\n  register_parser_alias ppSpace { stackSz? := some 0 }\n  register_parser_alias ppLine { stackSz? := some 0 }\n  register_parser_alias ppGroup { stackSz? := none }\n  register_parser_alias ppRealGroup { stackSz? := none }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_name": "identWithPartialTrailingDot"
+  }
+}

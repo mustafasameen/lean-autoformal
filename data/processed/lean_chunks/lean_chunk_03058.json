@@ -1,0 +1,9 @@
+{
+  "content": "def inferImplicit : Expr \u2192 Nat \u2192 Bool \u2192 Expr\n  | Expr.forallE n d b bi, i+1, considerRange =>\n    let b       := inferImplicit b i considerRange\n    let newInfo := if bi.isExplicit && hasLooseBVarInExplicitDomain b 0 considerRange then BinderInfo.implicit else bi\n    mkForall n newInfo d b\n  | e, 0, _ => e\n  | e, _, _ => e\n@[extern \"lean_expr_instantiate\"]\nopaque instantiate (e : @& Expr) (subst : @& Array Expr) : Expr\n@[extern \"lean_expr_instantiate1\"]\nopaque instantiate1 (e : @& Expr) (subst : @& Expr) : Expr\n@[extern \"lean_expr_instantiate_rev\"]\nopaque instantiateRev (e : @& Expr) (subst : @& Array Expr) : Expr\n@[extern \"lean_expr_instantiate_range\"]\nopaque instantiateRange (e : @& Expr) (beginIdx endIdx : @& Nat) (subst : @& Array Expr) : Expr\n@[extern \"lean_expr_instantiate_rev_range\"]\nopaque instantiateRevRange (e : @& Expr) (beginIdx endIdx : @& Nat) (subst : @& Array Expr) : Expr\n@[extern \"lean_expr_abstract\"]\nopaque abstract (e : @& Expr) (xs : @& Array Expr) : Expr",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

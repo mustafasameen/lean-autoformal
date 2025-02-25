@@ -1,0 +1,10 @@
+{
+  "content": "theorem prefix_append_right_inj (l) : l ++ l\u2081 <+: l ++ l\u2082 \u2194 l\u2081 <+: l\u2082 :=\n  exists_congr fun r => by rw [append_assoc, append_right_inj]\ntheorem prefix_cons_inj (a) : a :: l\u2081 <+: a :: l\u2082 \u2194 l\u2081 <+: l\u2082 :=\n  prefix_append_right_inj [a]\ntheorem take_prefix (i) (l : List \u03b1) : take i l <+: l :=\n  \u27e8_, take_append_drop _ _\u27e9\ntheorem drop_suffix (i) (l : List \u03b1) : drop i l <:+ l :=\n  \u27e8_, take_append_drop _ _\u27e9\ntheorem take_sublist (i) (l : List \u03b1) : take i l <+ l :=\n  (take_prefix i l).sublist\ntheorem drop_sublist (i) (l : List \u03b1) : drop i l <+ l :=\n  (drop_suffix i l).sublist\ntheorem take_subset (i) (l : List \u03b1) : take i l \u2286 l :=\n  (take_sublist i l).subset\ntheorem drop_subset (i) (l : List \u03b1) : drop i l \u2286 l :=\n  (drop_sublist i l).subset\ntheorem mem_of_mem_take {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "prefix_append_right_inj",
+    "has_proof": true
+  }
+}

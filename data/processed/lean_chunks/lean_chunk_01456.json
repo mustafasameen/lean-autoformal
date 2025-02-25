@@ -1,0 +1,9 @@
+{
+  "content": "inductive  A (n : Nat) : Type\n  | a : A n\n  | b : A n \u2192 A n\n#guard_msgs in\ndef A.size (acc n : Nat) : A n \u2192 Nat\n  | .a => acc\n  | .b a' => 1 + A.size (acc + 1) n a'\ntermination_by structural a => a\ninductive Xn (e : Sigma.{0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue4671.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue4671.lean",
+    "definition_name": "A"
+  }
+}

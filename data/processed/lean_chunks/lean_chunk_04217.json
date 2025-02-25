@@ -1,0 +1,10 @@
+{
+  "content": "theorem append_ofBool (msbs : BitVec w) (lsb : Bool) :\n    msbs ++ ofBool lsb = concat msbs lsb :=\n  rfl\ntheorem ofBool_append (msb : Bool) (lsbs : BitVec w) :\n    ofBool msb ++ lsbs = (cons msb lsbs).cast (Nat.add_comm ..) :=\n  rfl\ndef twoPow (w : Nat) (i : Nat) : BitVec w := 1#w <<< i\nend bitwise\n@[simp] theorem append_eq (x : BitVec w) (y : BitVec v)   : BitVec.append x y = x ++ y        := rfl\n@[simp] theorem shiftLeft_eq (x : BitVec w) (n : Nat)     : BitVec.shiftLeft x n = x <<< n    := rfl\n@[simp] theorem ushiftRight_eq (x : BitVec w) (n : Nat)   : BitVec.ushiftRight x n = x >>> n  := rfl\n@[simp] theorem not_eq (x : BitVec w)                     : BitVec.not x = ~~~x               := rfl\n@[simp] theorem and_eq (x y : BitVec w)                   : BitVec.and x y = x &&& y          := rfl\n@[simp] theorem or_eq (x y : BitVec w)                    : BitVec.or x y = x ||| y           := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Basic.lean",
+    "definition_name": "append_ofBool",
+    "has_proof": false
+  }
+}

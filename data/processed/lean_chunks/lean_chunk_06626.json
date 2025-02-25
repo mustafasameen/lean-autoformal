@@ -1,0 +1,9 @@
+{
+  "content": "def doSeqIndent    := leading_parser\n  many1Indent doSeqItem\ndef doSeqBracketed := leading_parser\n  \"{\" >> withoutPosition (many1 doSeqItem) >> ppLine >> \"}\"\n@[builtin_doc] def doSeq :=\n  withAntiquot (mkAntiquot \"doSeq\" decl_name% (isPseudoKind := true)) <|\n    doSeqBracketed <|> doSeqIndent\ndef termBeforeDo := withForbidden \"do\" termParser\nattribute [run_builtin_parser_attribute_hooks] doSeq termBeforeDo\nbuiltin_initialize\n  register_parser_alias doSeq\n  register_parser_alias termBeforeDo\ndef notFollowedByRedefinedTermToken :=\n  notFollowedBy (\"set_option\" <|> \"open\" <|> \"if\" <|> \"match\" <|> \"match_expr\" <|> \"let\" <|> \"let_expr\" <|> \"have\" <|>\n      \"do\" <|> \"dbg_trace\" <|> \"assert!\" <|> \"for\" <|> \"unless\" <|> \"return\" <|> symbol \"try\")\n    \"token at 'do' element\"\n@[builtin_doElem_parser] def doLet      := leading_parser\n  \"let \" >> optional \"mut \" >> letDecl\n@[builtin_doElem_parser] def doLetElse  := leading_parser\n  \"let \" >> optional \"mut \" >> termParser >> \" := \" >> termParser >>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_name": "doSeqIndent"
+  }
+}

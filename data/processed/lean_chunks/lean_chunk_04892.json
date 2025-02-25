@@ -1,0 +1,10 @@
+{
+  "content": "theorem filterMap_eq_map' (f : \u03b1 \u2192 \u03b2) : filterMap (fun x => some (f x)) = map f :=\n  filterMap_eq_map f\n@[simp] theorem filterMap_some_fun : filterMap (some : \u03b1 \u2192 Option \u03b1) = id := by\n  funext l\n  erw [filterMap_eq_map]\n  simp\ntheorem filterMap_some (l : List \u03b1) : filterMap some l = l := by\n  rw [filterMap_some_fun, id]\ntheorem map_filterMap_some_eq_filter_map_isSome (f : \u03b1 \u2192 Option \u03b2) (l : List \u03b1) :\n    (l.filterMap f).map some = (l.map f).filter fun b => b.isSome := by\n  induction l <;> simp [filterMap_cons]; split <;> simp [*]\ntheorem length_filterMap_le (f : \u03b1 \u2192 Option \u03b2) (l : List \u03b1) :\n    (filterMap f l).length \u2264 l.length := by\n  rw [\u2190 length_map _ some, map_filterMap_some_eq_filter_map_isSome, \u2190 length_map _ f]\n  apply length_filter_le\n@[simp]\ntheorem filterMap_length_eq_length {l}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "filterMap_eq_map",
+    "has_proof": true
+  }
+}

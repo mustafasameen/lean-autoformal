@@ -1,0 +1,10 @@
+{
+  "content": "simp at h\n    rw [\u2190 Int.sub_eq_zero, h]\n    assumption\ntheorem eq_eq_true (ctx : Context) (lhs rhs : Expr) : (lhs.sub rhs).norm.isValidEq \u2192 (lhs.denote ctx = rhs.denote ctx) = True := by\n  simp [Poly.isValidEq] <;> split <;> simp\n  next p k h =>\n    intro h'\n    replace h := congrArg (Poly.denote ctx) h\n    simp at h\n    rw [\u2190 Int.sub_eq_zero, h]\n    assumption\ndef Poly.isUnsatLe (p : Poly) : Bool :=\n  match p with\n  | .num k => k > 0\n  | _ => false\ndef Poly.isValidLe (p : Poly) : Bool :=\n  match p with\n  | .num k => k \u2264 0\n  | _ => false\ntheorem le_eq_false (ctx : Context) (lhs rhs : Expr) : (lhs.sub rhs).norm.isUnsatLe \u2192 (lhs.denote ctx \u2264 rhs.denote ctx) = False := by\n  simp [Poly.isUnsatLe] <;> split <;> simp\n  next p k h =>\n    intro h'\n    replace h := congrArg (Poly.denote ctx) h\n    simp at h\n    replace h := congrArg (Expr.denote ctx rhs + \u00b7) h\n    simp at h\n    rw [Int.add_comm, Int.sub_add_cancel] at h\n    rw [h]; clear h\n    intro h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "norm_le_coeff_tight",
+    "has_proof": true
+  }
+}

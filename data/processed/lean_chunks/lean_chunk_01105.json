@@ -1,0 +1,9 @@
+{
+  "content": "instance ring [Ring k] [AddMonoid G] : Ring (AddMonoidAlgebra k G) :=\n  {  AddMonoidAlgebra.semiring, AddMonoidAlgebra.nonAssocRing with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "ring"
+  }
+}

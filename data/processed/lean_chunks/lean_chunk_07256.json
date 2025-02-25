@@ -1,0 +1,9 @@
+{
+  "content": "inductive CtorFieldInfo where\n  | irrelevant\n  | object (i : Nat)\n  | usize  (i : Nat)\n  | scalar (sz : Nat) (offset : Nat) (type : IRType)\nnamespace CtorFieldInfo\ndef format : CtorFieldInfo \u2192 Format\n  | irrelevant => \"\u25fe\"\n  | object i   => f!\"obj@{i}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CtorLayout.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CtorLayout.lean",
+    "definition_name": "CtorFieldInfo"
+  }
+}

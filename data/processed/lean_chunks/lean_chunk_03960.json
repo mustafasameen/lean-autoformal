@@ -1,0 +1,10 @@
+{
+  "content": "cases xs; simp\n@[simp] theorem find?_map (f : \u03b2 \u2192 \u03b1) (xs : Array \u03b2) :\n    find? p (xs.map f) = (xs.find? (p \u2218 f)).map f := by\n  cases xs; simp\n@[simp] theorem find?_append {xs ys : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

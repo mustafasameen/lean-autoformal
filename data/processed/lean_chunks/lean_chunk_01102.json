@@ -1,0 +1,9 @@
+{
+  "content": "instance addCommGroup [Ring k] : AddCommGroup (AddMonoidAlgebra k G) :=\n  Finsupp.addCommGroup\ninstance nonUnitalNonAssocRing [Ring k] [Add G] : NonUnitalNonAssocRing (AddMonoidAlgebra k G) :=\n  {  AddMonoidAlgebra.nonUnitalNonAssocSemiring, AddMonoidAlgebra.addCommGroup with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "addCommGroup"
+  }
+}

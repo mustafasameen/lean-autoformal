@@ -1,0 +1,9 @@
+{
+  "content": "class Inv (\u03b1 : Type u) where\nclass Semigroup (G : Type u) extends Mul G where\nclass AddSemigroup (G : Type u) extends Add G where\nclass CommSemigroup (G : Type u) extends Semigroup G where\n  mul_comm : \u2200 a b : G, a * b = b * a\nclass AddCommSemigroup (G : Type u) extends AddSemigroup G where\nclass MulOneClass (M : Type u) extends One M, Mul M where\n  mul_one : \u2200 a : M, a * 1 = a\nclass AddZeroClass (M : Type u) extends Zero M, Add M where\n  add_zero : \u2200 a : M, a + 0 = a\nclass AddMonoid (M : Type u) extends AddSemigroup M, AddZeroClass M where\nclass Monoid (M : Type u) extends Semigroup M, MulOneClass M where\nclass AddCommMonoid (M : Type u) extends AddMonoid M, AddCommSemigroup M\nclass CommMonoid (M : Type u) extends Monoid M, CommSemigroup M\nclass DivInvMonoid (G : Type u) extends Monoid G, Inv G, Div G where\nclass SubNegMonoid (G : Type u) extends AddMonoid G, Neg G, Sub G where\nclass Group (G : Type u) extends DivInvMonoid G where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_name": "Inv"
+  }
+}

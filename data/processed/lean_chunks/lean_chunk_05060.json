@@ -1,0 +1,10 @@
+{
+  "content": "| nil => simp at h\n    | cons a l\u2081 ih =>\n      cases l\u2082 with\n      | nil => simp\n      | cons b l\u2082 =>\n        simp only [isPrefixOf_cons\u2082, Bool.and_eq_false_imp]\n        intro w\n        rw [ih]\n        simp_all\ntheorem zipWithAux_toArray_succ (as : List \u03b1) (bs : List \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (i : Nat) (xs : Array \u03b3) :\n    zipWithAux as.toArray bs.toArray f (i + 1) xs = zipWithAux as.tail.toArray bs.tail.toArray f i xs := by\n  rw [zipWithAux]\n  conv => rhs; rw [zipWithAux]\n  simp only [size_toArray, getElem_toArray, length_tail, getElem_tail]\n  split <;> rename_i h\u2081\n  \u00b7 split <;> rename_i h\u2082\n    \u00b7 rw [dif_pos (by omega), dif_pos (by omega), zipWithAux_toArray_succ]\n    \u00b7 rw [dif_pos (by omega)]\n      rw [dif_neg (by omega)]\n  \u00b7 rw [dif_neg (by omega)]\ntheorem zipWithAux_toArray_succ' (as : List \u03b1) (bs : List \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (i : Nat) (xs : Array \u03b3) :\n    zipWithAux as.toArray bs.toArray f (i + 1) xs = zipWithAux (as.drop (i+1)).toArray (bs.drop (i+1)).toArray f 0 xs := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

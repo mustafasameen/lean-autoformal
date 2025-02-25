@@ -1,0 +1,10 @@
+{
+  "content": "theorem forIn_eq_forIn_keys {\u03b4 : Type w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "forIn_eq_forIn_keys",
+    "has_proof": false
+  }
+}

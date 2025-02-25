@@ -1,0 +1,9 @@
+{
+  "content": "inductive Term\n  | Var : Nat \u2192 Term\n  | App : Term \u2192 Term \u2192 Term\n  | All : (Nat \u2192 Term) \u2192 Term\ninductive S7.{u, v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/univInference.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/univInference.lean",
+    "definition_name": "Term"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Primrec : (Nat \u2192 Nat) \u2192 Prop\n  | zero : Nat.Primrec fun _ => 0\n  | protected succ : Nat.Primrec succ\n  | left : Nat.Primrec fun n => n.unpair.1\n  | right : Nat.Primrec fun n => n.unpair.2\n  | pair {f g}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_name": "Primrec"
+  }
+}

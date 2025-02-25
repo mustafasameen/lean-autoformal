@@ -1,0 +1,10 @@
+{
+  "content": "cases o <;> simp\n@[simp] theorem foldl_toList (o : Option \u03b2) (a : \u03b1) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b1) :\n    o.toList.foldl f a = o.elim a (fun b => f a b) := by\n  cases o <;> simp\n@[simp] theorem foldr_toList (o : Option \u03b2) (a : \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 \u03b1) :\n    o.toList.foldr f a = o.elim a (fun b => f b a) := by\n  cases o <;> simp\n@[simp]\ntheorem pairwise_toList {P : \u03b1 \u2192 \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/List.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/List.lean",
+    "definition_name": "forIn",
+    "has_proof": true
+  }
+}

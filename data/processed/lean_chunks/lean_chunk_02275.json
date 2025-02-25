@@ -1,0 +1,10 @@
+{
+  "content": "theorem nat_find_mem_find {p : Fin n \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_2.lean",
+    "definition_name": "nat_find_mem_find",
+    "has_proof": false
+  }
+}

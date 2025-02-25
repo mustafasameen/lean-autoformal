@@ -1,0 +1,9 @@
+{
+  "content": "def f.eq_2_ := 10\n#guard_msgs (error) in\n#check f.eq_2\n#guard_msgs in\n#check nonrecfun.eq_def\n#guard_msgs in\n#check nonrecfun.eq_2\ndef fact : Nat \u2192 Nat\n  | 0 => 1\n  | n+1 => (n+1) * fact n\n#guard_msgs in\n#check fact.eq_def\n#guard_msgs in\n#check fact.eq_2\n#guard_msgs in\n#check find.eq_def\n#guard_msgs in\n#check find.eq_1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/reserved.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/reserved.lean",
+    "definition_name": "f"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "trace[grind.debug.ematch.pattern] \"mkEMatchEqTheoremCore: origin: {\u2190 origin.pp}, pat: {pat}, useLhs: {useLhs}\"\n    let pat \u2190 preprocessPattern pat normalizePattern\n    trace[grind.debug.ematch.pattern] \"mkEMatchEqTheoremCore: after preprocessing: {pat}, {\u2190 normalize pat}\"\n    let pats := splitWhileForbidden (pat.abstract xs)\n    return (xs.size, pats)\n  mkEMatchTheoremCore origin levelParams numParams proof patterns (if useLhs then .eqLhs else .eqRhs)\ndef mkEMatchEqBwdTheoremCore (origin : Origin) (levelParams : Array Name) (proof : Expr) : MetaM EMatchTheorem := do\n  let (numParams, patterns) \u2190 forallTelescopeReducing (\u2190 inferType proof) fun xs type => do\n    let_expr f@Eq \u03b1 lhs rhs := type\n      | throwError \"invalid E-matching `\u2190=` theorem, conclusion must be an equality{indentExpr type}\"\n    let pat \u2190 preprocessPattern (mkEqBwdPattern f.constLevels! \u03b1 lhs rhs)\n    return (xs.size, [pat.abstract xs])\n  mkEMatchTheoremCore origin levelParams numParams proof patterns .eqBwd",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

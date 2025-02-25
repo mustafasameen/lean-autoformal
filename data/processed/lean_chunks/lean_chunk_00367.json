@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo (\u03b1 : Type u) where\n  | mk1 (val : \u03b1)\n  | mk2 (left : Foo \u03b1) (right : Foo \u03b1)\n  | mk3 (val : Nat)\n  | mk4 (val : String)\n  | mk5 (head : \u03b1) (tail : Foo \u03b1)\ndef Foo.ctorIdx : Foo \u03b1 \u2192 Nat\n  | .mk1 .. => 0\n  | .mk2 .. => 1\n  | .mk3 .. => 2\n  | .mk4 .. => 3\n  | .mk5 .. => 4\n@[elab_as_elim]\ndef Foo.elimCtor1 {motive : Foo \u03b1 \u2192 Sort v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/noConfusionDecEqExp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/noConfusionDecEqExp.lean",
+    "definition_name": "Foo"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "uElimPos?     := info.uElimPos?\n        discrInfos    := info.discrInfos\n        params        := args.extract 0 info.numParams\n        motive        := args[info.getMotivePos]!\n        discrs        := args[info.numParams + 1 : info.numParams + 1 + info.numDiscrs]\n        altNumParams  := info.altNumParams\n        alts          := args[info.numParams + 1 + info.numDiscrs : info.numParams + 1 + info.numDiscrs + info.numAlts]\n        remaining     := args[info.numParams + 1 + info.numDiscrs + info.numAlts : args.size]\n      }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/MatcherApp/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/MatcherApp/Basic.lean",
+    "definition_name": "MatcherApp"
+  }
+}

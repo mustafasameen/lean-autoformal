@@ -1,0 +1,9 @@
+{
+  "content": "structure CallHierarchyItemData where\n  module : Name\n  name   : Name\n  deriving FromJson, ToJson\ndef CallHierarchyItemData.fromItem? (item : CallHierarchyItem) : Option CallHierarchyItemData := do\n  fromJson? (\u2190 item.data?) |>.toOption\nprivate def callHierarchyItemOf?\n    (refs          : References)\n    (ident         : RefIdent)\n    (srcSearchPath : SearchPath)\n    : IO (Option CallHierarchyItem) := do\n  let some \u27e8definitionLocation, parentDecl?\u27e9 \u2190 refs.definitionOf? ident srcSearchPath\n    | return none\n  match ident with\n  | .const definitionModule definitionNameString =>\n    let definitionName := definitionNameString.toName\n    let label := Lean.privateToUserName? definitionName |>.getD definitionName\n    return some {\n      name           := label.toString\n      kind           := SymbolKind.constant\n      uri            := definitionLocation.uri\n      range          := definitionLocation.range,\n      selectionRange := definitionLocation.range\n      data?          := toJson {",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_name": "CallHierarchyItemData"
+  }
+}

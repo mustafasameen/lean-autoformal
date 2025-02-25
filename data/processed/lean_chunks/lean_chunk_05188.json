@@ -1,0 +1,10 @@
+{
+  "content": "theorem isPrefix_iff : l\u2081 <+: l\u2082 \u2194 \u2200 i (h : i < l\u2081.length), l\u2082[i]? = some l\u2081[i] := by\n  induction l\u2081 generalizing l\u2082 with\n  | nil => simp\n  | cons a l\u2081 ih =>\n    cases l\u2082 with\n    | nil =>\n      simpa using \u27e80, by simp\u27e9\n    | cons b l\u2082 =>\n      simp only [cons_append, cons_prefix_cons, ih]\n      rw (occs := [2]) [\u2190 Nat.and_forall_add_one]\n      simp [Nat.succ_lt_succ_iff, eq_comm]\ntheorem isPrefix_iff_getElem {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "isPrefix_iff",
+    "has_proof": true
+  }
+}

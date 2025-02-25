@@ -1,0 +1,9 @@
+{
+  "content": "inductive EQ {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/calcInType.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/calcInType.lean",
+    "definition_name": "EQ"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Date where\n  val : Nat\nderiving Repr\ninstance : LE Date := \u27e8InvImage (Nat.le) Date.val\u27e9\ninstance bad (a b : Date) : Decidable (a <= b) :=\n  if h0 : (a.val <= b.val) then isTrue h0 else isFalse (fun hf => False.elim (h0 hf))\ninstance : Min Date := minOfLe\ninstance : ToString Date where\n  toString d := s!\"D{d.val}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/909.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/909.lean",
+    "definition_name": "Date"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem r_toFun {\u03b1 : Sort u_1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1829.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1829.lean",
+    "definition_name": "r_toFun",
+    "has_proof": false
+  }
+}

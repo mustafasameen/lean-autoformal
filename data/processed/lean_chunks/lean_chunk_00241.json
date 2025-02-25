@@ -1,0 +1,9 @@
+{
+  "content": "def a := 10\n#check a\nstructure Name (x : String) where\n  private mk ::\n  val : String := x\n  deriving Repr\ndef n1 : Name \"hello\" := {}\ndef n2 : Name \"hello\" := \u27e8\"hello\"\u27e9\ndef n3 : Name \"hello\" := Name.mk \"hello\"\nopen Lean in\n#eval id (\u03b1 := CoreM Unit) do\nmodifyEnv fun env => env.setMainModule `foo\nopen Lean in\n#eval id (\u03b1 := CoreM Unit) do\n  modifyEnv fun env => { env with checked.header.mainModule := `foo }\n#check a\ndef m1 : Name \"hello\" := {}\ndef m2 : Name \"hello\" := \u27e8\"hello\"\u27e9\ndef m3 : Name \"hello\" := Name.mk \"hello\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/prvCtor.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/prvCtor.lean",
+    "definition_name": "a"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure MyTacticConfig' extends MyTacticConfig where\n  x := 22\n  y := true\n  deriving Repr\ndeclare_config_elab elabMyTacticConfig' MyTacticConfig'\nelab \"my_tactic'\" cfg:Parser.Tactic.optConfig : tactic => do\n  let config \u2190 elabMyTacticConfig' cfg\n  logInfo m!\"config is {repr config}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tactic_config.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tactic_config.lean",
+    "definition_name": "MyTacticConfig"
+  }
+}

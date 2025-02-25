@@ -1,0 +1,9 @@
+{
+  "content": "structure AccLevelState where\n  levels : Array Level := #[]\n  badLevels : Array (Level \u00d7 Nat) := #[]\nprivate def AccLevelState.push (acc : AccLevelState) (u : Level) (offset : Nat) : AccLevelState :=\n  if offset == 0 then\n    { acc with levels := if acc.levels.contains u then acc.levels else acc.levels.push u }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "AccLevelState"
+  }
+}

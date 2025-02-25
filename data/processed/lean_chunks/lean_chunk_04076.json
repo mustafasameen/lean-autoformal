@@ -1,0 +1,10 @@
+{
+  "content": "theorem getLsbD_shiftLeftZeroExtend (x : BitVec m) (n : Nat) :\n    getLsbD (shiftLeftZeroExtend x n) i = ((! decide (i < n)) && getLsbD x (i - n)) := by\n  rw [shiftLeftZeroExtend_eq]\n  simp only [getLsbD_shiftLeft, getLsbD_setWidth]\n  cases h\u2081 : decide (i < n) <;> cases h\u2082 : decide (i - n < m + n) <;> cases h\u2083 : decide (i < m + n)\n    <;> simp_all\n    <;> (rw [getLsbD_ge]; omega)\n@[simp] theorem getMsbD_shiftLeftZeroExtend (x : BitVec m) (n : Nat) :\n    getMsbD (shiftLeftZeroExtend x n) i = getMsbD x i := by\n  have : m + n - m \u2264 i + n := by omega\n  have : i + n + m - (m + n) = i := by omega\n  simp_all [shiftLeftZeroExtend_eq]\n@[simp] theorem msb_shiftLeftZeroExtend (x : BitVec w) (i : Nat) :\n    (shiftLeftZeroExtend x i).msb = x.msb := by\n  have : w + i - w \u2264 i := by omega\n  have : i + w - (w + i) = 0 := by omega\n  simp_all [shiftLeftZeroExtend_eq, BitVec.msb]\ntheorem shiftLeft_add {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getLsbD_shiftLeftZeroExtend",
+    "has_proof": true
+  }
+}

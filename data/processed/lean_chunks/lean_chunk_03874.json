@@ -1,0 +1,10 @@
+{
+  "content": "theorem zipIdx_succ (xs : Array \u03b1) (i : Nat) :\n    xs.zipIdx (i + 1) = (xs.zipIdx i).map (fun \u27e8a, j\u27e9 => (a, j + 1)) := by\n  cases xs\n  simp [List.zipIdx_succ]\ntheorem zipIdx_eq_map_add (xs : Array \u03b1) (i : Nat) :\n    xs.zipIdx i = (xs.zipIdx 0).map (fun \u27e8a, j\u27e9 => (a, i + j)) := by\n  cases xs\n  simp only [zipIdx_toArray, List.map_toArray, mk.injEq]\n  rw [List.zipIdx_eq_map_add]\n@[simp]\ntheorem zipIdx_singleton (x : \u03b1) (k : Nat) : zipIdx #[x] k = #[(x, k)] :=\n  rfl\ntheorem mk_add_mem_zipIdx_iff_getElem? {k i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_name": "zipIdx_succ",
+    "has_proof": true
+  }
+}

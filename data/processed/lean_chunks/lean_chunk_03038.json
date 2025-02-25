@@ -1,0 +1,9 @@
+{
+  "content": "withAppAux k e (mkArray nargs dummy) (nargs-1)\n@[inline] def getAppArgsN (e : Expr) (n : Nat) : Array Expr :=\n  let dummy := mkSort levelZero\n  loop n e (mkArray n dummy)\nwhere\n  loop : Nat \u2192 Expr \u2192 Array Expr \u2192 Array Expr\n    | 0,   _,        as => as\n    | i+1, .app f a, as => loop i f (as.set! i a)\n    | _,   _,        _  => panic! \"too few arguments at\"\ndef stripArgsN (e : Expr) (n : Nat) : Expr :=\n  match n, e with\n  | 0,   _        => e\n  | n+1, .app f _ => stripArgsN f n\n  | _,   _        => e\ndef getAppPrefix (e : Expr) (n : Nat) : Expr :=\n  e.stripArgsN (e.getAppNumArgs - n)\ndef traverseApp {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

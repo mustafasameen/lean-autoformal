@@ -1,0 +1,9 @@
+{
+  "content": "class cls12 := (u12 : Unit)\nclass cls11 extends cls12 := (u11 : Unit)\nclass cls10 extends cls11 := (u10 : Unit)\nclass cls9 extends cls10 := (u9 : Unit)\nclass cls8 extends cls9 := (u8 : Unit)\nclass cls7 extends cls8 := (u7 : Unit)\nclass cls6 extends cls7 := (u6 : Unit)\nclass cls5 extends cls6 := (u5 : Unit)\nclass cls4 extends cls5 := (u4 : Unit)\nclass cls3 extends cls4 := (u3 : Unit)\nclass cls2 extends cls3 := (u2 : Unit)\nclass cls1 extends cls2 := (u1 : Unit)\nclass cls0 extends cls1 := (u0 : Unit)\nclass CommRing (n : semiOutParam Nat) extends cls0 := (ucr : Unit)\nclass Field (n : semiOutParam Nat) extends CommRing n := (uf : Unit)\nclass DVR (n : semiOutParam Nat) [CommRing n] := (udvr : Unit)\ninstance [c : CommRing n] : CommRing n.succ := { ucr := c.u12 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1102.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1102.lean",
+    "definition_name": "cls12"
+  }
+}

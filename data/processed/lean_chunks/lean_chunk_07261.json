@@ -1,0 +1,9 @@
+{
+  "content": "let some (.value (.strVal s)) \u2190 findLetValue? fvarId | return none\n  return s\ndef mkStringLit (n : String) : FolderM LetValue :=\n  return .value (.strVal n)\ninstance : Literal String where\n  getLit := getStringLit\n  mkLit := mkStringLit\ndef getBoolLit (fvarId : FVarId) : CompilerM (Option Bool) := do\n  let some (.const ctor [] #[]) \u2190 findLetValue? fvarId | return none\n  return ctor == ``Bool.true\ndef mkBoolLit (b : Bool) : FolderM LetValue :=\n  let ctor := if b then ``Bool.true else ``Bool.false\n  return .const ctor [] #[]\ninstance : Literal Bool where\n  getLit := getBoolLit\n  mkLit := mkBoolLit\nprivate partial def getLitAux [Inhabited \u03b1] (fvarId : FVarId) (ofNat : Nat \u2192 \u03b1) (ofNatName : Name) : CompilerM (Option \u03b1) := do\n  let some (.const declName _ #[.fvar fvarId]) \u2190 findLetValue? fvarId | return none\n  unless declName == ofNatName do return none\n  let some natLit \u2190 getLit fvarId | return none\n  return ofNat natLit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_name": "Literal"
+  }
+}

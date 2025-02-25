@@ -1,0 +1,9 @@
+{
+  "content": "class\n              s!\"max synth pending failures (maxSynthPendingDepth: {maxSynthPendingDepth.get (\u2190 getOptions)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Diagnostics.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Diagnostics.lean",
+    "definition_name": "s"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let noncanonical ref :=\n    match ref.getPos?, ref.getTailPos? with\n    | some pos, some tailPos => .synthetic pos tailPos\n    | _,        _            => .none\n  match canonical with\n  | true =>\n    match ref.getPos? true, ref.getTailPos? true with\n    | some pos, some tailPos => .synthetic pos tailPos true\n    | _,        _            => noncanonical ref\n  | false => noncanonical ref\ndef mkAtomFrom (src : Syntax) (val : String) (canonical := false) : Syntax :=\n  Syntax.atom (SourceInfo.fromRef src canonical) val\ninductive ParserDescr where\n  | unary  (name : Name) (p : ParserDescr)\n  | binary (name : Name) (p\u2081 p\u2082 : ParserDescr)\n  | node (kind : SyntaxNodeKind) (prec : Nat) (p : ParserDescr)\n  | trailingNode (kind : SyntaxNodeKind) (prec lhsPrec : Nat) (p : ParserDescr)\n  | symbol (val : String)\n  | nonReservedSymbol (val : String) (includeIdent : Bool)\n  | cat (catName : Name) (rbp : Nat)\n  | parser (declName : Name)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "nonBacktrackable"
+  }
+}

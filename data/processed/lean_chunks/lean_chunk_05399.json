@@ -1,0 +1,10 @@
+{
+  "content": "theorem find?_replicate : find? p (replicate n a) = if n = 0 then none else if p a then some a else none := by\n  cases n\n  \u00b7 simp\n  \u00b7 by_cases p a <;> simp_all [replicate_succ]\n@[simp] theorem find?_replicate_of_length_pos (h : 0 < n) : find? p (replicate n a) = if p a then some a else none := by\n  simp [find?_replicate, Nat.ne_of_gt h]\n@[simp] theorem find?_replicate_of_pos (h : p a) : find? p (replicate n a) = if n = 0 then none else some a := by\n  simp [find?_replicate, h]\n@[simp] theorem find?_replicate_of_neg (h : \u00ac p a) : find? p (replicate n a) = none := by\n  simp [find?_replicate, h]\ntheorem find?_replicate_eq_none_iff {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

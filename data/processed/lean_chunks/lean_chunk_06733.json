@@ -1,0 +1,9 @@
+{
+  "content": "structure instances\"\n}\nregister_builtin_option pp.safeShadowing  : Bool := {\n  defValue := true\n  group    := \"pp\"\n  descr    := \"(pretty printer) allow variable shadowing if there is no collision\"\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Options.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Options.lean",
+    "definition_name": "instances"
+  }
+}

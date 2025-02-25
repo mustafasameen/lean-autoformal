@@ -1,0 +1,9 @@
+{
+  "content": "structure A := a : Nat\nstructure B extends A := b : Nat\ndef B.a (self : B) := self.a + self.b\nprivate def B.a (self : B) := self.a + self.b\nnamespace B\n  def a (self : B) := self.a + self.b\nend B\ndef b : B := {a := 1, b := 2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/655.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/655.lean",
+    "definition_name": "A"
+  }
+}

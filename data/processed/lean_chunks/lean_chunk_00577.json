@@ -1,0 +1,10 @@
+{
+  "content": "theorem unpair_right_le (n : Nat) : (unpair n).2 \u2264 n := sorry\nend Nat\nend Mathlib.Data.Nat.Pairing\nsection Mathlib.Logic.Encodable.Basic\nopen Nat\nclass Encodable (\u03b1 : Type _) where\n  encode : \u03b1 \u2192 Nat\n  decode : Nat \u2192 Option \u03b1\n  encodek : \u2200 a, decode (encode a) = some a\nnamespace Encodable\ndef ofLeftInjection [Encodable \u03b1] (f : \u03b2 \u2192 \u03b1) (finv : \u03b1 \u2192 Option \u03b2)\n    (linv : \u2200 b, finv (f b) = some b) : Encodable \u03b2 :=\n  \u27e8fun b => encode (f b), fun n => (decode n).bind finv, fun b => sorry\u27e9\ndef ofLeftInverse [Encodable \u03b1] (f : \u03b2 \u2192 \u03b1) (finv : \u03b1 \u2192 \u03b2) (linv : \u2200 b, finv (f b) = b) :\n    Encodable \u03b2 :=\n  ofLeftInjection f (some \u2218 finv) sorry\ndef ofEquiv (\u03b1) [Encodable \u03b1] (e : \u03b2 \u2243 \u03b1) : Encodable \u03b2 :=\n  ofLeftInverse e.toFun e.invFun sorry\ninstance _root_.Nat.encodable : Encodable Nat :=\n  \u27e8id, some, fun _ => rfl\u27e9\ninstance _root_.Option.encodable {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_name": "unpair_right_le",
+    "has_proof": false
+  }
+}

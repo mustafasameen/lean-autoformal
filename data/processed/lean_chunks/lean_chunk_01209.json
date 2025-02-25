@@ -1,0 +1,9 @@
+{
+  "content": "CustomDayTime.format t2.toDateTime\n#guard_msgs in\n#eval\n    let t5 : ZonedDateTime := CustomDayTime.parse! \"Thu 16 Aug 2024 13:28\"\n    ISO8601UTC.format t5.toDateTime\n#guard_msgs in\n#eval\n    let t6 : ZonedDateTime := FullDayTimeZone.parse! \"Friday, August 16, 2024 01:28:12 +0900\"\n    ISO8601UTC.format (t6.toDateTime.convertTimeZone jpTZ)\n#guard_msgs in\n#eval\n    let t7 : ZonedDateTime := FullDayTimeZone.parse! \"Friday, August 16, 2024 01:28:12 +0900\"\n    ISO8601UTC.format (t7.toDateTime.convertTimeZone jpTZ)\ndef localTm : Second.Offset := 1723730627\ndef PlainDate : PlainDateTime := Timestamp.toPlainDateTimeAssumingUTC (Timestamp.ofSecondsSinceUnixEpoch localTm)\ndef dateBR\u2081 := DateTime.ofPlainDateTime PlainDate brTZ\ndef dateJP\u2081 := DateTime.ofPlainDateTime PlainDate jpTZ\ndef dateUTC\u2081 := DateTime.ofPlainDateTime PlainDate .UTC\n#guard_msgs in\n#eval\n    let t : ZonedDateTime := FullDayTimeZone.parse! \"Thursday, August 15, 2024 14:03:47 -0300\"\n    ISO8601UTC.format t.toDateTime",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeParse.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeParse.lean",
+    "definition_name": "date\u2081"
+  }
+}

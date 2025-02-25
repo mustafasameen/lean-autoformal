@@ -1,0 +1,9 @@
+{
+  "content": "ctx.setTransparency <| if modeOld.lt mode then mode else modeOld\n@[inline] private def savingCacheImpl (x : MetaM \u03b1) : MetaM \u03b1 := do\n  let savedCache := (\u2190 get).cache\n  try x finally modify fun s => { s with cache := savedCache }\n@[inline] def savingCache : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM savingCacheImpl\ndef getTheoremInfo (info : ConstantInfo) : MetaM (Option ConstantInfo) := do\n  if (\u2190 shouldReduceAll) then\n    return some info\n  else\n    return none\nprivate def getDefInfoTemp (info : ConstantInfo) : MetaM (Option ConstantInfo) := do\n  match (\u2190 getTransparency) with\n  | .all => return some info\n  | .default => return some info\n  | _ =>\n    if (\u2190 isReducible info.name) then\n      return some info\n    else\n      return none\nprivate def getConstTemp? (constName : Name) : MetaM (Option ConstantInfo) := do\n  match (\u2190 getEnv).find? constName with\n  | some (info@(ConstantInfo.thmInfo _))  => getTheoremInfo info\n  | some (info@(ConstantInfo.defnInfo _)) => getDefInfoTemp info",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "trace[grind.ematch.pattern] \"{MessageData.ofConst proof}: {patterns.map ppPattern}\"\n  if let .missing pos \u2190 checkCoverage proof numParams bvarFound then\n     let pats : MessageData := m!\"{patterns.map ppPattern}\"\n     throwError \"invalid pattern(s) for `{\u2190 origin.pp}`{indentD pats}\\nthe following theorem parameters cannot be instantiated:{indentD (\u2190 ppParamsAt proof numParams pos)}\"\n  return {\n    proof, patterns, numParams, symbols\n    levelParams, origin, kind\n  }\nprivate def getProofFor (declName : Name) : MetaM Expr := do\n  let info \u2190 getConstInfo declName\n  unless info.isTheorem do\n    unless (\u2190 isProp info.type) do\n      throwError \"invalid E-matching theorem `{declName}`, type is not a proposition\"\n  let us := info.levelParams.map mkLevelParam\n  return mkConst declName us\ndef mkEMatchTheorem (declName : Name) (numParams : Nat) (patterns : List Expr) (kind : EMatchTheoremKind) : MetaM EMatchTheorem := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

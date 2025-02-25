@@ -1,0 +1,9 @@
+{
+  "content": "inductive List (\u03b1 : Type u) where\n  | cons (head : \u03b1) (tail : List \u03b1) : List \u03b1\ninstance {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "List"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def x := 1\n#check x\nvariable {\u03b1 : Type}\ndef f (a : \u03b1) : \u03b1 :=\na\ndef tst (xs : List Nat) : Nat :=\nxs.foldl (init := 10) (\u00b7 + \u00b7)\n#check tst [1, 2, 3]\n#check fun x y : Nat => x + y\n#check tst\n#check (fun stx => if True then let e := stx",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_name": "x"
+  }
+}

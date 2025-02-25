@@ -1,0 +1,10 @@
+{
+  "content": "theorem toFin_zero : toFin (0 : BitVec w) = 0 := rfl\ntheorem toFin_one  : toFin (1 : BitVec w) = 1 := by\n  rw [toFin_inj]; simp only [ofNat_eq_ofNat, ofFin_ofNat]\n@[simp] theorem toNat_ofBool (b : Bool) : (ofBool b).toNat = b.toNat := by\n  cases b <;> rfl\n@[simp] theorem toInt_ofBool (b : Bool) : (ofBool b).toInt = -b.toInt := by\n  cases b <;> rfl\n@[simp] theorem toFin_ofBool (b : Bool) : (ofBool b).toFin = Fin.ofNat' 2 (b.toNat) := by\n  cases b <;> rfl\ntheorem ofNat_one (n : Nat) : BitVec.ofNat 1 n = BitVec.ofBool (n % 2 = 1) :=  by\n  rcases (Nat.mod_two_eq_zero_or_one n) with h | h <;> simp [h, BitVec.ofNat, Fin.ofNat']\ntheorem ofBool_eq_iff_eq : \u2200 {b b' : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toFin_zero",
+    "has_proof": true
+  }
+}

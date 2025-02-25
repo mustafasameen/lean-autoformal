@@ -1,0 +1,9 @@
+{
+  "content": "inductive op : List type \u2192 type \u2192 Type\n| neq (tp:type) : op [tp, tp] bit\n| mul (w : Nat) : op [bv w, bv w] (bv w)\ninductive value : type \u2192 Type\n| const (w : Nat) : value (bv w)\n| op {args:List type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1968.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1968.lean",
+    "definition_name": "op"
+  }
+}

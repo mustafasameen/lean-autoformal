@@ -1,0 +1,9 @@
+{
+  "content": "LLVM.positionBuilderAtEnd builder mergebb\ndef buildLeanBoolTrue? (builder : LLVM.Builder llvmctx)\n    (b : LLVM.Value llvmctx) (name : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  LLVM.buildICmp builder LLVM.IntPredicate.NE b (\u2190 constInt8 0) name\ndef emitFnDeclAux (mod : LLVM.Module llvmctx)\n    (decl : Decl) (cppBaseName : String) (isExternal : Bool) : M llvmctx (LLVM.Value llvmctx) := do\n  let ps := decl.params\n  let env \u2190 getEnv\n  let global \u2190\n    if ps.isEmpty then\n        let retty \u2190 (toLLVMType decl.resultType)\n        let global \u2190 LLVM.getOrAddGlobal mod cppBaseName retty\n        if !isExternal then\n          LLVM.setInitializer global (\u2190 LLVM.getUndef retty)\n        pure global\n    else\n        let retty \u2190 (toLLVMType decl.resultType)\n        let mut argtys := #[]\n        for p in ps do\n          if !(isExternC env decl.name) || !p.ty.isIrrelevant then\n            argtys := argtys.push (\u2190 toLLVMType p.ty)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

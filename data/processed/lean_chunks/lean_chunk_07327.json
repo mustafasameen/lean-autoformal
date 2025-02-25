@@ -1,0 +1,9 @@
+{
+  "content": "structure AppendTarget (aig : AIG \u03b1) (combined : Nat) where\n  {lw : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/Append.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/Append.lean",
+    "definition_name": "AppendTarget"
+  }
+}

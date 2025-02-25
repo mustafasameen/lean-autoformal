@@ -1,0 +1,9 @@
+{
+  "content": "def Monitor.spinnerFrames :=\n  #['\u28fe','\u28f7','\u28ef','\u28df','\u287f','\u28bf','\u28fb','\u28fd']\n  updateFrequency : Nat\nabbrev MonitorM := ReaderT MonitorContext <| StateT MonitorState BaseIO\n@[inline] def MonitorM.run\n  (ctx : MonitorContext) (s : MonitorState) (self : MonitorM \u03b1)\n: BaseIO (\u03b1 \u00d7 MonitorState) :=\n  self ctx s\ndef Ansi.resetLine : String :=\n  \"\\x1B[2K\\r\"\n@[inline] def print! (out : IO.FS.Stream) (s : String) : BaseIO PUnit :=\n  out.putStr s |>.catchExceptions fun e =>\n    panic! s!\"[{decl_name%} failed: {e}] {repr s}\"\nnamespace Monitor\n@[inline] def print (s : String) : MonitorM PUnit := do\n  print! (\u2190 read).out s\n@[inline] nonrec def flush : MonitorM PUnit := do\n  flush (\u2190 read).out\ndef renderProgress (running unfinished : Array OpaqueJob) (h : 0 < unfinished.size) : MonitorM PUnit := do\n  let {jobNo, totalJobs, ..} \u2190 get\n  let {useAnsi, showProgress, ..} \u2190 read\n  if showProgress \u2227 useAnsi then\n    let spinnerIcon \u2190 modifyGet fun s =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_name": "Monitor"
+  }
+}

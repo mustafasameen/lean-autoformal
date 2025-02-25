@@ -1,0 +1,9 @@
+{
+  "content": "| typeExpected     (env : Environment) (lctx : LocalContext) (expr : Expr)\n  | letTypeMismatch  (env : Environment) (lctx : LocalContext) (name : Name) (givenType : Expr) (expectedType : Expr)\n  | exprTypeMismatch (env : Environment) (lctx : LocalContext) (expr : Expr) (expectedType : Expr)\n  | appTypeMismatch  (env : Environment) (lctx : LocalContext) (app : Expr) (funType : Expr) (argType : Expr)\n  | invalidProj      (env : Environment) (lctx : LocalContext) (proj : Expr)\n  | thmTypeIsNotProp (env : Environment) (name : Name) (type : Expr)\n  | other            (msg : String)\n  | deterministicTimeout\n  | excessiveMemory\n  | deepRecursion\n  | interrupted\nnamespace Environment\n@[export lean_environment_find]\ndef find? (env : Environment) (n : Name) : Option ConstantInfo :=\n@[extern \"lean_add_decl\"]\nopaque addDeclCore (env : Environment) (maxHeartbeats : USize) (decl : @& Declaration)\n  (cancelTk? : @& Option IO.CancelToken) : Except Exception Environment",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

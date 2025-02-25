@@ -1,0 +1,10 @@
+{
+  "content": "theorem subNat_zero (i : Fin n) (h : 0 \u2264 (i : Nat)): Fin.subNat 0 i h = i := by\n  ext\n  simp\n@[simp] theorem subNat_one_succ (i : Fin (n + 1)) (h : 1 \u2264 (i : Nat)) : (subNat 1 i h).succ = i := by\n  ext\n  simp\n  omega\n@[simp] theorem pred_castSucc_succ (i : Fin n) :\n    pred (castSucc i.succ) (Fin.ne_of_gt (castSucc_pos i.succ_pos)) = castSucc i := rfl\n@[simp] theorem addNat_subNat {i : Fin (n + m)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "subNat_zero",
+    "has_proof": true
+  }
+}

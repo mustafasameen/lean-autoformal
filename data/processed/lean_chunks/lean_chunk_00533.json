@@ -1,0 +1,9 @@
+{
+  "content": "def mkFoo\u2082 := mkFoo\u2081\nsyntax (name := elabTest) \"test\" : term\n@[term_elab elabTest] def elabElabTest : Lean.Elab.Term.TermElab := fun orig _ => do\n  let stx \u2190 `(2)\n  Lean.Elab.withMacroExpansionInfo orig stx $ Lean.Elab.Term.elabTerm stx none\n#check test\ndef Baz (\u03b1 : Type) := \u03b1\n#check fun (b : Baz Nat) => b\nexample : Nat :=\n  let a := 1\n  a + b\nwhere\n  b := 2\nmacro_rules | `(test) => `(3)\n#check test\nclass Foo2 where\n  foo : Nat \u2192 Nat\n  foo' : Nat\nclass Foo3 [Foo2] where\n  foo : [Foo2] \u2192 Nat\nclass inductive Foo4 : Nat \u2192 Type where\n| mk : Nat \u2192 Foo4 0\ndef Foo4.foo : [Foo4 n] \u2192 Nat\n| .mk n => n\nclass Foo5 where\n  foo : Foo2\ninstance : Foo2 := .mk id 0\ninstance : Foo3 := .mk 0\ninstance : Foo4 0 := .mk 0\ninstance [foo2 : Foo2] : Foo5 := .mk foo2\n#check Foo2.foo  2\n#check (Foo2.foo)\n#check (Foo2.foo')\n#check @Foo2.foo\n#check (Foo3.foo)\n#check (Foo4.foo)\nset_option pp.all true in\n#check (Foo5.foo)\ndef mkFoo\u2081 := 1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/goTo.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/goTo.lean",
+    "definition_name": "mkFoo\u2082"
+  }
+}

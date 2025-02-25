@@ -1,0 +1,10 @@
+{
+  "content": "mkNode ``Command.eoi #[atom]\ndef isTerminalCommand (s : Syntax) : Bool :=\n  s.isOfKind ``Command.exit || s.isOfKind ``Command.import || s.isOfKind ``Command.eoi\nprivate def consumeInput (inputCtx : InputContext) (pmctx : ParserModuleContext) (pos : String.Pos) : String.Pos :=\n  let s : ParserState := { cache := initCacheForInput inputCtx.input, pos := pos }\n  let s := tokenFn [] |>.run inputCtx pmctx (getTokenTable pmctx.env) s\n  match s.errorMsg with\n  | some _ => pos + ' '\n  | none   => s.pos\ndef topLevelCommandParserFn : ParserFn :=\n  commandParser.fn\npartial def parseCommand (inputCtx : InputContext) (pmctx : ParserModuleContext) (mps : ModuleParserState) (messages : MessageLog) : Syntax \u00d7 ModuleParserState \u00d7 MessageLog := Id.run do\n  let mut pos := mps.pos\n  let mut recovering := mps.recovering\n  let mut messages := messages\nlet mut stx := Syntax.missing\n  repeat\n    if inputCtx.input.atEnd pos then\n      stx := mkEOI pos\n      break\n    let pos' := pos",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_name": "header",
+    "imports": "|| s.isOfKind ``Command.eoi"
+  }
+}

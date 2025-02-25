@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_emptyc : (\u2205 : Raw \u03b1 \u03b2 cmp).size = 0 :=\n  Impl.size_empty\ntheorem isEmpty_eq_size_eq_zero (h : t.WF) :\n    t.isEmpty = (t.size == 0) :=\n  Impl.isEmpty_eq_size_eq_zero h.out\ntheorem size_insert [TransCmp cmp] (h : t.WF) {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/RawLemmas.lean",
+    "definition_name": "size_emptyc",
+    "has_proof": false
+  }
+}

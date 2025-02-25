@@ -1,0 +1,9 @@
+{
+  "content": "| _ => unreachable!\n  go : Name \u2192 Expr\n    | .anonymous => mkConst ``Lean.Name.anonymous\n    | .str p s ..=> mkApp2 (mkConst ``Lean.Name.str) (go p) (toExpr s)\n    | .num p n ..=> mkApp2 (mkConst ``Lean.Name.num) (go p) (toExpr n)\ninstance : ToExpr Name where\n  toExpr     := Name.toExprAux\n  toTypeExpr := mkConst ``Name\ninstance {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_name": "ToExpr"
+  }
+}

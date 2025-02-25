@@ -1,0 +1,10 @@
+{
+  "content": "(xss : Vector (Vector (Vector \u03b1 n) m) k) : P xss := by\n  specialize of (xss.map (fun as => (as.map toArray).toArray)).toArray (by simp) (by simp) (by simp)\n  simpa [Array.map_attach_eq_pmap, Array.pmap_map] using of\n@[simp] theorem append_push {as : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "vector\u2082_induction",
+    "has_proof": true
+  }
+}

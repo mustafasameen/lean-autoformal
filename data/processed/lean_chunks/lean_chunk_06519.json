@@ -1,0 +1,9 @@
+{
+  "content": "structure AnalyzeResult where\n  max?            : Option Expr := none\n  hasUnknown      : Bool := false\nprivate def isUnknown : Expr \u2192 Bool\n  | .mvar ..        => true\n  | .app f _        => isUnknown f\n  | .letE _ _ _ b _ => isUnknown b\n  | .mdata _ b      => isUnknown b\n  | _               => false\nprivate def analyze (t : Tree) (expectedType? : Option Expr) : TermElabM AnalyzeResult := do\n  let max? \u2190\n    match expectedType? with\n    | none => pure none\n    | some expectedType =>\n      let expectedType := (\u2190 instantiateMVars expectedType).cleanupAnnotations\n      if isUnknown expectedType then pure none else pure (some expectedType)\n  (go t *> get).run' { max? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_name": "AnalyzeResult"
+  }
+}

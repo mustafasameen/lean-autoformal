@@ -1,0 +1,10 @@
+{
+  "content": "theorem singleton_append : [x] ++ l = x :: l := rfl\ntheorem append_inj :\n    \u2200 {s\u2081 s\u2082 t\u2081 t\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "singleton_append",
+    "has_proof": false
+  }
+}

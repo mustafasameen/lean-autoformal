@@ -1,0 +1,9 @@
+{
+  "content": "instance boundedOrder [\u2200 i, LE (\u03b1' i)] [\u2200 i, BoundedOrder (\u03b1' i)] : BoundedOrder (\u2200 i, \u03b1' i) :=\n{ Pi.orderTop, Pi.orderBot with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_name": "boundedOrder"
+  }
+}

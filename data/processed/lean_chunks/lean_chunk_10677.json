@@ -1,0 +1,9 @@
+{
+  "content": "structure RegistryPkg where\n  name : String\n  fullName : String\n  sources : Array RegistrySrc\n  data : Json\n  deriving Inhabited\nnamespace RegistryPkg\ndef gitSrc? (pkg : RegistryPkg) : Option RegistrySrc :=\n  pkg.sources.find? (\u00b7.isGit)\nprotected def toJson (src : RegistryPkg) : Json :=\n  src.data\ninstance : ToJson RegistryPkg := \u27e8RegistryPkg.toJson\u27e9\nprotected def fromJson? (val : Json) : Except String RegistryPkg := do\n  try\n    let obj \u2190 JsonObject.fromJson? val\n    let name \u2190 obj.get \"name\"\n    let fullName \u2190 obj.get \"fullName\"\n    let sources \u2190 (\u2190 obj.getD \"sources\" #[]).mapM fromJson?\n    return {data := obj, name, fullName, sources}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_name": "RegistryPkg"
+  }
+}

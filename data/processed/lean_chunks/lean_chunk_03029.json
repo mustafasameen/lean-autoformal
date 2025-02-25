@@ -1,0 +1,9 @@
+{
+  "content": "@[export lean_expr_has_fvar] def hasFVarEx : Expr \u2192 Bool := hasFVar\n@[export lean_expr_has_expr_mvar] def hasExprMVarEx : Expr \u2192 Bool := hasExprMVar\n@[export lean_expr_has_level_mvar] def hasLevelMVarEx : Expr \u2192 Bool := hasLevelMVar\n@[export lean_expr_has_mvar] def hasMVarEx : Expr \u2192 Bool := hasMVar\n@[export lean_expr_has_level_param] def hasLevelParamEx : Expr \u2192 Bool := hasLevelParam\n@[export lean_expr_loose_bvar_range] def looseBVarRangeEx (e : Expr) : UInt32 := e.data.looseBVarRange\n@[export lean_expr_binder_info] def binderInfoEx : Expr \u2192 BinderInfo := binderInfo\nend Expr\ndef Literal.type : Literal \u2192 Expr\n  | .natVal _ => mkConst `Nat\n  | .strVal _ => mkConst `String\n@[export lean_lit_type]\ndef Literal.typeEx : Literal \u2192 Expr := Literal.type\ndef mkSort (u : Level) : Expr :=\n  .sort u\ndef mkFVar (fvarId : FVarId) : Expr :=\n  .fvar fvarId\ndef mkMVar (mvarId : MVarId) : Expr :=\n  .mvar mvarId\ndef mkMData (m : MData) (e : Expr) : Expr :=\n  .mdata m e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

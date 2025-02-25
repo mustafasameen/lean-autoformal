@@ -1,0 +1,9 @@
+{
+  "content": "inductive Syntax\n| missing\n| node   (kind : SyntaxNodeKind) (args : Array Syntax) (scopes : MacroScopes)\n| atom   (info : Option SourceInfo) (val : String)\n| ident  (info : Option SourceInfo) (rawVal : Substring) (val : Name) (preresolved : List Name) (scopes : MacroScopes)\ninstance : Inhabited Syntax :=\n\u27e8Syntax.missing\u27e9\ndef SyntaxNodeKind.fix : SyntaxNodeKind \u2192 IO SyntaxNodeKind\n| {name := n, ..}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "Syntax"
+  }
+}

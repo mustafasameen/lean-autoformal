@@ -1,0 +1,9 @@
+{
+  "content": "env.toKernelEnv.constants\n@[inherit_doc Kernel.Environment.const2ModIdx]\ndef const2ModIdx (env : Environment) : Std.HashMap Name ModuleIdx :=\n  env.toKernelEnv.const2ModIdx\n@[export lake_environment_add]\nprivate def lakeAdd (env : Environment) (cinfo : ConstantInfo) : Environment :=\n  env.setCheckedSync <| env.checked.get.add cinfo\ndef addExtraName (env : Environment) (name : Name) : Environment :=\n  if env.constants.contains name then\n    env\n  else\n    env.modifyCheckedAsync fun env => { env with extraConstNames := env.extraConstNames.insert name }\ndef findAsync? (env : Environment) (n : Name) : Option AsyncConstantInfo := do\n  if let some c := env.checkedWithoutAsync.constants.find?' n then\n    some <| .ofConstantInfo c\n  else if let some asyncConst := env.asyncConsts.find? n then\n    return asyncConst.constInfo\n  else env.findNoAsync n |>.map .ofConstantInfo\ndef findConstVal? (env : Environment) (n : Name) : Option ConstantVal := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

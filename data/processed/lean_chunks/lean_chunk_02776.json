@@ -1,0 +1,9 @@
+{
+  "content": "instance instMonad : Monad (EStateM \u03b5 \u03c3) where\n  bind     := EStateM.bind\n  pure     := EStateM.pure\n  map      := EStateM.map\n  seqRight := EStateM.seqRight\ninstance {\u03b4}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "instMonad"
+  }
+}

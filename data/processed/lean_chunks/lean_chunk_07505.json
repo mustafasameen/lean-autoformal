@@ -1,0 +1,9 @@
+{
+  "content": "structure DefaultFormula (numVarsSucc : Nat) where\n  clauses : Array (Option (DefaultClause numVarsSucc))\n  rupUnits : Array (Literal (PosFin numVarsSucc))\n  ratUnits : Array (Literal (PosFin numVarsSucc))\n  assignments : Array Assignment\nnamespace DefaultFormula\ninstance {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/Implementation.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/Implementation.lean",
+    "definition_name": "DefaultFormula"
+  }
+}

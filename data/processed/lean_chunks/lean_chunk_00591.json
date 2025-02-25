@@ -1,0 +1,9 @@
+{
+  "content": "instance nat : Denumerable Nat := \u27e8\u27e9\nend Denumerable\nend Mathlib.Logic.Denumerable\nsection Mathlib.Logic.Equiv.List\nopen Nat List\nnamespace Encodable\nvariable [Encodable \u03b1]\ndef encodeList : List \u03b1 \u2192 Nat\n  | [] => 0\n  | a :: l => succ (pair (encode a) (encodeList l))\ndef decodeList : Nat \u2192 Option (List \u03b1)\n  | 0 => some []\n  | succ v =>\n    match unpair v, unpair_right_le v with\n    | (v\u2081, v\u2082), h =>\n      have : v\u2082 < succ v := lt_succ_of_le h\n      (\u00b7 :: \u00b7) <$> decode (\u03b1 := \u03b1) v\u2081 <*> decodeList v\u2082\ninstance _root_.List.encodable : Encodable (List \u03b1) :=\n  \u27e8encodeList, decodeList, sorry\u27e9\nend Encodable\nend Mathlib.Logic.Equiv.List\nsection Mathlib.Computability.Primrec\nopen Denumerable Encodable Function\nnamespace Nat\n@[simp, reducible]\ndef unpaired {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_name": "nat"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "(u.data.hasMVar || v.data.hasMVar) (u.data.hasParam || v.data.hasParam)\n    | .imax u v => mkData (mixHash 2267 <| mixHash (u.data.hash) (v.data.hash)) (Nat.max u.data.depth.toNat v.data.depth.toNat + 1)\n       (u.data.hasMVar || v.data.hasMVar) (u.data.hasParam || v.data.hasParam)\nderiving Inhabited, Repr\nnamespace Level\nprotected def hash (u : Level) : UInt64 :=\n  u.data.hash\ninstance : Hashable Level := \u27e8Level.hash\u27e9\ndef depth (u : Level) : Nat :=\n  u.data.depth.toNat\ndef hasMVar (u : Level) : Bool :=\n  u.data.hasMVar\ndef hasParam (u : Level) : Bool :=\n  u.data.hasParam\n@[export lean_level_hash] def hashEx (u : Level) : UInt32 := hash u |>.toUInt32\n@[export lean_level_has_mvar] def hasMVarEx : Level \u2192 Bool := hasMVar\n@[export lean_level_has_param] def hasParamEx : Level \u2192 Bool := hasParam\n@[export lean_level_depth] def depthEx (u : Level) : UInt32 := u.data.depth\nend Level\ndef levelZero :=\n  Level.zero\ndef mkLevelMVar (mvarId : LMVarId) :=\n  Level.mvar mvarId",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

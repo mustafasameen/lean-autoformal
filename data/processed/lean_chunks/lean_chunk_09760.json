@@ -1,0 +1,9 @@
+{
+  "content": "def entryAtIdx? (t : Raw \u03b1 \u03b2 cmp) (n : Nat) : Option (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Raw.Const.entryAtIdx? t.inner n\n@[inline, inherit_doc DTreeMap.Raw.Const.entryAtIdx!]\ndef entryAtIdx! [Inhabited (\u03b1 \u00d7 \u03b2)] (t : Raw \u03b1 \u03b2 cmp) (n : Nat) : \u03b1 \u00d7 \u03b2 :=\n  DTreeMap.Raw.Const.entryAtIdx! t.inner n\n@[inline, inherit_doc DTreeMap.Raw.Const.entryAtIdxD]\ndef entryAtIdxD (t : Raw \u03b1 \u03b2 cmp) (n : Nat) (fallback : \u03b1 \u00d7 \u03b2) : \u03b1 \u00d7 \u03b2 :=\n  DTreeMap.Raw.Const.entryAtIdxD t.inner n fallback\n@[inline, inherit_doc DTreeMap.Raw.keyAtIndex?]\ndef keyAtIndex? (t : Raw \u03b1 \u03b2 cmp) (n : Nat) : Option \u03b1 :=\n  DTreeMap.Raw.keyAtIndex? t.inner n\n@[inline, inherit_doc DTreeMap.Raw.keyAtIndex!]\ndef keyAtIndex! [Inhabited \u03b1] (t : Raw \u03b1 \u03b2 cmp) (n : Nat) : \u03b1 :=\n  DTreeMap.Raw.keyAtIndex! t.inner n\n@[inline, inherit_doc DTreeMap.Raw.keyAtIndexD]\ndef keyAtIndexD (t : Raw \u03b1 \u03b2 cmp) (n : Nat) (fallback : \u03b1) : \u03b1 :=\n  DTreeMap.Raw.keyAtIndexD t.inner n fallback\n@[inline, inherit_doc DTreeMap.Raw.Const.getEntryGE?]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Raw.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Raw.lean",
+    "definition_name": "Raw"
+  }
+}

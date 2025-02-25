@@ -1,0 +1,10 @@
+{
+  "content": "simp [Array.count_push_self]\n@[simp] theorem count_push_of_ne (h : b \u2260 a) (xs : Vector \u03b1 n) : count a (xs.push b) = count a xs := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.count_push_of_ne, h]\ntheorem count_singleton_self (a : \u03b1) : count a #v[a] = 1 := by simp\n@[simp]\ntheorem count_pos_iff {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Count.lean",
+    "definition_name": "count_le_size",
+    "has_proof": true
+  }
+}

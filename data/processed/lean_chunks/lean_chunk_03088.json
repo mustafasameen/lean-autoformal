@@ -1,0 +1,9 @@
+{
+  "content": "| .abbrev,     .abbrev     => .eq\n  | .abbrev,     _           => .lt\n  | .regular _,  .abbrev     => .gt\n  | .regular d\u2081, .regular d\u2082 => Ord.compare d\u2082 d\u2081\n  | .regular _,  .opaque     => .lt\n  | .opaque,     .opaque     => .eq\n  | .opaque,     _           => .gt\ninstance : Ord ReducibilityHints where\n  compare := ReducibilityHints.compare\ndef isAbbrev : ReducibilityHints \u2192 Bool\n  | .abbrev => true\n  | _       => false\ndef isRegular : ReducibilityHints \u2192 Bool\n  | .regular .. => true\n  | _           => false\nend ReducibilityHints\n  all : List Name := [name]\n  deriving Inhabited, BEq\n@[export lean_mk_definition_val]\ndef mkDefinitionValEx (name : Name) (levelParams : List Name) (type : Expr) (value : Expr) (hints : ReducibilityHints) (safety : DefinitionSafety) (all : List Name) : DefinitionVal := {\n  name, levelParams, type, hints, safety, value, all\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Declaration.lean",
+    "definition_name": "ReducibilityHints"
+  }
+}

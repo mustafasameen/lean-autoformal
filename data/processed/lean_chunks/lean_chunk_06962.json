@@ -1,0 +1,9 @@
+{
+  "content": "if (\u2190 tryApplyDefHandler className declNames[0]!) then\n               return ()\n           applyDerivingHandlers className declNames\n       catch ex =>\n         logException ex\n  | _ => throwUnsupportedSyntax\nstructure DerivingClassView where\n  ref : Syntax\n  className : Name\ndef getOptDerivingClasses (optDeriving : Syntax) : CoreM (Array DerivingClassView) := do\n  match optDeriving with\n  | `(Parser.Command.optDeriving| deriving $[$classes],*) =>\n    let mut ret := #[]\n    for cls in classes do\n      let className \u2190 realizeGlobalConstNoOverloadWithInfo cls\n      ret := ret.push { ref := cls, className := className }\n    return ret\n  | _ => return #[]\ndef DerivingClassView.applyHandlers (view : DerivingClassView) (declNames : Array Name) : CommandElabM Unit :=\n  withRef view.ref do applyDerivingHandlers view.className declNames\nbuiltin_initialize\n  registerTraceClass `Elab.Deriving\nend Lean.Elab",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Basic.lean",
+    "definition_name": "DerivingHandler"
+  }
+}

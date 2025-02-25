@@ -1,0 +1,10 @@
+{
+  "content": "theorem Pairwise.and (hR : Pairwise R l) (hS : Pairwise S l) :\n    l.Pairwise fun a b => R a b \u2227 S a b := by\n  induction hR with\n  | nil => simp only [Pairwise.nil]\n  | cons R1 _ IH =>\n    simp only [Pairwise.nil, pairwise_cons] at hS \u22a2\n    exact \u27e8fun b bl => \u27e8R1 b bl, hS.1 b bl\u27e9, IH hS.2\u27e9\ntheorem pairwise_and_iff : l.Pairwise (fun a b => R a b \u2227 S a b) \u2194 Pairwise R l \u2227 Pairwise S l :=\n  \u27e8fun h => \u27e8h.imp fun h => h.1, h.imp fun h => h.2\u27e9, fun \u27e8hR, hS\u27e9 => hR.and hS\u27e9\ntheorem Pairwise.imp\u2082 (H : \u2200 a b, R a b \u2192 S a b \u2192 T a b)\n    (hR : Pairwise R l) (hS : l.Pairwise S) : l.Pairwise T :=\n  (hR.and hS).imp fun \u27e8h\u2081, h\u2082\u27e9 => H _ _ h\u2081 h\u2082\ntheorem Pairwise.iff_of_mem {S : \u03b1 \u2192 \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Pairwise.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Pairwise.lean",
+    "definition_name": "Pairwise",
+    "has_proof": true
+  }
+}

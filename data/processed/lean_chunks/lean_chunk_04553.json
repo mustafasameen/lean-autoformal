@@ -1,0 +1,10 @@
+{
+  "content": "theorem attach_none : (none : Option \u03b1).attach = none := rfl\n@[simp] theorem attachWith_none : (none : Option \u03b1).attachWith P H = none := rfl\n@[simp] theorem attach_some {x : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_name": "attach_none",
+    "has_proof": false
+  }
+}

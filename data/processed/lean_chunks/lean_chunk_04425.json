@@ -1,0 +1,10 @@
+{
+  "content": "theorem pow_pos (h : 0 < a) : 0 < a^n :=\n  match n with\n  | 0 => Nat.zero_lt_one\n  | _ + 1 => Nat.mul_pos (Nat.pow_pos h) h\nset_option linter.missingDocs false in\n@[deprecated Nat.pow_pos (since := \"2025-02-17\")]\nabbrev pos_pow_of_pos := @Nat.pow_pos\n@[simp] theorem zero_pow_of_pos (n : Nat) (h : 0 < n) : 0 ^ n = 0 := by\n  cases n with\n  | zero => cases h\n  | succ n => simp [Nat.pow_succ]\nprotected theorem two_pow_pos (w : Nat) : 0 < 2^w := Nat.pow_pos (by decide)\ninstance {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "pow_pos",
+    "has_proof": true
+  }
+}

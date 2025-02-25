@@ -1,0 +1,10 @@
+{
+  "content": "class WellFoundedRelation (\u03b1 : Sort u) where\n  rel : \u03b1 \u2192 \u03b1 \u2192 Prop\n  wf  : WellFounded rel\nnamespace WellFounded\ntheorem apply {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_name": "WellFoundedRelation",
+    "has_proof": false
+  }
+}

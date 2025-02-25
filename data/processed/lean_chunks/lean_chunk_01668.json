@@ -1,0 +1,10 @@
+{
+  "content": "theorem weird_prod_ext (p q : \u03b1 \u00d7 \u03b2)\n(f : \u03b1 \u2192 \u03b1') (g : \u03b2 \u2192 \u03b2')\n    (h : f p.1 = f q.1) (h' : g p.2 = g q.2) :\n  p = q := sorry\n#guard_msgs in\n@[ext]\ntheorem Sigma.ext' {\u03b2 : \u03b1 \u2192 Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ext.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ext.lean",
+    "definition_name": "weird_prod_ext",
+    "has_proof": false
+  }
+}

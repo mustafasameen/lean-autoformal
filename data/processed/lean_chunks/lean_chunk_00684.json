@@ -1,0 +1,9 @@
+{
+  "content": "instance hasNeg : Neg c.Quotient :=\n  \u27e8(Quotient.map' Neg.neg) sorry\u27e9\ninstance hasSub : Sub c.Quotient :=\n  \u27e8(Quotient.map\u2082' (\u00b7 - \u00b7)) sorry\u27e9\ninstance _root_.AddCon.Quotient.zsmul {M : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "hasNeg"
+  }
+}

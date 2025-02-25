@@ -1,0 +1,9 @@
+{
+  "content": "instance\ninstance : Decidable (Nice n) := baz n\n#guard_msgs in\nexample : Nice 102 := by decide\n#guard_msgs in\nexample : \u00ac Nice 102 := by decide\n#guard_msgs in\nexample (x : Nat) (h : x < 5) : x + 1 \u2264 5 := by decide\nexample (x : Nat) (h : x < 5) : x + 1 \u2264 5 := by decide +revert\ninstance (p : PUnit.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideTactic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideTactic.lean",
+    "definition_name": "instance"
+  }
+}

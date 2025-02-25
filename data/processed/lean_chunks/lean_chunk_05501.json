@@ -1,0 +1,10 @@
+{
+  "content": "go s.data 0\nwhere\n  go : List Char \u2192 Pos \u2192 Bool\n  | [],    i => i = p\n  | c::cs, i => if i = p then true else go cs (i + c)\ndef utf8GetAux : List Char \u2192 Pos \u2192 Pos \u2192 Char\n  | [],    _, _ => default\n  | c::cs, i, p => if i = p then c else utf8GetAux cs (i + c) p\n@[extern \"lean_string_utf8_get\"]\ndef get (s : @& String) (p : @& Pos) : Char :=\n  match s with\n  | \u27e8s\u27e9 => utf8GetAux s 0 p\ndef utf8GetAux? : List Char \u2192 Pos \u2192 Pos \u2192 Option Char\n  | [],    _, _ => none\n  | c::cs, i, p => if i = p then c else utf8GetAux? cs (i + c) p\n@[extern \"lean_string_utf8_get_opt\"]\ndef get? : (@& String) \u2192 (@& Pos) \u2192 Option Char\n  | \u27e8s\u27e9, p => utf8GetAux? s 0 p\n@[extern \"lean_string_utf8_get_bang\"]\ndef get! (s : @& String) (p : @& Pos) : Char :=\n  match s with\n  | \u27e8s\u27e9 => utf8GetAux s 0 p\ndef utf8SetAux (c' : Char) : List Char \u2192 Pos \u2192 Pos \u2192 List Char\n  | [],    _, _ => []\n  | c::cs, i, p =>\n    if i = p then (c'::cs) else c::(utf8SetAux c' cs (i + c) p)\n@[extern \"lean_string_utf8_set\"]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "decidableLT",
+    "has_proof": true
+  }
+}

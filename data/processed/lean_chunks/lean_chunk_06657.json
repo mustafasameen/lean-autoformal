@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_term_parser] def namedPattern : TrailingParser := trailing_parser\n  checkStackTop isIdent \"expected preceding identifier\" >>\n  checkNoWsBefore \"no space before '@'\" >> \"@\" >>\n  optional (atomic (ident >> \":\")) >> termParser maxPrec\n@[builtin_term_parser] def pipeProj   := trailing_parser:minPrec\n  \" |>.\" >> checkNoWsBefore >> (fieldIdx <|> rawIdent) >> many argument\n@[builtin_term_parser] def pipeCompletion := trailing_parser:minPrec\n  \" |>.\"\n@[builtin_term_parser] def subst := trailing_parser:75\n  \" \u25b8 \" >> sepBy1 (termParser 75) \" \u25b8 \"\ndef bracketedBinderF := bracketedBinder\ninstance : Coe (TSyntax ``bracketedBinderF) (TSyntax ``bracketedBinder) where coe s := \u27e8s\u27e9\n@[builtin_term_parser] def panic := leading_parser:leadPrec\n  \"panic! \" >> termParser\n@[builtin_term_parser] def dbgTrace := leading_parser:leadPrec\n  withPosition (\"dbg_trace\" >> (interpolatedStr termParser <|> termParser)) >>\n  optSemicolon termParser\n@[builtin_term_parser] def showTermElabImpl :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "defaultOrOfNonempty"
+  }
+}

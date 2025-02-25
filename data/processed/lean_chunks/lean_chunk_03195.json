@@ -1,0 +1,10 @@
+{
+  "content": "theorem isLT_lt : lt.isLT := rfl\n@[simp]\ntheorem isLE_lt : lt.isLE := rfl\n@[simp]\ntheorem isEq_lt : lt.isEq = false := rfl\n@[simp]\ntheorem isNe_lt : lt.isNe = true := rfl\n@[simp]\ntheorem isGE_lt : lt.isGE = false := rfl\n@[simp]\ntheorem isGT_lt : lt.isGT = false := rfl\n@[simp]\ntheorem isLT_eq : eq.isLT = false := rfl\n@[simp]\ntheorem isLE_eq : eq.isLE := rfl\n@[simp]\ntheorem isEq_eq : eq.isEq := rfl\n@[simp]\ntheorem isNe_eq : eq.isNe = false := rfl\n@[simp]\ntheorem isGE_eq : eq.isGE := rfl\n@[simp]\ntheorem isGT_eq : eq.isGT = false := rfl\n@[simp]\ntheorem isLT_gt : gt.isLT = false := rfl\n@[simp]\ntheorem isLE_gt : gt.isLE = false := rfl\n@[simp]\ntheorem isEq_gt : gt.isEq = false := rfl\n@[simp]\ntheorem isNe_gt : gt.isNe = true := rfl\n@[simp]\ntheorem isGE_gt : gt.isGE := rfl\n@[simp]\ntheorem isGT_gt : gt.isGT := rfl\n@[simp]\ntheorem swap_lt : lt.swap = .gt := rfl\n@[simp]\ntheorem swap_eq : eq.swap = .eq := rfl\n@[simp]\ntheorem swap_gt : gt.swap = .lt := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_name": "isLT_lt",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex8 : (10 + 2000 = 20) = False :=\n  by simp\ndef fact : Nat \u2192 Nat\n  | 0 => 1\n  | x+1 => (x+1) * fact x\ntheorem ex9 : (if fact 100 > 10 then true else false) = true :=\n  by simp (config := { decide := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp6.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp6.lean",
+    "definition_name": "ex8",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "intros h1 _ h3\n  refine' Eq.trans ?pre ?post\n  solve\n    | exact h1\n    | exact y\n    | exact h3\n  solve\n    | exact h1\n    | exact h3\n  solve\n    | exact h1\n    | assumption\nnamespace Foo\n  def Prod.mk := 1\n  #check (\u27e82, 3\u27e9 : Prod _ _)\nend Foo\ntheorem simple10 (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z :=\nby {\n  intro h1; intro h2; intro h3;\n  skip;\n  apply Eq.trans;\n  exact h3;\n  assumption\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend1.lean",
+    "definition_name": "simple8",
+    "has_proof": true
+  }
+}

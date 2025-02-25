@@ -1,0 +1,10 @@
+{
+  "content": "theorem fold_eq_foldl_toList {f : \u03b4 \u2192 \u03b1 \u2192 \u03b4}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Lemmas.lean",
+    "definition_name": "fold_eq_foldl_toList",
+    "has_proof": false
+  }
+}

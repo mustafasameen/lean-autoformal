@@ -1,0 +1,10 @@
+{
+  "content": "instance instAddNat : Add Nat where\n  add := Nat.add\nattribute [match_pattern] Nat.add Add.add HAdd.hAdd Neg.neg Mul.mul HMul.hMul\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_nat_mul\"]\nprotected def Nat.mul : (@& Nat) \u2192 (@& Nat) \u2192 Nat\n  | _, 0          => 0\n  | a, Nat.succ b => Nat.add (Nat.mul a b) a\ninstance instMulNat : Mul Nat where\n  mul := Nat.mul\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_nat_pow\"]\nprotected def Nat.pow (m : @& Nat) : (@& Nat) \u2192 Nat\n  | 0      => 1\n  | succ n => Nat.mul (Nat.pow m n) m\ninstance instNatPowNat : NatPow Nat := \u27e8Nat.pow\u27e9\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_nat_dec_eq\"]\ndef Nat.beq : (@& Nat) \u2192 (@& Nat) \u2192 Bool\n  | zero,   zero   => true\n  | zero,   succ _ => false\n  | succ _, zero   => false\n  | succ n, succ m => beq n m\ntheorem Nat.eq_of_beq_eq_true : {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "instAddNat",
+    "has_proof": false
+  }
+}

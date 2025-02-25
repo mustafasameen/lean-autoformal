@@ -1,0 +1,10 @@
+{
+  "content": "theorem shift_unit_6 {x y z : BitVec 16}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_shift.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_shift.lean",
+    "definition_name": "shift_unit_6",
+    "has_proof": false
+  }
+}

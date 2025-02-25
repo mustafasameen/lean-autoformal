@@ -1,0 +1,10 @@
+{
+  "content": "have h := size_assignemnts_confirmRupHint f.clauses acc.1 acc.2.1 acc.2.2.1 acc.2.2.2 rupHints[idx]\n      have : (acc.fst, acc.snd.fst, acc.snd.snd.fst, acc.snd.snd.snd) = acc := rfl\n      simp [this] at *\n      omega\n    rw [Array.foldl_induction in_bounds_motive in_bounds_base in_bounds_inductive]\n    exact i.2.2\n  simp only [getElem!_def, i_in_bounds, Array.getElem?_eq_getElem] at h1\n  simp only [( \u00b7 \u22a8 \u00b7), Entails.eval.eq_1]\n  by_cases hb : b\n  \u00b7 rw [hb]\n    rw [hb] at h\n    by_cases pi : p i\n    \u00b7 exact pi\n    \u00b7 simp only at pi\n      simp [pi, h] at h1\n  \u00b7 simp only [Bool.not_eq_true] at hb\n    rw [hb]\n    rw [hb] at h\n    by_cases pi : p i\n    \u00b7 simp [pi, h] at h1\n    \u00b7 simp at pi\n      exact pi\ntheorem c_without_negPivot_of_performRatCheck_success {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_name": "with",
+    "has_proof": true
+  }
+}

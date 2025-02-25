@@ -1,0 +1,9 @@
+{
+  "content": "inductive Pred : \u2200 (\u03b1 : Type u), List \u03b1 \u2192 Type (u+1)\n| foo {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/genindices.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/genindices.lean",
+    "definition_name": "Pred"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance : ToMessageData Format        := \u27e8MessageData.ofFormat\u27e9\ninstance : ToMessageData MVarId        := \u27e8MessageData.ofGoal\u27e9\n@[default_instance]\ninstance : ToMessageData MessageData   := \u27e8id\u27e9\ninstance [ToMessageData \u03b1] : ToMessageData (List \u03b1)  := \u27e8fun as => MessageData.ofList <| as.map toMessageData\u27e9\ninstance [ToMessageData \u03b1] : ToMessageData (Array \u03b1) := \u27e8fun as => toMessageData as.toList\u27e9\ninstance [ToMessageData \u03b1] : ToMessageData (Subarray \u03b1) := \u27e8fun as => toMessageData as.toArray.toList\u27e9\ninstance [ToMessageData \u03b1] : ToMessageData (Option \u03b1) := \u27e8fun | none => \"none\" | some e => \"some (\" ++ toMessageData e ++ \")\"\u27e9\ninstance [ToMessageData \u03b1] [ToMessageData \u03b2] : ToMessageData (\u03b1 \u00d7 \u03b2) :=\n  \u27e8fun (a, b) => .paren <| toMessageData a ++ \",\" ++ Format.line ++ toMessageData b\u27e9\ninstance : ToMessageData (Option Expr) := \u27e8fun | none => \"<not-available>\" | some e => toMessageData e\u27e9\nsyntax:max \"m!\" interpolatedStr(term) : term\nmacro_rules",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_name": "ToMessageData"
+  }
+}

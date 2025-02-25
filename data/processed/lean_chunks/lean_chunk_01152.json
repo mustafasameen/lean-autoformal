@@ -1,0 +1,9 @@
+{
+  "content": "inductive NEList (\u03b1 : Type)\n  | uno  : \u03b1 \u2192 NEList \u03b1\n  | cons : \u03b1 \u2192 NEList \u03b1 \u2192 NEList \u03b1\ndef NEList.contains [BEq \u03b1] : NEList \u03b1 \u2192 \u03b1 \u2192 Bool\n  | uno  a,    x => a == x\n  | cons a as, x => a == x || as.contains x\ndef NEList.noDup [BEq \u03b1] : NEList \u03b1 \u2192 Bool\n  | uno  a    => true\n  | cons a as => \u00acas.contains a && as.noDup\n@[specialize]\ndef NEList.foldl (f : \u03b1 \u2192 \u03b2 \u2192 \u03b1) : (init : \u03b1) \u2192 NEList \u03b2 \u2192 \u03b1\n  | a, uno  b   => f a b\n  | a, cons b l => foldl f (f a b) l\n@[specialize]\ndef NEList.map (f : \u03b1 \u2192 \u03b2) : NEList \u03b1 \u2192 NEList \u03b2\n  | uno  a     => uno  (f a)\n  | cons a  as => cons (f a) (map f as)\ninductive Literal\n  | bool  : Bool   \u2192 Literal\n  | int   : Int    \u2192 Literal\n  | float : Float  \u2192 Literal\n  | str   : String \u2192 Literal\ninductive BinOp\n  | add | mul | eq | ne | lt | le | gt | ge\ninductive UnOp\n  | not\nmutual\n  inductive Lambda\n    | mk : (l : NEList String) \u2192 l.noDup \u2192 Program \u2192 Lambda\n  inductive Expression\n    | lit   : Literal \u2192 Expression\n    | var   : String \u2192 Expression",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/arthur2.lean",
+    "definition_name": "NEList"
+  }
+}

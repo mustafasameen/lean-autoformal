@@ -1,0 +1,9 @@
+{
+  "content": "loop 0\n  | node info _ _ => some info\n  | _             => none\ndef getPos? (stx : Syntax) (canonicalOnly := false) : Option String.Pos :=\n  stx.getHeadInfo.getPos? canonicalOnly\npartial def getTailPos? (stx : Syntax) (canonicalOnly := false) : Option String.Pos :=\n  match stx, canonicalOnly with\n  | atom (SourceInfo.original (endPos := pos) ..) .., _\n  | atom (SourceInfo.synthetic (endPos := pos) (canonical := true) ..) _, _\n  | atom (SourceInfo.synthetic (endPos := pos) ..) _,  false\n  | ident (SourceInfo.original (endPos := pos) ..) .., _\n  | ident (SourceInfo.synthetic (endPos := pos) (canonical := true) ..) .., _\n  | ident (SourceInfo.synthetic (endPos := pos) ..) .., false\n  | node (SourceInfo.original (endPos := pos) ..) .., _\n  | node (SourceInfo.synthetic (endPos := pos) (canonical := true) ..) .., _\n  | node (SourceInfo.synthetic (endPos := pos) ..) .., false => some pos\n  | node _ _ args, _ =>\n    let rec loop (i : Nat) : Option String.Pos :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "nonBacktrackable"
+  }
+}

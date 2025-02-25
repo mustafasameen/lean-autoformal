@@ -1,0 +1,10 @@
+{
+  "content": "inductive Power2 : Nat \u2192 Prop\n  | base : Power2 1\n| ind  : Power2 n \u2192 Power2 (2*n)\ntheorem Power2_brecOn : typeOf @Power2.brecOn = \u2200 {motive : (a : Nat) \u2192 Power2 a \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_name": "Power2",
+    "has_proof": false
+  }
+}

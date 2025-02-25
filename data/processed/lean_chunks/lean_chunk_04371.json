@@ -1,0 +1,10 @@
+{
+  "content": "theorem dvd_iff_mod_eq_zero {m n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Dvd.lean",
+    "definition_name": "dvd_iff_mod_eq_zero",
+    "has_proof": false
+  }
+}

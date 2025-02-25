@@ -1,0 +1,9 @@
+{
+  "content": "| ret (o : \u03c9) : Res \u03c9 \u03b1 b c\n  | rbreak : Res \u03c9 \u03b1 true c\n  | rcont : Res \u03c9 \u03b1 b true\ninstance : Coe \u03b1 (Res \u03c9 \u03b1 b c) := \u27e8Res.val\u27e9\ninstance : Coe (Id \u03b1) (Res \u03c9 \u03b1 b c) := \u27e8Res.val\u27e9\ndef Ctx.extendBot (x : \u03b1) : {\u0393 : _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wfEqnsIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wfEqnsIssue.lean",
+    "definition_name": "Stmt"
+  }
+}

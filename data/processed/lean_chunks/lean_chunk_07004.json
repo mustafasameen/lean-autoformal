@@ -1,0 +1,9 @@
+{
+  "content": "pos1 < pos2 || pos1 == pos2 && tailPos1 <= tailPos2\n  let mut data : Array Nat := Array.mkEmpty (5*tokens.size)\n  let mut lastPos : Lsp.Position := \u27e80, 0\u27e9\n  for \u27e8pos, tailPos, tokenType\u27e9 in tokens do\n    let deltaLine := pos.line - lastPos.line\n    let deltaStart := pos.character - (if pos.line == lastPos.line then lastPos.character else 0)\n    let length := tailPos.character - pos.character\n    let tokenType := tokenType.toNat\n    let tokenModifiers := 0\n    data := data ++ #[deltaLine, deltaStart, length, tokenType, tokenModifiers]\n    lastPos := pos\n  return { data }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/SemanticHighlighting.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/SemanticHighlighting.lean",
+    "definition_name": "LeanSemanticToken"
+  }
+}

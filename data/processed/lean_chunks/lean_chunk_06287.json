@@ -1,0 +1,9 @@
+{
+  "content": "structure Entry where\n  expr     : Expr\n  type     : Expr\n  modified : Bool\npartial def updateTypes (e eNew : Expr) (entries : Array Entry) (i : Nat) : MetaM (Array Entry) :=\n  if h : i < entries.size then\n    let entry := entries[i]\n    match entry with\n    | \u27e8_, type, _\u27e9 => do\n      let typeAbst \u2190 kabstract type e\n      if typeAbst.hasLooseBVars then do\n        let typeNew := typeAbst.instantiate1 eNew\n        let entries := entries.set i { entry with type := typeNew, modified := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/GeneralizeTelescope.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/GeneralizeTelescope.lean",
+    "definition_name": "Entry"
+  }
+}

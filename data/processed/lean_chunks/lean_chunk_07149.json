@@ -1,0 +1,9 @@
+{
+  "content": "if ptrEq type decl.type && ptrEq params decl.params && ptrEq value decl.value then\n    return decl\n  else\n    let decl := { decl with type, params, value }\n    modifyLCtx fun lctx => lctx.addFunDecl decl\n    return decl\n@[implemented_by updateFunDeclImp] opaque FunDeclCore.update (decl: FunDecl) (type : Expr) (params : Array Param) (value : Code) : CompilerM FunDecl\nabbrev FunDeclCore.update' (decl : FunDecl) (type : Expr) (value : Code) : CompilerM FunDecl :=\n  decl.update type decl.params value\nabbrev FunDeclCore.updateValue (decl : FunDecl) (value : Code) : CompilerM FunDecl :=\n  decl.update decl.type decl.params value\n@[inline] def normParam [MonadLiftT CompilerM m] [Monad m] [MonadFVarSubst m t] (p : Param) : m Param := do\n  p.update (\u2190 normExpr p.type)\ndef normParams [MonadLiftT CompilerM m] [Monad m] [MonadFVarSubst m t] (ps : Array Param) : m (Array Param) :=\n  ps.mapMonoM normParam",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "mkFreshBinderName"
+  }
+}

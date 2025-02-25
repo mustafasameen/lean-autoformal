@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofNat_band (a b : Bool) : (\u2191(a && b) : Nat) = \u2191a &&& \u2191b := by\n  cases a <;> cases b <;> rfl\nexample (a b c : Bool) (n : Nat) (h : n = a &&& b &&& c)\n        : (\u2191(a && b && c) : Nat) = n := by\n  push_cast\n  guard_target =\u209b(\u2191a &&& \u2191b &&& \u2191c) = n\n  rw [h]\nexample (a b c : Bool) (n : Nat) (h : n = (a && b && c))\n        : (\u2191a &&& \u2191b &&& \u2191c) = n := by\n  norm_cast\n  guard_target =\u209b \u2191(a && b && c) = n\n  rw [h]\nset_option linter.missingDocs false\nvariable (an bn cn dn : Nat) (az bz cz dz : Int)\nexample : (an : Int) = bn \u2192 an = bn := by intro h; exact_mod_cast h\nexample : an = bn \u2192 (an : Int) = bn := by intro h; exact_mod_cast h\nexample : (an : Int) < bn \u2194 an < bn := by norm_cast\nexample : (an : Int) \u2260 (bn : Int) \u2194 an \u2260 bn := by norm_cast\nexample : az > (1 : Nat) \u2194 az > 1 := by norm_cast\nexample : az > (0 : Nat) \u2194 az > 0 := by norm_cast\nexample : (an : Int) \u2260 0 \u2194 an \u2260 0 := by norm_cast\nexample (a b : Nat) (h : False) : (a : Int) < ((2 * b : Nat) : Int) := by\n  push_cast",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/norm_cast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/norm_cast.lean",
+    "definition_name": "ofNat_band",
+    "has_proof": true
+  }
+}

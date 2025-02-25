@@ -1,0 +1,9 @@
+{
+  "content": "structure BasicBlock (ctx : Context)  where\n  private mk :: ptr : USize\ninstance : Nonempty (BasicBlock ctx) := \u27e8{ ptr := default }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/LLVMBindings.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/LLVMBindings.lean",
+    "definition_name": "BasicBlock"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive InlayHintLabel\n  | name (n : String)\n  | parts (p : Array InlayHintLabelPart)\ninductive InlayHintKind where\n  | type\n  | parameter\nstructure InlayHintTextEdit where\n  range   : String.Range\n  newText : String\n  deriving BEq\nstructure InlayHintInfo where\n  position     : String.Pos\n  label        : InlayHintLabel\n  kind?        : Option InlayHintKind := none\n  textEdits    : Array InlayHintTextEdit := #[]\n  tooltip?     : Option String := none\n  paddingLeft  : Bool := false\n  paddingRight : Bool := false\nstructure InlayHint extends InlayHintInfo where\n  lctx               : LocalContext\n  deferredResolution : InlayHintInfo \u2192 MetaM InlayHintInfo := fun i => .pure i\n  deriving TypeName\nnamespace InlayHint\ndef toCustomInfo (i : InlayHint) : CustomInfo := {\n  stx := .missing\n  value := .mk i\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/InfoTree/InlayHints.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/InfoTree/InlayHints.lean",
+    "definition_name": "InlayHintLabel"
+  }
+}

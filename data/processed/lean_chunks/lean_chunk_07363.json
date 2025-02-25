@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote_blastDivSubtractShift_wr (aig : AIG \u03b1) (lhs rhs : BitVec w)\n    (falseRef trueRef : AIG.Ref aig) (n d : AIG.RefVec aig w) (wn wr : Nat)\n    (q r : AIG.RefVec aig w) (qbv rbv : BitVec w)\n      :\n    (blastDivSubtractShift aig falseRef trueRef n d wn wr q r).wr\n      =\n    (BitVec.divSubtractShift { n := lhs, d := rhs }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_name": "denote_blastDivSubtractShift_wr",
+    "has_proof": false
+  }
+}

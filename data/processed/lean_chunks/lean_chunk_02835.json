@@ -1,0 +1,9 @@
+{
+  "content": "class Coe (\u03b1 : semiOutParam (Sort u)) (\u03b2 : Sort v) where\n  coe : \u03b1 \u2192 \u03b2\nattribute [coe_decl] Coe.coe\nclass CoeTC (\u03b1 : Sort u) (\u03b2 : Sort v) where\n  coe : \u03b1 \u2192 \u03b2\nattribute [coe_decl] CoeTC.coe\ninstance [Coe \u03b2 \u03b3] [CoeTC \u03b1 \u03b2] : CoeTC \u03b1 \u03b3 where coe a := Coe.coe (CoeTC.coe a : \u03b2)\ninstance [Coe \u03b1 \u03b2] : CoeTC \u03b1 \u03b2 where coe a := Coe.coe a\ninstance : CoeTC \u03b1 \u03b1 where coe a := a\nclass CoeOut (\u03b1 : Sort u) (\u03b2 : semiOutParam (Sort v)) where\n  coe : \u03b1 \u2192 \u03b2\nattribute [coe_decl] CoeOut.coe\nclass CoeOTC (\u03b1 : Sort u) (\u03b2 : Sort v) where\n  coe : \u03b1 \u2192 \u03b2\nattribute [coe_decl] CoeOTC.coe\ninstance [CoeOut \u03b1 \u03b2] [CoeOTC \u03b2 \u03b3] : CoeOTC \u03b1 \u03b3 where coe a := CoeOTC.coe (CoeOut.coe a : \u03b2)\ninstance [CoeTC \u03b1 \u03b2] : CoeOTC \u03b1 \u03b2 where coe a := CoeTC.coe a\ninstance : CoeOTC \u03b1 \u03b1 where coe a := a\nclass CoeHead (\u03b1 : Sort u) (\u03b2 : semiOutParam (Sort v)) where\n  coe : \u03b1 \u2192 \u03b2\nattribute [coe_decl] CoeHead.coe\nclass CoeHTC (\u03b1 : Sort u) (\u03b2 : Sort v) where\n  coe : \u03b1 \u2192 \u03b2\nattribute [coe_decl] CoeHTC.coe",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Coe.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Coe.lean",
+    "definition_name": "Coe"
+  }
+}

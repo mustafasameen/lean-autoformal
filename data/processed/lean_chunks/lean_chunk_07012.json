@@ -1,0 +1,9 @@
+{
+  "content": "else\n        setEnv <| codeActionProviderExt.addEntry env decl\n  }\n  mkAttr true `builtin_code_action_provider\n  mkAttr false `code_action_provider\nprivate unsafe def evalCodeActionProviderUnsafe [MonadEnv M] [MonadOptions M] [MonadError M] [Monad M] (declName : Name) : M CodeActionProvider := do\n  evalConstCheck CodeActionProvider ``CodeActionProvider declName\ndef handleCodeAction (params : CodeActionParams) : RequestM (RequestTask (Array CodeAction)) := do\n  let doc \u2190 readDoc\n  let pos := doc.meta.text.lspPosToUtf8Pos params.range.end\n  withWaitFindSnap doc (fun s => s.endPos \u2265 pos)\n    (notFoundX := return #[])\n    fun snap => do\n      let caps \u2190 RequestM.runCoreM snap do\n        let env \u2190 getEnv\n        let names := codeActionProviderExt.getState env |>.toArray\n        let caps \u2190 names.mapM evalCodeActionProvider\n        return (\u2190 builtinCodeActionProviders.get).toList.toArray ++ Array.zip names caps\n      caps.flatMapM fun (providerName, cap) => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_name": "CodeActionProvider"
+  }
+}

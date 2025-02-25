@@ -1,0 +1,10 @@
+{
+  "content": "theorem toBitVec_mod {a b : $typeName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Bitwise.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Bitwise.lean",
+    "definition_name": "toBitVec_mod",
+    "has_proof": false
+  }
+}

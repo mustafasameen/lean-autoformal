@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldr_append (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b) (l l' : List \u03b1) :\n    (l ++ l').foldr f b = l.foldr f (l'.foldr f b) := by simp [foldr_eq_foldrM]\ntheorem foldl_flatten (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b : \u03b2) (L : List (List \u03b1)) :\n    (flatten L).foldl f b = L.foldl (fun b l => l.foldl f b) b := by\n  induction L generalizing b <;> simp_all\ntheorem foldr_flatten (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b : \u03b2) (L : List (List \u03b1)) :\n    (flatten L).foldr f b = L.foldr (fun l b => l.foldr f b) b := by\n  induction L <;> simp_all\n@[simp] theorem foldl_reverse (l : List \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b) :\n    l.reverse.foldl f b = l.foldr (fun x y => f y x) b := by simp [foldl_eq_foldlM, foldr_eq_foldrM]\n@[simp] theorem foldr_reverse (l : List \u03b1) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b) :\n    l.reverse.foldr f b = l.foldl (fun x y => f y x) b :=\n  (foldl_reverse ..).symm.trans <| by simp\ntheorem foldl_eq_foldr_reverse (l : List \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b) :\n    l.foldl f b = l.reverse.foldr (fun x y => f y x) b := by simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "foldr_append",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem div_self (H : 0 < n) : n / n = 1 := by\n  let t := add_div_right 0 H\n  rwa [Nat.zero_add, Nat.zero_div] at t\nprotected theorem div_eq_of_eq_mul_left (H1 : 0 < n) (H2 : m = k * n) : m / n = k :=\nby rw [H2, Nat.mul_div_cancel _ H1]\nprotected theorem div_eq_of_eq_mul_right (H1 : 0 < n) (H2 : m = n * k) : m / n = k :=\nby rw [H2, Nat.mul_div_cancel_left _ H1]\nprotected theorem mul_div_mul_left {m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "div_self",
+    "has_proof": true
+  }
+}

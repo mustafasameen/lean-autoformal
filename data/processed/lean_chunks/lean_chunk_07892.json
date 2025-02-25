@@ -1,0 +1,9 @@
+{
+  "content": "instance [BEq \u03b1] [Hashable \u03b1] [Repr \u03b1] : Repr (HashSet \u03b1) where\n  reprPrec m prec := Repr.addAppParen (\"Std.HashSet.ofList \" ++ reprArg m.toList) prec\nend Unverified\nend HashSet\nend Std",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Basic.lean",
+    "definition_name": "empty"
+  }
+}

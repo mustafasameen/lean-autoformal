@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex4 : head [1, 2] = some 1 :=\nrfl\ndef head2 : {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_name": "ex4",
+    "has_proof": false
+  }
+}

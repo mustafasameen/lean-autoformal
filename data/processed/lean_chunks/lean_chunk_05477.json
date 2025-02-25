@@ -1,0 +1,10 @@
+{
+  "content": "if s.get pos == c then pos\n    else\n      have := Nat.sub_lt_sub_left h (lt_next s pos)\n      posOfAux s c stopPos (s.next pos)\n  else pos\ntermination_by stopPos.1 - pos.1\n@[inline] def posOf (s : String) (c : Char) : Pos :=\n  posOfAux s c s.endPos 0\ndef revPosOfAux (s : String) (c : Char) (pos : Pos) : Option Pos :=\n  if h : pos = 0 then none\n  else\n    have := prev_lt_of_pos s pos h\n    let pos := s.prev pos\n    if s.get pos == c then some pos\n    else revPosOfAux s c pos\ntermination_by pos.1\n@[inline] def revPosOf (s : String) (c : Char) : Option Pos :=\n  revPosOfAux s c s.endPos\ndef findAux (s : String) (p : Char \u2192 Bool) (stopPos : Pos) (pos : Pos) : Pos :=\n  if h : pos < stopPos then\n    if p (s.get pos) then pos\n    else\n      have := Nat.sub_lt_sub_left h (lt_next s pos)\n      findAux s p stopPos (s.next pos)\n  else pos\ntermination_by stopPos.1 - pos.1\n@[inline] def find (s : String) (p : Char \u2192 Bool) : Pos :=\n  findAux s p s.endPos 0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "lt_next",
+    "has_proof": true
+  }
+}

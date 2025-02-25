@@ -1,0 +1,10 @@
+{
+  "content": "(a : \u03b1) (b : \u03b2 a) : (t.containsThenInsertIfNew a b htb).1 = t.contains\u2098 a := by\n  simp only [containsThenInsertIfNew, contains_eq_contains\u2098]\n  split <;> next h => simp only [h]\ntheorem containsThenInsertIfNew_snd_eq_insertIfNew [Ord \u03b1] (t : Impl \u03b1 \u03b2) (htb : t.Balanced) (a : \u03b1) (b : \u03b2 a) :\n    (t.containsThenInsertIfNew a b htb).2 = (t.insertIfNew a b htb) := by\n  rw [containsThenInsertIfNew, insertIfNew]\n  split <;> rfl\ntheorem containsThenInsertIfNew!_fst_eq_contains\u2098 [Ord \u03b1] [TransOrd \u03b1] (t : Impl \u03b1 \u03b2)\n    (a : \u03b1) (b : \u03b2 a) : (t.containsThenInsertIfNew! a b).1 = t.contains\u2098 a := by\n  simp only [containsThenInsertIfNew!, contains_eq_contains\u2098]\n  split <;> next h => simp only [h]\ntheorem containsThenInsertIfNew!_snd_eq_insertIfNew! [Ord \u03b1] (t : Impl \u03b1 \u03b2) (a : \u03b1) (b : \u03b2 a) :\n    (t.containsThenInsertIfNew! a b).2 = t.insertIfNew! a b:= by\n  rw [containsThenInsertIfNew!, insertIfNew!]\n  split <;> rfl\nnamespace Const\nvariable {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_name": "containsThenInsertIfNew",
+    "has_proof": true
+  }
+}

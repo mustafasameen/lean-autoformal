@@ -1,0 +1,10 @@
+{
+  "content": "def modifyTR (f : \u03b1 \u2192 \u03b1) (n : Nat) (l : List \u03b1) : List \u03b1 := go l n #[] where\n  go : Nat \u2192 List \u03b1 \u2192 Array \u03b1 \u2192 List \u03b1\n  | 0, l, acc => acc.toListAppend (a :: l)\n  | _, [], acc => acc.toList\n  | n+1, a :: l, acc => go n l (acc.push a)\ntheorem insertIdxTR_go_eq : \u2200 i l, insertIdxTR.go a i l acc = acc.toList ++ insertIdx i a l\n  | 0, l | _+1, [] => by simp [insertIdxTR.go, insertIdx]\n  | n+1, a :: l => by simp [insertIdxTR.go, insertIdx, insertIdxTR_go_eq n l]\n@[csimp] theorem insertIdx_eq_insertIdxTR : @insertIdx = @insertIdxTR := by\n  funext \u03b1 f n l; simp [insertIdxTR, insertIdxTR_go_eq]\n@[inline] def eraseTR [BEq \u03b1] (l : List \u03b1) (a : \u03b1) : List \u03b1 := go l #[] where\n  go : List \u03b1 \u2192 Array \u03b1 \u2192 List \u03b1\n  | [], _ => l\n  | x::xs, acc => bif x == a then acc.toListAppend xs else go xs (acc.push x)\n@[csimp] theorem erase_eq_eraseTR : @List.erase = @eraseTR := by\n  funext \u03b1 _ l a; simp [eraseTR]\n  suffices \u2200 xs acc, l = acc.toList ++ xs \u2192 eraseTR.go l a xs acc = acc.toList ++ xs.erase a from",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_name": "set_eq_setTR",
+    "has_proof": true
+  }
+}

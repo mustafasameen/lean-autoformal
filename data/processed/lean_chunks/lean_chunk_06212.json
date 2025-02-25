@@ -1,0 +1,9 @@
+{
+  "content": "structure ModuleDiscrTreeRef (\u03b1 : Type _)  where\n  ref : IO.Ref (LazyDiscrTree \u03b1)\ndef createModuleTreeRef (entriesForConst : Name \u2192 ConstantInfo \u2192 MetaM (Array (InitEntry \u03b1)))\n    (droppedKeys : List (List LazyDiscrTree.Key)) : MetaM (ModuleDiscrTreeRef \u03b1) := do\n  profileitM Exception \"build module discriminator tree\" (\u2190getOptions) $ do\n    let t \u2190 createModuleDiscrTree entriesForConst\n    let t \u2190 dropKeys t droppedKeys\n    pure { ref := \u2190 IO.mkRef t }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_name": "ModuleDiscrTreeRef"
+  }
+}

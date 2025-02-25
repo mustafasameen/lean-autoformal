@@ -1,0 +1,9 @@
+{
+  "content": "class Denumerable (\u03b1 : Type _) extends Encodable \u03b1 where\nnamespace Denumerable\ndef mk' {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_name": "Denumerable"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex2 : foo.x = 0 :=\nrfl\ninstance : EmptyCollection A :=\n\u27e8{ x := 10 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/emptyc.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/emptyc.lean",
+    "definition_name": "ex2",
+    "has_proof": false
+  }
+}

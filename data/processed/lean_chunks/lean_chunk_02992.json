@@ -1,0 +1,9 @@
+{
+  "content": "@[export lean_level_depth] def depthEx (u : Level) : UInt32 := u.data.depth\nend Level\ndef levelZero :=\n  Level.zero\ndef mkLevelMVar (mvarId : LMVarId) :=\n  Level.mvar mvarId\ndef mkLevelParam (name : Name) :=\n  Level.param name\ndef mkLevelSucc (u : Level) :=\n  Level.succ u\ndef mkLevelMax (u v : Level) :=\n  Level.max u v\ndef mkLevelIMax (u v : Level) :=\n  Level.imax u v\ndef levelOne := mkLevelSucc levelZero\n@[export lean_level_mk_zero] def mkLevelZeroEx : Unit \u2192 Level := fun _ => levelZero\n@[export lean_level_mk_succ] def mkLevelSuccEx : Level \u2192 Level := mkLevelSucc\n@[export lean_level_mk_mvar] def mkLevelMVarEx : LMVarId \u2192 Level := mkLevelMVar\n@[export lean_level_mk_param] def mkLevelParamEx : Name \u2192 Level := mkLevelParam\n@[export lean_level_mk_max] def mkLevelMaxEx : Level \u2192 Level \u2192 Level := mkLevelMax\n@[export lean_level_mk_imax] def mkLevelIMaxEx : Level \u2192 Level \u2192 Level := mkLevelIMax\nnamespace Level\ndef isZero : Level \u2192 Bool\n  | zero   => true\n  | _      => false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "default := {}\ninductive Expr where\n  | bvar (deBruijnIndex : Nat)\n  | fvar (fvarId : FVarId)\n  | mvar (mvarId : MVarId)\n  | sort (u : Level)\n  | const (declName : Name) (us : List Level)\n  | app (fn : Expr) (arg : Expr)\n  | lam (binderName : Name) (binderType : Expr) (body : Expr) (binderInfo : BinderInfo)\n  | forallE (binderName : Name) (binderType : Expr) (body : Expr) (binderInfo : BinderInfo)\n  | letE (declName : Name) (type : Expr) (value : Expr) (body : Expr) (nonDep : Bool)\n  | lit : Literal \u2192 Expr\n  | mdata (data : MData) (expr : Expr)\n  | proj (typeName : Name) (idx : Nat) (struct : Expr)\nwith\n  @[computed_field, extern \"lean_expr_data\"]\n  data : @& Expr \u2192 Data\n    | .const n lvls => mkData (mixHash 5 <| mixHash (hash n) (hash lvls)) 0 0 false false (lvls.any Level.hasMVar) (lvls.any Level.hasParam)\n    | .bvar idx => mkData (mixHash 7 <| hash idx) (idx+1)\n    | .sort lvl => mkData (mixHash 11 <| hash lvl) 0 0 false false lvl.hasMVar lvl.hasParam",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

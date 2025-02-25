@@ -1,0 +1,9 @@
+{
+  "content": "class NonUnitalSemiring (\u03b1 : Type u) extends NonUnitalNonAssocSemiring \u03b1, SemigroupWithZero \u03b1\nclass NonAssocSemiring (\u03b1 : Type u) extends NonUnitalNonAssocSemiring \u03b1, MulZeroOneClass \u03b1,\n    AddCommMonoidWithOne \u03b1\nclass NonUnitalNonAssocRing (\u03b1 : Type u) extends AddCommGroup \u03b1, NonUnitalNonAssocSemiring \u03b1\nclass NonUnitalRing (\u03b1 : Type _) extends NonUnitalNonAssocRing \u03b1, NonUnitalSemiring \u03b1\nclass NonAssocRing (\u03b1 : Type _) extends NonUnitalNonAssocRing \u03b1, NonAssocSemiring \u03b1,\n    AddCommGroupWithOne \u03b1\nclass Semiring (\u03b1 : Type u) extends NonUnitalSemiring \u03b1, NonAssocSemiring \u03b1, MonoidWithZero \u03b1\nclass Ring (R : Type u) extends Semiring R, AddCommGroup R, AddGroupWithOne R\nclass NonUnitalCommSemiring (\u03b1 : Type u) extends NonUnitalSemiring \u03b1, CommSemigroup \u03b1\nclass CommSemiring (R : Type u) extends Semiring R, CommMonoid R\ninstance (priority := 100) CommSemiring.toNonUnitalCommSemiring [CommSemiring \u03b1] :\n    NonUnitalCommSemiring \u03b1 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "Distrib"
+  }
+}

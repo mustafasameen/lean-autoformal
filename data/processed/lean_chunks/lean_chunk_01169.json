@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_mkHeap (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (a : Array \u03b1) (i : Fin a.size) :\n  (mkHeap lt a).1.size = a.size := (mkHeap lt a).2\ndef heapifyUp (lt : \u03b1 \u2192 \u03b1 \u2192 Bool) (a : Array \u03b1) (i : Fin a.size) :\n  {a' : Array \u03b1 // a'.size = a.size}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/heapSort.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/heapSort.lean",
+    "definition_name": "size_mkHeap",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem IsStrictCut.gt_of_isGE_of_gt [IsStrictCut cmp cut] {k k' : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/Cut.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/Cut.lean",
+    "definition_name": "IsStrictCut",
+    "has_proof": false
+  }
+}

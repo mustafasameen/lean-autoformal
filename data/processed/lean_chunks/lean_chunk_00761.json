@@ -1,0 +1,10 @@
+{
+  "content": "theorem dummy (x : Nat) : x = x :=\n  rfl\n#guard_msgs in\nattribute [grind \u2190=] dummy\ndef \u03b1 : Type := sorry\ndef inv : \u03b1 \u2192 \u03b1 := sorry\ndef mul : \u03b1 \u2192 \u03b1 \u2192 \u03b1 := sorry\ndef one : \u03b1 := sorry\ntheorem inv_eq {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_eq_bwd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_eq_bwd.lean",
+    "definition_name": "dummy",
+    "has_proof": false
+  }
+}

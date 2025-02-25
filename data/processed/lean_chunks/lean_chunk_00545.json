@@ -1,0 +1,10 @@
+{
+  "content": "inductive T: Type :=\n  | mk: String \u2192 Option T \u2192 T\ndef runT: T \u2192 Nat\n  | .mk _ none => 0\n  | .mk _ (some t) => runT t\nclass Run (\u03b1: Type) where\n  run: \u03b1 \u2192 Nat\ninstance: Run T := \u27e8runT\u27e9\ndef x := T.mk \"PrettyLong\" (some <| .mk \"PrettyLong\" none)\ntheorem equivalent: Run.run x = Run.run x := by\n  apply Eq.refl (runT x)\nexample : Run.run x = Run.run x := by\n  simp (config := { decide := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyUnfoldingPerfIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyUnfoldingPerfIssue.lean",
+    "definition_name": "T",
+    "has_proof": true
+  }
+}

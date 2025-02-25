@@ -1,0 +1,9 @@
+{
+  "content": "structure Choice where\n  gen        : Nat\nstructure Context where\n  thm   : EMatchTheorem := default\nstructure SearchState where\nprivate def assign? (c : Choice) (bidx : Nat) (e : Expr) : OptionT GoalM Choice := do\n  if h : bidx < c.assignment.size then\n    let v := c.assignment[bidx]\n    if isSameExpr v unassigned then\n      return { c with assignment := c.assignment.set bidx e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatch.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatch.lean",
+    "definition_name": "Choice"
+  }
+}

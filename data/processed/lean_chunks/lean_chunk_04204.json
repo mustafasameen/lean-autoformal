@@ -1,0 +1,10 @@
+{
+  "content": "theorem abs_eq (x : BitVec w) : x.abs = if x.msb then -x else x := by rfl\n@[simp, bitvec_to_nat]\ntheorem toNat_abs {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "abs_eq",
+    "has_proof": true
+  }
+}

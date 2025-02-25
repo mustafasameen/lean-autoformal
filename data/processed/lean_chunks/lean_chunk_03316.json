@@ -1,0 +1,9 @@
+{
+  "content": "instance : ToStream (Array \u03b1) (Subarray \u03b1) where\n  toStream a := a[:a.size]\ninstance : ToStream (Subarray \u03b1) (Subarray \u03b1) where\n  toStream a := a\ninstance : ToStream String Substring where\n  toStream s := s.toSubstring\ninstance : ToStream Std.Range Std.Range where\n  toStream r := r\ninstance [Stream \u03c1 \u03b1] [Stream \u03b3 \u03b2] : Stream (\u03c1 \u00d7 \u03b3) (\u03b1 \u00d7 \u03b2) where\n  next?\n    | (s\u2081, s\u2082) =>\n      match Stream.next? s\u2081 with\n      | none => none\n      | some (a, s\u2081) => match Stream.next? s\u2082 with\n        | none => none\n        | some (b, s\u2082) => some ((a, b), (s\u2081, s\u2082))\ninstance : Stream (List \u03b1) \u03b1 where\n  next?\n    | []    => none\n    | a::as => some (a, as)\ninstance : Stream (Subarray \u03b1) \u03b1 where\n  next? s :=\n    if h : s.start < s.stop then\n      have : s.start + 1 \u2264 s.stop := Nat.succ_le_of_lt h\n      some (s.array[s.start]'(Nat.lt_of_lt_of_le h s.stop_le_array_size),\n        { s with start := s.start + 1, start_le_stop := this }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Stream.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Stream.lean",
+    "definition_name": "ToStream"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def supportedRecursors :=\n  #[``Empty.rec, ``False.rec, ``Eq.ndrec, ``Eq.rec, ``Eq.recOn, ``Eq.casesOn, ``False.casesOn, ``Empty.casesOn, ``And.rec, ``And.casesOn]\nprivate def checkUnsupported [Monad m] [MonadEnv m] [MonadError m] (decl : Declaration) : m Unit := do\n  let env \u2190 getEnv\n  decl.forExprM fun e =>\n    let unsupportedRecursor? := e.find? fun\n      | Expr.const declName .. =>\n        ((isAuxRecursor env declName && !isCasesOnRecursor env declName) || isRecCore env declName)\n        && !supportedRecursors.contains declName\n      | _ => false\n    match unsupportedRecursor? with\n    | some (Expr.const declName ..) => throwError \"code generator does not support recursor '{declName}' yet, consider using 'match ... with' and/or structural recursion\"\n    | _ => pure ()\nregister_builtin_option compiler.enableNew : Bool := {\n  defValue := false\n  group    := \"compiler\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/CoreM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/CoreM.lean",
+    "definition_name": "supportedRecursors"
+  }
+}

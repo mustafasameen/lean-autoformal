@@ -1,0 +1,9 @@
+{
+  "content": "let sizeLit \u2190 mkAuxLit elements.size\n  let mut literal \u2190 mkAuxLetDecl <| .const ``Array.mkEmpty [typLevel] #[.type typ, .fvar sizeLit]\n  for element in elements do\n    literal \u2190 mkAuxLetDecl <| .const ``Array.push [typLevel] #[.type typ, .fvar literal, .fvar element]\n  return .fvar literal #[]\ndef foldArrayLiteral : Folder := fun args => do\n  let #[_, .fvar fvarId] := args | return none\n  let some (list, typ, level) \u2190 getPseudoListLiteral fvarId | return none\n  let arr := Array.mk list\n  let lit \u2190 mkPseudoArrayLiteral arr typ level\n  return some lit\ndef Folder.mkUnary [Literal \u03b1] [Literal \u03b2] (folder : \u03b1 \u2192 \u03b2) : Folder := fun args => do\n  let #[.fvar fvarId] := args | return none\n  let some arg1 \u2190 getLit fvarId | return none\n  let res := folder arg1\n  mkLit res\ndef Folder.mkBinary [Literal \u03b1] [Literal \u03b2] [Literal \u03b3] (folder : \u03b1 \u2192 \u03b2 \u2192 \u03b3) : Folder := fun args => do\n  let #[.fvar fvarId\u2081, .fvar fvarId\u2082] := args | return none\n  let some arg\u2081 \u2190 getLit fvarId\u2081 | return none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_name": "Literal"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem negZero [AddGroup \u03b1] : -(0 : \u03b1) = 0 := by\n  rw [\u2190addZero (a := -(0 : \u03b1)), negAdd]\ntheorem subZero [AddGroup \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/isDefEqOffsetBug.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/isDefEqOffsetBug.lean",
+    "definition_name": "negZero",
+    "has_proof": true
+  }
+}

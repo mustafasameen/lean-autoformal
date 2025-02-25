@@ -1,0 +1,9 @@
+{
+  "content": "addBuiltinParser catName declName true p prio\ndef addBuiltinTrailingParser (catName : Name) (declName : Name) (p : TrailingParser) (prio : Nat) : IO Unit :=\n  addBuiltinParser catName declName false p prio\ndef mkCategoryAntiquotParser (kind : Name) : Parser :=\n  mkAntiquot kind.toString kind (isPseudoKind := true)\n@[inline] private def mkCategoryAntiquotParserFn (kind : Name) : ParserFn :=\n  (mkCategoryAntiquotParser kind).fn\ndef categoryParserFnImpl (catName : Name) : ParserFn := fun ctx s =>\nlet catName := if catName == `syntax then `stx else catName\n  let categories := (parserExtension.getState ctx.env).categories\n  match getCategory categories catName with\n  | some cat =>\n    prattParser catName cat.tables cat.behavior (mkCategoryAntiquotParserFn catName) ctx s\n  | none     => s.mkUnexpectedError (\"unknown parser category '\" ++ toString catName ++ \"'\")\nbuiltin_initialize\n  categoryParserFnRef.set categoryParserFnImpl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extension.lean",
+    "definition_name": "ParserAttributeHook"
+  }
+}

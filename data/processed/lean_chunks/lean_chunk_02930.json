@@ -1,0 +1,9 @@
+{
+  "content": "exts.modify ext.idx fun s =>\n      let s : \u03c3 := unsafeCast s\n      let s : \u03c3 := f s\n      unsafeCast s\n  else\n    have : Inhabited (Array EnvExtensionState) := \u27e8exts\u27e9\n    panic! invalidExtMsg\nprivate unsafe def getStateImpl {\u03c3} [Inhabited \u03c3] (ext : EnvExtension \u03c3) (exts : Array EnvExtensionState) : \u03c3 :=\n  if h : ext.idx < exts.size then\n    unsafeCast exts[ext.idx]\n  else\n    panic! invalidExtMsg\ndef mkInitialExtStates : IO (Array EnvExtensionState) := do\n  let exts \u2190 envExtensionsRef.get\n  exts.mapM fun ext => ext.mkInitial\ndef modifyState {\u03c3 : Type} (ext : EnvExtension \u03c3) (env : Environment) (f : \u03c3 \u2192 \u03c3) : Environment :=\n  match ext.asyncMode with\n  | .mainOnly =>\n    if let some asyncCtx := env.asyncCtx? then\n      let _ : Inhabited Environment := \u27e8env\u27e9\n      panic! s!\"Environment.modifyState: environment extension is marked as `mainOnly` but used in \\\n        async context '{asyncCtx.declPrefix}'\"\n    else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

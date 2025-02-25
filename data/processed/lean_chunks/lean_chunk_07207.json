@@ -1,0 +1,9 @@
+{
+  "content": "def emitInc (builder : LLVM.Builder llvmctx)\n    (x : VarId) (n : Nat) (checkRef? : Bool) : M llvmctx Unit := do\n  let xv \u2190 emitLhsVal builder x\n  if n != 1\n  then do\n     let nv \u2190 constIntSizeT n\n     callLeanRefcountFn builder (kind := RefcountKind.inc) (checkRef? := checkRef?) (delta := nv) xv\n  else callLeanRefcountFn builder (kind := RefcountKind.inc) (checkRef? := checkRef?) xv\ndef emitDec (builder : LLVM.Builder llvmctx)\n    (x : VarId) (n : Nat) (checkRef? : Bool) : M llvmctx Unit := do\n  let xv \u2190 emitLhsVal builder x\n  if n != 1\n  then throw \"expected n = 1 for emitDec\"\n  else callLeanRefcountFn builder (kind := RefcountKind.dec) (checkRef? := checkRef?) xv\ndef emitNumLit (builder : LLVM.Builder llvmctx)\n    (t : IRType) (v : Nat) : M llvmctx (LLVM.Value llvmctx) := do\n  if t.isObj then\n    if v < UInt32.size then\n      callLeanUnsignedToNatFn builder v\n    else\n      callLeanCStrToNatFn builder v\n  else\n    LLVM.constInt (\u2190 toLLVMType t) (UInt64.ofNat v)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

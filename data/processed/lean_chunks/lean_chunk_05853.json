@@ -1,0 +1,10 @@
+{
+  "content": "case pos =>\n        apply lt_of_succ_le\n        simp only [\u2190 Nat.succ_add]\n        apply Nat.add_le_add <;> exact hyp1\n      case neg =>\n        apply Nat.add_lt_add <;> exact hyp1\ntheorem bitwise_div_two_pow (of_false_false : f false false = false := by rfl) :\n  (bitwise f x y) / 2 ^ n = bitwise f (x / 2 ^ n) (y / 2 ^ n) := by\n  apply Nat.eq_of_testBit_eq\n  simp [testBit_bitwise of_false_false, testBit_div_two_pow]\n@[simp] theorem zero_or (x : Nat) : 0 ||| x = x := by\n  simp only [HOr.hOr, OrOp.or, lor]\n  unfold bitwise\n  simp [@eq_comm _ 0]\n@[simp] theorem or_zero (x : Nat) : x ||| 0 = x := by\n  simp only [HOr.hOr, OrOp.or, lor]\n  unfold bitwise\n  simp [@eq_comm _ 0]\n@[simp] theorem testBit_or (x y i : Nat) : (x ||| y).testBit i = (x.testBit i || y.testBit i) := by\n  simp [HOr.hOr, OrOp.or, lor, testBit_bitwise ]\n@[simp] protected theorem or_self (x : Nat) : x ||| x = x := by\n   apply Nat.eq_of_testBit_eq\n   simp\nprotected theorem or_comm (x y : Nat) : x ||| y = y ||| x := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "testBit_mod_two_pow",
+    "has_proof": true
+  }
+}

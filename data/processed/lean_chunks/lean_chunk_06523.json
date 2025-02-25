@@ -1,0 +1,9 @@
+{
+  "content": "| _               => false\nprivate def analyze (t : Tree) (expectedType? : Option Expr) : TermElabM AnalyzeResult := do\n  let max? \u2190\n    match expectedType? with\n    | none => pure none\n    | some expectedType =>\n      let expectedType := (\u2190 instantiateMVars expectedType).cleanupAnnotations\n      if isUnknown expectedType then pure none else pure (some expectedType)\n  (go t *> get).run' { max? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_name": "BinOpKind"
+  }
+}

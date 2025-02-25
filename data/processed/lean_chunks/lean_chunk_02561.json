@@ -1,0 +1,10 @@
+{
+  "content": "theorem ne_eq (a b : \u03b1) : (a \u2260 b) = \u00ac(a = b) := rfl\nnorm_cast_add_elim ne_eq\n@[simp] theorem ite_true (a b : \u03b1) : (if True then a else b) = a := rfl\n@[simp] theorem ite_false (a b : \u03b1) : (if False then a else b) = b := rfl\n@[simp] theorem dite_true {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/SimpLemmas.lean",
+    "definition_name": "ne_eq",
+    "has_proof": false
+  }
+}

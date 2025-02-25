@@ -1,0 +1,9 @@
+{
+  "content": "++ #[1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1]\n++ #[2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 255, 255, 212, 76, 0, 0, 255, 255, 227, 224, 1, 4, 255, 255]\n++ #[213, 208, 0, 8, 76, 77, 84, 0, 45, 48, 50, 0, 45, 48, 51, 0, 10, 60, 45, 48, 51, 62, 51, 10]\ndef code := Std.Time.TimeZone.TZif.parse.run file |>.toOption |>.get!\ndef rules :=\n  match TimeZone.convertTZif code \"America/Sao_Paulo\" with\n  | .ok res => res\n  | .error err => panic! err\n#guard_msgs in\n#eval code.v1.header\n#guard_msgs in\n#eval code.v1.leapSeconds.size\n#guard_msgs in\n#eval code.v1.abbreviations.size\n#guard_msgs in\n#eval code.v1.transitionIndices.size\n#guard_msgs in\n#eval code.v1.transitionTimes.size\n#guard_msgs in\n#eval code.v1.localTimeTypes.size\n#guard_msgs in\n#eval code.v1.stdWallIndicators.size\n#guard_msgs in\n#eval code.v1.utLocalIndicators.size\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeTzifParse.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeTzifParse.lean",
+    "definition_name": "file"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| `(`[Expr|$n:num])    => `(($n : Expr))\n  | `(`[Expr|$x:ident])  => `(($(Lean.quote x.getId.toString) : Expr))\n  | `(`[Expr|$x = $y])   => `(Expr.bin `[Expr|$x] BinOp.eq `[Expr|$y])\n  | `(`[Expr|$x && $y])  => `(Expr.bin `[Expr|$x] BinOp.and `[Expr|$y])\n  | `(`[Expr|$x < $y])   => `(Expr.bin `[Expr|$x] BinOp.lt `[Expr|$y])\n  | `(`[Expr|$x + $y])   => `(Expr.bin `[Expr|$x] BinOp.add `[Expr|$y])\n  | `(`[Expr|$x - $y])   => `(Expr.bin `[Expr|$x] BinOp.sub `[Expr|$y])\n  | `(`[Expr|!$x])       => `(Expr.una UnaryOp.not `[Expr|$x])\n  | `(`[Expr|($x)])      => `(`[Expr|$x])\ndeclare_syntax_cat stmt\nsyntax ident \" := \" term \";\": stmt\nsyntax \"if \" \"(\" term \")\" \" {\\n\" stmt* \"\\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Val"
+  }
+}

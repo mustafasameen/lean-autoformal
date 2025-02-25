@@ -1,0 +1,9 @@
+{
+  "content": "def version.major := 5\ndef version.minor := 0\ndef version.patch := 0\ndef version.isRelease :=\n  Lean.version.isRelease\ndef version.specialDesc :=\n  if isRelease && !Lean.githash.isEmpty then Lean.githash.take 7 else \"src\"\ndef versionStringCore :=\n  s!\"{version.major}.{version.minor}.{version.patch}\"\ndef versionString :=\n  if version.specialDesc \u2260 \"\" then\n    s!\"{versionStringCore}-{version.specialDesc}\"\n  else\n    versionStringCore\ndef uiVersionString :=\n  s!\"Lake version {versionString} (Lean version {Lean.versionString})\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Version.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Version.lean",
+    "definition_name": "version"
+  }
+}

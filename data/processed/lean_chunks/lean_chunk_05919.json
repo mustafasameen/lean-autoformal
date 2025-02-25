@@ -1,0 +1,10 @@
+{
+  "content": "theorem neg_mul_tmod_right (a b : Int) : (-(a * b)).tmod a = 0 := by\n  rw [\u2190 dvd_iff_tmod_eq_zero, Int.dvd_neg]\n  exact Int.dvd_mul_right a b\n@[simp] theorem neg_mul_tmod_left (a b : Int) : (-(a * b)).tmod b = 0 := by\n  rw [\u2190 dvd_iff_tmod_eq_zero, Int.dvd_neg]\n  exact Int.dvd_mul_left a b\nprotected theorem tdiv_mul_cancel {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "neg_mul_tmod_right",
+    "has_proof": true
+  }
+}

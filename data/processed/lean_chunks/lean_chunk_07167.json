@@ -1,0 +1,9 @@
+{
+  "content": "structure SpecEntry where\n  declName   : Name\n  paramsInfo : Array SpecParamInfo\n  deriving Inhabited\nnamespace SpecState\ndef addEntry (s : SpecState) (e : SpecEntry) : SpecState :=\n  match s with\n  | { specInfo }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/SpecInfo.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/SpecInfo.lean",
+    "definition_name": "SpecEntry"
+  }
+}

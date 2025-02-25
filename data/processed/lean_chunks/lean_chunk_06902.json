@@ -1,0 +1,9 @@
+{
+  "content": "match result? with\n    | none => replaceMainGoal []\n    | some mvarId => replaceMainGoal [mvarId]\n    if tactic.simp.trace.get (\u2190 getOptions) then\n      mvarId.withContext <| traceSimpCall (\u2190 getRef) stats.usedTheorems\n    return stats.diag\n@[builtin_tactic Lean.Parser.Tactic.dsimp] def evalDSimp : Tactic := fun stx => do\n  let { ctx, simprocs, .. } \u2190 withMainContext <| mkSimpContext stx (eraseLocal := false) (kind := .dsimp)\n  dsimpLocation ctx simprocs (expandOptLocation stx[5])\nend Lean.Elab.Tactic\nnamespace Lean.Parser.Tactic\ndef getDSimpArgs? : Syntax \u2192 Option (Array Syntax)\n  | `(dsimpArgs| [$args,*]) => pure args.getElems\n  | _                       => none\nend Lean.Parser.Tactic",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "simpParamsPos"
+  }
+}

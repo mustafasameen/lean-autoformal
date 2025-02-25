@@ -1,0 +1,10 @@
+{
+  "content": "def Mon.mul (m\u2081 m\u2082 : Mon) : Mon :=\n  go hugeFuel m\u2081 m\u2082\nwhere\n  go (fuel : Nat) (m\u2081 m\u2082 : Mon) : Mon :=\n    match fuel with\n    | 0 => m\u2081 ++ m\u2082\n    | fuel + 1 =>\n      match m\u2081, m\u2082 with\n      | m\u2081, [] => m\u2081\n      | [], m\u2082 => m\u2082\n      | v\u2081 :: m\u2081, v\u2082 :: m\u2082 =>\n        bif Nat.blt v\u2081 v\u2082 then\n          v\u2081 :: go fuel m\u2081 (v\u2082 :: m\u2082)\n        else bif Nat.blt v\u2082 v\u2081 then\n          v\u2082 :: go fuel (v\u2081 :: m\u2081) m\u2082\n        else\n          v\u2081 :: v\u2082 :: go fuel m\u2081 m\u2082\nabbrev Poly := List (Int \u00d7 Mon)\ndef Poly.denote (ctx : Context \u03b1) : Poly \u2192 \u03b1\n  | [] => ctx.ofInt 0\n  | (k, m) :: p => ctx.add (ctx.mul (ctx.ofInt k) (m.denote ctx)) (denote ctx p)\ndef Poly.add (p\u2081 p\u2082 : Poly) : Poly :=\n  go hugeFuel p\u2081 p\u2082\nwhere\n  go (fuel : Nat) (p\u2081 p\u2082 : Poly) : Poly :=\n    match fuel with\n    | 0 => p\u2081 ++ p\u2082\n    | fuel + 1 =>\n      match p\u2081, p\u2082 with\n      | p\u2081, [] => p\u2081\n      | [], p\u2082 => p\u2082\n      | (k\u2081, m\u2081) :: p\u2081, (k\u2082, m\u2082) :: p\u2082 =>\n        bif m\u2081 < m\u2082 then\n          (k\u2081, m\u2081) :: go fuel p\u2081 ((k\u2082, m\u2082) :: p\u2082)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_name": "hugeFuel",
+    "has_proof": true
+  }
+}

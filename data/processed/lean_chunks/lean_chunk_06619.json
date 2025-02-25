@@ -1,0 +1,9 @@
+{
+  "content": "\"notation\" >> optPrecedence >> optNamedName >> optNamedPrio >> many notationItem >> darrow >> termParser\n@[builtin_command_parser] def \u00abmacro_rules\u00bb := suppressInsideQuot <| leading_parser\n  optional docComment >> optional Term.\u00abattributes\u00bb >> Term.attrKind >>\n  \"macro_rules\" >> optKind >> Term.matchAlts\n@[builtin_command_parser] def \u00absyntax\u00bb      := leading_parser\n  optional docComment >> optional Term.\u00abattributes\u00bb >> Term.attrKind >>\n  \"syntax \" >> optPrecedence >> optNamedName >> optNamedPrio >> many1 (ppSpace >> syntaxParser argPrec) >> \" : \" >> ident\n@[builtin_command_parser] def syntaxAbbrev  := leading_parser\n  optional docComment >> \"syntax \" >> ident >> \" := \" >> many1 syntaxParser\ndef catBehaviorBoth   := leading_parser nonReservedSymbol \"both\"\ndef catBehaviorSymbol := leading_parser nonReservedSymbol \"symbol\"\ndef catBehavior := optional (\" (\" >> nonReservedSymbol \"behavior\" >> \" := \" >> (catBehaviorBoth <|> catBehaviorSymbol) >> \")\")",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_name": "optPrecedence"
+  }
+}

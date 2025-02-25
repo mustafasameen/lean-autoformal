@@ -1,0 +1,9 @@
+{
+  "content": "structure S :=\n(n : Nat)\n(u : USize)\n@[noinline] def f (u : USize) : S :=\n{ n := 0, u := u }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/usizeBug.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/usizeBug.lean",
+    "definition_name": "S"
+  }
+}

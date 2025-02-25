@@ -1,0 +1,10 @@
+{
+  "content": "(dvd_gcd (Nat.dvd_trans (gcd_dvd_left (gcd m n) k) (gcd_dvd_right m n))\n        (gcd_dvd_right (gcd m n) k)))\n    (dvd_gcd\n      (dvd_gcd (gcd_dvd_left m (gcd n k))\n        (Nat.dvd_trans (gcd_dvd_right m (gcd n k)) (gcd_dvd_left n k)))\n      (Nat.dvd_trans (gcd_dvd_right m (gcd n k)) (gcd_dvd_right n k)))\n@[simp] theorem gcd_one_right (n : Nat) : gcd n 1 = 1 := (gcd_comm n 1).trans (gcd_one_left n)\ntheorem gcd_mul_left (m n k : Nat) : gcd (m * n) (m * k) = m * gcd n k := by\n  induction n, k using gcd.induction with\n  | H0 k => simp\n  | H1 n k _ IH => rwa [\u2190 mul_mod_mul_left, \u2190 gcd_rec, \u2190 gcd_rec] at IH\ntheorem gcd_mul_right (m n k : Nat) : gcd (m * n) (k * n) = gcd m k * n := by\n  rw [Nat.mul_comm m n, Nat.mul_comm k n, Nat.mul_comm (gcd m k) n, gcd_mul_left]\ntheorem gcd_pos_of_pos_left {m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "gcd_dvd",
+    "has_proof": true
+  }
+}

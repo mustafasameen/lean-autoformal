@@ -1,0 +1,9 @@
+{
+  "content": "instance instZero [\u2200 i, Zero <| f i] : Zero (\u2200 i : I, f i) :=\n  \u27e8fun _ => 0\u27e9\ninstance instAdd [\u2200 i, Add <| f i] : Add (\u2200 i : I, f i) :=\n  \u27e8fun f g i => f i + g i\u27e9\ninstance instSMul [\u2200 i, SMul \u03b1 <| f i] : SMul \u03b1 (\u2200 i : I, f i) :=\n  \u27e8fun s x => fun i => s \u2022 x i\u27e9\ninstance instNeg [\u2200 i, Neg <| f i] : Neg (\u2200 i : I, f i) :=\n  \u27e8fun f i => - (f i)\u27e9\ninstance instSub [\u2200 i, Sub <| f i] : Sub (\u2200 i : I, f i) :=\n  \u27e8fun f g i => f i - g i\u27e9\nsection\nvariable [DecidableEq I]\nvariable [\u2200 i, Zero (f i)]\ndef single (i : I) (x : f i) : \u2200 (j : I), f j :=\n  Function.update 0 i x\nend\nend Pi\nend Mathlib.Data.Pi.Algebra\nsection Mathlib.Algebra.GroupWithZero.Defs\nclass MulZeroClass (M\u2080 : Type u) extends Mul M\u2080, Zero M\u2080 where\n  zero_mul : \u2200 a : M\u2080, 0 * a = 0\n  mul_zero : \u2200 a : M\u2080, a * 0 = 0\nclass SemigroupWithZero (S\u2080 : Type u) extends Semigroup S\u2080, MulZeroClass S\u2080\nclass MulZeroOneClass (M\u2080 : Type u) extends MulOneClass M\u2080, MulZeroClass M\u2080",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "instZero"
+  }
+}

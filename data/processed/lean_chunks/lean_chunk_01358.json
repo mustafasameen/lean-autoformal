@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo (\u03b1 : Type) : Nat \u2192 Type where\n  | a (v : \u03b1) : Foo \u03b1 0\n  | b (n : \u03b1) (m : Nat) (v : Vector Nat m) : Foo \u03b1 (2*m)\nexample (h\u2081 : Foo.b x 2 v = f\u2081) (h\u2082 : Foo.b y 2 w = f\u2082) : f\u2081 = f\u2082 \u2192 x = y := by\n  grind\nexample (h\u2081 : Foo.a x = f\u2081) (h\u2082 : Foo.a y = f\u2082) : f\u2081 = f\u2082 \u2192 x = y := by\n  grind\nexample (h\u2081 : a :: b = x) (h\u2082 : c :: d = y) : x = y \u2192 a = c := by\n  grind\nexample (h : x = y) (h\u2081 : a :: b = x) (h\u2082 : c :: d = y) : a = c := by\n  grind\nexample (h : x = y) (h\u2081 : a :: b = x) (h\u2082 : c :: d = y) : b = d := by\n  grind\nexample (a b : Sum Nat Bool) : a = .inl x \u2192 b = .inl y \u2192 x \u2260 y \u2192 a = b \u2192 False := by\n  grind\nexample (a b : Nat) : a = 1 \u2192 b = 2 \u2192 a = b \u2192 False := by\n  grind\nexample (a b c : Int) : a = 1 \u2192 c = -2 \u2192 a = b \u2192 c = b \u2192 False := by\n  grind\nexample (a b : Char) : a = 'h' \u2192 b = 'w' \u2192 a = b \u2192 False := by\n  grind\nexample (a b : String) : a = \"hello\" \u2192 b = \"world\" \u2192 a = b \u2192 False := by\n  grind\nexample (a b c : String) : a = c \u2192 a = \"hello\" \u2192 c = \"world\" \u2192 c = b \u2192 False := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_t1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_t1.lean",
+    "definition_name": "Foo"
+  }
+}

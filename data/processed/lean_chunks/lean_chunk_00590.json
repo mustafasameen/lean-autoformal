@@ -1,0 +1,9 @@
+{
+  "content": "instance _root_.Sigma.encodable : Encodable (Sigma \u03b3) :=\n  \u27e8encodeSigma, decodeSigma, sorry\u27e9\nend Sigma\ninstance Prod.encodable [Encodable \u03b1] [Encodable \u03b2] : Encodable (\u03b1 \u00d7 \u03b2) :=\n  ofEquiv _ (Equiv.sigmaEquivProd \u03b1 \u03b2).symm\nend Encodable\nend Mathlib.Logic.Encodable.Basic\nsection Mathlib.Logic.Denumerable\nclass Denumerable (\u03b1 : Type _) extends Encodable \u03b1 where\nnamespace Denumerable\ndef mk' {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_name": "_root_"
+  }
+}

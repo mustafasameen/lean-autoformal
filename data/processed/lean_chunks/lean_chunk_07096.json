@@ -1,0 +1,9 @@
+{
+  "content": "inductive DiagnosticSeverity where\n  | error | warning | information | hint\n  deriving Inhabited, BEq, Ord\ninstance : FromJson DiagnosticSeverity := \u27e8fun j =>\n  match j.getNat? with\n  | Except.ok 1 => return DiagnosticSeverity.error\n  | Except.ok 2 => return DiagnosticSeverity.warning\n  | Except.ok 3 => return DiagnosticSeverity.information\n  | Except.ok 4 => return DiagnosticSeverity.hint\n  | _           => throw s!\"unknown DiagnosticSeverity '{j}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Diagnostics.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Diagnostics.lean",
+    "definition_name": "DiagnosticSeverity"
+  }
+}

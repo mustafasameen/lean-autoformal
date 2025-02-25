@@ -1,0 +1,9 @@
+{
+  "content": "instance foo.has_note2 [\u2200 i, has_note2 (\u03b2 i)] : has_note2 (foo (\u03bb i => \u03b2 i)) where\n  note := \u2669\nvariable (\u03b1 : Type) (M : Type)\nstructure bar [has_note M] where\n  to_fun : \u03b1 \u2192 M\ninstance bar.has_note [has_note M] : has_note (bar \u03b1 M) where\n  note := { to_fun := \u03bb _ => \u2669 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/509.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/509.lean",
+    "definition_name": "foo"
+  }
+}

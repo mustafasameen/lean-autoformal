@@ -1,0 +1,10 @@
+{
+  "content": "def Set \u03b1 := \u03b1 \u2192 Prop\nclass HasMem (\u03b1 : outParam $ Type u) (\u03b2 : Type v) where\n    mem : \u03b1 \u2192 \u03b2 \u2192 Prop\ninfix:50 \" \u2208 \" => HasMem.mem\ninstance {\u03b1 : Type u} : HasMem \u03b1 (Set \u03b1) := \u27e8\u03bb a s => s a\u27e9\ninstance {\u03b1 : Type u} : LE (Set \u03b1) := \u27e8\u03bb s t => \u2200 {x : \u03b1}, x \u2208 s \u2192 x \u2208 t\u27e9\nclass HasInf (P : Type u) where\n  inf : P \u2192 P \u2192 P\ninfix:70 \" \u2293 \" => HasInf.inf\ninstance {\u03b1 : Type u} : HasInf (Set \u03b1) := \u27e8\u03bb s t x => x \u2208 s \u2227 x \u2208 t\u27e9\ntheorem infLeLeft {s t : Set \u03b1} : s \u2293 t \u2264 s := And.left\ntheorem infLeRight {s t : Set \u03b1} : s \u2293 t \u2264 t := And.right\ntheorem inter_mem_sets_iff {\u03b1 : Type u} (f : Set (Set \u03b1)) (hf : \u2200 {s t}, s \u2208 f \u2192 s \u2264 t \u2192 t \u2208 f) {x y : Set \u03b1}\n        : x \u2293 y \u2208 f \u2192 x \u2208 f \u2227 y \u2208 f := by\n  intro h\n  refine \u27e8hf h infLeLeft, hf h ?_\u27e9\n  apply infLeRight",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/implicitApplyIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/implicitApplyIssue.lean",
+    "definition_name": "Set",
+    "has_proof": true
+  }
+}

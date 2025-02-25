@@ -1,0 +1,9 @@
+{
+  "content": "unless resetCtrl.isEmpty do\n    print resetCtrl\n    flush\nend Monitor\ndef Workspace.runFetchM\n  (ws : Workspace) (build : FetchM \u03b1) (cfg : BuildConfig := {})\n: IO \u03b1 := do\n  let out \u2190 cfg.out.get\n  let useAnsi \u2190 cfg.ansiMode.isEnabled out\n  let outLv := cfg.outLv\n  let failLv := cfg.failLv\n  let showProgress := cfg.showProgress\n  let ctx \u2190 mkBuildContext ws cfg\n  let caption := \"job computation\"\n  let compute := Job.async build (caption := caption)\n  let job \u2190 compute.run.run'.run ctx |>.run nilTrace\n  let minAction := if cfg.verbosity = .verbose then .unknown else .fetch\n  let showOptional := cfg.verbosity = .verbose\n  let failures \u2190 monitorJobs #[job] ctx.registeredJobs\n    out failLv outLv minAction showOptional useAnsi showProgress\n  if failures.isEmpty then\n    let some a \u2190 job.wait?\n      | error \"top-level build failed\"\n    return a\n  else\n    print! out \"Some required builds logged failures:\\n\"\n    failures.forM (print! out s!\"- {\u00b7}\\n\")\n    flush out\n    error \"build failed\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_name": "Monitor"
+  }
+}

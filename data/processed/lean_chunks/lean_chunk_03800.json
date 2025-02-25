@@ -1,0 +1,10 @@
+{
+  "content": "theorem List.toArray_eq_toArray_eq (as bs : List \u03b1) : (as.toArray = bs.toArray) = (as = bs) := by\n  simp\ndef Array.mapM' [Monad m] (f : \u03b1 \u2192 m \u03b2) (as : Array \u03b1) : m { bs : Array \u03b2 // bs.size = as.size }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/BasicAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/BasicAux.lean",
+    "definition_name": "List",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem filterMap_push_some {f : \u03b1 \u2192 Option \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "filterMap_push_some",
+    "has_proof": false
+  }
+}

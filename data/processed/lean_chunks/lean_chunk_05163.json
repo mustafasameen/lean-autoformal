@@ -1,0 +1,10 @@
+{
+  "content": "theorem prefix_append (l\u2081 l\u2082 : List \u03b1) : l\u2081 <+: l\u2081 ++ l\u2082 := \u27e8l\u2082, rfl\u27e9\n@[simp] theorem suffix_append (l\u2081 l\u2082 : List \u03b1) : l\u2082 <:+ l\u2081 ++ l\u2082 := \u27e8l\u2081, rfl\u27e9\ntheorem infix_append (l\u2081 l\u2082 l\u2083 : List \u03b1) : l\u2082 <:+: l\u2081 ++ l\u2082 ++ l\u2083 := \u27e8l\u2081, l\u2083, rfl\u27e9\n@[simp] theorem infix_append' (l\u2081 l\u2082 l\u2083 : List \u03b1) : l\u2082 <:+: l\u2081 ++ (l\u2082 ++ l\u2083) := by\n  rw [\u2190 List.append_assoc]; apply infix_append\ntheorem IsPrefix.isInfix : l\u2081 <+: l\u2082 \u2192 l\u2081 <:+: l\u2082 := fun \u27e8t, h\u27e9 => \u27e8[], t, h\u27e9\ntheorem IsSuffix.isInfix : l\u2081 <:+ l\u2082 \u2192 l\u2081 <:+: l\u2082 := fun \u27e8t, h\u27e9 => \u27e8t, [], by rw [h, append_nil]\u27e9\n@[simp] theorem nil_prefix {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "prefix_append",
+    "has_proof": true
+  }
+}

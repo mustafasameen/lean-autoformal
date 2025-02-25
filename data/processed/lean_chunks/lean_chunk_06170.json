@@ -1,0 +1,9 @@
+{
+  "content": "let stx \u2190 getCur\n  visitArgs $ stx.getArgs.size.forM fun _ _ => p\n@[combinator_formatter many1NoAntiquot] def many1NoAntiquot.formatter (p : Formatter) : Formatter := manyNoAntiquot.formatter p\n@[combinator_formatter optionalNoAntiquot]\ndef optionalNoAntiquot.formatter (p : Formatter) : Formatter := do\n  let stx \u2190 getCur\n  visitArgs <| unless stx.getArgs.isEmpty do p\n@[combinator_formatter many1Unbox]\ndef many1Unbox.formatter (p : Formatter) : Formatter := do\n  let stx \u2190 getCur\n  if stx.getKind == nullKind then do\n    manyNoAntiquot.formatter p\n  else\n    p\n@[combinator_formatter sepByNoAntiquot]\ndef sepByNoAntiquot.formatter (p pSep : Formatter) : Formatter := do\n  let stx \u2190 getCur\n  visitArgs <| stx.getArgs.size.forRevM fun i _ => if i % 2 == 0 then p else pSep\n@[combinator_formatter sepBy1NoAntiquot] def sepBy1NoAntiquot.formatter := sepByNoAntiquot.formatter\n@[combinator_formatter withoutInfo] def withoutInfo.formatter (p : Formatter) : Formatter := p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_name": "nonReservedSymbolNoAntiquot"
+  }
+}

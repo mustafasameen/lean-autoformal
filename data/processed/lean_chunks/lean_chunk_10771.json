@@ -1,0 +1,9 @@
+{
+  "content": "def helpUpload :=\n\"Upload build artifacts to a GitHub release\nUSAGE:\n  lake upload <tag>\nPacks the root package's `buildDir` into a `tar.gz` archive using `tar` and\nthen uploads the asset to the pre-existing GitHub release `tag` using `gh`.\"\ndef helpClean :=\n\"Remove build outputs\nUSAGE:\n  lake clean [<package>...]\nIf no package is specified, deletes the build directories of every package in\nthe workspace. Otherwise, just deletes those of the specified packages.\"\ndef helpScriptCli :=\n\"Manage Lake scripts\nUSAGE:\n  lake script <COMMAND>\nCOMMANDS:\n  list                  list available scripts\n  run <script>          run a script\n  doc <script>          print the docstring of a given script\nSee `lake help <command>` for more information on a specific command.\"\ndef helpScriptList :=\n\"List available scripts\nUSAGE:\n  lake script list\nALIAS: lake scripts\nThis command prints the list of all available scripts in the workspace.\"\ndef helpScriptRun :=\n\"Run a script\nUSAGE:",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Float where\n  val : floatSpec.float\ninstance : Nonempty Float := \u27e8{ val := floatSpec.val }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Float.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Float.lean",
+    "definition_name": "Float"
+  }
+}

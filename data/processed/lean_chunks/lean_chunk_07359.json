@@ -1,0 +1,10 @@
+{
+  "content": "apply denote.eq_of_isPrefix (entry := \u27e8aig, start,hstart\u27e9)\n  apply IsPrefix.of\n  \u00b7 intros\n    apply blastDivSubtractShift_decl_eq\n  \u00b7 intros\n    apply blastDivSubtractShift_le_size\ntheorem denote_blastDivSubtractShift_q (aig : AIG \u03b1) (assign : \u03b1 \u2192 Bool) (lhs rhs : BitVec w)\n    (falseRef trueRef : AIG.Ref aig) (n d : AIG.RefVec aig w) (wn wr : Nat)\n    (q r : AIG.RefVec aig w) (qbv rbv : BitVec w)\n    (hleft : \u2200 (idx : Nat) (hidx : idx < w), \u27e6aig, n.get idx hidx, assign\u27e7 = lhs.getLsbD idx)\n    (hright : \u2200 (idx : Nat) (hidx : idx < w), \u27e6aig, d.get idx hidx, assign\u27e7 = rhs.getLsbD idx)\n    (hq : \u2200 (idx : Nat) (hidx : idx < w), \u27e6aig, q.get idx hidx, assign\u27e7 = qbv.getLsbD idx)\n    (hr : \u2200 (idx : Nat) (hidx : idx < w), \u27e6aig, r.get idx hidx, assign\u27e7 = rbv.getLsbD idx)\n    (hfalse : \u27e6aig, falseRef, assign\u27e7 = false)\n    (htrue : \u27e6aig, trueRef, assign\u27e7 = true)\n      :\n    \u2200 (idx : Nat) (hidx : idx < w),\n      \u27e6\n        (blastDivSubtractShift aig falseRef trueRef n d wn wr q r).aig,",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_name": "denote_blastShiftConcat",
+    "has_proof": true
+  }
+}

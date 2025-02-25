@@ -1,0 +1,9 @@
+{
+  "content": "def numPrio  := checkPrec maxPrec >> numLit\nattribute [run_builtin_parser_attribute_hooks] numPrio\nend Priority\nnamespace Attr\n@[builtin_attr_parser] def simple     := leading_parser ident >> optional (ppSpace >> (priorityParser <|> ident))\n@[builtin_attr_parser] def recursor         := leading_parser nonReservedSymbol \"recursor \" >> numLit\n@[builtin_attr_parser] def \u00abclass\u00bb          := leading_parser \"class\"\n@[builtin_attr_parser] def \u00abinstance\u00bb       := leading_parser \"instance\" >> optional (ppSpace >> priorityParser)\n@[builtin_attr_parser] def default_instance := leading_parser nonReservedSymbol \"default_instance\" >> optional (ppSpace >> priorityParser)\n@[builtin_attr_parser] def \u00abspecialize\u00bb     := leading_parser (nonReservedSymbol \"specialize\") >> many (ppSpace >> (ident <|> numLit))\ndef externEntry := leading_parser\n  optional (ident >> ppSpace) >> optional (nonReservedSymbol \"inline \") >> strLit\n@[builtin_attr_parser] def extern     := leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Attr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Attr.lean",
+    "definition_name": "numPrio"
+  }
+}

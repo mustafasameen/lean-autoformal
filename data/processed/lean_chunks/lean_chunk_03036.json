@@ -1,0 +1,9 @@
+{
+  "content": "| (n+1), forallE _ _ b _ => getForallBodyMaxDepth n b\n  | 0, e => e\n  | _, e => e\ndef getForallBinderNames : Expr \u2192 List Name\n  | forallE n _ b _ => n :: getForallBinderNames b\n  | _ => []\ndef getNumHeadForalls : Expr \u2192 Nat\n  | mdata _ b => getNumHeadForalls b\n  | forallE _ _ body _ => getNumHeadForalls body + 1\n  | _ => 0\ndef getAppFn : Expr \u2192 Expr\n  | app f _ => getAppFn f\n  | e         => e\ndef getAppFn' : Expr \u2192 Expr\n  | app f _   => getAppFn' f\n  | mdata _ a => getAppFn' a\n  | e         => e\ndef isAppOfArity : Expr \u2192 Name \u2192 Nat \u2192 Bool\n  | const c _, n, 0   => c == n\n  | app f _,   n, a+1 => isAppOfArity f n a\n  | _,         _, _   => false\ndef getAppNumArgs (e : Expr) : Nat :=\n  getAppNumArgsAux e 0\n  go : Expr \u2192 Nat \u2192 Nat\n    | mdata _ b, n => go b n\n    | app f _  , n => go f (n + 1)\n    | _        , n => n\ndef getBoundedAppFn : (maxArgs : Nat) \u2192 Expr \u2192 Expr\n  | maxArgs' + 1, .app f _ => getBoundedAppFn maxArgs' f\n  | _, e => e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

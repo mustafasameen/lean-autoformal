@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_min [Min \u03b1] [Std.IdempotentOp (min : \u03b1 \u2192 \u03b1 \u2192 \u03b1)] [Std.Associative (min : \u03b1 \u2192 \u03b1 \u2192 \u03b1)]\n    {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/MinMax.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/MinMax.lean",
+    "definition_name": "foldl_min",
+    "has_proof": false
+  }
+}

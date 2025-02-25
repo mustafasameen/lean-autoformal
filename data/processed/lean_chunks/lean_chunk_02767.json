@@ -1,0 +1,10 @@
+{
+  "content": "instance Nat.decLe (n m : @& Nat) : Decidable (LE.le n m) :=\n  dite (Eq (Nat.ble n m) true) (fun h => isTrue (Nat.le_of_ble_eq_true h)) (fun h => isFalse (Nat.not_le_of_not_ble_eq_true h))\n@[extern \"lean_nat_dec_lt\"]\ninstance Nat.decLt (n m : @& Nat) : Decidable (LT.lt n m) :=\n  decLe (succ n) m\ninstance : Min Nat := minOfLe\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_nat_sub\"]\nprotected def Nat.sub : (@& Nat) \u2192 (@& Nat) \u2192 Nat\n  | a, 0      => a\n  | a, succ b => pred (Nat.sub a b)\ninstance instSubNat : Sub Nat where\n  sub := Nat.sub\n@[extern \"lean_system_platform_nbits\"] opaque System.Platform.getNumBits : Unit \u2192 Subtype fun (n : Nat) => Or (Eq n 32) (Eq n 64) :=\nfun _ => \u27e864, Or.inr rfl\u27e9\n@[pp_using_anonymous_constructor]\nstructure Fin (n : Nat) where\n  val  : Nat\nstructure BitVec (w : Nat) where\n  ofFin ::\n  toFin : Fin (hPow 2 w)\ndef BitVec.decEq (x y : BitVec n) : Decidable (Eq x y) :=\n  match x, y with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat",
+    "has_proof": false
+  }
+}

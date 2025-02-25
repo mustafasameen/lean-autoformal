@@ -1,0 +1,9 @@
+{
+  "content": "def cfgLogLv? := (get_config? log).bind LogLevel.ofString?\nmeta if cfgLogLv?.isSome then\n  run_cmd Lean.log \"bar\" cfgLogLv?.get!.toMessageSeverity\nlean_lib Log\ndef top (level : LogLevel) : FetchM (Job Unit) := Job.async do\n  logEntry {level, message := \"foo\"}\ntarget topTrace : Unit := top .trace\ntarget topInfo : Unit := top .info\ntarget topWarning : Unit := top .warning\ntarget topError : Unit := top .error\ndef art (pkg : Package) (level : LogLevel) : FetchM (Job Unit) := Job.async do\n  let artFile := pkg.buildDir / s!\"art{level.toString.capitalize}\"\n  buildFileUnlessUpToDate' artFile do\n    logEntry {level, message := \"foo\"}\n    createParentDirs artFile\n    IO.FS.writeFile artFile \"\"\ntarget artTrace pkg : Unit := art pkg .trace\ntarget artInfo pkg : Unit := art pkg .info\ntarget artWarning pkg : Unit := art pkg .warning\ntarget artError pkg : Unit := art pkg .error",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/logLevel/lakefile.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/logLevel/lakefile.lean",
+    "definition_name": "cfgLogLv"
+  }
+}

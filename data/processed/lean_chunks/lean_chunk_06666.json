@@ -1,0 +1,9 @@
+{
+  "content": "def ParserFn := ParserContext \u2192 ParserState \u2192 ParserState\ninstance : Inhabited ParserFn where\n  default := fun _ s => s\ninductive FirstTokens where\n  | epsilon   : FirstTokens\n  | unknown   : FirstTokens\n  | tokens    : List Token \u2192 FirstTokens\n  | optTokens : List Token \u2192 FirstTokens\n  deriving Inhabited\nnamespace FirstTokens\ndef seq : FirstTokens \u2192 FirstTokens \u2192 FirstTokens\n  | epsilon,      tks          => tks\n  | optTokens s\u2081, optTokens s\u2082 => optTokens (s\u2081 ++ s\u2082)\n  | optTokens s\u2081, tokens s\u2082    => tokens (s\u2081 ++ s\u2082)\n  | tks,          _            => tks\ndef toOptional : FirstTokens \u2192 FirstTokens\n  | tokens tks => optTokens tks\n  | tks        => tks\ndef merge : FirstTokens \u2192 FirstTokens \u2192 FirstTokens\n  | epsilon,      tks          => toOptional tks\n  | tks,          epsilon      => toOptional tks\n  | tokens s\u2081,    tokens s\u2082    => tokens (s\u2081 ++ s\u2082)\n  | optTokens s\u2081, optTokens s\u2082 => optTokens (s\u2081 ++ s\u2082)\n  | tokens s\u2081,    optTokens s\u2082 => optTokens (s\u2081 ++ s\u2082)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_name": "ParserFn"
+  }
+}

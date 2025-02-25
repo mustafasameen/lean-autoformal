@@ -1,0 +1,9 @@
+{
+  "content": "| .ok mtime => return self < mtime\n  | .error _ => return false\nstructure BuildTrace where\n  hash : Hash\n  mtime : MTime\n  deriving Repr\nnamespace BuildTrace\n@[inline] def ofHash (hash : Hash) : BuildTrace :=\n  mk hash 0\ninstance : Coe Hash BuildTrace := \u27e8ofHash\u27e9\n@[inline] def ofMTime (mtime : MTime) : BuildTrace :=\n  mk Hash.nil mtime\ninstance : Coe MTime BuildTrace := \u27e8ofMTime\u27e9\ndef nil : BuildTrace :=\n  mk Hash.nil 0\ninstance : NilTrace BuildTrace := \u27e8nil\u27e9\n@[specialize] def compute [ComputeHash \u03b1 m] [MonadLiftT m IO] [GetMTime \u03b1] (info : \u03b1) : IO BuildTrace :=\n  return mk (\u2190 computeHash info) (\u2190 getMTime info)\ninstance [ComputeHash \u03b1 m] [MonadLiftT m IO] [GetMTime \u03b1] : ComputeTrace \u03b1 IO BuildTrace := \u27e8compute\u27e9\ndef mix (t1 t2 : BuildTrace) : BuildTrace :=\n  mk (Hash.mix t1.hash t2.hash) (max t1.mtime t2.mtime)\ninstance : MixTrace BuildTrace := \u27e8mix\u27e9\n@[specialize] def checkAgainstHash [CheckExists i]\n(info : i) (hash : Hash) (self : BuildTrace) : BaseIO Bool :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Trace.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Trace.lean",
+    "definition_name": "MTime"
+  }
+}

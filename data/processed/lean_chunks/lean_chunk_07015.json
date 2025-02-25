@@ -1,0 +1,9 @@
+{
+  "content": "structure\n  private structure Context where\n    params            : CompletionParams\n    completionInfoPos : Nat\n    items  : Array CompletionItem := #[]\n  private abbrev M := ReaderT Context $ StateRefT State $ CancellableT MetaM\n  private def addUnresolvedCompletionItem\n      (label         : Name)\n      (id            : CompletionIdentifier)\n      (kind          : CompletionItemKind)\n      : M Unit := do\n    let env \u2190 getEnv\n    let tags? := do\n      let .const declName := id\n        | none\n      guard <| Linter.isDeprecated env declName\n      some #[CompletionItemTag.deprecated]\n    let item := { label := label.toString, kind? := kind, tags? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "private"
+  }
+}

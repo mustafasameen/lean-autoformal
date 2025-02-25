@@ -1,0 +1,9 @@
+{
+  "content": "Raw\u2080.getKey \u27e8m.1, m.2.size_buckets_pos\u27e9 a h\n@[inline, inherit_doc Raw.getKey!] def getKey! [Inhabited \u03b1] (m : DHashMap \u03b1 \u03b2) (a : \u03b1) : \u03b1 :=\n  Raw\u2080.getKey! \u27e8m.1, m.2.size_buckets_pos\u27e9 a\n@[inline, inherit_doc Raw.getKeyD] def getKeyD (m : DHashMap \u03b1 \u03b2) (a : \u03b1) (fallback : \u03b1) : \u03b1 :=\n  Raw\u2080.getKeyD \u27e8m.1, m.2.size_buckets_pos\u27e9 a fallback\n@[inline, inherit_doc Raw.size] def size (m : DHashMap \u03b1 \u03b2) : Nat :=\n  m.1.size\n@[inline, inherit_doc Raw.isEmpty] def isEmpty (m : DHashMap \u03b1 \u03b2) : Bool :=\n  m.1.isEmpty\n@[inline, inherit_doc Raw.keys] def keys (m : DHashMap \u03b1 \u03b2) : List \u03b1 :=\n  m.1.keys\n@[inline, inherit_doc Raw.toList] def toList (m : DHashMap \u03b1 \u03b2) :\n    List ((a : \u03b1) \u00d7 \u03b2 a) :=\n  m.1.toList\n@[inline, inherit_doc Raw.Const.toList] def Const.toList {\u03b2 : Type v}\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) : List (\u03b1 \u00d7 \u03b2) :=\n  Raw.Const.toList m.1\n@[inline, inherit_doc Raw.foldM] def foldM (f : \u03b4 \u2192 (a : \u03b1) \u2192 \u03b2 a \u2192 m \u03b4)\n    (init : \u03b4) (b : DHashMap \u03b1 \u03b2) : m \u03b4 :=\n  b.1.foldM f init",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_name": "empty"
+  }
+}

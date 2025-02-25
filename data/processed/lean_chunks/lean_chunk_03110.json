@@ -1,0 +1,9 @@
+{
+  "content": "def Promise.result := @Promise.result!\ndef Promise.resultD (promise : Promise \u03b1) (dflt : \u03b1): Task \u03b1 :=\n  promise.result?.map (sync := true) (\u00b7.getD dflt)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/Promise.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/Promise.lean",
+    "definition_name": "Promise"
+  }
+}

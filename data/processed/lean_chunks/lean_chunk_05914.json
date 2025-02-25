@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofNat_tmod (m n : Nat) : (\u2191(m % n) : Int) = tmod m n := rfl\n@[simp] theorem tmod_one (a : Int) : tmod a 1 = 0 := by\n  simp [tmod_def, Int.tdiv_one, Int.one_mul, Int.sub_self]\ntheorem tmod_eq_of_lt {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "ofNat_tmod",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def longAndHopefullyUniqueBlaBlaBoo := 2\n#check longAndHopefullyUniqueBlaB\nnamespace Foo\nprivate def longAndHopefullyUniqueBooBoo := 3\n#check longAndHopefullyUniqueBooB\nend Foo\nstructure S where\n  field1 : Nat\nprivate def S.getInc (s : S) : Nat :=\n  s.field1 + 1\ndef tst1 (s : S) : Nat :=\n  s.g\ndef tst2 (s : S) : Nat :=\n  s.",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/completionPrv.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/completionPrv.lean",
+    "definition_name": "longAndHopefullyUniqueBlaBlaBoo"
+  }
+}

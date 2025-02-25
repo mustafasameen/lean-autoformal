@@ -1,0 +1,9 @@
+{
+  "content": "class\n      else if (\u2190 isEnumType constInfo.name) then\n        return CompletionItemKind.enum\n      else\n        return CompletionItemKind.struct\n    else if constInfo.isTheorem then\n      return CompletionItemKind.event\n    else if (\u2190 isProjectionFn constInfo.name) then\n      return CompletionItemKind.field\n    else\n      let isFunction : Bool \u2190 withTheReader Core.Context ({ \u00b7 with maxHeartbeats := 0 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "else"
+  }
+}

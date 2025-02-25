@@ -1,0 +1,9 @@
+{
+  "content": "def commandCommentBody.parenthesizer := PrettyPrinter.Parenthesizer.visitToken\n@[combinator_formatter commandCommentBody] def commandCommentBody.formatter := PrettyPrinter.Formatter.visitAtom Name.anonymous\n@[command_parser] def commandComment := leading_parser \"/\n/\nsection\nopen Lean Parser Elab Tactic\ndef getTactics (s : TSyntax ``tacticSeq) : Array (TSyntax `tactic) :=\n  match s with\n  | `(tacticSeq| { $[$t]* }) => t\n  | `(tacticSeq| $[$t]*) => t\n  | _ => #[]\nelab \"seq\" s:tacticSeq : tactic => do\n  let tacs := getTactics s\n  for tac in tacs do\n    let gs \u2190 getUnsolvedGoals\n    withRef tac <| addRawTrace (goalsToMessageData gs)\n    evalTactic tac\n#guard_msgs in\nexample (h : x = y) : 0 + x = y := by\n  seq rw [h]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/frontend_meeting_2022_09_13.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/frontend_meeting_2022_09_13.lean",
+    "definition_name": "commandCommentBody"
+  }
+}

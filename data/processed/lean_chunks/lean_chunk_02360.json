@@ -1,0 +1,10 @@
+{
+  "content": "theorem f1 (a : \u03b1) (f : \u03b1 \u2192 \u03b2) : f a = f a := by\n  rfl\n#guard_msgs in\n#print f1\ntheorem f2 {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/univParamIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/univParamIssue.lean",
+    "definition_name": "f1",
+    "has_proof": true
+  }
+}

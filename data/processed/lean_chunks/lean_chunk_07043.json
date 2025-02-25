@@ -1,0 +1,9 @@
+{
+  "content": "(ss.toString ++ \".\", true)\n        else\n          (ss.toString, false)\n    let (decls : RBMap _ _ _) \u2190 getOptionDecls\n    let opts \u2190 getOptions\n    let mut items := #[]\n    for \u27e8name, decl\u27e9 in decls do\n      if containsSuccessiveCharacters partialName name.toString then\n        let textEdit :=\n          if !caps.textDocument?.any (\u00b7.completion?.any (\u00b7.completionItem?.any (\u00b7.insertReplaceSupport?.any (\u00b7)))) then\nnone\n          else if let some \u27e8start, stop\u27e9 := stx[1].getRange? then\n            let stop := if trailingDot then stop + ' ' else stop\n            let range := \u27e8ctx.fileMap.utf8PosToLspPos start, ctx.fileMap.utf8PosToLspPos stop\u27e9\n            some { newText := name.toString, insert := range, replace := range : InsertReplaceEdit }\n          else\n            none\n        items := items.push {\n            label := name.toString\n            detail? := s!\"({opts.get name decl.defValue}), {decl.descr}\"\n            documentation? := none,\nkind? := CompletionItemKind.property",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "private builtin_initialize getEqnsFnsRef : IO.Ref (List GetEqnsFn) \u2190 IO.mkRef []\ndef registerGetEqnsFn (f : GetEqnsFn) : IO Unit := do\n  unless (\u2190 initializing) do\n    throw (IO.userError \"failed to register equation getter, this kind of extension can only be registered during initialization\")\n  getEqnsFnsRef.modify (f :: \u00b7)\nbuiltin_initialize eqnsExt : EnvExtension EqnsExtState \u2190\n  registerEnvExtension (pure {})\nprivate def mkSimpleEqThm (declName : Name) (suffix := Name.mkSimple unfoldThmSuffix) : MetaM (Option Name) := do\n  if let some (.defnInfo info) := (\u2190 getEnv).find? declName then\n    lambdaTelescope (cleanupAnnotations := true) info.value fun xs body => do\n      let lhs := mkAppN (mkConst info.name <| info.levelParams.map mkLevelParam) xs\n      let type  \u2190 mkForallFVars xs (\u2190 mkEq lhs body)\n      let value \u2190 mkLambdaFVars xs (\u2190 mkEqRefl lhs)\n      let name := declName ++ suffix\n      addDecl <| Declaration.thmDecl {\n        name, type, value",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_name": "eqnThmSuffixBase",
+    "has_proof": false
+  }
+}

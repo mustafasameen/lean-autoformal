@@ -1,0 +1,9 @@
+{
+  "content": "def foo {W} := ((comp comp (swap comp)) : (X\u2192Y) \u2192 _ \u2192 W \u2192 X \u2192 Z)\ndef subs_reduce' (f : X\u2192Y\u2192Z) (g : X\u2192Y) (x : X) : comp (comp diag) foo g f x = (f x) (g x) :=\nby\n  simp\n  simp [foo, swap, comp]\ndef subs_reduce'' (f : X\u2192Y\u2192Z) (g : X\u2192Y) (x : X) : comp (comp diag) foo g f x = (f x) (g x) :=\nby\n  simp\n  admit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpExtraArgsBug.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simpExtraArgsBug.lean",
+    "definition_name": "foo"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class NonUnitalCommRing (\u03b1 : Type u) extends NonUnitalRing \u03b1, CommSemigroup \u03b1\nclass CommRing (\u03b1 : Type u) extends Ring \u03b1, CommMonoid \u03b1\ninstance (priority := 100) CommRing.toCommSemiring [s : CommRing \u03b1] : CommSemiring \u03b1 :=\n  { s with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "NonUnitalCommRing"
+  }
+}

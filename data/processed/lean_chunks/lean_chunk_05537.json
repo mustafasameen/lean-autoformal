@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem toArray_swapAt! (xs : Vector \u03b1 n) (i x) :\n    ((xs.swapAt! i x).fst, (xs.swapAt! i x).snd.toArray) =\n      ((xs.toArray.swapAt! i x).fst, (xs.toArray.swapAt! i x).snd) := rfl\n@[simp] theorem toArray_take (xs : Vector \u03b1 n) (i) : (xs.take i).toArray = xs.toArray.take i := rfl\n@[simp] theorem toArray_zipIdx (xs : Vector \u03b1 n) (k : Nat := 0) :\n    (xs.zipIdx k).toArray = xs.toArray.zipIdx k := rfl\n@[simp] theorem toArray_zipWith (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (as : Vector \u03b1 n) (bs : Vector \u03b2 n) :\n    (Vector.zipWith f as bs).toArray = Array.zipWith f as.toArray bs.toArray := rfl\n@[simp] theorem anyM_toArray [Monad m] (p : \u03b1 \u2192 m Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.anyM p = xs.anyM p := by\n  cases xs\n  simp\n@[simp] theorem allM_toArray [Monad m] (p : \u03b1 \u2192 m Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.allM p = xs.allM p := by\n  cases xs\n  simp\n@[simp] theorem any_toArray (p : \u03b1 \u2192 Bool) (xs : Vector \u03b1 n) :\n    xs.toArray.any p = xs.any p := by\n  cases xs\n  simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "toArray_append",
+    "has_proof": true
+  }
+}

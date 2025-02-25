@@ -1,0 +1,10 @@
+{
+  "content": "(hh : rs > delta * l.size) :\n    (rotateL k v l rk rv rl rr : Impl \u03b1 \u03b2).Balanced := by\n  cases k, v, l, rk, rv, rl, rr using rotateL.fun_cases <;> simp only [rotateL]\n  \u00b7 split\n    \u00b7 next h =>\n      exact balanced_singleL _ _ _ _ _ _ _ _ hl hr hlr hh h\n    \u00b7 contradiction\n  \u00b7 rw [if_neg \u2039_\u203a]\n    tree_tac\n  \u00b7 rw [if_neg \u2039_\u203a]\n    exact balanced_doubleL k v _ _ _ _ _ _ _ _ _ _ hl hr hlr hh \u2039_\u203a\ntheorem balanced_rotateR (k v ls lk lv ll lr r) (hl : (Impl.inner ls lk lv ll lr).Balanced)\n    (hr : r.Balanced) (hlr : BalanceLErasePrecond ls r.size \u2228 BalanceLErasePrecond r.size ls)\n    (hh : ls > delta * r.size) :\n    (rotateR k v lk lv ll lr r : Impl \u03b1 \u03b2).Balanced := by\n  cases k, v, lk, lv, ll, lr, r using rotateR.fun_cases <;> simp only [rotateR]\n  \u00b7 split\n    \u00b7 next h =>\n      exact balanced_singleR k v _ _ _ _ _ _ hl hr hlr hh h\n    \u00b7 contradiction\n  \u00b7 rw [if_neg \u2039_\u203a]\n    tree_tac\n  \u00b7 rw [if_neg \u2039_\u203a]\n    exact balanced_doubleR k v _ _ _ _ _ _ _ _ _ _ hl hr hlr hh \u2039_\u203a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_name": "balanced_singleL",
+    "has_proof": true
+  }
+}

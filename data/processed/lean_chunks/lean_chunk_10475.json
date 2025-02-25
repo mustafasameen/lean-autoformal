@@ -1,0 +1,10 @@
+{
+  "content": "theorem getKey!_modifyKey [EquivBEq \u03b1] [Inhabited \u03b1] {k k' : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "getKey",
+    "has_proof": false
+  }
+}

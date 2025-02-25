@@ -1,0 +1,10 @@
+{
+  "content": "| 0 => f x y\n   | v => f x v + 1\ndef pf : PNat \u2192 PNat \u2192 PNat\n | PNat.zero, y   => y\n | PNat.succ x, y =>\n   match pf x y with\n   | PNat.zero => pf x y\n   | v => PNat.succ $ pf x v\ndef g (xs : List Nat) : Nat :=\n  match xs with\n  | [] => 0\n  | y::ys =>\n    match ys with\n    | [] => 1\n    | _ => g ys + 1\ndef pg (xs : PList Nat) : True :=\n  match xs with\n  | PList.nil => True.intro\n  | y:::ys =>\n    match ys with\n    | PList.nil => True.intro\n    | _ => pg ys\ndef aux : Nat \u2192 Nat \u2192 Nat\n | 0, y   => y\n | x+1, y =>\n   match f x y with\n   | 0 => f x y\n   | v => f x v + 1\ndef paux : PNat \u2192 PNat \u2192 PNat\n | PNat.zero, y   => y\n | PNat.succ x, y =>\n   match pf x y with\n   | PNat.zero => pf x y\n   | v => PNat.succ (pf x v)\ntheorem ex (x y : Nat) : f x y = aux x y := by\n  cases x\n  rfl\n  rfl\naxiom F : Nat \u2192 Nat\ninductive is_nat : Nat -> Prop\n| Z : is_nat 0\n| S {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralRec1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structuralRec1.lean",
+    "definition_name": "fooEq",
+    "has_proof": true
+  }
+}

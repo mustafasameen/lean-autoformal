@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex5 (h\u2081 : a = f a) (h\u2082 : b + 0 = 0) : f (b + a) = a := by\n  simp_all [-h\u2081, f]\nexample : \u2200 {A : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp_all.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp_all.lean",
+    "definition_name": "ex5",
+    "has_proof": true
+  }
+}

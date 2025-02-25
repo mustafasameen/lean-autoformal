@@ -1,0 +1,9 @@
+{
+  "content": "else if kind == ``Parser.Term.doLetArrow then\n    let arg := decl[2]\n    if arg.getKind == ``Parser.Term.doIdDecl then\n      let id     := arg[0]\n      let type   := expandOptType id arg[1]\n      let doElem := arg[3]\n      match isDoExpr? doElem with\n      | some action =>\n        let action \u2190 withRef action `(($action : $((\u2190 read).m) $type))\n        ``(Bind.bind $action (fun ($id:ident : $type) => $k))\n      | none        => Macro.throwErrorAt decl \"unexpected kind of `do` declaration\"\n    else\n      Macro.throwErrorAt decl \"unexpected kind of `do` declaration\"\n  else if kind == ``Parser.Term.doHave then\n    let args := decl.getArgs\nlet args := args ++ #[mkNullNode\n  `(let_delayed $(\u2190 mkIdentFromRef j):ident $[($ps : $pTypes)]* : $((\u2190 read).m) _ := $body; $k)\ndef mkJmp (ref : Syntax) (j : Name) (args : Array Syntax) : Syntax :=\n  Syntax.mkApp (mkIdentFrom ref j) args\npartial def toTerm (c : Code) : M Syntax := do\n  let term \u2190 go c\n  if let some ref := c.getRef? then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "DoIfView"
+  }
+}

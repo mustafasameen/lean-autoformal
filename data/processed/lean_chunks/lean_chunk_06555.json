@@ -1,0 +1,9 @@
+{
+  "content": "structure FileWorker where\n    doc                : DocumentMeta\n    proc               : Process.Child workerCfg\n    exitCode           : Std.Mutex (Option UInt32)\n    commTask           : ServerTask WorkerEvent\n    state              : WorkerState\n    pendingRequestsRef : IO.Ref PendingRequestMap\n  namespace FileWorker\n  def stdin (fw : FileWorker) : FS.Stream :=\n    FS.Stream.ofHandle fw.proc.stdin\n  def stdout (fw : FileWorker) : FS.Stream :=\n    FS.Stream.ofHandle fw.proc.stdout\n  def erasePendingRequest (fw : FileWorker) (id : RequestID) : IO Unit :=\n    fw.pendingRequestsRef.modify fun pendingRequests => pendingRequests.erase id\n  def errorPendingRequests (fw : FileWorker) (hError : FS.Stream) (code : ErrorCode) (msg : String)\n      : IO Unit := do\n    let pendingRequests \u2190 fw.pendingRequestsRef.modifyGet\n      fun pendingRequests => (pendingRequests, RBMap.empty)\n    for \u27e8id, _\u27e9 in pendingRequests do\n      hError.writeLspResponseError { id := id, code := code, message := msg }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_name": "FileWorker"
+  }
+}

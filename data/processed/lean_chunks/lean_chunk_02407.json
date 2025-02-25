@@ -1,0 +1,10 @@
+{
+  "content": "def foo := 42\nlocal infix:50 \" \u227a \" => LE.le\n#check 1 \u227a 2\nlocal macro \"my_refl\" : tactic =>\n  `(tactic| rfl)\ndef f (x y : Nat) (_h : x = y := by my_refl) := x\ntheorem simple : 10 = 10 := by decide",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/pkg/misc/Misc/Foo.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/pkg/misc/Misc/Foo.lean",
+    "definition_name": "foo",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "private def mkInhabitedInstance (declName : Name) : CommandElabM Unit := do\n  let indVal \u2190 getConstInfoInduct declName\n  let doIt (addHypotheses : Bool) : CommandElabM Bool := do\n    for ctorName in indVal.ctors do\n      if (\u2190 mkInhabitedInstanceUsing declName ctorName addHypotheses) then\n        return true\n    return false\n  unless (\u2190 doIt false <||> doIt true) do\n    throwError \"failed to generate 'Inhabited' instance for '{declName}'\"\ndef mkInhabitedInstanceHandler (declNames : Array Name) : CommandElabM Bool := do\n  if (\u2190 declNames.allM isInductive) then\n    declNames.forM mkInhabitedInstance\n    return true\n  else\n    return false\nbuiltin_initialize\n  registerDerivingHandler `Inhabited mkInhabitedInstanceHandler\n  registerTraceClass `Elab.Deriving.inhabited\nend Lean.Elab",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

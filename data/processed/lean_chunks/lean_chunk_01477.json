@@ -1,0 +1,9 @@
+{
+  "content": "class InfSet (\u03b1 : Type _) where\n  inf\u209b : Set \u03b1 \u2192 \u03b1\nclass SupSet (\u03b1 : Type _) where\n  sup\u209b : Set \u03b1 \u2192 \u03b1\nexport SupSet (sup\u209b)\nexport InfSet (inf\u209b)\nopen Set\ndef sup\u1d62 {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_name": "InfSet"
+  }
+}

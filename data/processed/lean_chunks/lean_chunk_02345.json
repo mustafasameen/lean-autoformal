@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo (\u03b2 : Type u) : Sort v \u2192 Type (max u v)\n  | mk {\u03b1 : Sort v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/sizeof4.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/sizeof4.lean",
+    "definition_name": "Foo"
+  }
+}

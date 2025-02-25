@@ -1,0 +1,9 @@
+{
+  "content": "inductive SemanticTokenType where\n  | keyword\n  | variable\n  | property\n  | function\n  | namespace\n  | type\n  | class\n  | enum\n  | interface\n  | struct\n  | typeParameter\n  | parameter\n  | enumMember\n  | event\n  | method\n  | macro\n  | modifier\n  | comment\n  | string\n  | number\n  | regexp\n  | operator\n  | decorator\n  | leanSorryLike\n  deriving ToJson, FromJson, BEq, Hashable\ndef SemanticTokenType.names : Array String :=\n  #[\"keyword\", \"variable\", \"property\", \"function\", \"namespace\", \"type\", \"class\",\n    \"enum\", \"interface\", \"struct\", \"typeParameter\", \"parameter\", \"enumMember\",\n    \"event\", \"method\", \"macro\", \"modifier\", \"comment\", \"string\", \"number\",\n    \"regexp\", \"operator\", \"decorator\", \"leanSorryLike\"]\ndef SemanticTokenType.toNat (tokenType : SemanticTokenType) : Nat :=\n  tokenType.toCtorIdx\nexample {v : SemanticTokenType}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "SemanticTokenType"
+  }
+}

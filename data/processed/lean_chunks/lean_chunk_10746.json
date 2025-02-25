@@ -1,0 +1,9 @@
+{
+  "content": "return some {home}\n  return none\ndef findInstall? : BaseIO (Option ElanInstall \u00d7 Option LeanInstall \u00d7 Option LakeInstall) := do\n  let elan? \u2190 findElanInstall?\n  if let some sysroot \u2190 findLakeLeanJointHome? then\n    if (\u2190 IO.getEnv \"LAKE_OVERRIDE_LEAN\").bind envToBool? |>.getD false then\n      let lake := LakeInstall.ofLean {sysroot}\n      return (elan?, \u2190 findLeanInstall?, lake)\n    else\n      let lean \u2190 LeanInstall.get sysroot (collocated := true)\n      let lake := LakeInstall.ofLean lean\n      return (elan?, lean, lake)\n  else\n    return (elan?, \u2190 findLeanInstall?, \u2190 findLakeInstall?)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_name": "findLeanSysroot"
+  }
+}

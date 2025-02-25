@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofFin_ofNat (n : Nat) :\n    ofFin (no_index (OfNat.ofNat n : Fin (2^w))) = OfNat.ofNat n := by\n  simp only [OfNat.ofNat, Fin.ofNat', BitVec.ofNat, Nat.and_pow_two_sub_one_eq_mod]\ntheorem eq_of_toFin_eq : \u2200 {x y : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toNat_zero_length",
+    "has_proof": true
+  }
+}

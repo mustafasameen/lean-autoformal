@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_lt_asymm {x y : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_name": "le_lt_asymm",
+    "has_proof": false
+  }
+}

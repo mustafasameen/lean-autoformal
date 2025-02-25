@@ -1,0 +1,10 @@
+{
+  "content": "theorem erase_filter [LawfulBEq \u03b1] (f : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    (filter f l).erase a = filter f (l.erase a) := by\n  induction l with\n  | nil => rfl\n  | cons x xs ih =>\n    by_cases h : a = x\n    \u00b7 rw [erase_cons]\n      simp only [h, beq_self_eq_true, \u2193reduceIte]\n      rw [filter_cons]\n      split\n      \u00b7 rw [erase_cons_head]\n      \u00b7 rw [erase_of_not_mem]\n        simp_all [mem_filter]\n    \u00b7 rw [erase_cons_tail (by simpa using Ne.symm h), filter_cons, filter_cons]\n      split\n      \u00b7 rw [erase_cons_tail (by simpa using Ne.symm h), ih]\n      \u00b7 rw [ih]\ntheorem erase_append_left [LawfulBEq \u03b1] {l\u2081 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Erase.lean",
+    "definition_name": "erase_filter",
+    "has_proof": true
+  }
+}

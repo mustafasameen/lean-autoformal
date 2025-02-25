@@ -1,0 +1,10 @@
+{
+  "content": "theorem contains_eq_any_beq [BEq \u03b1] (xs : Array \u03b1) (a : \u03b1) : xs.contains a = xs.any (a == \u00b7) := by\n  rcases xs with \u27e8xs\u27e9\n  simp [List.contains_eq_any_beq]\ntheorem contains_iff_exists_mem_beq [BEq \u03b1] {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "contains_eq_any_beq",
+    "has_proof": true
+  }
+}

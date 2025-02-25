@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 simpa using w\u2082\n        else\n          right\n          have hba : lt b a :=\n            Decidable.byContradiction fun hba => eq (lt_antisymm _ _ (by simpa using hba) hab)\n          exact \u27e80, by simp, by simp, by simpa\u27e9\n      \u00b7 rintro (\u27e8eq, h\u27e9 | \u27e8i, h\u2081, h\u2082, w\u2081, w\u2082\u27e9)\n        \u00b7 exact \u27e8lt_irrefl _ _ (BEq.symm eq), fun _ => .inl h\u27e9\n        \u00b7 cases i with\n          | zero =>\n            simp at w\u2082\n            refine \u27e8lt_asymm _ _ w\u2082, ?_\u27e9\n            intro eq\n            exfalso\n            simp [lt_irrefl _ _ (BEq.symm eq)] at w\u2082\n          | succ i =>\n            refine \u27e8lt_irrefl _ _ (by simpa using w\u2081 0 (by simp)), ?_\u27e9\n            refine fun _ => .inr \u27e8i, by simpa using h\u2081, by simpa using h\u2082, ?_, ?_\u27e9\n            \u00b7 intro j hj\n              simpa using w\u2081 (j + 1) (by simpa)\n            \u00b7 simpa using w\u2082\nprotected theorem lt_iff_exists [DecidableEq \u03b1] [LT \u03b1] [DecidableLT \u03b1] {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_name": "lex_eq_true_iff_lex",
+    "has_proof": true
+  }
+}

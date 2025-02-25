@@ -1,0 +1,9 @@
+{
+  "content": "structure ConstantFunction (\u03b1 \u03b2 : Type) :=\n(f : \u03b1 \u2192 \u03b2)\n(h : \u2200 a\u2081 a\u2082, f a\u2081 = f a\u2082)\ninstance constFunCoe {\u03b1 \u03b2 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/eagerCoeExpansion.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/eagerCoeExpansion.lean",
+    "definition_name": "ConstantFunction"
+  }
+}

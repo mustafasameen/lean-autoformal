@@ -1,0 +1,9 @@
+{
+  "content": "inductive types, and type-constructor-based reasoning is not possible. \\\n            This is a strong limitation. According to Lean's underlying theory, the only provable distinguishing \\\n            feature of types is their cardinalities.\"\n        Meta.throwTacticEx tacticName mvarId m!\"major premise type is not an inductive type{indentExpr majorType}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Induction.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Induction.lean",
+    "definition_name": "types"
+  }
+}

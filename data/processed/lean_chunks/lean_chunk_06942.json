@@ -1,0 +1,9 @@
+{
+  "content": "let binders    := header.binders\n  Term.elabBinders binders fun _ => do\n  let type \u2190 Term.elabTerm header.targetType none\n  let mut body \u2190 mkFromJsonBody ctx type\n  if ctx.usePartial || indval.isRec then\n    let letDecls \u2190 mkLocalInstanceLetDecls ctx ``FromJson header.argNames\n    body \u2190 mkLet letDecls body\n    `(private partial def $(mkIdent auxFunName):ident $binders:bracketedBinder* : Except String $(\u2190 mkInductiveApp ctx.typeInfos[i]! header.argNames) := $body:term)\n  else\n    `(private def $(mkIdent auxFunName):ident $binders:bracketedBinder* : Except String $(\u2190 mkInductiveApp ctx.typeInfos[i]! header.argNames) := $body:term)\ndef mkToJsonMutualBlock (ctx : Context) : TermElabM Command := do\n  let mut auxDefs := #[]\n  for i in [:ctx.typeInfos.size] do\n    auxDefs := auxDefs.push (\u2190 mkToJsonAuxFunction ctx i)\n  `(mutual\n     $auxDefs:command*\n    end)\ndef mkFromJsonMutualBlock (ctx : Context) : TermElabM Command := do\n  let mut auxDefs := #[]\n  for i in [:ctx.typeInfos.size] do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_name": "constructor"
+  }
+}

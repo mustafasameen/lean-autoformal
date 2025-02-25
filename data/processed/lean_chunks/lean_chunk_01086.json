@@ -1,0 +1,9 @@
+{
+  "content": "instance addZeroClass [\u2200 i, AddZeroClass <| f i] : AddZeroClass (\u2200 i : I, f i) :=\n  { zero := (0 : \u2200 i, f i)\n    add := (\u00b7 + \u00b7)\n    zero_add := sorry\n    add_zero := sorry\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "addZeroClass"
+  }
+}

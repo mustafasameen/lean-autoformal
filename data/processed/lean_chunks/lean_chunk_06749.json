@@ -1,0 +1,9 @@
+{
+  "content": "let hbThreshold := (\u2190 getRemainingHeartbeats) * leavePercent / 100\n  pure $\n    if maxHB = 0 then\n      pure false\n    else do\n      return (\u2190 getRemainingHeartbeats) < hbThreshold\nprivate def librarySearchEmoji : Except \u03b5 (Option \u03b1) \u2192 String\n| .error _ => bombEmoji\n| .ok (some _) => crossEmoji\n| .ok none => checkEmoji\ndef interleaveWith {\u03b1 \u03b2 \u03b3} (f : \u03b1 \u2192 \u03b3) (x : Array \u03b1) (g : \u03b2 \u2192 \u03b3) (y : Array \u03b2) : Array \u03b3 :=\n    Id.run do\n  let mut res := Array.mkEmpty (x.size + y.size)\n  let n := min x.size y.size\n  for h : i in [0:n] do\n    have p : i < min x.size y.size := h.2.1\n    have q : i < x.size := Nat.le_trans p (Nat.min_le_left ..)\n    have r : i < y.size := Nat.le_trans p (Nat.min_le_right ..)\n    res := res.push (f x[i])\n    res := res.push (g y[i])\n  let last :=\n        if x.size > n then\n          (x.extract n x.size).map f\n        else\n          (y.extract n y.size).map g\n  pure $ res ++ last\nprivate builtin_initialize abortSpeculationId : InternalExceptionId \u2190",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_name": "CandidateFinder"
+  }
+}

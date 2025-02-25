@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_perm_nil_cons (x : \u03b1) (l : List \u03b1) : \u00ac[] ~ x :: l := (nomatch \u00b7.symm.eq_nil)\ntheorem not_perm_cons_nil {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_name": "not_perm_nil_cons",
+    "has_proof": false
+  }
+}

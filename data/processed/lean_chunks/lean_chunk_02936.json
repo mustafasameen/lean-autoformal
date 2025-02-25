@@ -1,0 +1,10 @@
+{
+  "content": "def TagDeclarationExtension := SimplePersistentEnvExtension Name NameSet\ndef mkTagDeclarationExtension (name : Name := by exact decl_name%) : IO TagDeclarationExtension :=\n  registerSimplePersistentEnvExtension {\n    name          := name,\n    addImportedFn := fun _ => {},\n    addEntryFn    := fun s n => s.insert n,\n    toArrayFn     := fun es => es.toArray.qsort Name.quickLt\n  }\nnamespace TagDeclarationExtension\ninstance : Inhabited TagDeclarationExtension :=\n  inferInstanceAs (Inhabited (SimplePersistentEnvExtension Name NameSet))\ndef tag (ext : TagDeclarationExtension) (env : Environment) (declName : Name) : Environment :=\n  have : Inhabited Environment := \u27e8env\u27e9\nassert! env.getModuleIdxFor? declName |>.isNone\n  ext.addEntry env declName\ndef isTagged (ext : TagDeclarationExtension) (env : Environment) (declName : Name) : Bool :=\n  match env.getModuleIdxFor? declName with\n  | some modIdx => (ext.getModuleEntries env modIdx).binSearchContains declName Name.quickLt",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

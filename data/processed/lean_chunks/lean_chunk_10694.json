@@ -1,0 +1,9 @@
+{
+  "content": "def hello := \"world\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/llvm-bitcode-gen/LlvmBitcodeGen/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/llvm-bitcode-gen/LlvmBitcodeGen/Basic.lean",
+    "definition_name": "hello"
+  }
+}

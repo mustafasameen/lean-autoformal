@@ -1,0 +1,9 @@
+{
+  "content": "| Alt.default b => resetNestedJPParams b\n  | e => do unless e.isTerminal do resetNestedJPParams e.body\npartial def interpFnBody : FnBody \u2192 M Unit\n  | FnBody.vdecl x _ e b => do\n    let v \u2190 interpExpr e\n    updateVarAssignment x v\n    interpFnBody b\n  | FnBody.jdecl j ys v b =>\n    withReader (fun ctx => { ctx with lctx := ctx.lctx.addJP j ys v }) do\n      interpFnBody b\n  | FnBody.case _ x _ alts => do\n    let v \u2190 findVarValue x\n    alts.forM fun alt => do\n      match alt with\n      | Alt.ctor i b  => if containsCtor v i then interpFnBody b\n      | Alt.default b => interpFnBody b\n  | FnBody.ret x => do\n    let v \u2190 findArgValue x\n    updateCurrFnSummary v\n  | FnBody.jmp j xs => do\n    let ctx \u2190 read\n    let ys := (ctx.lctx.getJPParams j).get!\n    let b  := (ctx.lctx.getJPBody j).get!\n    let updated \u2190 updateJPParamsAssignment ys xs\n    if updated then\n      resetNestedJPParams b\n      interpFnBody b\n  | e => do\n    unless e.isTerminal do\n      interpFnBody e.body",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_name": "truncateMaxDepth"
+  }
+}

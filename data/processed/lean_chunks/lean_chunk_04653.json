@@ -1,0 +1,10 @@
+{
+  "content": "theorem dvd_of_eq (ctx : Context) (x : Var) (p\u2081 : Poly) (d\u2082 : Int) (p\u2082 : Poly)\n    : dvd_of_eq_cert x p\u2081 d\u2082 p\u2082 \u2192 p\u2081.denote' ctx = 0 \u2192 d\u2082 \u2223 p\u2082.denote' ctx := by\n  simp [dvd_of_eq_cert]\n  intro h\u2081 h\u2082\n  have h := eq_add_coeff_insert ctx p\u2081 x\n  rw [\u2190 h\u2082] at h\n  rw [h, h\u2081]\n  intro h\u2083\n  apply abs_dvd\n  apply dvd_of_eq' h\u2083\nprivate theorem eq_dvd_subst' {a x p d b q : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "dvd_of_eq",
+    "has_proof": true
+  }
+}

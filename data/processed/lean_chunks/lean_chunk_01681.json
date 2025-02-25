@@ -1,0 +1,9 @@
+{
+  "content": "def a1 := 100 + 100\ndef a2 := 200\ndef a3 := 20\n#guard_msgs in\n#eval checkDefEq `a1 `a3\ndef v1 := 100000000000 + 100000000000\ndef v2 := 200000000000\ndef v3 := 200000000001\ndef v4 : Bool := 20000000000 > 200000000001\ndef v5 := 100000000000 - 100000000000\ndef c1 := reduceNat v1\ndef c2 := reduceNat v2\ndef c3 := reduceNat v3\ndef c4 := reduceBool v4\ndef c5 := reduceNat v5\n#guard_msgs in\n#eval checkDefEq `c1 `c3\n#guard_msgs in\n#eval checkDefEq `Nat.zero `c5",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/kernel1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/kernel1.lean",
+    "definition_name": "a1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "(m : DHashMap \u03b1 (fun _ => \u03b2)) (a : \u03b1) (fallback : \u03b2) : \u03b2 :=\n  Raw\u2080.Const.getD \u27e8m.1, m.2.size_buckets_pos\u27e9 a fallback\n@[inline, inherit_doc Raw.Const.get!] def Const.get! [Inhabited \u03b2]\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) (a : \u03b1) : \u03b2 :=\n  Raw\u2080.Const.get! \u27e8m.1, m.2.size_buckets_pos\u27e9 a\n@[inline, inherit_doc Raw.Const.getThenInsertIfNew?] def Const.getThenInsertIfNew?\n    (m : DHashMap \u03b1 (fun _ => \u03b2)) (a : \u03b1) (b : \u03b2) :\n    Option \u03b2 \u00d7 DHashMap \u03b1 (fun _ => \u03b2) :=\n  let m' := Raw\u2080.Const.getThenInsertIfNew? \u27e8m.1, m.2.size_buckets_pos\u27e9 a b\n  \u27e8m'.1, \u27e8m'.2.1, .constGetThenInsertIfNew?\u2080 m.2\u27e9\u27e9\nend\n@[inline, inherit_doc Raw.getKey?] def getKey? (m : DHashMap \u03b1 \u03b2) (a : \u03b1) : Option \u03b1 :=\n  Raw\u2080.getKey? \u27e8m.1, m.2.size_buckets_pos\u27e9 a\n@[inline, inherit_doc Raw.getKey] def getKey (m : DHashMap \u03b1 \u03b2) (a : \u03b1) (h : a \u2208 m) : \u03b1 :=\n  Raw\u2080.getKey \u27e8m.1, m.2.size_buckets_pos\u27e9 a h\n@[inline, inherit_doc Raw.getKey!] def getKey! [Inhabited \u03b1] (m : DHashMap \u03b1 \u03b2) (a : \u03b1) : \u03b1 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Basic.lean",
+    "definition_name": "empty"
+  }
+}

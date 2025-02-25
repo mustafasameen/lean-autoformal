@@ -1,0 +1,9 @@
+{
+  "content": "def f := 3\n@[implemented_by f]\ndef g := 4\ntest_extern g",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/test_extern.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/test_extern.lean",
+    "definition_name": "f"
+  }
+}

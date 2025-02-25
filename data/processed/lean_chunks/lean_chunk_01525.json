@@ -1,0 +1,10 @@
+{
+  "content": "theorem kron_right_mul (\u03b1 : Type) [foo : Foo \u03b1]  (i j : \u03b1) (x : Nat) : x * kron i j = kron i j * x := sorry\nexample {i j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/kronRWIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/kronRWIssue.lean",
+    "definition_name": "kron_right_mul",
+    "has_proof": false
+  }
+}

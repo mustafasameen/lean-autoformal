@@ -1,0 +1,10 @@
+{
+  "content": "theorem subset_adjoin : S \u2286 adjoin F S := sorry\ninstance (F : Subfield E) : Algebra F E := inferInstanceAs (Algebra F.toSubsemiring E)\ntheorem subset_adjoin_of_subset_left {F : Subfield E}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "subset_adjoin",
+    "has_proof": false
+  }
+}

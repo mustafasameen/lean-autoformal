@@ -1,0 +1,10 @@
+{
+  "content": "theorem shiftLeft_xor_distrib (x y : BitVec w) (n : Nat) :\n    (x ^^^ y) <<< n = (x <<< n) ^^^ (y <<< n) := by\n  ext i h\n  simp only [getElem_shiftLeft, h, decide_true, Bool.true_and, getLsbD_xor]\n  by_cases h' : i < n <;> simp [h']\ntheorem shiftLeft_and_distrib (x y : BitVec w) (n : Nat) :\n    (x &&& y) <<< n = (x <<< n) &&& (y <<< n) := by\n  ext i h\n  simp only [getElem_shiftLeft, h, decide_true, Bool.true_and, getLsbD_and]\n  by_cases h' : i < n <;> simp [h']\ntheorem shiftLeft_or_distrib (x y : BitVec w) (n : Nat) :\n    (x ||| y) <<< n = (x <<< n) ||| (y <<< n) := by\n  ext i h\n  simp only [getElem_shiftLeft, h, decide_true, Bool.true_and, getLsbD_or]\n  by_cases h' : i < n <;> simp [h']\n@[simp] theorem getMsbD_shiftLeft (x : BitVec w) (i) :\n    (x <<< i).getMsbD k = x.getMsbD (k + i) := by\n  simp only [getMsbD, getLsbD_shiftLeft]\n  by_cases h : w = 0\n  \u00b7 subst h; simp\n  have t : w - 1 - k < w := by omega\n  simp only [t]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "shiftLeft_xor_distrib",
+    "has_proof": true
+  }
+}

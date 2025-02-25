@@ -1,0 +1,10 @@
+{
+  "content": "theorem six_eq_seven : 6 = 7 := test_sorry\n#guard_msgs(drop info) in\nexample : \u2200 (x : Nat), x \u2264 6 := by\n  rw?\n  guard_target = \u2200 (x : Nat), x \u2264 7\n  exact test_sorry\n#guard_msgs(drop info) in\nexample : \u2200 (x : Nat) (_w : x \u2264 6), x \u2264 8 := by\n  rw?\n  guard_target = \u2200 (x : Nat) (_w : x \u2264 7), x \u2264 8\n  exact test_sorry\n#guard_msgs(drop info) in\nexample (n : Nat) : let y := 3; n + y = 3 + n := by\n  rw?\naxiom \u03b1 : Type\naxiom f : \u03b1 \u2192 \u03b1\naxiom z : \u03b1\naxiom f_eq (n) : f n = z\n#guard_msgs(drop info) in\ntheorem test : f n = f m := by\nfail_if_success rw? [-f_eq]\n  rw?\n  rw [f_eq]\n#guard_msgs(drop info) in\nexample (h : 1 = 2) : 2 = 1 := by\n  rw?\ndef zero : Nat := 0\n#guard_msgs(drop info) in\nexample : zero = 0 := by\n  rw?\n  exact test_sorry\n#guard_msgs in\nexample {P : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rewrites.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rewrites.lean",
+    "definition_name": "six_eq_seven",
+    "has_proof": true
+  }
+}

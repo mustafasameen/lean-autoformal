@@ -1,0 +1,9 @@
+{
+  "content": "let rec copy (i : Nat) (infos : Array StructFieldInfo) (fieldMap : FieldMap) (expandedStructNames : NameSet) : TermElabM \u03b1 := do\n      if h : i < fieldNames.size then\n        let fieldName := fieldNames[i]\n        let fieldType \u2190 getFieldType infos parentType fieldName\n        match findFieldInfo? infos fieldName with\n        | some existingFieldInfo =>\n          let existingFieldType \u2190 inferType existingFieldInfo.fvar\n          unless (\u2190 isDefEq fieldType existingFieldType) do\n            throwError \"parent field type mismatch, field '{fieldName}' from parent '{.ofConstName parentStructName}' {\u2190 mkHasTypeButIsExpectedMsg fieldType existingFieldType}\"\n  let lctx :=\n    params.foldl (init := lctx) fun (lctx : LocalContext) (p : Expr) =>\n      if p.isFVar then\n        lctx.setBinderInfo p.fvarId! BinderInfo.implicit\n      else\n        lctx\n  let lctx :=\n    fieldInfos.foldl (init := lctx) fun (lctx : LocalContext) (info : StructFieldInfo) =>\nif info.isFromSubobject then lctx",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

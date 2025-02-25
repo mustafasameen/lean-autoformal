@@ -1,0 +1,10 @@
+{
+  "content": "theorem nil_merge (ys : List \u03b1) : merge [] ys le = ys := by simp [merge]\n@[simp] theorem merge_right (xs : List \u03b1) : merge xs [] le = xs := by\n  induction xs with\n  | nil => simp [merge]\n  | cons x xs ih => simp [merge, ih]\ndef MergeSort.Internal.splitInTwo (l : { l : List \u03b1 // l.length = n }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Basic.lean",
+    "definition_name": "nil_merge",
+    "has_proof": true
+  }
+}

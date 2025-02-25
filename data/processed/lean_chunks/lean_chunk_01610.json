@@ -1,0 +1,9 @@
+{
+  "content": "inductive Bar : Finset Nat \u2192 Type\n| insert : Bar (Finset.insert n \u0393)\n| empty  : Bar \u0393\nexample {\u0393: Finset Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1361b.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1361b.lean",
+    "definition_name": "Bar"
+  }
+}

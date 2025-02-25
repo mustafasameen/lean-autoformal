@@ -1,0 +1,10 @@
+{
+  "content": "protected theorem zero_lt_two : 0 < 2 := Nat.zero_lt_succ _\nprotected theorem one_lt_two : 1 < 2 := Nat.succ_lt_succ Nat.zero_lt_one\nprotected theorem eq_zero_of_not_pos (h : \u00ac0 < n) : n = 0 :=\n  Nat.eq_zero_of_le_zero (Nat.not_lt.1 h)\ntheorem ctor_eq_zero : Nat.zero = 0 :=\n  rfl\nprotected theorem one_ne_zero : 1 \u2260 (0 : Nat) :=\n  fun h => Nat.noConfusion h\nprotected theorem zero_ne_one : 0 \u2260 (1 : Nat) :=\n  fun h => Nat.noConfusion h\ntheorem succ_ne_zero (n : Nat) : succ n \u2260 0 := by simp\ninstance instNeZeroSucc {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "lt_succ_iff",
+    "has_proof": true
+  }
+}

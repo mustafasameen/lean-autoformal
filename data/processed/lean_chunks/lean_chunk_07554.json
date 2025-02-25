@@ -1,0 +1,9 @@
+{
+  "content": "let name := transition.localTimeType.identifier\n  let offset := transition.localTimeType.gmtOffset\n  let abbreviation := transition.localTimeType.abbreviation\n  TimeZone.mk offset name abbreviation transition.localTimeType.isDst\ndef apply (timestamp : Timestamp) (transition : Transition) : Timestamp :=\n  let offsetInSeconds := transition.localTimeType.gmtOffset.second |>.add transition.localTimeType.gmtOffset.second\n  timestamp.addSeconds offsetInSeconds\ndef findTransitionIndexForTimestamp (transitions : Array Transition) (timestamp : Timestamp) : Option Nat :=\n  let value := timestamp.toSecondsSinceUnixEpoch\n  transitions.findIdx? (fun t => t.time.val > value.val)\ndef findTransitionForTimestamp (transitions : Array Transition) (timestamp : Timestamp) : Option Transition :=\n  if let some idx := findTransitionIndexForTimestamp transitions timestamp\n    then transitions[idx - 1]?\n    else transitions.back?",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/ZoneRules.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/ZoneRules.lean",
+    "definition_name": "UTLocal"
+  }
+}

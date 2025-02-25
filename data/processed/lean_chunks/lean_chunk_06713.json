@@ -1,0 +1,9 @@
+{
+  "content": "min (x + 1) fmap.getLastLine\npartial def ofString (s : String) : FileMap :=\n  let rec loop (i : String.Pos) (line : Nat) (ps : Array String.Pos) : FileMap :=\n    if s.atEnd i then { source := s, positions := ps.push i }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Position.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Position.lean",
+    "definition_name": "Position"
+  }
+}

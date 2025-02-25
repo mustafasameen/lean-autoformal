@@ -1,0 +1,10 @@
+{
+  "content": "zipWithAux as.toArray bs.toArray f (i + 1) xs = zipWithAux (as.drop (i+1)).toArray (bs.drop (i+1)).toArray f 0 xs := by\n  induction i generalizing as bs xs with\n  | zero => simp [zipWithAux_toArray_succ]\n  | succ i ih =>\n    rw [zipWithAux_toArray_succ, ih]\n    simp\ntheorem zipWithAux_toArray_zero (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (as : List \u03b1) (bs : List \u03b2) (xs : Array \u03b3) :\n    zipWithAux as.toArray bs.toArray f 0 xs = xs ++ (List.zipWith f as bs).toArray := by\n  rw [Array.zipWithAux]\n  match as, bs with\n  | [], _ => simp\n  | _, [] => simp\n  | a :: as, b :: bs =>\n    simp [zipWith_cons_cons, zipWithAux_toArray_succ', zipWithAux_toArray_zero, push_append_toArray]\n@[simp] theorem zipWith_toArray (as : List \u03b1) (bs : List \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) :\n    Array.zipWith f as.toArray bs.toArray = (List.zipWith f as bs).toArray := by\n  rw [Array.zipWith]\n  simp [zipWithAux_toArray_zero]\n@[simp] theorem zip_toArray (as : List \u03b1) (bs : List \u03b2) :\n    Array.zip as.toArray bs.toArray = (List.zip as bs).toArray := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

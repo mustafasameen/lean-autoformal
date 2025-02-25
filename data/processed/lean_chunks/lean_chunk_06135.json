@@ -1,0 +1,9 @@
+{
+  "content": "structure SubexprInfo where\n  subexprPos : Lean.SubExpr.Pos\n  diffStatus? : Option DiffTag := none\n  deriving RpcEncodable\npartial def tagCodeInfos (ctx : Elab.ContextInfo) (infos : SubExpr.PosMap Elab.Info) (tt : TaggedText (Nat \u00d7 Nat))\n    : CodeWithInfos :=\n  go tt\nwhere\n  go (tt : TaggedText (Nat \u00d7 Nat)) :=\n    tt.rewrite fun (n, _) subTt =>\n      match infos.find? n with\n      | none   => go subTt\n      | some i =>\n        let t : SubexprInfo := {\n          info := WithRpcRef.mk { ctx, info := i, children := .empty }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveCode.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveCode.lean",
+    "definition_name": "SubexprInfo"
+  }
+}

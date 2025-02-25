@@ -1,0 +1,9 @@
+{
+  "content": "structure\n  registerTraceClass `Elab.structure.resolutionOrder\nregister_builtin_option structureDiamondWarning : Bool := {\n  defValue := false\n  descr    := \"if true, enable warnings when a structure has diamond inheritance\"\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "registerTraceClass"
+  }
+}

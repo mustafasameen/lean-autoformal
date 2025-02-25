@@ -1,0 +1,9 @@
+{
+  "content": "structure GetTypeParams where\n  pos : Lsp.Position\n  deriving FromJson, ToJson\nopen Server RequestM in\n@[server_rpc_method]\ndef getType (params : GetTypeParams) : RequestM (RequestTask CodeWithInfos) :=\n  withWaitFindSnapAtPos params.pos fun snap => do\n    runTermElabM snap do\n      let name \u2190 resolveGlobalConstNoOverloadCore params.name\n      let c \u2190 try getConstInfo name\n        catch _ => throwThe RequestError \u27e8.invalidParams, s!\"no constant named '{name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/widgets.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/widgets.lean",
+    "definition_name": "GetTypeParams"
+  }
+}

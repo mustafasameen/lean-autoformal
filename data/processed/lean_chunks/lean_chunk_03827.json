@@ -1,0 +1,10 @@
+{
+  "content": "| nil => simp only [foldlM_nil, flatMapM.loop, map_pure]\n  | cons x xs ih =>\n    simp only [foldlM_cons, bind_map_left, flatMapM.loop, _root_.map_bind]\n    congr; funext xs\n    conv => lhs; rw [Array.toArray_append, \u2190 flatten_concat, \u2190 reverse_cons]\n    exact ih _\nend List\nnamespace Array\n@[congr] theorem filterM_congr [Monad m] {as bs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_name": "forM_append",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkGate_le_size (aig : AIG \u03b1) (input : GateInput aig) :\n    aig.decls.size \u2264 (aig.mkGate input).aig.decls.size := by\n  simp +arith [mkGate]\ntheorem mkGate_decl_eq idx (aig : AIG \u03b1) (input : GateInput aig) {h : idx < aig.decls.size}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_name": "mkGate_le_size",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "apply le_csup (chain_conj _ _ hchain) \u27e8hcy, hPy\u27e9\n  \u00b7 apply csup_le (chain_conj _ _ hchain)\n    intro x \u27e8hcx, hPx\u27e9\n    apply le_csup hchain hcx\ntheorem admissible_or (P Q : \u03b1 \u2192 Prop)\n  (hadm\u2081 : admissible P) (hadm\u2082 : admissible Q) : admissible (fun x => P x \u2228 Q x) := by\n  intro c hchain h\n  have : (\u2200 x, c x \u2192 \u2203 y, c y \u2227 x \u2291 y \u2227 P y) \u2228 (\u2200 x, c x \u2192 \u2203 y, c y \u2227 x \u2291 y \u2227 Q y) := by\n    open Classical in\n    apply Decidable.or_iff_not_imp_left.mpr\n    intro h'\n    simp only [not_forall, not_imp, not_exists, not_and] at h'\n    obtain \u27e8x, hcx, hx\u27e9 := h'\n    intro y hcy\n    cases hchain x y hcx hcy  with\n    | inl hxy =>\n      refine \u27e8y, hcy, rel_refl, ?_\u27e9\n      cases h y hcy with\n      | inl hPy => exfalso; apply hx y hcy hxy hPy\n      | inr hQy => assumption\n    | inr hyx =>\n      refine \u27e8x, hcx, hyx , ?_\u27e9\n      cases h x hcx with\n      | inl hPx => exfalso; apply hx x hcx rel_refl hPx\n      | inr hQx => assumption\n  cases this with\n  | inl hP =>\n    left",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "admissible_const_true",
+    "has_proof": true
+  }
+}

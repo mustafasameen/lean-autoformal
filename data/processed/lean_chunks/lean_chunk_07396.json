@@ -1,0 +1,10 @@
+{
+  "content": "(heq : performRupAdd f c rupHints = (f', true))\n    (restPrf : List (Action \u03b2 \u03b1)) (restPrfWellFormed : \u2200 (a : Action \u03b2 \u03b1), a \u2208 restPrf \u2192 WellFormedAction a)\n    (ih : \u2200 (f : \u03c3),\n      ReadyForRupAdd f \u2192 ReadyForRatAdd f \u2192 (\u2200 (a : Action \u03b2 \u03b1), a \u2208 restPrf \u2192 WellFormedAction a) \u2192\n      lratChecker f restPrf = success \u2192 Unsatisfiable \u03b1 f)\n    (f'_success : lratChecker f' restPrf = success) :\n    Unsatisfiable \u03b1 f := by\n  have f'_def := rupAdd_result f c rupHints f' f_readyForRupAdd heq\n  have f'_readyForRupAdd : ReadyForRupAdd f' := by\n    rw [f'_def]\n    exact readyForRupAdd_insert f c f_readyForRupAdd\n  have f'_readyForRatAdd : ReadyForRatAdd f' := by\n    rw [f'_def]\n    exact readyForRatAdd_insert f c f_readyForRatAdd\n  specialize ih f' f'_readyForRupAdd f'_readyForRatAdd restPrfWellFormed f'_success\n  have f_liff_f' : Liff \u03b1 f f' := rupAdd_sound f c rupHints f' f_readyForRupAdd heq\n  intro p pf\n  rw [f_liff_f' p] at pf\n  exact ih p pf",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/LRATCheckerSound.lean",
+    "definition_name": "specialize",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "def Ctxt := VName \u2192 Option Ty\nvariable (\u0393 : Ctxt) in\ninductive Expr : Ty \u2192 Type where\n  | var (h : \u0393 x = some \u03c4) : Expr \u03c4\ndef Expr.constFold : Expr \u0393 \u03c4 \u2192 Option Unit\n  | var n   => none\ntheorem Expr.constFold_sound {e : Expr \u0393 \u03c4} : constFold e = some v \u2192 True := by\n  intro h\n  induction e with\n  | var   => simp only [reduceCtorEq, constFold] at h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/reductionBug.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/reductionBug.lean",
+    "definition_name": "Ctxt",
+    "has_proof": true
+  }
+}

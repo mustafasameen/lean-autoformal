@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_nonempty_iff : \u00acNonempty \u03b1 \u2194 IsEmpty \u03b1 :=\n  \u27e8fun h \u21a6 \u27e8fun x \u21a6 h \u27e8x\u27e9\u27e9, fun h1 h2 \u21a6 h2.elim h1.elim\u27e9\n@[simp]\ntheorem isEmpty_Prop {p : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_name": "not_nonempty_iff",
+    "has_proof": false
+  }
+}

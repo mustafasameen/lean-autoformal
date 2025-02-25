@@ -1,0 +1,10 @@
+{
+  "content": "theorem Array.of_push_eq_push {as bs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/BasicAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/BasicAux.lean",
+    "definition_name": "Array",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class abbrev $id $params* $[: $ty]? := $[ $parents $[,]? ]*) =>\n    let ctor := mkIdentFrom id <| id.raw[0].getId.modifyBase (. ++ `mk)\n    `($mods:declModifiers class $id $params* $[: $ty:term]? extends $[$parents:term],*\n      attribute [instance] $ctor)\nmacro_rules\n  | `(haveI $hy:hygieneInfo $bs* $[: $ty]? := $val; $body) =>\n    `(haveI $(HygieneInfo.mkIdent hy `this (canonical := true)) $bs* $[: $ty]? := $val; $body)\n  | `(haveI _ $bs* := $val; $body) => `(haveI x $bs* : _ := $val; $body)\n  | `(haveI _ $bs* : $ty := $val; $body) => `(haveI x $bs* : $ty := $val; $body)\n  | `(haveI $x:ident $bs* := $val; $body) => `(haveI $x $bs* : _ := $val; $body)\n| `(haveI $_:ident $_* : $_ := $_; $_) => Lean.Macro.throwUnsupported\nmacro_rules\n  | `(letI $hy:hygieneInfo $bs* $[: $ty]? := $val; $body) =>\n    `(letI $(HygieneInfo.mkIdent hy `this (canonical := true)) $bs* $[: $ty]? := $val; $body)\n  | `(letI _ $bs* := $val; $body) => `(letI x $bs* : _ := $val; $body)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/NotationExtra.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/NotationExtra.lean",
+    "definition_name": "abbrev"
+  }
+}

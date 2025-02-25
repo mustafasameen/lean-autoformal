@@ -1,0 +1,9 @@
+{
+  "content": "inductive betree.List (T : Type) where\n  | Cons : T \u2192 betree.List T \u2192 betree.List T\n  | Nil : betree.List T\n  inductive betree.UpsertFunState where\n  | Add : Isize \u2192 betree.UpsertFunState\n  | Sub : Isize \u2192 betree.UpsertFunState\n  inductive betree.Message where\n  | Insert : Isize \u2192 betree.Message\n  | Delete : betree.Message\n  | Upsert : betree.UpsertFunState \u2192 betree.Message\n  structure betree.Leaf where\n    id : Isize\n    size : Isize\n  mutual\n  inductive betree.Internal where\n  | mk : Isize \u2192 Isize \u2192 betree.Node \u2192 betree.Node \u2192 betree.Internal\n  inductive betree.Node where\n  | Internal : betree.Internal \u2192 betree.Node\n  | Leaf : betree.Leaf \u2192 betree.Node\n  end\n  @[reducible]\n  def betree.Internal.id (x : betree.Internal) :=\n    match x with | betree.Internal.mk x1 _ _ _ => x1\n  @[reducible]\n  def betree.Internal.pivot (x : betree.Internal) :=\n    match x with | betree.Internal.mk _ x1 _ _ => x1\n  @[reducible]\n  def betree.Internal.left (x : betree.Internal) :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_name": "betree"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "namespace LocalizedModule\nuniverse u v\nvariable {R : Type u} [MulOneClass R] (S : Submonoid R)\nvariable (M : Type v) [AddCommMonoid M] [SMul R M]\ndef r (a b : M \u00d7 S) : Prop :=\n  \u2203 u : S, u \u2022 b.2 \u2022 a.1 = u \u2022 a.2 \u2022 b.1\ninstance r.setoid : Setoid (M \u00d7 S) where\n  r := r S M\n  iseqv := sorry\ndef _root_.LocalizedModule : Type max u v :=\n  Quotient (r.setoid S M)\nsection\nvariable {M S}\ndef mk (m : M) (s : S) : LocalizedModule S M :=\n  Quotient.mk' \u27e8m, s\u27e9\ninstance : AddCommMonoid (LocalizedModule S M) := sorry\nnoncomputable instance isModule' : SMul R (LocalizedModule S M) := sorry\nend\nend LocalizedModule\nuniverse u v\nvariable {R : Type _} [MulOneClass R] (S : Submonoid R)\nvariable {M M' M'' : Type _} [AddCommMonoid M] [AddCommMonoid M']\nvariable [SMul R M] [SMul R M']\nvariable (f : M \u2192\u2097[R] M')\nclass IsLocalizedModule (S : Submonoid R) (f : M \u2192\u2097[R] M') : Prop where\nnamespace IsLocalizedModule\nvariable [IsLocalizedModule S f]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

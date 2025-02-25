@@ -1,0 +1,9 @@
+{
+  "content": "structure SimpLetFunResult where\n  expr     : Expr\n  proof    : Expr\n  modified : Bool\npartial def simpNonDepLetFun (e : Expr) : SimpM Result := do\n  let cfg \u2190 getConfig\n  let rec go (xs : Array Expr) (e : Expr) : SimpM SimpLetFunResult := do\n    let stop : SimpM SimpLetFunResult := do\n      let e := e.instantiateRev xs\n      let r \u2190 simp e\n      return { expr := r.expr.abstract xs, proof := (\u2190 r.getProof).abstract xs, modified :=  r.expr != e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Main.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Main.lean",
+    "definition_name": "SimpLetFunResult"
+  }
+}

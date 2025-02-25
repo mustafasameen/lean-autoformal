@@ -1,0 +1,9 @@
+{
+  "content": "def liftMethod := leading_parser:minPrec\n  leftArrow >> termParser\ndef doSeqItem      := leading_parser\n  ppLine >> doElemParser >> optional \"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_name": "liftMethod"
+  }
+}

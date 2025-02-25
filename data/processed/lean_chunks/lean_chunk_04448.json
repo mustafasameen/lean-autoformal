@@ -1,0 +1,10 @@
+{
+  "content": "theorem two_pow_mod_two_eq_one {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Mod.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Mod.lean",
+    "definition_name": "two_pow_mod_two_eq_one",
+    "has_proof": false
+  }
+}

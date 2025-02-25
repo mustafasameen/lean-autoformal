@@ -1,0 +1,9 @@
+{
+  "content": "| `(rightact% $f $lhs $rhs) => processBinOp s .rightact f lhs rhs\n    | `(($e)) =>\n      if hasCDot e then\n        processLeaf s\n      else\n        go e\n    | _ =>\n      withRef s do\n        match (\u2190 liftMacroM <| expandMacroImpl? (\u2190 getEnv) s) with\n        | some (macroName, s?) =>\n          let s' \u2190 liftMacroM <| liftExcept s?\n          withPushMacroExpansionStack s s' do\n            return .macroExpansion macroName s s' (\u2190 go s')\n        | none => processLeaf s\n  processBinOp (ref : Syntax) (kind : BinOpKind) (f lhs rhs : Syntax) := do\n    let some f \u2190 resolveId? f | throwUnknownConstant f.getId\n    let lhs \u2190 if kind == .leftact then processLeaf lhs else go lhs\n    let rhs \u2190 if kind == .rightact then processLeaf rhs else go rhs\n    return .binop ref kind f lhs rhs\n  processUnOp (ref : Syntax) (f arg : Syntax) := do\n    let some f \u2190 resolveId? f | throwUnknownConstant f.getId\n    return .unop ref f (\u2190 go arg)\n  processLeaf (s : Syntax) := do\n    let e \u2190 elabTerm s none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_name": "BinOpKind"
+  }
+}

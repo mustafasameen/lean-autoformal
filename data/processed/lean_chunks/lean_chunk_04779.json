@@ -1,0 +1,10 @@
+{
+  "content": "theorem default_eq_zero : default = (0 : Int) := rfl\nprotected theorem zero_ne_one : (0 : Int) \u2260 1 := nofun\ndef negOfNat : Nat \u2192 Int\n  | 0      => 0\n  | succ m => negSucc m\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_int_neg\"]\nprotected def neg (n : @& Int) : Int :=\n  match n with\n  | ofNat n   => negOfNat n\n  | negSucc n => succ n\n@[default_instance mid]\ninstance instNegInt : Neg Int where\n  neg := Int.neg\n@[extern \"lean_int_add\"]\nprotected def add (m n : @& Int) : Int :=\n  match m, n with\n  | ofNat m, ofNat n => ofNat (m + n)\n  | ofNat m, -[n +1] => subNatNat m (succ n)\n  | -[m +1], ofNat n => subNatNat n (succ m)\n  | -[m +1], -[n +1] => negSucc (succ (m + n))\ninstance : Add Int where\n  add := Int.add\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_int_mul\"]\nprotected def mul (m n : @& Int) : Int :=\n  match m, n with\n  | ofNat m, ofNat n => ofNat (m * n)\n  | ofNat m, -[n +1] => negOfNat (m * succ n)\n  | -[m +1], ofNat n => negOfNat (succ m * n)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_name": "default_eq_zero",
+    "has_proof": true
+  }
+}

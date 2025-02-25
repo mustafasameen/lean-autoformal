@@ -1,0 +1,10 @@
+{
+  "content": "theorem unitOfList_nil :\n    unitOfList ([] : List \u03b1) = \u2205 :=\n  Subtype.eq (congrArg Subtype.val (Raw\u2080.Const.insertManyIfNewUnit_empty_list_nil (\u03b1 := \u03b1)) :)\n@[simp]\ntheorem unitOfList_singleton {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_name": "unitOfList_nil",
+    "has_proof": false
+  }
+}

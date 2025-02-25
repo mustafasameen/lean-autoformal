@@ -1,0 +1,9 @@
+{
+  "content": "toACExpr (varMap : Expr \u2192 Nat) : PreExpr \u2192 ACExpr\n    | PreExpr.op l r => Data.AC.Expr.op (toACExpr varMap l) (toACExpr varMap r)\n    | PreExpr.var x => Data.AC.Expr.var (varMap x)\ndef abstractAtoms (preContext : PreContext) (atoms : Array Expr)\n    (k : Array (Expr \u00d7 Option Expr) \u2192 MetaM Expr) : MetaM Expr := do\n  let \u03b1 \u2190 inferType atoms[0]!\n  let u \u2190 getLevel \u03b1\n  let rec go i (acc : Array (Expr \u00d7 Option Expr)) (vars : Array Expr) (args : Array Expr) := do\n    if h : i < atoms.size then\n      withLocalDeclD `x \u03b1 fun v => do\n        match (\u2190 getInstance ``LawfulIdentity #[preContext.op, atoms[i]]) with\n        | none =>\n          go (i+1) (acc.push (v, .none)) (vars.push v) (args.push atoms[i])\n        | some inst =>\n          withLocalDeclD `inst (mkApp3 (mkConst ``LawfulIdentity [u]) \u03b1 preContext.op v) fun iv =>\n            go (i+1) (acc.push (v, .some iv)) (vars ++ #[v,iv]) (args ++ #[atoms[i], inst])\n    else\n      let proof \u2190 k acc\n      let proof \u2190 mkLambdaFVars vars proof",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_name": "PreExpr"
+  }
+}

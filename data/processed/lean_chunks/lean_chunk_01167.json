@@ -1,0 +1,9 @@
+{
+  "content": "def T := Nat \u2192 Nat\ndef x : T := fun n => n + 1\ndef n1 : Nat := x 1\nattribute [irreducible] T\n#guard_msgs in\ndef n2 : Nat := x 1\nrun_meta do\n  Meta.check (.app (mkConst ``x) (mkNatLit 1))\n#guard_msgs in\nrun_meta do\n  let _ \u2190 Meta.inferType (.app (mkConst ``x) (mkNatLit 1))\nrun_meta do\n  withTransparency .all do\n    let _ \u2190 Meta.inferType (.app (mkConst ``x) (mkNatLit 1))\nelab \"with_unfolding_all\" t:term : term <= expectedType? =>\n  withTransparency .all <|\n    Elab.Term.elabTerm t expectedType?\n#guard_msgs in\ndef n3 : Nat := with_unfolding_all x 1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue5562.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue5562.lean",
+    "definition_name": "T"
+  }
+}

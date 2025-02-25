@@ -1,0 +1,10 @@
+{
+  "content": "#eval f2 10\ndef split (xs : List Nat) : List Nat \u00d7 List Nat := Id.run do\nlet mut evens := []\nlet mut odds  := []\nfor x in xs.reverse do\n  if x % 2 == 0 then\n    evens := x :: evens\n  else\n    odds := x :: odds\nreturn (evens, odds)\ntheorem ex8 : split [1, 2, 3, 4] = ([2, 4], [1, 3]) :=\nrfl\ndef f3 (x : Nat) : IO Bool := do\nlet y \u2190 cond (x == 0) (do IO.println \"hello\"; pure true) (pure false);\npure !y\ndef f4 (x y : Nat) : Nat \u00d7 Nat := Id.run <| do\n  let mut (x, y) := (x, y)\n  match x with\n  | 0 => y := y + 1\n  | _ => x := x + y\n  return (x, y)\n#guard f4 0 10 == (0, 11)\n#guard f4 5 10 == (15,10)\ntheorem ex9 (y : Nat) : f4 0 y = (0, y+1) :=\nrfl\ntheorem ex10 (x y : Nat) : f4 (x+1) y = ((x+1)+y, y) :=\nrfl\ndef f5 (x y : Nat) : Nat \u00d7 Nat := Id.run <| do\n  let mut (x, y) := (x, y)\n  match x with\n  | 0   => y := y + 1\n  | z+1 => dbg_trace \"z: {z}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/doNotation2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/doNotation2.lean",
+    "definition_name": "ex5",
+    "has_proof": false
+  }
+}

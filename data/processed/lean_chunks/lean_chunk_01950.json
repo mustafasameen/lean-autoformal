@@ -1,0 +1,9 @@
+{
+  "content": "def aux := 1\nnonrec def Foo.aux : Foo aux :=\n  have h : aux = 1 := rfl\n  trivial",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nonrec.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nonrec.lean",
+    "definition_name": "aux"
+  }
+}

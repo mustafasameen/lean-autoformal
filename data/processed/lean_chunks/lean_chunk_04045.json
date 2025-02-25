@@ -1,0 +1,10 @@
+{
+  "content": "theorem or_assoc (x y z : BitVec w) :\n    x ||| y ||| z = x ||| (y ||| z) := by\n  ext i\n  simp [Bool.or_assoc]\ninstance : Std.Associative (\u03b1 := BitVec n) (\u00b7 ||| \u00b7) := \u27e8BitVec.or_assoc\u27e9\ntheorem or_comm (x y : BitVec w) :\n    x ||| y = y ||| x := by\n  ext i\n  simp [Bool.or_comm]\ninstance : Std.Commutative (fun (x y : BitVec w) => x ||| y) := \u27e8BitVec.or_comm\u27e9\n@[simp] theorem or_self {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "or_assoc",
+    "has_proof": true
+  }
+}

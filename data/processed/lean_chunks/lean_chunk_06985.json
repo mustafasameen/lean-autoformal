@@ -1,0 +1,9 @@
+{
+  "content": "inductive predicate\"\n    else\n      let indArgs    : Array Expr := xType.getAppArgs\n      let indParams  : Array Expr := indArgs[0:indInfo.numParams]\n      let indIndices : Array Expr := indArgs[indInfo.numParams:]\n      if !indIndices.all Expr.isFVar then\n        throwError \"its type {indInfo.name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Structural/FindRecArg.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Structural/FindRecArg.lean",
+    "definition_name": "predicate"
+  }
+}

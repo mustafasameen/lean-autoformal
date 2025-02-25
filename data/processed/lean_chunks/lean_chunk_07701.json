@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote_input_vec (s : RefVecEntry \u03b1 len) {input : \u03b2 s.aig len}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulVecOperator.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulVecOperator.lean",
+    "definition_name": "denote_input_vec",
+    "has_proof": false
+  }
+}

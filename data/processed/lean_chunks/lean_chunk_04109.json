@@ -1,0 +1,10 @@
+{
+  "content": "theorem msb_cons : (cons a x).msb = a := by\n  simp [cons, msb_cast, msb_append]\n@[simp] theorem getMsbD_cons_zero : (cons a x).getMsbD 0 = a := by\n  rw [\u2190 BitVec.msb, msb_cons]\n@[simp] theorem getMsbD_cons_succ : (cons a x).getMsbD (i + 1) = x.getMsbD i := by\n  simp [cons, Nat.le_add_left 1 i]\ntheorem setWidth_succ (x : BitVec w) :\n    setWidth (i+1) x = cons (getLsbD x i) (setWidth i x) := by\n  ext j h\n  simp only [getElem_setWidth, getElem_cons]\n  if j_eq : j = i then\n    simp [j_eq]\n  else\n    have j_lt : j < i := Nat.lt_of_le_of_ne (Nat.le_of_succ_le_succ h) j_eq\n    simp [j_eq, j_lt]\n@[simp] theorem cons_msb_setWidth (x : BitVec (w+1)) : (cons x.msb (x.setWidth w)) = x := by\n  ext i\n  simp only [getElem_cons]\n  split <;> rename_i h\n  \u00b7 simp [BitVec.msb, getMsbD, h]\n  \u00b7 by_cases h' : i < w\n    \u00b7 simp_all\n    \u00b7 omega\n@[deprecated \"Use the reverse direction of `cons_msb_setWidth`\" (since := \"2024-09-23\")]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "msb_cons",
+    "has_proof": true
+  }
+}

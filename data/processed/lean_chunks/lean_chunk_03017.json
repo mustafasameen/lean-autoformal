@@ -1,0 +1,9 @@
+{
+  "content": "match e with\n  | mdata d a => if ptrEq a newExpr then e else mkMData d newExpr\n  | _         => panic! \"mdata expected\"\n@[implemented_by updateMData!Impl]\ndef updateMData! (e : Expr) (newExpr : Expr) : Expr :=\n  match e with\n  | mdata d _ => mkMData d newExpr\n  | _         => panic! \"mdata expected\"\n@[inline] private unsafe def updateProj!Impl (e : Expr) (newExpr : Expr) : Expr :=\n  match e with\n  | proj s i a => if ptrEq a newExpr then e else mkProj s i newExpr\n  | _          => panic! \"proj expected\"\n@[implemented_by updateProj!Impl]\ndef updateProj! (e : Expr) (newExpr : Expr) : Expr :=\n  match e with\n  | proj s i _ => mkProj s i newExpr\n  | _          => panic! \"proj expected\"\n@[inline] private unsafe def updateForall!Impl (e : Expr) (newBinfo : BinderInfo) (newDomain : Expr) (newBody : Expr) : Expr :=\n  match e with\n  | forallE n d b bi =>\n    if ptrEq d newDomain && ptrEq b newBody && bi == newBinfo then\n      e\n    else\n      mkForall n newBinfo newDomain newBody",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "ExprStructEq"
+  }
+}

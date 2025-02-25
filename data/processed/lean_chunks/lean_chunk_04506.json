@@ -1,0 +1,10 @@
+{
+  "content": "theorem or_eq_bif : or o o' = bif o.isSome then o else o' := by\n  cases o <;> rfl\n@[simp] theorem isSome_or : (or o o').isSome = (o.isSome || o'.isSome) := by\n  cases o <;> rfl\n@[simp] theorem isNone_or : (or o o').isNone = (o.isNone && o'.isNone) := by\n  cases o <;> rfl\n@[simp] theorem or_eq_none : or o o' = none \u2194 o = none \u2227 o' = none := by\n  cases o <;> simp\n@[simp] theorem or_eq_some : or o o' = some a \u2194 o = some a \u2228 (o = none \u2227 o' = some a) := by\n  cases o <;> simp\ntheorem or_assoc : or (or o\u2081 o\u2082) o\u2083 = or o\u2081 (or o\u2082 o\u2083) := by\n  cases o\u2081 <;> cases o\u2082 <;> rfl\ninstance : Std.Associative (or (\u03b1 := \u03b1)) := \u27e8@or_assoc _\u27e9\n@[simp]\ntheorem or_none : or o none = o := by\n  cases o <;> rfl\ntheorem or_eq_left_of_none {o o' : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "or_eq_bif",
+    "has_proof": true
+  }
+}

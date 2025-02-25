@@ -1,0 +1,9 @@
+{
+  "content": "inductive Syntax\n| atom : String \u2192 Syntax\n| node : String \u2192 Array Syntax \u2192 Syntax\ninstance coe1 : HasCoe String Syntax := \u27e8Syntax.atom\u27e9\ninstance coe2 {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/issues2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/issues2.lean",
+    "definition_name": "Syntax"
+  }
+}

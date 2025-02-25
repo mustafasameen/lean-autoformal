@@ -1,0 +1,9 @@
+{
+  "content": "def foo := 3\ndef bar := 4\ndef ex1  (heq : foo = bar) (P : Nat \u2192 Prop) (h : P foo)         := heq \u25b8 h\n#check ex1\ndef ex2  (heq : foo = bar) (P : Nat \u2192 Prop) (h : P foo) : P 4   := heq \u25b8 h\ndef ex3  (heq : foo = bar) (P : Nat \u2192 Prop) (h : P foo) : P bar := heq \u25b8 h\ndef ex4  (heq : foo = bar) (P : Nat \u2192 Prop) (h : P 3)           := heq \u25b8 h\ndef ex5  (heq : foo = bar) (P : Nat \u2192 Prop) (h : P 3)   : P 4   := heq \u25b8 h\ndef ex6  (heq : foo = bar) (P : Nat \u2192 Prop) (h : P 3)   : P bar := heq \u25b8 h\ndef ex7  (heq : bar = foo) (P : Nat \u2192 Prop) (h : P foo)         := heq \u25b8 h\n#check ex7\ndef ex8  (heq : bar = foo) (P : Nat \u2192 Prop) (h : P foo) : P 4   := heq \u25b8 h\ndef ex9  (heq : bar = foo) (P : Nat \u2192 Prop) (h : P foo) : P bar := heq \u25b8 h\ndef ex10 (heq : bar = foo) (P : Nat \u2192 Prop) (h : P 3)           := heq \u25b8 h\ndef ex11 (heq : bar = foo) (P : Nat \u2192 Prop) (h : P 3)   : P 4   := heq \u25b8 h\ndef ex12 (heq : bar = foo) (P : Nat \u2192 Prop) (h : P 3)   : P bar := heq \u25b8 h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/substFails.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/substFails.lean",
+    "definition_name": "foo"
+  }
+}

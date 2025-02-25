@@ -1,0 +1,9 @@
+{
+  "content": "def date\u2081 := zoned(\"2014-06-16T10:03:03-03:00\")\ndef time\u2081 := time(\"14:11:01\")\ndef time\u2082 := time(\"03:11:01\")\n#guard_msgs in\n#eval\n    let t : ZonedDateTime := ISO8601UTC.parse! \"2014-06-16T10:03:03.000000100-03:00\"\n    ISO8601UTC.format t.toDateTime\n#guard_msgs in\n#eval date\u2081.withDaysClip 31\n#guard_msgs in\n#eval date\u2081.withDaysRollOver 31\n#guard_msgs in\n#eval date\u2081.withMonthClip 5\n#guard_msgs in\n#eval date\u2081.withMonthRollOver 5\n#guard_msgs in\n#eval date\u2081.withYearClip 2016\n#guard_msgs in\n#eval date\u2081.withYearRollOver 2016\n#guard_msgs in\n#eval date\u2081.withDaysClip 16\n#guard_msgs in\n#eval date\u2081.withMinutes 45\n#guard_msgs in\n#eval date\u2081.withHours 10\n#guard_msgs in\n#eval date\u2081.withSeconds 59\n#guard_msgs in\n#eval date\u2081.withNanoseconds 2",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeSet.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeSet.lean",
+    "definition_name": "date\u2081"
+  }
+}

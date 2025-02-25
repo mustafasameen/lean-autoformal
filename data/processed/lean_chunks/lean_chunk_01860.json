@@ -1,0 +1,9 @@
+{
+  "content": "def alsoWork [Class.{u}] := Class.dummy.{u}\nclass Category.{v, u} (Ob : Type u) where\n  Hom : Ob \u2192 Ob \u2192 Type v\nvariable (C : Type u) [Category.{v} C] (X : C)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/319.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/319.lean",
+    "definition_name": "alsoWork"
+  }
+}

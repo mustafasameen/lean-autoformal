@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote_cast_entry (entry : Entrypoint \u03b1) {input}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_name": "denote_cast_entry",
+    "has_proof": false
+  }
+}

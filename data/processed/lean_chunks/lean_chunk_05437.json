@@ -1,0 +1,10 @@
+{
+  "content": "theorem idxOf_cons [BEq \u03b1] :\n    (x :: xs : List \u03b1).idxOf y = bif x == y then 0 else xs.idxOf y + 1 := by\n  dsimp [idxOf]\n  simp [findIdx_cons]\n@[deprecated idxOf_cons (since := \"2025-01-29\")]\nabbrev indexOf_cons := @idxOf_cons\n@[simp] theorem idxOf_cons_self [BEq \u03b1] [ReflBEq \u03b1] {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "idxOf_cons",
+    "has_proof": true
+  }
+}

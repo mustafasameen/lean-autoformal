@@ -1,0 +1,10 @@
+{
+  "content": "theorem neg_le_natAbs {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_name": "neg_le_natAbs",
+    "has_proof": false
+  }
+}

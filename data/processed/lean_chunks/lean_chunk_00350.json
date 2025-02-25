@@ -1,0 +1,9 @@
+{
+  "content": "inductive BoolType where\n  | prop\n  | bool\n  deriving BEq, DecidableEq, Hashable, Inhabited, Repr\ninductive EqOp where\n  | eqProp\n  | eqBool\n  | iffProp\n  | beqBool\n  deriving BEq, Repr\ndef EqOp.argType (op : EqOp) : BoolType :=\n  match op with\n  | .eqProp  | .iffProp => .prop\n  | .beqBool | .eqBool => .bool\ndef EqOp.resultType (op : EqOp) : BoolType :=\n  match op with\n  | .eqProp | .eqBool | .iffProp => .prop\n  | .beqBool => .bool\ninductive NeOp where\n  | neProp\n  | neBool\n  | bneBool\n  deriving BEq, Repr\ndef NeOp.argType (op : NeOp) : BoolType :=\n  match op with\n  | .neProp  => .prop\n  | .neBool | .bneBool => .bool\ndef NeOp.resultType (op : NeOp) : BoolType :=\n  match op with\n  | .neProp | .neBool  => .prop\n  | .bneBool => .bool\ninductive IteOp where\n  | iteProp\n  | iteBool\n  | diteProp\n  | diteBool\n  | condBool\n  deriving BEq, Repr\ndef IteOp.condType (op : IteOp) : BoolType :=\n  match op with\n  | .iteProp | .diteProp | .iteBool | .diteBool => .prop\n  | .condBool => .bool",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "BoolType"
+  }
+}

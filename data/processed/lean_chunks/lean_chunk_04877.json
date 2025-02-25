@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_tail (l : List \u03b1) (i : Nat) (h : i < l.tail.length) :\n    (tail l)[i] = l[i + 1]'(add_lt_of_lt_sub (by simpa using h)) := by\n  cases l with\n  | nil => simp at h\n  | cons _ l => simp\n@[simp] theorem getElem?_tail (l : List \u03b1) (i : Nat) :\n    (tail l)[i]? = l[i + 1]? := by\n  cases l <;> simp\n@[simp] theorem set_tail (l : List \u03b1) (i : Nat) (a : \u03b1) :\n    l.tail.set i a = (l.set (i + 1) a).tail := by\n  cases l <;> simp\ntheorem one_lt_length_of_tail_ne_nil {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "getElem_tail",
+    "has_proof": true
+  }
+}

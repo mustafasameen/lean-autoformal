@@ -1,0 +1,10 @@
+{
+  "content": "theorem refl (a : \u03b1) : a \u2248 a :=\n  iseqv.refl a\ntheorem symm {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "refl",
+    "has_proof": false
+  }
+}

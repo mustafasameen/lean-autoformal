@@ -1,0 +1,10 @@
+{
+  "content": "def eval : BVBinPred \u2192 (BitVec w \u2192 BitVec w \u2192 Bool)\n  | .eq => (\u00b7 == \u00b7)\n  | .ult => BitVec.ult\n@[simp] theorem eval_eq : eval .eq = ((\u00b7 == \u00b7) : BitVec w \u2192 BitVec w \u2192 Bool) := by rfl\n@[simp] theorem eval_ult : eval .ult = (BitVec.ult : BitVec w \u2192 BitVec w \u2192 Bool) := by rfl\nend BVBinPred\ninductive BVPred where\n  | bin (lhs : BVExpr w) (op : BVBinPred) (rhs : BVExpr w)\n  | getLsbD (expr : BVExpr w) (idx : Nat)\nnamespace BVPred\nstructure ExprPair where\n  {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_name": "eval_var",
+    "has_proof": true
+  }
+}

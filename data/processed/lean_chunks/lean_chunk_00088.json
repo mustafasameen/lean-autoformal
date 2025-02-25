@@ -1,0 +1,9 @@
+{
+  "content": "structure A :=\n  x : Nat\n  a' : x = 1 := by trivial\n#check A.a'\nexample (z : A) : z.x = 1 := by\n  have := z.a'\n  trace_state\n  exact this\nexample (z : A) : z.x = 1 := by\n  have := z.2\n  trace_state\n  exact this\n#check A.rec\nexample (z : A) : z.x = 1 := by\n  have \u27e8x, a'\u27e9 := z\n  trace_state\n  subst a'\n  rfl\nexample (z : A) : z.x = 1 := by\n  induction z with\n  | mk x a' =>\n    trace_state\n    subst a'\n    rfl\nstructure B :=\n  x : Nat\n  y : Nat := 2\nexample (b : B) : b = { x := b.x, y := b.y }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoIssue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoIssue.lean",
+    "definition_name": "A"
+  }
+}

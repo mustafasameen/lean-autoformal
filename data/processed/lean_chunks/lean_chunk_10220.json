@@ -1,0 +1,10 @@
+{
+  "content": "theorem isSome_getValueCast?_eq_isSome_getEntry? [BEq \u03b1] [LawfulBEq \u03b1] {l : List ((a : \u03b1) \u00d7 \u03b2 a)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "isSome_getValueCast",
+    "has_proof": false
+  }
+}

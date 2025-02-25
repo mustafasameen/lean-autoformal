@@ -1,0 +1,10 @@
+{
+  "content": "match a, b with\n  | \u27e8n\u27e9, \u27e8m\u27e9 =>\n    dite (Eq n m) (fun h => isTrue (h \u25b8 rfl)) (fun h => isFalse (fun h' => UInt32.noConfusion h' (fun h' => absurd h' h)))\ninstance : DecidableEq UInt32 := UInt32.decEq\ninstance : Inhabited UInt32 where\n  default := UInt32.ofNatLT 0 (of_decide_eq_true rfl)\ninstance : LT UInt32 where\n  lt a b := LT.lt a.toBitVec b.toBitVec\ninstance : LE UInt32 where\n  le a b := LE.le a.toBitVec b.toBitVec\n@[extern \"lean_uint32_dec_lt\"]\ndef UInt32.decLt (a b : UInt32) : Decidable (LT.lt a b) :=\n  inferInstanceAs (Decidable (LT.lt a.toBitVec b.toBitVec))\n@[extern \"lean_uint32_dec_le\"]\ndef UInt32.decLe (a b : UInt32) : Decidable (LE.le a b) :=\n  inferInstanceAs (Decidable (LE.le a.toBitVec b.toBitVec))\ninstance (a b : UInt32) : Decidable (LT.lt a b) := UInt32.decLt a b\ninstance (a b : UInt32) : Decidable (LE.le a b) := UInt32.decLe a b\ninstance : Max UInt32 := maxOfLe\ninstance : Min UInt32 := minOfLe\nstructure UInt64 where\n  ofBitVec ::\n  toBitVec: BitVec 64",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

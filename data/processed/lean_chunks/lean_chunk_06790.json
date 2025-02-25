@@ -1,0 +1,9 @@
+{
+  "content": "let suggestionTexts := suggestions.map (\u00b7.2)\n    let suggestions := suggestions.map (\u00b7.1)\n    let ref := Syntax.ofRange <| ref.getRange?.getD range\n    let range := map.utf8RangeToLspRange range\n    pushInfoLeaf <| .ofCustomInfo {\n      stx := ref\n      value := Dynamic.mk\n        { range, suggestionTexts, codeActionPrefix? : TryThisInfo }\n    }\n    Widget.savePanelWidgetInfo (hash tryThisWidget.javascript) ref\n      (props := return json% {\n        suggestions: $suggestions,\n        range: $range,\n        header: $header,\n        isInline: $isInline,\n        style: $style?\n      })\ndef addSuggestion (ref : Syntax) (s : Suggestion) (origSpan? : Option Syntax := none)\n    (header : String := \"Try this: \") (codeActionPrefix? : Option String := none) : MetaM Unit := do\n  logInfoAt ref m!\"{header}{s}\"\n  addSuggestionCore ref #[s] header (isInline := true) origSpan?\n    (codeActionPrefix? := codeActionPrefix?)\ndef addSuggestions (ref : Syntax) (suggestions : Array Suggestion)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "SuggestionStyle"
+  }
+}

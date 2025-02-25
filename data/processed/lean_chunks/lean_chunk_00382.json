@@ -1,0 +1,9 @@
+{
+  "content": "def x := 2\",\n\"protected def length.{u} {\u03b1 : Type u} : List \u03b1 \u2192 Nat\n  | [] := 0\n  | (a::as) := 1 + length as\",\n\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/cmdparsertest1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/cmdparsertest1.lean",
+    "definition_name": "x"
+  }
+}

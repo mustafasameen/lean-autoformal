@@ -1,0 +1,10 @@
+{
+  "content": "theorem monotone_bind\n    (m : Type u \u2192 Type v) [Bind m] [\u2200 \u03b1, PartialOrder (m \u03b1)] [MonoBind m]\n    {\u03b1 \u03b2 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "monotone_bind",
+    "has_proof": false
+  }
+}

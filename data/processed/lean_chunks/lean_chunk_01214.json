@@ -1,0 +1,9 @@
+{
+  "content": "inductive WellFormed (lt : \u03b1 \u2192 \u03b1 \u2192 Prop) : Rbnode \u03b1 \u2192 Prop\n| leafWff : WellFormed lt leaf\n| insertWff {n n' : Rbnode \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/new_inductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/new_inductive.lean",
+    "definition_name": "WellFormed"
+  }
+}

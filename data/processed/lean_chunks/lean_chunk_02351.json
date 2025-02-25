@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_zero [ZeroHomClass F M N] (f : F) : f 0 = 0 :=\n  ZeroHomClass.map_zero f\nend Mathlib.Algebra.Group.Hom.Defs\nsection Mathlib.GroupTheory.GroupAction.Defs\nvariable {M A : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_name": "map_zero",
+    "has_proof": false
+  }
+}

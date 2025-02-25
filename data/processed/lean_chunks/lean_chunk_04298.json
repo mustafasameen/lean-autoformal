@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_le_le (a : Nat) {b c : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Simproc.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Simproc.lean",
+    "definition_name": "add_le_le",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "have H (l xs) : List.foldl (fun bs a => push bs (f a)) xs l = \u27e8xs.toList ++ l.map f\u27e9 := by\n    induction l generalizing xs <;> simp [*]\n  simp [H]\n@[simp] theorem _root_.List.map_toArray (f : \u03b1 \u2192 \u03b2) (l : List \u03b1) :\n    l.toArray.map f = (l.map f).toArray := by\n  apply ext'\n  simp\n@[simp] theorem size_map (f : \u03b1 \u2192 \u03b2) (xs : Array \u03b1) : (xs.map f).size = xs.size := by\n  simp only [\u2190 length_toList]\n  simp\n@[simp] theorem getElem_map (f : \u03b1 \u2192 \u03b2) (xs : Array \u03b1) (i : Nat) (hi : i < (xs.map f).size) :\n    (xs.map f)[i] = f (xs[i]'(by simpa using hi)) := by\n  cases xs\n  simp\n@[simp] theorem getElem?_map (f : \u03b1 \u2192 \u03b2) (xs : Array \u03b1) (i : Nat) :\n    (xs.map f)[i]? = xs[i]?.map f := by\n  simp [getElem?_def]\n@[simp] theorem mapM_empty [Monad m] (f : \u03b1 \u2192 m \u03b2) : mapM f #[] = pure #[] := by\n  rw [mapM, mapM.map]; rfl\n@[simp] theorem map_empty (f : \u03b1 \u2192 \u03b2) : map f #[] = #[] := mapM_empty f\n@[simp] theorem map_push {f : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "mapM_eq_foldlM",
+    "has_proof": true
+  }
+}

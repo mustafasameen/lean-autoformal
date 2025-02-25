@@ -1,0 +1,9 @@
+{
+  "content": "structure Rat where\n  num : Int\n  den : Nat\n  pos : den > 0\ninstance (n : Nat) : OfNat Rat n where\n  ofNat := {\n    num := n\n    den := 1\n    pos := by decide\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rational.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rational.lean",
+    "definition_name": "Rat"
+  }
+}

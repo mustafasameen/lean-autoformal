@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_assoc : \u2200 a b c : M, a + b + c = a + (b + c) :=\n  AddMonoid.add_assoc\ntheorem zero_add : \u2200 a : M, 0 + a = a :=\n  AddMonoid.zero_add\ntheorem add_zero : \u2200 a : M, a + 0 = a :=\n  AddMonoid.add_zero\ntheorem left_neg_eq_right_neg (hba : b + a = 0) (hac : a + c = 0) : b = c := by\n  rw [\u2190 zero_add c, \u2190 hba, add_assoc, hac, add_zero b]\nend AddMonoid\nclass AddGroup (A : Type u) extends AddMonoid A, Neg A where\n  protected neg_add_cancel : \u2200 a : A, -a + a = 0\nsection Group\nvariable {G : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "add_assoc",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "Nat.sub_succ, Nat.one_add, Nat.one_add, Nat.succ_pred_eq_of_pos (Nat.sub_pos_of_lt h)]\n    else\n      have h := Nat.le_of_not_gt h\n      rw [extract_loop_of_ge (h:=h), Nat.sub_eq_zero_of_le h, Nat.min_zero, Nat.add_zero]\n@[simp] theorem size_extract (xs : Array \u03b1) (start stop : Nat) :\n    (xs.extract start stop).size = min stop xs.size - start := by\n  simp only [extract, Nat.sub_eq, mkEmpty_eq]\n  rw [size_extract_loop, size_empty, Nat.zero_add, Nat.sub_min_sub_right, Nat.min_assoc,\n    Nat.min_self]\ntheorem getElem_extract_loop_lt_aux (xs ys : Array \u03b1) (size start : Nat) (hlt : i < ys.size) :\n    i < (extract.loop xs size start ys).size := by\n  rw [size_extract_loop]\n  apply Nat.lt_of_lt_of_le hlt\n  exact Nat.le_add_right ..\ntheorem getElem_extract_loop_lt (xs ys : Array \u03b1) (size start : Nat) (hlt : i < ys.size)\n    (h := getElem_extract_loop_lt_aux xs ys size start hlt) :\n    (extract.loop xs size start ys)[i] = ys[i] := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "filter_reverse",
+    "has_proof": true
+  }
+}

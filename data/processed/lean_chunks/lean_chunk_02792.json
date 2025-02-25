@@ -1,0 +1,10 @@
+{
+  "content": "| true  => true\n  | false => y\n@[macro_inline] def Bool.and (x y : Bool) : Bool :=\n  match x with\n  | false => false\n  | true  => y\n@[inline] def Bool.not : Bool \u2192 Bool\n  | true  => false\n  | false => true\nexport Bool (or and not)\ninductive Nat where\n  | zero : Nat\n  | succ (n : Nat) : Nat\ninstance : Inhabited Nat where\n  default := Nat.zero\nclass OfNat (\u03b1 : Type u) (_ : Nat) where\n  ofNat : \u03b1\n@[default_instance 100]\nclass LE (\u03b1 : Type u) where\nclass LT (\u03b1 : Type u) where\n@[reducible] def GE.ge {\u03b1 : Type u} [LE \u03b1] (a b : \u03b1) : Prop := LE.le b a\nabbrev DecidableLT (\u03b1 : Type u) [LT \u03b1] := DecidableRel (LT.lt : \u03b1 \u2192 \u03b1 \u2192 Prop)\nclass Max (\u03b1 : Type u) where\n@[inline]\ndef maxOfLe [LE \u03b1] [DecidableRel (@LE.le \u03b1 _)] : Max \u03b1 where\n  max x y := ite (LE.le x y) y x\n  min : \u03b1 \u2192 \u03b1 \u2192 \u03b1\nexport Min (min)\nclass Trans (r : \u03b1 \u2192 \u03b2 \u2192 Sort u) (s : \u03b2 \u2192 \u03b3 \u2192 Sort v) (t : outParam (\u03b1 \u2192 \u03b3 \u2192 Sort w)) where\nclass HAdd (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hAdd : \u03b1 \u2192 \u03b2 \u2192 \u03b3",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

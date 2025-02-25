@@ -1,0 +1,9 @@
+{
+  "content": "instance ToJson for Import\nstructure PrintImportResult where\n  imports? : Option (Array Import) := none\n  errors   : Array String := #[]\n  deriving ToJson\nstructure PrintImportsResult where\n  imports : Array PrintImportResult\n  deriving ToJson\n@[export lean_print_imports_json]\ndef printImportsJson (fileNames : Array String) : IO Unit := do\n  let rs \u2190 fileNames.mapM fun fn => do\n    try\n      let deps \u2190 parseImports' (\u2190 IO.FS.readFile \u27e8fn\u27e9) fn\n      return { imports? := some deps }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_name": "ToJson"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Step.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/forIn.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/forIn.lean",
+    "definition_name": "Step"
+  }
+}

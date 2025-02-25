@@ -1,0 +1,10 @@
+{
+  "content": "simp [testBit_to_div_mod, add_div_left, Nat.two_pow_pos, succ_mod_two]\n  cases mod_two_eq_zero_or_one (x / 2 ^ i) with\n  | _ p => simp [p]\ntheorem testBit_mul_two_pow_add_eq (a b i : Nat) :\n    testBit (2^i*a + b) i = (a%2 = 1 ^^ testBit b i) := by\n  match a with\n  | 0 => simp\n  | a+1 =>\n    simp [Nat.mul_succ, Nat.add_assoc,\n          testBit_mul_two_pow_add_eq a,\n          testBit_two_pow_add_eq,\n          Nat.succ_mod_two]\n    cases mod_two_eq_zero_or_one a with\n    | _ p => simp [p]\ntheorem testBit_two_pow_add_gt {i j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "lt_pow_two_of_testBit",
+    "has_proof": true
+  }
+}

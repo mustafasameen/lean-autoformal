@@ -1,0 +1,9 @@
+{
+  "content": "let idx := exts.size\n  let ext : EnvExtension \u03c3 := { idx, mkInitial, asyncMode }\n  EnvExtension.envExtensionsRef.modify fun exts => exts.push (unsafe unsafeCast ext)\n  pure ext\nprivate def mkInitialExtensionStates : IO (Array EnvExtensionState) := EnvExtension.mkInitialExtStates\n@[export lean_mk_empty_environment]\ndef mkEmptyEnvironment (trustLevel : UInt32 := 0) : IO Environment := do\n  let initializing \u2190 IO.initializing\n  if initializing then throw (IO.userError \"environment objects cannot be created during initialization\")\n  let exts \u2190 mkInitialExtensionStates\n  pure {\n    checkedWithoutAsync := {\n      const2ModIdx    := {}\n      constants       := {}\n      header          := { trustLevel }\n      extraConstNames := {}\n      extensions      := exts\n    }\n  }\nstructure PersistentEnvExtensionState (\u03b1 : Type) (\u03c3 : Type) where\nimportedEntries : Array (Array \u03b1)\n  state : \u03c3\nstructure ImportM.Context where\n  env  : Environment\n  opts : Options",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

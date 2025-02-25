@@ -1,0 +1,9 @@
+{
+  "content": "namespace Ex1\ndef findSomeRevM? [Monad m] (as : Array \u03b1) (f : \u03b1 \u2192 m (Option \u03b2)) : m (Option \u03b2) :=\n  pure none\ndef findSomeRev? (as : Array \u03b1) (f : \u03b1 \u2192 Option \u03b2) : Option \u03b2 :=\n  Id.run <| findSomeRevM? as f\nend Ex1\ndef apply {\u03b1 : Type u\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits1.lean",
+    "definition_name": "Tree"
+  }
+}

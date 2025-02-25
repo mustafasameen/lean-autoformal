@@ -1,0 +1,10 @@
+{
+  "content": "rw [Nat.add_assoc, Nat.add_left_comm] at h \u22a2; rw [Nat.add_left_cancel h]\n    next =>\n      rw [Nat.add_assoc] at h \u22a2\n      refine foo cs (a + c') b\u2081 (c'.utf8Size + b\u2082) h\n  exact foo s.1 0 _ _ h\ntheorem mapAux_lemma (s : String) (i : Pos) (c : Char) (h : \u00acs.atEnd i) :\n    (s.set i c).endPos.1 - ((s.set i c).next i).1 < s.endPos.1 - i.1 :=\n  suffices (s.set i c).endPos.1 - ((s.set i c).next i).1 = s.endPos.1 - (s.next i).1 by\n    rw [this]\n    apply Nat.sub_lt_sub_left (Nat.gt_of_not_le (mt decide_eq_true h)) (lt_next ..)\n  Nat.sub.elim (motive := (_ = \u00b7)) _ _\n    (fun _ k e =>\n      have := set_next_add _ _ _ k 0 e.symm\n      Nat.sub_eq_of_eq_add <| this.symm.trans <| Nat.add_comm ..)\n    (fun h => by\n      have \u27e8k, e\u27e9 := Nat.le.dest h\n      rw [Nat.succ_add] at e\n      have : ((s.set i c).next i).1 = _ := set_next_add _ _ c 0 k.succ e.symm\n      exact Nat.sub_eq_zero_of_le (this \u25b8 Nat.le_add_right ..))\n@[specialize] def mapAux (f : Char \u2192 Char) (i : Pos) (s : String) : String :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "set_next_add",
+    "has_proof": true
+  }
+}

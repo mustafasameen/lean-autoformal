@@ -1,0 +1,10 @@
+{
+  "content": "theorem filterMapM_nil [Monad m] (f : \u03b1 \u2192 m (Option \u03b2)) : [].filterMapM f = pure [] := rfl\ntheorem filterMapM_loop_eq [Monad m] [LawfulMonad m]\n    (f : \u03b1 \u2192 m (Option \u03b2)) (l : List \u03b1) (acc : List \u03b2) :\n    filterMapM.loop f l acc = (acc.reverse ++ \u00b7) <$> filterMapM.loop f l [] := by\n  induction l generalizing acc with\n  | nil => simp [filterMapM.loop]\n  | cons a l ih =>\n    simp only [filterMapM.loop, _root_.map_bind]\n    congr\n    funext b?\n    split <;> rename_i b\n    \u00b7 apply ih\n    \u00b7 rw [ih, ih [b]]\n      simp\n@[simp] theorem filterMapM_cons [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m (Option \u03b2)) :\n    (a :: l).filterMapM f = do\n      match (\u2190 f a) with\n      | none => filterMapM f l\n      | some b => return (b :: (\u2190 filterMapM f l)) := by\n  conv => lhs; unfold filterMapM; unfold filterMapM.loop\n  congr\n  funext b?\n  split <;> rename_i b\n  \u00b7 simp [filterMapM]\n  \u00b7 simp only [bind_pure_comp]\n    rw [filterMapM_loop_eq, filterMapM]\n    simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_name": "filterMapM_nil",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "instance instLENat : LE Nat where\n  le := Nat.le\n@[extern \"lean_nat_pred\"]\ndef Nat.pred : (@& Nat) \u2192 Nat\n  | 0      => 0\n  | succ a => a\ntheorem Nat.pred_le_pred : {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "instLENat",
+    "has_proof": false
+  }
+}

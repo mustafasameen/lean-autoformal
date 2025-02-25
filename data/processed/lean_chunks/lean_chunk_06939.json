@@ -1,0 +1,9 @@
+{
+  "content": "let mkFromJson (idx : Nat) (type : Expr) : TermElabM (TSyntax ``doExpr) :=\n          if type.isAppOf indVal.name then `(Lean.Parser.Term.doExpr| $fromJsonFuncId:ident jsons[$(quote idx)]!)\n          else `(Lean.Parser.Term.doExpr| fromJson? jsons[$(quote idx)]!)\n        let identNames := binders.map Prod.fst\n        let fromJsons \u2190 binders.mapIdxM fun idx (_, type) => mkFromJson idx type\n        let userNamesOpt \u2190 if binders.size == userNames.size then\n          ``(some #[$[$(userNames.map quote)],*])\n        else\n          ``(none)\n        let stx \u2190\n          `((Json.parseTagged json $(quote ctorName.eraseMacroScopes.getString!) $(quote ctorInfo.numFields) $(quote userNamesOpt)).bind\n            (fun jsons => do\n              $[let $identNames:ident \u2190 $fromJsons:doExpr]*\n              return $(mkIdent ctorName):ident $identNames*))\n        pure (stx, ctorInfo.numFields)\n      alts := alts.push alt\n  let alts' := alts.qsort (fun (_, x) (_, y) => x < y)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_name": "constructor"
+  }
+}

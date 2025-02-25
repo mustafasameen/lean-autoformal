@@ -1,0 +1,10 @@
+{
+  "content": "theorem castSucc_lt_succ (i : Fin n) : i.castSucc < i.succ :=\n  lt_def.2 <| by simp only [coe_castSucc, val_succ, Nat.lt_succ_self]\ntheorem le_castSucc_iff {i : Fin (n + 1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "castSucc_lt_succ",
+    "has_proof": true
+  }
+}

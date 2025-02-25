@@ -1,0 +1,9 @@
+{
+  "content": "return .nightly date\n  else if tag.startsWith \"pr-release-\" then\n    if let some n := (tag.drop \"pr-release-\".length).toNat? then\n      if origin.isEmpty || origin == prOrigin then\n        return .pr n\n  else\n    if let .ok ver := StdVer.parse ver then\n      if origin.isEmpty || origin == defaultOrigin then\n        return .release ver\n  return .other ver\ndef toolchainFileName : FilePath := \"lean-toolchain\"\nopen Elab Term Meta\nscoped syntax:max (name := verLit) \"v!\" noWs interpolatedStr(term) : term\n@[term_elab verLit] def elabVerLit : TermElab := fun stx expectedType? => do\n  let `(v!$v) := stx | throwUnsupportedSyntax\n  tryPostponeIfNoneOrMVar expectedType?\n  let some expectedType := expectedType?\n    | throwError \"expected type is not known\"\n  let ofVerT? \u2190 mkAppM ``Except #[mkConst ``String, expectedType]\n  let ofVerE \u2190 elabTermEnsuringType (\u2190 ``(decodeVersion s!$v)) ofVerT?\n  let resT \u2190 mkAppM ``Except #[mkConst ``String, mkConst ``Expr]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Version.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Version.lean",
+    "definition_name": "ToolchainVer"
+  }
+}

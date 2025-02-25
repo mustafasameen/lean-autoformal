@@ -1,0 +1,9 @@
+{
+  "content": "instance found for {preDef.declName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/PartialFixpoint/Main.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/PartialFixpoint/Main.lean",
+    "definition_name": "found"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure UnivMVarParamResult where\n  mctx          : MetavarContext\n  newParamNames : Array Name\n  nextParamIdx  : Nat\n  expr          : Expr\ndef levelMVarToParam (mctx : MetavarContext) (alreadyUsedPred : Name \u2192 Bool) (except : LMVarId \u2192 Bool) (e : Expr) (paramNamePrefix : Name := `u) (nextParamIdx : Nat := 1)\n    : UnivMVarParamResult :=\n  let (e, s) := LevelMVarToParam.main e { except, paramNamePrefix, alreadyUsedPred }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/MetavarContext.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/MetavarContext.lean",
+    "definition_name": "UnivMVarParamResult"
+  }
+}

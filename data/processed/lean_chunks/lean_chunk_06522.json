@@ -1,0 +1,9 @@
+{
+  "content": "let some f \u2190 resolveId? f | throwUnknownConstant f.getId\n    return .unop ref f (\u2190 go arg)\n  processLeaf (s : Syntax) := do\n    let e \u2190 elabTerm s none\n    let info \u2190 getResetInfoTrees\n    return .term s info e\nprivate def hasCoe (fromType toType : Expr) : TermElabM Bool := do\n  if (\u2190 getEnv).contains ``CoeT then\n    withLocalDeclD `x fromType fun x => do\n    match \u2190 coerceSimple? x toType with\n    | .some _ => return true\n    | .none   => return false\n| .undef  => return false\n  else\n    return false\nprivate structure AnalyzeResult where\n  max?            : Option Expr := none\n  hasUnknown      : Bool := false\nprivate def isUnknown : Expr \u2192 Bool\n  | .mvar ..        => true\n  | .app f _        => isUnknown f\n  | .letE _ _ _ b _ => isUnknown b\n  | .mdata _ b      => isUnknown b\n  | _               => false\nprivate def analyze (t : Tree) (expectedType? : Option Expr) : TermElabM AnalyzeResult := do\n  let max? \u2190\n    match expectedType? with\n    | none => pure none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Extra.lean",
+    "definition_name": "BinOpKind"
+  }
+}

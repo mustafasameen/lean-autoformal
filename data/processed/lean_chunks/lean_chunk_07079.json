@@ -1,0 +1,9 @@
+{
+  "content": "structure SemanticTokensLegend where\n  tokenTypes     : Array String\n  tokenModifiers : Array String\n  deriving FromJson, ToJson\nstructure SemanticTokensOptions where\n  legend : SemanticTokensLegend\n  range  : Bool\nfull   : Bool\n  deriving FromJson, ToJson\nstructure SemanticTokensParams where\n  textDocument : TextDocumentIdentifier\n  deriving FromJson, ToJson\nstructure SemanticTokensRangeParams where\n  textDocument : TextDocumentIdentifier\n  range        : Range\n  deriving FromJson, ToJson\nstructure SemanticTokens where\n  resultId? : Option String := none\n  data      : Array Nat\n  deriving FromJson, ToJson\nstructure FoldingRangeParams where\n  textDocument : TextDocumentIdentifier\n  deriving FromJson, ToJson\ninductive FoldingRangeKind where\n  | comment\n  | imports\n  | region\ninstance : ToJson FoldingRangeKind where\n  toJson\n    | FoldingRangeKind.comment => \"comment\"\n    | FoldingRangeKind.imports => \"imports\"\n    | FoldingRangeKind.region  => \"region\"\nstructure FoldingRange where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "SemanticTokensLegend"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance monMonoidalStruct : MonoidalCategoryStruct (Mon_ C) :=\n  let tensorObj (M N : Mon_ C) : Mon_ C :=\n    { X := M.X \u2297 N.X\n      one := sorry\n      mul := tensor_\u03bc C (M.X, N.X) (M.X, N.X) \u226b (M.mul \u2297 N.mul)\n      mul_one := sorry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "monMonoidalStruct"
+  }
+}

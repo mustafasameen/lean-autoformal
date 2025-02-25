@@ -1,0 +1,9 @@
+{
+  "content": "inductive Vec (\u03b1 : Type u) : Nat \u2192 Type u where\n  | nil  : Vec \u03b1 0\n  | cons : \u03b1 \u2192 Vec \u03b1 n \u2192 Vec \u03b1 (n + 1)\ndef hv (xs : Vec Nat (n+1)) : Nat :=\n  match xs with\n  | Vec.cons a .. => a\ndef addHead (p : Vec Nat n \u00d7 Vec Nat n) : Nat :=\n  match p with\n  | (Vec.cons a _, Vec.cons b _) => a + b\n  | (Vec.nil, Vec.nil) => 0\ninductive HVec : {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/discrRefinement3.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/discrRefinement3.lean",
+    "definition_name": "Vec"
+  }
+}

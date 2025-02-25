@@ -1,0 +1,10 @@
+{
+  "content": "theorem val_zero (n : Nat) [NeZero n] : ((0 : Fin n) : Nat) = 0 := rfl\n@[simp] theorem mk_zero : (\u27e80, Nat.succ_pos n\u27e9 : Fin (n + 1)) = 0 := rfl\n@[simp] theorem zero_le (a : Fin (n + 1)) : 0 \u2264 a := Nat.zero_le a.val\ntheorem zero_lt_one : (0 : Fin (n + 2)) < 1 := Nat.zero_lt_one\n@[simp] theorem not_lt_zero (a : Fin (n + 1)) : \u00aca < 0 := nofun\ntheorem pos_iff_ne_zero {a : Fin (n + 1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "val_zero",
+    "has_proof": false
+  }
+}

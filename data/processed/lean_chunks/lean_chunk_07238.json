@@ -1,0 +1,9 @@
+{
+  "content": "addEntryFn    := fun s d => s.insert d.name d\n    toArrayFn     := fun s =>\n      let decls := s.foldl (init := #[]) fun decls decl => decls.push decl\n      sortDecls decls\n    asyncMode     := .sync\n  }\n@[export lean_ir_find_env_decl]\ndef findEnvDecl (env : Environment) (declName : Name) : Option Decl :=\n  match env.getModuleIdxFor? declName with\n  | some modIdx => findAtSorted? (declMapExt.getModuleEntries env modIdx) declName\n  | none        => declMapExt.getState env |>.find? declName\ndef findDecl (n : Name) : CompilerM (Option Decl) :=\n  return findEnvDecl (\u2190 get).env n\ndef containsDecl (n : Name) : CompilerM Bool :=\n  return (\u2190 findDecl n).isSome\ndef getDecl (n : Name) : CompilerM Decl := do\n  let (some decl) \u2190 findDecl n | throw s!\"unknown declaration '{n}'\"\n  return decl\n@[export lean_ir_add_decl]\ndef addDeclAux (env : Environment) (decl : Decl) : Environment :=\n  declMapExt.addEntry (env.addExtraName decl.name) decl\ndef getDecls (env : Environment) : List Decl :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_name": "tracePrefixOptionName"
+  }
+}

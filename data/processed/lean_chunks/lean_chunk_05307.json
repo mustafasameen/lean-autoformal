@@ -1,0 +1,10 @@
+{
+  "content": "theorem head?_range' (n : Nat) : (range' s n).head? = if n = 0 then none else some s := by\n  induction n <;> simp_all [range'_succ, head?_append]\n@[simp] theorem head_range' (n : Nat) (h) : (range' s n).head h = s := by\n  repeat simp_all [head?_range', head_eq_iff_head?_eq_some]\ntheorem map_add_range' (a) : \u2200 s n step, map (a + \u00b7) (range' s n step) = range' (a + s) n step\n  | _, 0, _ => rfl\n  | s, n + 1, step => by simp [range', map_add_range' _ (s + step) n step, Nat.add_assoc]\ntheorem range'_succ_left : range' (s + 1) n step = (range' s n step).map (\u00b7 + 1) := by\n  apply ext_getElem\n  \u00b7 simp\n  \u00b7 simp [Nat.add_right_comm]\ntheorem range'_append : \u2200 s m n step : Nat,\n    range' s m step ++ range' (s + step * m) n step = range' s (m + n) step\n  | _, 0, _, _ => by simp\n  | s, m + 1, n, step => by\n    simpa [range', Nat.mul_succ, Nat.add_assoc, Nat.add_comm]\n      using range'_append (s + step) m n step\n@[simp] theorem range'_append_1 (s m n : Nat) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_name": "head",
+    "has_proof": true
+  }
+}

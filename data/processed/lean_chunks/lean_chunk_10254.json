@@ -1,0 +1,10 @@
+{
+  "content": "theorem eraseKey_cons [BEq \u03b1] {l : List ((a : \u03b1) \u00d7 \u03b2 a)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "eraseKey_cons",
+    "has_proof": false
+  }
+}

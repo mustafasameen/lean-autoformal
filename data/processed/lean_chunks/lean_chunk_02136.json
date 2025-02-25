@@ -1,0 +1,9 @@
+{
+  "content": "class Preorder (\u03b1 : Type u) extends LE \u03b1 where\n  le_refl  (a : \u03b1) : a \u2264 a\n  le_trans {a b c : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/monotone.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/monotone.lean",
+    "definition_name": "Preorder"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure RequestCancellationToken where\n  cancelledByCancelRequest : IO.Ref Bool\n  cancelledByEdit          : IO.Ref Bool\n  cancellationPromise      : IO.Promise Unit\nnamespace RequestCancellationToken\ndef new : BaseIO RequestCancellationToken := do\n  return {\n    cancelledByCancelRequest := \u2190 IO.mkRef false\n    cancelledByEdit          := \u2190 IO.mkRef false\n    cancellationPromise      := \u2190 IO.Promise.new\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/RequestCancellation.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/RequestCancellation.lean",
+    "definition_name": "RequestCancellationToken"
+  }
+}

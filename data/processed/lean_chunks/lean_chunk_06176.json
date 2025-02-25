@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  forceParens : Bool := false\nstructure State where\n  stxTrav : Syntax.Traverser\n  contPrec : Option Nat := none\n  contCat : Name := Name.anonymous\n  minPrec : Option Nat := none\n  trailPrec : Option Nat := none\n  trailCat : Name := Name.anonymous\n  visitedToken : Bool := false\nend Parenthesizer\nabbrev ParenthesizerM := ReaderT Parenthesizer.Context $ StateRefT Parenthesizer.State CoreM\nabbrev Parenthesizer := ParenthesizerM Unit\n@[inline] def ParenthesizerM.orElse (p\u2081 : ParenthesizerM \u03b1) (p\u2082 : Unit \u2192 ParenthesizerM \u03b1) : ParenthesizerM \u03b1 := do\n  let s \u2190 get\n  catchInternalId backtrackExceptionId\n    p\u2081\n    (fun _ => do set s; p\u2082 ())\ninstance : OrElse (ParenthesizerM \u03b1) := \u27e8ParenthesizerM.orElse\u27e9\nunsafe def mkParenthesizerAttribute : IO (KeyedDeclsAttribute Parenthesizer) :=\n  KeyedDeclsAttribute.init {\n    builtinName := `builtin_parenthesizer,\n    name := `parenthesizer,\n    descr := \"Register a parenthesizer for a parser.",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_name": "Context"
+  }
+}

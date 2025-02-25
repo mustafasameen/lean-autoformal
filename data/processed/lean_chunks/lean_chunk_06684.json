@@ -1,0 +1,9 @@
+{
+  "content": "inductive LBool where\n  | false\n  | true\n  | undef\n  deriving Inhabited, BEq\nnamespace LBool\ndef neg : LBool \u2192 LBool\n  | true  => false\n  | false => true\n  | undef => undef\ndef and : LBool \u2192 LBool \u2192 LBool\n  | true,  b  => b\n  | a,     _  => a\ndef toString : LBool \u2192 String\n  | true  => \"true\"\n  | false => \"false\"\n  | undef => \"undef\"\ninstance : ToString LBool := \u27e8toString\u27e9\nend LBool\nend Lean\ndef Bool.toLBool : Bool \u2192 Lean.LBool\n  | true  => Lean.LBool.true\n  | false => Lean.LBool.false\n@[inline] def toLBoolM {m : Type \u2192 Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/LBool.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/LBool.lean",
+    "definition_name": "LBool"
+  }
+}

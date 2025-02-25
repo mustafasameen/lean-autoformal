@@ -1,0 +1,9 @@
+{
+  "content": "structure A := (a b : Nat)\nstructure B extends A := (c : Nat)\nstructure C := (a b c : Nat)\nstructure D := (toA : A) (c : Nat)\ndef foo (s : C) : B := {s with}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/463.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/463.lean",
+    "definition_name": "A"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "simp [length_insertIdx, h]\n@[simp]\ntheorem eraseIdx_insertIdx (i : Nat) (l : List \u03b1) : (l.insertIdx i a).eraseIdx i = l := by\n  rw [eraseIdx_eq_modifyTailIdx, insertIdx, modifyTailIdx_modifyTailIdx_self]\n  exact modifyTailIdx_id _ _\ntheorem insertIdx_eraseIdx_of_ge :\n    \u2200 i m as,\n      i < length as \u2192 i \u2264 m \u2192 insertIdx m a (as.eraseIdx i) = (as.insertIdx (m + 1) a).eraseIdx i\n  | 0, 0, [], has, _ => (Nat.lt_irrefl _ has).elim\n  | 0, 0, _ :: as, _, _ => by simp [eraseIdx, insertIdx]\n  | 0, _ + 1, _ :: _, _, _ => rfl\n  | n + 1, m + 1, a :: as, has, hmn =>\n    congrArg (cons a) <|\n      insertIdx_eraseIdx_of_ge n m as (Nat.lt_of_succ_lt_succ has) (Nat.le_of_succ_le_succ hmn)\ntheorem insertIdx_eraseIdx_of_le :\n    \u2200 i j as,\n      i < length as \u2192 j \u2264 i \u2192 insertIdx j a (as.eraseIdx i) = (as.insertIdx j a).eraseIdx (i + 1)\n  | _, 0, _ :: _, _, _ => rfl\n  | n + 1, m + 1, a :: as, has, hmn =>\n    congrArg (cons a) <|",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/InsertIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/InsertIdx.lean",
+    "definition_name": "insertIdx_zero",
+    "has_proof": true
+  }
+}

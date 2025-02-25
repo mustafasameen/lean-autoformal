@@ -1,0 +1,10 @@
+{
+  "content": "theorem Mon.mul_denote (ctx : Context \u03b1) (m\u2081 m\u2082 : Mon) : (m\u2081.mul m\u2082).denote ctx = ctx.mul (m\u2081.denote ctx) (m\u2082.denote ctx) :=\n  go hugeFuel m\u2081 m\u2082\nwhere\n  go (fuel : Nat) (m\u2081 m\u2082 : Mon) : (Mon.mul.go fuel m\u2081 m\u2082).denote ctx = ctx.mul (m\u2081.denote ctx) (m\u2082.denote ctx) := by\n    induction fuel generalizing m\u2081 m\u2082 with\n    | zero => simp! [append_denote]\n    | succ _ ih =>\n      simp!\n      split <",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_name": "hugeFuel",
+    "has_proof": true
+  }
+}

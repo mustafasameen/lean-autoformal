@@ -1,0 +1,10 @@
+{
+  "content": "| none        => (ext.getState env).contains declName\nend MapDeclarationExtension\n@[extern \"lean_save_module_data\"]\nopaque saveModuleData (fname : @& System.FilePath) (mod : @& Name) (data : @& ModuleData) : IO Unit\n@[extern \"lean_read_module_data\"]\nopaque readModuleData (fname : @& System.FilePath) : IO (ModuleData \u00d7 CompactedRegion)\n@[noinline, export lean_environment_free_regions]\nunsafe def Environment.freeRegions (env : Environment) : IO Unit :=\n  env.header.regions.forM CompactedRegion.free\ndef mkModuleData (env : Environment) : IO ModuleData := do\n  let pExts \u2190 persistentEnvExtensionsRef.get\n  let entries := pExts.map fun pExt =>\n    let state := pExt.getState env\n    (pExt.name, pExt.exportEntriesFn state)\n  let kenv := env.toKernelEnv\n  let constNames := kenv.constants.foldStage2 (fun names name _ => names.push name) #[]\n  let constants  := kenv.constants.foldStage2 (fun cs _ c => cs.push c) #[]\n  return {\n    imports         := env.header.imports",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

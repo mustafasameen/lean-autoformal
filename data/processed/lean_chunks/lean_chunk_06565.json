@@ -1,0 +1,9 @@
+{
+  "content": "cmdlineOpts          : Options\ndef WorkerContext.modifyGetPartialHandler (ctx : WorkerContext) (method : String)\n    (f : PartialHandlerInfo \u2192 \u03b1 \u00d7 PartialHandlerInfo) : BaseIO \u03b1 :=\n  ctx.partialHandlersRef.modifyGet fun partialHandlers => Id.run do\n    let h := partialHandlers.find! method\n    let (r, h) := f h\n    (r, partialHandlers.insert method h)\ndef WorkerContext.modifyPartialHandler (ctx : WorkerContext) (method : String)\n    (f : PartialHandlerInfo \u2192 PartialHandlerInfo) : BaseIO Unit :=\n  ctx.partialHandlersRef.modify fun partialHandlers => Id.run do\n  let some h := partialHandlers.find? method\n    | return partialHandlers\n  partialHandlers.insert method <| f h\ndef WorkerContext.updateRequestsInFlight (ctx : WorkerContext) (method : String) (f : Nat \u2192 Nat) : BaseIO Unit :=\n    ctx.modifyPartialHandler method fun h => { h with requestsInFlight := f h.requestsInFlight }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker.lean",
+    "definition_name": "RefreshInfo"
+  }
+}

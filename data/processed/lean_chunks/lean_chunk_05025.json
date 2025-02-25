@@ -1,0 +1,10 @@
+{
+  "content": "theorem get!_nil [Inhabited \u03b1] (n : Nat) : [].get! n = (default : \u03b1) := rfl\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]!` instead.\" (since := \"2025-02-12\")]\ntheorem get!_cons_succ [Inhabited \u03b1] (l : List \u03b1) (a : \u03b1) (n : Nat) :\n    (a::l).get! (n+1) = get! l n := rfl\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]!` instead.\" (since := \"2025-02-12\")]\ntheorem get!_cons_zero [Inhabited \u03b1] (l : List \u03b1) (a : \u03b1) : (a::l).get! 0 = a := rfl\ndef getD (as : List \u03b1) (i : Nat) (fallback : \u03b1) : \u03b1 :=\n  as[i]?.getD fallback\n@[simp] theorem getD_nil : getD [] n d = d := rfl\ndef getLast! [Inhabited \u03b1] : List \u03b1 \u2192 \u03b1\n  | []    => panic! \"empty list\"\n  | a::as => getLast (a::as) (fun h => List.noConfusion h)\ndef head! [Inhabited \u03b1] : List \u03b1 \u2192 \u03b1\n  | []   => panic! \"empty list\"\n  | a::_ => a\ndef tail! : List \u03b1 \u2192 List \u03b1\n  | []    => panic! \"empty list\"\n  | _::as => as\n@[simp] theorem tail!_cons : @tail! \u03b1 (a::l) = l := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_name": "get",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem bind_assoc (x : Option \u03b1) (f : \u03b1 \u2192 Option \u03b2) (g : \u03b2 \u2192 Option \u03b3) :\n    (x.bind f).bind g = x.bind fun y => (f y).bind g := by cases x <;> rfl\ntheorem join_eq_some : x.join = some a \u2194 x = some (some a) := by\n  simp [bind_eq_some]\ntheorem join_ne_none : x.join \u2260 none \u2194 \u2203 z, x = some (some z) := by\n  simp only [ne_none_iff_exists', join_eq_some, iff_self]\ntheorem join_ne_none' : \u00acx.join = none \u2194 \u2203 z, x = some (some z) :=\n  join_ne_none\ntheorem join_eq_none : o.join = none \u2194 o = none \u2228 o = some none :=\n  match o with | none | some none | some (some _) => by simp\ntheorem bind_id_eq_join {x : Option (Option \u03b1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "bind_assoc",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class ContextInformation (\u03b1 : Sort u) where\n  isNeutral : \u03b1 \u2192 Nat \u2192 Bool\n  isComm : \u03b1 \u2192 Bool\n  isIdem : \u03b1 \u2192 Bool\nclass EvalInformation (\u03b1 : Sort u) (\u03b2 : Sort v) where\n  arbitrary : \u03b1 \u2192 \u03b2\n  evalOp : \u03b1 \u2192 \u03b2 \u2192 \u03b2 \u2192 \u03b2\n  evalVar : \u03b1 \u2192 Nat \u2192 \u03b2\ndef Context.var (ctx : Context \u03b1) (idx : Nat) : Variable ctx.op :=\n  ctx.vars[idx]?.getD \u27e8ctx.arbitrary, none\u27e9\ninstance : ContextInformation (Context \u03b1) where\n  isNeutral ctx x := ctx.var x |>.neutral.isSome\n  isComm ctx := ctx.comm.isSome\n  isIdem ctx := ctx.idem.isSome\ninstance : EvalInformation (Context \u03b1) \u03b1 where\n  arbitrary ctx := ctx.arbitrary\n  evalOp ctx := ctx.op\n  evalVar ctx idx := ctx.var idx |>.value\ndef eval (\u03b2 : Sort u) [EvalInformation \u03b1 \u03b2] (ctx : \u03b1) : (ex : Expr) \u2192 \u03b2\n  | Expr.var idx => EvalInformation.evalVar ctx idx\n  | Expr.op l r => EvalInformation.evalOp ctx (eval \u03b2 ctx l) (eval \u03b2 ctx r)\ndef Expr.toList : Expr \u2192 List Nat\n  | Expr.var idx => [idx]\n  | Expr.op l r => l.toList.append r.toList",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_name": "ContextInformation"
+  }
+}

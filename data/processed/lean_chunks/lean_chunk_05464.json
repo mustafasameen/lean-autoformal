@@ -1,0 +1,9 @@
+{
+  "content": "class ToFormat (\u03b1 : Type u) where\n  format : \u03b1 \u2192 Format\nexport ToFormat (format)\ninstance : ToFormat Format where\n  format f := f\ninstance : ToFormat String where\n  format s := Format.text s\ndef Format.prefixJoin {\u03b1 : Type u} [ToFormat \u03b1] (pre : Format) : List \u03b1 \u2192 Format\n  | []    => nil\n  | a::as => as.foldl (\u00b7 ++ pre ++ format \u00b7) (pre ++ format a)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Format/Basic.lean",
+    "definition_name": "defIndent"
+  }
+}

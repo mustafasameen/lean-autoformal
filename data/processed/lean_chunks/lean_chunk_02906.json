@@ -1,0 +1,9 @@
+{
+  "content": "structure EnvExtension (\u03c3 : Type) where private mk ::\n  idx       : Nat\n  mkInitial : IO \u03c3\n  asyncMode : EnvExtension.AsyncMode\n  deriving Inhabited\nnamespace EnvExtension\nprivate builtin_initialize envExtensionsRef : IO.Ref (Array (EnvExtension EnvExtensionState)) \u2190 IO.mkRef #[]\npartial def ensureExtensionsArraySize (exts : Array EnvExtensionState) : IO (Array EnvExtensionState) := do\n  loop exts.size exts\nwhere\n  loop (i : Nat) (exts : Array EnvExtensionState) : IO (Array EnvExtensionState) := do\n    let envExtensions \u2190 envExtensionsRef.get\n    if h : i < envExtensions.size then\n      let s \u2190 envExtensions[i].mkInitial\n      let exts := exts.push s\n      loop (i + 1) exts\n    else\n      return exts\nprivate def invalidExtMsg := \"invalid environment extension has been accessed\"\nprivate unsafe def setStateImpl {\u03c3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "EnvExtension"
+  }
+}

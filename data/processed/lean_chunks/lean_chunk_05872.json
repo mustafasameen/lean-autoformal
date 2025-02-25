@@ -1,0 +1,10 @@
+{
+  "content": "rw [Int.neg_mul, \u2190 Int.neg_add]\n    exact congrArg (-ofNat \u00b7) (Nat.mod_add_div ..)\ntheorem tdiv_add_tmod (a b : Int) : b * a.tdiv b + tmod a b = a := by\n  rw [Int.add_comm]; apply tmod_add_tdiv ..\ntheorem tmod_add_tdiv' (m k : Int) : tmod m k + m.tdiv k * k = m := by\n  rw [Int.mul_comm]; apply tmod_add_tdiv\ntheorem tdiv_add_tmod' (m k : Int) : m.tdiv k * k + tmod m k = m := by\n  rw [Int.mul_comm]; apply tdiv_add_tmod\ntheorem tmod_def (a b : Int) : tmod a b = a - b * a.tdiv b := by\n  rw [\u2190 Int.add_sub_cancel (tmod a b), tmod_add_tdiv]\ntheorem fmod_add_fdiv : \u2200 a b : Int, a.fmod b + b * a.fdiv b = a\n  | 0, ofNat _ | 0, -[_+1] => congrArg ofNat <| by simp\n  | succ _, ofNat _ => congrArg ofNat <| Nat.mod_add_div ..\n  | succ m, -[n+1] => by\n    show subNatNat (m % succ n) n + (\u2191(succ n * (m / succ n)) + n + 1) = (m + 1)\n    rw [Int.add_comm _ n, \u2190 Int.add_assoc, \u2190 Int.add_assoc,\n      Int.subNatNat_eq_coe, Int.sub_add_cancel]\n    exact congrArg (ofNat \u00b7 + 1) <| Nat.mod_add_div ..",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "ediv_add_emod",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\n  openDecls     : List OpenDecl\n  currNamespace : Name\nabbrev M := StateRefT State m\ninstance : MonadResolveName (M (m := m)) where\n  getCurrNamespace   := return (\u2190 get).currNamespace\n  getOpenDecls       := return (\u2190 get).openDecls\ndef resolveId (ns : Name) (idStx : Syntax) : M (m := m) Name := do\n  let declName := ns ++ idStx.getId\n  if (\u2190 getEnv).contains declName then\n    return declName\n  else\n    withRef idStx <| resolveGlobalConstNoOverloadCore declName\nprivate def addOpenDecl (decl : OpenDecl) : M (m:=m) Unit :=\n  modify fun s => { s with openDecls := decl :: s.openDecls }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Open.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Open.lean",
+    "definition_name": "State"
+  }
+}

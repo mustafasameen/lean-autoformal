@@ -1,0 +1,9 @@
+{
+  "content": "structure AltExpr (\u03c3 : Type) where\n  ref     : Syntax\n  var?    : Option Var\n  funName : Syntax\n  pvars   : Array Syntax\n  rhs     : \u03c3\n  deriving Inhabited\ndef AltExpr.vars (alt : AltExpr \u03c3) : Array Var := Id.run do\n  let mut vars := #[]\n  if let some var := alt.var? then\n    vars := vars.push var\n  for pvar in alt.pvars do\n    match pvar with\n    | `(_) => pure ()\n    | _ => vars := vars.push pvar\n  return vars\ninductive Code where\n  | decl         (xs : Array Var) (doElem : Syntax) (k : Code)\n  | reassign     (xs : Array Var) (doElem : Syntax) (k : Code)\n  | ite          (ref : Syntax) (h? : Option Var) (optIdent : Syntax) (cond : Syntax) (thenBranch : Code) (elseBranch : Code)\n  | match        (ref : Syntax) (gen : Syntax) (discrs : Syntax) (optMotive : Syntax) (alts : Array (Alt Code))\n  | matchExpr    (ref : Syntax) (meta : Bool) (discr : Syntax) (alts : Array (AltExpr Code)) (elseBranch : Code)\n  | jmp          (ref : Syntax) (jpName : Name) (args : Array Syntax)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "AltExpr"
+  }
+}

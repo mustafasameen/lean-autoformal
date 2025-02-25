@@ -1,0 +1,9 @@
+{
+  "content": "structure AddCon (M : Type _) [Add M] extends Setoid M where\nstructure Con (M : Type _) [Mul M] extends Setoid M where\nprotected def Con.Quotient [Mul M] (c : Con M) :=\n  Quotient c.toSetoid\nprotected def AddCon.Quotient [Add M] (c : AddCon M) :=\n  Quotient c.toSetoid\ndef Con.toQuotient [Mul M] {c : Con M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddCon"
+  }
+}

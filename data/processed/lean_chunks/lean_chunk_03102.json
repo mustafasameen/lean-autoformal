@@ -1,0 +1,9 @@
+{
+  "content": "inductive TaskState\n  | waiting\n  | running\n  | finished\n  deriving Inhabited, Repr, DecidableEq, Ord\ninstance : LT TaskState := ltOfOrd\ninstance : LE TaskState := leOfOrd\ninstance : Min TaskState := minOfLe\ninstance : Max TaskState := maxOfLe\nprotected def TaskState.toString : TaskState \u2192 String\n  | .waiting => \"waiting\"\n  | .running => \"running\"\n  | .finished => \"finished\"\ninstance : ToString TaskState := \u27e8TaskState.toString\u27e9\n@[extern \"lean_io_get_task_state\"] opaque getTaskState : @& Task \u03b1 \u2192 BaseIO TaskState\n@[extern \"lean_io_wait\"] opaque wait (t : Task \u03b1) : BaseIO \u03b1 :=\n  return t.get\n@[extern \"lean_io_get_num_heartbeats\"] opaque getNumHeartbeats : BaseIO Nat\n@[extern \"lean_io_add_heartbeats\"] opaque addHeartbeats (count : UInt64) : BaseIO Unit\ninductive FS.Mode where\n  | read\n  | write\n  | writeNew\n  | readWrite\n  | append\nopaque FS.Handle : Type := Unit\nstructure FS.Stream where\n  flush   : IO Unit\n  read    : USize \u2192 IO ByteArray\n  write   : ByteArray \u2192 IO Unit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "TaskState"
+  }
+}

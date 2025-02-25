@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_true : \u2200 (x : Bool), x \u2264 true := by decide\n@[simp] protected theorem false_le : \u2200 (x : Bool), false \u2264 x := by decide\n@[simp] protected theorem le_refl : \u2200 (x : Bool), x \u2264 x := by decide\n@[simp] protected theorem lt_irrefl : \u2200 (x : Bool), \u00ac x < x := by decide\nprotected theorem le_trans : \u2200 {x y z : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_name": "le_true",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance PSum.nonemptyLeft [h : Nonempty \u03b1] : Nonempty (PSum \u03b1 \u03b2) :=\n  Nonempty.elim h (fun a => \u27e8PSum.inl a\u27e9)\ninstance PSum.nonemptyRight [h : Nonempty \u03b2] : Nonempty (PSum \u03b1 \u03b2) :=\n  Nonempty.elim h (fun b => \u27e8PSum.inr b\u27e9)\n@[pp_using_anonymous_constructor]\nstructure Sigma {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "PSum"
+  }
+}

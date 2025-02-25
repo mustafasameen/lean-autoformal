@@ -1,0 +1,9 @@
+{
+  "content": "def defaultRemote :=\n  \"origin\"\ndef upstreamBranch :=\n  \"master\"\ndef filterUrl? (url : String) : Option String :=\n  if url.startsWith \"git\" then\n    none\n  else if url.endsWith \".git\" then\n    some <| url.dropRight 4\n  else\n    some url\ndef isFullObjectName (rev : String) : Bool :=\n  rev.length == 40 && rev.all fun c => c.isDigit || ('a' <= c && c <= 'f')\nend Git\nstructure GitRepo where\n  dir : FilePath\ninstance : Coe FilePath GitRepo := \u27e8(\u27e8\u00b7\u27e9)\u27e9\ninstance : ToString GitRepo := \u27e8(\u00b7.dir.toString)\u27e9\nnamespace GitRepo\ndef cwd : GitRepo := \u27e8\".\"\u27e9\n@[inline] def dirExists (repo : GitRepo) : BaseIO Bool :=\n  repo.dir.isDir\n@[inline] def captureGit? (args : Array String) (repo : GitRepo) : BaseIO (Option String) :=\n  captureProc? {cmd := \"git\", args, cwd := repo.dir}\n@[inline] def execGit (args : Array String) (repo : GitRepo) : LogIO PUnit :=\n  proc {cmd := \"git\", args, cwd := repo.dir} (quiet := true)\n@[inline] def testGit (args : Array String) (repo : GitRepo) : BaseIO Bool :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_name": "defaultRemote"
+  }
+}

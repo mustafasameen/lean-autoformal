@@ -1,0 +1,9 @@
+{
+  "content": "structure Person :=\n  FirstName : String\n  LastName : String\n  Age : Nat\nderiving Hashable\nstructure Company :=\n  Name : String\n  CEO : Person\n  NumberOfEmployees : Nat\nderiving Hashable\n#eval hash {\n  Name := \"Microsoft\"\n  CEO := { FirstName := \"Satya\", LastName := \"Nadella\", Age := 53 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/hashable.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/hashable.lean",
+    "definition_name": "Person"
+  }
+}

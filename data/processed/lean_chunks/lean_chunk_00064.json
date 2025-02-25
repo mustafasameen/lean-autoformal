@@ -1,0 +1,9 @@
+{
+  "content": "IO.println <| int_mod INT32_MIN (-1)\n  IO.println <| int_mod (-2) 0\n  IO.println <| uint8_mod 1 0\n  IO.println <| uint16_mod 1 0\n  IO.println <| uint32_mod 1 0\n  IO.println <| uint64_mod 1 0\n  IO.println <| usize_mod 1 0\n#eval main",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/307.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/307.lean",
+    "definition_name": "int_div"
+  }
+}

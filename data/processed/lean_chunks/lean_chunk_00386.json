@@ -1,0 +1,9 @@
+{
+  "content": "inductive TreeV (\u03b1 : Type u) (\u03b2 : Type v) : Nat \u2192 Type max u v where\n  | diag   : {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/deriving.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/deriving.lean",
+    "definition_name": "TreeV"
+  }
+}

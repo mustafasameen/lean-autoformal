@@ -1,0 +1,10 @@
+{
+  "content": "theorem toInt_eq_toNat_bmod (x : BitVec n) : x.toInt = Int.bmod x.toNat (2^n) := by\n  simp only [toInt_eq_toNat_cond]\n  split\n  next g =>\n    rw [Int.bmod_pos] <;> simp only [\u2190Int.ofNat_emod, toNat_mod_cancel]\n    omega\n  next g =>\n    rw [Int.bmod_neg] <;> simp only [\u2190Int.ofNat_emod, toNat_mod_cancel]\n    omega\ntheorem toInt_lt {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toInt_eq_toNat_bmod",
+    "has_proof": true
+  }
+}

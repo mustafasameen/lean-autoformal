@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex5  {\u03b1 \u03b2 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match3.lean",
+    "definition_name": "ex5",
+    "has_proof": false
+  }
+}

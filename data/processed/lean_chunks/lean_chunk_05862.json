@@ -1,0 +1,10 @@
+{
+  "content": "theorem zero_tdiv : \u2200 b : Int, tdiv 0 b = 0\n  | ofNat _ => show ofNat _ = _ by simp\n  | -[_+1] => show -ofNat _ = _ by simp\nunseal Nat.div in\n@[simp] protected theorem tdiv_zero : \u2200 a : Int, tdiv a 0 = 0\n  | ofNat _ => show ofNat _ = _ by simp\n  | -[_+1] => rfl\n@[simp] theorem zero_fdiv (b : Int) : fdiv 0 b = 0 := by cases b <;> rfl\nunseal Nat.div in\n@[simp] protected theorem fdiv_zero : \u2200 a : Int, fdiv a 0 = 0\n  | 0      => rfl\n  | succ _ => rfl\n  | -[_+1] => rfl\ntheorem tdiv_eq_ediv_of_nonneg : \u2200 {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "zero_tdiv",
+    "has_proof": true
+  }
+}

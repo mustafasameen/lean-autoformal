@@ -1,0 +1,9 @@
+{
+  "content": "inductive DefEqArgsFirstPassResult where\n  | failed\n  | ok (postponedImplicit : Array Nat) (postponedHO : Array Nat)\nprivate def isDefEqArgsFirstPass\n    (paramInfo : Array ParamInfo) (args\u2081 args\u2082 : Array Expr) : MetaM DefEqArgsFirstPassResult := do\n  let mut postponedImplicit := #[]\n  let mut postponedHO := #[]\n  for h : i in [:paramInfo.size] do\n    let info := paramInfo[i]\n    let a\u2081 := args\u2081[i]!\n    let a\u2082 := args\u2082[i]!\n    if info.dependsOnHigherOrderOutParam || info.higherOrderOutParam then\n      trace[Meta.isDefEq] \"found messy {a\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "DefEqArgsFirstPassResult"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class PartialOrder (\u03b1 : Type u) extends Preorder \u03b1 where\n  le_antisymm : \u2200 a b : \u03b1, a \u2264 b \u2192 b \u2264 a \u2192 a = b\nend Mathlib.Init.Order.Defs\nsection Mathlib.Init.Set\nset_option autoImplicit true\ndef Set (\u03b1 : Type u) := \u03b1 \u2192 Prop\nnamespace Set\nprotected def Mem (s : Set \u03b1) (a : \u03b1) : Prop :=\n  s a\ninstance : Membership \u03b1 (Set \u03b1) :=\n  \u27e8Set.Mem\u27e9\ndef image (f : \u03b1 \u2192 \u03b2) (s : Set \u03b1) : Set \u03b2 := fun b => \u2203 a, \u2203 (_ : a \u2208 s), f a = b\nend Set\nend Mathlib.Init.Set\nsection Mathlib.Data.Subtype\nattribute [coe] Subtype.val\nend Mathlib.Data.Subtype\nsection Mathlib.Order.Notation\nclass Sup (\u03b1 : Type _) where\n  sup : \u03b1 \u2192 \u03b1 \u2192 \u03b1\nclass Inf (\u03b1 : Type _) where\n  inf : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n@[inherit_doc]\ninfixl:68 \" \u2294 \" => Sup.sup\n@[inherit_doc]\ninfixl:69 \" \u2293 \" => Inf.inf\nclass Top (\u03b1 : Type _) where\n  top : \u03b1\nclass Bot (\u03b1 : Type _) where\n  bot : \u03b1\nnotation \"\u22a4\" => Top.top\nnotation \"\u22a5\" => Bot.bot\nend Mathlib.Order.Notation\nsection Mathlib.Data.Set.Defs\nuniverse u\nnamespace Set\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "PartialOrder"
+  }
+}

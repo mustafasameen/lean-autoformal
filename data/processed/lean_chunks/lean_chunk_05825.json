@@ -1,0 +1,10 @@
+{
+  "content": "rw [Nat.add_comm, Nat.add_mul_mod_self_right]\n@[simp] theorem mul_mod_right (m n : Nat) : (m * n) % m = 0 := by\n  rw [\u2190 Nat.zero_add (m * n), add_mul_mod_self_left, zero_mod]\n@[simp] theorem mul_mod_left (m n : Nat) : (m * n) % n = 0 := by\n  rw [Nat.mul_comm, mul_mod_right]\nprotected theorem div_eq_of_lt_le (lo : k * n \u2264 m) (hi : m < (k + 1) * n) : m / n = k :=\nhave npos : 0 < n := (eq_zero_or_pos _).resolve_left fun hn => by\n  rw [hn, Nat.mul_zero] at hi lo; exact absurd lo (Nat.not_le_of_gt hi)\nNat.le_antisymm\n  (le_of_lt_succ ((Nat.div_lt_iff_lt_mul npos).2 hi))\n  ((Nat.le_div_iff_mul_le npos).2 lo)\ntheorem sub_mul_div (x n p : Nat) (h\u2081 : n*p \u2264 x) : (x - n*p) / n = x / n - p := by\n  match eq_zero_or_pos n with\n  | .inl h\u2080 => rw [h\u2080, Nat.div_zero, Nat.div_zero, Nat.zero_sub]\n  | .inr h\u2080 => induction p with\n    | zero => rw [Nat.mul_zero, Nat.sub_zero, Nat.sub_zero]\n    | succ p IH =>\n      have h\u2082 : n * p \u2264 x := Nat.le_trans (Nat.mul_le_mul_left _ (le_succ _)) h\u2081",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "add_mod_right",
+    "has_proof": true
+  }
+}

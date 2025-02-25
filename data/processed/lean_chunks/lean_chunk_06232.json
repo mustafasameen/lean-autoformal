@@ -1,0 +1,9 @@
+{
+  "content": "if let some mvarId \u2190 getStuckMVar? arg then\n                return some mvarId\n          return none\n      | .proj _ _ e => getStuckMVar? (\u2190 whnf e)\n      | _ => return none\n    | _ => return none\nend\n@[specialize] partial def whnfEasyCases (e : Expr) (k : Expr \u2192 MetaM Expr) : MetaM Expr := do\n  match e with\n  | .forallE ..    => return e\n  | .lam ..        => return e\n  | .sort ..       => return e\n  | .lit ..        => return e\n  | .bvar ..       => panic! \"loose bvar in expression\"\n  | .letE ..       => k e\n  | .const ..      => k e\n  | .app ..        => k e\n  | .proj ..       => k e\n  | .mdata _ e     => whnfEasyCases e k\n  | .fvar fvarId   =>\n    let decl \u2190 fvarId.getDecl\n    match decl with\n    | .cdecl .. => return e\n    | .ldecl (value := v) .. =>\n      let cfg \u2190 getConfig\n      if !decl.isImplementationDetail && !cfg.zetaDelta then\n        if !(\u2190 read).zetaDeltaSet.contains fvarId then\n          return e\n      if (\u2190 read).trackZetaDelta then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

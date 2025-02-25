@@ -1,0 +1,10 @@
+{
+  "content": "findAux s p stopPos (s.next pos)\n  else pos\ntermination_by stopPos.1 - pos.1\n@[inline] def find (s : String) (p : Char \u2192 Bool) : Pos :=\n  findAux s p s.endPos 0\ndef revFindAux (s : String) (p : Char \u2192 Bool) (pos : Pos) : Option Pos :=\n  if h : pos = 0 then none\n  else\n    have := prev_lt_of_pos s pos h\n    let pos := s.prev pos\n    if p (s.get pos) then some pos\n    else revFindAux s p pos\ntermination_by pos.1\n@[inline] def revFind (s : String) (p : Char \u2192 Bool) : Option Pos :=\n  revFindAux s p s.endPos\nabbrev Pos.min (p\u2081 p\u2082 : Pos) : Pos :=\n  { byteIdx := p\u2081.byteIdx.min p\u2082.byteIdx }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "lt_next",
+    "has_proof": true
+  }
+}

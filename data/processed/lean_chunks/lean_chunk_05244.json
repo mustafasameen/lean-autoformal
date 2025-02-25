@@ -1,0 +1,10 @@
+{
+  "content": "theorem isPrefixOf_nil_left [BEq \u03b1] : isPrefixOf ([] : List \u03b1) l = true := by\n  simp [isPrefixOf]\n@[simp] theorem isPrefixOf_cons_nil [BEq \u03b1] : isPrefixOf (a::as) ([] : List \u03b1) = false := rfl\ntheorem isPrefixOf_cons\u2082 [BEq \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "isPrefixOf_nil_left",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance smul [SMul M' \u03b1] (S : Submonoid M') : SMul S \u03b1 :=\n  SMul.comp _ S.subtype\nend MulOneClass\nvariable [AddMonoid M']\ninstance vadd [VAdd M' \u03b1] (S : AddSubmonoid M') : VAdd S \u03b1 :=\n  VAdd.compHom _ S.subtype\nend Submonoid\nend Mathlib.GroupTheory.Submonoid.Operations\nsection Mathlib.GroupTheory.Congruence\nvariable (M : Type _) {N : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "smul"
+  }
+}

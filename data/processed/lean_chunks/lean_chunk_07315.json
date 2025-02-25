@@ -1,0 +1,10 @@
+{
+  "content": "inductive BVBinOp where\n  | and\n  | or\n  | xor\n  | add\n  | mul\n  | udiv\n  | umod\nnamespace BVBinOp\ndef toString : BVBinOp \u2192 String\n  | and => \"&&\"\n  | or => \"||\"\n  | xor => \"^\"\n  | add => \"+\"\n  | mul => \"*\"\n  | udiv => \"/\u1d64\"\n  | umod => \"%\u1d64\"\ninstance : ToString BVBinOp := \u27e8toString\u27e9\ndef eval : BVBinOp \u2192 (BitVec w \u2192 BitVec w \u2192 BitVec w)\n  | and => (\u00b7 &&& \u00b7)\n  | or => (\u00b7 ||| \u00b7)\n  | xor => (\u00b7 ^^^ \u00b7)\n  | add => (\u00b7 + \u00b7)\n  | mul => (\u00b7 * \u00b7)\n  | udiv => (\u00b7 / \u00b7)\n  | umod => (\u00b7 % \u00b7 )\n@[simp] theorem eval_and : eval .and = ((\u00b7 &&& \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_or : eval .or = ((\u00b7 ||| \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_xor : eval .xor = ((\u00b7 ^^^ \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_add : eval .add = ((\u00b7 + \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_mul : eval .mul = ((\u00b7 * \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_name": "BVBinOp",
+    "has_proof": true
+  }
+}

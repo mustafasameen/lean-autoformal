@@ -1,0 +1,10 @@
+{
+  "content": "List.replaceEntry_append_of_containsKey_right_eq_false\ntheorem isHashSelf_replace\u2098 [BEq \u03b1] [Hashable \u03b1] [EquivBEq \u03b1] [LawfulHashable \u03b1] (m : Raw\u2080 \u03b1 \u03b2)\n    (h : Raw.WFImp m.1) (a : \u03b1) (b : \u03b2 a) : IsHashSelf (m.replace\u2098 a b).1.buckets := by\n  apply h.buckets_hash_self.updateBucket (fun l p hp => ?_)\n  exact Or.inl (by simpa using containsKey_of_mem hp)\ntheorem wfImp_replace\u2098 [BEq \u03b1] [Hashable \u03b1] [EquivBEq \u03b1] [LawfulHashable \u03b1] (m : Raw\u2080 \u03b1 \u03b2)\n    (h : Raw.WFImp m.1) (a : \u03b1) (b : \u03b2 a) : Raw.WFImp (m.replace\u2098 a b).1 where\n  buckets_hash_self := isHashSelf_replace\u2098 m h a b\n  size_eq := h.size_eq.trans\n    (Eq.trans length_replaceEntry.symm (toListModel_replace\u2098 _ h _ _).length_eq.symm)\n  distinct := h.distinct.replaceEntry.perm (toListModel_replace\u2098 _ h _ _)\ntheorem toListModel_insert [BEq \u03b1] [Hashable \u03b1] [EquivBEq \u03b1] [LawfulHashable \u03b1] {m : Raw\u2080 \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_name": "wfImp_expandIfNecessary",
+    "has_proof": true
+  }
+}

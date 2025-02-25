@@ -1,0 +1,9 @@
+{
+  "content": "#testDelabN instInhabitedPUnit\n#testDelabN Lean.Syntax.getOptionalIdent?\n#testDelabN Lean.Meta.ppExpr\n#testDelabN MonadLift.noConfusion\n#testDelabN MonadLift.noConfusionType\n#testDelabN MonadExcept.noConfusion\n#testDelabN MonadFinally.noConfusion\n#testDelabN Lean.Elab.InfoTree.goalsAt?.match_1\n#testDelabN Array.mk.injEq\n#testDelabN Lean.PrefixTree.empty\n#testDelabN Lean.PersistentHashMap.getCollisionNodeSize.match_1\n#testDelabN Lean.HashMap.size.match_1\n#testDelabN and_false\n#testDelabN Lean.Server.FileWorker.handlePlainTermGoal\n#testDelabN Lean.Server.FileWorker.handlePlainGoal",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_name": "arrayMkInjEqSnippet"
+  }
+}

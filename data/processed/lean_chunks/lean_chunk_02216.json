@@ -1,0 +1,9 @@
+{
+  "content": "inductive BTree (\u03b1 : Type u)\n| leaf : \u03b1 \u2192 BTree \u03b1\n| node : (Bool \u2192 Bool \u2192 BTree \u03b1) \u2192 BTree \u03b1\ndef BTree.sz {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def7.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def7.lean",
+    "definition_name": "BTree"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : f 100 2 = 0 := rfl\ntheorem ex2 : f 9 4   = 1 := rfl\ntheorem ex3 : f 8 4   = 1 := rfl\ntheorem ex4 : f 6 3   = 2 := rfl\ninductive BV : Nat \u2192 Type\n| nil  : BV 0\n| cons : {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def9.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def9.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

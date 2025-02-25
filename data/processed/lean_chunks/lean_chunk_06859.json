@@ -1,0 +1,10 @@
+{
+  "content": "return mkConst declName us\ndef mkEMatchTheorem (declName : Name) (numParams : Nat) (patterns : List Expr) (kind : EMatchTheoremKind) : MetaM EMatchTheorem := do\n  mkEMatchTheoremCore (.decl declName) #[] numParams (\u2190 getProofFor declName) patterns kind\ndef mkEMatchEqTheoremCore (origin : Origin) (levelParams : Array Name) (proof : Expr) (normalizePattern : Bool) (useLhs : Bool) : MetaM EMatchTheorem := do\n  let (numParams, patterns) \u2190 forallTelescopeReducing (\u2190 inferType proof) fun xs type => do\n    let (lhs, rhs) \u2190 match_expr type with\n      | Eq _ lhs rhs => pure (lhs, rhs)\n      | Iff lhs rhs => pure (lhs, rhs)\n      | HEq _ lhs _ rhs => pure (lhs, rhs)\n      | _ => throwError \"invalid E-matching equality theorem, conclusion must be an equality{indentExpr type}\"\n    let pat := if useLhs then lhs else rhs\n    trace[grind.debug.ematch.pattern] \"mkEMatchEqTheoremCore: origin: {\u2190 origin.pp}, pat: {pat}, useLhs: {useLhs}\"\n    let pat \u2190 preprocessPattern pat normalizePattern",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

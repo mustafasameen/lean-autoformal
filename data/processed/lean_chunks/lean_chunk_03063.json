@@ -1,0 +1,9 @@
+{
+  "content": "def isOutParam (e : Expr) : Bool :=\n  e.isAppOfArity ``outParam 1\ndef isOptParam (e : Expr) : Bool :=\n  e.isAppOfArity ``optParam 2\n@[export lean_expr_consume_type_annotations]\npartial def consumeTypeAnnotations (e : Expr) : Expr :=\n  if e.isOptParam || e.isAutoParam then\n    consumeTypeAnnotations e.appFn!.appArg!\n  else if e.isOutParam || e.isSemiOutParam then\n    consumeTypeAnnotations e.appArg!\n  else\n    e\npartial def cleanupAnnotations (e : Expr) : Expr :=\n  let e' := e.consumeMData.consumeTypeAnnotations\n  if e' == e then e else cleanupAnnotations e'\ndef appFnCleanup (e : Expr) (h : e.isApp) : Expr :=\n  match e, h with\n  | .app f _, _ => f.cleanupAnnotations\ndef isFalse (e : Expr) : Bool :=\n  e.cleanupAnnotations.isConstOf ``False\ndef isTrue (e : Expr) : Bool :=\n  e.cleanupAnnotations.isConstOf ``True\npartial def getForallArity : Expr \u2192 Nat\n  | .mdata _ b       => getForallArity b\n  | .forallE _ _ b _ => getForallArity b + 1\n  | e                =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

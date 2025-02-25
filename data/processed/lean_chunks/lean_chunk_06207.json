@@ -1,0 +1,9 @@
+{
+  "content": "instance synthesis procedure\"\n}\nregister_builtin_option backward.synthInstance.canonInstances : Bool := {\n  defValue := true\n  group    := \"backward compatibility\"\n  descr := \"use optimization that relies on 'morally canonical' instances during type class resolution\"\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SynthInstance.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/SynthInstance.lean",
+    "definition_name": "synthesis"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def\n5\nhey\n(     99\n  (\n#stop\ndef x := 5\n#eval x",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/parserRecovery.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/parserRecovery.lean",
+    "definition_name": "5"
+  }
+}

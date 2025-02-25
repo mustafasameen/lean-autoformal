@@ -1,0 +1,10 @@
+{
+  "content": "class Semigroup (\u03b1 : Type u) extends Mul \u03b1 where\n  mul_assoc (a b c : \u03b1) : a * b * c = a * (b * c)\nexport Semigroup (mul_assoc)\nclass MulComm (\u03b1 : Type u)  extends Mul \u03b1 where\n  mul_comm (a b : \u03b1) : a * b = b * a\nexport MulComm (mul_comm)\nclass CommSemigroup (\u03b1 : Type u) extends Semigroup \u03b1 where\n  mul_comm (a b : \u03b1) : a * b = b * a\ninstance [CommSemigroup \u03b1] : MulComm \u03b1 where\n  mul_comm := CommSemigroup.mul_comm\nclass One (\u03b1 : Type u) where\n  one : \u03b1\ninstance [One \u03b1] : OfNat \u03b1 (nat_lit 1) where\n  ofNat := One.one\nclass Monoid (\u03b1 : Type u) extends Semigroup \u03b1, One \u03b1 where\n  one_mul (a : \u03b1) : 1 * a = a\n  mul_one (a : \u03b1) : a * 1 = a\nexport Monoid (one_mul mul_one)\nclass CommMonoid (\u03b1 : Type u) extends Monoid \u03b1 where\n  mul_comm (a b : \u03b1) : a * b = b * a\ninstance [CommMonoid \u03b1] : CommSemigroup \u03b1 where\n  mul_comm := CommMonoid.mul_comm\ninstance [CommMonoid \u03b1] : MulComm \u03b1 where\n  mul_comm := CommSemigroup.mul_comm\nclass Inv (\u03b1 : Type u) where\n  inv : \u03b1 \u2192 \u03b1\npostfix:max \"\u207b\u00b9\" => Inv.inv",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/alg.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/alg.lean",
+    "definition_name": "Semigroup",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "example : az > (0 : Nat) \u2194 az > 0 := by norm_cast\nexample : (an : Int) \u2260 0 \u2194 an \u2260 0 := by norm_cast\nexample (a b : Nat) (h : False) : (a : Int) < ((2 * b : Nat) : Int) := by\n  push_cast\n  guard_target = (a : Int) < 2 * (b : Int)\n  cases h\nexample : (an : Int) + bn = (an + bn : Nat) := by norm_cast\nexample (h : ((an + bn : Nat) : Int) = (an : Int) + (bn : Int)) : True := by\n  push_cast at h\n  guard_hyp h : (an : Int) + (bn : Int) = (an : Int) + (bn : Int)\n  trivial\nexample (h : ((an * bn : Nat) : Int) = (an : Int) * (bn : Int)) : True := by\n  push_cast at h\n  guard_hyp h : (an : Int) * (bn : Int) = (an : Int) * (bn : Int)\n  trivial\nexample : ((42 : Nat) : Int) = 42 := by norm_cast\nstructure p (n : Int)\nexample : p 42 := by\n  norm_cast\n  guard_target = p 42\n  exact \u27e8\u27e9\nexample : an + bn = 1 \u2194 (an + bn : Int) = 1 := by norm_cast\nexample (h : bn \u2264 an) : an - bn = 1 \u2194 (an - bn : Int) = 1 := by norm_cast\nexample (k : Nat) {x y : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/norm_cast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/norm_cast.lean",
+    "definition_name": "ofNat_band",
+    "has_proof": true
+  }
+}

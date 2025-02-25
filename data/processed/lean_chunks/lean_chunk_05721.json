@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_ofFn (f : Fin n \u2192 \u03b1) (i : Nat) :\n    (ofFn f)[i]? = if h : i < n then some (f \u27e8i, h\u27e9) else none := by\n  simp [getElem?_def]\n@[simp 500]\ntheorem mem_ofFn {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/OfFn.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/OfFn.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

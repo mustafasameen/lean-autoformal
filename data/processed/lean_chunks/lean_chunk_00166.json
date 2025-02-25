@@ -1,0 +1,9 @@
+{
+  "content": "def f1 :=\nif h:x then 1 else 0\nset_option pp.macroStack true\ndef f2 :=\nif h:(x > 0) then 1 else 0\ndef x := <- get\nmacro \"foo!\" x:term:max : term => `(let x := \"hello\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/macroStack.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/macroStack.lean",
+    "definition_name": "f1"
+  }
+}

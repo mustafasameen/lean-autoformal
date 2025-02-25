@@ -1,0 +1,9 @@
+{
+  "content": "let result := newVal.instantiateRevRange 0 fvars.size args\n           return mkAppRange result fvars.size args.size args\n  else\n    return none\npartial def whnfCore (e : Expr) : MetaM Expr :=\n  go e\nwhere\n  go (e : Expr) : MetaM Expr :=\n    whnfEasyCases e fun e => do\n      trace[Meta.whnf] e\n      match e with\n      | .const ..  => pure e\n      | .letE _ _ v b _ => if (\u2190 getConfig).zeta then go <| b.instantiate1 v else return e\n      | .app f ..       =>\n        let cfg \u2190 getConfig\n        if cfg.zeta then\n          if let some (args, _, _, v, b) := e.letFunAppArgs? then\n            return (\u2190 go <| mkAppN (b.instantiate1 v) args)\n        let f := f.getAppFn\n        let f' \u2190 go f\n        if f'.isLambda && (cfg.beta || !f.isLambda) then\n          let revArgs := e.getAppRevArgs\n          go <| f'.betaRev revArgs\n        else if let some eNew \u2190 whnfDelayedAssigned? f' e then\n          go eNew\n        else\n          let e := if f == f' then e else e.updateFn f'",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

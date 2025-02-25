@@ -1,0 +1,10 @@
+{
+  "content": "macro (name := bvNormalizeMacro) (priority:=low) \"bv_normalize\" optConfig : tactic =>\n  Macro.throwError \"to use `bv_normalize`, please include `import Std.Tactic.BVDecide`\"\nend Tactic\nnamespace Attr\nsyntax (name := simp) \"simp\" (Tactic.simpPre <|> Tactic.simpPost)? patternIgnore(\"\u2190 \" <|> \"<- \")? (ppSpace prio)? : attr\nsyntax (name := wf_preprocess) \"wf_preprocess\" (Tactic.simpPre <|> Tactic.simpPost)? patternIgnore(\"\u2190 \" <|> \"<- \")? (ppSpace prio)? : attr\nsyntax (name := norm_cast) \"norm_cast\" (ppSpace normCastLabel)? (ppSpace num)? : attr\nend Attr\nend Parser\nend Lean\nsyntax \"\u2039\" withoutPosition(term) \"\u203a\" : term\nmacro_rules | `(\u2039$type\u203a) => `((by assumption : $type))\nsyntax \"get_elem_tactic_trivial\" : tactic\nmacro_rules | `(tactic| get_elem_tactic_trivial) => `(tactic| omega)\nmacro_rules | `(tactic| get_elem_tactic_trivial) => `(tactic| simp +arith; done)\nmacro_rules | `(tactic| get_elem_tactic_trivial) => `(tactic| trivial)\nmacro \"get_elem_tactic\" : tactic =>\n  `(tactic| first",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "fails",
+    "imports": "Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\""
+  }
+}

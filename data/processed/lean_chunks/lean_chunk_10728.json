@@ -1,0 +1,9 @@
+{
+  "content": "inductive Verbosity\n| quiet\n| normal\n| verbose\nderiving Repr, DecidableEq, Ord\ninstance : LT Verbosity := ltOfOrd\ninstance : LE Verbosity := leOfOrd\ninstance : Min Verbosity := minOfLe\ninstance : Max Verbosity := maxOfLe\ninstance : Inhabited Verbosity := \u27e8.normal\u27e9\n| auto\n| noAnsi\ndef Ansi.chalk (colorCode text : String) : String :=\n  s!\"\\x1B[1;{colorCode}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Log.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Log.lean",
+    "definition_name": "Verbosity"
+  }
+}

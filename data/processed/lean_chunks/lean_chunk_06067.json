@@ -1,0 +1,10 @@
+{
+  "content": "theorem zipWith_eq_zipWith_take_min : \u2200 (l\u2081 : List \u03b1) (l\u2082 : List \u03b2),\n    zipWith f l\u2081 l\u2082 = zipWith f (l\u2081.take (min l\u2081.length l\u2082.length)) (l\u2082.take (min l\u2081.length l\u2082.length))\n  | [], _ => by simp\n  | _, [] => by simp\n  | a :: l\u2081, b :: l\u2082 => by simp [succ_min_succ, zipWith_eq_zipWith_take_min l\u2081 l\u2082]\ntheorem reverse_zipWith (h : l.length = l'.length) :\n    (zipWith f l l').reverse = zipWith f l.reverse l'.reverse := by\n  induction l generalizing l' with\n  | nil => simp\n  | cons hd tl hl =>\n    cases l' with\n    | nil => simp\n    | cons hd' tl' =>\n      simp only [Nat.add_right_cancel_iff, length] at h\n      have : tl.reverse.length = tl'.reverse.length := by simp [h]\n      simp [hl h, zipWith_append _ _ _ _ _ this]\n@[deprecated reverse_zipWith (since := \"2024-07-28\")] abbrev zipWith_distrib_reverse := @reverse_zipWith\n@[simp] theorem zipWith_replicate {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "zipWith_eq_zipWith_take_min",
+    "has_proof": true
+  }
+}

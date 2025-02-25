@@ -1,0 +1,10 @@
+{
+  "content": "theorem Expr.constFold_sound {e : Expr \u0393 \u03c4}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/reductionBug.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/reductionBug.lean",
+    "definition_name": "Expr",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem mul_inv {G : CommGroup}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_name": "mul_inv",
+    "has_proof": false
+  }
+}

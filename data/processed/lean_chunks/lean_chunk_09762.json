@@ -1,0 +1,9 @@
+{
+  "content": "def getEntryGE! [Inhabited (\u03b1 \u00d7 \u03b2)] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Raw.Const.getEntryGE! t.inner k\n@[inline, inherit_doc DTreeMap.Raw.Const.getEntryGT!]\ndef getEntryGT! [Inhabited (\u03b1 \u00d7 \u03b2)] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Raw.Const.getEntryGT! t.inner k\n@[inline, inherit_doc DTreeMap.Raw.Const.getEntryLE!]\ndef getEntryLE! [Inhabited (\u03b1 \u00d7 \u03b2)] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Raw.Const.getEntryLE! t.inner k\n@[inline, inherit_doc DTreeMap.Raw.Const.getEntryLT!]\ndef getEntryLT! [Inhabited (\u03b1 \u00d7 \u03b2)] (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Raw.Const.getEntryLT! t.inner k\n@[inline, inherit_doc DTreeMap.Raw.Const.getEntryGED]\ndef getEntryGED (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1 \u00d7 \u03b2) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Raw.Const.getEntryGED t.inner k fallback\n@[inline, inherit_doc DTreeMap.Raw.Const.getEntryGTD]\ndef getEntryGTD (t : Raw \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1 \u00d7 \u03b2) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Raw.Const.getEntryGTD t.inner k fallback",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Raw.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Raw.lean",
+    "definition_name": "Raw"
+  }
+}

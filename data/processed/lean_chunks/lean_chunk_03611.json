@@ -1,0 +1,10 @@
+{
+  "content": "theorem zip_map' (f : \u03b1 \u2192 \u03b2) (g : \u03b1 \u2192 \u03b3) (xs : Array \u03b1) :\n    zip (xs.map f) (xs.map g) = xs.map fun a => (f a, g a) := by\n  cases xs\n  simp [List.zip_map']\ntheorem of_mem_zip {a b}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_name": "zip_map",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "def header     := leading_parser optional (\u00abprelude\u00bb >> ppLine) >> many (\u00abimport\u00bb >> ppLine) >> ppLine\n@[run_builtin_parser_attribute_hooks]\ndef module     := leading_parser header >> many (commandParser >> ppLine >> ppLine)\ndef updateTokens (tokens : TokenTable) : TokenTable :=\n  match addParserTokens tokens header.info with\n    | Except.ok tables => tables\n    | Except.error _   => unreachable!\nend Module\nstructure ModuleParserState where\n  pos        : String.Pos := 0\n  recovering : Bool       := false\n  deriving Inhabited\nprivate partial def mkErrorMessage (c : InputContext) (pos : String.Pos) (stk : SyntaxStack) (e : Parser.Error) : Message := Id.run do\n  let mut pos := pos\n  let mut endPos? := none\n  let mut e := e\n  unless e.unexpectedTk.isMissing do\n    if let some r := e.unexpectedTk.getRange? then\n      pos := r.start\n      endPos? := some r.stop\n    let unexpected := match e.unexpectedTk with\n      | .ident .. => \"unexpected identifier\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_name": "header",
+    "imports": "|| s.isOfKind ``Command.eoi"
+  }
+}

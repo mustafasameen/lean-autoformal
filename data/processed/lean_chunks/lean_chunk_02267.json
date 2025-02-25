@@ -1,0 +1,9 @@
+{
+  "content": "def foo1 := \u03bb (x y : FloatVector 2) => x + y\ndef foo2 := \u03bb {n} (s : Float) (x y : FloatVector n) => s * (x + y)\nrun_meta Lean.Compiler.compile #[``foo1]\nrun_meta Lean.Compiler.compile #[``foo2]\nset_option trace.Compiler.result true\nset_option pp.funBinderTypes true\nrun_meta Lean.Compiler.compile #[``foo1]\nrun_meta Lean.Compiler.compile #[``foo2]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lcnfInferProjTypeIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lcnfInferProjTypeIssue.lean",
+    "definition_name": "foo1"
+  }
+}

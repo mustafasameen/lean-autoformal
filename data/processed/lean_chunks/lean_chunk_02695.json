@@ -1,0 +1,10 @@
+{
+  "content": "theorem Char.val_ne_of_ne {c d : Char}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Char",
+    "has_proof": false
+  }
+}

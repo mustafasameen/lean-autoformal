@@ -1,0 +1,9 @@
+{
+  "content": "structure HandWrittenStruct where\n  n : Nat\ndef hws : HandWrittenStruct := {\n  n := 3\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/goTo.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/goTo.lean",
+    "definition_name": "HandWrittenStruct"
+  }
+}

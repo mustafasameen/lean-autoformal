@@ -1,0 +1,10 @@
+{
+  "content": "theorem em (p : Prop) [Decidable p] : p \u2228 \u00acp :=\n  byCases Or.inl Or.inr\nset_option linter.unusedVariables.funArgs false in\ntheorem byContradiction [dec : Decidable p] (h : \u00acp \u2192 False) : p :=\n  byCases id (fun np => False.elim (h np))\ntheorem of_not_not [Decidable p] : \u00ac \u00ac p \u2192 p :=\n  fun hnn => byContradiction (fun hn => absurd hn hnn)\ntheorem not_and_iff_or_not {p q : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "em",
+    "has_proof": true
+  }
+}

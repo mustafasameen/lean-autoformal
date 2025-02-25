@@ -1,0 +1,9 @@
+{
+  "content": "inductive Arg where\n  | stx  (val : Syntax)\n  | expr (val : Expr)\n  deriving Inhabited\n  suppressDeps : Bool := false\n  deriving Inhabited\ndef addNamedArg (namedArgs : Array NamedArg) (namedArg : NamedArg) : MetaM (Array NamedArg) := do\n  if namedArgs.any (namedArg.name == \u00b7.name) then\n    throwError \"argument '{namedArg.name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Arg.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Arg.lean",
+    "definition_name": "Arg"
+  }
+}

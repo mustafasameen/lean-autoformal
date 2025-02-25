@@ -1,0 +1,9 @@
+{
+  "content": "class Quiver (V : Type u) where\n  Hom : V \u2192 V \u2192 Sort v\ninfixr:10 \" \u27f6 \" => Quiver.Hom\nstructure Prefunctor (V : Type u\u2081) [Quiver.{v\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "Quiver"
+  }
+}

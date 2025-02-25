@@ -1,0 +1,9 @@
+{
+  "content": "structure IPv4Addr where\n  octets : Vector UInt8 4\n  deriving Inhabited, DecidableEq\nstructure SocketAddressV4 where\n  addr : IPv4Addr\n  port : UInt16\n  deriving Inhabited, DecidableEq\nstructure IPv6Addr where\n  segments : Vector UInt16 8\n  deriving Inhabited, DecidableEq\nstructure SocketAddressV6 where\n  addr : IPv6Addr\n  port : UInt16\n  deriving Inhabited, DecidableEq\ninductive IPAddr where\n  | v4 (addr : IPv4Addr)\n  | v6 (addr : IPv6Addr)\n  deriving Inhabited, DecidableEq\ninductive SocketAddress where\n  | v4 (addr : SocketAddressV4)\n  | v6 (addr : SocketAddressV6)\n  deriving Inhabited, DecidableEq\ninductive AddressFamily where\n  | ipv4\n  | ipv6\n  deriving Inhabited, DecidableEq\nnamespace IPv4Addr\ndef ofParts (a b c d : UInt8) : IPv4Addr :=\n  { octets := #v[a, b, c, d] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Net/Addr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Net/Addr.lean",
+    "definition_name": "IPv4Addr"
+  }
+}

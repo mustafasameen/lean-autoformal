@@ -1,0 +1,9 @@
+{
+  "content": "class ToBool (\u03b1 : Type u) where\n  toBool : \u03b1 \u2192 Bool\nexport ToBool (toBool)\ninstance : ToBool Bool where\n  toBool b := b\n@[macro_inline] def bool {\u03b2 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Basic.lean",
+    "definition_name": "ToBool"
+  }
+}

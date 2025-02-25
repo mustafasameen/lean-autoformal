@@ -1,0 +1,9 @@
+{
+  "content": "if System.Platform.isWindows then\n    let x : System.FilePath := \"c:\" / \"temp\" / \"test.lean\"\n    let r := pathToUri x\n    let result := if r == \"file:///c%3A/temp/test.lean\" then\n      match fileUriToPath? r with\n      | none =>\n        \"testWindowsDriveLetterEscaping fileUriToPath? returned none\"\n      | some y =>\n        if y.normalize.toString == x.normalize.toString  then\n          \"\"\n        else\n          s!\"testWindowsDriveLetterEscaping '{x.normalize.toString}' != '{y.normalize.toString}'\"\n    else\n      s!\"testWindowsDriveLetterEscaping escaped to {r}\"\n    assert! result == \"\"\n    true\n  else\n    true\ndef TestUncRoundTrip :=\n  let results := [\"file:///c:\", \"file:////folder/test\", \"file:///c:/foo/bar/spam.foo\"].map (fun p =>\n    let result := (match fileUriToPath? p with\n      | some uri => unescapeUri (pathToUri uri)\n      | none => \"fileUriToPath? failed\")\n    if result == p then\n      \"ok\"\n    else\n      s!\"mismatch {result} != {p}\")",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_name": "testEscaping"
+  }
+}

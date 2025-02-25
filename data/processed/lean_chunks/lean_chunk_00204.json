@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex2 : x = y :=\nby {\nsubst x;\n  exact rfl\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/auxDeclIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/auxDeclIssue.lean",
+    "definition_name": "ex2",
+    "has_proof": true
+  }
+}

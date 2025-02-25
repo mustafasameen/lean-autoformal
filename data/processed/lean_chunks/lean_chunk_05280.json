@@ -1,0 +1,10 @@
+{
+  "content": "theorem drop_one : \u2200 l : List \u03b1, drop 1 l = tail l\n  | [] | _ :: _ => rfl\n@[simp] theorem take_append_drop : \u2200 (i : Nat) (l : List \u03b1), take i l ++ drop i l = l\n  | 0, _ => rfl\n  | _+1, [] => rfl\n  | i+1, x :: xs => congrArg (cons x) <| take_append_drop i xs\n@[simp] theorem length_drop : \u2200 (i : Nat) (l : List \u03b1), length (drop i l) = length l - i\n  | 0, _ => rfl\n  | succ i, [] => Eq.symm (Nat.zero_sub (succ i))\n  | succ i, x :: l => calc\n    length (drop (succ i) (x :: l)) = length l - i := length_drop i l\n    _ = succ (length l) - succ i := (Nat.succ_sub_succ_eq_sub (length l) i).symm\ntheorem drop_of_length_le {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_name": "drop_one",
+    "has_proof": false
+  }
+}

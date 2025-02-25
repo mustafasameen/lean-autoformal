@@ -1,0 +1,9 @@
+{
+  "content": "let {jobNo, totalJobs, ..} \u2190 get\n  let {useAnsi, showProgress, ..} \u2190 read\n  if showProgress \u2227 useAnsi then\n    let spinnerIcon \u2190 modifyGet fun s =>\n        (spinnerFrames[s.spinnerIdx], {s with spinnerIdx := s.spinnerIdx + \u27e81, by decide\u27e9})\n    let resetCtrl \u2190 modifyGet fun s => (s.resetCtrl, {s with resetCtrl := Ansi.resetLine})\n    let caption :=\n      if _ : 0 < running.size then\n        s!\"Running {running[0].caption} (+ {running.size - 1} more)\"\n      else\n        s!\"Running {unfinished[0].caption}\"\n    print s!\"{resetCtrl}{spinnerIcon} [{jobNo}/{totalJobs}] {caption}\"\n    flush\ndef reportJob (job : OpaqueJob) : MonitorM PUnit := do\n  let {jobNo, totalJobs, ..} \u2190 get\n  let {failLv, outLv, showOptional, out, useAnsi, showProgress, minAction, ..} \u2190 read\n  let {task, caption, optional} := job\n  let {log, action, ..} := task.get.state\n  let maxLv := log.maxLv\n  let failed := log.hasEntries \u2227 maxLv \u2265 failLv\n  if failed \u2227 \u00acoptional then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_name": "Monitor"
+  }
+}

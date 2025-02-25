@@ -1,0 +1,10 @@
+{
+  "content": "theorem mul_ediv_cancel_left (b : Int) (H : a \u2260 0) : (a * b) / a = b :=\n  Int.mul_comm .. \u25b8 Int.mul_ediv_cancel _ H\ntheorem div_nonneg_iff_of_pos {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Bootstrap.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Bootstrap.lean",
+    "definition_name": "mul_ediv_cancel_left",
+    "has_proof": false
+  }
+}

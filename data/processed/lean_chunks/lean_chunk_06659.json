@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_term_parser] def matchExpr := leading_parser:leadPrec\n  \"match_expr \" >> termParser >> \" with\" >> ppDedent (matchExprAlts termParser)\n@[builtin_term_parser] def letExpr := leading_parser:leadPrec\n  withPosition (\"let_expr \" >> matchExprPat >> \" := \" >> termParser >> checkColGt >> \" | \" >> termParser) >> optSemicolon termParser\nend Term\n@[builtin_term_parser default+1] def Tactic.quot : Parser := leading_parser\n  \"`(tactic| \" >> withoutPosition (incQuotDepth tacticParser) >> \")\"\n@[builtin_term_parser] def Tactic.quotSeq : Parser := leading_parser\n  \"`(tactic| \" >> withoutPosition (incQuotDepth Tactic.seq1) >> \")\"\nopen Term in\nbuiltin_initialize\n  register_parser_alias letDecl\n  register_parser_alias haveDecl\n  register_parser_alias sufficesDecl\n  register_parser_alias letRecDecls\n  register_parser_alias hole\n  register_parser_alias syntheticHole\n  register_parser_alias matchDiscr\n  register_parser_alias bracketedBinder\n  register_parser_alias attrKind",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "defaultOrOfNonempty"
+  }
+}

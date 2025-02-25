@@ -1,0 +1,9 @@
+{
+  "content": "def f (x := 0) (y := 1) : Nat :=\n  x + y\nopen Lean Meta\n#guard_msgs in\nrun_meta do\n  let info \u2190 getConstInfo ``f\n  logInfo (\u2190 elimOptParam info.type)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/elimOptParam.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/elimOptParam.lean",
+    "definition_name": "f"
+  }
+}

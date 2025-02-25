@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_reverse (xs : Array \u03b1) (i : Nat) (hi : i < xs.reverse.size) :\n    (xs.reverse)[i] = xs[xs.size - 1 - i]'(by simp at hi; omega) := by\n  cases xs\n  simp\n@[simp] theorem reverse_eq_empty_iff {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "getElem_reverse",
+    "has_proof": true
+  }
+}

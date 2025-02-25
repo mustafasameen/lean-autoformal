@@ -1,0 +1,10 @@
+{
+  "content": "class LawfulZipOperator (\u03b1 : Type) [Hashable \u03b1] [DecidableEq \u03b1]\n    (f : (aig : AIG \u03b1) \u2192 BinaryInput aig \u2192 Entrypoint \u03b1) [LawfulOperator \u03b1 BinaryInput f] : Prop\n  where\n  chainable : \u2200 (aig : AIG \u03b1) (input1 input2 : BinaryInput aig) (h) (assign),\n                \u27e6f (f aig input1).aig (input2.cast h), assign\u27e7\n                  =\n                \u27e6f aig input2, assign\u27e7\nnamespace LawfulZipOperator\ntheorem denote_prefix_cast_ref {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Zip.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVecOperator/Zip.lean",
+    "definition_name": "LawfulZipOperator",
+    "has_proof": false
+  }
+}

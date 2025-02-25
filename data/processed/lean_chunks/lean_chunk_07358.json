@@ -1,0 +1,10 @@
+{
+  "content": "(hb : \u27e6aig, target.bit, assign\u27e7 = b) :\n  \u2200 (idx : Nat) (hidx : idx < w),\n      \u27e6(blastShiftConcat aig target).aig, (blastShiftConcat aig target).vec.get idx hidx, assign\u27e7\n        =\n      (BitVec.shiftConcat x b).getLsbD idx := by\n  intro idx hidx\n  simp [BitVec.getLsbD_shiftConcat, hidx, denote_blastShiftConcat, hx, hb, \u2190 BitVec.getLsbD_eq_getElem]\ntheorem blastDivSubtractShift_denote_mem_prefix (aig : AIG \u03b1) (falseRef trueRef : AIG.Ref aig)\n    (n d q r : AIG.RefVec aig w) (wn wr : Nat) (start : Nat) (hstart) :\n    \u27e6\n      (blastDivSubtractShift aig falseRef trueRef n d wn wr q r).aig,\n      \u27e8start, by apply Nat.lt_of_lt_of_le; exact hstart; apply blastDivSubtractShift_le_size\u27e9,\n      assign\n    \u27e7\n      =\n    \u27e6aig, \u27e8start, hstart\u27e9, assign\u27e7 := by\n  apply denote.eq_of_isPrefix (entry := \u27e8aig, start,hstart\u27e9)\n  apply IsPrefix.of\n  \u00b7 intros\n    apply blastDivSubtractShift_decl_eq\n  \u00b7 intros\n    apply blastDivSubtractShift_le_size",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_name": "denote_blastShiftConcat",
+    "has_proof": true
+  }
+}

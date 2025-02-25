@@ -1,0 +1,9 @@
+{
+  "content": "structure LakeInstall where\n  home : FilePath\n  srcDir := home\n  binDir := home / defaultBuildDir / defaultBinDir\n  libDir := home / defaultBuildDir / defaultLeanLibDir\n  sharedLib := libDir / nameToSharedLib \"Lake\"\n  lake := binDir / lakeExe\n  deriving Inhabited, Repr\ndef findElanInstall? : BaseIO (Option ElanInstall) := do\n  if let some home \u2190 IO.getEnv \"ELAN_HOME\" then\n    let elan := (\u2190 IO.getEnv \"ELAN\").getD \"elan\"\n    if elan.trim.isEmpty then\n      return none\n    else\n      return some {elan, home}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_name": "LakeInstall"
+  }
+}

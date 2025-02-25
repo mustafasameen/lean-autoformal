@@ -1,0 +1,10 @@
+{
+  "content": "induction l generalizing l' <;> simp [*]\n@[simp] theorem foldl_flip_append_eq_append (l : List \u03b1) (f : \u03b1 \u2192 List \u03b2) (l' : List \u03b2) :\n    l.foldl (fun xs y => f y ++ xs) l' = (l.map f).reverse.flatten ++ l' := by\n  induction l generalizing l' <;> simp [*]\ntheorem foldr_cons_nil (l : List \u03b1) : l.foldr cons [] = l := by simp\n@[deprecated foldr_cons_nil (since := \"2024-09-04\")] abbrev foldr_self := @foldr_cons_nil\ntheorem foldl_map (f : \u03b2\u2081 \u2192 \u03b2\u2082) (g : \u03b1 \u2192 \u03b2\u2082 \u2192 \u03b1) (l : List \u03b2\u2081) (init : \u03b1) :\n    (l.map f).foldl g init = l.foldl (fun x y => g x (f y)) init := by\n  induction l generalizing init <;> simp [*]\ntheorem foldr_map (f : \u03b1\u2081 \u2192 \u03b1\u2082) (g : \u03b1\u2082 \u2192 \u03b2 \u2192 \u03b2) (l : List \u03b1\u2081) (init : \u03b2) :\n    (l.map f).foldr g init = l.foldr (fun x y => g (f x) y) init := by\n  induction l generalizing init <;> simp [*]\ntheorem foldl_filterMap (f : \u03b1 \u2192 Option \u03b2) (g : \u03b3 \u2192 \u03b2 \u2192 \u03b3) (l : List \u03b1) (init : \u03b3) :\n    (l.filterMap f).foldl g init = l.foldl (fun x y => match f y with | some b => g x b | none => x) init := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "reverse_flatten",
+    "has_proof": true
+  }
+}

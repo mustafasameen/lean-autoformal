@@ -1,0 +1,9 @@
+{
+  "content": "class DivInvMonoid (G : Type u) extends Monoid G, Inv G, Div G where\n  protected div := DivInvMonoid.div'\n  protected div_eq_mul_inv : \u2200 a b : G, a / b = a * b\u207b\u00b9 := by intros; rfl\n  protected zpow : Int \u2192 G \u2192 G := zpowRec\n  protected zpow_zero' : \u2200 a : G, zpow 0 a = 1 := by intros; rfl\n  protected zpow_succ' (n : Nat) (a : G) : zpow (Int.ofNat n.succ) a = zpow (Int.ofNat n) a  * a := by\n    intros; rfl\n  protected zpow_neg' (n : Nat) (a : G) : zpow (Int.negSucc n) a = (zpow n.succ a)\u207b\u00b9 := by intros; rfl\ndef SubNegMonoid.sub' {G : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "DivInvMonoid"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_mem_nil (a : \u03b1) : \u00ac a \u2208 #[] := nofun\n@[simp] theorem size_shrink_loop (xs : Array \u03b1) (n : Nat) : (shrink.loop n xs).size = xs.size - n := by\n  induction n generalizing xs with\n  | zero => simp [shrink.loop]\n  | succ n ih =>\n    simp [shrink.loop, ih]\n    omega\n@[simp] theorem getElem_shrink_loop (xs : Array \u03b1) (n : Nat) (i : Nat) (h : i < (shrink.loop n xs).size) :\n    (shrink.loop n xs)[i] = xs[i]'(by simp at h; omega) := by\n  induction n generalizing xs i with\n  | zero => simp [shrink.loop]\n  | succ n ih =>\n    simp [shrink.loop, ih]\n@[simp] theorem size_shrink (xs : Array \u03b1) (i : Nat) : (xs.shrink i).size = min i xs.size := by\n  simp [shrink]\n  omega\n@[simp] theorem getElem_shrink (xs : Array \u03b1) (i : Nat) (j : Nat) (h : j < (xs.shrink i).size) :\n    (xs.shrink i)[j] = xs[j]'(by simp at h; omega) := by\n  simp [shrink]\n@[simp] theorem toList_shrink (xs : Array \u03b1) (i : Nat) : (xs.shrink i).toList = xs.toList.take i := by\n  apply List.ext_getElem <;> simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "not_mem_nil",
+    "has_proof": true
+  }
+}

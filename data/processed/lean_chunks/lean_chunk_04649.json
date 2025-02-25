@@ -1,0 +1,10 @@
+{
+  "content": "| .add a _ _ => a\n  | _ => 1\ndef le_combine_cert (p\u2081 p\u2082 p\u2083 : Poly) : Bool :=\n  let a\u2081 := p\u2081.leadCoeff.natAbs\n  let a\u2082 := p\u2082.leadCoeff.natAbs\n  p\u2083 == (p\u2081.mul a\u2082 |>.combine (p\u2082.mul a\u2081))\ntheorem le_combine (ctx : Context) (p\u2081 p\u2082 p\u2083 : Poly)\n    : le_combine_cert p\u2081 p\u2082 p\u2083 \u2192 p\u2081.denote' ctx \u2264 0 \u2192 p\u2082.denote' ctx \u2264 0 \u2192 p\u2083.denote' ctx \u2264 0 := by\n  simp [le_combine_cert]\n  intro; subst p\u2083\n  intro h\u2081 h\u2082; simp\n  rw [\u2190 Int.add_zero 0]\n  apply Int.add_le_add\n  \u00b7 rw [\u2190 Int.zero_mul (Poly.denote ctx p\u2082)]; apply Int.mul_le_mul_of_nonpos_right <;> simp [*]\n  \u00b7 rw [\u2190 Int.zero_mul (Poly.denote ctx p\u2081)]; apply Int.mul_le_mul_of_nonpos_right <;> simp [*]\ntheorem le_unsat (ctx : Context) (p : Poly) : p.isUnsatLe \u2192 p.denote' ctx \u2264 0 \u2192 False := by\n  simp [Poly.isUnsatLe]; split <;> simp\n  intro h\u2081 h\u2082\n  have := Int.lt_of_le_of_lt h\u2082 h\u2081\n  simp at this\ntheorem eq_norm (ctx : Context) (p\u2081 p\u2082 : Poly) (h : p\u2081.norm == p\u2082) : p\u2081.denote' ctx = 0 \u2192 p\u2082.denote' ctx = 0 := by\n  simp at h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "dvd_solve_combine",
+    "has_proof": true
+  }
+}

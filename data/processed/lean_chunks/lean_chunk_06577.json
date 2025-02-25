@@ -1,0 +1,10 @@
+{
+  "content": "def \u00abtheorem\u00bb        := leading_parser\n  \"theorem \" >> recover declId skipUntilWsOrDelim >> ppIndent declSig >> declVal\ndef \u00abopaque\u00bb         := leading_parser\n  \"opaque \" >> recover declId skipUntilWsOrDelim >> ppIndent declSig >> optional declValSimple\ndef \u00abinstance\u00bb       := leading_parser\n  Term.attrKind >> \"instance\" >> optNamedPrio >>\n  optional (ppSpace >> declId) >> ppIndent declSig >> declVal\ndef \u00abaxiom\u00bb          := leading_parser\n  \"axiom \" >> recover declId skipUntilWsOrDelim >> ppIndent declSig\n@[builtin_doc] def \u00abinductive\u00bb := leading_parser\n  \"inductive \" >> recover declId skipUntilWsOrDelim >> ppIndent optDeclSig >> optional (symbol \" :=\" <|> \" where\") >>\n  many ctor >> optional (ppDedent ppLine >> computedFields) >> optDeriving\ndef classInductive   := leading_parser\n  atomic (group (symbol \"class \" >> \"inductive \")) >>\n  recover declId skipUntilWsOrDelim >> ppIndent optDeclSig >>\n  optional (symbol \" :=\" <|> \" where\") >> many ctor >> optDeriving",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "projections",
+    "has_proof": true
+  }
+}

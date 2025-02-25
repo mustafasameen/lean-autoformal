@@ -1,0 +1,10 @@
+{
+  "content": "theorem length_leftpad (n : Nat) (a : \u03b1) (l : List \u03b1) :\n    (leftpad n a l).length = max n l.length := by\n  simp only [leftpad, length_append, length_replicate, Nat.sub_add_eq_max]\n@[deprecated length_leftpad (since := \"2025-02-24\")]\nabbrev leftpad_length := @length_leftpad\ntheorem length_rightpad (n : Nat) (a : \u03b1) (l : List \u03b1) :\n    (rightpad n a l).length = max n l.length := by\n  simp [rightpad]\n  omega\ntheorem min?_eq_some_iff' {xs : List Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Basic.lean",
+    "definition_name": "length_leftpad",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem length_keys [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.WF) :\n    m.keys.length = m.size := by\n  simp_to_raw using Raw\u2080.length_keys \u27e8m, h.size_buckets_pos\u27e9 h\n@[simp]\ntheorem isEmpty_keys [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.WF) :\n    m.keys.isEmpty = m.isEmpty := by\n  simp_to_raw using Raw\u2080.isEmpty_keys \u27e8m, h.size_buckets_pos\u27e9\n@[simp]\ntheorem contains_keys [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.WF) {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_name": "length_keys",
+    "has_proof": true
+  }
+}

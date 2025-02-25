@@ -1,0 +1,9 @@
+{
+  "content": "if let .forallE _ _ b _ := type.headBeta then\n        go (i+1) (b.instantiate1 ps[i])\n      else\n        throwError \"invalid instantiateForall, too many parameters\"\n    else\n      return type\n  termination_by ps.size - i\npartial def isPredicateType (type : Expr) : Bool :=\n  match type.headBeta with\n  | .sort .zero => true\n  | .forallE _ _ b _ => isPredicateType b\n  | _ => false\npartial def maybeTypeFormerType (type : Expr) : Bool :=\n  match type.headBeta with\n  | .sort .. => true\n  | .forallE _ _ b _ => maybeTypeFormerType b\n  | _ => type.isErased\ndef isClass? (type : Expr) : CoreM (Option Name) := do\n  let .const declName _ := type.getAppFn | return none\n  if isClass (\u2190 getEnv) declName then\n    return declName\n  else\n    return none\npartial def isArrowClass? (type : Expr) : CoreM (Option Name) := do\n  match type.headBeta with\n  | .forallE _ _ b _ => isArrowClass? b\n  | _ => isClass? type\npartial def getArrowArity (e : Expr) :=\n  match e.headBeta with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_name": "erasedExpr"
+  }
+}

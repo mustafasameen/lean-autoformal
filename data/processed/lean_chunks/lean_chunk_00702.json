@@ -1,0 +1,9 @@
+{
+  "content": "universe u v\nvariable {R : Type u} {M : Type v}\nstructure Submodule (R : Type u) (M : Type v) [Mul R] [AddCommMonoid M] [SMul R M] : Type v\n  extends AddSubmonoid M\ninstance setLike [Mul R] [AddCommMonoid M] [SMul R M] : SetLike (Submodule R M) M where\n  coe s := s.carrier\ndef Submodule.toAddSubgroup [Mul R] [AddCommGroup M] {module_M : SMul R M} (p : Submodule R M) : AddSubgroup M :=\n  { p.toAddSubmonoid with }\nend Mathlib.Algebra.Module.Submodule.Basic\nsection Mathlib.Algebra.Module.Submodule.RestrictScalars\nvariable (S : Type _) {R M : Type _} [Mul R] [AddCommMonoid M] [Mul S]\n  [SMul S M] [SMul R M]\ndef Submodule.restrictScalars (V : Submodule R M) : Submodule S M where\n  carrier := V\nend Mathlib.Algebra.Module.Submodule.RestrictScalars\nsection Mathlib.GroupTheory.QuotientGroup\nuniverse u x\nnamespace QuotientAddGroup\nvariable {G : Type u} [AddGroup G] (N : AddSubgroup G) {M : Type x} [AddMonoid M]\nprotected def con : AddCon G where\n  toSetoid := leftRel N",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

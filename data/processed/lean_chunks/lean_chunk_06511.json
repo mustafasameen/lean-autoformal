@@ -1,0 +1,9 @@
+{
+  "content": "pure (newBinders, body, false)\n  loop body 0 #[]\nnamespace FunBinders\nstructure State where\n  fvars         : Array Expr := #[]\n  lctx          : LocalContext\n  localInsts    : LocalInstances\n  expectedType? : Option Expr := none\nprivate def propagateExpectedType (fvar : Expr) (fvarType : Expr) (s : State) : TermElabM State := do\n  match s.expectedType? with\n  | none              => pure s\n  | some expectedType =>\n    let expectedType \u2190 whnfForall expectedType\n    match expectedType with\n    | .forallE _ d b _ =>\n      discard <| isDefEq fvarType d\n      let b := b.instantiate1 fvar\n      return { s with expectedType? := some b }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_name": "instance"
+  }
+}

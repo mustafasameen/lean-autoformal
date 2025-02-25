@@ -1,0 +1,10 @@
+{
+  "content": "theorem go_le_size (aig : AIG \u03b1) (curr : Nat) (hcurr : curr \u2264 w) (discr : Ref aig)\n    (lhs rhs : RefVec aig w) (s : RefVec aig curr) :\n    aig.decls.size \u2264 (go aig curr hcurr discr lhs rhs s).aig.decls.size := by\n  unfold go\n  dsimp only\n  split\n  \u00b7 refine Nat.le_trans ?_ (by apply go_le_size)\n    apply LawfulOperator.le_size (f := mkIfCached)\n  \u00b7 simp\ntermination_by w - curr\ntheorem go_decl_eq (aig : AIG \u03b1) (curr : Nat) (hcurr : curr \u2264 w) (discr : Ref aig)\n    (lhs rhs : RefVec aig w) (s : RefVec aig curr) :\n    \u2200 (idx : Nat) (h1) (h2),\n      (go aig curr hcurr discr lhs rhs s).aig.decls[idx]'h2 = aig.decls[idx]'h1 := by\n  generalize hgo : go aig curr hcurr discr lhs rhs s = res\n  unfold go at hgo\n  dsimp only at hgo\n  split at hgo\n  \u00b7 rw [\u2190 hgo]\n    intro idx h1 h2\n    rw [go_decl_eq]\n    rw [AIG.LawfulOperator.decl_eq (f := AIG.mkIfCached)]\n    apply AIG.LawfulOperator.lt_size_of_lt_aig_size (f := AIG.mkIfCached)\n    assumption\n  \u00b7 simp [\u2190 hgo]\ntermination_by w - curr\nend ite",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/If.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/If.lean",
+    "definition_name": "go_le_size",
+    "has_proof": true
+  }
+}

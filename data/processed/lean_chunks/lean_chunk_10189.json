@@ -1,0 +1,10 @@
+{
+  "content": "theorem get!_eq {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/AssocList/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/AssocList/Lemmas.lean",
+    "definition_name": "get",
+    "has_proof": false
+  }
+}

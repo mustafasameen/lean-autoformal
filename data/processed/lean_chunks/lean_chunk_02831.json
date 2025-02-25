@@ -1,0 +1,9 @@
+{
+  "content": "bind getMainModule     fun mainModule =>\n  bind getCurrMacroScope fun scp =>\n  pure (Lean.addMacroScope mainModule n scp)\nnamespace Syntax\ndef matchesIdent (stx : Syntax) (id : Name) : Bool :=\n  and stx.isIdent (beq stx.getId.eraseMacroScopes id.eraseMacroScopes)\nprivate opaque MethodsRefPointed : NonemptyType.{0}\nprivate def MethodsRef : Type := MethodsRefPointed.type\ninstance : Nonempty MethodsRef := MethodsRefPointed.property\n  methods        : MethodsRef\n  currMacroScope : MacroScope\n  maxRecDepth    : Nat := defaultMaxRecDepth\ninductive Exception where\n  | unsupportedSyntax : Exception\n  macroScope : MacroScope\n  traceMsgs  : List (Prod Name String) := List.nil\n  deriving Inhabited\nend Macro\nabbrev MacroM := ReaderT Macro.Context (EStateM Macro.Exception Macro.State)\nabbrev Macro := Syntax \u2192 MacroM Syntax\nnamespace Macro\ninstance : MonadRef MacroM where\n  getRef     := bind read fun ctx => pure ctx.ref",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "firstFrontendMacroScope"
+  }
+}

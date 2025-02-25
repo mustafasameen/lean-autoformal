@@ -1,0 +1,10 @@
+{
+  "content": "theorem forall_propagator (p : Prop) (q : p \u2192 Prop) (q' : Prop) (h\u2081 : p = True) (h\u2082 : q (of_eq_true h\u2081) = q') : (\u2200 hp : p, q hp) = q' := by\n  apply propext; apply Iff.intro\n  \u00b7 intro h'; exact Eq.mp h\u2082 (h' (of_eq_true h\u2081))\n  \u00b7 intro h'; intros; exact Eq.mpr h\u2082 h'\ntheorem of_forall_eq_false (\u03b1 : Sort u) (p : \u03b1 \u2192 Prop) (h : (\u2200 x : \u03b1, p x) = False) : \u2203 x : \u03b1, \u00ac p x := by simp_all\ntheorem eqRec_heq.{u_1, u_2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_name": "forall_propagator",
+    "has_proof": true
+  }
+}

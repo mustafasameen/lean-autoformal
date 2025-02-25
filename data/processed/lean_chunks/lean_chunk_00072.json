@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo (\u03b1 : Type)\n  | foo (x : Nat) (y : Nat)\nstructure Bar (\u03b1 : Type) where\n  bar (x : Nat) : Nat\n  bar' (x : Nat) : Nat := 3\nclass Baz (\u03b1 : Type) where\n  baz (x : Nat) : Nat\n  baz' (x : Nat) : Nat :=\n    let y := 5\n    3\ninstance instBaz (\u03b1 \u03b2 : Type) : Baz \u03b1 where\n  baz (x : Nat) := 5\nstructure State where\n  fieldA : Nat\n  fieldB : Nat\nabbrev M := StateT State Id\ndef modifyState : M Unit := do\n  let s \u2190 get\n  modify fun s => { s with fieldA := s.fieldA + 1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_name": "Foo"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class ToExpr (\u03b1 : Type u) where\n  toTypeExpr : Expr\nexport ToExpr (toExpr toTypeExpr)\ninstance : ToExpr Nat where\n  toExpr     := mkNatLit\n  toTypeExpr := mkConst ``Nat\ninstance : ToExpr Int where\n  toTypeExpr := .const ``Int []\n  toExpr i := if 0 \u2264 i then\n    mkNat i.toNat\n  else\n    mkApp3 (.const ``Neg.neg [0]) (.const ``Int []) (.const ``Int.instNegInt [])\n      (mkNat (-i).toNat)\nwhere\n  mkNat (n : Nat) : Expr :=\n    let r := mkRawNatLit n\n    mkApp3 (.const ``OfNat.ofNat [0]) (.const ``Int []) r\n        (.app (.const ``instOfNat []) r)\ninstance : ToExpr (Fin n) where\n  toTypeExpr := .app (mkConst ``Fin) (toExpr n)\n  toExpr a :=\n    let r := mkRawNatLit a.val\n    mkApp3 (.const ``OfNat.ofNat [0]) (.app (mkConst ``Fin) (toExpr n)) r\n      (mkApp3 (.const ``Fin.instOfNat []) (toExpr n)\n        (.app (.const ``Nat.instNeZeroSucc []) (mkNatLit (n-1))) r)\ninstance : ToExpr (BitVec n) where\n  toTypeExpr := .app (mkConst ``BitVec) (toExpr n)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_name": "ToExpr"
+  }
+}

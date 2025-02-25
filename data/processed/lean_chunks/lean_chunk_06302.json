@@ -1,0 +1,9 @@
+{
+  "content": "if mvarId == tmpMVarId then\n        return (.star, todo)\n      else if (\u2190 mvarId.isReadOnlyOrSyntheticOpaque) then\n        return (.other, todo)\n      else\n        return (.star, todo)\n    | .forallE _n d _ _ =>\n      return (.arrow, todo.push d)\n    | _ => return (.other, todo)\n@[inherit_doc pushArgs]\npartial def mkPathAux (root : Bool) (todo : Array Expr) (keys : Array Key) (noIndexAtArgs : Bool) : MetaM (Array Key) := do\n  if todo.isEmpty then\n    return keys\n  else\n    let e    := todo.back!\n    let todo := todo.pop\n    let (k, todo) \u2190 pushArgs root todo e noIndexAtArgs\n    mkPathAux false todo (keys.push k) noIndexAtArgs\nprivate def initCapacity := 8\n@[inherit_doc pushArgs]\ndef mkPath (e : Expr) (noIndexAtArgs := false) : MetaM (Array Key) := do\n  withReducible do\n    let todo : Array Expr := .mkEmpty initCapacity\n    let keys : Array Key := .mkEmpty initCapacity\n    mkPathAux (root := true) (todo.push e) keys noIndexAtArgs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_name": "tmpStar"
+  }
+}

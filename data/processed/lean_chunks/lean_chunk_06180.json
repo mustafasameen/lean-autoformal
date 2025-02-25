@@ -1,0 +1,9 @@
+{
+  "content": "@[combinator_parenthesizer manyNoAntiquot]\ndef manyNoAntiquot.parenthesizer (p : Parenthesizer) : Parenthesizer := do\n  let stx \u2190 getCur\n  visitArgs $ stx.getArgs.size.forM fun _ _ => p\n@[combinator_parenthesizer many1NoAntiquot]\ndef many1NoAntiquot.parenthesizer (p : Parenthesizer) : Parenthesizer := do\n  manyNoAntiquot.parenthesizer p\n@[combinator_parenthesizer many1Unbox]\ndef many1Unbox.parenthesizer (p : Parenthesizer) : Parenthesizer := do\n  let stx \u2190 getCur\n  if stx.getKind == nullKind then\n    manyNoAntiquot.parenthesizer p\n  else\n    p\n@[combinator_parenthesizer optionalNoAntiquot]\ndef optionalNoAntiquot.parenthesizer (p : Parenthesizer) : Parenthesizer := do\n  visitArgs p\n@[combinator_parenthesizer sepByNoAntiquot]\ndef sepByNoAntiquot.parenthesizer (p pSep : Parenthesizer) : Parenthesizer := do\n  let stx \u2190 getCur\n  visitArgs <| (List.range stx.getArgs.size).reverse.forM fun i => if i % 2 == 0 then p else pSep",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_name": "rawIdentNoAntiquot"
+  }
+}

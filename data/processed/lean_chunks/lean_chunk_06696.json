@@ -1,0 +1,9 @@
+{
+  "content": "inductive Node (\u03b1 : Type u) (\u03b2 : Type v) : Type (max u v) where\n  | entries   (es : Array (Entry \u03b1 \u03b2 (Node \u03b1 \u03b2))) : Node \u03b1 \u03b2\n  | collision (ks : Array \u03b1) (vs : Array \u03b2) (h : ks.size = vs.size) : Node \u03b1 \u03b2\npartial def Node.isEmpty : Node \u03b1 \u03b2 \u2192 Bool\n  | .collision .. => false\n  | .entries es => es.all fun\n    | .entry .. => false\n    | .ref n    => n.isEmpty\n    | .null     => true\ninstance {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_name": "Node"
+  }
+}

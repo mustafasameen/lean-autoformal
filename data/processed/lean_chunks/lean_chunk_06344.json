@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  fileName       : String\n  fileMap        : FileMap\n  currRecDepth   : Nat := 0\n  cmdPos         : String.Pos := 0\n  macroStack     : MacroStack := []\n  currMacroScope : MacroScope := firstFrontendMacroScope\n  ref            : Syntax := Syntax.missing\n  snap?          : Option (Language.SnapshotBundle Language.DynamicSnapshot)\n  suppressElabErrors : Bool := false\nabbrev CommandElabM := ReaderT Context $ StateRefT State $ EIO Exception\nabbrev CommandElab  := Syntax \u2192 CommandElabM Unit\nstructure Linter where\n  run : Syntax \u2192 CommandElabM Unit\n  name : Name := by exact decl_name%\n@[always_inline]\ninstance : Monad CommandElabM := let i := inferInstanceAs (Monad CommandElabM); { pure := i.pure, bind := i.bind }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Command.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Command.lean",
+    "definition_name": "Context"
+  }
+}

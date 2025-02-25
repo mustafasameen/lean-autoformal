@@ -1,0 +1,10 @@
+{
+  "content": "theorem Nat.lt_or_ge (n m : Nat) : Or (LT.lt n m) (GE.ge n m) :=\n  match m with\n  | zero   => Or.inr (zero_le n)\n  | succ m =>\n    match Nat.lt_or_ge n m with\n    | Or.inl h => Or.inl (le_succ_of_le h)\n    | Or.inr h =>\n      match Nat.eq_or_lt_of_le h with\n      | Or.inl h1 => Or.inl (h1 \u25b8 Nat.le_refl _)\n      | Or.inr h1 => Or.inr h1\ntheorem Nat.not_succ_le_self : (n : Nat) \u2192 Not (LE.le (succ n) n)\n  | 0      => not_succ_le_zero _\n  | succ n => fun h => absurd (le_of_succ_le_succ h) (not_succ_le_self n)\nprotected theorem Nat.lt_irrefl (n : Nat) : Not (LT.lt n n) :=\n  Nat.not_succ_le_self n\nprotected theorem Nat.lt_of_le_of_lt {n m k : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat",
+    "has_proof": false
+  }
+}

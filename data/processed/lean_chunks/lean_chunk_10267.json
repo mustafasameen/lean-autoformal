@@ -1,0 +1,10 @@
+{
+  "content": "theorem keys_eq_map (l : List ((a : \u03b1) \u00d7 \u03b2 a)) : keys l = l.map (\u00b7.1) := by\n  induction l using assoc_induction <;> simp_all\ntheorem length_keys_eq_length (l : List ((a : \u03b1) \u00d7 \u03b2 a)) : (keys l).length = l.length := by\n  induction l using assoc_induction <;> simp_all\ntheorem isEmpty_keys_eq_isEmpty (l : List ((a : \u03b1) \u00d7 \u03b2 a)) : (keys l).isEmpty = l.isEmpty := by\n  induction l using assoc_induction <;> simp_all\ntheorem containsKey_eq_keys_contains [BEq \u03b1] [PartialEquivBEq \u03b1] {l : List ((a : \u03b1) \u00d7 \u03b2 a)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "keys_eq_map",
+    "has_proof": true
+  }
+}

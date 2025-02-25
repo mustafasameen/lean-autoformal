@@ -1,0 +1,10 @@
+{
+  "content": "theorem _root_.List.anyM_toArray' [Monad m] [LawfulMonad m] (p : \u03b1 \u2192 m Bool) (l : List \u03b1)\n    (h : stop = l.toArray.size) :\n    l.toArray.anyM p 0 stop = l.anyM p := by\n  subst h\n  rw [\u2190 anyM_toList]\n@[simp] theorem _root_.List.allM_toArray' [Monad m] [LawfulMonad m] (p : \u03b1 \u2192 m Bool) (l : List \u03b1)\n    (h : stop = l.toArray.size) :\n    l.toArray.allM p 0 stop = l.allM p := by\n  subst h\n  rw [\u2190 allM_toList]\ntheorem any_eq_true' {p : \u03b1 \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "_root_",
+    "has_proof": true
+  }
+}

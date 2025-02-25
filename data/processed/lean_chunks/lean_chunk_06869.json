@@ -1,0 +1,10 @@
+{
+  "content": "pure r\n    else if !groundPatterns then\n      return none\n    else if let some (pattern, symbols) \u2190 collectGroundPattern? proof xs searchPlaces then\n      pure ([pattern], symbols)\n    else\n      return none\n    let numParams := xs.size\n    trace[grind.ematch.pattern] \"{\u2190 origin.pp}: {patterns.map ppPattern}\"\n    return some {\n      proof, patterns, numParams, symbols\n      levelParams, origin, kind\n    }\ndef mkEMatchTheoremForDecl (declName : Name) (thmKind : EMatchTheoremKind) : MetaM EMatchTheorem := do\n  let some thm \u2190 mkEMatchTheoremWithKind? (.decl declName) #[] (\u2190 getProofFor declName) thmKind\n    | throwError \"`@{thmKind.toAttribute} theorem {declName}` {thmKind.explainFailure}, consider using different options or the `grind_pattern` command\"\n  return thm\ndef mkEMatchEqTheoremsForDef? (declName : Name) : MetaM (Option (Array EMatchTheorem)) := do\n  let some eqns \u2190 getEqnsFor? declName | return none\n  eqns.mapM fun eqn => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

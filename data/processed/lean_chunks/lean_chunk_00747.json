@@ -1,0 +1,10 @@
+{
+  "content": "theorem Vect.aux\n    {as: List A}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4920.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4920.lean",
+    "definition_name": "Vect",
+    "has_proof": false
+  }
+}

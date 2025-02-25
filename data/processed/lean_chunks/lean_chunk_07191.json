@@ -1,0 +1,9 @@
+{
+  "content": "let argtys := #[ \u2190 LLVM.voidPtrType llvmctx, \u2190 LLVM.unsignedType llvmctx, \u2190 LLVM.unsignedType llvmctx]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  LLVM.buildCall2 builder fnty fn  #[f, arity, nys] retName\ndef callLeanClosureSetFn (builder : LLVM.Builder llvmctx)\n    (closure ix arg : LLVM.Value llvmctx) (retName : String := \"\") : M llvmctx Unit := do\n  let fnName :=  \"lean_closure_set\"\n  let retty \u2190 LLVM.voidType llvmctx\n  let argtys := #[ \u2190 LLVM.voidPtrType llvmctx, \u2190 LLVM.unsignedType llvmctx, \u2190 LLVM.voidPtrType llvmctx]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  let _ \u2190 LLVM.buildCall2 builder fnty fn  #[closure, ix, arg] retName\ndef callLeanObjTag (builder : LLVM.Builder llvmctx)\n    (closure : LLVM.Value llvmctx) (retName : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let fnName :=  \"lean_obj_tag\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

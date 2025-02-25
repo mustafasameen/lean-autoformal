@@ -1,0 +1,9 @@
+{
+  "content": "def markVar (x : VarId) : M Unit :=\n  markIndex x.idx\ndef markJP (j : JoinPointId) : M Unit :=\n  markIndex j.idx\ndef getDecl (c : Name) : M Decl := do\n  let ctx \u2190 read\n  match findEnvDecl' ctx.env c ctx.decls with\n  | none   => throw s!\"depends on declaration '{c}', which has no executable code",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Checker.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Checker.lean",
+    "definition_name": "maxCtorFields"
+  }
+}

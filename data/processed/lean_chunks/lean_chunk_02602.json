@@ -1,0 +1,10 @@
+{
+  "content": "@[simp]\ntheorem if_false_right [h : Decidable p] :\n    ite p q False \u2194 p \u2227 q := by cases h <;> (rename_i g; simp [g])\n@[simp low]\ntheorem if_true_left [h : Decidable p] :\n    ite p True q \u2194 \u00acp \u2192 q := by cases h <;> (rename_i g; simp [g])\n@[simp low]\ntheorem if_true_right [h : Decidable p] :\n    ite p q True \u2194 p \u2192 q := by cases h <;> (rename_i g; simp [g])\n@[simp] theorem ite_not (p : Prop) [Decidable p] (x y : \u03b1) : ite (\u00acp) x y = ite p y x :=\n  dite_not (fun _ => x) (fun _ => y)\n@[simp] theorem ite_then_self {p q : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "or_congr",
+    "has_proof": true
+  }
+}

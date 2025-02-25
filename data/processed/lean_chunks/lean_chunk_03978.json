@@ -1,0 +1,10 @@
+{
+  "content": "theorem findIdx_append (p : \u03b1 \u2192 Bool) (xs ys : Array \u03b1) :\n    (xs ++ ys).findIdx p =\n      if xs.findIdx p < xs.size then xs.findIdx p else ys.findIdx p + xs.size := by\n  rcases xs with \u27e8xs\u27e9\n  rcases ys with \u27e8ys\u27e9\n  simp [List.findIdx_append]\ntheorem findIdx_le_findIdx {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_name": "findIdx_append",
+    "has_proof": true
+  }
+}

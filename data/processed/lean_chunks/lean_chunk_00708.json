@@ -1,0 +1,9 @@
+{
+  "content": "inductive Baz where | a | b\ninstance : FooClass Baz where\n  mkFoo := fun\n    | .a => return 0\n    | .b => return 1\ninstance : FooClass Baz where\n  mkFoo {m}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1132.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1132.lean",
+    "definition_name": "Baz"
+  }
+}

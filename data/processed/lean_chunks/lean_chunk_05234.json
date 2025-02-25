@@ -1,0 +1,10 @@
+{
+  "content": "theorem flatMap_nil (f : \u03b1 \u2192 List \u03b2) : List.flatMap f [] = [] := by simp [flatten, List.flatMap]\n@[simp] theorem flatMap_cons x xs (f : \u03b1 \u2192 List \u03b2) :\n  List.flatMap f (x :: xs) = f x ++ List.flatMap f xs := by simp [flatten, List.flatMap]\nset_option linter.missingDocs false in\n@[deprecated flatMap (since := \"2024-10-16\")] abbrev bind := @flatMap\nset_option linter.missingDocs false in\n@[deprecated flatMap_nil (since := \"2024-10-16\")] abbrev nil_flatMap := @flatMap_nil\nset_option linter.missingDocs false in\n@[deprecated flatMap_cons (since := \"2024-10-16\")] abbrev cons_flatMap := @flatMap_cons\ndef replicate : (n : Nat) \u2192 (a : \u03b1) \u2192 List \u03b1\n  | 0,   _ => []\n  | n+1, a => a :: replicate n a\n@[simp] theorem replicate_zero : replicate 0 a = [] := rfl\ntheorem replicate_succ (a : \u03b1) (n) : replicate (n+1) a = a :: replicate n a := rfl\n@[simp] theorem length_replicate (n : Nat) (a : \u03b1) : (replicate n a).length = n := by\n  induction n with\n  | zero => simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "flatMap_nil",
+    "has_proof": true
+  }
+}

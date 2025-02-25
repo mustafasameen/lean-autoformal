@@ -1,0 +1,9 @@
+{
+  "content": ">> structInstFields (sepByIndent structInstField \", \" (allowTrailingSep := true))\n    >> optEllipsis\n    >> optional (\" : \" >> termParser)) >> \" }\"\n@[builtin_structInstFieldDecl_parser]\ndef structInstFieldDef := leading_parser\n  \" := \" >> termParser\n@[builtin_structInstFieldDecl_parser]\ndef structInstFieldEqns := leading_parser\n  matchAlts\ndef funImplicitBinder := withAntiquot (mkAntiquot \"implicitBinder\" ``implicitBinder) <|\n  atomic (lookahead (\"{\" >> many1 binderIdent >> (symbol \" : \" <|> \"}\"))) >> implicitBinder\ndef funStrictImplicitBinder :=\n  atomic (lookahead (\n    strictImplicitLeftBracket >> many1 binderIdent >>\n    (symbol \" : \" <|> strictImplicitRightBracket))) >>\n  strictImplicitBinder\ndef funBinder : Parser :=\n  withAntiquot (mkAntiquot \"funBinder\" decl_name% (isPseudoKind := true)) <|\n    funStrictImplicitBinder <|> funImplicitBinder <|> instBinder <|> termParser maxPrec\ndef basicFun : Parser := leading_parser (withAnonymousAntiquot := false)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

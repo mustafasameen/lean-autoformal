@@ -1,0 +1,9 @@
+{
+  "content": "let numSuffix := quoted.getNumArgs - 1 - idx\n      pure {\n        check    := slice idx numSuffix\n        onMatch  := fun\n          | slice p s =>\n            if p == idx && s == numSuffix then\n              let argPats := quoted.getArgs.mapIdx fun i arg =>\n                let arg := if (i : Nat) == idx then mkNullNode #[arg] else arg\n                Unhygienic.run `(`($(arg)))\n              covered (fun (pats, rhs) => pure (argPats.toList ++ pats, rhs)) (exhaustive := true)\n            else uncovered\n          | _ => undecided\n        doMatch := fun yes no => do\n          let prefixDiscrs \u2190 (List.range idx).mapM (`(Syntax.getArg __discr $(quote \u00b7)))\n          let sliceDiscr \u2190 `(mkNullNode (__discr.getArgs.extract $(quote idx) (Nat.sub __discr.getNumArgs $(quote numSuffix))))\n          let suffixDiscrs \u2190 (List.range numSuffix).mapM fun i =>\n            `(Syntax.getArg __discr (Nat.sub __discr.getNumArgs $(quote (numSuffix - i))))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_name": "ArrayStxBuilder"
+  }
+}

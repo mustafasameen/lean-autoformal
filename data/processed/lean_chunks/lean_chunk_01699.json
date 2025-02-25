@@ -1,0 +1,9 @@
+{
+  "content": "structure ParamType where\n  isValid : String \u2192 Bool\nstructure Flag where\n  longName    : String\n  type        : ParamType\nstructure InputFlag where\n  isShort : Bool\ninstance : ToString InputFlag where\n  toString f :=\nlet pre := if f.isShort then \"-\" else \"\n    s!\"{pre}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/498.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/498.lean",
+    "definition_name": "ParamType"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "@[csimp] theorem erase_eq_eraseTR : @List.erase = @eraseTR := by\n  funext \u03b1 _ l a; simp [eraseTR]\n  suffices \u2200 xs acc, l = acc.toList ++ xs \u2192 eraseTR.go l a xs acc = acc.toList ++ xs.erase a from\n    (this l #[] (by simp)).symm\n  intro xs; induction xs with intro acc h\n  | nil => simp [List.erase, eraseTR.go, h]\n  | cons x xs IH =>\n    simp only [eraseTR.go, Array.toListAppend_eq, List.erase]\n    cases x == a\n    \u00b7 rw [IH] <;> simp_all\n    \u00b7 simp\n  @[specialize] go : List \u03b1 \u2192 Array \u03b1 \u2192 List \u03b1\n  | [], _ => l\n  | a :: l, acc => bif p a then acc.toListAppend l else go l (acc.push a)\n@[csimp] theorem eraseP_eq_erasePTR : @eraseP = @erasePTR := by\n  funext \u03b1 p l; simp [erasePTR]\n  let rec go (acc) : \u2200 xs, l = acc.toList ++ xs \u2192\n    erasePTR.go p l xs acc = acc.toList ++ xs.eraseP p\n  | [] => fun h => by simp [erasePTR.go, eraseP, h]\n  | x::xs => by\n    simp [erasePTR.go, eraseP]; cases p x <;> simp\n    \u00b7 intro h; rw [go _ xs]; {simp}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Impl.lean",
+    "definition_name": "set_eq_setTR",
+    "has_proof": true
+  }
+}

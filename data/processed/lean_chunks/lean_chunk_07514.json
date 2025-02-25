@@ -1,0 +1,9 @@
+{
+  "content": "let boundedDaysSinceEpoch := daysSinceEpoch\n  let mut rawDays := boundedDaysSinceEpoch - leapYearEpoch\n  let mut rem := Bounded.LE.byMod secs.val 86400 (by decide)\n  let \u27e8remSecs, days\u27e9 :=\n    if h : rem.val \u2264 -1 then\n      let remSecs := rem.truncateTop h\n      let remSecs : Bounded.LE 1 86399 := remSecs.add 86400\n      let rawDays := rawDays - 1\n      (remSecs.expandBottom (by decide), rawDays)\n    else\n      let h := rem.truncateBottom (Int.not_le.mp h)\n      (h, rawDays)\n  let mut quadracentennialCycles := days.val / daysPer400Y;\n  let mut remDays := days.val % daysPer400Y;\n  if remDays < 0 then\n    remDays := remDays + daysPer400Y\n    quadracentennialCycles := quadracentennialCycles - 1\n  let mut centenialCycles := remDays / daysPer100Y;\n  if centenialCycles = 4 then\n    centenialCycles := centenialCycles - 1\n  remDays := remDays - centenialCycles * daysPer100Y\n  let mut quadrennialCycles := remDays / daysPer4Y;\n  if quadrennialCycles = 25 then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/PlainDateTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/DateTime/PlainDateTime.lean",
+    "definition_name": "PlainDateTime"
+  }
+}

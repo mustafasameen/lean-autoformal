@@ -1,0 +1,9 @@
+{
+  "content": "inductive Expression (t : Type) (nt : Type) where\n  | epsilon : Expression t nt\n  | fail : Expression t nt\n  | any : Expression t nt\n  | terminal : t \u2192 Expression t nt\n  | seq : (a b : nt) \u2192 Expression t nt\n  | choice : (a b : nt) \u2192 Expression t nt\n  | look : (a : nt) \u2192 Expression t nt\n  | notP : (e : nt) \u2192 Expression t nt\ndef Grammar (t nt : Type _) := nt \u2192 Expression t nt\nstructure ProofRecord  (nt : Type) where\n  leftnonterminal : nt\n  success : Bool\n  position : Nat\n  lengthofspan : Nat\n  subproof1index : Nat\n  subproof2index : Nat\nnamespace ProofRecord\ndef endposition {nt:Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_name": "Expression"
+  }
+}

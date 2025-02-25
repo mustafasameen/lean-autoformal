@@ -1,0 +1,9 @@
+{
+  "content": "inductive Mem' (a : \u03b1) : List \u03b1 \u2192 Prop where\n  | intro (as bs) : Mem' a (as ++ (a :: bs))\nexample {x : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/482.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/482.lean",
+    "definition_name": "Mem"
+  }
+}

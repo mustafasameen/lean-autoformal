@@ -1,0 +1,10 @@
+{
+  "content": "match p\u2081, p\u2082 with\n      | p\u2081, [] => p\u2081\n      | [], p\u2082 => p\u2082\n      | (k\u2081, m\u2081) :: p\u2081, (k\u2082, m\u2082) :: p\u2082 =>\n        bif m\u2081 < m\u2082 then\n          (k\u2081, m\u2081) :: go fuel p\u2081 ((k\u2082, m\u2082) :: p\u2082)\n        else bif m\u2082 < m\u2081 then\n          (k\u2082, m\u2082) :: go fuel ((k\u2081, m\u2081) :: p\u2081) p\u2082\n        else bif k\u2081 + k\u2082 == 0 then\n          go fuel p\u2081 p\u2082\n        else\n          (k\u2081 + k\u2082, m\u2081) :: go fuel p\u2081 p\u2082\ndef Poly.insertSorted (k : Int) (m : Mon) (p : Poly) : Poly :=\n  match p with\n  | [] => [(k, m)]\n  | (k', m') :: p => bif m < m' then (k, m) :: (k', m') :: p else (k', m') :: insertSorted k m p\ndef Poly.mulMon (p : Poly) (k : Int) (m : Mon) : Poly :=\n  go p []\nwhere\n  go (p : Poly) (acc : Poly) : Poly :=\n    match p with\n    | [] => acc\n    | (k', m') :: p => go p (acc.insertSorted (k*k') (m.mul m'))\ndef Poly.mul (p\u2081 : Poly) (p\u2082 : Poly) : Poly :=\n  go p\u2081 []\nwhere\n  go (p\u2081 : Poly) (acc : Poly) : Poly :=\n    match p\u2081 with\n    | [] => acc\n    | (k, m) :: p\u2081 => go p\u2081 (acc.add (p\u2082.mulMon k m))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_name": "hugeFuel",
+    "has_proof": true
+  }
+}

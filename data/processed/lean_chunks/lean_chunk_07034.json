@@ -1,0 +1,9 @@
+{
+  "content": "(danglingDot : Bool)\n    : M Unit := do\n  let mut id := id\n  if id.hasMacroScopes then\n    if stx.getHeadInfo matches .original .. then\n      id := id.eraseMacroScopes\n    else\n      return\n  let mut danglingDot := danglingDot\n  if let HoverInfo.inside delta := hoverInfo then\n    id := truncate id delta\n    danglingDot := false\n  if id.isAtomic then\n    for localDecl in (\u2190 getLCtx) do\n      if matchAtomic id localDecl.userName danglingDot then\n        addUnresolvedCompletionItem localDecl.userName (.fvar localDecl.fvarId) (kind := CompletionItemKind.variable)\n  let env \u2190 getEnv\n  forEligibleDeclsWithCancellationM fun declName c => do\n    let bestMatch? \u2190 (\u00b7.2) <$> StateT.run (s := none) do\n      let matchUsingNamespace (ns : Name) : StateT (Option Name) M Unit := do\n        let some label \u2190 matchDecl? ns id danglingDot declName\n          | return\n        modify fun\n          | none =>\n            some label\n          | some bestLabel =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "| a, x, node red (node red b y c) z d\n  | a, x, node red b y (node red c z d) => node red (node black a x b) y (node black c z d)\n  | a, x, b                             => node black a x b\ntheorem balance1_eq {l : RBNode \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nomatch_regression.lean",
+    "definition_name": "RBColor",
+    "has_proof": false
+  }
+}

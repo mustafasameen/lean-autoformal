@@ -1,0 +1,10 @@
+{
+  "content": "theorem tst1 (x y z : Nat) : y = z \u2192 x = x \u2192 x = y \u2192 x = z :=\nby {\n  intros h1 h2 h3;\n  revert h2;\n  intro h2;\n  exact Eq.trans h3 h1\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/revert1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/revert1.lean",
+    "definition_name": "tst1",
+    "has_proof": true
+  }
+}

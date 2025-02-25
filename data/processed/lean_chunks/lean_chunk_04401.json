@@ -1,0 +1,9 @@
+{
+  "content": "structure PolyCnstr  where\n  eq  : Bool\n  lhs : Poly\n  rhs : Poly\n  deriving BEq\ninstance : LawfulBEq PolyCnstr where\n  eq_of_beq {a b}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "PolyCnstr"
+  }
+}

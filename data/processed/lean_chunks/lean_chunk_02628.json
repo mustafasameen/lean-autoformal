@@ -1,0 +1,10 @@
+{
+  "content": "simp only [or_imp, forall_and, forall_eq]\n@[simp] theorem exists_eq_or_imp : (\u2203 a, (a = a' \u2228 q a) \u2227 p a) \u2194 p a' \u2228 \u2203 a, q a \u2227 p a := by\n  simp only [or_and_right, exists_or, exists_eq_left]\n@[simp] theorem exists_eq_right_right : (\u2203 (a : \u03b1), p a \u2227 q a \u2227 a = a') \u2194 p a' \u2227 q a' := by\n  simp [\u2190 and_assoc]\n@[simp] theorem exists_eq_right_right' : (\u2203 (a : \u03b1), p a \u2227 q a \u2227 a' = a) \u2194 p a' \u2227 q a' := by\n  simp [@eq_comm _ a']\n@[simp] theorem exists_or_eq_left (y : \u03b1) (p : \u03b1 \u2192 Prop) : \u2203 x : \u03b1, x = y \u2228 p x := \u27e8y, .inl rfl\u27e9\n@[simp] theorem exists_or_eq_right (y : \u03b1) (p : \u03b1 \u2192 Prop) : \u2203 x : \u03b1, p x \u2228 x = y := \u27e8y, .inr rfl\u27e9\n@[simp] theorem exists_or_eq_left' (y : \u03b1) (p : \u03b1 \u2192 Prop) : \u2203 x : \u03b1, y = x \u2228 p x := \u27e8y, .inl rfl\u27e9\n@[simp] theorem exists_or_eq_right' (y : \u03b1) (p : \u03b1 \u2192 Prop) : \u2203 x : \u03b1, p x \u2228 y = x := \u27e8y, .inr rfl\u27e9\ntheorem exists_prop' {p : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "exists_eq",
+    "has_proof": true
+  }
+}

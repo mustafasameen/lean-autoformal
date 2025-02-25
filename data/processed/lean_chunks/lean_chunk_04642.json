@@ -1,0 +1,10 @@
+{
+  "content": "theorem norm_dvd (ctx : Context) (k : Int) (e : Expr) (p : Poly) : e.norm == p \u2192 (k \u2223 e.denote ctx) = (k \u2223 p.denote' ctx) := by\n  simp; intro h; simp [\u2190 h]\ntheorem dvd_eq_false (ctx : Context) (k : Int) (e : Expr) (h : e.norm.isUnsatDvd k) : (k \u2223 e.denote ctx) = False := by\n  rw [norm_dvd ctx k e e.norm BEq.refl]\n  apply dvd_eq_false' ctx k e.norm h\ndef dvd_coeff_cert (k\u2081 : Int) (p\u2081 : Poly) (k\u2082 : Int) (p\u2082 : Poly) (k : Int) : Bool :=\n  k != 0 && (k\u2081 == k*k\u2082 && p\u2081 == p\u2082.mul k)\ndef norm_dvd_gcd_cert (k\u2081 : Int) (e\u2081 : Expr) (k\u2082 : Int) (p\u2082 : Poly) (k : Int) : Bool :=\n  dvd_coeff_cert k\u2081 e\u2081.norm k\u2082 p\u2082 k\ntheorem norm_dvd_gcd (ctx : Context) (k\u2081 : Int) (e\u2081 : Expr) (k\u2082 : Int) (p\u2082 : Poly) (g : Int)\n    : norm_dvd_gcd_cert k\u2081 e\u2081 k\u2082 p\u2082 g \u2192 (k\u2081 \u2223 e\u2081.denote ctx) = (k\u2082 \u2223 p\u2082.denote' ctx) := by\n  simp [norm_dvd_gcd_cert, dvd_coeff_cert]\n  intro h\u2081 h\u2082 h\u2083\n  replace h\u2083 := congrArg (Poly.denote ctx) h\u2083\n  simp at h\u2083\n  simp [*]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "norm_dvd",
+    "has_proof": true
+  }
+}

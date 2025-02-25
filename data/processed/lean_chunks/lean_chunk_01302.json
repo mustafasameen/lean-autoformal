@@ -1,0 +1,10 @@
+{
+  "content": "section test1\nvariable (\u03b1 : Type u) [h : CommMonoid \u03b1]\nexample : Semigroup \u03b1 := inferInstance\nexample : Monoid \u03b1 := inferInstance\nexample : CommSemigroup \u03b1 := inferInstance\nend test1\nsection test2\nvariable (\u03b2 : Type u) [CommSemigroup \u03b2] [One \u03b2] [OneUnit \u03b2]\nexample : Monoid \u03b2 := inferInstance\nexample : CommMonoid \u03b2 := inferInstance\nexample : Semigroup \u03b2 := inferInstance\nend test2\nsection test3\nvariable (\u03b2 : Type u) [Mul \u03b2] [One \u03b2] [MulAssoc \u03b2] [OneUnit \u03b2]\nexample : Monoid \u03b2 := inferInstance\nexample : Semigroup \u03b2 := inferInstance\nend test3\ntheorem negZero [AddGroup \u03b1] : -(0 : \u03b1) = 0 := by\n    rw [\u2190addZero (a := -(0 : \u03b1)), negAdd]\ntheorem subZero [AddGroup \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_name": "abbrev",
+    "has_proof": true
+  }
+}

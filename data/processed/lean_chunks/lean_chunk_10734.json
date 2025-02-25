@@ -1,0 +1,9 @@
+{
+  "content": "buildArchive : String :=\n    if let some name := buildArchive? then name else defaultBuildArchive name\n  preferReleaseBuild : Bool := false\n  testDriver : String := \"\"\n  testDriverArgs : Array String := #[]\n  lintDriver : String := \"\"\n  lintDriverArgs : Array String := #[]\n  version : StdVer := {}\n  versionTags : StrPat := defaultVersionTags\n  keywords : Array String := #[]\n  homepage : String := \"\"\n  license : String := \"\"\n  licenseFiles : Array FilePath := #[\"LICENSE\"]\n  readmeFile : FilePath := \"README.md\"\n  reservoir : Bool := true\nderiving Inhabited\nstructure Package where\n  relDir : FilePath\n  relConfigFile : FilePath\n  scope : String\n  depConfigs : Array Dependency := #[]\n  leanExeConfigs : OrdNameMap LeanExeConfig := {}\n  opaqueTargetConfigs : DNameMap (OpaqueTargetConfig config.name) := {}\n  defaultTargets : Array Name := #[]\n  defaultScripts : Array Script := #[]\n  testDriver : String := config.testDriver\nabbrev Package.name (self : Package) : Name :=\n  self.config.name",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_name": "defaultVersionTags"
+  }
+}

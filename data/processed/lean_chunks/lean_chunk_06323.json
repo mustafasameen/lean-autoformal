@@ -1,0 +1,9 @@
+{
+  "content": "let declId    := stx[1]\n  let \u27e8name, declName, levelNames\u27e9 \u2190 Term.expandDeclId (\u2190 getCurrNamespace) (\u2190 Term.getLevelNames) declId modifiers\n  addDeclarationRangesForBuiltin declName modifiers.stx stx\n  let binders   := stx[2]\n  let (optType, exts) \u2190\n    if stx[3].isNone && !stx[4].isNone && !stx[4][0][2].isNone then\n      logWarningAt stx[4][0][2][0] \"\\\n        The syntax is now 'structure S : Type extends P' rather than 'structure S extends P : Type'.\\n\\n\\\n        The purpose of this change is to accommodate 'structure S extends toP : P' syntax for naming parent projections.\"\n      pure (stx[4][0][2], stx[4])\n    else\n      if !stx[4].isNone && !stx[4][0][2].isNone then\n        logErrorAt stx[4][0][2][0] \"\\\n          Unexpected additional resulting type. \\\n          The syntax is now 'structure S : Type extends P' rather than 'structure S extends P : Type'.\\n\\n\\",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

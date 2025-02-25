@@ -1,0 +1,10 @@
+{
+  "content": "else\n            (expr, false)\n        let mctx \u2190 getMCtx\n        let rfl? \u2190 dischargableWithRfl? mctx result.eNew\n        return some { expr, symm, weight, result, mctx, rfl? }\npartial def getSubexpressionMatches (op : Expr \u2192 MetaM (Array \u03b1)) (e : Expr) : MetaM (Array \u03b1) := do\n  match e with\n  | .bvar _ => return #[]\n  | .forallE _ _ _ _ =>\n    forallTelescope e fun args body => do\n      args.foldlM (fun acc arg => return acc ++ (\u2190 getSubexpressionMatches op (\u2190 inferType arg)))\n        (\u2190 getSubexpressionMatches op body).reverse\n  | .lam _ _ _ _\n  | .letE _ _ _ _ _ =>\n    lambdaLetTelescope e (fun args body => do\n      args.foldlM (fun acc arg => return acc ++ (\u2190 getSubexpressionMatches op (\u2190 inferType arg)))\n        (\u2190 getSubexpressionMatches op body).reverse)\n  | _ =>\n    let init := ((\u2190 op e).reverse)\n    e.foldlM (init := init) (fun a f => return a ++ (\u2190 getSubexpressionMatches op f))\ndef rewriteCandidates (hyps : Array (Expr \u00d7 Bool \u00d7 Nat))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "forwardWeight",
+    "has_proof": false
+  }
+}

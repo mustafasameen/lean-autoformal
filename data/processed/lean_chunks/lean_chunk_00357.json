@@ -1,0 +1,9 @@
+{
+  "content": "def mkDecidablePropDecl : CoreM Command := `(variable (p : Prop) [Decidable p])\nsyntax:lead (name := boolTestElab) \"#boolTest\" : command\n@[command_elab boolTestElab]\ndef elabGenTest : CommandElab := fun stx => do\n  let baseOps := [\n      trueOp  .bool,  trueOp .prop,\n      falseOp .bool, falseOp .prop,\n      boolToPropOp, propToBoolOp,\n      notOp .bool, notOp .prop,\n      andOp .bool, andOp .prop,\n      orOp .bool,  orOp .prop,\n      impliesOp\n  ]\n  let eqOps := [ eqOp .eqProp, eqOp .eqBool, eqOp .iffProp, eqOp .beqBool ]\n  let neOps := [ neOp .neProp, neOp .neBool, neOp .bneBool ]\n  let iteOps := [\n    iteOp .iteProp, iteOp .iteBool,\n    iteOp .condBool\n  ]\n  let types := #[.prop, .bool]\n  let ops := baseOps ++ eqOps ++ neOps ++ iteOps\n  let varGen : List (BoolType \u00d7 CoreM Command) := [\n      (.bool, mkBoolDecl),\n      (.prop, mkDecidablePropDecl)\n  ]\n  let stats : GenStats := { maxTermSize := 7, maxDepth := 3, maxVarCount := 2 }\n  let tac : Syntax.Tactic \u2190 `(tactic|try simp)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "boolToPropOp"
+  }
+}

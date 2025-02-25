@@ -1,0 +1,9 @@
+{
+  "content": "mkNode nullKind args |>.raw\nnamespace Syntax\ndef getKind (stx : Syntax) : SyntaxNodeKind :=\n  match stx with\n  | Syntax.node _ k _    => k\n  | Syntax.missing     => `missing\n  | Syntax.atom _ v    => Name.mkSimple v\n  | Syntax.ident ..    => identKind\ndef setKind (stx : Syntax) (k : SyntaxNodeKind) : Syntax :=\n  match stx with\n  | Syntax.node info _ args => Syntax.node info k args\n  | _                       => stx\ndef getArg (stx : Syntax) (i : Nat) : Syntax :=\n  match stx with\n  | Syntax.node _ _ args => args.getD i Syntax.missing\n  | _                    => Syntax.missing\ndef getNumArgs (stx : Syntax) : Nat :=\n  match stx with\n  | Syntax.node _ _ args => args.size\n  | _                    => 0\ndef getOptional? (stx : Syntax) : Option Syntax :=\n  match stx with\n  | Syntax.node _ k args => match and (beq k nullKind) (beq args.size 1) with\n    | true  => some (args.get!Internal 0)\n    | false => none\n  | _                    => none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "nonBacktrackable"
+  }
+}

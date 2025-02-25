@@ -1,0 +1,9 @@
+{
+  "content": "inductive Reactor\n  | mk\n    (things : ID \u2192 Option Nat)\n    (nested : ID \u2192 Option Reactor)\ndef Reactor.things : Reactor \u2192 ID \u2192 Option Nat     | mk t _ => t\ndef Reactor.nested : Reactor \u2192 ID \u2192 Option Reactor | mk _ n => n\ninductive Lineage : Reactor \u2192 ID \u2192 Type\n  | thing {rtr i}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rossel1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rossel1.lean",
+    "definition_name": "Reactor"
+  }
+}

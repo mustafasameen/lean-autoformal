@@ -1,0 +1,9 @@
+{
+  "content": "instance then\n    if !stx[3].isNone then\n      stx[3][0]\n    else\n      stx[1]\n  else\n    if stx[1][0].isIdent then\nstx[1][0]\n    else if stx[1].isIdent then\nstx[1]\n    else\n      stx[0]\ndef addDeclarationRangesFromSyntax [Monad m] [MonadEnv m] [MonadFileMap m] (declName : Name)\n    (rangeStx : Syntax) (selectionRangeStx : Syntax := .missing) : m Unit := do\n  let some range \u2190 getDeclarationRange? rangeStx | return\n  let selectionRange \u2190 (\u00b7.getD range) <$> getDeclarationRange? selectionRangeStx\n  Lean.addDeclarationRanges declName { range, selectionRange }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/DeclarationRange.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/DeclarationRange.lean",
+    "definition_name": "then"
+  }
+}

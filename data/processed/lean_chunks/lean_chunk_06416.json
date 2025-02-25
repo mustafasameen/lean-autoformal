@@ -1,0 +1,9 @@
+{
+  "content": "structure ExtractMonadResult where\n  m            : Expr\n  returnType   : Expr\n  expectedType : Expr\nprivate def mkUnknownMonadResult : MetaM ExtractMonadResult := do\n  let u \u2190 mkFreshLevelMVar\n  let v \u2190 mkFreshLevelMVar\n  let m \u2190 mkFreshExprMVar (\u2190 mkArrow (mkSort (mkLevelSucc u)) (mkSort (mkLevelSucc v)))\n  let returnType \u2190 mkFreshExprMVar (mkSort (mkLevelSucc u))\n  return { m, returnType, expectedType := mkApp m returnType }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "ExtractMonadResult"
+  }
+}

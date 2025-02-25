@@ -1,0 +1,9 @@
+{
+  "content": "def enableInfoTree [MonadInfoTree m] (flag := true) : m Unit :=\n  modifyInfoState fun s => { s with enabled := flag }\ndef withEnableInfoTree [Monad m] [MonadInfoTree m] [MonadFinally m] (flag : Bool) (x : m \u03b1) : m \u03b1 := do\n  let saved := (\u2190 getInfoState).enabled\n  try\n    enableInfoTree flag\n    x\n  finally\n    enableInfoTree saved\ndef getInfoTrees [MonadInfoTree m] [Monad m] : m (PersistentArray InfoTree) :=\n  return (\u2190 getInfoState).trees\nend Lean.Elab",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/InfoTree/Main.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/InfoTree/Main.lean",
+    "definition_name": "enableInfoTree"
+  }
+}

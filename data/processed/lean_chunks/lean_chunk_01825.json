@@ -1,0 +1,10 @@
+{
+  "content": "class AddZeroClass (M : Type u) extends Zero M, Add M where\n  zero_add : \u2200 a : M, 0 + a = a\n  add_zero : \u2200 a : M, a + 0 = a\nopen AddZeroClass\ntheorem bit0_zero {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/unfoldPartialRegression.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/unfoldPartialRegression.lean",
+    "definition_name": "AddZeroClass",
+    "has_proof": false
+  }
+}

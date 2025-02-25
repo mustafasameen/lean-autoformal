@@ -1,0 +1,10 @@
+{
+  "content": "def ps := [#[], #[0], #[1], #[0,1], #[1,0] , #[0,0], #[1,2,3]]\ntheorem Pos.roundtrip :\n  true = ps.all fun x => x == (Pos.toArray <| Pos.ofArray <| x)\n  := by native_decide\ntheorem Pos.append_roundtrip :\n  true = (List.all\n    (ps.flatMap fun p => ps.map fun q => (p,q))\n    (fun (x,y) => (x ++ y) == (Pos.toArray <| (Pos.append (Pos.ofArray x) (Pos.ofArray y))))\n  ) := by native_decide\ntheorem Pos.stringRoundtrip :\n  true = ps.all (fun p =>\n    let x := Pos.ofArray p\n    some x == (Except.toOption $ Pos.fromString? $ Pos.toString $ x)\n  ) := by native_decide\n#guard Pos.toString Nat.zero == \"/\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subexpr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subexpr.lean",
+    "definition_name": "ps",
+    "has_proof": true
+  }
+}

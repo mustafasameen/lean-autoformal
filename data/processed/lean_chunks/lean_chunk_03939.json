@@ -1,0 +1,10 @@
+{
+  "content": "theorem erase_eq_eraseP' (a : \u03b1) (xs : Array \u03b1) : xs.erase a = xs.eraseP (\u00b7 == a) := by\n  rcases xs with \u27e8xs\u27e9\n  simp [List.erase_eq_eraseP']\ntheorem erase_eq_eraseP [LawfulBEq \u03b1] (a : \u03b1) (xs : Array \u03b1) : xs.erase a = xs.eraseP (a == \u00b7) := by\n  rcases xs with \u27e8xs\u27e9\n  simp [List.erase_eq_eraseP]\n@[simp] theorem erase_eq_empty_iff [LawfulBEq \u03b1] {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_name": "erase_eq_eraseP",
+    "has_proof": true
+  }
+}

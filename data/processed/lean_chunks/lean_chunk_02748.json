@@ -1,0 +1,10 @@
+{
+  "content": "class AndOp (\u03b1 : Type u) where\nclass Xor (\u03b1 : Type u) where\nclass OrOp (\u03b1 : Type u) where\nclass Complement (\u03b1 : Type u) where\nclass ShiftLeft (\u03b1 : Type u) where\nclass ShiftRight (\u03b1 : Type u) where\nclass Membership (\u03b1 : outParam (Type u)) (\u03b3 : Type v) where\n@[extern \"lean_nat_add\"]\nprotected def Nat.add : (@& Nat) \u2192 (@& Nat) \u2192 Nat\n  | a, Nat.zero   => a\n  | a, Nat.succ b => Nat.succ (Nat.add a b)\ninstance instAddNat : Add Nat where\n  add := Nat.add\nattribute [match_pattern] Nat.add Add.add HAdd.hAdd Neg.neg Mul.mul HMul.hMul\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_nat_mul\"]\nprotected def Nat.mul : (@& Nat) \u2192 (@& Nat) \u2192 Nat\n  | _, 0          => 0\n  | a, Nat.succ b => Nat.add (Nat.mul a b) a\ninstance instMulNat : Mul Nat where\n  mul := Nat.mul\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_nat_pow\"]\nprotected def Nat.pow (m : @& Nat) : (@& Nat) \u2192 Nat\n  | 0      => 1\n  | succ n => Nat.mul (Nat.pow m n) m\ninstance instNatPowNat : NatPow Nat := \u27e8Nat.pow\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Max",
+    "has_proof": false
+  }
+}

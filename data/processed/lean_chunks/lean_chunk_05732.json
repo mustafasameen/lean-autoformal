@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_attach (xs : Vector \u03b1 n) (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b : \u03b2) :\n    xs.attach.foldl (fun acc t => f acc t.1) b = xs.foldl f b := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.foldl_attach]\ntheorem foldr_attach (xs : Vector \u03b1 n) (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b : \u03b2) :\n    xs.attach.foldr (fun t acc => f t.1 acc) b = xs.foldr f b := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.foldr_attach]\ntheorem attach_map {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Attach.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Attach.lean",
+    "definition_name": "foldl_attach",
+    "has_proof": true
+  }
+}

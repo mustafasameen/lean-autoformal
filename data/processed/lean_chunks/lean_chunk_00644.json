@@ -1,0 +1,9 @@
+{
+  "content": "def \u03c3 := Nat\n@[reducible]\ndef \u03b2 := String\nopaque foo : \u2200 {\u03b1}, IO \u03b1 \u2192 IO \u03b1\nopaque bar : StateT \u03c3 IO \u03b2\ndef mapped_foo : StateT \u03c3 IO \u03b2 := do\n  let s \u2190 get\n  let (b, s') \u2190 liftM <| foo <| StateT.run bar s\n  set s'\n  return b\ndef stM (\u03b1 : Type) := \u03b1 \u00d7 \u03c3\ndef restoreM (x : IO (stM \u03b1)) : StateT \u03c3 IO \u03b1 := do\n  let (a,s) \u2190 liftM x\n  set s\n  return a\ndef mapped_foo' : StateT \u03c3 IO \u03b2 := do\n  let s \u2190 get\n  let mapInBase := fun z => StateT.run z s\n  restoreM <| foo <| mapInBase bar\ndef control {\u03b1 : Type}\n  (f : ({\u03b2 : Type} \u2192 StateT \u03c3 IO \u03b2 \u2192 IO (stM \u03b2)) \u2192 IO (stM \u03b1))\n  : StateT \u03c3 IO \u03b1 := do\n  let s \u2190 get\n  let mapInBase := fun {\u03b2} (z : StateT \u03c3 IO \u03b2) => StateT.run z s\n  let r : IO (stM \u03b1) := f mapInBase\n  restoreM r\ndef mapped_foo'' : StateT \u03c3 IO \u03b2 :=\n  control (fun mapInBase => foo (mapInBase bar))\nend Tutorial",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/MonadControl_tutorial.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/MonadControl_tutorial.lean",
+    "definition_name": "\u03c3"
+  }
+}

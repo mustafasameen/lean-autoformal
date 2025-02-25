@@ -1,0 +1,9 @@
+{
+  "content": "structure MyCommandConfig where\n  x : Nat := 0\n  y : Bool := false\n  deriving Repr\ndeclare_command_config_elab elabMyCommandConfig MyCommandConfig\nelab \"my_command\" cfg:Parser.Tactic.optConfig : command => do\n  let config \u2190 elabMyCommandConfig cfg\n  logInfo m!\"config is {repr config}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tactic_config.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/tactic_config.lean",
+    "definition_name": "MyCommandConfig"
+  }
+}

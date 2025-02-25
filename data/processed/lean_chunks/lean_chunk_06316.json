@@ -1,0 +1,9 @@
+{
+  "content": "if ctorModifiers.isProtected && structModifiers.isPrivate then\n        throwError \"invalid 'protected' constructor in a 'private' structure\"\n      let name := ctor[1].getId\n      let declName := structDeclName ++ name\n      let declName \u2190 applyVisibility ctorModifiers.visibility declName\n      addDocString' declName ctorModifiers.docString?\n      addDeclarationRangesFromSyntax declName ctor[1]\n      pure { ref := ctor[1], declId := ctor[1], modifiers := ctorModifiers, declName }\nprivate def expandParents (optExtendsStx : Syntax) : TermElabM (Array StructParentView) := do\n  let parentDecls := if optExtendsStx.isNone then #[] else optExtendsStx[0][1].getSepArgs\n  parentDecls.mapM fun parentDecl => withRef parentDecl do\n    let mut projRef  := parentDecl\n    let mut rawName? := none\n    let mut name? := none\n    unless parentDecl[0].isNone do\n      let ident := parentDecl[0][0]\n      let rawName := ident.getId\n      let name := rawName.eraseMacroScopes\n      unless name.isAtomic do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

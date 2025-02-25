@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_next (s : String) (i : Pos) : i.1 < (s.next i).1 :=\n  Nat.add_lt_add_left (Char.utf8Size_pos _) _\ntheorem utf8PrevAux_lt_of_pos : \u2200 (cs : List Char) (i p : Pos), p \u2260 0 \u2192\n    (utf8PrevAux cs i p).1 < p.1\n  | [], _, _, h =>\n    Nat.lt_of_le_of_lt (Nat.zero_le _)\n      (Nat.zero_lt_of_ne_zero (mt (congrArg Pos.mk) h))\n  | c::cs, i, p, h => by\n    simp [utf8PrevAux]\n    apply iteInduction (motive := (Pos.byteIdx \u00b7 < _)) <;> intro h'\n    next => exact h' \u25b8 Nat.add_lt_add_left (Char.utf8Size_pos _) _\n    next => exact utf8PrevAux_lt_of_pos _ _ _ h\ntheorem prev_lt_of_pos (s : String) (i : Pos) (h : i \u2260 0) : (s.prev i).1 < i.1 := by\n  simp [prev, h]\n  exact utf8PrevAux_lt_of_pos _ _ _ h\ndef posOfAux (s : String) (c : Char) (stopPos : Pos) (pos : Pos) : Pos :=\n  if h : pos < stopPos then\n    if s.get pos == c then pos\n    else\n      have := Nat.sub_lt_sub_left h (lt_next s pos)\n      posOfAux s c stopPos (s.next pos)\n  else pos\ntermination_by stopPos.1 - pos.1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "lt_next",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance addMonoid [\u2200 i, AddMonoid <| f i] : AddMonoid (\u2200 i : I, f i) :=\n  { addSemigroup, addZeroClass with\n    nsmul := fun n x i => n \u2022 x i\n    nsmul_zero := sorry\n    nsmul_succ := sorry\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "addMonoid"
+  }
+}

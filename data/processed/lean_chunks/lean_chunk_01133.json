@@ -1,0 +1,9 @@
+{
+  "content": "inductive CtxSyntaxLayer where\n    | emp : CtxSyntaxLayer\n    | snoc : (\u0393 : G) \u2192 (t : T) \u2192 EG \u0393 (getCtx t) \u2192 CtxSyntaxLayer\nend\nsection\n  variable (G : Type 1) (T : Type 1) (Tm : Type 1)\n           (EG : G \u2192 G \u2192 Type) (ET : T \u2192 T \u2192 Type) (ETm : Tm \u2192 Tm \u2192 Type)\n           (getCtx : T \u2192 G) (getTy : Tm \u2192 T)\n           (GAlgebra : CtxSyntaxLayer G T EG getCtx \u2192 G)\n  inductive TySyntaxLayer where\n  | top : {\u0393 : G}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/341.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/341.lean",
+    "definition_name": "CtxSyntaxLayer"
+  }
+}

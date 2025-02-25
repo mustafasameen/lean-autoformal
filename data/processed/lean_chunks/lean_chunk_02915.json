@@ -1,0 +1,9 @@
+{
+  "content": "@[extern \"lean_add_decl\"]\nopaque addDeclCore (env : Environment) (maxHeartbeats : USize) (decl : @& Declaration)\n  (cancelTk? : @& Option IO.CancelToken) : Except Exception Environment\n@[extern \"lean_add_decl_without_checking\"]\nopaque addDeclWithoutChecking (env : Environment) (decl : @& Declaration) : Except Exception Environment\n@[export lean_environment_add]\nprivate def add (env : Environment) (cinfo : ConstantInfo) : Environment :=\n  { env with constants := env.constants.insert cinfo.name cinfo }\n@[export lean_kernel_diag_is_enabled]\ndef Diagnostics.isEnabled (d : Diagnostics) : Bool :=\n  d.enabled\nstructure AsyncConstantInfo where\n  kind      : ConstantKind\n  constInfo : Task ConstantInfo\nnamespace AsyncConstantInfo\ndef toConstantVal (c : AsyncConstantInfo) : ConstantVal :=\n  c.sig.get\ndef toConstantInfo (c : AsyncConstantInfo) : ConstantInfo :=\n  c.constInfo.get\ndef ofConstantInfo (c : ConstantInfo) : AsyncConstantInfo where\n  name := c.name\n  kind := .ofConstantInfo c",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

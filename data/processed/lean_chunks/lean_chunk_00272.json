@@ -1,0 +1,9 @@
+{
+  "content": "class ArrSort (\u03b1 : Sort u1) where\n  Arr : \u03b1 \u2192 \u03b1 \u2192 Sort u2\nclass Arr (\u03b1 : Sort u1) (\u03b3 : Sort u2) where\n  Arr : \u03b1 \u2192 \u03b1 \u2192 \u03b3\ninfix:70 \" ~> \" => Arr.Arr\n@[default_instance]\ninstance inst1 {\u03b1 : Sort _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/353.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/353.lean",
+    "definition_name": "ArrSort"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem pred_add_one (i : Fin (n + 2)) (h : (i : Nat) < n + 1) :\n    pred (i + 1) (Fin.ne_of_gt (add_one_pos _ (lt_def.2 h))) = castLT i h := by\n  rw [Fin.ext_iff, coe_pred, coe_castLT, val_add, val_one, Nat.mod_eq_of_lt, Nat.add_sub_cancel]\n  exact Nat.add_lt_add_right h 1\n@[simp] theorem coe_subNat (i : Fin (n + m)) (h : m \u2264 i) : (i.subNat m h : Nat) = i - m := rfl\n@[simp] theorem subNat_mk {i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "pred_add_one",
+    "has_proof": true
+  }
+}

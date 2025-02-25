@@ -1,0 +1,10 @@
+{
+  "content": "theorem head?_mapIdx {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/MapIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/MapIdx.lean",
+    "definition_name": "head",
+    "has_proof": false
+  }
+}

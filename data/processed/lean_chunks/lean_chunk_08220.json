@@ -1,0 +1,10 @@
+{
+  "content": "theorem distinct_keys_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.toList.Pairwise (fun a b => (a.1 == b.1) = false) :=\n  Raw\u2080.distinct_keys_toList \u27e8m.1, m.2.size_buckets_pos\u27e9 m.2\nnamespace Const\nvariable {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Lemmas.lean",
+    "definition_name": "distinct_keys_toList",
+    "has_proof": false
+  }
+}

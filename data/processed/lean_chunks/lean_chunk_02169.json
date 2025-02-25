@@ -1,0 +1,9 @@
+{
+  "content": "instance MulActionWithZero.toSMulWithZero (R M : Type)\n    [Zip R] [Zip M] [m : MulActionWithZero R M] :\n    SMulWithZero R M :=\n  { m with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedtc.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedtc.lean",
+    "definition_name": "MulActionWithZero"
+  }
+}

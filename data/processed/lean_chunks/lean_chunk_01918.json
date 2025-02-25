@@ -1,0 +1,9 @@
+{
+  "content": "structure A where\n  a : Nat\nstructure B where\n  a : Nat := 1\n  b : Nat\nstructure C extends A, B\ndef f (b : Nat) : C :=\n  { b }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diamond4.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diamond4.lean",
+    "definition_name": "A"
+  }
+}

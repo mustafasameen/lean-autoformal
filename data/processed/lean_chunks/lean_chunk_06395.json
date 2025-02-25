@@ -1,0 +1,9 @@
+{
+  "content": "| .inl #[a\u2081, a\u2082, a\u2083, a\u2084] => `(Syntax.node4 info $(k) $(a\u2081) $(a\u2082) $(a\u2083) $(a\u2084))\n  | .inl #[a\u2081, a\u2082, a\u2083, a\u2084, a\u2085] => `(Syntax.node5 info $(k) $(a\u2081) $(a\u2082) $(a\u2083) $(a\u2084) $(a\u2085))\n  | .inl #[a\u2081, a\u2082, a\u2083, a\u2084, a\u2085, a\u2086] => `(Syntax.node6 info $(k) $(a\u2081) $(a\u2082) $(a\u2083) $(a\u2084) $(a\u2085) $(a\u2086))\n  | .inl #[a\u2081, a\u2082, a\u2083, a\u2084, a\u2085, a\u2086, a\u2087] => `(Syntax.node7 info $(k) $(a\u2081) $(a\u2082) $(a\u2083) $(a\u2084) $(a\u2085) $(a\u2086) $(a\u2087))\n  | .inl #[a\u2081, a\u2082, a\u2083, a\u2084, a\u2085, a\u2086, a\u2087, a\u2088] => `(Syntax.node8 info $(k) $(a\u2081) $(a\u2082) $(a\u2083) $(a\u2084) $(a\u2085) $(a\u2086) $(a\u2087) $(a\u2088))\n  | _ => `(Syntax.node info $(k) $(b.build))\nend ArrayStxBuilder\ndef tryAddSyntaxNodeKindInfo (stx : Syntax) (k : SyntaxNodeKind) : TermElabM Unit := do\n  if (\u2190 getEnv).contains k then\n    addTermInfo' stx (\u2190 mkConstWithFreshMVarLevels k)\n  else\n    let k := ``Lean.Parser.Category ++ k\n    if (\u2190 getEnv).contains k then\n      addTermInfo' stx (\u2190 mkConstWithFreshMVarLevels k)\ninstance : Quote Syntax.Preresolved where\n  quote",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_name": "ArrayStxBuilder"
+  }
+}

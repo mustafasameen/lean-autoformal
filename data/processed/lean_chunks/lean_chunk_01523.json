@@ -1,0 +1,9 @@
+{
+  "content": "inductive Trans\u2083 {\u03b1 : Sort a}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2689.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2689.lean",
+    "definition_name": "Trans\u2083"
+  }
+}

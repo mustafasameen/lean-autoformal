@@ -1,0 +1,9 @@
+{
+  "content": "class abbrev AddAbbrev := Add A\nend\nsection\nuniverse v\nvariable {A : Sort v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/436.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/436.lean",
+    "definition_name": "abbrev"
+  }
+}

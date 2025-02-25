@@ -1,0 +1,9 @@
+{
+  "content": "class UnitalShelf (\u03b1 : Type u) extends Shelf \u03b1, One \u03b1 where\n  one_act : \u2200 a : \u03b1, act 1 a = a\n  act_one : \u2200 a : \u03b1, act a 1 = a\ninfixr:65 \" \u25c3 \" => Shelf.act\nexample {S}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_shelf.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_shelf.lean",
+    "definition_name": "UnitalShelf"
+  }
+}

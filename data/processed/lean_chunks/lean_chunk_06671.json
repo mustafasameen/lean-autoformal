@@ -1,0 +1,9 @@
+{
+  "content": "withAntiquot (mkAntiquot \"str\" strLitKind) strLitNoAntiquot\n@[run_builtin_parser_attribute_hooks, builtin_doc] def charLit : Parser :=\n  withAntiquot (mkAntiquot \"char\" charLitKind) charLitNoAntiquot\n@[run_builtin_parser_attribute_hooks, builtin_doc] def nameLit : Parser :=\n  withAntiquot (mkAntiquot \"name\" nameLitKind) nameLitNoAntiquot\n@[run_builtin_parser_attribute_hooks, builtin_doc, inline] def group (p : Parser) : Parser :=\n  node groupKind p\n@[run_builtin_parser_attribute_hooks, builtin_doc, inline] def many1Indent (p : Parser) : Parser :=\n  withPosition $ many1 (checkColGe \"irrelevant\" >> p)\n@[run_builtin_parser_attribute_hooks, builtin_doc, inline] def manyIndent (p : Parser) : Parser :=\n  withPosition $ many (checkColGe \"irrelevant\" >> p)\n@[builtin_doc, inline] def sepByIndent (p : Parser) (sep : String) (psep : Parser := symbol sep) (allowTrailingSep : Bool := false) : Parser :=\n  let p := withAntiquotSpliceAndSuffix `sepBy p (symbol \"*\")",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_name": "identWithPartialTrailingDot"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex5 : sumOdd [1, 2, 3, 4, 5, 6, 7, 9, 11, 101] 10 = 16 :=\nrfl\ndef find? (xs : List Nat) (p : Nat \u2192 Bool) : Option Nat := Id.run do\nlet mut result := none\nfor x in xs do\n  if p x then\n    result := x\n    break\nreturn result\ndef sumDiff (ps : List (Nat \u00d7 Nat)) : Nat := Id.run do\nlet mut sum := 0\nfor (x, y) in ps do\n  sum := sum + x - y\nreturn sum\ntheorem ex7 : sumDiff [(2, 1), (10, 5)] = 6 :=\nrfl\ndef f1 (x : Nat) : IO Unit := do\nlet rec loop : Nat \u2192 IO Unit\n  | 0   => pure ()\n  | x+1 => do IO.println x; loop x\nloop x\n#guard_msgs in\n#eval f1 10\npartial def f2 (x : Nat) : IO Unit := do\nlet rec\n  isEven : Nat \u2192 Bool\n    | 0   => true\n    | x+1 => isOdd x,\n  isOdd : Nat \u2192 Bool\n    | 0   => false\n    | x+1 => isEven x\nIO.println (\"isOdd(\" ++ toString x ++ \"): \" ++ toString (isOdd x))\n#guard_msgs in\n#eval f2 10\ndef split (xs : List Nat) : List Nat \u00d7 List Nat := Id.run do\nlet mut evens := []\nlet mut odds  := []\nfor x in xs.reverse do\n  if x % 2 == 0 then\n    evens := x :: evens\n  else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/doNotation2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/doNotation2.lean",
+    "definition_name": "ex5",
+    "has_proof": false
+  }
+}

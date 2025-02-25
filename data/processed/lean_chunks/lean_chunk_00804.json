@@ -1,0 +1,9 @@
+{
+  "content": "def myId := @id\ndef mk' {\u03b1 : Type} : \u03b1 \u00d7 \u03b1 \u2192 UProd \u03b1 :=\n  let f := @Quot.mk _ _\n  myId f",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/716.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/716.lean",
+    "definition_name": "myId"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem getValue?_alterKey [EquivBEq \u03b1] (k k' : \u03b1) (f : Option \u03b2 \u2192 Option \u03b2)\n    (l : List ((_ : \u03b1) \u00d7 \u03b2)) (hl : DistinctKeys l) : getValue? k' (alterKey k f l) =\n      if k == k' then\n        f (getValue? k l)\n      else\n        getValue? k' l := by\n  split\n  \u00b7 next heq =>\n    rw [alterKey]\n    split\n    \u00b7 next hnone =>\n      simp only [getValue?_eraseKey_of_beq hl heq, hnone]\n    \u00b7 next hsome =>\n      rw [hsome, getValue?_insertEntry_of_beq heq]\n  \u00b7 next heq =>\n    rw [alterKey]\n    split\n    \u00b7 next hnone =>\n      simp only [heq, hnone, hl, beq_iff_eq, getValue?_eraseKey, ite_false, Bool.false_eq_true,\n        reduceIte]\n    \u00b7 next hsome =>\n      simp only [getValue?_insertEntry, heq, Bool.false_eq_true, reduceIte]\ntheorem getValue_alterKey [EquivBEq \u03b1] (k k' : \u03b1) (f : Option \u03b2 \u2192 Option \u03b2) (l : List ((_ : \u03b1) \u00d7 \u03b2))\n    (hl : DistinctKeys l) (hc : containsKey k' (alterKey k f l)) :\n    getValue k' (alterKey k f l) hc =\n      if h : k == k' then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "getValue",
+    "has_proof": true
+  }
+}

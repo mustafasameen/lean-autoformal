@@ -1,0 +1,9 @@
+{
+  "content": "inductive Mem (a : \u03b1) : List \u03b1 \u2192 Prop where\n  | head {as}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/discrRefinement3.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/discrRefinement3.lean",
+    "definition_name": "Mem"
+  }
+}

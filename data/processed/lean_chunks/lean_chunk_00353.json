@@ -1,0 +1,9 @@
+{
+  "content": "match p with\n      | .trueVal  _ => .trueVal  .bool\n      | .falseVal _ => .falseVal .bool\n      | .var _ => v\n      | .boolToProp _ => panic! \"Expected boolToProp to simplify away\"\n      | .not x _   => simp <| ~(.decide x)\n      | .and x y _ => simp <| (.decide x) &&& (.decide y)\n      | .or x y _  => simp <| (.decide x) ||| (.decide y)\n      | .implies p q => simp <| ~(.decide p) ||| (.decide q)\n      | .eq x y .eqBool =>\n        match y with\n        | .trueVal _ => x\n        | .falseVal _ => simp (~ x)\n        | _ => v\n      | .eq x y .eqProp | iff x y =>\n        simp <| .eq (.decide x) (.decide y) .beqBool\n      | .ne _ _ op =>\n        match op with\n        | .neProp | .neBool => panic! \"Expected ne to be reduced to not eq\"\n        | .bneBool => panic! \"Unexpected bool\"\n      | .ite c t f op =>\n        match op with\n        | .iteProp => simp <| .ite c (.decide t) (.decide f) .iteBool\n        | _ => v\n      | .decide _ | .eq _ _ _ =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "BoolType"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def Boo.x := 1\ndef Foo.x := 2\ndef Foo.x.y := 3\ndef Bla.x := 4\nnamespace Test\nexport Bla (x)\nend Test\nopen Lean\nopen Lean.Elab.Term\nopen Lean.Elab.Command\nsyntax (name := resolveKind) \"#resolve \" ident : command\n@[command_elab resolveKind] def elabResolve : CommandElab :=\nfun stx => liftTermElabM do\n  let cs \u2190 resolveGlobalName $ stx.getIdAt 1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/resolveGlobalName.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/resolveGlobalName.lean",
+    "definition_name": "Boo"
+  }
+}

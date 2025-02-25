@@ -1,0 +1,9 @@
+{
+  "content": "structure A where\n  x : Nat\n  y : Nat\nnamespace Foo\nscoped instance : ToString A where\n  toString a := s!\"A.mk {a.x}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/scopedLocalInsts.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/scopedLocalInsts.lean",
+    "definition_name": "A"
+  }
+}

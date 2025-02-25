@@ -1,0 +1,9 @@
+{
+  "content": "UnitVal.ofInt data\n@[inline]\ndef ofInt (data : Int) : Offset :=\n  UnitVal.ofInt data\nend Offset\ndef Span := Bounded.LE (-999999999) 999999999\n  deriving Repr, BEq, LE, LT\ninstance : Inhabited Span where default := Bounded.LE.mk 0 (by decide)\nnamespace Span\ndef toOffset (span : Span) : Offset :=\n  UnitVal.ofInt span.val\nend Span\nnamespace Ordinal\ndef OfDay := Bounded.LE 0 86400000000000\n  deriving Repr, BEq, LE, LT\n@[inline]\ndef ofInt (data : Int) (h : 0 \u2264 data \u2227 data \u2264 999999999) : Ordinal :=\n  Bounded.LE.mk data h\n@[inline]\ndef ofNat (data : Nat) (h : data \u2264 999999999) : Ordinal :=\n  Bounded.LE.ofNat data h\n@[inline]\ndef ofFin (data : Fin 1000000000) : Ordinal :=\n  Bounded.LE.ofFin data\n@[inline]\ndef toOffset (ordinal : Ordinal) : Offset :=\n  UnitVal.ofInt ordinal.val\nend Ordinal\nend Nanosecond\nend Time\nend Std",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Nanosecond.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Nanosecond.lean",
+    "definition_name": "Ordinal"
+  }
+}

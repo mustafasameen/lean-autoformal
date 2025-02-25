@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo (\u03b1 : Type) where foo : \u03b1\nclass Bar (\u03b1 \u03b2 : Type) where coe : \u03b1 \u2192 \u03b2\nvariable {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/620.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/620.lean",
+    "definition_name": "Foo"
+  }
+}

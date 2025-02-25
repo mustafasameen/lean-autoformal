@@ -1,0 +1,9 @@
+{
+  "content": "mkLit (.natVal n)\ndef mkNatLit (n : Nat) : Expr :=\n  let r := mkRawNatLit n\n  mkApp3 (mkConst ``OfNat.ofNat [levelZero]) (mkConst ``Nat) r (mkApp (mkConst ``instOfNatNat) r)\ndef mkAppN (f : Expr) (args : Array Expr) : Expr :=\n  args.foldl mkApp f\nprivate partial def mkAppRangeAux (n : Nat) (args : Array Expr) (i : Nat) (e : Expr) : Expr :=\n  if i < n then mkAppRangeAux n args (i+1) (mkApp e args[i]!) else e\ndef mkAppRev (fn : Expr) (revArgs : Array Expr) : Expr :=\n  revArgs.foldr (fun a r => mkApp r a) fn\nnamespace Expr\n@[extern \"lean_expr_dbg_to_string\"]\nopaque dbgToString (e : @& Expr) : String\n@[extern \"lean_expr_lt\"]\nopaque lt (a : @& Expr) (b : @& Expr) : Bool\ndef quickComp (a b : Expr) : Ordering :=\n  if quickLt a b then .lt\n  else if quickLt b a then .gt\n  else .eq\n@[extern \"lean_expr_eqv\"]\nopaque eqv (a : @& Expr) (b : @& Expr) : Bool\ninstance : BEq Expr where\n  beq := Expr.eqv\n@[extern \"lean_expr_equal\"]\nopaque equal (a : @& Expr) (b : @& Expr) : Bool",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

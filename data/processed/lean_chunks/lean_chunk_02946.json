@@ -1,0 +1,10 @@
+{
+  "content": "addEntryFn      := fun s n => s.insert n\n  }\n@[inherit_doc Kernel.Environment.enableDiag]\ndef Kernel.enableDiag (env : Lean.Environment) (flag : Bool) : Lean.Environment :=\n  env.modifyCheckedAsync (\u00b7.enableDiag flag)\ndef Kernel.isDiagnosticsEnabled (env : Lean.Environment) : Bool :=\n  env.checkedWithoutAsync.isDiagnosticsEnabled\ndef Kernel.resetDiag (env : Lean.Environment) : Lean.Environment :=\n  env.modifyCheckedAsync (\u00b7.resetDiag)\ndef Kernel.getDiagnostics (env : Lean.Environment) : Diagnostics :=\n  env.checked.get.diagnostics\ndef Kernel.setDiagnostics (env : Lean.Environment) (diag : Diagnostics) : Lean.Environment :=\n  env.modifyCheckedAsync (\u00b7.setDiagnostics diag)\nnamespace Environment\ndef isNamespace (env : Environment) (n : Name) : Bool :=\n  (namespacesExt.getState env).contains n\n@[extern \"lean_eval_const\"]\nunsafe opaque evalConst (\u03b1) (env : @& Environment) (opts : @& Options) (constName : @& Name) : Except String \u03b1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

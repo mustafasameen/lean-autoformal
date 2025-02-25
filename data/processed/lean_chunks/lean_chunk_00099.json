@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo (A : Sort _) := (foo : A)\nstructure Bar (A : Sort _) extends Foo A := (bar : A)\ninstance {A}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/389.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/389.lean",
+    "definition_name": "Foo"
+  }
+}

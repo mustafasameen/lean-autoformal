@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_zipIdx (f : \u03b1 \u2192 \u03b2) (l : List \u03b1) (k : Nat) :\n    map (Prod.map f id) (zipIdx l k) = zipIdx (l.map f) k := by\n  induction l generalizing k <;> simp_all\ntheorem fst_mem_of_mem_zipIdx {x : \u03b1 \u00d7 Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "map_zipIdx",
+    "has_proof": true
+  }
+}

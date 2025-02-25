@@ -1,0 +1,10 @@
+{
+  "content": "recommended spelling to a notation whose docstring already has an example, try to reuse the\nidentifier names chosen in the docstring for consistency.\n-/\n@[builtin_command_parser] def \u00abrecommended_spelling\u00bb := leading_parser\n  optional (docComment >> ppLine) >>\n  \"recommended_spelling \" >> strLit >> \" for \" >> strLit >> \" in \" >>\n    \"[\" >> sepBy1 ident \", \" >> \"]\"\n@[builtin_command_parser] def genInjectiveTheorems := leading_parser\n  \"gen_injective_theorems% \" >> ident\n@[builtin_command_parser] def \u00abinclude\u00bb := leading_parser \"include \" >> many1 ident\n@[builtin_command_parser] def \u00abomit\u00bb := leading_parser \"omit \" >>\n  many1 (ident <|> Term.instBinder)\n@[builtin_term_parser] def \u00abopen\u00bb := leading_parser:leadPrec\n  \"open\" >> Command.openDecl >> withOpenDecl (\" in \" >> termParser)\n@[builtin_term_parser] def \u00abset_option\u00bb := leading_parser:leadPrec\n  \"set_option \" >> identWithPartialTrailingDot >> ppSpace >> Command.optionValue >> \" in \" >> termParser\nend Term\nnamespace Tactic",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

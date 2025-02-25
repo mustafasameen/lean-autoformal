@@ -1,0 +1,9 @@
+{
+  "content": "class InvMul (\u03b1 : Type u) [Mul \u03b1] [One \u03b1] [Inv \u03b1] : Prop where\n    invMul : {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlg.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlg.lean",
+    "definition_name": "InvMul"
+  }
+}

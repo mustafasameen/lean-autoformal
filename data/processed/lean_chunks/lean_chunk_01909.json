@@ -1,0 +1,10 @@
+{
+  "content": "class Order (\u03b1 : Type u) extends LE \u03b1, LT \u03b1, Max \u03b1 where\n  ltDecidable : DecidableRel (@LT.lt \u03b1 _)\n  max_def x y : max x y = if x < y then x else y\nnamespace Vector'\n  def mem (a : \u03b1) : Vector' \u03b1 n \u2192 Prop\n  | nil => False\n  | cons b l => a = b \u2228 mem a l\n  def foldr (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (init : \u03b2) : Vector' \u03b1 n \u2192 \u03b2\n  | nil     => init\n  | cons a l => f a (foldr f init l)\n  theorem foldr_max [Order \u03b2] {v: Vector' \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1025.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1025.lean",
+    "definition_name": "Order",
+    "has_proof": false
+  }
+}

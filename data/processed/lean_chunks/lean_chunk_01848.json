@@ -1,0 +1,9 @@
+{
+  "content": "for (pos, e) in (\u2190 getSplitCandidates loc) do\n    if let some (cond, _) := findIfToSplit? e\n    then return some (pos, cond)\n  return none\nprivate def discharge? (e : Expr) : SimpM (Option Expr) := do\n  let e \u2190 instantiateMVars e\n  if let some e1 \u2190 (\u2190 SplitIf.mkDischarge? false) e\n    then return some e1\n  if e.isConstOf `True\n    then return some (mkConst `True.intro)\n  return none\nprivate def reduceIfsAt (loc : Location) : TacticM Unit := do\n  let ctx \u2190 SplitIf.getSimpContext\n  let ctx \u2190 ctx.setConfig { ctx.config with failIfUnchanged := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/splitIfIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/splitIfIssue.lean",
+    "definition_name": "SplitPosition"
+  }
+}

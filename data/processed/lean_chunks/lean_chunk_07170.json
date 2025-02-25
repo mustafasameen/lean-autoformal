@@ -1,0 +1,9 @@
+{
+  "content": "if type' != type then\n      whnfEta type'\n    else\n      return type\n  visitForall (e : Expr) (xs : Array Expr) : MetaM Expr := do\n    match e with\n    | .forallE n d b bi =>\n      let d := d.instantiateRev xs\n      withLocalDecl n bi d fun x => do\n        let d := (\u2190 toLCNFType d).abstract xs\n        return .forallE n d (\u2190 visitForall b (xs.push x)) bi\n    | _ =>\n      let e \u2190 toLCNFType (e.instantiateRev xs)\n      return e.abstract xs\n  visitApp (f : Expr) (args : Array Expr) := do\n    let fNew \u2190 match f with\n      | .const declName us =>\n        let .inductInfo _ \u2190 getConstInfo declName | return erasedExpr\n        pure <| .const declName us\n      | .fvar .. => pure f\n      | _ => return erasedExpr\n    let mut result := fNew\n    for arg in args do\n      if (\u2190 isProp arg) then\n        result := mkApp result erasedExpr\n      else if (\u2190 isPropFormer arg) then\n        result := mkApp result erasedExpr\n      else if (\u2190 isTypeFormer arg) then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_name": "erasedExpr"
+  }
+}

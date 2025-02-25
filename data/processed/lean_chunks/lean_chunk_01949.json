@@ -1,0 +1,9 @@
+{
+  "content": "#guard_msgs in\n#eval code.v1.localTimeTypes.size\n#guard_msgs in\n#eval code.v1.stdWallIndicators.size\n#guard_msgs in\n#eval code.v1.utLocalIndicators.size\n#guard_msgs in\n#eval ZonedDateTime.ofTimestamp (Timestamp.ofSecondsSinceUnixEpoch 0) rules\n#guard_msgs in\n#eval ZonedDateTime.ofTimestamp (Timestamp.ofSecondsSinceUnixEpoch 1355106947) rules",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeTzifParse.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeTzifParse.lean",
+    "definition_name": "file"
+  }
+}

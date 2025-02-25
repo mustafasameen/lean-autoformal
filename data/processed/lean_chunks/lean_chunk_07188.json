@@ -1,0 +1,9 @@
+{
+  "content": "let retty \u2190 LLVM.voidPtrType llvmctx\n  let argtys :=  #[]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  LLVM.buildCall2 builder fnty fn #[] \"mk_io_out\"\ndef callLeanIOResultIsError (builder : LLVM.Builder llvmctx)\n    (arg : LLVM.Value llvmctx) (name : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let fnName :=  \"lean_io_result_is_error\"\n  let retty \u2190 LLVM.i1Type llvmctx\n  let argtys :=  #[\u2190 LLVM.voidPtrType llvmctx]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  LLVM.buildCall2 builder fnty fn #[arg] name\ndef callLeanAllocCtor (builder : LLVM.Builder llvmctx)\n    (tag num_objs scalar_sz : Nat) (name : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let fnName :=  \"lean_alloc_ctor\"\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let i32 \u2190 LLVM.i32Type llvmctx\n  let argtys :=  #[i32, i32, i32]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

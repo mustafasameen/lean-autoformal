@@ -1,0 +1,10 @@
+{
+  "content": "structure A (\u03b1) where\n  subsingleton : \u2200 a b : \u03b1, a = b := by assumption\nstructure B (\u03b1) where\n  op : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n  idempotent : \u2200 a : \u03b1, op a a = a := by assumption\n  fav : \u03b1 := by assumption\nstructure C (\u03b1) where\n  op : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n  comm : \u2200 a b : \u03b1, op a b = op b a := by assumption\nstructure D (\u03b1) extends A \u03b1, B \u03b1\nstructure E (\u03b1) extends C \u03b1, B \u03b1\ntheorem s (a b : Unit) : a = b := rfl\ndef op (_ _ : Unit) : Unit := ()\ndef i (a : Unit) : op a a = a := s _ a\ndef c (a b : Unit) : op a b = op b a := s _ _\ndef d : D Unit := have := s; have := i; have := ()\n                  { op }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1158.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1158.lean",
+    "definition_name": "A",
+    "has_proof": true
+  }
+}

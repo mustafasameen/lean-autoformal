@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_sub' (a : Int) (b : Nat) : (a - b).toNat = a.toNat - b := by\n  symm\n  simp only [Int.toNat]\n  split <;> rename_i x a\n  \u00b7 simp only [Int.ofNat_eq_coe]\n    split <;> rename_i y b h\n    \u00b7 simp at h\n      omega\n    \u00b7 simp [Int.negSucc_eq] at h\n      omega\n  \u00b7 simp only [Nat.zero_sub]\n    split <;> rename_i y b h\n    \u00b7 simp [Int.negSucc_eq] at h\n      omega\n    \u00b7 rfl\n@[simp] theorem toNat_sub_max_self (a : Int) : (a - max a 0).toNat = 0 := by\n  simp [toNat]\n  split <;> simp_all <;> omega\n@[simp] theorem toNat_sub_self_max (a : Int) : (a - max 0 a).toNat = 0 := by\n  simp [toNat]\n  split <;> simp_all <;> omega\ntheorem bmod_neg_iff {m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/LemmasAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/LemmasAux.lean",
+    "definition_name": "toNat_sub",
+    "has_proof": true
+  }
+}

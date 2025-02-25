@@ -1,0 +1,10 @@
+{
+  "content": "have p : i + k + 1 - i = k + 1 := by omega\n          rw [p]\n          rw [getElem?_cons_succ, getElem?_drop]\n          congr 1\n          omega\n        \u00b7 rw [length_take]\n          exact Nat.le_trans (Nat.min_le_left _ _) (by omega)\n  \u00b7 rw [set_eq_of_length_le]\n    omega\ntheorem drop_set_of_lt (a : \u03b1) {i j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "set_eq_take_append_cons_drop",
+    "has_proof": true
+  }
+}

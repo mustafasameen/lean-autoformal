@@ -1,0 +1,9 @@
+{
+  "content": "class Nat_Induction [Zero N] [Succ N] where\n  nat_induction {P : N \u2192 Sort _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_name": "Nat_Induction"
+  }
+}

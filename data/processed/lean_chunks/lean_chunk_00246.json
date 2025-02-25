@@ -1,0 +1,9 @@
+{
+  "content": "| some uri => unescapeUri (pathToUri uri)\n      | none => \"fileUriToPath? failed\")\n    if result == p then\n      \"ok\"\n    else\n      s!\"mismatch {result} != {p}\")\n  let ok := (results.all (\u03bb c => c == \"ok\"))\nassert! ok\n  true\n#eval testEscaping &&\n      testNeverEscape &&\n      testShouldEscape &&\n      testRoundTrip &&\n      testPartialEscape &&\n      testSpaceEscape &&\n      testUnicodeEscape &&\n      testInvalidFileUri &&\n      testUnescapePercent &&\n      testUnescapeSinglePercent &&\n      testUnescapeBadHex &&\n      testTruncatedEscape &&\n      testUnescapeUnicode &&\n      testUnescapeMixedCase &&\n      testShouldUnescape &&\n      testWindowsDriveLetterRoundTrip",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_name": "testEscaping"
+  }
+}

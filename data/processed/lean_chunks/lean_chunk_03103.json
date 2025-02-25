@@ -1,0 +1,9 @@
+{
+  "content": "| read\n  | write\n  | writeNew\n  | readWrite\n  | append\nopaque FS.Handle : Type := Unit\nstructure FS.Stream where\n  flush   : IO Unit\n  read    : USize \u2192 IO ByteArray\n  write   : ByteArray \u2192 IO Unit\n  getLine : IO String\n  putStr  : String \u2192 IO Unit\n@[extern \"lean_get_set_stdin\"] opaque setStdin  : FS.Stream \u2192 BaseIO FS.Stream\n@[extern \"lean_get_set_stderr\"] opaque setStderr : FS.Stream \u2192 BaseIO FS.Stream\n@[specialize] partial def iterate (a : \u03b1) (f : \u03b1 \u2192 IO (Sum \u03b1 \u03b2)) : IO \u03b2 := do\n  let v \u2190 f a\n  match v with\n  | Sum.inl a => iterate a f\n  | Sum.inr b => pure b\nnamespace FS\nnamespace Handle\n@[extern \"lean_io_prim_handle_mk\"] opaque mk (fn : @& FilePath) (mode : FS.Mode) : IO Handle\n@[extern \"lean_io_prim_handle_lock\"] opaque lock (h : @& Handle) (exclusive := true) : IO Unit\n@[extern \"lean_io_prim_handle_try_lock\"] opaque tryLock (h : @& Handle) (exclusive := true) : IO Bool\n@[extern \"lean_io_prim_handle_unlock\"] opaque unlock (h : @& Handle) : IO Unit",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "TaskState"
+  }
+}

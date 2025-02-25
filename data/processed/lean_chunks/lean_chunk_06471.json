@@ -1,0 +1,9 @@
+{
+  "content": "structure expected\"\n    matchConstStructure eType.getAppFn failK fun _ _ ctorVal => do\n      let numFields := ctorVal.numFields\n      if idx - 1 < numFields then\n        if isStructure env structName then\n          let fieldNames := getStructureFields env structName\n          return LValResolution.projFn structName structName fieldNames[idx - 1]!\n        else\n          return LValResolution.projIdx structName (idx - 1)\n      else\n        throwLValError e eType m!\"invalid projection, structure has only {numFields}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/App.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/App.lean",
+    "definition_name": "expected"
+  }
+}

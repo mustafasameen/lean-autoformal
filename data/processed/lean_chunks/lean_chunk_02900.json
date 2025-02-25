@@ -1,0 +1,9 @@
+{
+  "content": "def ReservedNameAction := Name \u2192 CoreM Bool\nprivate builtin_initialize reservedNameActionsRef : IO.Ref (Array ReservedNameAction) \u2190 IO.mkRef #[]\ndef registerReservedNameAction (act : ReservedNameAction) : IO Unit := do\n  unless (\u2190 initializing) do\n    throw (IO.userError \"failed to register reserved name action, this kind of extension can only be registered during initialization\")\n  reservedNameActionsRef.modify (\u00b7.push act)\ndef executeReservedNameAction (name : Name) : CoreM Unit := do\n  for act in (\u2190 reservedNameActionsRef.get) do\n    if (\u2190 act name) then\n      return ()\ndef realizeGlobalName (id : Name) : CoreM (List (Name \u00d7 List String)) := do\n  let cs \u2190 resolveGlobalName id\n  cs.filterM fun (c, _) => do\n    if (\u2190 getEnv).contains c then\n      return true\n    else\n      try\n        executeReservedNameAction c\n        return (\u2190 getEnv).contains c\n      catch ex =>\n        logError m!\"Failed to realize constant {id}:{indentD ex.toMessageData}\"\n        return false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ReservedNameAction.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ReservedNameAction.lean",
+    "definition_name": "ReservedNameAction"
+  }
+}

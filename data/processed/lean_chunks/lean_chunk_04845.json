@@ -1,0 +1,10 @@
+{
+  "content": "theorem concat_ne_nil (a : \u03b1) (l : List \u03b1) : l ++ [a] \u2260 [] := by\n  cases l <;> simp\n@[simp] theorem get_eq_getElem (l : List \u03b1) (i : Fin l.length) : l.get i = l[i.1]'i.2 := rfl\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]?` instead.\" (since := \"2025-02-12\")]\ntheorem get?_eq_none : \u2200 {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "concat_ne_nil",
+    "has_proof": true
+  }
+}

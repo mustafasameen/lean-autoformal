@@ -1,0 +1,9 @@
+{
+  "content": "structure MetaProblem where\n  facts : List Expr := []\n  disjunctions : List Expr := []\ndef mkEvalRflProof (e : Expr) (lc : LinearCombo) : OmegaM Expr := do\n  mkEqReflWithExpectedType e (mkApp2 (.const ``LinearCombo.eval []) (toExpr lc) (\u2190 atomsCoeffs))\ndef mkCoordinateEvalAtomsEq (e : Expr) (n : Nat) : OmegaM Expr := do\n  if n < 10 then\n    let atoms \u2190 atoms\n    let tail \u2190 mkListLit (.const ``Int []) atoms[n+1:].toArray.toList\n    let lem := .str ``LinearCombo s!\"coordinate_eval_{n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Omega/Frontend.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Omega/Frontend.lean",
+    "definition_name": "MetaProblem"
+  }
+}

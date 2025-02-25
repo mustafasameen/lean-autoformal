@@ -1,0 +1,9 @@
+{
+  "content": "def AddConstAsyncResult.commitCheckEnv (res : AddConstAsyncResult) (env : Environment) :\n    IO Unit := do\n  let some _ := env.findAsync? res.constName\n    | throw <| .userError s!\"AddConstAsyncResult.checkAndCommitEnv: constant {res.constName} not \\\n      found in async context\"\n  res.commitConst env\n  res.checkedEnvPromise.resolve env.checked.get\ndef contains (env : Environment) (n : Name) : Bool :=\n  env.findAsync? n |>.isSome\ndef header (env : Environment) : EnvironmentHeader :=\n  env.checkedWithoutAsync.header\ndef imports (env : Environment) : Array Import :=\n  env.header.imports\ndef allImportedModuleNames (env : Environment) : Array Name :=\n  env.header.moduleNames\ndef setMainModule (env : Environment) (m : Name) : Environment :=\n  env.modifyCheckedAsync ({ \u00b7 with header.mainModule := m })\ndef mainModule (env : Environment) : Name :=\n  env.header.mainModule\ndef getModuleIdxFor? (env : Environment) (declName : Name) : Option ModuleIdx :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

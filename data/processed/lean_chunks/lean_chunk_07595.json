@@ -1,0 +1,10 @@
+{
+  "content": "structure Cache.Inv (cnf : CNF (CNFVar aig)) (marks : Array Bool) (hmarks : marks.size = aig.decls.size) : Prop where\n  hmark : \u2200 (lhs rhs : Nat) (linv rinv : Bool) (idx : Nat) (hbound : idx < aig.decls.size)\n            (_hmarked : marks[idx] = true) (heq : aig.decls[idx] = .gate lhs rhs linv rinv),\n              marks[lhs]'(by have := aig.invariant hbound heq; omega) = true\n                \u2227\n              marks[rhs]'(by have := aig.invariant hbound heq; omega) = true\n  heval : \u2200 (assign : CNFVar aig \u2192 Bool) (_heval : cnf.eval assign = true) (idx : Nat)\n            (hbound : idx < aig.decls.size) (_hmark : marks[idx]'(by omega) = true),\n              \u27e6aig, \u27e8idx, hbound\u27e9, projectLeftAssign assign\u27e7 = (projectRightAssign assign) idx hbound\ntheorem Cache.Inv_init : Inv ([] : CNF (CNFVar aig)) (mkArray aig.decls.size false) (by simp) where\n  hmark := by\n    intro lhs rhs linv rinv idx hbound hmarked heq\n    simp at hmarked\n  heval := by\n    intro assign _ idx hbound hmark\n    simp at hmark",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "Cache",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def depth (p : Pos) :=\n  p.foldr (init := 0) fun _ => Nat.succ\ndef ofArray (ps : Array Nat) : Pos :=\n  ps.foldl push root\ndef toArray (p : Pos) : Array Nat :=\n  foldl Array.push #[] p\ndef pushBindingDomain (p : Pos) := p.push 0\ndef pushBindingBody   (p : Pos) := p.push 1\ndef pushLetVarType    (p : Pos) := p.push 0\ndef pushLetValue      (p : Pos) := p.push 1\ndef pushLetBody       (p : Pos) := p.push 2\ndef pushAppFn         (p : Pos) := p.push 0\ndef pushAppArg        (p : Pos) := p.push 1\ndef pushProj          (p : Pos) := p.push 0\ndef pushType          (p : Pos) := p.push Pos.typeCoord\ndef pushNaryFn (numArgs : Nat) (p : Pos) : Pos :=\n  p.asNat * (maxChildren ^ numArgs)\ndef pushNaryArg (numArgs argIdx : Nat) (p : Pos) : Pos :=\n  show Nat from p.asNat * (maxChildren ^ (numArgs - argIdx)) + 1\ndef pushNthBindingDomain : (binderIdx : Nat) \u2192 Pos \u2192 Pos\n  | 0, p => p.pushBindingDomain\n  | (n+1), p => pushNthBindingDomain n p.pushBindingBody",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_name": "SubExpr"
+  }
+}

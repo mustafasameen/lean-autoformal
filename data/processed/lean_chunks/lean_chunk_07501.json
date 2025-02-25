@@ -1,0 +1,10 @@
+{
+  "content": "def\n  let motive := ClearInsertInductionMotive f f_assignments_size derivedLits_arr\n  have h_base :=\n    restoreAssignments_performRupCheck_base_case f f_assignments_size f' f'_def f'_assignments_size derivedLits\n      derivedLits_arr derivedLits_arr_def derivedLits_satisfies_invariant derivedLits_arr_nodup\n  have h_inductive (idx : Fin derivedLits_arr.size) (assignments : Array Assignment) (ih : motive idx.val assignments) :=\n    clear_insert_inductive_case f f_assignments_size derivedLits_arr derivedLits_arr_nodup idx assignments ih\n  rcases Array.foldl_induction motive h_base h_inductive with \u27e8h_size, h\u27e9\n  apply Array.ext\n  \u00b7 rw [\u2190 Array.foldl_toList, size_clearUnit_foldl f'.assignments clearUnit size_clearUnit derivedLits,\n      f'_assignments_size, f_assignments_size]\n  \u00b7 intro i hi1 hi2\n    rw [f_assignments_size] at hi2\n    specialize h \u27e8i, hi2\u27e9\n    rcases h with \u27e8h1, _\u27e9 | \u27e8j, b, i_gt_zero, j_ge_derivedLits_size, _\u27e9 | \u27e8j1, j2, i_gt_zero, j1_ge_derivedLits_size, _\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_name": "let",
+    "has_proof": true
+  }
+}

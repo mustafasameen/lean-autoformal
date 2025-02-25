@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 simp\n  decl_eq := by\n    intros\n    unfold twoPowShift\n    dsimp only\n    split\n    \u00b7 rw [AIG.LawfulVecOperator.decl_eq (f := AIG.RefVec.ite)]\n      rw [AIG.LawfulVecOperator.decl_eq (f := blastShiftLeftConst)]\n      apply AIG.LawfulVecOperator.lt_size_of_lt_aig_size (f := blastShiftLeftConst)\n      assumption\n    \u00b7 simp\nend blastShiftLeft\ndef blastShiftLeft (aig : AIG \u03b1) (target : AIG.ArbitraryShiftTarget aig w) :\n    AIG.RefVecEntry \u03b1 w :=\n  let \u27e8n, input, distance\u27e9 := target\n  if n = 0 then\n    \u27e8aig, input\u27e9\n  else\n    let res := blastShiftLeft.twoPowShift aig \u27e8_, input, distance, 0\u27e9\n    let aig := res.aig\n    let acc := res.vec\n    have := AIG.LawfulVecOperator.le_size (f := blastShiftLeft.twoPowShift) ..\n    let distance := distance.cast this\n    go aig distance 0 acc\nwhere\n  go {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftLeft.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftLeft.lean",
+    "definition_name": "blastShiftLeftConst",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if matchAtomic id openedId danglingDot then\n          addUnresolvedCompletionItemForDecl (.mkSimple openedId.getString!) resolvedId\n    | OpenDecl.simple ns _      =>\n      getAliasState env |>.forM fun alias declNames => do\n        if matchAlias ns alias then\n          addAlias alias declNames\n  getAliasState env |>.forM fun alias declNames => do\n    let rec searchAlias (ns : Name) : M Unit := do\n      if matchAlias ns alias then\n        addAlias alias declNames\n      else\n        match ns with\n        | Name.str p ..  => searchAlias p\n        | _ => return ()\n    searchAlias ctx.currNamespace\n  if !danglingDot then\n    if let .str .anonymous s := id then\n      let keywords := Parser.getTokenTable env\n      for keyword in keywords.findPrefix s do\n        addKeywordCompletionItem keyword\n  completeNamespaces ctx id danglingDot\ndef idCompletion\n    (params            : CompletionParams)\n    (completionInfoPos : Nat)\n    (ctx               : ContextInfo)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

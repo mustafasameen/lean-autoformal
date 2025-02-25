@@ -1,0 +1,10 @@
+{
+  "content": "theorem coe_sub (a b : Fin n) : ((a - b : Fin n) : Nat) = ((n - b) + a) % n := by\n  cases a; cases b; rfl\ntheorem ofNat'_sub [NeZero n] (x : Nat) (y : Fin n) :\n    Fin.ofNat' n x - y = Fin.ofNat' n ((n - y.val) + x) := by\n  apply Fin.eq_of_val_eq\n  simp [Fin.ofNat', Fin.sub_def]\ntheorem sub_ofNat' [NeZero n] (x : Fin n) (y : Nat) :\n    x - Fin.ofNat' n y = Fin.ofNat' n ((n - y % n) + x.val) := by\n  apply Fin.eq_of_val_eq\n  simp [Fin.ofNat', Fin.sub_def]\n@[simp] protected theorem sub_self [NeZero n] {x : Fin n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "coe_sub",
+    "has_proof": true
+  }
+}

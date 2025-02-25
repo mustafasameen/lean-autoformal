@@ -1,0 +1,9 @@
+{
+  "content": "protected def Con.Quotient [Mul M] (c : Con M) :=\n  Quotient c.toSetoid\nprotected def AddCon.Quotient [Add M] (c : AddCon M) :=\n  Quotient c.toSetoid\ndef Con.toQuotient [Mul M] {c : Con M} : M \u2192 c.Quotient :=\n  Quotient.mk''\ndef AddCon.toQuotient [Add M] {c : AddCon M} : M \u2192 c.Quotient :=\n  Quotient.mk''\ninstance (priority := 10) [Mul M] {c : Con M} : CoeTC M c.Quotient :=\n  \u27e8Con.toQuotient\u27e9\ninstance (priority := 10) [Add M] {c : AddCon M} : CoeTC M c.Quotient :=\n  \u27e8AddCon.toQuotient\u27e9\ninstance hasMul [Mul M] {c : Con M} : Mul c.Quotient :=\n  \u27e8Quotient.map\u2082' (\u00b7 * \u00b7) sorry\u27e9\ninstance hasAdd [Add M] {c : AddCon M} : Add c.Quotient :=\n  \u27e8Quotient.map\u2082' (\u00b7 + \u00b7) sorry\u27e9\ninstance mulOneClass [MulOneClass M] (c : Con M) : MulOneClass c.Quotient\n    where\n  one := ((1 : M) : c.Quotient)\n  mul := (\u00b7 * \u00b7)\n  mul_one x := sorry\n  one_mul x := sorry\ninstance addZeroClass [AddZeroClass M] (c : AddCon M) : AddZeroClass c.Quotient where\n  zero := ((0 : M) : c.Quotient)\n  add := (\u00b7 + \u00b7)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddMonoidAlgebra"
+  }
+}

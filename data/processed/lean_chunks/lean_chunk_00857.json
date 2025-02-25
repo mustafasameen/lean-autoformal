@@ -1,0 +1,9 @@
+{
+  "content": "def ex4 :=\n[1, 2, 3].map $ fun x => x+1\ndef ex5 (xs : List String) :=\nxs.foldl (fun r x => r.push x) Array.empty\nset_option pp.all true in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeIssues4.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/coeIssues4.lean",
+    "definition_name": "ex4"
+  }
+}

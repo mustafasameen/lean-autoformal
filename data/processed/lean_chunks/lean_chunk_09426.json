@@ -1,0 +1,9 @@
+{
+  "content": "structure Raw (\u03b1 : Type u) (\u03b2 : Type v) where\n@[inline] def getThenInsertIfNew? [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) (b : \u03b2) :\n    Option \u03b2 \u00d7 Raw \u03b1 \u03b2 :=\n  let \u27e8previous, r\u27e9 := DHashMap.Raw.Const.getThenInsertIfNew? m.inner a b\n  \u27e8previous, \u27e8r\u27e9\u27e9\nset_option linter.unusedVariables false in\n@[inline] def get? [beq : BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) : Option \u03b2 :=\n  DHashMap.Raw.Const.get? m.inner a\n@[inline, inherit_doc DHashMap.Raw.contains] def contains [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2)\n    (a : \u03b1) : Bool :=\n  m.inner.contains a\ninstance [BEq \u03b1] [Hashable \u03b1] : Membership \u03b1 (Raw \u03b1 \u03b2) where\n  mem m a := a \u2208 m.inner\ninstance [BEq \u03b1] [Hashable \u03b1] {m : Raw \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Raw.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Raw.lean",
+    "definition_name": "Raw"
+  }
+}

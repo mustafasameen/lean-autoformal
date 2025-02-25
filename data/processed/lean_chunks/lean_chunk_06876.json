@@ -1,0 +1,9 @@
+{
+  "content": "structure Value where\n  n     : Nat\n  value : Fin n\n  deriving DecidableEq, Repr\ndef fromExpr? (e : Expr) : SimpM (Option Value) := do\n  let some \u27e8n, value\u27e9 \u2190 getFinValue? e | return none\n  return some { n, value }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/BuiltinSimprocs/Fin.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/BuiltinSimprocs/Fin.lean",
+    "definition_name": "Value"
+  }
+}

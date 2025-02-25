@@ -1,0 +1,9 @@
+{
+  "content": "let fnName :=  \"lean_alloc_ctor\"\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let i32 \u2190 LLVM.i32Type llvmctx\n  let argtys :=  #[i32, i32, i32]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  let tag \u2190 constIntUnsigned tag\n  let num_objs \u2190 constIntUnsigned num_objs\n  let scalar_sz \u2190 constIntUnsigned scalar_sz\n  LLVM.buildCall2 builder fnty fn #[tag, num_objs, scalar_sz] name\ndef callLeanCtorSet (builder : LLVM.Builder llvmctx)\n    (o i v : LLVM.Value llvmctx) : M llvmctx Unit := do\n  let fnName := \"lean_ctor_set\"\n  let retty \u2190 LLVM.voidType llvmctx\n  let voidptr \u2190 LLVM.voidPtrType llvmctx\n  let unsigned \u2190 LLVM.unsignedType llvmctx\n  let argtys :=  #[voidptr, unsigned, voidptr]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  _ <- LLVM.buildCall2 builder fnty fn  #[o, i, v]\ndef callLeanIOResultMKOk (builder : LLVM.Builder llvmctx)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem infLeLeft {s t : Set \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/implicitApplyIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/implicitApplyIssue.lean",
+    "definition_name": "infLeLeft",
+    "has_proof": false
+  }
+}

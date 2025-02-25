@@ -1,0 +1,10 @@
+{
+  "content": "theorem eval_var : eval assign ((.var idx) : BVExpr w) = (assign.get idx).bv.truncate w := by\n  rw [eval]\n  split\n  \u00b7 next h =>\n    subst h\n    simp\n  \u00b7 rfl\n@[simp]\ntheorem eval_const : eval assign (.const val) = val := by rfl\n@[simp]\ntheorem eval_zeroExtend : eval assign (.zeroExtend v expr) = BitVec.zeroExtend v (eval assign expr) := by\n  rfl\n@[simp]\ntheorem eval_extract : eval assign (.extract start len expr) = BitVec.extractLsb' start len (eval assign expr) := by\n  rfl\n@[simp]\ntheorem eval_bin : eval assign (.bin lhs op rhs) = op.eval (lhs.eval assign) (rhs.eval assign) := by\n  rfl\n@[simp]\ntheorem eval_un : eval assign (.un op operand) = op.eval (operand.eval assign) := by\n  rfl\n@[simp]\ntheorem eval_append : eval assign (.append lhs rhs) = (lhs.eval assign) ++ (rhs.eval assign) := by\n  rfl\n@[simp]\ntheorem eval_replicate : eval assign (.replicate n expr) = BitVec.replicate n (expr.eval assign) := by\n  rfl\n@[simp]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_name": "eval_var",
+    "has_proof": true
+  }
+}

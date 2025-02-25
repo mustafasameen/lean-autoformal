@@ -1,0 +1,9 @@
+{
+  "content": "inductive Name where\n  | str (pre : Name) (str : String)\n  | num (pre : Name) (i : Nat)\nwith\n  @[computed_field] hash : Name \u2192 UInt64\n    | .anonymous => .ofNatLT 1723 (of_decide_eq_true rfl)\n    | .str p s => mixHash p.hash s.hash\n    | .num p v => mixHash p.hash (dite (LT.lt v UInt64.size) (fun h => UInt64.ofNatLT v h) (fun _ => UInt64.ofNatLT 17 (of_decide_eq_true rfl)))\ninstance : Inhabited Name where\n  default := Name.anonymous\ninstance : Hashable Name where\n  hash := Name.hash\nnamespace Name\n@[export lean_name_mk_string]\nabbrev mkStr (p : Name) (s : String) : Name :=\n  Name.str p s\n@[export lean_name_mk_numeral]\nabbrev mkNum (p : Name) (v : Nat) : Name :=\n  Name.num p v\nabbrev mkSimple (s : String) : Name :=\n  .str .anonymous s\n@[reducible] def mkStr2 (s\u2081 s\u2082 : String) : Name :=\n  .str (.str .anonymous s\u2081) s\u2082\n@[reducible] def mkStr4 (s\u2081 s\u2082 s\u2083 s\u2084 : String) : Name :=\n  .str (.str (.str (.str .anonymous s\u2081) s\u2082) s\u2083) s\u2084\n@[reducible] def mkStr6 (s\u2081 s\u2082 s\u2083 s\u2084 s\u2085 s\u2086 : String) : Name :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Name"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def A_rec := @A.rec\nset_option linter.unusedVariables false\nexample (a : A) : True := by\n  induction a using A.rec\n  case mkA b IH =>\nrefine True.rec ?_ IH\n    exact trivial\n  case A => exact trivial\n  case mkB b IH => show True",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_name": "A_rec"
+  }
+}

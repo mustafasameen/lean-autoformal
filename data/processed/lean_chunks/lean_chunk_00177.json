@@ -1,0 +1,9 @@
+{
+  "content": "inductive S2.{u, v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/univInference.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/univInference.lean",
+    "definition_name": "S2"
+  }
+}

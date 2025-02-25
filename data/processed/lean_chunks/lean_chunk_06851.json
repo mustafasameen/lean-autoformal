@@ -1,0 +1,10 @@
+{
+  "content": "else\n        return (\u2190 x.fvarId!.getDecl).binderInfo matches .instImplicit\nprivate partial def go (pattern : Expr) : M Expr := do\n  if let some (e, k) := isOffsetPattern? pattern then\n    let e \u2190 goArg e (isSupport := false)\n    if e == dontCare then\n      return dontCare\n    else\n      return mkOffsetPattern e k\n  let some f := getPatternFn? pattern\n    | throwError \"invalid pattern, (non-forbidden) application expected{indentExpr pattern}\"\n  assert! f.isConst || f.isFVar\n  unless f.isConstOf ``Grind.eqBwdPattern do\n   saveSymbol f.toHeadIndex\n  let mut args := pattern.getAppArgs.toVector\n  let supportMask \u2190 getPatternSupportMask f args.size\n  for h : i in [:args.size] do\n    let arg := args[i]\n    let isSupport := supportMask[i]?.getD false\n    args := args.set i (\u2190 goArg arg isSupport)\n  return mkAppN f args.toArray\nwhere\n  goArg (arg : Expr) (isSupport : Bool) : M Expr := do\n    if !arg.hasLooseBVars then\n      if arg.hasMVar then\n        pure dontCare\n      else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

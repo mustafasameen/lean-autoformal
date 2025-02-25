@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_command_parser] def binderPredicate := leading_parser\n   optional docComment >>  optional Term.attributes >> optional Term.attrKind >>\n   \"binder_predicate\" >> optNamedName >> optNamedPrio >> ppSpace >> ident >> many (ppSpace >> macroArg) >> \" => \" >> termParser\nend Command\nend Parser\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_name": "optPrecedence"
+  }
+}

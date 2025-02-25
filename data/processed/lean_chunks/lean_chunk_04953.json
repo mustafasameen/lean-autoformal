@@ -1,0 +1,10 @@
+{
+  "content": "theorem dropLast_append_cons : dropLast (l\u2081 ++ b :: l\u2082) = l\u2081 ++ dropLast (b :: l\u2082) := by\n  simp\n@[simp] theorem dropLast_concat : dropLast (l\u2081 ++ [b]) = l\u2081 := by simp\n@[simp] theorem dropLast_replicate (n) (a : \u03b1) : dropLast (replicate n a) = replicate (n - 1) a := by\n  match n with\n  | 0 => simp\n  | 1 => simp [replicate_succ]\n  | n+2 =>\n    rw [replicate_succ, dropLast_cons_of_ne_nil, dropLast_replicate]\n    \u00b7 simp [replicate_succ]\n    \u00b7 simp\n@[simp] theorem dropLast_cons_self_replicate (n) (a : \u03b1) :\n    dropLast (a :: replicate n a) = replicate n a := by\n  rw [\u2190 replicate_succ, dropLast_replicate, Nat.add_sub_cancel]\n@[simp] theorem tail_reverse (l : List \u03b1) : l.reverse.tail = l.dropLast.reverse := by\n  apply ext_getElem\n  \u00b7 simp\n  \u00b7 intro i h\u2081 h\u2082\n    simp [Nat.add_comm i, Nat.sub_add_eq]\ntheorem splitAt_go (i : Nat) (l acc : List \u03b1) :\n    splitAt.go l xs i acc =\n      if i < xs.length then (acc.reverse ++ xs.take i, xs.drop i) else (l, []) := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "dropLast_append_cons",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "rw [Nat.mul_comm, Nat.left_distrib]; simp [Nat.mul_comm]\nprotected theorem mul_add (n m k : Nat) : n * (m + k) = n * m + n * k :=\n  Nat.left_distrib n m k\nprotected theorem add_mul (n m k : Nat) : (n + m) * k = n * k + m * k :=\n  Nat.right_distrib n m k\nprotected theorem mul_assoc : \u2200 (n m k : Nat), (n * m) * k = n * (m * k)\n  | _, _, 0      => rfl\n  | n, m, succ k => by simp [mul_succ, Nat.mul_assoc n m k, Nat.left_distrib]\ninstance : Std.Associative (\u03b1 := Nat) (\u00b7 * \u00b7) := \u27e8Nat.mul_assoc\u27e9\nprotected theorem mul_left_comm (n m k : Nat) : n * (m * k) = m * (n * k) := by\n  rw [\u2190 Nat.mul_assoc, Nat.mul_comm n m, Nat.mul_assoc]\nprotected theorem mul_two (n) : n * 2 = n + n := by rw [Nat.mul_succ, Nat.mul_one]\nprotected theorem two_mul (n) : 2 * n = n + n := by rw [Nat.succ_mul, Nat.one_mul]\nprotected theorem lt_asymm {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "or_exists_add_one",
+    "has_proof": true
+  }
+}

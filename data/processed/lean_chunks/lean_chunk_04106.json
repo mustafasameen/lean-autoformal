@@ -1,0 +1,10 @@
+{
+  "content": "theorem getMsbD_rev (x : BitVec w) (i : Fin w) :\n    x.getMsbD i.rev = x.getLsbD i := by\n  simp only [\u2190 getLsbD_rev]\n  simp only [Fin.rev]\n  congr\n  omega\ntheorem toNat_cons' {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getMsbD_rev",
+    "has_proof": true
+  }
+}

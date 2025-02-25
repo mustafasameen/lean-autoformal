@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_eq_false_of_divCoeff (ctx : Context) (lhs rhs : Expr) (k : Int) : unsatEqDivCoeffCert lhs rhs k \u2192 (lhs.denote ctx = rhs.denote ctx) = False := by\n  simp [unsatEqDivCoeffCert]\n  intro h\u2081 h\u2082 h\u2083\n  have h := poly_eq_zero_eq_false ctx h\u2081 h\u2082 h\u2083; clear h\u2081 h\u2082 h\u2083\n  simp at h\n  intro h'\n  simp [h'] at h\nprivate def gcd (a b : Int) : Int :=\n  Int.ofNat <| Int.gcd a b\nprivate theorem gcd_dvd_left (a b : Int) : gcd a b \u2223 a := by\n  simp [gcd, Int.gcd_dvd_left]\nprivate theorem gcd_dvd_right (a b : Int) : gcd a b \u2223 b := by\n  simp [gcd, Int.gcd_dvd_right]\nprivate theorem gcd_dvd_step {k a b x : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "eq_eq_false_of_divCoeff",
+    "has_proof": true
+  }
+}

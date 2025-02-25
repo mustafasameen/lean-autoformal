@@ -1,0 +1,9 @@
+{
+  "content": "if let some value := bodyInfo.value? then\n                let (e, _) := instantiateMVarsCore ci.mctx value\n                modify fun s => { s with\n                  assignments := s.assignments.push (.insert {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/UnusedVariables.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/UnusedVariables.lean",
+    "definition_name": "References"
+  }
+}

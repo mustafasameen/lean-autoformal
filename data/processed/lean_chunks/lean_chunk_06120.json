@@ -1,0 +1,10 @@
+{
+  "content": "theorem LawfulMonad.map_pure' [Monad m] [LawfulMonad m] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_name": "LawfulMonad",
+    "has_proof": false
+  }
+}

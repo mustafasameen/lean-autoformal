@@ -1,0 +1,10 @@
+{
+  "content": "theorem val_one (n : Nat) : (1 : Fin (n + 2)).val = 1 := rfl\n@[simp] theorem mk_one : (\u27e81, Nat.succ_lt_succ (Nat.succ_pos n)\u27e9 : Fin (n + 2)) = (1 : Fin _) := rfl\ntheorem subsingleton_iff_le_one : Subsingleton (Fin n) \u2194 n \u2264 1 := by\n  (match n with | 0 | 1 | n+2 => ?_) <;> try simp\n  \u00b7 exact \u27e8nofun\u27e9\n  \u00b7 exact \u27e8fun \u27e80, _\u27e9 \u27e80, _\u27e9 => rfl\u27e9\n  \u00b7 exact iff_of_false (fun h => Fin.ne_of_lt zero_lt_one (h.elim ..)) (of_decide_eq_false rfl)\ninstance subsingleton_zero : Subsingleton (Fin 0) := subsingleton_iff_le_one.2 (by decide)\ninstance subsingleton_one : Subsingleton (Fin 1) := subsingleton_iff_le_one.2 (by decide)\ntheorem fin_one_eq_zero (a : Fin 1) : a = 0 := Subsingleton.elim a 0\n@[simp] theorem zero_eq_one_iff {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "val_one",
+    "has_proof": true
+  }
+}

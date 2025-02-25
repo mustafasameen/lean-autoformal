@@ -1,0 +1,9 @@
+{
+  "content": "| .jp decl k | .fun decl k =>\n      return code.updateFun! (\u2190 decl.updateValue (\u2190 go decl.value)) (\u2190 go k)\n    | .cases cs =>\n      let discrVal := assignment.getD cs.discr .bot\n      let processAlt typ alt := do\n        match alt with\n        | .alt ctor args body =>\n          if discrVal.containsCtor ctor then\n            let filter param := do\n              if let some val := assignment[param.fvarId]? then\n                if let some literal \u2190 val.getLiteral then\n                  return some (param, literal)\n              return none\n            let constantInfos \u2190 args.filterMapM filter\n            if constantInfos.size != 0 then\n              let folder := fun (body, subst) (param, decls, var) => do\n                return (attachCodeDecls decls body, subst.insert param.fvarId (.fvar var))\n              let (body, subst) \u2190 constantInfos.foldlM (init := (\u2190 go body, {})) folder\n              let body \u2190 replaceFVars body subst false\n              return alt.updateCode body",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

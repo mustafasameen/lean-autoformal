@@ -1,0 +1,10 @@
+{
+  "content": "theorem unzip_zip {l\u2081 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Zip.lean",
+    "definition_name": "unzip_zip",
+    "has_proof": false
+  }
+}

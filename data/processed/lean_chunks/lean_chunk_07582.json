@@ -1,0 +1,10 @@
+{
+  "content": "theorem constToCNF_eval :\n    (constToCNF output b).eval assign\n      =\n    (assign output == b) := by\n  simp [constToCNF, CNF.eval, CNF.Clause.eval]\n@[simp]\ntheorem atomToCNF_eval :\n    (atomToCNF output a).eval assign\n      =\n    (assign output == assign a) := by\n  simp only [atomToCNF, CNF.eval_cons, CNF.Clause.eval_cons, beq_true, beq_false,\n    CNF.Clause.eval_nil, Bool.or_false, CNF.eval_nil, Bool.and_true]\n  cases assign output <;> cases assign a <;> decide\n@[simp]\ntheorem gateToCNF_eval :\n    (gateToCNF output lhs rhs linv rinv).eval assign\n      =\n    (assign output == (((assign lhs) ^^ linv) && ((assign rhs) ^^ rinv))) := by\n  simp only [CNF.eval, gateToCNF, CNF.Clause.eval, List.all_cons, List.any_cons, beq_false,\n    List.any_nil, Bool.or_false, beq_true, List.all_nil, Bool.and_true]\n  cases assign output\n    <;> cases assign lhs\n      <;> cases assign rhs\n        <;> cases linv\n          <;> cases rinv\n            <;> decide\nend Decl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "constToCNF_eval",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem toList_filterM [Monad m] [LawfulMonad m] (xs : Array \u03b1) (p : \u03b1 \u2192 m Bool) :\n    toList <$> xs.filterM p = xs.toList.filterM p := by\n  rw [List.filterM_toArray]\n  simp only [Functor.map_map, id_map']\ntheorem toList_filterRevM [Monad m] [LawfulMonad m] (xs : Array \u03b1) (p : \u03b1 \u2192 m Bool) :\n    toList <$> xs.filterRevM p = xs.toList.filterRevM p := by\n  rw [List.filterRevM_toArray]\n  simp only [Functor.map_map, id_map']\ntheorem toList_filterMapM [Monad m] [LawfulMonad m] (xs : Array \u03b1) (f : \u03b1 \u2192 m (Option \u03b2)) :\n    toList <$> xs.filterMapM f = xs.toList.filterMapM f := by\n  rw [List.filterMapM_toArray]\n  simp only [Functor.map_map, id_map']\ntheorem toList_flatMapM [Monad m] [LawfulMonad m] (xs : Array \u03b1) (f : \u03b1 \u2192 m (Array \u03b2)) :\n    toList <$> xs.flatMapM f = xs.toList.flatMapM (fun a => toList <$> f a) := by\n  rw [List.flatMapM_toArray]\n  simp only [Functor.map_map, id_map']\n@[simp] theorem foldlM_subtype [Monad m] {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_name": "toList_filterM",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 have : l' = [] := by simp_all\n    subst this\n    simp\ntermination_by l.length - j\n@[simp] theorem finIdxOf?_toArray [BEq \u03b1] (a : \u03b1) (l : List \u03b1) :\n    l.toArray.finIdxOf? a = l.finIdxOf? a := by\n  rw [Array.finIdxOf?, finIdxOf?, findFinIdx?]\n  simp [idxAuxOf_toArray]\n@[simp] theorem idxOf?_toArray [BEq \u03b1] (a : \u03b1) (l : List \u03b1) :\n    l.toArray.idxOf? a = l.idxOf? a := by\n  rw [Array.idxOf?, idxOf?]\n  simp [finIdxOf?, findIdx?_eq_map_findFinIdx?_val]\n@[simp] theorem findIdx_toArray {as : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "findSomeM",
+    "has_proof": true
+  }
+}

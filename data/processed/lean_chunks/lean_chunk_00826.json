@@ -1,0 +1,10 @@
+{
+  "content": "focus\n            simp [sort.swap, h]\n            match h:sort.swap (var i) b with\n            | (r\u2081, r\u2082) =>\n              simp\n              rw [denote_op (a := var i), denote_op (a := var j), Context.left_comm, \u2190 denote_op (a := var i), \u2190 ih]\n              simp [h, denote]\n              rw [Context.left_comm]\n        | _ => rfl\n      | _ => rfl\n    | var j =>\n      cases e\u2081 with\n      | var i =>\n        by_cases h : i > j\n        focus simp [sort.swap, h, denote, Context.comm]\n        focus simp [sort.swap, h]\n      | _ => rfl\ntheorem Expr.eq_of_sort_flat (ctx : Context \u03b1) (a b : Expr) (h : sort (flat a) = sort (flat b)) : denote ctx a = denote ctx b := by\n  have h := congrArg (denote ctx) h\n  simp [denote_flat, denote_sort] at h\n  assumption\ntheorem ex\u2081 (x\u2081 x\u2082 x\u2083 x\u2084 : Nat) : (x\u2081 + x\u2082) + (x\u2083 + x\u2084) = x\u2081 + x\u2082 + x\u2083 + x\u2084 :=\n  Expr.eq_of_flat\n    { op      := Nat.add\n      assoc   := Nat.add_assoc\n      comm    := Nat.add_comm\n      vars    := [x\u2081, x\u2082, x\u2083, x\u2084],",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ac_expr.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

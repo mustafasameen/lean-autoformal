@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex13 (p q : Nat) : p \u2264 q \u2228 p > q := by\n  cases p, q using elimEx with\n  | diag    => ?hdiag\n  | lower d => ?hlower\n  | upper d => ?hupper\n  case hdiag  => apply Or.inl; apply Nat.le_refl\n  case hlower => apply Or.inl; show p \u2264 p + d.succ; admit\n  case hupper => apply Or.inr; show q + d.succ > q; admit\ntheorem ex14 (p q : Nat) : p \u2264 q \u2228 p > q := by\n  cases p, q using elimEx with\n  | diag    => ?hdiag\n  | lower d => _\n  | upper d => ?hupper\n  case hdiag  => apply Or.inl; apply Nat.le_refl\n  case lower => apply Or.inl; show p \u2264 p + d.succ; admit\n  case hupper => apply Or.inr; show q + d.succ > q; admit\ntheorem ex15 (p q : Nat) : p \u2264 q \u2228 p > q := by\n  cases p, q using elimEx with\n  | diag    => ?hdiag\n  | lower d => _\n  | upper d => ?hupper\n  { apply Or.inl; apply Nat.le_refl }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/casesUsing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/casesUsing.lean",
+    "definition_name": "ex13",
+    "has_proof": true
+  }
+}

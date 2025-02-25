@@ -1,0 +1,10 @@
+{
+  "content": "theorem decide_implies (u v : Prop)\n    [duv : Decidable (u \u2192 v)] [du : Decidable u] {dv : u \u2192 Decidable v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "decide_implies",
+    "has_proof": false
+  }
+}

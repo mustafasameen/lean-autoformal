@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_flatten (f : \u03b1 \u2192 \u03b2) (xss : Array (Array \u03b1)) :\n    (flatten xss).map f = (map (map f) xss).flatten := by\n  induction xss using array\u2082_induction with\n  | of xss =>\n    simp only [flatten_toArray_map, List.map_toArray, List.map_flatten, List.map_map,\n      Function.comp_def]\n    rw [\u2190 Function.comp_def, \u2190 List.map_map, flatten_toArray_map]\n@[simp] theorem filterMap_flatten (f : \u03b1 \u2192 Option \u03b2) (xss : Array (Array \u03b1)) (w : stop = xss.flatten.size) :\n    filterMap f (flatten xss) 0 stop = flatten (map (filterMap f) xss) := by\n  subst w\n  induction xss using array\u2082_induction\n  simp only [flatten_toArray_map, List.size_toArray, List.length_flatten, List.filterMap_toArray',\n    List.filterMap_flatten, List.map_toArray, List.map_map, Function.comp_def]\n  rw [\u2190 Function.comp_def, \u2190 List.map_map, flatten_toArray_map]\n@[simp] theorem filter_flatten (p : \u03b1 \u2192 Bool) (xss : Array (Array \u03b1)) (w : stop = xss.flatten.size) :\n    filter p (flatten xss) 0 stop = flatten (map (filter p) xss) := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "map_flatten",
+    "has_proof": true
+  }
+}

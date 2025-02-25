@@ -1,0 +1,9 @@
+{
+  "content": "inductive Exception where\n  | unknownConstant  (env : Environment) (name : Name)\n  | alreadyDeclared  (env : Environment) (name : Name)\n  | declTypeMismatch (env : Environment) (decl : Declaration) (givenType : Expr)\n  | declHasMVars     (env : Environment) (name : Name) (expr : Expr)\n  | declHasFVars     (env : Environment) (name : Name) (expr : Expr)\n  | funExpected      (env : Environment) (lctx : LocalContext) (expr : Expr)\n  | typeExpected     (env : Environment) (lctx : LocalContext) (expr : Expr)\n  | letTypeMismatch  (env : Environment) (lctx : LocalContext) (name : Name) (givenType : Expr) (expectedType : Expr)\n  | exprTypeMismatch (env : Environment) (lctx : LocalContext) (expr : Expr) (expectedType : Expr)\n  | appTypeMismatch  (env : Environment) (lctx : LocalContext) (app : Expr) (funType : Expr) (argType : Expr)\n  | invalidProj      (env : Environment) (lctx : LocalContext) (proj : Expr)\n  | thmTypeIsNotProp (env : Environment) (name : Name) (type : Expr)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "Exception"
+  }
+}

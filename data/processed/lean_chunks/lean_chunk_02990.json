@@ -1,0 +1,9 @@
+{
+  "content": "instance : ForIn m (LMVarIdMap \u03b1) (LMVarId \u00d7 \u03b1) := inferInstanceAs (ForIn _ (RBMap ..) ..)\ninstance : Inhabited (LMVarIdMap \u03b1) where\n  default := {}\ninductive Level where\n  | zero   : Level\n  | succ   : Level \u2192 Level\n  | max    : Level \u2192 Level \u2192 Level\n  | imax   : Level \u2192 Level \u2192 Level\n  | param  : Name \u2192 Level\n  | mvar   : LMVarId \u2192 Level\nwith\n  @[computed_field] data : Level \u2192 Data\n    | .zero => mkData 2221 0 false false\n    | .mvar mvarId => mkData (mixHash 2237 <| hash mvarId) 0 true false\n    | .param name => mkData (mixHash 2239 <| hash name) 0 false true\n    | .succ u => mkData (mixHash 2243 <| u.data.hash) (u.data.depth.toNat + 1) u.data.hasMVar u.data.hasParam\n    | .max u v => mkData (mixHash 2251 <| mixHash (u.data.hash) (v.data.hash)) (Nat.max u.data.depth.toNat v.data.depth.toNat + 1)\n       (u.data.hasMVar || v.data.hasMVar) (u.data.hasParam || v.data.hasParam)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

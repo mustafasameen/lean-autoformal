@@ -1,0 +1,9 @@
+{
+  "content": "instance NormedField.toRing [instNF : NormedField \u03b1] : Ring \u03b1 := { add := instNF.add }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/602.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/602.lean",
+    "definition_name": "NormedField"
+  }
+}

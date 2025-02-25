@@ -1,0 +1,10 @@
+{
+  "content": "theorem succ_succ_ne_one (a : Fin n) : Fin.succ (Fin.succ a) \u2260 1 :=\n  Fin.ne_of_gt (one_lt_succ_succ a)\n@[simp] theorem coe_castLT (i : Fin m) (h : i.1 < n) : (castLT i h : Nat) = i := rfl\n@[simp] theorem castLT_mk (i n m : Nat) (hn : i < n) (hm : i < m) : castLT \u27e8i, hn\u27e9 hm = \u27e8i, hm\u27e9 :=\n  rfl\n@[simp] theorem coe_castLE (h : n \u2264 m) (i : Fin n) : (castLE h i : Nat) = i := rfl\n@[simp] theorem castLE_mk (i n m : Nat) (hn : i < n) (h : n \u2264 m) :\n    castLE h \u27e8i, hn\u27e9 = \u27e8i, Nat.lt_of_lt_of_le hn h\u27e9 := rfl\n@[simp] theorem castLE_zero {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "succ_succ_ne_one",
+    "has_proof": false
+  }
+}

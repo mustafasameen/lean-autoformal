@@ -1,0 +1,9 @@
+{
+  "content": "def tracePrefixOptionName := `trace.compiler.ir\nprivate def isLogEnabledFor (opts : Options) (optName : Name) : Bool :=\n  match opts.find optName with\n  | some (DataValue.ofBool v) => v\n  | _     => opts.getBool tracePrefixOptionName\nprivate def logDeclsAux (optName : Name) (cls : Name) (decls : Array Decl) : CompilerM Unit := do\n  let opts \u2190 read\n  if isLogEnabledFor opts optName then\n    log (LogEntry.step cls decls)\n@[inline] def logDecls (cls : Name) (decl : Array Decl) : CompilerM Unit :=\n  logDeclsAux (tracePrefixOptionName ++ cls) cls decl\nprivate def logMessageIfAux {\u03b1 : Type} [ToFormat \u03b1] (optName : Name) (a : \u03b1) : CompilerM Unit := do\n  let opts \u2190 read\n  if isLogEnabledFor opts optName then\n    log (LogEntry.message (format a))\n@[inline] def logMessageIf {\u03b1 : Type} [ToFormat \u03b1] (cls : Name) (a : \u03b1) : CompilerM Unit :=\n  logMessageIfAux (tracePrefixOptionName ++ cls) a\n@[inline] def logMessage {\u03b1 : Type} [ToFormat \u03b1] (a : \u03b1) : CompilerM Unit :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_name": "tracePrefixOptionName"
+  }
+}

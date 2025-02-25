@@ -1,0 +1,9 @@
+{
+  "content": "letI : Ord \u03b1 := \u27e8cmp\u27e9; t.inner.maxD fallback\n@[inline, inherit_doc DTreeMap.minKey?]\ndef minKey? (t : Raw \u03b1 \u03b2 cmp) : Option \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; t.inner.minKey?\n@[inline, inherit_doc DTreeMap.minKeyD]\ndef minKeyD (t : Raw \u03b1 \u03b2 cmp) (fallback : \u03b1) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; t.inner.minKeyD fallback\n@[inline, inherit_doc DTreeMap.minKey!]\ndef minKey! [Inhabited \u03b1] (t : Raw \u03b1 \u03b2 cmp) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; t.inner.minKey!\n@[inline, inherit_doc DTreeMap.maxKey?]\ndef maxKey? (t : Raw \u03b1 \u03b2 cmp) : Option \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; t.inner.maxKey?\n@[inline, inherit_doc DTreeMap.maxKey!]\ndef maxKey! [Inhabited \u03b1] (t : Raw \u03b1 \u03b2 cmp) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; t.inner.maxKey!\n@[inline, inherit_doc DTreeMap.maxKeyD]\ndef maxKeyD (t : Raw \u03b1 \u03b2 cmp) (fallback : \u03b1) : \u03b1 :=\n  letI : Ord \u03b1 := \u27e8cmp\u27e9; t.inner.maxKeyD fallback\n@[inline, inherit_doc DTreeMap.entryAtIdx?]\ndef entryAtIdx? (t : Raw \u03b1 \u03b2 cmp) (n : Nat) : Option ((a : \u03b1) \u00d7 \u03b2 a) :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Raw.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Raw.lean",
+    "definition_name": "Raw"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| _ => return false\ndef _root_.Lean.LMVarId.getLevel (mvarId : LMVarId) : MetaM Nat := do\n  match (\u2190 getMCtx).findLevelDepth? mvarId with\n  | some depth => return depth\n  | _          => throwError \"unknown universe metavariable '?{mvarId.name}'\"\ndef _root_.Lean.LMVarId.isReadOnly (mvarId : LMVarId) : MetaM Bool :=\n  return (\u2190 mvarId.getLevel) < (\u2190 getMCtx).levelAssignDepth\ndef _root_.Lean.MVarId.setUserName (mvarId : MVarId) (newUserName : Name) : MetaM Unit :=\n  modifyMCtx fun mctx => mctx.setMVarUserName mvarId newUserName\ndef _root_.Lean.FVarId.throwUnknown (fvarId : FVarId) : CoreM \u03b1 :=\n  throwError \"unknown free variable '{mkFVar fvarId}'\"\ndef _root_.Lean.FVarId.findDecl? (fvarId : FVarId) : MetaM (Option LocalDecl) :=\n  return (\u2190 getLCtx).find? fvarId\ndef _root_.Lean.FVarId.getDecl (fvarId : FVarId) : MetaM LocalDecl := do\n  match (\u2190 getLCtx).find? fvarId with\n  | some d => return d\n  | none   => fvarId.throwUnknown",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

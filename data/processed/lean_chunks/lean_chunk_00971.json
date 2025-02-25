@@ -1,0 +1,9 @@
+{
+  "content": "def x := 1\n#check foo x x\n#check match 1 with | x => x + 1\n#check match (motive := Int \u2192 _) 1 with | x => x + 1\n#check match 1 with | x => x + 1\n#check match (motive := Int \u2192 _) 1 with | x => x + 1\ndef g (x : Nat \u00d7 Nat) (y : Nat) :=\nx.1 + x.2 + y\n#check (g \u27e8\u00b7, 1\u27e9 \u00b7)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend2.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/newfrontend2.lean",
+    "definition_name": "x"
+  }
+}

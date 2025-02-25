@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_div_mul_self (h : 0 < k) (w : k \u2264 x) : x - k < x / k * k := by\n  rw [div_mul_self_eq_mod_sub_self]\n  have : x % k < k := mod_lt x h\n  omega\ntheorem div_pos (hba : b \u2264 a) (hb : 0 < b) : 0 < a / b := by\n  cases b\n  \u00b7 contradiction\n  \u00b7 simp [Nat.pos_iff_ne_zero, div_eq_zero_iff_lt, hba]\ntheorem div_le_div_left (hcb : c \u2264 b) (hc : 0 < c) : a / b \u2264 a / c :=\n  (Nat.le_div_iff_mul_le hc).2 <|\n    Nat.le_trans (Nat.mul_le_mul_left _ hcb) (Nat.div_mul_le_self a b)\ntheorem div_add_le_right {z : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Lemmas.lean",
+    "definition_name": "lt_div_mul_self",
+    "has_proof": true
+  }
+}

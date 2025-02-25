@@ -1,0 +1,9 @@
+{
+  "content": "structure StructureDescr where\n  fields      : Array StructureFieldInfo\n  deriving Inhabited\ndef registerStructure (env : Environment) (e : StructureDescr) : Environment :=\n  structureExt.addEntry env {\n    structName := e.structName\n    fieldNames := e.fields.map fun e => e.fieldName\n    fieldInfo  := e.fields.qsort StructureFieldInfo.lt\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_name": "StructureDescr"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive datatype, \\\n        given resulting type contains metavariables{indentExpr <| mkSort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "datatype"
+  }
+}

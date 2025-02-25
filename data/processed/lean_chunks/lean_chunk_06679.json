@@ -1,0 +1,9 @@
+{
+  "content": "structure ModuleDoc where\n  doc : String\n  declarationRange : DeclarationRange\nprivate builtin_initialize moduleDocExt : SimplePersistentEnvExtension ModuleDoc (PersistentArray ModuleDoc) \u2190 registerSimplePersistentEnvExtension {\n  addImportedFn := fun _ => {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/DocString/Extension.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/DocString/Extension.lean",
+    "definition_name": "ModuleDoc"
+  }
+}

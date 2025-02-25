@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_not_em (a : Prop) : \u00ac\u00ac(a \u2228 \u00aca) := fun h => h (.inr (h \u2218 .inl))\ntheorem or_self_iff : a \u2228 a \u2194 a := or_self _ \u25b8 .rfl\ntheorem not_or_intro {a b : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "not_not_em",
+    "has_proof": false
+  }
+}

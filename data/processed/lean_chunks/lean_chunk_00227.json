@@ -1,0 +1,9 @@
+{
+  "content": "inductive Mem : \u03b1 \u2192 List \u03b1 \u2192 Prop\n  | head (a : \u03b1) (as : List \u03b1) : Mem a (a::as)\ndef g1 {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits2.lean",
+    "definition_name": "Mem"
+  }
+}

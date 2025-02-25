@@ -1,0 +1,9 @@
+{
+  "content": "Pure.pure (ensure_expected_type% \"type mismatch, `for`\" PUnit.unit))\n          doSeqToCode <| getDoSeqElems (getDoSeq auxDo)\n        else\n          let auxDo \u2190 `(do let r \u2190 $forInTerm:term; $uvarsTuple:term := r)\n          doSeqToCode <| getDoSeqElems (getDoSeq auxDo) ++ doElems\n  partial def doMatchExprToCode (doMatchExpr : Syntax) (doElems: List Syntax) : M CodeBlock := do\n    let ref       := doMatchExpr\n    let meta      := doMatchExpr[1].isNone\n    let discr     := doMatchExpr[2]\nlet alts      := doMatchExpr[4][0].getArgs\n    let alts \u2190 alts.mapM fun alt => do\n      let pat      := alt[1]\n      let var?     := if pat[0].isNone then none else some pat[0][0]\n      let funName  := pat[1]\n      let pvars    := pat[2].getArgs\n      let rhs      := alt[3]\n      let rhs \u2190 doSeqToCode (getDoSeqElems rhs)\n      pure { ref, var?, funName, pvars, rhs }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def dual (\ud835\udc9e : Precategory) (\u03b7 : category \ud835\udc9e) : category \ud835\udc9e\u1d52\u1d56 :=\n{ defDec      := @defDec \ud835\udc9e \u03b7,\n  bottomLeft  := @bottomRight \ud835\udc9e \u03b7,\n  bottomRight := @bottomLeft \ud835\udc9e \u03b7,\n  bottomDom   := @bottomCod \ud835\udc9e \u03b7,\n  bottomCod   := @bottomDom \ud835\udc9e \u03b7,\n  domComp     := @codComp \ud835\udc9e \u03b7,\n  codComp     := @domComp \ud835\udc9e \u03b7,\n  mulDom      := \u03bb _ _ \u03b4 => @mulCod \ud835\udc9e \u03b7 _ _ \u03b4,\n  mulCod      := \u03bb _ _ \u03b4 => @mulDom \ud835\udc9e \u03b7 _ _ \u03b4,\n  domCod      := @codDom \ud835\udc9e \u03b7,\n  codDom      := @domCod \ud835\udc9e \u03b7,\n  mulAssoc    := \u03bb _ _ _ => Id.symm (@mulAssoc \ud835\udc9e \u03b7 _ _ _),\n  mulDef      := \u03bb a b \u03b1 \u03b2 => Iff.comp (@mulDef \ud835\udc9e \u03b7 b a \u03b2 \u03b1) (Id.symm, Id.symm)\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "category"
+  }
+}

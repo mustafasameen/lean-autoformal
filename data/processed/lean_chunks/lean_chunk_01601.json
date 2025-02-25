@@ -1,0 +1,9 @@
+{
+  "content": "inductive Stmt : Type where\n  | skip : Stmt\n  | assign : Variable \u2192 (State \u2192 Nat) \u2192 Stmt\n  | seq : Stmt \u2192 Stmt \u2192 Stmt\n  | ifThenElse : (State \u2192 Prop) \u2192 Stmt \u2192 Stmt \u2192 Stmt\n  | whileDo : (State \u2192 Prop) \u2192 Stmt \u2192 Stmt\ninfix:60 \";; \" => Stmt.seq\nexport Stmt (skip assign seq ifThenElse whileDo)\nset_option quotPrecheck false in\nnotation s:70 \"[\" x:70 \"\u21a6\" n:70 \"]\" => (fun v \u21a6 if v = x then n else s v)\ninductive BigStep : Stmt \u2192 State \u2192 State \u2192 Prop where\n  | skip (s : State) : BigStep skip s s\n  | assign (x : Variable) (a : State \u2192 Nat) (s : State) : BigStep (assign x a) s (s[x \u21a6 a s])\n  | seq {S T : Stmt}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_guide.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_guide.lean",
+    "definition_name": "Stmt"
+  }
+}

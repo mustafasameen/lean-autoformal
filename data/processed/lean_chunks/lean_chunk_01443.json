@@ -1,0 +1,10 @@
+{
+  "content": "theorem mul_apply [\u2200 i, Mul <| f i] : (x * y) i = x i * y i :=\n  rfl\nexample : True = True := by\n  grind only [mul_apply]\nend\nsection\nvariable (h : \u2200 (p : Nat \u2192 Nat) (x : Nat), p x = p (x + 0))\nexample (f : Nat \u2192 Nat \u2192 Nat) : (f 1) x = (f 1) (x + 0) := by\n  grind\nexample (f : Nat \u2192 Nat \u2192 Nat) : (f (nat_lit 1)) x = (f 1) (x + 0) := by\n  grind\nexample (f : Nat \u2192 Nat \u2192 Nat) : (f 1) x = (f (nat_lit 1)) (x + 0) := by\n  grind\nexample (f : Nat \u2192 Nat \u2192 Nat) : (f 1) x = (f 1) (x + (nat_lit 0)) := by\n  grind\nexample (f : Nat \u2192 Nat \u2192 Nat) : (f 1) x = (f 1) (x + 0) := by\n  grind\nexample (f : Nat \u2192 Nat \u2192 Nat) : (f 1) x = (f 1) (x + 0) := by\n  grind\nend\nsection\nexample : ([] : List \u03b1) = [] := by\n  grind\nexample {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_name": "mul_apply",
+    "has_proof": true
+  }
+}

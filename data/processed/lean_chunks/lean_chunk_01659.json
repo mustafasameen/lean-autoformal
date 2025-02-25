@@ -1,0 +1,10 @@
+{
+  "content": "rfl\ntheorem Expr.denote_concat (ctx : Context \u03b1) (a b : Expr) : denote ctx (concat a b) = denote ctx (Expr.op a b) := by\n  induction a with\n  | var i => rfl\n  | op _ _ _ ih => rw [concat_op, denote_op, ih, denote_op, denote_op, denote_op, ctx.assoc]\ndef Expr.flat : Expr \u2192 Expr\n  | Expr.op a b => concat (flat a) (flat b)\n  | Expr.var i  => Expr.var i\ntheorem Expr.flat_op (a b : Expr) : flat (Expr.op a b) = concat (flat a) (flat b) :=\n  rfl\ntheorem Expr.denote_flat (ctx : Context \u03b1) (a : Expr) : denote ctx (flat a) = denote ctx a := by\n  induction a with\n  | var i => rfl\n  | op a b ih\u2081 ih\u2082 => rw [flat_op, denote_concat, denote_op, denote_op, ih\u2081, ih\u2082]\ntheorem Expr.eq_of_flat (ctx : Context \u03b1) (a b : Expr) (h : flat a = flat b) : denote ctx a = denote ctx b := by\n  rw [\u2190 Expr.denote_flat _ a, \u2190 Expr.denote_flat _ b, h]\ntheorem test (x\u2081 x\u2082 x\u2083 x\u2084 : Nat) : (x\u2081 + x\u2082) + (x\u2083 + x\u2084) = x\u2081 + x\u2082 + x\u2083 + x\u2084 :=\n  Expr.eq_of_flat\n    { op    := Nat.add\n      assoc := Nat.add_assoc",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/flat_expr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/flat_expr.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

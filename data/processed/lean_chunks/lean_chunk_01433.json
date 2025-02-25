@@ -1,0 +1,10 @@
+{
+  "content": "theorem all_eq_allPairs (l : List \u03b1) (p : \u03b1 \u2192 Bool) :\n    l.all p \u2194 \u2200 x y z, binderNameHint x p <| binderNameHint y () <| p x && p y && p z:= sorry\n#guard_msgs in\nopen Lean Elab Tactic in\nexample {f : String \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binderNameHintScope.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binderNameHintScope.lean",
+    "definition_name": "all_eq_allPairs",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive TacticMVarKind\n  | autoParam (argName : Name)\ninductive SyntheticMVarKind where\n  | typeClass (extraErrorMsg? : Option MessageData)\n  | coe (header? : Option String) (expectedType : Expr) (e : Expr) (f? : Option Expr)\n      (mkErrorMsg? : Option (MVarId \u2192 Expr \u2192 Expr \u2192 MetaM MessageData))\n  | postponed (ctx : SavedContext)\n  deriving Inhabited\ndef extraMsgToMsg (extraErrorMsg? : Option MessageData) : MessageData :=\n  if let some msg := extraErrorMsg? then m!\"\\n{msg}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Term.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Term.lean",
+    "definition_name": "TacticMVarKind"
+  }
+}

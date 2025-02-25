@@ -1,0 +1,9 @@
+{
+  "content": "inductive BVExpr : Nat \u2192 Type where\n  | var (idx : Nat) : BVExpr w\n  | const (val : BitVec w) : BVExpr w\n  | zeroExtend (v : Nat) (expr : BVExpr w) : BVExpr v\n  | extract (start len : Nat) (expr : BVExpr w) : BVExpr len\n  | bin (lhs : BVExpr w) (op : BVBinOp) (rhs : BVExpr w) : BVExpr w\n  | un (op : BVUnOp) (operand : BVExpr w) : BVExpr w\n  | append (lhs : BVExpr l) (rhs : BVExpr r) : BVExpr (l + r)\n  | replicate (n : Nat) (expr : BVExpr w) : BVExpr (w * n)\n  | signExtend (v : Nat) (expr : BVExpr w) : BVExpr v\n  | shiftLeft (lhs : BVExpr m) (rhs : BVExpr n) : BVExpr m\n  | shiftRight (lhs : BVExpr m) (rhs : BVExpr n) : BVExpr m\n  | arithShiftRight (lhs : BVExpr m) (rhs : BVExpr n) : BVExpr m\nnamespace BVExpr\ndef toString : BVExpr w \u2192 String\n  | .var idx => s!\"var{idx}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_name": "BVExpr"
+  }
+}

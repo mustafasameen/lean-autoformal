@@ -1,0 +1,10 @@
+{
+  "content": "theorem zero_ediv : \u2200 b : Int, 0 / b = 0\n  | ofNat _ => show ofNat _ = _ by simp\n  | -[_+1] => show -ofNat _ = _ by simp\n@[simp] protected theorem ediv_zero : \u2200 a : Int, a / 0 = 0\n  | ofNat _ => show ofNat _ = _ by simp\n  | -[_+1] => rfl\n@[simp, norm_cast] theorem ofNat_emod (m n : Nat) : (\u2191(m % n) : Int) = m % n := rfl\n@[simp] protected theorem ediv_neg : \u2200 a b : Int, a / (-b) = -(a / b)\n  | ofNat m, 0 => show ofNat (m / 0) = -\u2191(m / 0) by rw [Nat.div_zero]; rfl\n  | ofNat _, -[_+1] => (Int.neg_neg _).symm\n  | ofNat _, succ _ | -[_+1], 0 | -[_+1], succ _ | -[_+1], -[_+1] => rfl\nprotected theorem div_def (a b : Int) : a / b = Int.ediv a b := rfl\ntheorem add_mul_ediv_right (a b : Int) {c : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Bootstrap.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Bootstrap.lean",
+    "definition_name": "zero_ediv",
+    "has_proof": true
+  }
+}

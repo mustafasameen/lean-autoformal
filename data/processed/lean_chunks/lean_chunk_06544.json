@@ -1,0 +1,9 @@
+{
+  "content": "refs := refs.filter fun\n      | { ident := RefIdent.fvar .., .. } => false\n      | _ => true\n  refs.foldl (init := Std.HashMap.empty) fun m ref => m.addRef ref\nstructure References where\n  workers : Std.HashMap Name (Nat \u00d7 Lsp.ModuleRefs)\nnamespace References\ndef addIlean (self : References) (path : System.FilePath) (ilean : Ilean) : References :=\n  { self with ileans := self.ileans.insert ilean.module (path, ilean.references) }\ndef updateWorkerRefs (self : References) (name : Name) (version : Nat) (refs : Lsp.ModuleRefs) : References := Id.run do\n  if let some (currVersion, _) := self.workers[name]? then\n    if version > currVersion then\n      return { self with workers := self.workers.insert name (version, refs) }\n    if version == currVersion then\n      let current := self.workers.getD name (version, Std.HashMap.empty)\n      let merged := refs.fold (init := current.snd) fun m ident info =>\n        m.getD ident Lsp.RefInfo.empty |>.merge info |> m.insert ident",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

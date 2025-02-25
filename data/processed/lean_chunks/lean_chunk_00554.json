@@ -1,0 +1,9 @@
+{
+  "content": "class Monoid (\u03b1 : Type u) [Zero \u03b1] extends Add \u03b1 where\n  zero_add (a : \u03b1) : 0 + a = a\n  add_zero (a : \u03b1) : a + 0 = a\nattribute [simp] Monoid.zero_add Monoid.add_zero\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/326.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/326.lean",
+    "definition_name": "Monoid"
+  }
+}

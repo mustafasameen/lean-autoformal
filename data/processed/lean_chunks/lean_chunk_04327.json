@@ -1,0 +1,10 @@
+{
+  "content": "protected theorem mul_lt_mul_of_le_of_lt (hac : a \u2264 c) (hbd : b < d) (hc : 0 < c) :\n    a * b < c * d :=\n  Nat.lt_of_le_of_lt (Nat.mul_le_mul_right _ hac) (Nat.mul_lt_mul_of_pos_left hbd hc)\nprotected theorem mul_lt_mul_of_le_of_lt' (hac : a \u2264 c) (hbd : b < d) (ha : 0 < a) :\n    a * b < c * d :=\n  Nat.mul_lt_mul_of_le_of_lt hac hbd (Nat.lt_of_lt_of_le ha hac)\nprotected theorem mul_lt_mul_of_lt_of_lt {a b c d : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "ne_zero_of_mul_ne_zero_right",
+    "has_proof": false
+  }
+}

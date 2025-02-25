@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\nkeys    : Array Expr\n  results : Array Expr\nabbrev ReplaceM := StateM State\nunsafe def cache (i : USize) (key : Expr) (result : Expr) : ReplaceM Expr := do\n  modify fun \u27e8keys, results\u27e9 => { keys := keys.uset i key lcProof, results := results.uset i result lcProof }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/addDecorationsWithoutPartial.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/addDecorationsWithoutPartial.lean",
+    "definition_name": "State"
+  }
+}

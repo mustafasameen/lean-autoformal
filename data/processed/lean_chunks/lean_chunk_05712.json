@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_zipIdx (xs : Vector \u03b1 n) (i j) : (zipIdx xs i)[j]? = xs[j]?.map fun a => (a, i + j) := by\n  simp [getElem?_def]\ntheorem map_snd_add_zipIdx_eq_zipIdx (xs : Vector \u03b1 n) (m k : Nat) :\n    map (Prod.map id (\u00b7 + m)) (zipIdx xs k) = zipIdx xs (m + k) := by\n  ext <;> simp <;> omega\n@[simp]\ntheorem zipIdx_map_snd (i) (xs : Vector \u03b1 n) : map Prod.snd (zipIdx xs i) = range' i n := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.zipIdx_map_snd]\n@[simp]\ntheorem zipIdx_map_fst (i) (xs : Vector \u03b1 n) : map Prod.fst (zipIdx xs i) = xs := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.zipIdx_map_fst]\ntheorem zipIdx_eq_zip_range' (xs : Vector \u03b1 n) : xs.zipIdx i = xs.zip (range' i n) := by\n  simp [zip_of_prod (zipIdx_map_fst _ _) (zipIdx_map_snd _ _)]\n@[simp]\ntheorem unzip_zipIdx_eq_prod (xs : Vector \u03b1 n) {i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Range.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

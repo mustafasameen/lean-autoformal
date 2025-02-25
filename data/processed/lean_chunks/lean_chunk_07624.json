@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkAtom_le_size (aig : AIG \u03b1) (var : \u03b1) :\n    aig.decls.size \u2264 (aig.mkAtom var).aig.decls.size := by\n  simp +arith [mkAtom]\ntheorem mkAtom_decl_eq (aig : AIG \u03b1) (var : \u03b1) (idx : Nat) {h : idx < aig.decls.size}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Lemmas.lean",
+    "definition_name": "mkAtom_le_size",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem succ_last (n : Nat) : (last n).succ = last n.succ := rfl\n@[simp] theorem succ_eq_last_succ {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "succ_last",
+    "has_proof": false
+  }
+}

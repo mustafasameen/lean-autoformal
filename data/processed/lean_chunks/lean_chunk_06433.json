@@ -1,0 +1,9 @@
+{
+  "content": "let args \u2190 args.mapM (expandLiftMethodAux (inQuot && !inAntiquot || stx.isQuot) inBinder)\n      return Syntax.node i k args\n  | stx => return stx\ndef expandLiftMethod (doElem : Syntax) : M (List Syntax \u00d7 Syntax) := do\n  if !hasLiftMethod doElem then\n    return ([], doElem)\n  else\n    let baseId \u2190 withFreshMacroScope (MonadQuotation.addMacroScope `__do_lift)\n    let (doElem, doElemsNew) \u2190 (expandLiftMethodAux baseId false false doElem).run []\n    return (doElemsNew, doElem)\ndef checkLetArrowRHS (doElem : Syntax) : M Unit := do\n  let kind := doElem.getKind\n  if kind == ``Parser.Term.doLetArrow ||\n     kind == ``Parser.Term.doLet ||\n     kind == ``Parser.Term.doLetRec ||\n     kind == ``Parser.Term.doHave ||\n     kind == ``Parser.Term.doReassign ||\n     kind == ``Parser.Term.doReassignArrow then\n    throwErrorAt doElem \"invalid kind of value `{kind}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "ToForInTermResult"
+  }
+}

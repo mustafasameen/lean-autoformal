@@ -1,0 +1,9 @@
+{
+  "content": "proc {cmd := \"git\", args, cwd := repo.dir} (quiet := true)\n@[inline] def testGit (args : Array String) (repo : GitRepo) : BaseIO Bool :=\n  testProc {cmd := \"git\", args, cwd := repo.dir}\n@[inline] def clone (url : String) (repo : GitRepo) : LogIO PUnit  :=\n  proc {cmd := \"git\", args := #[\"clone\", url, repo.dir.toString]} (quiet := true)\n@[inline] def quietInit (repo : GitRepo) : LogIO PUnit  :=\n  repo.execGit #[\"init\", \"-q\"]\n@[inline] def insideWorkTree (repo : GitRepo) : BaseIO Bool := do\nrepo.testGit #[\"rev-parse\", \"\n@[inline] def fetch (repo : GitRepo) (remote := Git.defaultRemote) : LogIO PUnit  :=\nrepo.execGit #[\"fetch\", \"\n@[inline] def checkoutBranch (branch : String) (repo : GitRepo) : LogIO PUnit :=\n  repo.execGit #[\"checkout\", \"-B\", branch]\n@[inline] def checkoutDetach (hash : String) (repo : GitRepo) : LogIO PUnit  :=\nrepo.execGit #[\"checkout\", \"\n@[inline] def resolveRevision? (rev : String) (repo : GitRepo) : BaseIO (Option String) := do\nrepo.captureGit? #[\"rev-parse\", \"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Git.lean",
+    "definition_name": "defaultRemote"
+  }
+}

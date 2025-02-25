@@ -1,0 +1,10 @@
+{
+  "content": "inductive with \u27e8h_size, h\u27e9\n  apply Array.ext\n  \u00b7 rw [\u2190 Array.foldl_toList, size_clearUnit_foldl f'.assignments clearUnit size_clearUnit derivedLits,\n      f'_assignments_size, f_assignments_size]\n  \u00b7 intro i hi1 hi2\n    rw [f_assignments_size] at hi2\n    specialize h \u27e8i, hi2\u27e9\n    rcases h with \u27e8h1, _\u27e9 | \u27e8j, b, i_gt_zero, j_ge_derivedLits_size, _\u27e9 | \u27e8j1, j2, i_gt_zero, j1_ge_derivedLits_size, _\u27e9\n    \u00b7 simp only [\u2190 derivedLits_arr_def]\n      exact h1\n    \u00b7 exfalso\n      exact (Nat.not_lt_of_le j_ge_derivedLits_size) j.2\n    \u00b7 exfalso\n      exact (Nat.not_lt_of_le j1_ge_derivedLits_size) j1.2\ntheorem rupAdd_result {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddResult.lean",
+    "definition_name": "with",
+    "has_proof": false
+  }
+}

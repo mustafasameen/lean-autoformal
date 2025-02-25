@@ -1,0 +1,9 @@
+{
+  "content": "def commentBody.parenthesizer := PrettyPrinter.Parenthesizer.visitToken\n@[combinator_formatter commentBody]\ndef commentBody.formatter := PrettyPrinter.Formatter.visitAtom Name.anonymous\n` in this\nexample. Use `TSyntax.getDocString` to extract the body text from a doc string syntax node. -/\ndef docComment := leading_parser\nppDedent $ \"\n@[run_builtin_parser_attribute_hooks, builtin_doc]\ndef sepByIndentSemicolon (p : Parser) : Parser :=\n  sepByIndent p \"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "commentBody"
+  }
+}

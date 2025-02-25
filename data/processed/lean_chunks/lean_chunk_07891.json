@@ -1,0 +1,9 @@
+{
+  "content": "(f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (init : \u03b2) (b : HashSet \u03b1) : m \u03b2 :=\n  b.inner.foldM (fun b a _ => f b a) init\n@[inline] def forM {m : Type v \u2192 Type v} [Monad m] (f : \u03b1 \u2192 m PUnit)\n    (b : HashSet \u03b1) : m PUnit :=\n  b.inner.forM (fun a _ => f a)\n@[inline] def partition (f : \u03b1 \u2192 Bool) (m : HashSet \u03b1) : HashSet \u03b1 \u00d7 HashSet \u03b1 :=\n  let \u27e8l, r\u27e9 := m.inner.partition fun a _ => f a\n  \u27e8\u27e8l\u27e9, \u27e8r\u27e9\u27e9\n@[inline] def any (m : HashSet \u03b1) (p : \u03b1 \u2192 Bool) : Bool := Id.run do\n  for a in m do\n    if p a then return true\n  return false\n@[inline] def insertMany {\u03c1 : Type v} [ForIn Id \u03c1 \u03b1] (m : HashSet \u03b1) (l : \u03c1) :\n    HashSet \u03b1 :=\n  \u27e8m.inner.insertManyIfNewUnit l\u27e9\n@[inline] def ofArray [BEq \u03b1] [Hashable \u03b1] (l : Array \u03b1) : HashSet \u03b1 :=\n  \u27e8HashMap.unitOfArray l\u27e9\ndef Internal.numBuckets (m : HashSet \u03b1) : Nat :=\n  HashMap.Internal.numBuckets m.inner\ninstance [BEq \u03b1] [Hashable \u03b1] [Repr \u03b1] : Repr (HashSet \u03b1) where\n  reprPrec m prec := Repr.addAppParen (\"Std.HashSet.ofList \" ++ reprArg m.toList) prec\nend Unverified\nend HashSet",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Basic.lean",
+    "definition_name": "empty"
+  }
+}

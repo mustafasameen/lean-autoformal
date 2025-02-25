@@ -1,0 +1,9 @@
+{
+  "content": "instance One.ofOfNat1 {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1870.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1870.lean",
+    "definition_name": "One"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def reduceJpArity (phase := Phase.base) : Pass :=\n  .mkPerDeclaration `reduceJpArity Decl.reduceJpArity phase\nbuiltin_initialize\n  registerTraceClass `Compiler.reduceJpArity (inherited := true)\nend Lean.Compiler.LCNF",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ReduceJpArity.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ReduceJpArity.lean",
+    "definition_name": "reduceJpArity"
+  }
+}

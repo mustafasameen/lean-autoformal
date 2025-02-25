@@ -1,0 +1,10 @@
+{
+  "content": "theorem min?_eq_some_iff [Min \u03b1] [LE \u03b1] [anti : Std.Antisymm ((\u00b7 : \u03b1) \u2264 \u00b7)]\n    (le_refl : \u2200 a : \u03b1, a \u2264 a)\n    (min_eq_or : \u2200 a b : \u03b1, min a b = a \u2228 min a b = b)\n    (le_min_iff : \u2200 a b c : \u03b1, a \u2264 min b c \u2194 a \u2264 b \u2227 a \u2264 c) {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/MinMax.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/MinMax.lean",
+    "definition_name": "min",
+    "has_proof": false
+  }
+}

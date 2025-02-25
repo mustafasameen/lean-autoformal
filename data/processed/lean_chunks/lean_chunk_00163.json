@@ -1,0 +1,9 @@
+{
+  "content": "#eval test ``getConstInfo\n#eval test ``instMonadMetaM\n#eval test ``Lean.Meta.inferType\n#eval test ``Elab.Term.elabTerm\n#eval test ``Nat.add\nstructure Magma where\n  carrier : Type\n  mul : carrier \u2192 carrier \u2192 carrier\n#eval test ``Magma.mul\ndef weird1 (c : Bool) : (cond c List Array) Nat :=\n  match c with\n  | true => []\n  | false => #[]\n#eval test ``weird1\naxiom monadList\u2081.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/lcnfTypes.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/lcnfTypes.lean",
+    "definition_name": "Member"
+  }
+}

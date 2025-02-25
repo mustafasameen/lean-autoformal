@@ -1,0 +1,9 @@
+{
+  "content": "return normArgsImp (\u2190 getSubst) args t\ndef mkFreshBinderName (binderName := `_x): CompilerM Name := do\n  let declName := .num binderName (\u2190 get).nextIdx\n  modify fun s => { s with nextIdx := s.nextIdx + 1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "MonadFVarSubst"
+  }
+}

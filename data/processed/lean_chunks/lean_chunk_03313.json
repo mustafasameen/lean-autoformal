@@ -1,0 +1,9 @@
+{
+  "content": "| curr, next :: rest =>\n      if curr = next then\n        loop curr rest\n      else\n        curr :: loop next rest\n    | curr, [] => [curr]\n  match xs with\n  | [] => []\n  | x :: xs => loop x xs\ndef removeNeutrals [info : ContextInformation \u03b1] (ctx : \u03b1) : List Nat \u2192 List Nat\n  | x :: xs =>\n    match loop (x :: xs) with\n    | [] => [x]\n    | ys => ys\n  | [] => []\n  where loop : List Nat \u2192 List Nat\n    | x :: xs =>\n      match info.isNeutral ctx x with\n      | true => loop xs\n      | false => x :: loop xs\n    | [] => []\ndef norm [info : ContextInformation \u03b1] (ctx : \u03b1) (e : Expr) : List Nat :=\n  let xs := e.toList\n  let xs := removeNeutrals ctx xs\n  let xs := if info.isComm ctx then sort xs else xs\n  if info.isIdem ctx then mergeIdem xs else xs\nnoncomputable def List.two_step_induction\n  {motive : List Nat \u2192 Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_name": "ContextInformation"
+  }
+}

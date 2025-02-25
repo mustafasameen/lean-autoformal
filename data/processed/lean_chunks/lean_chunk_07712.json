@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkGateCached.go_le_size (aig : AIG \u03b1) (input : GateInput aig) :\n    aig.decls.size \u2264 (go aig input).aig.decls.size := by\n  dsimp only [go]\n  split\n  \u00b7 simp\n  \u00b7 split <;> try simp +arith [mkConstCached_le_size]\n    split\n    \u00b7 simp +arith\n    \u00b7 split <;> simp +arith [mkConstCached_le_size]\ntheorem mkGateCached_le_size (aig : AIG \u03b1) (input : GateInput aig)\n    : aig.decls.size \u2264 (aig.mkGateCached input).aig.decls.size := by\n  dsimp only [mkGateCached]\n  split\n  \u00b7 apply mkGateCached.go_le_size\n  \u00b7 apply mkGateCached.go_le_size\ntheorem mkGateCached.go_decl_eq (aig : AIG \u03b1) (input : GateInput aig) :\n    \u2200 (idx : Nat) (h1) (h2), (go aig input).aig.decls[idx]'h1 = aig.decls[idx]'h2 := by\n    generalize hres : go aig input = res\n    unfold go at hres\n    dsimp only at hres\n    split at hres\n    \u00b7 rw [\u2190 hres]\n      intros\n      simp\n    \u00b7 split at hres\n      \u00b7 rw [\u2190 hres]\n        intros\n        rw [LawfulOperator.decl_eq (f := AIG.mkConstCached)]\n      \u00b7 rw [\u2190 hres]\n        intros",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_name": "mkGateCached",
+    "has_proof": true
+  }
+}

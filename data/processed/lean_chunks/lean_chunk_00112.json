@@ -1,0 +1,9 @@
+{
+  "content": "#print CommGroup.toCommMonoid\nclass AddSemigroup (\u03b1 : Type u) extends Add \u03b1 where\n  add_assoc (a b c : \u03b1) : a + b + c = a + (b + c)\nclass AddCommSemigroup (\u03b1 : Type u) extends AddSemigroup \u03b1 where\n  add_comm (a b : \u03b1) : a + b = b + a\nclass AddMonoid (\u03b1 : Type u) extends AddSemigroup \u03b1, Zero \u03b1 where\n  zero_add (a : \u03b1) : 0 + a = a\n  add_zero (a : \u03b1) : a + 0 = a\nclass AddCommMonoid (\u03b1 : Type u) extends AddMonoid \u03b1, AddCommSemigroup \u03b1\nclass AddGroup (\u03b1 : Type u) extends AddMonoid \u03b1, Neg \u03b1 where\n  add_left_neg (a : \u03b1) : -a + a = 0\nclass AddCommGroup (\u03b1 : Type u) extends AddGroup \u03b1, AddCommMonoid \u03b1\nclass Distrib (\u03b1 : Type u) extends Mul \u03b1, Add \u03b1 where\n  left_distrib ( a b c : \u03b1) : a * (b + c) = (a * b) + (a * c)\n  right_distrib (a b c : \u03b1) : (a + b) * c = (a * c) + (b * c)\nclass MulZero (\u03b1 : Type u) extends Mul \u03b1, Zero \u03b1 where\n  zero_mul (a : \u03b1) : 0 * a = 0\n  mul_zero (a : \u03b1) : a * 0 = 0\nclass ZeroNeOne (\u03b1 : Type u) extends Zero \u03b1, One \u03b1 where\n  zero_ne_one : (0:\u03b1) \u2260 1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond7.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond7.lean",
+    "definition_name": "Semigroup"
+  }
+}

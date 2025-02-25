@@ -1,0 +1,9 @@
+{
+  "content": "structure ConfigOptions where\n  smallThreshold : Nat := 1\n  maxRecInline : Nat := 1\n  maxRecInlineIfReduce : Nat := 16\n  checkTypes : Bool := false\n  deriving Inhabited\nregister_builtin_option compiler.small : Nat := {\n  defValue := 1\n  group    := \"compiler\"\n  descr    := \"(compiler) function declarations with size `\u2264 small` is inlined even if there are multiple occurrences.\"\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ConfigOptions.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ConfigOptions.lean",
+    "definition_name": "ConfigOptions"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let mut argtys := #[]\n        for p in ps do\n          if !(isExternC env decl.name) || !p.ty.isIrrelevant then\n            argtys := argtys.push (\u2190 toLLVMType p.ty)\n        if argtys.size > closureMaxArgs && isBoxedName decl.name then\n          argtys := #[\u2190 LLVM.pointerType (\u2190 LLVM.voidPtrType llvmctx)]\n        let fnty \u2190 LLVM.functionType retty argtys (isVarArg := false)\n        LLVM.getOrAddFunction mod cppBaseName fnty\n  if ps.isEmpty then\nif isClosedTermName env decl.name then LLVM.setVisibility global LLVM.Visibility.hidden\nelse if isExternal then pure ()\nelse LLVM.setDLLStorageClass global LLVM.DLLStorageClass.export\n  else if !isExternal\n    then LLVM.setDLLStorageClass global LLVM.DLLStorageClass.export\n  return global\ndef emitFnDecl (decl : Decl) (isExternal : Bool) : M llvmctx Unit := do\n  let cppBaseName \u2190 toCName decl.name\n  let _ \u2190 emitFnDeclAux (\u2190 getLLVMModule) decl cppBaseName isExternal",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

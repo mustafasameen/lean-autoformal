@@ -1,0 +1,9 @@
+{
+  "content": "inductive Nat.le (n : Nat) : Nat \u2192 Prop\n  | step {m}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat"
+  }
+}

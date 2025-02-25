@@ -1,0 +1,9 @@
+{
+  "content": "inductive OmissionReason\n  | deep\n  | proof\n  | maxSteps\ndef OmissionReason.toString : OmissionReason \u2192 String\n  | deep => \"Term omitted due to its depth (see option `pp.deepTerms`).\"\n  | proof => \"Proof omitted (see option `pp.proofs`).\"\n  | maxSteps => \"Term omitted due to reaching the maximum number of steps allowed for pretty printing this expression (see option `pp.maxSteps`).\"\ndef addOmissionInfo (pos : Pos) (stx : Syntax) (e : Expr) (reason : OmissionReason) : DelabM Unit := do\n  addDelabTermInfo pos stx e (docString? := reason.toString) (explicit := false)\ndef withIncDepth (act : DelabM \u03b1) : DelabM \u03b1 := fun ctx =>\n  act { ctx with depth := ctx.depth + 1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Basic.lean",
+    "definition_name": "OmissionReason"
+  }
+}

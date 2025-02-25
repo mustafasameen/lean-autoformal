@@ -1,0 +1,9 @@
+{
+  "content": "def true'' := true\ndef True'' := True\nexample : true'' = true   := by apply_rfl\nexample : HEq true'' true := by apply_rfl\nexample : True'' \u2194 True   := by apply_rfl\nexample : P true'' true   := by apply_rfl\nexample : Q true'' true   := by apply_rfl\n#guard_msgs in\nexample : Q' true'' true  := by apply_rfl\n#guard_msgs in\nexample : R true'' true   := by apply_rfl\n#guard_msgs in\nexample : true'' = true   := by with_reducible apply_rfl\n#guard_msgs in\nexample : HEq true'' true := by with_reducible apply_rfl\n#guard_msgs in\nexample : True'' \u2194 True   := by with_reducible apply_rfl\n#guard_msgs in\nexample : P true'' true   := by with_reducible apply_rfl\n#guard_msgs in\nexample : Q true'' true   := by with_reducible apply_rfl\n#guard_msgs in\nexample : Q' true'' true  := by with_reducible apply_rfl\n#guard_msgs in\nexample : R true'' true   := by with_reducible apply_rfl\n#guard_msgs in\nexample : false = true   := by apply_rfl\n#guard_msgs in\nexample : HEq false true := by apply_rfl\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rflTacticErrors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/rflTacticErrors.lean",
+    "definition_name": "true"
+  }
+}

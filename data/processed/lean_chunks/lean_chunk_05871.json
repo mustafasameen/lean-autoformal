@@ -1,0 +1,10 @@
+{
+  "content": "theorem ediv_add_emod' (a b : Int) : a / b * b + a % b = a := by\n  rw [Int.mul_comm]; exact ediv_add_emod ..\ntheorem tmod_add_tdiv : \u2200 a b : Int, tmod a b + b * (a.tdiv b) = a\n  | ofNat _, ofNat _ => congrArg ofNat (Nat.mod_add_div ..)\n  | ofNat m, -[n+1] => by\n    show (m % succ n + -\u2191(succ n) * -\u2191(m / succ n) : Int) = m\n    rw [Int.neg_mul_neg]; exact congrArg ofNat (Nat.mod_add_div ..)\n  | -[m+1], 0 => by\n    show -(\u2191((succ m) % 0) : Int) + 0 * -\u2191(succ m / 0) = -\u2191(succ m)\n    rw [Nat.mod_zero, Int.zero_mul, Int.add_zero]\n  | -[m+1], ofNat n => by\n    show -(\u2191((succ m) % n) : Int) + \u2191n * -\u2191(succ m / n) = -\u2191(succ m)\n    rw [Int.mul_neg, \u2190 Int.neg_add]\n    exact congrArg (-ofNat \u00b7) (Nat.mod_add_div ..)\n  | -[m+1], -[n+1] => by\n    show -(\u2191(succ m % succ n) : Int) + -\u2191(succ n) * \u2191(succ m / succ n) = -\u2191(succ m)\n    rw [Int.neg_mul, \u2190 Int.neg_add]\n    exact congrArg (-ofNat \u00b7) (Nat.mod_add_div ..)\ntheorem tdiv_add_tmod (a b : Int) : b * a.tdiv b + tmod a b = a := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "ediv_add_emod",
+    "has_proof": true
+  }
+}

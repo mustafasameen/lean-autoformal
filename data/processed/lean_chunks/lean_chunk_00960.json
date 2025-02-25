@@ -1,0 +1,9 @@
+{
+  "content": "inductive sublist : List \u03b1 \u2192 List \u03b1 \u2192 Prop\n  | slnil : sublist [] []\n  | cons l\u2081 l\u2082 a : sublist l\u2081 l\u2082 \u2192 sublist l\u2081 (a :: l\u2082)\n  | cons2 l\u2081 l\u2082 a : sublist l\u2081 l\u2082 \u2192 sublist (a :: l\u2081) (a :: l\u2082)\nnamespace Lean.PrefixTreeNode\nnamespace Ex1\ninductive WellFormed (cmp : \u03b1 \u2192 \u03b1 \u2192 Ordering) : PrefixTreeNode \u03b1 \u03b2 \u2192 Prop where\n  | emptyWff    : WellFormed cmp empty\n  | insertWff  {t : PrefixTreeNode \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductiveIndicesIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductiveIndicesIssue.lean",
+    "definition_name": "sublist"
+  }
+}

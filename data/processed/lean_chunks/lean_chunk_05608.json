@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_map (f : \u03b1 \u2192 \u03b2) (xs : Vector \u03b1 n) (i : Nat) (hi : i < n) :\n    (xs.map f)[i] = f xs[i] := by\n  cases xs\n  simp\n@[simp] theorem getElem?_map (f : \u03b1 \u2192 \u03b2) (xs : Vector \u03b1 n) (i : Nat) :\n    (xs.map f)[i]? = xs[i]?.map f := by\n  cases xs\n  simp\n@[simp] theorem map_id_fun' : map (n := n) (fun (a : \u03b1) => a) = id := map_id_fun\ntheorem map_id (xs : Vector \u03b1 n) : map (id : \u03b1 \u2192 \u03b1) xs = xs := by\n  cases xs <;> simp_all\ntheorem map_id'' {f : \u03b1 \u2192 \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "getElem_map",
+    "has_proof": true
+  }
+}

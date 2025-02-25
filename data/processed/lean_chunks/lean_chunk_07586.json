@@ -1,0 +1,10 @@
+{
+  "content": "simp at hmarked\n  heval := by\n    intro assign _ idx hbound hmark\n    simp at hmark\nstructure Cache (aig : AIG Nat) (cnf : CNF (CNFVar aig)) where\n  marks : Array Bool\n  hmarks : marks.size = aig.decls.size\n  inv : Cache.Inv cnf marks hmarks\nstructure Cache.IsExtensionBy (cache1 : Cache aig cnf1) (cache2 : Cache aig cnf2) (new : Nat)\n    (hnew : new < aig.decls.size) : Prop where\n  extension : \u2200 (idx : Nat) (hidx : idx < aig.decls.size),\n                cache1.marks[idx]'(by have := cache1.hmarks; omega) = true\n                  \u2192\n                cache2.marks[idx]'(by have := cache2.hmarks; omega) = true\n  trueAt : cache2.marks[new]'(by have := cache2.hmarks; omega) = true\ntheorem Cache.IsExtensionBy_trans_left (cache1 : Cache aig cnf1) (cache2 : Cache aig cnf2)\n    (cache3 : Cache aig cnf3) (h12 : IsExtensionBy cache1 cache2 new1 hnew1)\n    (h23 : IsExtensionBy cache2 cache3 new2 hnew2) : IsExtensionBy cache1 cache3 new1 hnew1 := by\n  apply IsExtensionBy.mk",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "projectLeftAssign_property",
+    "has_proof": true
+  }
+}

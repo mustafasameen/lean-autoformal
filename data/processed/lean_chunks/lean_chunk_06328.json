@@ -1,0 +1,9 @@
+{
+  "content": "return (\u2190 mkAppM ``autoParam #[projType, autoParamExpr])\n    return projType\nprivate def toVisibility (fieldInfo : StructureFieldInfo) : CoreM Visibility := do\n  if isProtected (\u2190 getEnv) fieldInfo.projFn then\n    return Visibility.protected\n  else if isPrivateName fieldInfo.projFn then\n    return Visibility.private\n  else\n    return Visibility.regular\nprivate def reduceProjs (e : Expr) (structNames : NameSet) : MetaM Expr :=\n  let reduce (e : Expr) : MetaM TransformStep := do\n    match (\u2190 reduceProjOf? e structNames.contains) with\n    | some v => return TransformStep.done v\n    | _ => return TransformStep.done e\n  transform e (post := reduce)\nprivate partial def copyDefaultValue? (fieldMap : FieldMap) (expandedStructNames : NameSet) (structName : Name) (fieldName : Name) :\n    TermElabM (Option Expr) := do\n  match getDefaultFnForField? (\u2190 getEnv) structName fieldName with\n  | none => return none\n  | some defaultFn =>\n    let cinfo \u2190 getConstInfo defaultFn",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

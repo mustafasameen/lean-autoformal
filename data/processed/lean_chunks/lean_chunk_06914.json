@@ -1,0 +1,10 @@
+{
+  "content": "inductive type nor has a registered theorem.\"\n        if majorType.isProp then\n          hint := m!\"{hint}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Induction.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Induction.lean",
+    "definition_name": "type",
+    "has_proof": false
+  }
+}

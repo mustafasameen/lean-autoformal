@@ -1,0 +1,10 @@
+{
+  "content": "theorem all_guard (p : \u03b1 \u2192 Prop) [DecidablePred p] (a : \u03b1) :\n    Option.all q (guard p a) = (!p a || q a) := by\n  simp only [guard]\n  split <;> simp_all\n@[simp] theorem any_guard (p : \u03b1 \u2192 Prop) [DecidablePred p] (a : \u03b1) :\n    Option.any q (guard p a) = (p a && q a) := by\n  simp only [guard]\n  split <;> simp_all\ntheorem bind_map_comm {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "all_guard",
+    "has_proof": true
+  }
+}

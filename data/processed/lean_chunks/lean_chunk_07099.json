@@ -1,0 +1,9 @@
+{
+  "content": "class FromJson (\u03b1 : Type u) where\n  fromJson? : Json \u2192 Except String \u03b1\nexport FromJson (fromJson?)\nclass ToJson (\u03b1 : Type u) where\n  toJson : \u03b1 \u2192 Json\nexport ToJson (toJson)\ninstance : FromJson Json := \u27e8Except.ok\u27e9\ninstance : ToJson Json := \u27e8id\u27e9\ninstance : FromJson JsonNumber := \u27e8Json.getNum?\u27e9\ninstance : ToJson JsonNumber := \u27e8Json.num\u27e9\ninstance : FromJson Empty where\n  fromJson? j := throw (s!\"type Empty has no constructor to match JSON value '{j}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/FromToJson.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/FromToJson.lean",
+    "definition_name": "FromJson"
+  }
+}

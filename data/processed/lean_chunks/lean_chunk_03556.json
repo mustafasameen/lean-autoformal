@@ -1,0 +1,10 @@
+{
+  "content": "theorem pred_mk_succ (i : Nat) (h : i < n + 1) :\n    Fin.pred \u27e8i + 1, Nat.add_lt_add_right h 1\u27e9 (ne_of_val_ne (Nat.ne_of_gt (mk_succ_pos i h))) =\n      \u27e8i, h\u27e9 := by\n  simp only [Fin.ext_iff, coe_pred, Nat.add_sub_cancel]\n@[simp] theorem pred_mk_succ' (i : Nat) (h\u2081 : i + 1 < n + 1 + 1) (h\u2082) :\n    Fin.pred \u27e8i + 1, h\u2081\u27e9 h\u2082 = \u27e8i, Nat.lt_of_succ_lt_succ h\u2081\u27e9 := pred_mk_succ i _\ntheorem pred_mk {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "pred_mk_succ",
+    "has_proof": true
+  }
+}

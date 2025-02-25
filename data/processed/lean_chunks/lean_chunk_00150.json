@@ -1,0 +1,9 @@
+{
+  "content": "class Trait (X : Type u) where\n  R : Type v\nattribute [reducible] Trait.R\nclass SemiInner (X : Type u) (R : outParam (Type v)) where\n  semiInner : X \u2192 X \u2192 R\n@[reducible] instance (X) (R : Type u) [SemiInner X R] : Trait X := \u27e8R\u27e9\nclass SemiHilbert (X) (R : outParam (Type u)) [Vec R] [Vec X] extends SemiInner X R\ninstance (X R) [Trait X] [Vec R] [Vec X] [SemiHilbert X R] (\u03b9 : Type v) : SemiHilbert (\u03b9 \u2192 X) R := sorry\ninstance : SemiHilbert \u211d \u211d := sorry\ndef norm {X}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1007.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1007.lean",
+    "definition_name": "Trait"
+  }
+}

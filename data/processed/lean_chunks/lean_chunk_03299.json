@@ -1,0 +1,10 @@
+{
+  "content": "match h\u2082 : ctx.idem with\n    | none =>\n      simp [h\u2082] at h\n    | some val =>\n      simp [h\u2082] at h\n      exact val.down\n  induction e using List.two_step_induction with\n  | empty => rfl\n  | single => rfl\n  | step x y ys ih =>\n    cases ys with\n    | nil =>\n      simp [mergeIdem, mergeIdem.loop]\n      split\n      next h\u2082 => simp [evalList, h\u2082, h.1, EvalInformation.evalOp]\n      next => rfl\n    | cons z zs =>\n      by_cases h\u2082 : x = y\n      case pos =>\n        rw [h\u2082, mergeIdem_head, ih]\n        simp [evalList, \u2190ctx.assoc.1, h.1, EvalInformation.evalOp]\n      case neg =>\n        rw [mergeIdem_head2]\n        by_cases h\u2083 : y = z\n        case pos =>\n          simp [mergeIdem_head, h\u2083, evalList]\n          cases h\u2084 : mergeIdem (z :: zs) with\n          | nil => apply absurd h\u2084; apply mergeIdem_nonEmpty; simp\n          | cons u us => simp_all [mergeIdem, mergeIdem.loop, evalList]\n        case neg =>\n          simp [mergeIdem_head2, h\u2083, evalList] at *\n          rw [ih]\n        assumption",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/AC.lean",
+    "definition_name": "Context",
+    "has_proof": true
+  }
+}

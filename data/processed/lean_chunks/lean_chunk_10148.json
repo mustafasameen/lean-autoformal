@@ -1,0 +1,10 @@
+{
+  "content": "theorem wfImp_expandIfNecessary [BEq \u03b1] [Hashable \u03b1] [EquivBEq \u03b1] [LawfulHashable \u03b1] (m : Raw\u2080 \u03b1 \u03b2)\n    (h : Raw.WFImp m.1) : Raw.WFImp (expandIfNecessary m).1 := by\n  rw [Raw\u2080.expandIfNecessary]\n  dsimp\n  split\n  \u00b7 exact h\n  \u00b7 let \u27e8\u27e8size, buckets\u27e9, hm\u27e9 := m\n    have := toListModel_expand (buckets := \u27e8buckets, hm\u27e9)\n    dsimp at this\n    refine \u27e8?_, ?_, ?_\u27e9\n    \u00b7 simpa using isHashSelf_expand\n    \u00b7 refine h.size_eq.trans ?_\n      simpa using this.symm.length_eq\n    \u00b7 simpa using h.distinct.perm this\ntheorem toListModel_replace\u2098 [BEq \u03b1] [Hashable \u03b1] [EquivBEq \u03b1] [LawfulHashable \u03b1] (m : Raw\u2080 \u03b1 \u03b2)\n   (h : Raw.WFImp m.1) (a : \u03b1) (b : \u03b2 a) :\n  Perm (toListModel (m.replace\u2098 a b).1.buckets) (replaceEntry a b (toListModel m.1.2)) :=\n  toListModel_updateBucket h (.of_eq AssocList.toList_replace) List.replaceEntry_of_perm\n    List.replaceEntry_append_of_containsKey_right_eq_false\ntheorem isHashSelf_replace\u2098 [BEq \u03b1] [Hashable \u03b1] [EquivBEq \u03b1] [LawfulHashable \u03b1] (m : Raw\u2080 \u03b1 \u03b2)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/WF.lean",
+    "definition_name": "wfImp_expandIfNecessary",
+    "has_proof": true
+  }
+}

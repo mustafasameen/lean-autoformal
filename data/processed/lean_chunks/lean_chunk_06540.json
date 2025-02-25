@@ -1,0 +1,9 @@
+{
+  "content": "let representative := findCanonicalRepresentative idMap id\n      let \u00abclass\u00bb     := classesById.getD representative \u2205\nlet classesById := classesById.erase representative\n      let \u00abclass\u00bb     := \u00abclass\u00bb.insert id\n      classesById.insert representative \u00abclass\u00bb\n    let mut classesById : Std.HashMap RefIdent (Std.HashSet RefIdent) := \u2205\n    for \u27e8id, baseId\u27e9 in idMap.toArray do\n      classesById := insertIntoClass classesById id\n      classesById := insertIntoClass classesById baseId\n    let mut r := \u2205\n    for \u27e8currentRepresentative, \u00abclass\u00bb\u27e9 in classesById.toArray do\n      let mut bestRepresentative := currentRepresentative\n      for id in \u00abclass\u00bb do\n        bestRepresentative :=\n          match bestRepresentative, id with\n          | .fvar ma a,  .fvar ..  => .fvar ma a\n          | .fvar ..,  .const mb b => .const mb b\n          | .const ma a, .fvar ..  => .const ma a\n          | .const ma a, .const .. => .const ma a\n      for id in \u00abclass\u00bb do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

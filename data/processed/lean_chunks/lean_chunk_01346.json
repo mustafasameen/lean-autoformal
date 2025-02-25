@@ -1,0 +1,10 @@
+{
+  "content": "theorem head (hab : r a b) (hbc : ReflTransGen r b c) : ReflTransGen r a c := by\n  induction hbc\n  case refl => exact refl.tail hab\n  case tail c d _ hcd hac => exact hac.tail hcd\n@[elab_as_elim]\ntheorem head_induction_on {P : \u2200 a : \u03b1, ReflTransGen r a b \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1841.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1841.lean",
+    "definition_name": "head",
+    "has_proof": true
+  }
+}

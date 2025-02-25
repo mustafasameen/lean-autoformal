@@ -1,0 +1,9 @@
+{
+  "content": "inductive InlineAttributeKind where\n  | inline | noinline | macroInline | inlineIfReduce | alwaysInline\n  deriving Inhabited, BEq, Hashable\nprivate def isValidMacroInline (declName : Name) : CoreM Bool := do\n  let .defnInfo info \u2190 getConstInfo declName\n    | return false\n  unless info.all.length = 1 do\n    return false\n  let env \u2190 getEnv\n  let isRec (declName' : Name) : Bool :=\n    isBRecOnRecursor env declName' ||\n    declName' == ``WellFounded.fix ||\ndeclName' == declName ++ `_unary\n  if Option.isSome <| info.value.find? fun e => e.isConst && isRec e.constName! then\n    return false\n  return true\nbuiltin_initialize inlineAttrs : EnumAttributes InlineAttributeKind \u2190\n  registerEnumAttributes\n    [(`inline, \"mark definition to be inlined\", .inline),\n     (`inline_if_reduce, \"mark definition to be inlined when resultant term after reduction is not a `cases_on` application\", .inlineIfReduce),\n     (`noinline, \"mark definition to never be inlined\", .noinline),",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/InlineAttrs.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/InlineAttrs.lean",
+    "definition_name": "InlineAttributeKind"
+  }
+}

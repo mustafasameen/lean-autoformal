@@ -1,0 +1,10 @@
+{
+  "content": "throwErr\n    return s.erase <| .decl declName\ndef addEMatchAttr (declName : Name) (attrKind : AttributeKind) (thmKind : EMatchTheoremKind) : MetaM Unit := do\n  if thmKind == .eqLhs then\n    addGrindEqAttr declName attrKind thmKind (useLhs := true)\n  else if thmKind == .eqRhs then\n    addGrindEqAttr declName attrKind thmKind (useLhs := false)\n  else if thmKind == .eqBoth then\n    addGrindEqAttr declName attrKind thmKind (useLhs := true)\n    addGrindEqAttr declName attrKind thmKind (useLhs := false)\n  else\n    let info \u2190 getConstInfo declName\n    if !info.isTheorem && !info.isCtor && !info.isAxiom then\n      addGrindEqAttr declName attrKind thmKind\n    else\n      let thm \u2190 mkEMatchTheoremForDecl declName thmKind\n      ematchTheoremsExt.add thm attrKind\ndef eraseEMatchAttr (declName : Name) : MetaM Unit := do\n  let s := ematchTheoremsExt.getState (\u2190 getEnv)\n  let s \u2190 s.eraseDecl declName\n  modifyEnv fun env => ematchTheoremsExt.modifyState env fun _ => s\nend Lean.Meta.Grind",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

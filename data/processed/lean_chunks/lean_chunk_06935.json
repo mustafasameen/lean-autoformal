@@ -1,0 +1,9 @@
+{
+  "content": "deferredResolution : InlayHintInfo \u2192 MetaM InlayHintInfo := fun i => .pure i\n  deriving TypeName\nnamespace InlayHint\ndef toCustomInfo (i : InlayHint) : CustomInfo := {\n  stx := .missing\n  value := .mk i\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/InfoTree/InlayHints.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/InfoTree/InlayHints.lean",
+    "definition_name": "InlayHintLinkLocation"
+  }
+}

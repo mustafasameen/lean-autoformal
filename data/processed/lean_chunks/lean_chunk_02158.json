@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : p.1 = 0 :=\nrfl\ntheorem ex2 : (p (x := 1) |>.2) = 1 :=\nrfl\ndef c {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/optParam.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/optParam.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

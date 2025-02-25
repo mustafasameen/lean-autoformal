@@ -1,0 +1,9 @@
+{
+  "content": "class NatCast2 (R : Type u) where\nclass IntCast2 (R : Type u) where\nend Std.Classes.Cast\nsection Std.Data.Int.Lemmas\nend Std.Data.Int.Lemmas\nsection Std.Classes.RatCast\nclass RatCast (K : Type u) where\nend Std.Classes.RatCast\nsection Mathlib.Init.ZeroOne\nclass One (\u03b1 : Type u) where\n  one : \u03b1\ninstance One.toOfNat1 {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/mathlibetaissue.lean",
+    "definition_name": "NatCast2"
+  }
+}

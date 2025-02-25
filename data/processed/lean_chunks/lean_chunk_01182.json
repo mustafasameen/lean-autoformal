@@ -1,0 +1,9 @@
+{
+  "content": "structure Tree (T : Type) where\n    root : Option (Node T)\n  def OrdIsize.cmp (self : Isize) (other : Isize) : Result Ordering :=\n    if self < other\n    then Result.ok Ordering.Less\n    else\n      if self = other\n      then Result.ok Ordering.Equal\n      else Result.ok Ordering.Greater\n  @[reducible]\n  def OrdIsize : Ord Isize := {\n    cmp := OrdIsize.cmp\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_name": "Tree"
+  }
+}

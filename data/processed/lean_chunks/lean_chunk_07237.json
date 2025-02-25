@@ -1,0 +1,9 @@
+{
+  "content": "logMessageIfAux (tracePrefixOptionName ++ cls) a\n@[inline] def logMessage {\u03b1 : Type} [ToFormat \u03b1] (a : \u03b1) : CompilerM Unit :=\n  logMessageIfAux tracePrefixOptionName a\n@[inline] def modifyEnv (f : Environment \u2192 Environment) : CompilerM Unit :=\n  modify fun s => { s with env := f s.env }\nabbrev DeclMap := PHashMap Name Decl\nprivate abbrev declLt (a b : Decl) :=\n  Name.quickLt a.name b.name\nprivate abbrev sortDecls (decls : Array Decl) : Array Decl :=\n  decls.qsort declLt\nprivate abbrev findAtSorted? (decls : Array Decl) (declName : Name) : Option Decl :=\n  let tmpDecl := Decl.extern declName #[] default default\n  decls.binSearch tmpDecl declLt\nbuiltin_initialize declMapExt : SimplePersistentEnvExtension Decl DeclMap \u2190\n  registerSimplePersistentEnvExtension {\n    addImportedFn := fun _ => {}\n    addEntryFn    := fun s d => s.insert d.name d\n    toArrayFn     := fun s =>\n      let decls := s.foldl (init := #[]) fun decls decl => decls.push decl\n      sortDecls decls",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_name": "tracePrefixOptionName"
+  }
+}

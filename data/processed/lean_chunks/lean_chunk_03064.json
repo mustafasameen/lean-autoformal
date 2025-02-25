@@ -1,0 +1,9 @@
+{
+  "content": "e.cleanupAnnotations.isConstOf ``True\npartial def getForallArity : Expr \u2192 Nat\n  | .mdata _ b       => getForallArity b\n  | .forallE _ _ b _ => getForallArity b + 1\n  | e                =>\n    if e.isHeadBetaTarget then\n      getForallArity e.headBeta\n    else\n      let e' := e.cleanupAnnotations\n      if e != e' then getForallArity e' else 0\ndef nat? (e : Expr) : Option Nat := do\n  let_expr OfNat.ofNat _ n _ := e | failure\n  let lit (.natVal n) := n | failure\n  n\ndef int? (e : Expr) : Option Int :=\n  let_expr Neg.neg _ _ a := e | e.nat?\n  match a.nat? with\n  | none => none\n  | some 0 => none\n  | some n => some (-n)\ndef containsFVar (e : Expr) (fvarId : FVarId) : Bool :=\n  e.hasAnyFVar (\u00b7 == fvarId)\n@[inline] private unsafe def updateApp!Impl (e : Expr) (newFn : Expr) (newArg : Expr) : Expr :=\n  match e with\n  | app fn arg => if ptrEq fn newFn && ptrEq arg newArg then e else mkApp newFn newArg\n  | _          => panic! \"application expected\"\n@[implemented_by updateApp!Impl]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

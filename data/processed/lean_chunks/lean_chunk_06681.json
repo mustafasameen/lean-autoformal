@@ -1,0 +1,9 @@
+{
+  "content": "def Batch := Array Message\nstructure Request (\u03b1 : Type u) where\n  id     : RequestID\n  method : String\n  param  : \u03b1\n  deriving Inhabited, BEq\ninstance [ToJson \u03b1] : CoeOut (Request \u03b1) Message :=\n  \u27e8fun r => Message.request r.id r.method (toStructured? r.param).toOption\u27e9\nstructure Notification (\u03b1 : Type u) where\n  method : String\n  param  : \u03b1\n  deriving Inhabited, BEq\ninstance [ToJson \u03b1] : CoeOut (Notification \u03b1) Message :=\n  \u27e8fun r => Message.notification r.method (toStructured? r.param).toOption\u27e9\nstructure Response (\u03b1 : Type u) where\n  id     : RequestID\n  result : \u03b1\n  deriving Inhabited, BEq\ninstance [ToJson \u03b1] : CoeOut (Response \u03b1) Message :=\n  \u27e8fun r => Message.response r.id (toJson r.result)\u27e9\nstructure ResponseError (\u03b1 : Type u) where\n  id      : RequestID\n  code    : ErrorCode\n  data?   : Option \u03b1 := none\n  deriving Inhabited, BEq\ninstance [ToJson \u03b1] : CoeOut (ResponseError \u03b1) Message :=\n  \u27e8fun r => Message.responseError r.id r.code r.message (r.data?.map toJson)\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/JsonRpc.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/JsonRpc.lean",
+    "definition_name": "Batch"
+  }
+}

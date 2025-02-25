@@ -1,0 +1,9 @@
+{
+  "content": "let v := args[2]!\n  let f := args[3]!\n  let rest := args.extract 4 args.size\n  match f with\n  | .lam n _ b _ => some (rest, n, t, v, b)\n  | _ => some (rest, .anonymous, t, v, .app f (.bvar 0))\ndef foldlM {\u03b1 : Type} {m} [Monad m] (f : \u03b1 \u2192 Expr \u2192 m \u03b1) (init : \u03b1) (e : Expr) : m \u03b1 :=\n  Prod.snd <$> StateT.run (e.traverseChildren (fun e' => fun a => Prod.mk e' <$> f a e')) init\ndef sizeWithoutSharing : (e : Expr) \u2192 Nat\n  | .forallE _ d b _ => 1 + d.sizeWithoutSharing + b.sizeWithoutSharing\n  | .lam _ d b _     => 1 + d.sizeWithoutSharing + b.sizeWithoutSharing\n  | .mdata _ e       => 1 + e.sizeWithoutSharing\n  | .letE _ t v b _  => 1 + t.sizeWithoutSharing + v.sizeWithoutSharing + b.sizeWithoutSharing\n  | .app f a         => 1 + f.sizeWithoutSharing + a.sizeWithoutSharing\n  | .proj _ _ e      => 1 + e.sizeWithoutSharing\n  | .lit .. | .const .. | .sort .. | .mvar .. | .fvar .. | .bvar .. => 1\nend Expr\ndef mkAnnotation (kind : Name) (e : Expr) : Expr :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

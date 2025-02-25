@@ -1,0 +1,9 @@
+{
+  "content": "instance hasNatScalar [AddMonoid M] : SMul Nat (\u03b1 \u2192\u2080 M) :=\n  \u27e8fun n v => v.mapRange ((\u00b7 \u2022 \u00b7) n) sorry\u27e9\ninstance addCommMonoid [AddCommMonoid M] : AddCommMonoid (\u03b1 \u2192\u2080 M) where\n  add_assoc := sorry\n  zero_add := sorry\n  add_zero := sorry\n  add_comm := sorry\ninstance neg [NegZeroClass G] : Neg (\u03b1 \u2192\u2080 G) :=\n  \u27e8mapRange Neg.neg sorry\u27e9\ninstance sub [SubNegZeroMonoid G] : Sub (\u03b1 \u2192\u2080 G) :=\n  \u27e8zipWith Sub.sub sorry\u27e9\ninstance hasIntScalar [AddGroup G] : SMul Int (\u03b1 \u2192\u2080 G) :=\n  \u27e8fun n v => v.mapRange ((\u00b7 \u2022 \u00b7) n) sorry\u27e9\ninstance addCommGroup [AddCommGroup G] : AddCommGroup (\u03b1 \u2192\u2080 G) := {\n  addCommMonoid with\n  add_left_neg := sorry,\n  sub_eq_add_neg := sorry,\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "Finsupp"
+  }
+}

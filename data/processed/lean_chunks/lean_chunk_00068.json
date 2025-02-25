@@ -1,0 +1,10 @@
+{
+  "content": "theorem implicitlyUsedVariable : P \u2227 Q \u2192 Q := by\n  intro HPQ\n  have HQ : Q := by exact And.right HPQ\n  assumption\naxiom axiomVariable (x : Prop) : True\ndef unusedVariables (x : Nat) : Nat :=\n  let y := 5\n  3\ndef usedAndUnusedVariables : Nat :=\n  let x : Nat :=\n    let x := 5\n    3\n  x\ndef letRecVariable : Nat :=\n  let rec x := 5\n  3\ndef whereVariable : Nat :=\n  3\nwhere\nx := 5\ndef unusedWhereArgument : Nat :=\n  f 2\nwhere\n  f (x : Nat) := 3\ndef whereFunction : Nat :=\n  2\nwhere\n  f (x : Nat) := 3\ndef unusedFunctionArgument : Nat :=\n  (fun x => 3) (x := 2)\ndef unusedTypedFunctionArgument : Nat :=\n  (fun (x : Nat) => 3) 2\ndef pattern (x y : Option Nat) : Nat :=\n  match x with\n  | some z =>\n    match y with\n    | some z => 1\n    | none => 0\n  | none => 0\ndef patternLet (x : Option Nat) : Nat :=\n  if let some y := x then\n    0\n  else\n    1\ndef patternMatches (x : Option Nat) : Nat :=\n  if x matches some y then\n    0\n  else\n    1\ndef implicitVariables {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_name": "implicitlyUsedVariable",
+    "has_proof": true
+  }
+}

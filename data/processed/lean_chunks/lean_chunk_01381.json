@@ -1,0 +1,10 @@
+{
+  "content": "theorem test6 (n : Nat) (h : n+1 = 0) : 0 > 1 :=\nby {\n  injection h\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj1.lean",
+    "definition_name": "test6",
+    "has_proof": true
+  }
+}

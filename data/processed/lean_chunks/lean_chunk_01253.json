@@ -1,0 +1,10 @@
+{
+  "content": "theorem comp_obj (F : C \u2964 D) (G : D \u2964 E) (X : C) :\n  (F \u22d9 G).obj X = G.obj (F.obj X) := rfl\n@[simp]\ntheorem comp_map (F : C \u2964 D) (G : D \u2964 E) {X Y : C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4595_slowdown.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4595_slowdown.lean",
+    "definition_name": "comp_obj",
+    "has_proof": false
+  }
+}

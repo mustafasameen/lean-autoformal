@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_exists_mem : (\u00ac \u2203 v, Mem v f) \u2194 \u2203 n, f = List.replicate n [] := by\n  simp only [\u2190 any_not_isEmpty_iff_exists_mem]\n  simp only [List.any_eq_true, Bool.not_eq_true', not_exists, not_and, Bool.not_eq_false]\n  induction f with\n  | nil =>\n    simp only [List.not_mem_nil, List.isEmpty_iff, false_implies, forall_const, true_iff]\n    exact \u27e80, rfl\u27e9\n  | cons c f ih =>\n    simp_all [ih, List.isEmpty_iff]\n    constructor\n    \u00b7 rintro \u27e8rfl, n, rfl\u27e9\n      exact \u27e8n+1, rfl\u27e9\n    \u00b7 rintro \u27e8n, h\u27e9\n      cases n\n      \u00b7 simp at h\n      \u00b7 simp_all only [List.replicate, List.cons.injEq, true_and]\n        exact \u27e8_, rfl\u27e9\ninstance {f : CNF \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Basic.lean",
+    "definition_name": "not_exists_mem",
+    "has_proof": true
+  }
+}

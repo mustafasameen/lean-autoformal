@@ -1,0 +1,9 @@
+{
+  "content": "let updated \u2190 updateJPParamsAssignment ys xs\n    if updated then\n      resetNestedJPParams b\n      interpFnBody b\n  | e => do\n    unless e.isTerminal do\n      interpFnBody e.body\ndef inferStep : M Bool := do\n  let ctx \u2190 read\n  modify fun s => { s with assignments := ctx.decls.map fun _ => {} }\n  ctx.decls.size.foldM (init := false) fun idx _ modified => do\n    match ctx.decls[idx] with\n    | .fdecl (xs := ys) (body := b) .. => do\n      let s \u2190 get\n      let currVals := s.funVals[idx]!\n      withReader (fun ctx => { ctx with currFnIdx := idx }) do\n        ys.forM fun y => updateVarAssignment y.x top\n        interpFnBody b\n        let s \u2190 get\n        let newVals := s.funVals[idx]!\n        pure (modified || currVals != newVals)\n    | .extern .. => pure modified\npartial def inferMain : M Unit := do\n  let modified \u2190 inferStep\n  if modified then inferMain else pure ()\npartial def elimDeadAux (assignment : Assignment) : FnBody \u2192 FnBody",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_name": "truncateMaxDepth"
+  }
+}

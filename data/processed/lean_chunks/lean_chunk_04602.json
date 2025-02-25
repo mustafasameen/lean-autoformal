@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_neg_one (i : Int) : i + -1 = i - 1 := rfl\ntheorem subNatNat_self : \u2200 n, subNatNat n n = 0\n  | 0      => rfl\n  | succ m => by rw [subNatNat_of_sub_eq_zero (Nat.sub_self ..), Nat.sub_self, ofNat_zero]\nattribute [local simp] subNatNat_self\n@[local simp] protected theorem add_left_neg : \u2200 a : Int, -a + a = 0\n  | 0      => rfl\n  | succ m => by simp\n  | -[m+1] => by simp\n@[local simp] protected theorem add_right_neg (a : Int) : a + -a = 0 := by\n  rw [Int.add_comm, Int.add_left_neg]\nprotected theorem neg_eq_of_add_eq_zero {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Lemmas.lean",
+    "definition_name": "add_neg_one",
+    "has_proof": true
+  }
+}

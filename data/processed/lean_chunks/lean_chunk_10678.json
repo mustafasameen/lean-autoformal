@@ -1,0 +1,9 @@
+{
+  "content": "inductive RegistrySrc\n| git (data : JsonObject) (url : String)\n  (githubUrl? defaultBranch? : Option String) (subDir? : Option FilePath)\n| other (data : JsonObject)\nderiving Inhabited\nnamespace RegistrySrc\ndef isGit (src : RegistrySrc) : Bool :=\n  match src with\n  | .git  .. => true\n  | .other .. => false\ndef data (src : RegistrySrc) : JsonObject :=\n  match src with\n  | .git (data := data) .. => data\n  | .other data => data\nprotected def toJson (src : RegistrySrc) : Json :=\n  src.data\ninstance : ToJson RegistrySrc := \u27e8RegistrySrc.toJson\u27e9\nprotected def fromJson? (val : Json) : Except String RegistrySrc := do\n  try\n    let obj \u2190 JsonObject.fromJson? val\n    if let some url \u2190 obj.get? \"gitUrl\" then\n      let githubUrl? \u2190 (\u2190 obj.get? \"host\").bindM fun host =>\n        if host == \"github\" then obj.get? \"repoUrl\" else pure none\n      let defaultBranch? \u2190 obj.get? \"defaultBranch\"\n      let subDir? \u2190 obj.get? \"subDir\"\n      return .git obj url githubUrl? defaultBranch? subDir?\n    else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Reservoir.lean",
+    "definition_name": "RegistrySrc"
+  }
+}

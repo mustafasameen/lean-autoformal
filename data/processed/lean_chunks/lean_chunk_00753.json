@@ -1,0 +1,9 @@
+{
+  "content": "inductive StarsAndBars : Nat \u2192 Nat \u2192 Type where\n  | nil  : StarsAndBars 0 0\n  | star : StarsAndBars s b \u2192 StarsAndBars (s+1) b\n  | bar  : StarsAndBars s b \u2192 StarsAndBars s (b+1)\nnamespace StarsAndBars\nnamespace Ex1\ndef toList : StarsAndBars s b \u2192 { bs : List Bool // bs.count' false = s \u2227 bs.count' true = b }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/starsAndBars.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/starsAndBars.lean",
+    "definition_name": "StarsAndBars"
+  }
+}

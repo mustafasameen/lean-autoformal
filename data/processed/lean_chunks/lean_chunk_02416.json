@@ -1,0 +1,9 @@
+{
+  "content": "structure HelloWidgetProps where\n  name? : Option String := none\n  deriving Server.RpcEncodable\n#widget helloWidget with { name? := \"<your name here>\" : HelloWidgetProps }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/widgets.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/widgets.lean",
+    "definition_name": "HelloWidgetProps"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_or (x y : BitVec v) :\n    BitVec.toNat (x ||| y) = BitVec.toNat x ||| BitVec.toNat y := rfl\n@[simp] theorem toInt_or (x y : BitVec w) :\n    BitVec.toInt (x ||| y) = Int.bmod (BitVec.toNat x ||| BitVec.toNat y) (2^w) := by\n  rw_mod_cast [Int.bmod_def, BitVec.toInt, toNat_or, Nat.mod_eq_of_lt\n    (Nat.or_lt_two_pow (BitVec.isLt x) (BitVec.isLt y))]\n  omega\n@[simp] theorem toFin_or (x y : BitVec v) :\n    BitVec.toFin (x ||| y) = BitVec.toFin x ||| BitVec.toFin y := by\n  apply Fin.eq_of_val_eq\n  exact (Nat.mod_eq_of_lt <| Nat.or_lt_two_pow x.isLt y.isLt).symm\n@[simp] theorem getLsbD_or {x y : BitVec v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toNat_or",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ExprCnstr.eq_false_of_isUnsat (ctx : Context) (c : ExprCnstr) (h : c.toNormPoly.isUnsat) : c.denote ctx = False := by\n  have := PolyCnstr.eq_false_of_isUnsat ctx h\n  simp [-eq_iff_iff] at this\n  assumption\ntheorem ExprCnstr.eq_true_of_isValid (ctx : Context) (c : ExprCnstr) (h : c.toNormPoly.isValid) : c.denote ctx = True := by\n  have := PolyCnstr.eq_true_of_isValid ctx h\n  simp [-eq_iff_iff] at this\n  assumption\ntheorem ExprCnstr.eq_of_toNormPoly_eq (ctx : Context) (c d : ExprCnstr) (h : c.toNormPoly == d.toPoly) : c.denote ctx = d.denote ctx := by\n  have h := congrArg (PolyCnstr.denote ctx) (eq_of_beq h)\n  simp [-eq_iff_iff] at h\n  assumption\ntheorem Expr.eq_of_toNormPoly_eq (ctx : Context) (e e' : Expr) (h : e.toNormPoly == e'.toPoly) : e.denote ctx = e'.denote ctx := by\n  have h := congrArg (Poly.denote ctx) (eq_of_beq h)\n  simp [Expr.toNormPoly, Poly.norm] at h\n  assumption\nend Linear\ndef elimOffset {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "ExprCnstr",
+    "has_proof": true
+  }
+}

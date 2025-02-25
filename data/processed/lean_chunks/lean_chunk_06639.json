@@ -1,0 +1,9 @@
+{
+  "content": "def typeSpec := leading_parser \" : \" >> termParser\ndef optType : Parser := optional typeSpec\n@[builtin_term_parser] def explicit := leading_parser\n  \"@\" >> termParser maxPrec\n@[builtin_term_parser] def inaccessible := leading_parser\n  \".(\" >> withoutPosition termParser >> \")\"\ndef binderType (requireType := false) : Parser :=\n  if requireType then node nullKind (\" : \" >> termParser) else optional (\" : \" >> termParser)\ndef binderTactic  := leading_parser\n  atomic (symbol \" := \" >> \" by \") >> Tactic.tacticSeq\ndef binderDefault := leading_parser\n  \" := \" >> termParser\nopen Lean.PrettyPrinter Parenthesizer Syntax.MonadTraverser in\n@[combinator_parenthesizer Lean.Parser.Term.binderDefault] def binderDefault.parenthesizer : Parenthesizer := do\n  let prec := match (\u2190 getCur) with\n    | `(binderDefault| := by $_) => maxPrec\n    | _                          => 0\n  visitArgs do\n    term.parenthesizer prec\n    visitToken",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

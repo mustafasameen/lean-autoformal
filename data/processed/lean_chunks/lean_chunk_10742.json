@@ -1,0 +1,9 @@
+{
+  "content": "def findLeanSysroot? (lean := \"lean\") : BaseIO (Option FilePath) := do\n  let act : IO _ := do\n    let out \u2190 IO.Process.output {\n      cmd := lean,\nargs := #[\"\n    }\n    if out.exitCode == 0 then\n      pure <| some <| FilePath.mk <| out.stdout.trim\n    else\n      pure <| none\n  act.catchExceptions fun _ => pure none\ndef LeanInstall.get (sysroot : FilePath) (collocated : Bool := false) : BaseIO LeanInstall := do\n  let githash \u2190 do\n    if collocated then\n      pure Lean.githash\n    else\n      getGithash\n  let ar \u2190 findAr\n  setCc {sysroot, githash, ar}\nwhere\n  getGithash := do\n    EIO.catchExceptions (h := fun _ => pure \"\") do\n      let out \u2190 IO.Process.output {\n        cmd := leanExe sysroot |>.toString,\nargs := #[\"\n      }\n      return out.stdout.trim\n  findAr := do\n    if let some ar \u2190 IO.getEnv \"LEAN_AR\" then\n      return FilePath.mk ar\n    else\n      let ar := leanArExe sysroot\n      if (\u2190 ar.pathExists) then\n        return ar\n      else if let some ar \u2190 IO.getEnv \"AR\" then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_name": "findLeanSysroot"
+  }
+}

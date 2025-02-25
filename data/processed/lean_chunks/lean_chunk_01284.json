@@ -1,0 +1,10 @@
+{
+  "content": "inductive P : Option Nat \u2192 Prop\n  | none : P .none\n  | somePos : x > 0 \u2192 P (some x)\ntheorem aux (x? : Option Nat) (h\u2081 : P x?) (h\u2082 : x?.isSome) : x?.get h\u2082 > 0 := by\n  cases h\u2081 with\n  | none => contradiction\n  | somePos h => exact h\ndef f (x? : Option Nat) (hp : P x?) : { r? : Option Nat // P r? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductionLetIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductionLetIssue.lean",
+    "definition_name": "P",
+    "has_proof": true
+  }
+}

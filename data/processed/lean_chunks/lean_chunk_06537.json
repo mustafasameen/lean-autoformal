@@ -1,0 +1,9 @@
+{
+  "content": "return loc\n  none\nwhere\n  contains (range : Lsp.Range) (pos : Lsp.Position) : Bool :=\n    range.start <= pos && (if includeStop then pos <= range.end else pos < range.end)\ndef findAt\n    (self        : ModuleRefs)\n    (pos         : Lsp.Position)\n    (includeStop := false)\n    : Array RefIdent := Id.run do\n  let mut result := #[]\n  for (ident, info) in self.toArray do\n    if info.contains pos includeStop then\n      result := result.push ident\n  result\nstructure Ilean where\n  module     : Name\ndef load (path : System.FilePath) : IO Ilean := do\n  let content \u2190 FS.readFile path\n  match Json.parse content >>= fromJson? with\n    | Except.ok ilean => pure ilean\n    | Except.error msg => throwServerError s!\"Failed to load ilean at {path}: {msg}\"\nend Ilean\ndef getModuleContainingDecl? (env : Environment) (declName : Name) : Option Name := do\n  if env.constants.map\u2082.contains declName then\n    return env.header.mainModule\n  let modIdx \u2190 env.getModuleIdxFor? declName",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

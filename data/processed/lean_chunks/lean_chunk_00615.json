@@ -1,0 +1,9 @@
+{
+  "content": "instance MonoidHom.commMonoid [Mul M] [Mul N] :\n    CommMagma (M \u2192*' N) where\n  mul := fun f g => { toFun := fun x => f x * g x, map_mul' := sorry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3705.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3705.lean",
+    "definition_name": "MonoidHom"
+  }
+}

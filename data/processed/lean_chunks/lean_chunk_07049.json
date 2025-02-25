@@ -1,0 +1,9 @@
+{
+  "content": "class RpcEncodable (\u03b1 : Type) where\n  rpcEncode : \u03b1 \u2192 StateM RpcObjectStore Json\n  rpcDecode : Json \u2192 ExceptT String (ReaderT RpcObjectStore Id) \u03b1\nexport RpcEncodable (rpcEncode rpcDecode)\ninstance : Nonempty (RpcEncodable \u03b1) :=\n  \u27e8{ rpcEncode := default, rpcDecode := default }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Basic.lean",
+    "definition_name": "RpcEncodable"
+  }
+}

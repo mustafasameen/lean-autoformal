@@ -1,0 +1,9 @@
+{
+  "content": "@Quotient.lift _ _\n  (thing r \u03c0)\n  (Quotient.mk'' $ \u03c0 \u00b7)\n  (fun x y h => Quotient.sound (rel.compat h))\ndef \u03b45 : \u03b2 r \u03c0 \u2192 \u03b2 r \u03c0 :=\n@Quotient.lift' _ _ _\n  (Quotient.mk'' $ \u03c0 \u00b7)\n  (fun x y h => Quotient.sound (rel.compat h))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/propagateExpectedType.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/propagateExpectedType.lean",
+    "definition_name": "\u03b2"
+  }
+}

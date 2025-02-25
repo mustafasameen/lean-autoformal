@@ -1,0 +1,9 @@
+{
+  "content": "| none => replaceMainGoal []\n  | some mvarId => replaceMainGoal [mvarId]\n  if tactic.simp.trace.get (\u2190 getOptions) then\n    traceSimpCall stx stats.usedTheorems\n  return stats.diag\ndef dsimpLocation (ctx : Simp.Context) (simprocs : Simp.SimprocsArray) (loc : Location) : TacticM Unit := do\n  match loc with\n  | Location.targets hyps simplifyTarget =>\n    withMainContext do\n      let fvarIds \u2190 getFVarIds hyps\n      go fvarIds simplifyTarget\n  | Location.wildcard =>\n    withMainContext do\n      go (\u2190 (\u2190 getMainGoal).getNondepPropHyps) (simplifyTarget := true)\nwhere\n  go (fvarIdsToSimp : Array FVarId) (simplifyTarget : Bool) : TacticM Unit := withSimpDiagnostics do\n    let mvarId \u2190 getMainGoal\n    let (result?, stats) \u2190 dsimpGoal mvarId ctx simprocs (simplifyTarget := simplifyTarget) (fvarIdsToSimp := fvarIdsToSimp)\n    match result? with\n    | none => replaceMainGoal []\n    | some mvarId => replaceMainGoal [mvarId]\n    if tactic.simp.trace.get (\u2190 getOptions) then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "simpParamsPos"
+  }
+}

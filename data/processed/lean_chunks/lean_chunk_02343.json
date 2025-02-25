@@ -1,0 +1,10 @@
+{
+  "content": "structure S (\u03b1 \u03b2 : Type _) where\n  a : \u03b1\n  b : \u03b2\nattribute [local ext] S\nattribute [local ext] S.ext\n#guard_msgs in #check S.ext\n#guard_msgs in #check S.ext_iff\nend Ex0\nsection Ex1\nsection\n@[local ext] structure S1 (\u03b1 \u03b2 : Type _) where\n  a : \u03b1\n  b : \u03b2\n#guard_msgs in #check S1.ext\nexample (x y : S1 Unit Unit) : x = y := by ext\nend\n#guard_msgs in example (x y : S1 Unit Unit) : x = y := by ext\nend Ex1\nsection Ex2\nstructure S2 (\u03b1 \u03b2 : Type _) where\n  a : \u03b1\n  b : \u03b2\nsection\n@[local ext] private theorem S2_ext {x y : S2 \u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3643.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3643.lean",
+    "definition_name": "S",
+    "has_proof": true
+  }
+}

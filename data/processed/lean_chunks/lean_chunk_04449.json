@@ -1,0 +1,9 @@
+{
+  "content": "structure FloatArray where\n  data : Array Float\nattribute [extern \"lean_float_array_mk\"] FloatArray.mk\nattribute [extern \"lean_float_array_data\"] FloatArray.data\nnamespace FloatArray\n@[extern \"lean_mk_empty_float_array\"]\ndef mkEmpty (c : @& Nat) : FloatArray :=\n  { data := #[] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/FloatArray/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/FloatArray/Basic.lean",
+    "definition_name": "FloatArray"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "| whileFalse heq =>\n    exact Bigstep.whileFalse heq\n  | ifTrue heq h ih =>\n    exact Bigstep.ifTrue (Expr.eval_constProp_of_eq_of_sub heq h\u2082) (ih h\u2082)\n  | ifFalse heq h ih =>\n    exact Bigstep.ifFalse (Expr.eval_constProp_of_eq_of_sub heq h\u2082) (ih h\u2082)\ndef Stmt.constPropagation (s : Stmt) : Stmt :=\n  (s.constProp \u22a5).1\ntheorem Stmt.constPropagation_correct (h : (\u03c3, s) \u21d3 \u03c3') : (\u03c3, s.constPropagation) \u21d3 \u03c3' :=\n  constProp_correct h (State.bot_le _)\ndef example4 := `[Stmt|\n  x := 2;\n  if (x < 3) {\n    x := x + 1;\n    y := y + x;\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Stmt",
+    "has_proof": true
+  }
+}

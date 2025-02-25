@@ -1,0 +1,9 @@
+{
+  "content": "structure InfoPopup where\n  type : Option CodeWithInfos\n  doc : Option String\n  deriving Inhabited, RpcEncodable\ndef makePopup : WithRpcRef InfoWithCtx \u2192 RequestM (RequestTask InfoPopup)\n  | \u27e8i\u27e9 => RequestM.pureTask do\n    i.ctx.runMetaM i.info.lctx do\n      let type? \u2190 match (\u2190 i.info.type?) with\n        | some type => some <$> ppExprTagged type\n        | none => pure none\n      let exprExplicit? \u2190 match i.info with\n        | Elab.Info.ofTermInfo ti\n        | Elab.Info.ofDelabTermInfo { toTermInfo := ti, explicit := true, ..}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/WidgetRequests.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/WidgetRequests.lean",
+    "definition_name": "InfoPopup"
+  }
+}

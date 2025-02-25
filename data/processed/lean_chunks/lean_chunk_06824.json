@@ -1,0 +1,9 @@
+{
+  "content": "inductive IntroResult where\n  | done\n  | newHyp (fvarId : FVarId) (goal : Goal)\n  | newDepHyp (goal : Goal)\n  | newLocal (fvarId : FVarId) (goal : Goal)\n  deriving Inhabited\nprivate def preprocessHypothesis (e : Expr) : GoalM Simp.Result := do\n  if isMatchCondCandidate e then\n    preprocess (markAsPreMatchCond e)\n  else\n    preprocess e\nprivate def mkBaseName (name : Name) (type : Expr) : MetaM Name := do\n  if let .str _ s := name then\n    let pos := s.find (\u00b7 == '_')\n    unless pos < s.endPos do\n      return Name.mkSimple s\n    let suffix := s.extract (pos+'_') s.endPos\n    unless suffix.isNat do\n      return Name.mkSimple s\n    let s := s.extract \u27e80\u27e9 pos\n    unless s == \"\" do\n      return Name.mkSimple s\n  if (\u2190 isProp type) then return `h else return `x\nprivate def mkCleanName (name : Name) (type : Expr) : GoalM Name := do\n  unless (\u2190 getConfig).clean do\n    return name\n  let mut name := name\n  if name.hasMacroScopes then\n    name := name.eraseMacroScopes",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Intro.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Intro.lean",
+    "definition_name": "IntroResult"
+  }
+}

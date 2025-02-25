@@ -1,0 +1,10 @@
+{
+  "content": "def Poly.mul (p\u2081 : Poly) (p\u2082 : Poly) : Poly :=\n  go p\u2081 []\nwhere\n  go (p\u2081 : Poly) (acc : Poly) : Poly :=\n    match p\u2081 with\n    | [] => acc\n    | (k, m) :: p\u2081 => go p\u2081 (acc.add (p\u2082.mulMon k m))\ndef Poly.neg (p : Poly) : Poly :=\n  match p with\n  | [] => []\n  | (k, v) :: p => ((-1)*k, v) :: neg p\ndef Expr.toPoly : Expr \u2192 Poly\n  | num k   => bif k == 0 then [] else [(k, [])]\n  | var v   => [(1, [v])]\n  | add a b => a.toPoly.add b.toPoly\n  | mul a b => a.toPoly.mul b.toPoly\n  | sub a b => a.toPoly.add b.toPoly.neg\nopen Env\ntheorem Mon.append_denote (ctx : Context \u03b1) (m\u2081 m\u2082 : Mon) : (m\u2081 ++ m\u2082).denote ctx = ctx.mul (m\u2081.denote ctx) (m\u2082.denote ctx) := by\n  match m\u2081 with\n  | [] => simp! [one_mul]\n  | v :: m\u2081 => simp! [append_denote ctx m\u2081 m\u2082, mul_assoc]\ntheorem Mon.mul_denote (ctx : Context \u03b1) (m\u2081 m\u2082 : Mon) : (m\u2081.mul m\u2082).denote ctx = ctx.mul (m\u2081.denote ctx) (m\u2082.denote ctx) :=\n  go hugeFuel m\u2081 m\u2082\nwhere",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/som.lean",
+    "definition_name": "hugeFuel",
+    "has_proof": true
+  }
+}

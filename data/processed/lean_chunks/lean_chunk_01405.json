@@ -1,0 +1,9 @@
+{
+  "content": "class EquivLike (E : Sort _) (\u03b1 \u03b2 : outParam (Sort _)) where\n  coe : E \u2192 \u03b1 \u2192 \u03b2\n  inv : E \u2192 \u03b2 \u2192 \u03b1\nnamespace EquivLike\nvariable {E \u03b1 \u03b2 : Sort _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "EquivLike"
+  }
+}

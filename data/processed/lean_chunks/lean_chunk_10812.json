@@ -1,0 +1,9 @@
+{
+  "content": "buildFileUnlessUpToDate' dynlib do\n      let lean \u2190 getLeanInstall\n      let baseArgs :=\n        if System.Platform.isOSX then\n          #[s!\"-Wl,-force_load,{staticLib}\"]\n        else\n#[\"-Wl,\n      let args := baseArgs ++ weakArgs ++ traceArgs ++ lean.ccLinkSharedFlags\n      compileSharedLib dynlib args lean.cc\n    return dynlib",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "platformTrace"
+  }
+}

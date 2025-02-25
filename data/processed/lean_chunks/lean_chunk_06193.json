@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  mvarId        : MVarId\n  mvarDecl      : MetavarDecl\n  fvars         : Array Expr\n  hasCtxLocals  : Bool\n  rhs           : Expr\nabbrev CheckAssignmentM := ReaderT Context $ StateRefT State MetaM\ndef throwCheckAssignmentFailure : CheckAssignmentM \u03b1 :=\n  throw <| Exception.internal checkAssignmentExceptionId\ndef throwOutOfScopeFVar : CheckAssignmentM \u03b1 :=\n  throw <| Exception.internal outOfScopeExceptionId\nprivate def findCached? (e : Expr) : CheckAssignmentM (Option Expr) := do\n  return (\u2190 get).cache.get? e\nprivate def cache (e r : Expr) : CheckAssignmentM Unit := do\n  modify fun s => { s with cache := s.cache.insert e r }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ExprDefEq.lean",
+    "definition_name": "Context"
+  }
+}

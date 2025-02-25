@@ -1,0 +1,9 @@
+{
+  "content": "inductive Fin2 : Nat \u2192 Type\n| zero (n : Nat)              : Fin2 (n+1)\n| succ {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj2.lean",
+    "definition_name": "Fin2"
+  }
+}

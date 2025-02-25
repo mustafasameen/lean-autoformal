@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkConstCached_le_size (aig : AIG \u03b1) (val : Bool) :\n    aig.decls.size \u2264 (aig.mkConstCached val).aig.decls.size := by\n  dsimp only [mkConstCached]\n  split\n  \u00b7 simp\n  \u00b7 simp +arith\ninstance : LawfulOperator \u03b1 (fun _ => Bool) mkConstCached where\n  le_size := mkConstCached_le_size\n  decl_eq := by\n    intros\n    apply mkConstCached_decl_eq\n@[simp]\ntheorem mkConstCached_eval_eq_mkConst_eval {aig : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_name": "mkConstCached_le_size",
+    "has_proof": true
+  }
+}

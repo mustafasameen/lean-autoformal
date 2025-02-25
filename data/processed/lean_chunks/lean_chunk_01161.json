@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  val : String\n  len : Nat := val.length\n  inv : val.length = len := by next => decide\n#guard_msgs in\ndef test2 : Foo := {\n  val := \"abc\"\n  len := 5\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/autoparam.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/autoparam.lean",
+    "definition_name": "Foo"
+  }
+}

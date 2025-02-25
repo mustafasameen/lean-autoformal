@@ -1,0 +1,10 @@
+{
+  "content": "theorem srem_eq (x y : BitVec w) : srem x y =\n  match x.msb, y.msb with\n  | false, false => x % y\n  | false, true  => x % (-y)\n  | true,  false => - ((-x) % y)\n  | true,  true  => -((-x) % (-y)) := by\n  rw [BitVec.srem]\n  rcases x.msb <;> rcases y.msb <;> simp\ntheorem smod_eq (x y : BitVec w) : x.smod y =\n  match x.msb, y.msb with\n  | false, false => x.umod y\n  | false, true =>\n    let u := x.umod (- y)\n    (if u = 0#w then u else u + y)\n  | true, false =>\n    let u := umod (- x) y\n    (if u = 0#w then u else y - u)\n  | true, true => - ((- x).umod (- y)) := by\n  rw [BitVec.smod]\n  rcases x.msb <;> rcases y.msb <;> simp\n@[bitvec_to_nat]\ntheorem toNat_smod {x y : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "srem_eq",
+    "has_proof": true
+  }
+}

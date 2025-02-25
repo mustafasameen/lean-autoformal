@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex4 (p : Prop) (h : p) : (let n := 10; fun x : { z : Nat // z < n }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simpZetaFalse.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simpZetaFalse.lean",
+    "definition_name": "ex4",
+    "has_proof": false
+  }
+}

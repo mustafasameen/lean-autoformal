@@ -1,0 +1,9 @@
+{
+  "content": "class Backtrackable (\u03b4 : outParam (Type u)) (\u03c3 : Type u) where\n  restore : \u03c3 \u2192 \u03b4 \u2192 \u03c3\n@[always_inline, inline]\nprotected def orElse {\u03b4}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Backtrackable"
+  }
+}

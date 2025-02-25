@@ -1,0 +1,9 @@
+{
+  "content": "| tagged n msg            => p n || hasTag msg\n  | trace data msg msgs     => p data.cls || hasTag msg || msgs.any hasTag\n  | _                       => false\ndef kind : MessageData \u2192 Name\n  | withContext _ msg       => kind msg\n  | withNamingContext _ msg => kind msg\n  | tagged n _              => n\n  | _                       => .anonymous\ndef ofName (n : Name) : MessageData := ofFormat (format n)\ndef ofConstName (constName : Name) (fullNames : Bool := false) : MessageData :=\n  .ofLazy\n    (fun ctx? => do\n      let msg \u2190 ofFormatWithInfos <$> match ctx? with\n        | .none => pure (format constName)\n        | .some ctx =>\n          let ctx := if fullNames then { ctx with opts := ctx.opts.insert `pp.fullNames fullNames }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Message.lean",
+    "definition_name": "MessageSeverity"
+  }
+}

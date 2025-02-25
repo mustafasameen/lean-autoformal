@@ -1,0 +1,9 @@
+{
+  "content": "structure UFNode (\u03b1 : Type _) where\n  parent : Nat\n  value : \u03b1\n  rank : Nat\nstructure UnionFind (\u03b1) where\n  arr : Array (UFNode \u03b1)\ndef rankMaxAux (self : UnionFind \u03b1) : \u2200 (i : Nat),\n    {k : Nat // \u2200 j, j < i \u2192 \u2200 h, self.arr[j].rank \u2264 k}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_panic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_panic.lean",
+    "definition_name": "UFNode"
+  }
+}

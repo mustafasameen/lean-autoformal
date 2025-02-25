@@ -1,0 +1,10 @@
+{
+  "content": "| ManyConstructors.E => 4\n| ManyConstructors.F => 5\n| ManyConstructors.G => 6\n| ManyConstructors.H => 7\n| ManyConstructors.I => 8\n| ManyConstructors.J => 9\n| ManyConstructors.K => 10\n| ManyConstructors.L => 11\n| ManyConstructors.M => 12\n| ManyConstructors.N => 13\n| ManyConstructors.O => 14\n| ManyConstructors.P => 15\n| ManyConstructors.Q => 16\n| ManyConstructors.R => 17\n| ManyConstructors.S => 18\n| ManyConstructors.T => 19\n| ManyConstructors.U => 20\n| ManyConstructors.V => 21\n| ManyConstructors.W => 22\n| ManyConstructors.X => 23\n| ManyConstructors.Y => 24\n| ManyConstructors.Z => 25 := \u03bb x => rfl\nstructure Person :=\n  FirstName : String\n  LastName : String\n  Age : Nat\nderiving Hashable\nstructure Company :=\n  Name : String\n  CEO : Person\n  NumberOfEmployees : Nat\nderiving Hashable\n#eval hash {\n  Name := \"Microsoft\"\n  CEO := { FirstName := \"Satya\", LastName := \"Nadella\", Age := 53 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/hashable.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/hashable.lean",
+    "definition_name": "SimpleInd",
+    "has_proof": false
+  }
+}

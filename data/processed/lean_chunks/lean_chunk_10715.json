@@ -1,0 +1,10 @@
+{
+  "content": "theorem cmp_iff_eq [LawfulCmpEq \u03b1 cmp] : cmp a a' = .eq \u2194 a = a' :=\n  Iff.intro eq_of_cmp fun a_eq => a_eq \u25b8 cmp_rfl\nclass EqOfCmpWrt (\u03b1 : Type u) {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Compare.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Compare.lean",
+    "definition_name": "cmp_iff_eq",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive JobAction\n| replay\n| build\nderiving Inhabited, Repr, DecidableEq, Ord\ninstance : LT JobAction := ltOfOrd\ninstance : LE JobAction := leOfOrd\ninstance : Min JobAction := minOfLe\ninstance : Max JobAction := maxOfLe\ndef JobAction.merge (a b : JobAction) : JobAction :=\n  max a b\ndef JobAction.verb (failed : Bool) : JobAction \u2192 String\n| .unknown => if failed then \"Running\" else \"Ran\"\n| .replay => if failed then \"Replaying\" else \"Replayed\"\n| .fetch => if failed then \"Fetching\" else \"Fetched\"\n| .build => if failed then \"Building\" else \"Built\"\nstructure JobState where\n  action : JobAction := .unknown\ndef JobResult.prependLog (log : Log) (self : JobResult \u03b1) : JobResult \u03b1 :=\n  match self with\n  | .ok a s => .ok a <| s.modifyLog (log ++ \u00b7)\n  | .error e s => .error \u27e8log.size + e.val\u27e9 <| s.modifyLog (log ++ \u00b7)\n  task : JobTask \u03b1\n  caption : String\n@[inline] def setCaption (caption : String) (job : Job \u03b1) : Job \u03b1 :=\n  {job with caption}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Job/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Job/Basic.lean",
+    "definition_name": "JobAction"
+  }
+}

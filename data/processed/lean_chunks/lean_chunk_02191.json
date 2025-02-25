@@ -1,0 +1,9 @@
+{
+  "content": "class SupSet (\u03b1 : Type _) where\n  sSup : Set \u03b1 \u2192 \u03b1\nclass InfSet (\u03b1 : Type _) where\n  sInf : Set \u03b1 \u2192 \u03b1\nexport SupSet (sSup)\nexport InfSet (sInf)\nend Mathlib.Order.SetNotation\nsection Mathlib.Order.CompleteLattice\nvariable {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "SupSet"
+  }
+}

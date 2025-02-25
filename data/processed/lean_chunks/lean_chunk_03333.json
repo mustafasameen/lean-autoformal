@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_eq_of_eq_false {a : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_name": "not_eq_of_eq_false",
+    "has_proof": false
+  }
+}

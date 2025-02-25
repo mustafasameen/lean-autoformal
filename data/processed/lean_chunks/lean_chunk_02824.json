@@ -1,0 +1,10 @@
+{
+  "content": "export MonadWithReader (withReader)\ninstance (\u03c1 : Type u) (m : Type u \u2192 Type v) [MonadWithReaderOf \u03c1 m] : MonadWithReader \u03c1 m where\n  withReader := withTheReader \u03c1\ninstance {\u03c1 : Type u} {m : Type u \u2192 Type v} {n : Type u \u2192 Type v} [MonadFunctor m n] [MonadWithReaderOf \u03c1 m] : MonadWithReaderOf \u03c1 n where\n  withReader f := monadMap (m := m) (withTheReader \u03c1 f)\ninstance {\u03c1 : Type u} {m : Type u \u2192 Type v} : MonadWithReaderOf \u03c1 (ReaderT \u03c1 m) where\n  withReader f x := fun ctx => x (f ctx)\nclass MonadStateOf (\u03c3 : semiOutParam (Type u)) (m : Type u \u2192 Type v) where\n  set : \u03c3 \u2192 m PUnit\n  modifyGet {\u03b1 : Type u} : (\u03c3 \u2192 Prod \u03b1 \u03c3) \u2192 m \u03b1\nexport MonadStateOf (set)\nabbrev getThe (\u03c3 : Type u) {m : Type u \u2192 Type v} [MonadStateOf \u03c3 m] : m \u03c3 :=\n  MonadStateOf.get\n@[always_inline, inline]\nabbrev modifyThe (\u03c3 : Type u) {m : Type u \u2192 Type v} [MonadStateOf \u03c3 m] (f : \u03c3 \u2192 \u03c3) : m PUnit :=\n  MonadStateOf.modifyGet fun s => (PUnit.unit, f s)\n@[always_inline, inline]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem div_one (n : Nat) : n / 1 = n := by\n  have := mod_add_div n 1\n  rwa [mod_one, Nat.zero_add, Nat.one_mul] at this\n@[simp] protected theorem div_zero (n : Nat) : n / 0 = 0 := by\n  rw [div_eq]; simp [Nat.lt_irrefl]\n@[simp] protected theorem zero_div (b : Nat) : 0 / b = 0 :=\n  (div_eq 0 b).trans <| if_neg <| And.rec Nat.not_le_of_gt\ntheorem le_div_iff_mul_le (k0 : 0 < k) : x \u2264 y / k \u2194 x * k \u2264 y := by\n  induction y, k using mod.inductionOn generalizing x with\n    (rw [div_eq]; simp [h]; cases x with | zero => simp [zero_le] | succ x => ?_)\n  | base y k h =>\n    simp only [add_one, succ_mul, false_iff, Nat.not_le, Nat.succ_ne_zero]\n    refine Nat.lt_of_lt_of_le ?_ (Nat.le_add_left ..)\n    exact Nat.not_le.1 fun h' => h \u27e8k0, h'\u27e9\n  | ind y k h IH =>\n    rw [Nat.add_le_add_iff_right, IH k0, succ_mul,\n        \u2190 Nat.add_sub_cancel (x*k) k, Nat.sub_le_sub_iff_right h.2, Nat.add_sub_cancel]\nprotected theorem div_div_eq_div_mul (m n k : Nat) : m / n / k = m / (n * k) := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "div_one",
+    "has_proof": true
+  }
+}

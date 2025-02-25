@@ -1,0 +1,9 @@
+{
+  "content": "inductive TomlOutcome where\n| pass (t : Table)\n| fail (log : MessageLog)\n| error (e : IO.Error)\nnonrec def loadToml (tomlFile : FilePath) : BaseIO TomlOutcome := do\n  let fileName := tomlFile.fileName.getD tomlFile.toString\n  let input \u2190\n    match (\u2190 IO.FS.readBinFile tomlFile |>.toBaseIO) with\n    | .ok bytes =>\n      if let some input := String.fromUTF8? bytes then\n        pure input.crlfToLf\n      else\n        return .fail <| MessageLog.empty.add\n          {fileName, pos := \u27e81,0\u27e9, data := m!\"file contains invalid characters\"}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/toml/Test.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/tests/toml/Test.lean",
+    "definition_name": "TomlOutcome"
+  }
+}

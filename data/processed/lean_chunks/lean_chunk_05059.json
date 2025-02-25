@@ -1,0 +1,10 @@
+{
+  "content": "induction i generalizing l\u2081 l\u2082 with\n  | zero => simp [isPrefixOfAux_toArray_succ]\n  | succ i ih =>\n    rw [isPrefixOfAux_toArray_succ, ih]\n    simp\ntheorem isPrefixOfAux_toArray_zero [BEq \u03b1] (l\u2081 l\u2082 : List \u03b1) (hle : l\u2081.length \u2264 l\u2082.length) :\n    Array.isPrefixOfAux l\u2081.toArray l\u2082.toArray hle 0 =\n      l\u2081.isPrefixOf l\u2082 := by\n  rw [Array.isPrefixOfAux]\n  match l\u2081, l\u2082 with\n  | [], _ => rw [dif_neg] <;> simp\n  | _::_, [] => simp at hle\n  | a::l\u2081, b::l\u2082 =>\n    simp [isPrefixOf_cons\u2082, isPrefixOfAux_toArray_succ', isPrefixOfAux_toArray_zero]\n@[simp] theorem isPrefixOf_toArray [BEq \u03b1] (l\u2081 l\u2082 : List \u03b1) :\n    l\u2081.toArray.isPrefixOf l\u2082.toArray = l\u2081.isPrefixOf l\u2082 := by\n  rw [Array.isPrefixOf]\n  split <;> rename_i h\n  \u00b7 simp [isPrefixOfAux_toArray_zero]\n  \u00b7 simp only [Bool.false_eq]\n    induction l\u2081 generalizing l\u2082 with\n    | nil => simp at h\n    | cons a l\u2081 ih =>\n      cases l\u2082 with\n      | nil => simp\n      | cons b l\u2082 =>\n        simp only [isPrefixOf_cons\u2082, Bool.and_eq_false_imp]\n        intro w",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

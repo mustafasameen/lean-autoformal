@@ -1,0 +1,9 @@
+{
+  "content": "inductive type\n| bv (w:Nat) : type\nopen type\ndef value : type -> Type\n  | bv w   => {n // n < w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/csimp_type_error.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/csimp_type_error.lean",
+    "definition_name": "type"
+  }
+}

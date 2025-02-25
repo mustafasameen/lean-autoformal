@@ -1,0 +1,9 @@
+{
+  "content": "(.bool, mkBoolDecl),\n      (.prop, mkDecidablePropDecl)\n  ]\n  let stats : GenStats := { maxTermSize := 7, maxDepth := 3, maxVarCount := 2 }\n  let tac : Syntax.Tactic \u2190 `(tactic|try simp)\n  runGen stx BoolVal.simp varGen BoolVal.var stats types ops (topOps := ops) tac\nset_option maxHeartbeats 10000000\n#boolTest",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/bool_exhaust_test.lean",
+    "definition_name": "boolToPropOp"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "class MonadLift (m : semiOutParam (Type u \u2192 Type v)) (n : Type u \u2192 Type w) where\nclass MonadLiftT (m : Type u \u2192 Type v) (n : Type u \u2192 Type w) where\nabbrev liftM := @monadLift\n@[always_inline]\ninstance (m n o) [MonadLift n o] [MonadLiftT m n] : MonadLiftT m o where\n  monadLift x := MonadLift.monadLift (m := n) (monadLift x)\ninstance (m) : MonadLiftT m m where\n  monadLift x := x\nclass MonadEval (m : semiOutParam (Type u \u2192 Type v)) (n : Type u \u2192 Type w) where\nclass MonadEvalT (m : Type u \u2192 Type v) (n : Type u \u2192 Type w) where\nclass MonadFunctor (m : semiOutParam (Type u \u2192 Type v)) (n : Type u \u2192 Type w) where\n  monadMap {\u03b1 : Type u} : ({\u03b2 : Type u} \u2192 m \u03b2 \u2192 m \u03b2) \u2192 n \u03b1 \u2192 n \u03b1\nclass MonadFunctorT (m : Type u \u2192 Type v) (n : Type u \u2192 Type w) where\n  monadMap {\u03b1 : Type u} : ({\u03b2 : Type u} \u2192 m \u03b2 \u2192 m \u03b2) \u2192 n \u03b1 \u2192 n \u03b1\nexport MonadFunctorT (monadMap)\n@[always_inline]\ninstance (m n o) [MonadFunctor n o] [MonadFunctorT m n] : MonadFunctorT m o where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

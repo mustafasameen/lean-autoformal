@@ -1,0 +1,9 @@
+{
+  "content": "@[combinator_parenthesizer checkWsBefore] def checkWsBefore.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkNoWsBefore] def checkNoWsBefore.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkLinebreakBefore] def checkLinebreakBefore.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkTailWs] def checkTailWs.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkColEq] def checkColEq.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkColGe] def checkColGe.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkColGt] def checkColGt.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkLineEq] def checkLineEq.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer eoi] def eoi.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkNoImmediateColon] def checkNoImmediateColon.parenthesizer : Parenthesizer := pure ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_name": "rawIdentNoAntiquot"
+  }
+}

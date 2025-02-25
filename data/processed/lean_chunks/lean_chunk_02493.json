@@ -1,0 +1,9 @@
+{
+  "content": "class HasSubset (\u03b1 : Type u) where\nclass HasSSubset (\u03b1 : Type u) where\nabbrev Superset [HasSubset \u03b1] (a b : \u03b1) := Subset b a\nclass Union (\u03b1 : Type u) where\nclass Inter (\u03b1 : Type u) where\nclass SDiff (\u03b1 : Type u) where\n  sdiff : \u03b1 \u2192 \u03b1 \u2192 \u03b1\ninfix:50 \" \u2282 \" => SSubset\ninfix:50 \" \u2283 \" => SSuperset\ninfixl:70 \" \u2229 \" => Inter.inter\ninfix:70 \" \\\\ \" => SDiff.sdiff\nrecommended_spelling \"subset\" for \"\u2286\" in [Subset, \u00abterm_\u2286_\u00bb]\nrecommended_spelling \"ssubset\" for \"\u2282\" in [SSubset, \u00abterm_\u2282_\u00bb]\nrecommended_spelling \"ssuperset\" for \"\u2283\" in [SSuperset, \u00abterm_\u2283_\u00bb]\nrecommended_spelling \"union\" for \"\u222a\" in [Union.union, \u00abterm_\u222a_\u00bb]\nrecommended_spelling \"inter\" for \"\u2229\" in [Inter.inter, \u00abterm_\u2229_\u00bb]\nrecommended_spelling \"sdiff\" for \"\\\\\" in [SDiff.sdiff, \u00abterm_\\_\u00bb]\nclass EmptyCollection (\u03b1 : Type u) where\n  emptyCollection : \u03b1\n@[inherit_doc] notation \"{\" \"}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "HasSubset"
+  }
+}

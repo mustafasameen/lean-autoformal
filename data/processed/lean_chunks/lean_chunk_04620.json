@@ -1,0 +1,10 @@
+{
+  "content": "| .add k' v' p => .add k' v' (addConst p k)\ndef Poly.insert (k : Int) (v : Var) (p : Poly) : Poly :=\n  match p with\n  | .num k' => .add k v (.num k')\n  | .add k' v' p =>\n    bif Nat.blt v' v then\n      .add k v <| .add k' v' p\n    else bif Nat.beq v v' then\n      if Int.add k k' == 0 then\n        p\n      else\n        .add (Int.add k k') v' p\n    else\n      .add k' v' (insert k v p)\ndef Expr.toPoly' (e : Expr) : Poly :=\n  go 1 e (.num 0)\nwhere\n  go (coeff : Int) : Expr \u2192 (Poly \u2192 Poly)\n    | .num k    => bif k == 0 then id else (Poly.addConst \u00b7 (Int.mul coeff k))\n    | .var v    => (.add coeff v \u00b7)\n    | .add a b  => go coeff a \u2218 go coeff b\n    | .sub a b  => go coeff a \u2218 go (-coeff) b\n    | .mulL k a\n    | .mulR a k => bif k == 0 then id else go (Int.mul coeff k) a\n    | .neg a    => go (-coeff) a\ndef cdiv (a b : Int) : Int :=\n  -((-a)/b)\ndef cmod (a b : Int) : Int :=\n  -((-a)%b)\ntheorem cdiv_add_cmod (a b : Int) : b*(cdiv a b) + cmod a b = a := by\n  unfold cdiv cmod",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

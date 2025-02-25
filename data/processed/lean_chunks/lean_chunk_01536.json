@@ -1,0 +1,10 @@
+{
+  "content": "theorem iff_of_true' (ha : a) (hb : b) : a \u2194 b := \u27e8fun _ => hb, fun _ => ha\u27e9\ntheorem iff_true_intro' (h : a) : a \u2194 True := iff_of_true h \u27e8\u27e9\nexample {P : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1549.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1549.lean",
+    "definition_name": "iff_of_true",
+    "has_proof": false
+  }
+}

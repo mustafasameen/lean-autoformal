@@ -1,0 +1,10 @@
+{
+  "content": "inductive Impl where\n  | inner (l r : Impl)\n  | leaf\nnamespace Impl\ninductive Balanced : Impl \u2192 Prop where\n  | leaf : Balanced leaf\n@[inline]\ndef balanceLErase (r : Impl) (hrb : Balanced r) : Impl :=\n  match r with\n  | leaf => .leaf\n  | l@(inner _ _) =>\n    match l with\n    | leaf => .leaf\n    | r@(inner ll lr) =>\n        if true then\n          match ll, lr with\n          | inner _ _, inner _ _ => .leaf\n          | _, _ => .leaf\n        else .leaf\ntheorem size_balanceLErase {r : Impl}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6067.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6067.lean",
+    "definition_name": "Impl",
+    "has_proof": false
+  }
+}

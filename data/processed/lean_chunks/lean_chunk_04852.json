@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_concat_length : \u2200 (l : List \u03b1) (a : \u03b1) (i) (_ : i = l.length) (w), (l ++ [a])[i]'w = a\n  | [], a, _, h, _ => by subst h; simp\n  | _ :: l, a, _, h, _ => by simp [getElem_concat_length, h]\ntheorem getElem?_concat_length (l : List \u03b1) (a : \u03b1) : (l ++ [a])[l.length]? = some a := by\n  simp\n@[simp] theorem getD_eq_getElem?_getD (l) (i) (a : \u03b1) : getD l i a = (l[i]?).getD a := by\n  simp [getD]\ntheorem getD_cons_zero : getD (x :: xs) 0 d = x := by simp\ntheorem getD_cons_succ : getD (x :: xs) (n + 1) d = getD xs n d := by simp\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]!` instead.\" (since := \"2025-02-12\")]\ntheorem get!_eq_getD [Inhabited \u03b1] : \u2200 (l : List \u03b1) i, l.get! i = l.getD i default\n  | [], _      => rfl\n  | _a::_, 0   => by simp [get!]\n  | _a::l, n+1 => by simpa using get!_eq_getD l n\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]!` instead.\" (since := \"2025-02-12\"), simp]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "getElem_concat_length",
+    "has_proof": true
+  }
+}

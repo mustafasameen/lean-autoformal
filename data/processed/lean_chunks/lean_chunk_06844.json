@@ -1,0 +1,9 @@
+{
+  "content": "go [goal] []\nwhere\n  go (todo : List Goal) (result : List Goal) : GrindM (List Goal) := do\n    match todo with\n    | [] => return result\n    | goal :: todo =>\n      if let some goalsNew \u2190 x goal then\n        go (goalsNew ++ todo) result\n      else\n        go todo (goal :: result)\npartial def GrindTactic.orElse (x y : GrindTactic) : GrindTactic := fun goal => do\n  let some goals \u2190 x goal | y goal\n  return goals\ninstance : OrElse GrindTactic where\n  orElse a b := GrindTactic.andThen a (b ())\ndef toGrindTactic (f : GoalM Unit) : GrindTactic := fun goal => do\n  let goal \u2190 GoalM.run' goal f\n  if goal.inconsistent then\n    return some []\n  else\n    return some [goal]\ndef GrindTactic' := Goal \u2192 GrindM (List Goal)\ndef GrindTactic'.toGrindTactic (x : GrindTactic') : GrindTactic := fun goal => do\n  let goals \u2190 x goal\n  return some goals\nend Lean.Meta.Grind",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Combinators.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Combinators.lean",
+    "definition_name": "GrindTactic"
+  }
+}

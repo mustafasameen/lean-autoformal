@@ -1,0 +1,10 @@
+{
+  "content": "theorem getEntry?_insertListIfNewUnit_of_contains_eq_false [BEq \u03b1] [PartialEquivBEq \u03b1]\n    {l : List ((_ : \u03b1) \u00d7 Unit)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "getEntry",
+    "has_proof": false
+  }
+}

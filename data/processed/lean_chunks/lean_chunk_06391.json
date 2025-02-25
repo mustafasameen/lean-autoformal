@@ -1,0 +1,9 @@
+{
+  "content": "structure ToParserDescrContext where\n  catName  : Name\n  first    : Bool\nleftRec  : Bool\ndef addCategoryInfo (ref : Syntax) (catName : Name) : TermElabM Unit := do\n  let declName := ``Lean.Parser.Category ++ catName\n  if (\u2190 getEnv).contains declName then\n    addTermInfo' ref (Lean.mkConst declName)\npartial def toParserDescr (stx : Syntax) (catName : Name) : TermElabM (Term \u00d7 Option Nat) := do\n  let env \u2190 getEnv\n  let behavior := Parser.leadingIdentBehavior env catName\n  let ((newStx, _), lhsPrec?) \u2190 (process stx { catName := catName, first := true, leftRec := true, behavior := behavior }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Syntax.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Syntax.lean",
+    "definition_name": "ToParserDescrContext"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance hasQuotient : HasQuotient M (Submodule R M) :=\n  \u27e8fun p => Quotient (quotientRel p)\u27e9\nnamespace Quotient\ndef mk {p : Submodule R M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "hasQuotient"
+  }
+}

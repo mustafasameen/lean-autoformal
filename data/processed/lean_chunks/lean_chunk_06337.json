@@ -1,0 +1,9 @@
+{
+  "content": "return { structName := parent.structName, subobject := false, projFn := declName }\nprivate def mkRemainingProjections (levelParams : List Name) (params : Array Expr) (view : StructView)\n    (parents : Array StructParentInfo) (fieldInfos : Array StructFieldInfo) : TermElabM (Array StructureParentInfo) := do\n  let structType := mkAppN (Lean.mkConst view.declName (levelParams.map mkLevelParam)) params\n  withLocalDeclD `self structType fun source => do\n    let mut parentInfos := #[]\n    let mut parentFVarToConst : ExprMap Expr := {}\n    for h : i in [0:parents.size] do\n      let parent := parents[i]\n      let parentInfo : StructureParentInfo \u2190 (do\n        if parent.subobject then\n          let some info := fieldInfos.find? (\u00b7.kind == .subobject parent.structName) | unreachable!\n          pure { structName := parent.structName, subobject := true, projFn := info.declName }\n        else\n          let parent_type := (\u2190 instantiateMVars parent.type).replace fun e => parentFVarToConst[e]?",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

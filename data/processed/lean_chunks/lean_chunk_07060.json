@@ -1,0 +1,9 @@
+{
+  "content": "edits : TextEditBatch\n  deriving ToJson, FromJson\nstructure ChangeAnnotation where\n  label             : String\n  description?      : Option String := none\n  deriving ToJson, FromJson\nstructure DeleteFile.Options where\n  recursive : Bool := false\n  ignoreIfNotExists := false\n  deriving ToJson, FromJson\nstructure CreateFile where\n  uri           : DocumentUri\n  options?      : Option CreateFile.Options := none\n  annotationId? : Option String := none\n  deriving ToJson, FromJson\nstructure RenameFile where\n  oldUri        : DocumentUri\n  newUri        : DocumentUri\n  options?      : Option CreateFile.Options := none\n  annotationId? : Option String := none\n  deriving ToJson, FromJson\nstructure DeleteFile where\n  uri           : DocumentUri\n  options?      : Option DeleteFile.Options := none\n  annotationId? : Option String := none\n  deriving ToJson, FromJson\ninductive DocumentChange where\n  | create : CreateFile       \u2192 DocumentChange\n  | rename : RenameFile       \u2192 DocumentChange",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_name": "Position"
+  }
+}

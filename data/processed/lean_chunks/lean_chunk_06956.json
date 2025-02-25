@@ -1,0 +1,9 @@
+{
+  "content": "for _ in [:ctorVal.numParams] do\n      ctorArgs := ctorArgs.push (\u2190 `(_))\n    for _ in [:ctorVal.numFields] do\n      ctorArgs := ctorArgs.push (\u2190 ``(Inhabited.default))\n    let val \u2190 `(\u27e8@$(mkIdent ctorName):ident $ctorArgs*\u27e9)\n    `(instance $binders:bracketedBinder* : $type := $val)\n  mkInstanceCmd? : TermElabM (Option Syntax) := do\n    let ctorVal \u2190 getConstInfoCtor ctorName\n    forallTelescopeReducing ctorVal.type fun xs _ =>\n      addLocalInstancesForParams xs[:ctorVal.numParams] fun localInst2Index => do\n        let mut usedInstIdxs := {}\n        let mut ok := true\n        for h : i in [ctorVal.numParams:xs.size] do\n          let x := xs[i]\n          let instType \u2190 mkAppM `Inhabited #[(\u2190 inferType x)]\n          trace[Elab.Deriving.inhabited] \"checking {instType} for '{ctorName}'\"\n          match (\u2190 trySynthInstance instType) with\n          | LOption.some e =>\n            usedInstIdxs := collectUsedLocalsInsts usedInstIdxs localInst2Index e\n          | _ =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

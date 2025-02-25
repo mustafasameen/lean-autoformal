@@ -1,0 +1,10 @@
+{
+  "content": "@[extern \"lean_nat_abs\"]\ndef natAbs (m : @& Int) : Nat :=\n  match m with\n  | ofNat m => m\n  | -[m +1] => m.succ\ndef sign : Int \u2192 Int\n  | Int.ofNat (succ _) => 1\n  | Int.ofNat 0 => 0\n  | -[_+1]      => -1\ndef toNat : Int \u2192 Nat\n  | ofNat n   => n\n  | negSucc _ => 0\ndef toNat' : Int \u2192 Option Nat\n  | (n : Nat) => some n\n  | -[_+1] => none\ninstance : Dvd Int where\n  dvd a b := Exists (fun c => b = a * c)\nprotected def pow (m : Int) : Nat \u2192 Int\n  | 0      => 1\n  | succ n => Int.pow m n * m\ninstance : NatPow Int where\n  pow := Int.pow\ninstance : LawfulBEq Int where\n  eq_of_beq h := by simp [BEq.beq] at h; assumption\n  rfl := by simp [BEq.beq]\ninstance : Min Int := minOfLe\ninstance : Max Int := maxOfLe\nend Int\nclass IntCast (R : Type u) where\n@[coe, reducible, match_pattern] protected def Int.cast {R : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_name": "default_eq_zero",
+    "has_proof": true
+  }
+}

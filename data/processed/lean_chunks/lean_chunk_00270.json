@@ -1,0 +1,9 @@
+{
+  "content": "structure Boo (\u03b1 : Type) where\nx : Nat\n    y : Bool\n| node : List (Tree \u03b1) \u2192 Tree \u03b1\ndef test (x : Nat) : Nat :=\n  aux x + 1\nwhere\n  aux x := x + 2\nend Bla\ndef f (x : Nat) : IO Nat := do\nlet rec\nfoo\n    | 0   => 1\n    | x+1 => foo x + 2\n  foo x\nopen Lean\ndef printDocString (declName : Name) : MetaM Unit := do\n  match (\u2190 findDocString? (\u2190 getEnv) declName) with\n  | some docStr => IO.println (repr docStr)\n  | none => IO.println s!\"doc string for '{declName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/docStr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/docStr.lean",
+    "definition_name": "Boo"
+  }
+}

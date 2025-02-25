@@ -1,0 +1,9 @@
+{
+  "content": "def smartUnfoldingSuffix := \"_sunfold\"\n@[inline] def mkSmartUnfoldingNameFor (declName : Name) : Name :=\n  Name.mkStr declName smartUnfoldingSuffix\ndef hasSmartUnfoldingDecl (env : Environment) (declName : Name) : Bool :=\n  env.contains (mkSmartUnfoldingNameFor declName)\nregister_builtin_option smartUnfolding : Bool := {\n  defValue := true\n  descr := \"when computing weak head normal form, use auxiliary definition created for functions defined by structural recursion\"\n}\ndef markSmartUnfoldingMatchAlt (e : Expr) : Expr :=\n  mkAnnotation `sunfoldMatchAlt e\ndef smartUnfoldingMatchAlt? (e : Expr) : Option Expr :=\n  annotation? `sunfoldMatchAlt e\nprivate def getConstInfo? (declName : Name) (ignoreTransparency : Bool) : MetaM (Option ConstantInfo) := do\n  if ignoreTransparency then\n    return (\u2190 getEnv).find? declName\n  else\n    getUnfoldableConst? declName\nprivate def getConstInfoNoEx? (declName : Name) (ignoreTransparency : Bool) : MetaM (Option ConstantInfo) := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

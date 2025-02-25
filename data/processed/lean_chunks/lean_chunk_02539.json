@@ -1,0 +1,9 @@
+{
+  "content": "`(letI $(HygieneInfo.mkIdent hy `this (canonical := true)) $bs* $[: $ty]? := $val; $body)\n  | `(letI _ $bs* := $val; $body) => `(letI x $bs* : _ := $val; $body)\n  | `(letI _ $bs* : $ty := $val; $body) => `(letI x $bs* : $ty := $val; $body)\n  | `(letI $x:ident $bs* := $val; $body) => `(letI $x $bs* : _ := $val; $body)\n| `(letI $_:ident $_* : $_ := $_; $_) => Lean.Macro.throwUnsupported\nnamespace Lean\nsyntax cdotTk := patternIgnore(\"\u00b7 \" <|> \". \")\nsyntax (name := solveTactic) \"solve\" withPosition((ppDedent(ppLine) colGe \"| \" tacticSeq)+) : tactic\nmacro_rules\n  | `(tactic| solve $[| $ts]* ) => `(tactic| focus first $[| ($ts); done]*)\nmacro:50 e:term:51 \" matches \" p:sepBy1(term:51, \" | \") : term =>\n  `(((match $e:term with | $[$p:term]|* => true | _ => false) : Bool))\nend Lean\n@[app_unexpander singleton]\ndef singletonUnexpander : Lean.PrettyPrinter.Unexpander\n  | `($_ $a) => `({ $a:term }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/NotationExtra.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/NotationExtra.lean",
+    "definition_name": "abbrev"
+  }
+}

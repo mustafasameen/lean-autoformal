@@ -1,0 +1,9 @@
+{
+  "content": "def date\u2081 := zoned(\"2014-06-16T03:03:03-03:00\")\ndef time\u2081 := time(\"14:11:01\")\ndef time\u2082 := time(\"03:11:01\")\n#guard_msgs in\n#eval FullDayTimeZone.format date\u2081.toDateTime\ndef tm := date\u2081.toTimestamp\ndef date\u2082 := DateTime.ofTimestamp tm brTZ\n#guard_msgs in\n#eval FullDayTimeZone.format date\u2082\ndef tm\u2083 := date\u2081.toTimestamp\ndef date\u2083 := DateTime.ofTimestamp tm\u2083 brTZ\n#guard_msgs in\n#eval FullDayTimeZone.format date\u2083\ndef tm\u2084 : Second.Offset := 1723739292\ndef dateBR := DateTime.ofTimestamp (Timestamp.ofSecondsSinceUnixEpoch tm\u2084) brTZ\ndef dateJP := DateTime.ofTimestamp (Timestamp.ofSecondsSinceUnixEpoch tm\u2084) jpTZ\ndef dateUTC := DateTime.ofTimestamp (Timestamp.ofSecondsSinceUnixEpoch tm\u2084) .UTC\n#guard_msgs in\n#eval FullDayTimeZone.format dateBR\n#guard_msgs in\n#eval FullDayTimeZone.format dateJP\n#guard_msgs in\n#eval FullDayTimeZone.format (dateUTC.convertTimeZone brTZ)\n#guard_msgs in\n#eval FullDayTimeZone.format (dateJP.convertTimeZone brTZ)\n#guard_msgs in\n#eval FullDayTimeZone.format dateUTC",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_name": "date\u2081"
+  }
+}

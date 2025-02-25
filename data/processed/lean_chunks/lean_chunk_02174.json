@@ -1,0 +1,9 @@
+{
+  "content": "inductive A (\u03b2 : Type v)\n| nil\n| protected cons : \u03b1 \u2192 \u03b2 \u2192 A \u03b2 \u2192 A \u03b2\n#check @A.cons\n#check A.nil (\u03b1 := Nat) (\u03b2 := Bool)\nmutual\n  inductive isEven : Nat \u2192 Prop\n  | z : isEven 0\n  | s (n : Nat) : isOdd n \u2192 isEven (n+1)\n  inductive isOdd : Nat \u2192 Prop\n  | s (n : Nat) : isEven n \u2192 isOdd (n+1)\nend\n#check isEven\n#check isOdd.s\n#check @isEven.rec\ninductive V (\u03b1 : Type _) : Nat \u2192 Type _\n| nil  : V \u03b1 0\n| cons {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive1.lean",
+    "definition_name": "A"
+  }
+}

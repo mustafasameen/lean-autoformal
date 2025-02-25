@@ -1,0 +1,9 @@
+{
+  "content": "Syntax.node info kind (Array.mkArray6 a\u2081 a\u2082 a\u2083 a\u2084 a\u2085 a\u2086)\ndef Syntax.node8 (info : SourceInfo) (kind : SyntaxNodeKind) (a\u2081 a\u2082 a\u2083 a\u2084 a\u2085 a\u2086 a\u2087 a\u2088 : Syntax) : Syntax :=\n  Syntax.node info kind (Array.mkArray8 a\u2081 a\u2082 a\u2083 a\u2084 a\u2085 a\u2086 a\u2087 a\u2088)\nstructure TSyntax (ks : SyntaxNodeKinds) where\nabbrev choiceKind : SyntaxNodeKind := `choice\nabbrev groupKind : SyntaxNodeKind := `group\nabbrev identKind : SyntaxNodeKind := `ident\nabbrev charLitKind : SyntaxNodeKind := `char\nabbrev scientificLitKind : SyntaxNodeKind := `scientific\nabbrev fieldIdxKind : SyntaxNodeKind := `fieldIdx\nabbrev hygieneInfoKind : SyntaxNodeKind := `hygieneInfo\nabbrev interpolatedStrLitKind : SyntaxNodeKind := `interpolatedStrLitKind\nabbrev interpolatedStrKind : SyntaxNodeKind := `interpolatedStrKind\n@[inline] def mkNullNode (args : Array Syntax := Array.empty) : Syntax :=\n  mkNode nullKind args |>.raw\nnamespace Syntax\ndef getKind (stx : Syntax) : SyntaxNodeKind :=\n  match stx with\n  | Syntax.node _ k _    => k",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "nonBacktrackable"
+  }
+}

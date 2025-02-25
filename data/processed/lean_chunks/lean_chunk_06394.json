@@ -1,0 +1,9 @@
+{
+  "content": "def ArrayStxBuilder := Sum (Array Term) Term\nnamespace ArrayStxBuilder\ndef empty : ArrayStxBuilder := .inl #[]\ndef build : ArrayStxBuilder \u2192 Term\n  | .inl elems => quote elems\n  | .inr arr   => arr\ndef push (b : ArrayStxBuilder) (elem : Syntax) : ArrayStxBuilder :=\n  match b with\n  | .inl elems => .inl <| elems.push elem\n  | .inr arr   => .inr <| mkCApp ``Array.push #[arr, elem]\ndef append (b : ArrayStxBuilder) (arr : Syntax) (appendName := ``Array.append) : ArrayStxBuilder :=\n  .inr <| mkCApp appendName #[b.build, arr]\ndef mkNode (b : ArrayStxBuilder) (k : SyntaxNodeKind) : TermElabM Term := do\n  let k := quote k\n  match b with\n  | .inl #[a\u2081] => `(Syntax.node1 info $(k) $(a\u2081))\n  | .inl #[a\u2081, a\u2082] => `(Syntax.node2 info $(k) $(a\u2081) $(a\u2082))\n  | .inl #[a\u2081, a\u2082, a\u2083] => `(Syntax.node3 info $(k) $(a\u2081) $(a\u2082) $(a\u2083))\n  | .inl #[a\u2081, a\u2082, a\u2083, a\u2084] => `(Syntax.node4 info $(k) $(a\u2081) $(a\u2082) $(a\u2083) $(a\u2084))\n  | .inl #[a\u2081, a\u2082, a\u2083, a\u2084, a\u2085] => `(Syntax.node5 info $(k) $(a\u2081) $(a\u2082) $(a\u2083) $(a\u2084) $(a\u2085))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation.lean",
+    "definition_name": "ArrayStxBuilder"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure instances using the '{ fieldName := fieldValue, ... }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Options.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Options.lean",
+    "definition_name": "instances"
+  }
+}

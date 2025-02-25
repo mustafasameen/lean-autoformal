@@ -1,0 +1,9 @@
+{
+  "content": "def f1\ndef f2 := 0\ndef f3 := def f4 := 0\nexample := \"a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1971.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1971.lean",
+    "definition_name": "f1"
+  }
+}

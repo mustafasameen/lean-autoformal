@@ -1,0 +1,9 @@
+{
+  "content": "error <| s!\"could not acquire an exclusive configuration lock; \" ++\n        \"another process may already be reconfiguring the package\"\n  let configHash \u2190 computeTextFileHash cfg.configFile\n  let elabConfig h (lakeOpts : NameMap String) : LogIO Environment := id do\n    match (\u2190 IO.FS.removeFile olean |>.toBaseIO) with\n    | .ok _ | .error (.noFileOrDirectory ..) =>\n      h.putStrLn <| Json.pretty <| toJson\n        {platform := System.Platform.target, leanHash := cfg.lakeEnv.leanGithash,\n          configHash, options := lakeOpts : ConfigTrace}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Lean/Elab.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Lean/Elab.lean",
+    "definition_name": "ConfigTrace"
+  }
+}

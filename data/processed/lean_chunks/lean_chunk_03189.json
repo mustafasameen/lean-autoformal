@@ -1,0 +1,9 @@
+{
+  "content": "structure Float32 where\n  val : float32Spec.float\ninstance : Nonempty Float32 := \u27e8{ val := float32Spec.val }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Float32.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Float32.lean",
+    "definition_name": "Float32"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "structure Nice (n : Nat) : Prop where\n  (large : 100 \u2264 n)\ntheorem nice_iff (n : Nat) : Nice n \u2194 100 \u2264 n := \u27e8Nice.rec id, Nice.mk\u27e9\ndef baz (n : Nat) : Decidable (Nice n) := by\n  rw [nice_iff]\n  infer_instance\ninstance : Decidable (Nice n) := baz n\n#guard_msgs in\nexample : Nice 102 := by decide\n#guard_msgs in\nexample : \u00ac Nice 102 := by decide\n#guard_msgs in\nexample (x : Nat) (h : x < 5) : x + 1 \u2264 5 := by decide\nexample (x : Nat) (h : x < 5) : x + 1 \u2264 5 := by decide +revert\ninstance (p : PUnit.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideTactic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/decideTactic.lean",
+    "definition_name": "Nice",
+    "has_proof": true
+  }
+}

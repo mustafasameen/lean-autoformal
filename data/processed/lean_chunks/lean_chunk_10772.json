@@ -1,0 +1,9 @@
+{
+  "content": "\"List available scripts\nUSAGE:\n  lake script list\nALIAS: lake scripts\nThis command prints the list of all available scripts in the workspace.\"\ndef helpScriptRun :=\n\"Run a script\nUSAGE:\n  lake script run [[<package>/]<script>] [<args>...]\nALIAS: lake run\nThis command runs the `script` of the workspace (or the specific `package`),\npassing `args` to it.\nA bare `lake run` command will run the default script(s) of the root package\n(with no arguments).\"\ndef helpScriptDoc :=\n\"Print a script's docstring\nUSAGE:\n  lake script doc [<package>/]<script>\nPrint the docstring of `script` in the workspace or the specific `package`.\"\ndef helpServe :=\n\"Start the Lean language server\nUSAGE:\nlake serve [\nRun the language server of the Lean installation (i.e., via `lean\nwith the package configuration's `moreServerArgs` field and `args`.\n\"\ndef helpEnv :=\n\"Execute a command in Lake's environment\nUSAGE:\n  lake env [<cmd>] [<args>...]\nSpawns a new process executing `cmd` with the given `args` and with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

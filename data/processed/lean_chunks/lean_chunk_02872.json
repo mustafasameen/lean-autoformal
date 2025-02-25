@@ -1,0 +1,9 @@
+{
+  "content": "inductive RProd : \u03b1 \u00d7 \u03b2 \u2192 \u03b1 \u00d7 \u03b2 \u2192 Prop where\n  | intro {a\u2081 b\u2081 a\u2082 b\u2082}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/WF.lean",
+    "definition_name": "RProd"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem prefix_refl (l : List \u03b1) : l <+: l := \u27e8[], append_nil _\u27e9\n@[simp] theorem prefix_rfl {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "prefix_refl",
+    "has_proof": false
+  }
+}

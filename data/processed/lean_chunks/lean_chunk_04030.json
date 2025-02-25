@@ -1,0 +1,10 @@
+{
+  "content": "theorem cast_setWidth (h : v = v') (x : BitVec w) :\n    (x.setWidth v).cast h = x.setWidth v' := by\n  subst h\n  ext\n  simp\n@[simp] theorem setWidth_setWidth_of_le (x : BitVec w) (h : k \u2264 l) :\n    (x.setWidth l).setWidth k = x.setWidth k := by\n  ext i\n  simp [getElem_setWidth, Fin.is_lt, decide_true, Bool.true_and]\n  omega\n@[simp] theorem setWidth_cast {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "cast_setWidth",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure LeanSemanticToken where\n  type : SemanticTokenType\n  pos     : Lsp.Position\n  type    : SemanticTokenType\n  deriving BEq, Hashable, FromJson, ToJson\ndef computeAbsoluteLspSemanticTokens\n    (text     : FileMap)\n    (beginPos : String.Pos)\n    (endPos?  : Option String.Pos)\n    (tokens   : Array LeanSemanticToken)\n    : Array AbsoluteLspSemanticToken :=\n  tokens.filterMap fun \u27e8stx, tokenType\u27e9 => do\n    let (pos, tailPos) := (\u2190 stx.getPos?, \u2190 stx.getTailPos?)\n    guard <| beginPos <= pos && endPos?.all (pos < \u00b7)\n    let (lspPos, lspTailPos) := (text.utf8PosToLspPos pos, text.utf8PosToLspPos tailPos)\n    return \u27e8lspPos, lspTailPos, tokenType\u27e9\ndef computeDeltaLspSemanticTokens (tokens : Array AbsoluteLspSemanticToken) : SemanticTokens := Id.run do\n  let tokens := tokens.qsort fun \u27e8pos1, tailPos1, _\u27e9 \u27e8pos2, tailPos2, _\u27e9 =>\n    pos1 < pos2 || pos1 == pos2 && tailPos1 <= tailPos2\n  let mut data : Array Nat := Array.mkEmpty (5*tokens.size)\n  let mut lastPos : Lsp.Position := \u27e80, 0\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/SemanticHighlighting.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/SemanticHighlighting.lean",
+    "definition_name": "LeanSemanticToken"
+  }
+}

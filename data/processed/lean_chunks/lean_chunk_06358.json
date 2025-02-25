@@ -1,0 +1,9 @@
+{
+  "content": "let i := s.pos\n  if h : input.atEnd i then s\n  else if p (input.get' i h) then s\n  else takeUntil p input (s.next' input i h)\n@[inline] def takeWhile (p : Char \u2192 Bool) : Parser :=\n  takeUntil (fun c => !p c)\n@[inline] def andthen (p q : Parser) : Parser := fun input s =>\n  let s := p input s\n  if s.error? matches some .. then s else q input s\ninstance : AndThen Parser where\n  andThen p q := andthen p (q ())\npartial def whitespace : Parser := fun input s =>\n  let i := s.pos\n  if h : input.atEnd i then s\n  else\n    let curr := input.get' i h\n    if curr == '\\t' then\n      s.mkError \"tabs are not allowed",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_name": "Parser"
+  }
+}

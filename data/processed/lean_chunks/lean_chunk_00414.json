@@ -1,0 +1,9 @@
+{
+  "content": "inductive Term\n| var : Nat \u2192 Term\n| app : String \u2192 Array Term \u2192 Term\ninstance : Inhabited Term := \u27e8Term.var 0\u27e9\ninductive Key\n| var : Key\n| sym : String \u2192 Nat \u2192 Key\ninstance : Inhabited Key := \u27e8Key.var\u27e9\ndef Key.beq : Key \u2192 Key \u2192 Bool\n| Key.var,       Key.var       => true\n| Key.sym k\u2081 a\u2081, Key.sym k\u2082 a\u2082 => k\u2081 == k\u2082 && a\u2081 == a\u2082\n| _,             _             => false\ninstance : BEq Key := \u27e8Key.beq\u27e9\ndef Key.lt : Key \u2192 Key \u2192 Bool\n| Key.var,       Key.var       => false\n| Key.var,       _             => true\n| Key.sym k\u2081 a\u2081, Key.sym k\u2082 a\u2082 => k\u2081 < k\u2082 || (k\u2081 == k\u2082 && a\u2081 < a\u2082)\n| _,             _             => false\ninstance : Less Key := \u27e8fun k\u2081 k\u2082 => k\u2081.lt k\u2082\u27e9\ndef Key.format : Key \u2192 Format\n| Key.var     => \"*\"\n| Key.sym k a => if a > 0 then k ++ \".\" ++ fmt a else k\ninstance : HasFormat Key := \u27e8Key.format\u27e9\ndef Term.key : Term \u2192 Key\n| Term.var _    => Key.var\n| Term.app f as => Key.sym f as.size\ndef Term.args : Term \u2192 Array Term\n| Term.var _    => #[]\n| Term.app f as => as",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/DiscrTree.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/DiscrTree.lean",
+    "definition_name": "Term"
+  }
+}

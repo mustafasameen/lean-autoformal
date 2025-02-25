@@ -1,0 +1,9 @@
+{
+  "content": "structure Header where\n  binders     : Array (TSyntax ``Parser.Term.bracketedBinder)\n  argNames    : Array Name\n  targetNames : Array Name\n  targetType  : Term\nopen TSyntax.Compat in\ndef mkHeader (className : Name) (arity : Nat) (indVal : InductiveVal) : TermElabM Header := do\n  let argNames      \u2190 mkInductArgNames indVal\n  let binders       \u2190 mkImplicitBinders argNames\n  let targetType    \u2190 mkInductiveApp indVal argNames\n  let mut targetNames := #[]\n  for _ in [:arity] do\n    targetNames := targetNames.push (\u2190 mkFreshUserName `x)\n  let binders      := binders ++ (\u2190 mkInstImplicitBinders className indVal argNames)\n  let binders      := binders ++ (\u2190 targetNames.mapM fun targetName => `(explicitBinderF| ($(mkIdent targetName) : $targetType)))\n  return {\n    binders     := binders\n    argNames    := argNames\n    targetNames := targetNames\n    targetType  := targetType\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_name": "Header"
+  }
+}

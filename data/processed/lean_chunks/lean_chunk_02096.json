@@ -1,0 +1,10 @@
+{
+  "content": "Nat.lt_of_le_of_lt (length_erase_le ..) (by simp +arith)\n@[simp] def State.join (\u03c3\u2081 \u03c3\u2082 : State) : State :=\n  match \u03c3\u2081 with\n  | [] => []\n  | (x, v) :: \u03c3\u2081 =>\nlet \u03c3\u2081' := erase \u03c3\u2081 x\n    have : (erase \u03c3\u2081 x).length < \u03c3\u2081.length.succ := length_erase_lt ..\n    match \u03c3\u2082.find? x with\n    | some w => if v = w then (x, v) :: join \u03c3\u2081' \u03c3\u2082 else join \u03c3\u2081' \u03c3\u2082\n    | none => join \u03c3\u2081' \u03c3\u2082\ntermination_by \u03c3\u2081.length\nlocal notation \"\u22a5\" => []\n@[simp] def Stmt.constProp (s : Stmt) (\u03c3 : State) : Stmt \u00d7 State :=\n  match s with\n  | skip => (skip, \u03c3)\n  | assign x e => match (e.constProp \u03c3).simplify with\n    | (.val v) => (assign x (.val v), \u03c3.update x v)\n    | e'       => (assign x e', \u03c3.erase x)\n  | seq s\u2081 s\u2082 => match s\u2081.constProp \u03c3 with\n    | (s\u2081', \u03c3\u2081) => match s\u2082.constProp \u03c3\u2081 with\n      | (s\u2082', \u03c3\u2082) => (seq s\u2081' s\u2082', \u03c3\u2082)\n  | ite c s\u2081 s\u2082 =>\n    match s\u2081.constProp \u03c3, s\u2082.constProp \u03c3 with\n    | (s\u2081', \u03c3\u2081), (s\u2082', \u03c3\u2082) => (ite (c.constProp \u03c3) s\u2081' s\u2082', \u03c3\u2081.join \u03c3\u2082)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Stmt",
+    "has_proof": true
+  }
+}

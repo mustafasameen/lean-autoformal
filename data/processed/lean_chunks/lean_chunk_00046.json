@@ -1,0 +1,9 @@
+{
+  "content": "def _root_.bar := 1\nend Foo",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/490.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/490.lean",
+    "definition_name": "_root_"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "}\nprivate partial def alreadyGenerated? (declName : Name) : MetaM (Option (Array Name)) := do\n  let env \u2190 getEnv\n  let eq1 := Name.str declName eqn1ThmSuffix\n  if env.contains eq1 then\n    let rec loop (idx : Nat) (eqs : Array Name) : MetaM (Array Name) := do\n      let nextEq := declName ++ (`eq).appendIndexAfter idx\n      if env.contains nextEq then\n        loop (idx+1) (eqs.push nextEq)\n      else\n        return eqs\n    let eqs \u2190 loop 2 #[eq1]\n    registerEqnThms declName eqs\n    return some eqs\n  else\n    return none\nprivate def getEqnsFor?Core (declName : Name) : MetaM (Option (Array Name)) := withLCtx {} {} do\n  if let some eqs := eqnsExt.getState (\u2190 getEnv) |>.map.find? declName then\n    return some eqs\n  else if let some eqs \u2190 alreadyGenerated? declName then\n    return some eqs\n  else if (\u2190 shouldGenerateEqnThms declName) then\n    for f in (\u2190 getEqnsFnsRef.get) do\n      if let some r \u2190 f declName then\n        registerEqnThms declName r\n        return some r\n  return none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_name": "eqnThmSuffixBase",
+    "has_proof": false
+  }
+}

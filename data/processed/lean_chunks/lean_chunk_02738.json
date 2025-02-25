@@ -1,0 +1,9 @@
+{
+  "content": "| atom (SourceInfo.synthetic (endPos := pos) (canonical := true) ..) _, _\n  | atom (SourceInfo.synthetic (endPos := pos) ..) _,  false\n  | ident (SourceInfo.original (endPos := pos) ..) .., _\n  | ident (SourceInfo.synthetic (endPos := pos) (canonical := true) ..) .., _\n  | ident (SourceInfo.synthetic (endPos := pos) ..) .., false\n  | node (SourceInfo.original (endPos := pos) ..) .., _\n  | node (SourceInfo.synthetic (endPos := pos) (canonical := true) ..) .., _\n  | node (SourceInfo.synthetic (endPos := pos) ..) .., false => some pos\n  | node _ _ args, _ =>\n    let rec loop (i : Nat) : Option String.Pos :=\n      match decide (LT.lt i args.size) with\n      | true => match getTailPos? (args.get!Internal ((args.size.sub i).sub 1)) canonicalOnly with\n         | some info => some info\n         | none      => loop (hAdd i 1)\n      | false => none\n    loop 0\n  | _, _ => none\nstructure SepArray (sep : String) where\n  elemsAndSeps : Array Syntax\n  elemsAndSeps : Array Syntax\nend Syntax",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Name"
+  }
+}

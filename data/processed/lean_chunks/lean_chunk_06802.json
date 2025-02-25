@@ -1,0 +1,9 @@
+{
+  "content": "structure State where\nmvarId : MVarId\nxs  : List FVarId\neqs : List FVarId\neqsNew : List FVarId := []\nabbrev M := StateRefT State MetaM\nprivate def applySubst (s : FVarSubst) (fvarIds : List FVarId) : List FVarId :=\n  fvarIds.filterMap fun fvarId => match s.apply (mkFVar fvarId) with\n    | Expr.fvar fvarId .. => some fvarId\n    | _ => none\nprivate def substRHS (eq : FVarId) (rhs : FVarId) : M Unit := do\n  assert! (\u2190 get).xs.contains rhs\n  let (subst, mvarId) \u2190 substCore (\u2190 get).mvarId eq (symm := true)\n  modify fun s => { s with\n    mvarId,\n    xs  := applySubst subst (s.xs.erase rhs)\n    eqs := applySubst subst s.eqs\n    eqsNew := applySubst subst s.eqsNew\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/MatchEqs.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/MatchEqs.lean",
+    "definition_name": "State"
+  }
+}

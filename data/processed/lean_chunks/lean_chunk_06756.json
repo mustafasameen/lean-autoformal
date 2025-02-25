@@ -1,0 +1,9 @@
+{
+  "content": "structure NormCastExtension where\n  down : SimpExtension\nbuiltin_initialize normCastExt : NormCastExtension \u2190 pure {\n  up := \u2190 mkSimpExt (decl_name% ++ `up)\n  down := \u2190 mkSimpExt (decl_name% ++ `down)\n  squash := \u2190 mkSimpExt (decl_name% ++ `squash)\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/NormCast.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/NormCast.lean",
+    "definition_name": "NormCastExtension"
+  }
+}

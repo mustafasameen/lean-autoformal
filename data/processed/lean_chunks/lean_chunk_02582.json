@@ -1,0 +1,10 @@
+{
+  "content": "structure DecideConfig where\n  kernel : Bool := false\n  native : Bool := false\n  revert : Bool := false\n```\nTrying to prove a proposition whose `Decidable` instance fails to reduce\n```lean\nopaque unknownProp : Prop\nopen scoped Classical in\nexample : unknownProp := by decide\n```\n## Properties and relations\nFor equality goals for types with decidable equality, usually `rfl` can be used in place of `decide`.\n```lean\nexample : 1 + 1 = 2 := by decide\nexample : 1 + 1 = 2 := by rfl\n```\n-/\nsyntax (name := decide) \"decide\" optConfig : tactic\nsyntax (name := nativeDecide) \"native_decide\" optConfig : tactic\nmacro_rules | `(tactic| trivial) => `(tactic| assumption)\nmacro_rules | `(tactic| trivial) => `(tactic| rfl)\nmacro_rules | `(tactic| trivial) => `(tactic| contradiction)\nmacro_rules | `(tactic| trivial) => `(tactic| decide)\nmacro_rules | `(tactic| trivial) => `(tactic| apply True.intro)\nmacro_rules | `(tactic| trivial) => `(tactic| apply And.intro <;> trivial)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "DecideConfig",
+    "imports": "Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\""
+  }
+}

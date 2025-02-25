@@ -1,0 +1,10 @@
+{
+  "content": "theorem sizeOf_map {\u03b1 \u03b2 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wf_preprocess_leak.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wf_preprocess_leak.lean",
+    "definition_name": "sizeOf_map",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Monoid (M : Type u) extends Mul M, One M where\n  mul_one (m : M) : m * 1 = m\nclass AddCommMonoid (A : Type u) extends Add A, Zero A\nclass MonoidWithZero (M\u2080 : Type u) extends Monoid M\u2080, Zero M\u2080\nclass Semiring (R : Type u) extends AddCommMonoid R, MonoidWithZero R, One R\n#print Semiring\ndef oneViaMonoid {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond8.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond8.lean",
+    "definition_name": "Monoid"
+  }
+}

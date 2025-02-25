@@ -1,0 +1,10 @@
+{
+  "content": "theorem modifyTailIdx_id : \u2200 n (l : List \u03b1), l.modifyTailIdx id n = l\n  | 0, _ => rfl\n  | _+1, [] => rfl\n  | n+1, a :: l => congrArg (cons a) (modifyTailIdx_id n l)\ntheorem eraseIdx_eq_modifyTailIdx : \u2200 i (l : List \u03b1), eraseIdx l i = modifyTailIdx tail i l\n  | 0, l => by cases l <;> rfl\n  | _+1, [] => rfl\n  | _+1, _ :: _ => congrArg (cons _) (eraseIdx_eq_modifyTailIdx _ _)\n@[simp] theorem length_modifyTailIdx (f : List \u03b1 \u2192 List \u03b1) (H : \u2200 l, length (f l) = length l) :\n    \u2200 n l, length (modifyTailIdx f n l) = length l\n  | 0, _ => H _\n  | _+1, [] => rfl\n  | _+1, _ :: _ => congrArg (\u00b7+1) (length_modifyTailIdx _ H _ _)\ntheorem modifyTailIdx_add (f : List \u03b1 \u2192 List \u03b1) (n) (l\u2081 l\u2082 : List \u03b1) :\n    modifyTailIdx f (l\u2081.length + n) (l\u2081 ++ l\u2082) = l\u2081 ++ modifyTailIdx f n l\u2082 := by\n  induction l\u2081 <;> simp [*, Nat.succ_add]\ntheorem modifyTailIdx_eq_take_drop (f : List \u03b1 \u2192 List \u03b1) (H : f [] = []) :\n    \u2200 i l, modifyTailIdx f i l = take i l ++ f (drop i l)\n  | 0, _ => rfl\n  | _ + 1, [] => H.symm",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Modify.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Modify.lean",
+    "definition_name": "modifyTailIdx_id",
+    "has_proof": true
+  }
+}

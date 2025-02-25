@@ -1,0 +1,9 @@
+{
+  "content": "let declName := parent.declName\n  let cval : ConstantVal := { name := declName, levelParams, type := declType }\n  if isProp then\n    addDecl <|\n      if view.modifiers.isUnsafe then\n        Declaration.opaqueDecl { cval with value := declVal, isUnsafe := true }\n      else\n        Declaration.thmDecl { cval with value := declVal }\n  else\n    addAndCompile <| Declaration.defnDecl { cval with\n      value       := declVal\n      hints       := ReducibilityHints.abbrev\n      safety      := if view.modifiers.isUnsafe then DefinitionSafety.unsafe else DefinitionSafety.safe\n    }\n  if !binfo.isInstImplicit && !(\u2190 Meta.isProp parentType) then\n    setReducibleAttribute declName\n  addDeclarationRangesFromSyntax declName view.ref parent.ref\n  return { structName := parent.structName, subobject := false, projFn := declName }\nprivate def mkRemainingProjections (levelParams : List Name) (params : Array Expr) (view : StructView)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

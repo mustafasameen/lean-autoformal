@@ -1,0 +1,10 @@
+{
+  "content": "rw [getElem_eraseIdx]\n  simp only [dite_eq_left_iff, Nat.not_lt]\n  intro h'\n  omega\ntheorem getElem_eraseIdx_of_ge (l : List \u03b1) (i : Nat) (j : Nat) (h : j < (l.eraseIdx i).length) (h' : i \u2264 j) :\n    (l.eraseIdx i)[j] = l[j + 1]'(by rw [length_eraseIdx] at h; split at h <;> omega) := by\n  rw [getElem_eraseIdx, dif_neg]\n  omega\ntheorem eraseIdx_eq_dropLast (l : List \u03b1) (i : Nat) (h : i + 1 = l.length) :\n    l.eraseIdx i = l.dropLast := by\n  simp [eraseIdx_eq_take_drop_succ, h]\n  rw [take_eq_dropLast h]\ntheorem eraseIdx_set_eq {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Erase.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if i1 == i2 then\n      ctor i1 (Array.zipWith merge vs1 vs2)\n    else\n      choice [v1, v2]\n  | choice vs1, choice vs2 =>\n    choice (vs1.foldl addChoice vs2)\n  | choice vs, v | v, choice vs =>\n    choice (addChoice vs v)\nend\npartial def truncate (env : Environment) (v : Value) : Value :=\n  go v {} maxValueDepth\nwhere\n  go (v : Value) (forbiddenTypes : NameSet) (remainingDepth : Nat) :=\n    match remainingDepth with\n    | 0 => top\n    | remainingDepth + 1 =>\n      match v with\n      | ctor i vs =>\n        let typeName := i.getPrefix\n        if forbiddenTypes.contains typeName then\n          top\n        else\n          let cont forbiddenTypes' :=\n            ctor i (vs.map (go \u00b7 forbiddenTypes' remainingDepth))\n          match env.find? typeName with\n          | some (.inductInfo type) =>\n            if type.isRec then\n              cont <| forbiddenTypes.insert typeName\n            else\n              cont forbiddenTypes\n          | _ => cont forbiddenTypes\n      | choice vs =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

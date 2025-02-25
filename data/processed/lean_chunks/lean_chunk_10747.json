@@ -1,0 +1,9 @@
+{
+  "content": "inductive InitTemplate\n| std | exe | lib | math\nderiving Repr, DecidableEq\ninstance : Inhabited InitTemplate := \u27e8.std\u27e9\ndef InitTemplate.ofString? : String \u2192 Option InitTemplate\n| \"std\" => some .std\n| \"exe\" => some .exe\n| \"lib\" => some .lib\n| \"math\" => some .math\n| _ => none\ndef escapeIdent (id : String) : String :=\n  Lean.idBeginEscape.toString ++ id ++ Lean.idEndEscape.toString\ndef escapeName! : Name \u2192 String\n| .anonymous        => unreachable!\n| .str .anonymous s => escapeIdent s\n| .str n s          => escapeName! n ++ \".\" ++ escapeIdent s\n| _                 => unreachable!\ndef dotlessName (name : Name) :=\n  name.toString false |>.map fun chr => if chr == '.' then '-' else chr\ndef InitTemplate.configFileContents  (tmp : InitTemplate) (lang : ConfigLang) (pkgName : Name) (root : Name) : String :=\n  let pkgNameStr := dotlessName pkgName\n  match tmp, lang with\n  | .std, .lean => stdLeanConfigFileContents pkgNameStr (escapeName! root) pkgNameStr.toLower",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Init.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Init.lean",
+    "definition_name": "InitTemplate"
+  }
+}

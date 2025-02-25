@@ -1,0 +1,10 @@
+{
+  "content": "theorem getD_get?_setIfInBounds (xs : Array \u03b1) (i : Nat) (v d : \u03b1) :\n    (xs.setIfInBounds i v)[i]?.getD d = if i < xs.size then v else d := by\n  by_cases h : i < xs.size <;>\n    simp [setIfInBounds, Nat.not_lt_of_le, h,  getD_getElem?]\n@[simp] theorem toList_setIfInBounds (xs : Array \u03b1) (i x) :\n    (xs.setIfInBounds i x).toList = xs.toList.set i x := by\n  simp only [setIfInBounds]\n  split <;> rename_i h\n  \u00b7 simp\n  \u00b7 simp [List.set_eq_of_length_le (by simpa using h)]\n@[simp] theorem isEqv_eq [DecidableEq \u03b1] {xs ys : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "getD_get",
+    "has_proof": true
+  }
+}

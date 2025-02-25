@@ -1,0 +1,9 @@
+{
+  "content": "structure NatTrans (F G : C \u2964 D) : Type max u\u2081 v\u2082 where\n  app : \u2200 X : C, F.obj X \u27f6 G.obj X\nend CategoryTheory\nend Mathlib.CategoryTheory.NatTrans\nsection Mathlib.CategoryTheory.Iso\nuniverse v u\nnamespace CategoryTheory\nopen Category\nstructure Iso {C : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "NatTrans"
+  }
+}

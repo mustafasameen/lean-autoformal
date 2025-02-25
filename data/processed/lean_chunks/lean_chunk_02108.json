@@ -1,0 +1,9 @@
+{
+  "content": "| .eq,  v\u2081,        v\u2082      => some (.bool (v\u2081 = v\u2082))\n  | .and, .bool b\u2081, .bool b\u2082 => some (.bool (b\u2081 && b\u2082))\n  | .lt,  .int i\u2081,  .int i\u2082  => some (.bool (i\u2081 < i\u2082))\n  | .add, .int i\u2081,  .int i\u2082  => some (.int (i\u2081 + i\u2082))\n  | .sub, .int i\u2081,  .int i\u2082  => some (.int (i\u2081 - i\u2082))\n  | _,    _,        _        => none\n@[simp] def UnaryOp.eval : UnaryOp \u2192 Val \u2192 Option Val\n  | .not, .bool b => some (.bool !b)\n  | _,    _       => none\ninductive Stmt where\n  | skip\n  | assign (x : Var) (e : Expr)\n  | seq    (s\u2081 s\u2082 : Stmt)\n  | ite    (c : Expr) (e t : Stmt)\n  | while  (c : Expr) (b : Stmt)\n  deriving Repr\ninfix:150 \" ::= \" => Stmt.assign\ninfixr:130 \";; \"   => Stmt.seq\nsyntax \"`[Expr|\" term \"]\" : term\nmacro_rules\n  | `(`[Expr|true])      => `((true : Expr))\n  | `(`[Expr|false])     => `((false : Expr))\n  | `(`[Expr|$n:num])    => `(($n : Expr))\n  | `(`[Expr|$x:ident])  => `(($(Lean.quote x.getId.toString) : Expr))\n  | `(`[Expr|$x = $y])   => `(Expr.bin `[Expr|$x] BinOp.eq `[Expr|$y])",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Val"
+  }
+}

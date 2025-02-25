@@ -1,0 +1,9 @@
+{
+  "content": "structure Descr (\u03b1 : Type) (\u03b2 : Type) (\u03c3 : Type) where\n  name           : Name := by exact decl_name%\n  mkInitial      : IO \u03c3\n  ofOLeanEntry   : \u03c3 \u2192 \u03b1 \u2192 ImportM \u03b2\n  toOLeanEntry   : \u03b2 \u2192 \u03b1\n  addEntry       : \u03c3 \u2192 \u03b2 \u2192 \u03c3\n  finalizeImport : \u03c3 \u2192 \u03c3 := id\ninstance [Inhabited \u03b1] : Inhabited (Descr \u03b1 \u03b2 \u03c3) where\n  default := {\n    name         := default\n    mkInitial    := default\n    ofOLeanEntry := default\n    toOLeanEntry := default\n    addEntry     := fun s _ => s\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ScopedEnvExtension.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ScopedEnvExtension.lean",
+    "definition_name": "Descr"
+  }
+}

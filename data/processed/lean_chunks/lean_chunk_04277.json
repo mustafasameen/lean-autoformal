@@ -1,0 +1,10 @@
+{
+  "content": "theorem gcd_dvd (m n : Nat) : (gcd m n \u2223 m) \u2227 (gcd m n \u2223 n) := by\n  induction m, n using gcd.induction with\n  | H0 n => rw [gcd_zero_left]; exact \u27e8Nat.dvd_zero n, Nat.dvd_refl n\u27e9\n  | H1 m n _ IH => rw [\u2190 gcd_rec] at IH; exact \u27e8IH.2, (dvd_mod_iff IH.2).1 IH.1\u27e9\ntheorem gcd_dvd_left (m n : Nat) : gcd m n \u2223 m := (gcd_dvd m n).left\ntheorem gcd_dvd_right (m n : Nat) : gcd m n \u2223 n := (gcd_dvd m n).right\ntheorem gcd_le_left (n) (h : 0 < m) : gcd m n \u2264 m := le_of_dvd h <| gcd_dvd_left m n\ntheorem gcd_le_right (n) (h : 0 < n) : gcd m n \u2264 n := le_of_dvd h <| gcd_dvd_right m n\ntheorem dvd_gcd : k \u2223 m \u2192 k \u2223 n \u2192 k \u2223 gcd m n := by\n  induction m, n using gcd.induction with intro km kn\n  | H0 n => rw [gcd_zero_left]; exact kn\n  | H1 n m _ IH => rw [gcd_rec]; exact IH ((dvd_mod_iff km).2 kn) km\ntheorem dvd_gcd_iff : k \u2223 gcd m n \u2194 k \u2223 m \u2227 k \u2223 n :=\n  \u27e8fun h => let \u27e8h\u2081, h\u2082\u27e9 := gcd_dvd m n; \u27e8Nat.dvd_trans h h\u2081, Nat.dvd_trans h h\u2082\u27e9,\n   fun \u27e8h\u2081, h\u2082\u27e9 => dvd_gcd h\u2081 h\u2082\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "gcd_dvd",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem Inv1.property [EquivBEq \u03b1] {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RelabelNat.lean",
+    "definition_name": "Inv1",
+    "has_proof": false
+  }
+}

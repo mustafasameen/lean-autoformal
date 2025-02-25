@@ -1,0 +1,10 @@
+{
+  "content": "| inl yn => rw [mod_eq_of_lt yn, mod_eq_of_lt (Nat.mul_lt_mul_of_pos_left yn z0)]\n      | inr yn =>\n        rw [mod_eq_sub_mod yn, mod_eq_sub_mod (Nat.mul_le_mul_left z yn),\n          \u2190 Nat.mul_sub_left_distrib]\n        exact IH _ (sub_lt (Nat.lt_of_lt_of_le y0 yn) y0)\ntheorem div_eq_of_lt (h\u2080 : a < b) : a / b = 0 := by\n  rw [div_eq a, if_neg]\n  intro h\u2081\n  apply Nat.not_le_of_gt h\u2080 h\u2081.right\nprotected theorem mul_div_cancel (m : Nat) {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "add_mod_right",
+    "has_proof": true
+  }
+}

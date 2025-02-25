@@ -1,0 +1,9 @@
+{
+  "content": "def one := 1\ndef zero := 0\ndef f (x : Nat) (b : Bool) :=\n  let k := fun b =>\n    let y := match b with\n      | true => one\n      | false => zero\n    Nat.succ y\n  x == k b\nset_option trace.Compiler.simp true\nrun_meta Lean.Compiler.compile #[``f]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/attachJp.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/attachJp.lean",
+    "definition_name": "one"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def generalizingParam := leading_parser\n  atomic (\"(\" >> nonReservedSymbol \"generalizing\") >> \" := \" >>\n    (trueVal <|> falseVal)  >> \")\" >> ppSpace\ndef motive := leading_parser\n  atomic (\"(\" >> nonReservedSymbol \"motive\" >> \" := \") >>\n    withoutPosition termParser >> \")\" >> ppSpace\n@[builtin_term_parser] def \u00abmatch\u00bb := leading_parser:leadPrec\n  \"match \" >> optional generalizingParam >> optional motive >> sepBy1 matchDiscr \", \" >>\n  \" with\" >> ppDedent matchAlts\n@[builtin_term_parser] def \u00abnomatch\u00bb := leading_parser:leadPrec \"nomatch \" >> sepBy1 termParser \", \"\n@[builtin_term_parser] def \u00abnofun\u00bb := leading_parser \"nofun\"\nbuiltin_initialize\n  registerBuiltinParserAttribute `builtin_structInstFieldDecl_parser ``Category.structInstFieldDecl\n@[inline] def structInstFieldDeclParser (rbp : Nat := 0) : Parser :=\n  categoryParser `structInstFieldDecl rbp\ndef optEllipsis := leading_parser\n  optional \" ..\"\ndef structInstArrayRef := leading_parser\n  \"[\" >> withoutPosition termParser >> \"]\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

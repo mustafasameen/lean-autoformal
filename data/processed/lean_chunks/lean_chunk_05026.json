@@ -1,0 +1,10 @@
+{
+  "content": "| []   => panic! \"empty list\"\n  | a::_ => a\ndef tail! : List \u03b1 \u2192 List \u03b1\n  | []    => panic! \"empty list\"\n  | _::as => as\n@[simp] theorem tail!_cons : @tail! \u03b1 (a::l) = l := rfl\n@[inline] def partitionM [Monad m] (p : \u03b1 \u2192 m Bool) (l : List \u03b1) : m (List \u03b1 \u00d7 List \u03b1) :=\n  go l #[] #[]\nwhere\n  @[specialize] go : List \u03b1 \u2192 Array \u03b1 \u2192 Array \u03b1 \u2192 m (List \u03b1 \u00d7 List \u03b1)\n  | [], acc\u2081, acc\u2082 => pure (acc\u2081.toList, acc\u2082.toList)\n  | x :: xs, acc\u2081, acc\u2082 => do\n    if \u2190 p x then\n      go xs (acc\u2081.push x) acc\u2082\n    else\n      go xs acc\u2081 (acc\u2082.push x)\n@[inline] def partitionMap (f : \u03b1 \u2192 \u03b2 \u2295 \u03b3) (l : List \u03b1) : List \u03b2 \u00d7 List \u03b3 := go l #[] #[] where\n  @[specialize] go : List \u03b1 \u2192 Array \u03b2 \u2192 Array \u03b3 \u2192 List \u03b2 \u00d7 List \u03b3\n  | [], acc\u2081, acc\u2082 => (acc\u2081.toList, acc\u2082.toList)\n  | x :: xs, acc\u2081, acc\u2082 =>\n    match f x with\n    | .inl a => go xs (acc\u2081.push a) acc\u2082\n    | .inr b => go xs acc\u2081 (acc\u2082.push b)\n@[specialize] private unsafe def mapMonoMImp [Monad m] (as : List \u03b1) (f : \u03b1 \u2192 m \u03b1) : m (List \u03b1) := do\n  match as with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_name": "get",
+    "has_proof": true
+  }
+}

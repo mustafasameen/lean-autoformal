@@ -1,0 +1,10 @@
+{
+  "content": "theorem ext {a b : Set \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subset.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/subset.lean",
+    "definition_name": "ext",
+    "has_proof": false
+  }
+}

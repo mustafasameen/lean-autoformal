@@ -1,0 +1,10 @@
+{
+  "content": "`(@[simp] theorem toNat_toUSize (x : $typeName) : x.toUSize.toNat = x.toNat % 2 ^ System.Platform.numBits := rfl)\n    if nbits < 64 then\n      cmds := cmds.push <| \u2190\n        `(@[simp] theorem toNat_toUInt64 (x : $typeName) : x.toUInt64.toNat = x.toNat := rfl)\n  cmds := cmds.push <| \u2190 `(end $typeName)\n  return \u27e8mkNullNode cmds\u27e9\ndeclare_uint_theorems UInt8 8\ndeclare_uint_theorems UInt16 16\ndeclare_uint_theorems UInt32 32\ndeclare_uint_theorems UInt64 64\ndeclare_uint_theorems USize System.Platform.numBits\n@[simp] theorem USize.toNat_ofNat32 {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_name": "toFin_ofNat",
+    "has_proof": false
+  }
+}

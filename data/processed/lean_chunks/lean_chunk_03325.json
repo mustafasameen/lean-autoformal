@@ -1,0 +1,10 @@
+{
+  "content": "theorem run_throw [Monad m] : run (throw e : ExceptCpsT \u03b5 m \u03b2) = pure (Except.error e) := rfl\n@[simp] theorem run_bind_lift [Monad m] (x : m \u03b1) (f : \u03b1 \u2192 ExceptCpsT \u03b5 m \u03b2) : run (ExceptCpsT.lift x >>= f : ExceptCpsT \u03b5 m \u03b2) = x >>= fun a => run (f a) := rfl\n@[simp] theorem run_bind_throw [Monad m] (e : \u03b5) (f : \u03b1 \u2192 ExceptCpsT \u03b5 m \u03b2) : run (throw e >>= f : ExceptCpsT \u03b5 m \u03b2) = run (throw e) := rfl\n@[simp] theorem runCatch_pure [Monad m] : runCatch (pure x : ExceptCpsT \u03b1 m \u03b1) = pure x := rfl\n@[simp] theorem runCatch_lift {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/ExceptCps.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/ExceptCps.lean",
+    "definition_name": "run_throw",
+    "has_proof": false
+  }
+}

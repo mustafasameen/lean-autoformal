@@ -1,0 +1,10 @@
+{
+  "content": "theorem mySillyEliminator {p : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/elabAsElim.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/elabAsElim.lean",
+    "definition_name": "mySillyEliminator",
+    "has_proof": false
+  }
+}

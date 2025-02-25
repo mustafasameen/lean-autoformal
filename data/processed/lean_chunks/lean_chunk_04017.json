@@ -1,0 +1,10 @@
+{
+  "content": "theorem msb_eq_getMsbD_zero (x : BitVec w) : x.msb = x.getMsbD 0 := by\n  cases w <;> simp [getMsbD_eq_getLsbD, msb_eq_getLsbD_last]\ntheorem toInt_eq_msb_cond (x : BitVec w) :\n    x.toInt = if x.msb then (x.toNat : Int) - (2^w : Nat) else (x.toNat : Int) := by\n  simp only [BitVec.toInt, \u2190 msb_eq_false_iff_two_mul_lt]\n  cases x.msb <;> rfl\ntheorem toInt_eq_toNat_of_msb {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "msb_eq_getMsbD_zero",
+    "has_proof": true
+  }
+}

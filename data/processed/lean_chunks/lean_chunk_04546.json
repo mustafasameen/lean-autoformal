@@ -1,0 +1,10 @@
+{
+  "content": "theorem all_none : Option.all p none = true := rfl\n@[simp] theorem all_some : Option.all p (some x) = p x := rfl\n@[simp] theorem any_none : Option.any p none = false := rfl\n@[simp] theorem any_some : Option.any p (some x) = p x := rfl\nprotected def max [Max \u03b1] : Option \u03b1 \u2192 Option \u03b1 \u2192 Option \u03b1\n  | some x, some y => some (Max.max x y)\n  | some x, none => some x\n  | none, some y => some y\n  | none, none => none\ninstance [Max \u03b1] : Max (Option \u03b1) where max := Option.max\n@[simp] theorem max_some_some [Max \u03b1] {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Basic.lean",
+    "definition_name": "all_none",
+    "has_proof": false
+  }
+}

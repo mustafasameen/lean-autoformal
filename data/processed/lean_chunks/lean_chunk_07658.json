@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote.go_eq_of_isPrefix (decls1 decls2 : Array (Decl \u03b1)) (start : Nat) {hdag1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_name": "denote",
+    "has_proof": false
+  }
+}

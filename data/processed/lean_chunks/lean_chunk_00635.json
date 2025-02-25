@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (h : b = a) : a = b := by\n  rw [h]\n#guard_msgs in\ntheorem ex2 (h : b = a) : a = b := by\n  rw [h]\nset_option debug.byAsSorry true in\n#guard_msgs in\ndef g (x : Nat) : { x : Nat // x > 0 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/byAsSorry.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/byAsSorry.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

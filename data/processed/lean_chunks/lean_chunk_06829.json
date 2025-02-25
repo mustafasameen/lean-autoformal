@@ -1,0 +1,10 @@
+{
+  "content": "inductive AttrKind where\n  | ematch (k : EMatchTheoremKind)\n  | cases (eager : Bool)\n  | intro\n  | infer\ndef getAttrKindFromOpt (stx : Syntax) : CoreM AttrKind := do\n  if stx[1].isNone then\n    return .infer\n  else\n    getAttrKindCore stx[1][0]\ndef throwInvalidUsrModifier : CoreM \u03b1 :=\n  throwError \"the modifier `usr` is only relevant in parameters for `grind only`\"\nbuiltin_initialize\n  registerBuiltinAttribute {\n    name := `grind\n    descr :=\n      \"The `[grind]` attribute is used to annotate declarations.\\\n      \\\n      When applied to an equational theorem, `[grind =]`, `[grind =_]`, or `[grind _=_]`\\\n      will mark the theorem for use in heuristic instantiations by the `grind` tactic,\n      using respectively the left-hand side, the right-hand side, or both sides of the theorem.\\\n      When applied to a function, `[grind =]` automatically annotates the equational theorems associated with that function.\\",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Attr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Attr.lean",
+    "definition_name": "AttrKind",
+    "has_proof": true
+  }
+}

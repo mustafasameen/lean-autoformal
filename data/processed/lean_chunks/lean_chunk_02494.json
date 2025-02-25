@@ -1,0 +1,9 @@
+{
+  "content": "class Insert (\u03b1 : outParam <| Type u) (\u03b3 : Type v) where\nclass Singleton (\u03b1 : outParam <| Type u) (\u03b2 : Type v) where\nclass LawfulSingleton (\u03b1 : Type u) (\u03b2 : Type v) [EmptyCollection \u03b2] [Insert \u03b1 \u03b2] [Singleton \u03b1 \u03b2] :\n    Prop where\nclass Sep (\u03b1 : outParam <| Type u) (\u03b3 : Type v) where\nstructure Task (\u03b1 : Type u) : Type u where\n  get : \u03b1\n  deriving Inhabited, Nonempty\nattribute [extern \"lean_task_pure\"] Task.pure\nattribute [extern \"lean_task_get_own\"] Task.get\nnamespace Task\ndef Priority.default : Priority := 0\ndef Priority.max : Priority := 8\ndef Priority.dedicated : Priority := 9\nset_option linter.unusedVariables.funArgs false in\n@[noinline, extern \"lean_task_spawn\"]\nprotected def spawn {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "Insert"
+  }
+}

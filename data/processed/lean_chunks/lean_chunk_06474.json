@@ -1,0 +1,9 @@
+{
+  "content": "let attr \u2190 `(attrInstance| $attrKind:attrKind macro $kind)\n      let attrs := match attrs? with\n        | some attrs => attrs.getElems.push attr\n        | none => #[attr]\n      `($[$doc?:docComment]? @[$attrs,*]\n        aux_def $(mkIdentFrom tk kind.getId (canonical := true)) $kind : Macro := fun $x:ident => $rhs)\n  | `($[$doc?:docComment]? $[@[$attrs?,*]]? $attrKind:attrKind macro_rules%$tk (kind := $kind) $alts:matchAlt*) =>\n    withRef (mkNullNode #[tk, mkNullNode alts]) do\n      elabMacroRulesAux doc? attrs? attrKind tk (\u2190 resolveSyntaxKind kind.getId) alts\n  | _  => throwUnsupportedSyntax\nend Lean.Elab.Command",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MacroRules.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MacroRules.lean",
+    "definition_name": "macroRules"
+  }
+}

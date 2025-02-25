@@ -1,0 +1,10 @@
+{
+  "content": "theorem id_map_is_right_neutral\u2083 {A : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/474_lean3.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/474_lean3.lean",
+    "definition_name": "id_map_is_right_neutral\u2083",
+    "has_proof": false
+  }
+}

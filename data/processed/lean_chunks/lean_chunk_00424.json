@@ -1,0 +1,9 @@
+{
+  "content": "Syntax.atom none val\ndef mkOptionSomeKind : IO SyntaxNodeKind := nextKind `some\n@[init mkOptionSomeKind] constant optionSomeKind : SyntaxNodeKind := default _\ndef mkOptionNoneKind : IO SyntaxNodeKind := nextKind `none\n@[init mkOptionSomeKind] constant optionNoneKind : SyntaxNodeKind := default _\ndef mkManyKind : IO SyntaxNodeKind := nextKind `many\n@[init mkManyKind] constant manyKind : SyntaxNodeKind := default _\ndef mkHoleKind : IO SyntaxNodeKind := nextKind `hole\n@[init mkHoleKind] constant holeKind : SyntaxNodeKind := default _\ndef mkNotKind : IO SyntaxNodeKind := nextKind `not\n@[init mkNotKind] constant notKind : SyntaxNodeKind := default _\ndef mkIfKind : IO SyntaxNodeKind  := nextKind `if\n@[init mkIfKind] constant ifKind  : SyntaxNodeKind := default _\ndef mkLetKind : IO SyntaxNodeKind  := nextKind `let\n@[init mkLetKind] constant letKind  : SyntaxNodeKind := default _\ndef mkLetLhsIdKind : IO SyntaxNodeKind  := nextKind `letLhsId",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

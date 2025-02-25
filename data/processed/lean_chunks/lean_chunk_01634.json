@@ -1,0 +1,9 @@
+{
+  "content": "structure CatIsh where\n  Obj : Type o\n  Hom : Obj \u2192 Obj \u2192 Type m\ninfixr:75 \" ~> \" => (CatIsh.Hom _)\nstructure FunctorIsh (C D : CatIsh) where\n  onObj : C.Obj \u2192 D.Obj\n  onHom : \u2200 {s d : C.Obj}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/343.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/343.lean",
+    "definition_name": "CatIsh"
+  }
+}

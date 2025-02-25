@@ -1,0 +1,9 @@
+{
+  "content": "def \u03b2 := Quotient (thing r \u03c0)\nvariable {\u03b3 : Type _}\nabbrev Quotient.mk'' {s : Setoid \u03b1} (a : \u03b1) : Quotient s :=\nQuotient.mk s a\ndef \u03b40 : \u03b2 r \u03c0 \u2192 \u03b2 r \u03c0 :=\nQuotient.lift\n  (s := thing r \u03c0)\n  (Quotient.mk'' $ \u03c0 \u00b7)\n  fun x y h => Quotient.sound (by exact rel.compat h)\ndef \u03b41 : \u03b2 r \u03c0 \u2192 \u03b2 r \u03c0 :=\nQuotient.lift\n  (s := thing r \u03c0)\n  (Quotient.mk'' $ \u03c0 \u00b7)\n  fun x y h => Quotient.sound (rel.compat h)\ndef \u03b42 : \u03b2 r \u03c0 \u2192 \u03b2 r \u03c0 :=\nQuotient.lift\n  (s := thing r \u03c0)\n  (Quotient.mk'' $ \u03c0 \u00b7)\n  (by exact fun x y h => Quotient.sound (rel.compat h))\ndef Quotient.lift' {\u03b1 \u03b2} {s : Setoid \u03b1} (f : \u03b1 \u2192 \u03b2) (h : (a b : \u03b1) \u2192 a \u2248 b \u2192 f a = f b) (q : Quotient s) : \u03b2 :=\nQuotient.lift f h q\ndef \u03b43 : \u03b2 r \u03c0 \u2192 \u03b2 r \u03c0 :=\nQuotient.lift'\n  (Quotient.mk'' $ \u03c0 \u00b7)\n  fun x y h => Quotient.sound (rel.compat h)\ndef \u03b44 : \u03b2 r \u03c0 \u2192 \u03b2 r \u03c0 :=\n@Quotient.lift _ _\n  (thing r \u03c0)\n  (Quotient.mk'' $ \u03c0 \u00b7)\n  (fun x y h => Quotient.sound (rel.compat h))\ndef \u03b45 : \u03b2 r \u03c0 \u2192 \u03b2 r \u03c0 :=\n@Quotient.lift' _ _ _\n  (Quotient.mk'' $ \u03c0 \u00b7)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/propagateExpectedType.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/propagateExpectedType.lean",
+    "definition_name": "\u03b2"
+  }
+}

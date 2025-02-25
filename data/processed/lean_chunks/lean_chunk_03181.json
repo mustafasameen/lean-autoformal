@@ -1,0 +1,9 @@
+{
+  "content": "structure Constraint where\n  upperBound : UpperBound\nderiving BEq, DecidableEq, Repr\nnamespace Constraint\ninstance : ToString Constraint where\n  toString := fun\n  | \u27e8none, none\u27e9 => \"(-\u221e, \u221e)\"\n  | \u27e8none, some y\u27e9 => s!\"(-\u221e, {y}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Constraint.lean",
+    "definition_name": "Constraint"
+  }
+}

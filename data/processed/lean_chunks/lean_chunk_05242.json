@@ -1,0 +1,10 @@
+{
+  "content": "theorem extract_eq_drop_take (l : List \u03b1) (start stop : Nat) :\n    l.extract start stop = (l.drop start).take (stop - start) := rfl\ndef takeWhile (p : \u03b1 \u2192 Bool) : (xs : List \u03b1) \u2192 List \u03b1\n  | []       => []\n  | hd :: tl => match p hd with\n   | true  => hd :: takeWhile p tl\n   | false => []\n@[simp] theorem takeWhile_nil : ([] : List \u03b1).takeWhile p = [] := rfl\ndef dropWhile (p : \u03b1 \u2192 Bool) : List \u03b1 \u2192 List \u03b1\n  | []   => []\n  | a::l => match p a with\n    | true  => dropWhile p l\n    | false => a::l\n@[simp] theorem dropWhile_nil : ([] : List \u03b1).dropWhile p = [] := rfl\n@[inline] def partition (p : \u03b1 \u2192 Bool) (as : List \u03b1) : List \u03b1 \u00d7 List \u03b1 :=\n  loop as ([], [])\nwhere\n  @[specialize] loop : List \u03b1 \u2192 List \u03b1 \u00d7 List \u03b1 \u2192 List \u03b1 \u00d7 List \u03b1\n  | [],    (bs, cs) => (bs.reverse, cs.reverse)\n  | a::as, (bs, cs) =>\n    match p a with\n    | true  => loop as (a::bs, cs)\n    | false => loop as (bs, a::cs)\ndef dropLast {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "extract_eq_drop_take",
+    "has_proof": false
+  }
+}

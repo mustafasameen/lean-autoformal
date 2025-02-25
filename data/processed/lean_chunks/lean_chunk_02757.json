@@ -1,0 +1,9 @@
+{
+  "content": "class MonadStateOf (\u03c3 : semiOutParam (Type u)) (m : Type u \u2192 Type v) where\n  set : \u03c3 \u2192 m PUnit\n  modifyGet {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "MonadStateOf"
+  }
+}

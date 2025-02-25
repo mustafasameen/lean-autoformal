@@ -1,0 +1,9 @@
+{
+  "content": "unless parentDecl[0].isNone do\n      let ident := parentDecl[0][0]\n      let rawName := ident.getId\n      let name := rawName.eraseMacroScopes\n      unless name.isAtomic do\n        throwErrorAt ident \"invalid parent projection name '{name}', names must be atomic\"\n      projRef  := ident\n      rawName? := rawName\n      name? := name\n    let type := parentDecl[1]\n    return {\n      ref := parentDecl\n      projRef\n      name?\n      rawName?\n      type\n    }\ndef checkValidFieldModifier (modifiers : Modifiers) : TermElabM Unit := do\n  if modifiers.isNoncomputable then\n    throwError \"invalid use of 'noncomputable' in field declaration\"\n  if modifiers.isPartial then\n    throwError \"invalid use of 'partial' in field declaration\"\n  if modifiers.isUnsafe then\n    throwError \"invalid use of 'unsafe' in field declaration\"\n  if modifiers.attrs.size != 0 then\n    throwError \"invalid use of attributes in field declaration\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| some ref => withRef ref x\n  | _        => x\nclass MonadQuotation (m : Type \u2192 Type) extends MonadRef m where\n  getMainModule     : m Name\n  withFreshMacroScope {\u03b1 : Type} : m \u03b1 \u2192 m \u03b1\nexport MonadQuotation (getCurrMacroScope getMainModule withFreshMacroScope)\n@[export lean_erase_macro_scopes]\ndef Name.eraseMacroScopes (n : Name) : Name :=\n  match n.hasMacroScopes with\n  | true  => eraseMacroScopesAux n\n  | false => n\nprivate def simpMacroScopesAux : Name \u2192 Name\n  | .num p i => Name.mkNum (simpMacroScopesAux p) i\n  | n        => eraseMacroScopesAux n\nstructure MacroScopesView where\n  imported   : Name\n  scopes     : List MacroScope\ninstance : Inhabited MacroScopesView where\n  default := \u27e8default, default, default, default\u27e9\ndef extractMacroScopes (n : Name) : MacroScopesView :=\n  match n.hasMacroScopes with\n  | true  => extractMacroScopesAux n List.nil\n  | false => { name := n, scopes := List.nil, imported := Name.anonymous, mainModule := Name.anonymous }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "firstFrontendMacroScope"
+  }
+}

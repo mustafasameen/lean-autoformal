@@ -1,0 +1,10 @@
+{
+  "content": "|>.add 1\nend Quarter\nnamespace Offset\n@[inline]\ndef ofNat (data : Nat) : Offset :=\n  Int.ofNat data\n@[inline]\ndef ofInt (data : Int) : Offset :=\n  data\nend Offset\nnamespace Ordinal\n@[inline] def january : Ordinal := 1\n@[inline] def february : Ordinal := 2\n@[inline] def march : Ordinal := 3\n@[inline] def april : Ordinal := 4\n@[inline] def may : Ordinal := 5\n@[inline] def june : Ordinal := 6\n@[inline] def july : Ordinal := 7\n@[inline] def august : Ordinal := 8\n@[inline] def september : Ordinal := 9\n@[inline] def october : Ordinal := 10\n@[inline] def november : Ordinal := 11\n@[inline] def december : Ordinal := 12\n@[inline]\ndef toOffset (month : Ordinal) : Offset :=\n  month.val\n@[inline]\ndef ofInt (data : Int) (h : 1 \u2264 data \u2227 data \u2264 12) : Ordinal :=\n  Bounded.LE.mk data h\n@[inline]\ndef ofNat (data : Nat) (h : data \u2265 1 \u2227 data \u2264 12 := by decide) : Ordinal :=\n  Bounded.LE.ofNat' data h\n@[inline]\ndef toNat (month : Ordinal) : Nat := by\n  match month with\n  | \u27e8.ofNat s, _\u27e9 => exact s",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Month.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Month.lean",
+    "definition_name": "Ordinal",
+    "has_proof": true
+  }
+}

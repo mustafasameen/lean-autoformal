@@ -1,0 +1,10 @@
+{
+  "content": "theorem fst_eq_of_mem_zipIdx {x : \u03b1 \u00d7 Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "fst_eq_of_mem_zipIdx",
+    "has_proof": false
+  }
+}

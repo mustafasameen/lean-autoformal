@@ -1,0 +1,9 @@
+{
+  "content": "structure bv (w : Nat) := (u:Unit)\ninductive val : Type\n| bv (w : Nat) : bv w \u2192 val\ninductive memtype : Type\n| ptr : Unit \u2192 memtype\ninductive instr : Type\n| load : memtype -> val -> instr\n| store : Unit -> Unit -> Unit -> instr\nstructure sim (a:Type) :=\n(runSim : {z:Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/28.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/28.lean",
+    "definition_name": "bv"
+  }
+}

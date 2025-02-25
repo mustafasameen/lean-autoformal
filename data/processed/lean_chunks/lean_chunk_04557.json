@@ -1,0 +1,10 @@
+{
+  "content": "theorem attach_map_val (o : Option \u03b1) (f : \u03b1 \u2192 \u03b2) :\n    (o.attach.map fun (i : {i // i \u2208 o}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_name": "attach_map_val",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_mkVector : (mkVector n a).map f = mkVector n (f a) := by\n  rw [\u2190 toArray_inj]\n  simp\n@[simp] theorem flatten_mkVector_empty : (mkVector n (#v[] : Vector \u03b1 0)).flatten = #v[] := by\n  rw [\u2190 toArray_inj]\n  simp\n@[simp] theorem flatten_mkVector_singleton : (mkVector n #v[a]).flatten = (mkVector n a).cast (by simp) := by\n  ext i h\n  simp [h]\n@[simp] theorem flatten_mkVector_mkVector : (mkVector n (mkVector m a)).flatten = mkVector (n * m) a := by\n  ext i h\n  simp [h]\ntheorem flatMap_mkArray {\u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "map_mkVector",
+    "has_proof": true
+  }
+}

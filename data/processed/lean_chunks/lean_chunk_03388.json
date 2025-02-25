@@ -1,0 +1,10 @@
+{
+  "content": "theorem admissible_const_true : admissible (fun (_ : \u03b1) => True) :=\n  fun _ _ _ => trivial\ntheorem admissible_and (P Q : \u03b1 \u2192 Prop)\n  (hadm\u2081 : admissible P) (hadm\u2082 : admissible Q) : admissible (fun x => P x \u2227 Q x) :=\n    fun c hchain h =>\n    \u27e8 hadm\u2081 c hchain fun x hx => (h x hx).1,\n      hadm\u2082 c hchain fun x hx => (h x hx).2\u27e9\ntheorem chain_conj (c P : \u03b1 \u2192 Prop) (hchain : chain c) : chain (fun x => c x \u2227 P x) := by\n  intro x y \u27e8hcx, _\u27e9 \u27e8hcy, _\u27e9\n  exact hchain x y hcx hcy\ntheorem csup_conj (c P : \u03b1 \u2192 Prop) (hchain : chain c) (h : \u2200 x, c x \u2192 \u2203 y, c y \u2227 x \u2291 y \u2227 P y) :\n    csup c = csup (fun x => c x \u2227 P x) := by\n  apply rel_antisymm\n  \u00b7 apply csup_le hchain\n    intro x hcx\n    obtain \u27e8y, hcy, hxy, hPy\u27e9 := h x hcx\n    apply rel_trans hxy; clear x hcx hxy\n    apply le_csup (chain_conj _ _ hchain) \u27e8hcy, hPy\u27e9\n  \u00b7 apply csup_le (chain_conj _ _ hchain)\n    intro x \u27e8hcx, hPx\u27e9\n    apply le_csup hchain hcx\ntheorem admissible_or (P Q : \u03b1 \u2192 Prop)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "admissible_const_true",
+    "has_proof": true
+  }
+}

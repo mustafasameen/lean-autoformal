@@ -1,0 +1,10 @@
+{
+  "content": "theorem and_imp' : (a \u2227 b \u2192 c) \u2194 (a \u2192 b \u2192 c) := \u27e8fun h ha hb => h \u27e8ha, hb\u27e9, fun h \u27e8ha, hb\u27e9 => h ha hb\u27e9\n@[simp] theorem not_and'' : \u00ac(a \u2227 b) \u2194 (a \u2192 \u00acb) := and_imp'\nset_option tactic.skipAssignedInstances false in\n#guard_msgs in\nexample [Preorder \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_name": "and_imp",
+    "has_proof": false
+  }
+}

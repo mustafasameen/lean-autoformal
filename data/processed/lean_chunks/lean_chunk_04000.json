@@ -1,0 +1,10 @@
+{
+  "content": "simp only [h\u2081, h\u2082] <;> simp only [decide_true, decide_false, Bool.false_and, Bool.and_false, Bool.true_and, Bool.and_true]\n  \u00b7 congr\n    omega\n  all_goals\n    apply getLsbD_ge\n    omega\n@[simp] theorem getLsb?_ge (x : BitVec w) (i : Nat) (ge : w \u2264 i) : x[i]? = none := by\n  simp [ge]\n@[simp] theorem getMsb?_ge (x : BitVec w) (i : Nat) (ge : w \u2264 i) : getMsb? x i = none := by\n  simp [getMsb?_eq_getLsb?]; omega\ntheorem lt_of_getLsb?_eq_some (x : BitVec w) (i : Nat) : x[i]? = some b \u2192 i < w := by\n  cases h : x[i]? with\n  | none => simp\n  | some => by_cases i < w <;> simp_all\ntheorem lt_of_getMsb?_eq_some (x : BitVec w) (i : Nat) : getMsb? x i = some b \u2192 i < w := by\n  if h : i < w then\n    simp [h]\n  else\n    simp [Nat.ge_of_not_lt h]\ntheorem lt_of_getLsb?_isSome (x : BitVec w) (i : Nat) : x[i]?.isSome \u2192 i < w := by\n  cases h : x[i]? with\n  | none => simp\n  | some => by_cases i < w <;> simp_all\ntheorem lt_of_getMsb?_isSome (x : BitVec w) (i : Nat) : (getMsb? x i).isSome \u2192 i < w := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "testBit_toNat",
+    "has_proof": true
+  }
+}

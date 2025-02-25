@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_term_parser] def ensureExpectedType := leading_parser\n  \"ensure_expected_type% \" >> strLit >> ppSpace >> termParser maxPrec\n@[builtin_term_parser] def noImplicitLambda := leading_parser\n  \"no_implicit_lambda% \" >> termParser maxPrec\n@[builtin_term_parser] def clear := leading_parser\n  \"clear% \" >> ident >> semicolonOrLinebreak >> ppDedent ppLine >> termParser\n@[builtin_term_parser] def letMVar := leading_parser\n  \"let_mvar% \" >> \"?\" >> ident >> \" := \" >> termParser >> \"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

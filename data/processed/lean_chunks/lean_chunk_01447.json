@@ -1,0 +1,10 @@
+{
+  "content": "induction as generalizing bs with\n  | nil         => grind only [reverseAux, append]\n  | cons _ _ ih => grind only [reverseAux, append_assoc, append]\ntheorem reverse_nil : reverse (.nil : List \u03b1) = .nil := by\n  grind only [reverse, reverseAux]\ntheorem reverse_cons (a : \u03b1) (as : List \u03b1) :\n    reverse (.cons a as) = append (reverse as) (.cons a .nil) := by\n  grind only [reverse, reverseAux, reverseAux_eq_append]\ntheorem reverse_append (as bs : List \u03b1) :\n    reverse (append as bs) = append (reverse bs) (reverse as) := by\n  induction as generalizing bs with\n  | nil          => grind only [reverse_nil, append_nil, append]\n  | cons a as ih => grind only [append_assoc, reverse_cons, append]\ndef map (f : \u03b1 \u2192 \u03b2) : List \u03b1 \u2192 List \u03b2\n  | .nil       => .nil\n  | .cons a as => .cons (f a) (map f as)\ndef foldr (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (init : \u03b2) : List \u03b1 \u2192 \u03b2\n  | .nil      => init\n  | .cons a l => f a (foldr f init l)\ndef all (p : \u03b1 \u2192 Bool) (xs : List \u03b1) : Bool :=\n  foldr and true (map p xs)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_name": "List",
+    "has_proof": true
+  }
+}

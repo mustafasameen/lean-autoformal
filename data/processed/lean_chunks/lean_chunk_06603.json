@@ -1,0 +1,10 @@
+{
+  "content": "if let some r := e.unexpectedTk.getRange? then\n      pos := r.start\n      endPos? := some r.stop\n    let unexpected := match e.unexpectedTk with\n      | .ident .. => \"unexpected identifier\"\n      | .atom _ v => s!\"unexpected token '{v}'\"\n| _         => \"unexpected token\"\n    e := { e with unexpected }\n    if let some trailing := lastTrailing stk then\n      if trailing.stopPos == pos then\n        pos := trailing.startPos\n  { fileName := c.fileName\n    pos := c.fileMap.toPosition pos\n    endPos := c.fileMap.toPosition <$> endPos?\n    keepFullRange := true\n    data := toString e }\nwhere\n  lastTrailing (s : SyntaxStack) : Option Substring :=\n    s.toSubarray.findSomeRevM? (m := Id) fun stx =>\n      if let .original (trailing := trailing) .. := stx.getTailInfo then pure (some trailing)\n        else none\ndef parseHeader (inputCtx : InputContext) : IO (Syntax \u00d7 ModuleParserState \u00d7 MessageLog) := do\n  let dummyEnv \u2190 mkEmptyEnvironment\n  let p   := andthenFn whitespace Module.header.fn",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_name": "header",
+    "imports": "|| s.isOfKind ``Command.eoi"
+  }
+}

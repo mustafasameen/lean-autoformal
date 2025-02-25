@@ -1,0 +1,10 @@
+{
+  "content": "theorem g_eq : g x = 2 * x := by\n  simp +arith [g]\nexample (h : y = 2) : g x + 2 = 2 * x + y := by\n  fail_if_success simp\n  simp only [seval, h]\ndef boo (x : Nat) : Nat :=\n  x + 10\nopen Lean Meta in\nsimproc [seval] reduceBoo (boo _) := fun e => do\n  unless e.isAppOfArity ``boo 1 do return .continue\n  let some n \u2190 Nat.fromExpr? e.appArg! | return .continue\n  return .done { expr := mkNatLit (n+10) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/seval1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/seval1.lean",
+    "definition_name": "g_eq",
+    "has_proof": true
+  }
+}

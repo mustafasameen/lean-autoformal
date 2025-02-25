@@ -1,0 +1,9 @@
+{
+  "content": "structure TryThisInfo : Type where\n  suggestionTexts : Array (String \u00d7 Option String)\n  codeActionPrefix? : Option String\n  deriving TypeName\n@[builtin_code_action_provider] def tryThisProvider : CodeActionProvider := fun params snap => do\n  let doc \u2190 readDoc\n  pure <| snap.infoTree.foldInfo (init := #[]) fun _ctx info result => Id.run do\n    let .ofCustomInfo { stx, value }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "TryThisInfo"
+  }
+}

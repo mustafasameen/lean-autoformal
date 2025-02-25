@@ -1,0 +1,10 @@
+{
+  "content": "theorem getLsbD_ofFin (x : Fin (2^n)) (i : Nat) :\n    getLsbD (BitVec.ofFin x) i = x.val.testBit i := rfl\n@[simp] theorem getElem_ofFin (x : Fin (2^n)) (i : Nat) (h : i < n) :\n    (BitVec.ofFin x)[i] = x.val.testBit i := rfl\n@[simp] theorem getLsbD_ge (x : BitVec w) (i : Nat) (ge : w \u2264 i) : getLsbD x i = false := by\n  let \u27e8x, x_lt\u27e9 := x\n  simp only [getLsbD_ofFin]\n  apply Nat.testBit_lt_two_pow\n  have p : 2^w \u2264 2^i := Nat.pow_le_pow_right (by omega) ge\n  omega\n@[simp] theorem getMsbD_ge (x : BitVec w) (i : Nat) (ge : w \u2264 i) : getMsbD x i = false := by\n  rw [getMsbD]\n  simp only [Bool.and_eq_false_imp, decide_eq_true_eq]\n  omega\ntheorem lt_of_getLsbD {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getLsbD_ofFin",
+    "has_proof": true
+  }
+}

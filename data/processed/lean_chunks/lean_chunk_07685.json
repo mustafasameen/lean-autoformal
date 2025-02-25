@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote_relabel (aig : AIG \u03b1) (r : \u03b1 \u2192 \u03b2) (start : Nat) {hidx}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Relabel.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Relabel.lean",
+    "definition_name": "denote_relabel",
+    "has_proof": false
+  }
+}

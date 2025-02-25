@@ -1,0 +1,9 @@
+{
+  "content": "class MonadFVarSubst (m : Type \u2192 Type) (translator : outParam Bool) where\n  getSubst : m FVarSubst\nexport MonadFVarSubst (getSubst)\ninstance (m n) [MonadLift m n] [MonadFVarSubst m t] : MonadFVarSubst n t where\n  getSubst := liftM (getSubst : m _)\nclass MonadFVarSubstState (m : Type \u2192 Type) where\n  modifySubst : (FVarSubst \u2192 FVarSubst) \u2192 m Unit\nexport MonadFVarSubstState (modifySubst)\ninstance (m n) [MonadLift m n] [MonadFVarSubstState m] : MonadFVarSubstState n where\n  modifySubst f := liftM (modifySubst f : m _)\n@[inline] def addFVarSubst [MonadFVarSubstState m] (fvarId : FVarId) (fvarId' : FVarId) : m Unit :=\n  modifySubst fun s => s.insert fvarId (.fvar fvarId')\n@[inline] def addSubst [MonadFVarSubstState m] (fvarId : FVarId) (e : Expr) : m Unit :=\n  modifySubst fun s => s.insert fvarId e\n@[inline, inherit_doc normFVarImp] def normFVar [MonadFVarSubst m t] [Monad m] (fvarId : FVarId) : m NormFVarResult :=\n  return normFVarImp (\u2190 getSubst) fvarId t",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "MonadFVarSubst"
+  }
+}

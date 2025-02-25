@@ -1,0 +1,9 @@
+{
+  "content": "inductive F: Prop where\n  | base\n  | step (fn: Nat \u2192 F)\nset_option pp.proofs true\ndef F.asdf1 : (f : F) \u2192 True\n  | base => trivial\n  | step g => match g 1 with\n    | base => trivial\n    | step h => F.asdf1 (h 1)\ntermination_by structural f => f\ndef TTrue (_f : F) := True\ndef F.asdf2 : (f : F) \u2192 TTrue f\n  | base => trivial\n  | step f => F.asdf2 (f 0)\ntermination_by structural f => f\ninductive ITrue (f : F) : Prop where | trivial\ndef F.asdf3 : (f : F) \u2192 ITrue f\n  | base => .trivial\n  | step f => F.asdf3 (f 0)\ntermination_by structural f => f\ninductive T : Prop \u2192 Prop where\n  | base : T True\n  | step (fn: Nat \u2192 T (True \u2192 p)) : T p\ndef T.foo {P : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4751.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4751.lean",
+    "definition_name": "F"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Vec (\u03b1 : Type u) : Nat \u2192 Type u\n  | nil : Vec \u03b1 0\n  | cons : \u03b1 \u2192 Vec \u03b1 n \u2192 Vec \u03b1 (n+1)\ndef Vec.zip : Vec \u03b1 n \u2192 Vec \u03b2 n \u2192 Vec (\u03b1 \u00d7 \u03b2) n\n  | .cons a as, .cons b bs => .cons (a, b) (zip as bs)\n  | .nil, .nil => .nil\ndef Tuple (\u03b1 : Type u) : Nat \u2192 Type u\n  | 0   => PUnit\n  | 1   => \u03b1\n  | n+2 => \u03b1 \u00d7 Tuple \u03b1 n\ndef mkConstTuple (a : \u03b1) : (n : Nat) \u2192 Tuple \u03b1 n\n  | 0   => \u27e8\u27e9\n  | 1   => a\n  | n+2 => (a, mkConstTuple a n)\n#eval test ``Vec.zip\n#eval test ``mkConstTuple\n#eval test ``Fin.add\n#eval test ``Vec.cons\n#eval test ``Eq.rec\n#eval test ``GetElem.getElem\ninductive HList {\u03b1 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/lcnfTypes.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/lcnfTypes.lean",
+    "definition_name": "Vec"
+  }
+}

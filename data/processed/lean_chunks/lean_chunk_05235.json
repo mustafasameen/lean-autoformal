@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] theorem length_replicate (n : Nat) (a : \u03b1) : (replicate n a).length = n := by\n  induction n with\n  | zero => simp\n  | succ n ih => simp only [ih, replicate_succ, length_cons, Nat.succ_eq_add_one]\ndef leftpad (n : Nat) (a : \u03b1) (l : List \u03b1) : List \u03b1 := replicate (n - length l) a ++ l\ndef rightpad (n : Nat) (a : \u03b1) (l : List \u03b1) : List \u03b1 := l ++ replicate (n - length l) a\n@[inline] def reduceOption {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "flatMap_nil",
+    "has_proof": true
+  }
+}

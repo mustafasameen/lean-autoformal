@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEmpty_eq_false_iff_exists_contains_eq_true [TransCmp cmp] (h : t.WF) :\n    t.isEmpty = false \u2194 \u2203 a, t.contains a = true :=\n  Impl.isEmpty_eq_false_iff_exists_contains_eq_true h\ntheorem isEmpty_eq_false_iff_exists_mem [TransCmp cmp] (h : t.WF) :\n    t.isEmpty = false \u2194 \u2203 a, a \u2208 t :=\n  Impl.isEmpty_eq_false_iff_exists_mem h\ntheorem isEmpty_iff_forall_contains [TransCmp cmp] (h : t.WF) :\n    t.isEmpty = true \u2194 \u2200 a, t.contains a = false :=\n  Impl.isEmpty_iff_forall_contains h\ntheorem isEmpty_iff_forall_not_mem [TransCmp cmp] (h : t.WF) :\n    t.isEmpty = true \u2194 \u2200 a, \u00aca \u2208 t :=\n  Impl.isEmpty_iff_forall_not_mem h\n@[simp]\ntheorem insert_eq_insert {p : (a : \u03b1) \u00d7 \u03b2 a}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/RawLemmas.lean",
+    "definition_name": "isEmpty_eq_false_iff_exists_contains_eq_true",
+    "has_proof": false
+  }
+}

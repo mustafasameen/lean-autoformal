@@ -1,0 +1,10 @@
+{
+  "content": "theorem pop_mkVector (n) (a : \u03b1) : (mkVector n a).pop = mkVector (n - 1) a := by\n  ext <;> simp\n@[simp] theorem getElem_pop' (xs : Vector \u03b1 (n + 1)) (i : Nat) (h : i < n + 1 - 1) :\n    @getElem (Vector \u03b1 n) Nat \u03b1 (fun _ i => i < n) instGetElemNatLt xs.pop i h = xs[i] :=\n  getElem_pop h\n@[simp] theorem push_pop_back (xs : Vector \u03b1 (n + 1)) : xs.pop.push xs.back = xs := by\n  ext i\n  by_cases h : i < n\n  \u00b7 simp [h]\n  \u00b7 replace h : i = xs.size - 1 := by rw [size_toArray]; omega\n    subst h\n    simp [back]\n@[simp] theorem getElem_zipWith (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (as : Vector \u03b1 n) (bs : Vector \u03b2 n) (i : Nat)\n    (hi : i < n) : (zipWith f as bs)[i] = f as[i] bs[i] := by\n  cases as\n  cases bs\n  simp\ntheorem getElem_swap (xs : Vector \u03b1 n) (i j : Nat) {hi hj}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "pop_mkVector",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofNat_le_of_le {x y : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_name": "ofNat_le_of_le",
+    "has_proof": false
+  }
+}

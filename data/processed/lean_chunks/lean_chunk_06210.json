@@ -1,0 +1,9 @@
+{
+  "content": "structure PreDiscrTree (\u03b1 : Type) where\n  tries : Array (Array (LazyEntry \u03b1)) := #[]\n  deriving Inhabited\nnamespace PreDiscrTree\nprivate def modifyAt (d : PreDiscrTree \u03b1) (k : Key)\n    (f : Array (LazyEntry \u03b1) \u2192 Array (LazyEntry \u03b1)) : PreDiscrTree \u03b1 :=\n  let { roots, tries }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_name": "PreDiscrTree"
+  }
+}

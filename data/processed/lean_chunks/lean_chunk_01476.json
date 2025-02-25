@@ -1,0 +1,9 @@
+{
+  "content": "class Top (\u03b1 : Type u) where\n  top : \u03b1\nclass Bot (\u03b1 : Type u) where\n  bot : \u03b1\nnotation \"\u22a4\" => Top.top\nnotation \"\u22a5\" => Bot.bot\nclass Preorder (\u03b1 : Type u) extends LE \u03b1, LT \u03b1 where\n  le_refl : \u2200 a : \u03b1, a \u2264 a\n  le_trans : \u2200 a b c : \u03b1, a \u2264 b \u2192 b \u2264 c \u2192 a \u2264 c\n  lt := \u03bb a b => a \u2264 b \u2227 \u00ac b \u2264 a\n  lt_iff_le_not_le : \u2200 a b : \u03b1, a < b \u2194 (a \u2264 b \u2227 \u00ac b \u2264 a)\nclass PartialOrder (\u03b1 : Type u) extends Preorder \u03b1 :=\n(le_antisymm : \u2200 a b : \u03b1, a \u2264 b \u2192 b \u2264 a \u2192 a = b)\ndef Set (\u03b1 : Type u) := \u03b1 \u2192 Prop\ndef setOf {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_name": "Top"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "end\nsection\nvariable {\u2115} [Natural \u2115]\ndef pred_with_proof (n : \u2115) (h : n \u2260 zero) : \u03a3' m, n = succ m :=\n  by\n  revert h\n  let P (k : \u2115) := k \u2260 zero \u2192 \u03a3' m, k = succ m\n  exact (nat_induction (by simp [P]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_name": "a"
+  }
+}

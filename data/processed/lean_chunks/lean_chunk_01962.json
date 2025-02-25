@@ -1,0 +1,10 @@
+{
+  "content": "structure NatTrans (F G : C \u2964 D) : Type max u\u2081 v\u2082 where\n  app : \u2200 X : C, F.obj X \u27f6 G.obj X\n  naturality : \u2200 \u2983X Y : C\u2984 (f : X \u27f6 Y), F.map f \u226b app Y = app X \u226b G.map f\ntheorem NatTrans.naturality_assoc {F G : C \u2964 D}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "NatTrans",
+    "has_proof": false
+  }
+}

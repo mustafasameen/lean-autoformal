@@ -1,0 +1,9 @@
+{
+  "content": "inductive MyBool :=\n  | MyTrue\n  | MyFalse\ninductive T :=\n  | mk (b: MyBool) (u: Unit)\ninductive isTrue: T \u2192 Type :=\n  | intro: isTrue (.mk .MyTrue ())\nexample {\u03c4: T}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/enumNoConfusionIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/enumNoConfusionIssue.lean",
+    "definition_name": "MyBool"
+  }
+}

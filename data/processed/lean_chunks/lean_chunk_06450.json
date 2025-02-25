@@ -1,0 +1,9 @@
+{
+  "content": "| .forInWithReturn => ``(Bind.bind $action fun (_ : PUnit) => Pure.pure (ForInStep.yield (MProd.mk none $u)))\n  | .nestedBC        => unreachable!\n  | .nestedPR        => ``(Bind.bind $action fun y => (Pure.pure (DoResultPR.\u00abpure\u00bb y $u)))\n  | .nestedSBC       => ``(Bind.bind $action fun y => (Pure.pure (DoResultSBC.\u00abpureReturn\u00bb y $u)))\n  | .nestedPRBC      => ``(Bind.bind $action fun y => (Pure.pure (DoResultPRBC.\u00abpure\u00bb y $u)))\ndef seqToTerm (action : Syntax) (k : Syntax) : M Syntax := withRef action <| withFreshMacroScope do\n  if action.getKind == ``Parser.Term.doDbgTrace then\n    let msg := action[1]\n    `(dbg_trace $msg; $k)\n  else if action.getKind == ``Parser.Term.doAssert then\n    let cond := action[1]\n    `(assert! $cond; $k)\n  else\n    let action \u2190 withRef action ``(($action : $((\u2190read).m) PUnit))\n    ``(Bind.bind $action (fun (_ : PUnit) => $k))\ndef declToTerm (decl : Syntax) (k : Syntax) : M Syntax := withRef decl <| withFreshMacroScope do\n  let kind := decl.getKind",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Kind"
+  }
+}

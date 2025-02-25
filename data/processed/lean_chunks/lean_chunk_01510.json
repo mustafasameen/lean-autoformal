@@ -1,0 +1,10 @@
+{
+  "content": "theorem Expr.typeCheck_correct (h\u2081 : HasType e ty) (h\u2082 : e.typeCheck \u2260 .unknown)\n        : e.typeCheck = .found ty h := by\n  revert h\u2082\n  cases typeCheck e with\n  | found ty' h' => intro; have := HasType.det h\u2081 h'; subst this; rfl\n  | unknown => intros; contradiction\n#guard_msgs in\n#check Expr.typeCheck.induct\ntheorem Expr.typeCheck_complete' {e : Expr}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_expr.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_expr.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

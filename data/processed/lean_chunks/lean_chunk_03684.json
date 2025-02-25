@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_set (xs : Array \u03b1) (i : Nat) (h' : i < xs.size) (v : \u03b1) (j : Nat)\n    (h : j < (xs.set i v).size) :\n    (xs.set i v)[j]'h = if i = j then v else xs[j]'(size_set xs i v _ \u25b8 h) := by\n  by_cases p : i = j <;> simp [p]\ntheorem getElem?_set (xs : Array \u03b1) (i : Nat) (h : i < xs.size) (v : \u03b1) (j : Nat) :\n    (xs.set i v)[j]? = if i = j then some v else xs[j]? := by\n  split <;> simp_all\n@[simp] theorem set_getElem_self {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "getElem_set",
+    "has_proof": true
+  }
+}

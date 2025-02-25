@@ -1,0 +1,9 @@
+{
+  "content": "definition then\n        let declId   := decl[1]\n        withRef declId do\n          let declName := declId[0].getId\n          if declName.eraseMacroScopes.toString.contains '_' then\n            throwError \"SNAKES!!\"\ninitialize addLinter snakeLinter",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/plugin/SnakeLinter.lean",
+    "definition_type": "definition",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/plugin/SnakeLinter.lean",
+    "definition_name": "then"
+  }
+}

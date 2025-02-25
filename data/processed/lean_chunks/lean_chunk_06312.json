@@ -1,0 +1,9 @@
+{
+  "content": "let ctor \u2190 expandCtor stx modifiers declName\n  let fields \u2190 expandFields stx modifiers declName\n  fields.forM fun field => do\n    if field.declName == ctor.declName then\n      throwErrorAt field.ref \"invalid field name '{field.name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "S"
+  }
+}

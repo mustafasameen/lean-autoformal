@@ -1,0 +1,9 @@
+{
+  "content": "else if postpone != .yes then\n            if \u2190 withoutPostponing <| synthesizeSyntheticMVarsStep (postponeOnError := true) (runTactics := false) then\n              loop ()\n            else if \u2190 synthesizeUsingDefault then\n              loop ()\n            else if \u2190 withoutPostponing <| synthesizeSyntheticMVarsStep (postponeOnError := false) (runTactics := false) then\n              loop ()\n            else if \u2190 synthesizeSyntheticMVarsStep (postponeOnError := false) (runTactics := true) then\n              loop ()\n            else if postpone == .no then\n              reportStuckSyntheticMVars ignoreStuckTC\n    loop ()\n    if postpone == .no then\n     processPostponedUniverseContraints\nend\ndef synthesizeSyntheticMVarsNoPostponing (ignoreStuckTC := false) : TermElabM Unit :=\n  synthesizeSyntheticMVars (postpone := .no) (ignoreStuckTC := ignoreStuckTC)\n@[inline] def withSynthesize [MonadFunctorT TermElabM m] (k : m \u03b1) (postpone := PostponeBehavior.no) : m \u03b1 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "reportStuckSyntheticMVars"
+  }
+}

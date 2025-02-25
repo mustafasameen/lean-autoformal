@@ -1,0 +1,9 @@
+{
+  "content": "def Foo.baz := \"foobaz\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/examples/targets/src/Foo/Baz.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/examples/targets/src/Foo/Baz.lean",
+    "definition_name": "Foo"
+  }
+}

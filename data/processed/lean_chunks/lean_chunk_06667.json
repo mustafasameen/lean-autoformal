@@ -1,0 +1,9 @@
+{
+  "content": "| tokens s\u2081,    tokens s\u2082    => tokens (s\u2081 ++ s\u2082)\n  | optTokens s\u2081, optTokens s\u2082 => optTokens (s\u2081 ++ s\u2082)\n  | tokens s\u2081,    optTokens s\u2082 => optTokens (s\u2081 ++ s\u2082)\n  | optTokens s\u2081, tokens s\u2082    => optTokens (s\u2081 ++ s\u2082)\n  | _,            _            => unknown\ndef toStr : FirstTokens \u2192 String\n  | epsilon       => \"epsilon\"\n  | unknown       => \"unknown\"\n  | tokens tks    => toString tks\n  | optTokens tks => \"?\" ++ toString tks\ninstance : ToString FirstTokens where\n  toString := toStr\nend FirstTokens\nstructure ParserInfo where\n  collectTokens : List Token \u2192 List Token := id\n  collectKinds  : SyntaxNodeKindSet \u2192 SyntaxNodeKindSet := id\n  firstTokens   : FirstTokens := FirstTokens.unknown\n  deriving Inhabited\nstructure Parser where\n  info : ParserInfo := {}\n  fn   : ParserFn\n  deriving Inhabited\nabbrev TrailingParser := Parser\ndef withResetCacheFn (p : ParserFn) : ParserFn := withStackDrop 0 fun c s =>\n  let parserCache := s.cache.parserCache",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_name": "ParserFn"
+  }
+}

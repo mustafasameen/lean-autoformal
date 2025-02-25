@@ -1,0 +1,9 @@
+{
+  "content": "inductive Tok where\n  | lpar\n  | rpar\n  | plus\n  | minus\n  | times\n  | divide\n  | num : Nat \u2192 Tok\n  deriving Repr\nstructure Token where\ntext : String\n  tok  : Tok\n  deriving Repr\ninductive LexErr where\n  | unexpected : Char \u2192 LexErr\n  | notDigit : Char \u2192 LexErr\n  deriving Repr\ndef Char.digit? (char : Char) : Option Nat :=\n  if char.isDigit then\n    some (char.toNat - '0'.toNat)\n  else\n    none\nmutual\n  def lex [Monad m] [MonadExceptOf LexErr m] (it : String.Iterator) : m (List Token) := do\n    if it.atEnd then\n      return []\n    else\n      match it.curr with\n      | '(' => return { text := \"(\", tok := Tok.lpar }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lex.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lex.lean",
+    "definition_name": "Tok"
+  }
+}

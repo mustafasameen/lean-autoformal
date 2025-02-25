@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1' : P (red o) := by simp; fail\ndef semired : Option \u03b1 \u2192 Bool\n  | .some _ => true\n  | .none => false\n#guard_msgs in\ntheorem ex2 : P (semired o) := by simp [semired]; fail\n#guard_msgs in\nrun_meta Lean.logInfo m!\"{\u2190 Lean.hasConst `semired2.eq_1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/eqnsReducible.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/eqnsReducible.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

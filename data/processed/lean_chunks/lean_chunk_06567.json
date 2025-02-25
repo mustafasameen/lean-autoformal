@@ -1,0 +1,9 @@
+{
+  "content": "| nil => .pure <| .ok none\n  | cons hd tl =>\n    if p hd then .pure <| Except.ok <| some hd\n    else tl.waitFind? p\n  | delayed tl =>\n    tl.bindCheap fun\n      | .ok tl   => tl.waitFind? p\n      | .error e => .pure <| .error e\npartial def getFinishedPrefix : AsyncList \u03b5 \u03b1 \u2192 BaseIO (List \u03b1 \u00d7 Option \u03b5 \u00d7 Bool)\n  | cons hd tl => do\n    let \u27e8tl, e?, isComplete\u27e9 \u2190 tl.getFinishedPrefix\n    pure \u27e8hd :: tl, e?, isComplete\u27e9\n  | nil => pure \u27e8[], none, true\u27e9\n  | delayed tl => do\n    if \u2190 tl.hasFinished then\n      match tl.get with\n      | Except.ok tl => tl.getFinishedPrefix\n      | Except.error e => pure \u27e8[], some e, true\u27e9\n    else pure \u27e8[], none, false\u27e9\npartial def getFinishedPrefixWithTimeout (xs : AsyncList \u03b5 \u03b1) (timeoutMs : UInt32)\n    (cancelTk? : Option (ServerTask Unit) := none) : BaseIO (List \u03b1 \u00d7 Option \u03b5 \u00d7 Bool) := do\n  let timeoutTask : ServerTask (Unit \u2295 Except \u03b5 (AsyncList \u03b5 \u03b1)) \u2190\n    if timeoutMs == 0 then\n      pure <| ServerTask.pure (Sum.inl ())\n    else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/AsyncList.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/AsyncList.lean",
+    "definition_name": "AsyncList"
+  }
+}

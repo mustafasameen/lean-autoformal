@@ -1,0 +1,9 @@
+{
+  "content": "class C where f : Sort u \u2192 Nat\nclass D extends C\ndef a [C] := C.f Nat\ndef b [D] := D.toC.f Nat\ndef c [D] := C.f Nat\nend Ex2\nnamespace Ex3\nsection\nvariable (N : Type _)\nclass Zero where\n  zero : N\nexport Zero (zero)\nclass Succ where\n  succ : N \u2192 N\nexport Succ (succ)\nclass Succ_Not_Zero [Zero N] [Succ N] where\n  succ_not_zero {n : N}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/796.lean",
+    "definition_name": "C"
+  }
+}

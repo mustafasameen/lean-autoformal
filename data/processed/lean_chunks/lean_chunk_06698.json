@@ -1,0 +1,9 @@
+{
+  "content": "inductive IsEntriesNode : Node \u03b1 \u03b2 \u2192 Prop where\n  | mk (entries : Array (Entry \u03b1 \u03b2 (Node \u03b1 \u03b2))) : IsEntriesNode (Node.entries entries)\nabbrev EntriesNode (\u03b1 \u03b2) := { n : Node \u03b1 \u03b2 // IsEntriesNode n }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_name": "IsEntriesNode"
+  }
+}

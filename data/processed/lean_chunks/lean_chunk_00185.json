@@ -1,0 +1,10 @@
+{
+  "content": "def f3.h := 10\ndef f3 (x : Nat) : Nat :=\nlet rec h (x : Nat) := x + 2\n  h x\ndef f4 (x : Nat) : Nat :=\n  let rec g1 (x : Nat) :=\nlet rec h (x : Nat) := x + 1\n    h x\n  let rec g2 (x : Nat) :=\nlet rec h (x : Nat) := x + 2\n    h x\n  g1 x + g2 x\ntheorem ex1 (x : Nat) : f4 x = (x + 1) + (x + 2) :=\n  rfl\ntheorem ex2 (x : Nat) : f4.g1.h x = x + 1 :=\n  rfl\ntheorem ex3 (x : Nat) : f4.g2.h x = x + 2 :=\n  rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/letrecErrors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/letrecErrors.lean",
+    "definition_name": "f3",
+    "has_proof": false
+  }
+}

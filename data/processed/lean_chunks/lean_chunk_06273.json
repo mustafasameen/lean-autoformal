@@ -1,0 +1,9 @@
+{
+  "content": "private def withNewLocalInstanceImp (className : Name) (fvar : Expr) (k : MetaM \u03b1) : MetaM \u03b1 := do\n  let localDecl \u2190 getFVarLocalDecl fvar\n  if localDecl.isImplementationDetail then\n    k\n  else\n    withReader (fun ctx => { ctx with localInstances := ctx.localInstances.push { className := className, fvar := fvar } }) k\ndef withNewLocalInstance (className : Name) (fvar : Expr) : n \u03b1 \u2192 n \u03b1 :=\n  mapMetaM <| withNewLocalInstanceImp className fvar\nprivate def fvarsSizeLtMaxFVars (fvars : Array Expr) (maxFVars? : Option Nat) : Bool :=\n  match maxFVars? with\n  | some maxFVars => fvars.size < maxFVars\n  | none          => true\nmutual\n  private partial def withNewLocalInstancesImp\n      (fvars : Array Expr) (i : Nat) (k : MetaM \u03b1) : MetaM \u03b1 := do\n    if h : i < fvars.size then\n      let fvar := fvars[i]\n      let decl \u2190 getFVarLocalDecl fvar\n      match (\u2190 isClassQuick? decl.type) with\n      | .none   => withNewLocalInstancesImp fvars (i+1) k\n      | .undef  =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

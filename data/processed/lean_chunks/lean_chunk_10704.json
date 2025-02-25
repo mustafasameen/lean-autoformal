@@ -1,0 +1,9 @@
+{
+  "content": "def binder := Term.binderIdent <|> Term.bracketedBinder\nabbrev Binder := TSyntax ``binder\ninstance : Coe Binder (TSyntax [identKind, ``Term.hole, ``Term.bracketedBinder]) where\n  coe stx := \u27e8stx.raw\u27e9\nabbrev BinderModifier := TSyntax [``Term.binderTactic, ``Term.binderDefault]\nstructure BinderSyntaxView where\n  id : Ident\n  type : Term\n  info : BinderInfo\n  modifier? : Option BinderModifier := none\ndef expandOptType (ref : Syntax) (optType : Syntax) : Term :=\n  if optType.isNone then\n    mkHoleFrom ref\n  else\n    \u27e8optType[0][1]\u27e9\ndef getBinderIds (ids : Syntax) : MacroM (Array BinderIdent) :=\n  ids.getArgs.mapM fun id =>\n    let k := id.getKind\n    if k == identKind || k == `Lean.Parser.Term.hole then\n      return \u27e8id\u27e9\n    else\n      Macro.throwErrorAt id \"identifier or `_` expected\"\ndef expandBinderIdent (stx : Syntax) : MacroM Ident :=\n  match stx with\n  | `(_) => (\u27e8\u00b7\u27e9) <$> Elab.Term.mkFreshIdent stx\n  | _    => pure \u27e8stx\u27e9\ndef expandOptIdent (stx : Syntax) : BinderIdent :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Binder.lean",
+    "definition_name": "binder"
+  }
+}

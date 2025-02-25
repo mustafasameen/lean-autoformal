@@ -1,0 +1,10 @@
+{
+  "content": "theorem find?_flatMap (xs : List \u03b1) (f : \u03b1 \u2192 List \u03b2) (p : \u03b2 \u2192 Bool) :\n    (xs.flatMap f).find? p = xs.findSome? (fun x => (f x).find? p) := by\n  simp [flatMap_def, findSome?_map]; rfl\n@[deprecated find?_flatMap (since := \"2024-10-16\")] abbrev find?_bind := @find?_flatMap\ntheorem find?_flatMap_eq_none_iff {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

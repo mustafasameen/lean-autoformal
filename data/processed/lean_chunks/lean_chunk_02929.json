@@ -1,0 +1,9 @@
+{
+  "content": "let envExtensions \u2190 envExtensionsRef.get\n    if h : i < envExtensions.size then\n      let s \u2190 envExtensions[i].mkInitial\n      let exts := exts.push s\n      loop (i + 1) exts\n    else\n      return exts\nprivate def invalidExtMsg := \"invalid environment extension has been accessed\"\nprivate unsafe def setStateImpl {\u03c3} (ext : EnvExtension \u03c3) (exts : Array EnvExtensionState) (s : \u03c3) : Array EnvExtensionState :=\n  if h : ext.idx < exts.size then\n    exts.set ext.idx (unsafeCast s)\n  else\n    have : Inhabited (Array EnvExtensionState) := \u27e8exts\u27e9\n    panic! invalidExtMsg\nprivate unsafe def modifyStateImpl {\u03c3 : Type} (ext : EnvExtension \u03c3) (exts : Array EnvExtensionState) (f : \u03c3 \u2192 \u03c3) : Array EnvExtensionState :=\n  if ext.idx < exts.size then\n    exts.modify ext.idx fun s =>\n      let s : \u03c3 := unsafeCast s\n      let s : \u03c3 := f s\n      unsafeCast s\n  else\n    have : Inhabited (Array EnvExtensionState) := \u27e8exts\u27e9\n    panic! invalidExtMsg",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

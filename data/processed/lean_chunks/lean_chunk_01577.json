@@ -1,0 +1,10 @@
+{
+  "content": "theorem app_nil {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def12.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def12.lean",
+    "definition_name": "app_nil",
+    "has_proof": false
+  }
+}

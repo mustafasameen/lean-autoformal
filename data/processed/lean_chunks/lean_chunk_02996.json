@@ -1,0 +1,9 @@
+{
+  "content": "| max l\u2081 l\u2082, alreadyNormalized, lvls => getMaxArgsAux normalize l\u2082 alreadyNormalized (getMaxArgsAux normalize l\u2081 alreadyNormalized lvls)\n  | l,           false,             lvls => getMaxArgsAux normalize (normalize l) true lvls\n  | l,           true,              lvls => lvls.push l\nprivate def accMax (result : Level) (prev : Level) (offset : Nat) : Level :=\n  if result.isZero then prev.addOffset offset\n  else mkLevelMax result (prev.addOffset offset)\nprivate partial def mkMaxAux (lvls : Array Level) (extraK : Nat) (i : Nat) (prev : Level) (prevK : Nat) (result : Level) : Level :=\n  if h : i < lvls.size then\n    let lvl   := lvls[i]\n    let curr  := lvl.getLevelOffset\n    let currK := lvl.getOffset\n    if curr == prev then\n      mkMaxAux lvls extraK (i+1) curr currK result\n    else\n      mkMaxAux lvls extraK (i+1) curr currK (accMax result prev (extraK + prevK))\n  else\n    accMax result prev (extraK + prevK)\nprivate partial def skipExplicit (lvls : Array Level) (i : Nat) : Nat :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

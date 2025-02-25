@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_term_parser] def \u00ablet\u00bb := leading_parser:leadPrec\n  withPosition (\"let \" >> letDecl) >> optSemicolon termParser\n@[builtin_term_parser] def \u00ablet_fun\u00bb     := leading_parser:leadPrec\n  withPosition ((symbol \"let_fun \" <|> \"let_\u03bb \") >> letDecl) >> optSemicolon termParser\n@[builtin_term_parser] def \u00ablet_delayed\u00bb := leading_parser:leadPrec\n  withPosition (\"let_delayed \" >> letDecl) >> optSemicolon termParser\n@[builtin_term_parser] def \u00ablet_tmp\u00bb := leading_parser:leadPrec\n  withPosition (\"let_tmp \" >> letDecl) >> optSemicolon termParser\ndef haveId := leading_parser (withAnonymousAntiquot := false)\n  (ppSpace >> binderIdent) <|> hygieneInfo\n@[builtin_doc] def haveDecl := leading_parser (withAnonymousAntiquot := false)\n  haveIdDecl <|> (ppSpace >> letPatDecl) <|> haveEqnsDecl\n@[builtin_term_parser] def \u00abhave\u00bb := leading_parser:leadPrec\n  withPosition (\"have\" >> haveDecl) >> optSemicolon termParser\n@[builtin_term_parser] def \u00abletI\u00bb := leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

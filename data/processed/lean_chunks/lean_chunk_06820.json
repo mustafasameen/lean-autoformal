@@ -1,0 +1,9 @@
+{
+  "content": "structure Methods where\n  pre        : Simproc  := fun _ => return .continue\n  post       : Simproc  := fun e => return .done { expr := e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Types.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Simp/Types.lean",
+    "definition_name": "Methods"
+  }
+}

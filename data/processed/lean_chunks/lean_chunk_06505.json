@@ -1,0 +1,9 @@
+{
+  "content": "structure LetIdDeclView where\n  id      : Syntax\n  binders : Array Syntax\n  type    : Syntax\n  value   : Syntax\ndef mkLetIdDeclView (letIdDecl : Syntax) : LetIdDeclView :=\n  let id      := letIdDecl[0]\n  let binders := letIdDecl[1].getArgs\n  let optType := letIdDecl[2]\n  let type    := expandOptType id optType\n  let value   := letIdDecl[4]\n  { id, binders, type, value }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_name": "LetIdDeclView"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "inductive Mem : \u03b1 \u2192 List \u03b1 \u2192 Prop where\n | head (a : \u03b1) (as : List \u03b1)   : Mem a (a::as)\n | tail (a b : \u03b1) (bs : List \u03b1) : Mem a bs \u2192 Mem a (b::bs)\ninfix:50 (priority := high) \"\u2208\" => Mem\ntheorem mem_split {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/matchGenBug.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/matchGenBug.lean",
+    "definition_name": "Mem",
+    "has_proof": false
+  }
+}

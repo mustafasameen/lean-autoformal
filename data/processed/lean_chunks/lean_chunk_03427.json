@@ -1,0 +1,10 @@
+{
+  "content": "@[simp] protected theorem toNat_or (a b : $typeName) : (a ||| b).toNat = a.toNat ||| b.toNat := by simp [toNat, -toNat_toBitVec]\n@[simp] protected theorem toNat_xor (a b : $typeName) : (a ^^^ b).toNat = a.toNat ^^^ b.toNat := by simp [toNat, -toNat_toBitVec]\n@[simp] protected theorem toNat_shiftLeft (a b : $typeName) : (a <<< b).toNat = a.toNat <<< (b.toNat % $bits) % 2 ^ $bits := by simp [toNat, -toNat_toBitVec]\n@[simp] protected theorem toNat_shiftRight (a b : $typeName) : (a >>> b).toNat = a.toNat >>> (b.toNat % $bits) := by simp [toNat, -toNat_toBitVec]\nopen $typeName (toNat_and) in\n@[deprecated toNat_and (since := \"2024-11-28\")]\nprotected theorem and_toNat (a b : $typeName) : (a &&& b).toNat = a.toNat &&& b.toNat := BitVec.toNat_and ..\nend $typeName\n)\ndeclare_bitwise_uint_theorems UInt8 8\ndeclare_bitwise_uint_theorems UInt16 16\ndeclare_bitwise_uint_theorems UInt32 32\ndeclare_bitwise_uint_theorems UInt64 64\ndeclare_bitwise_uint_theorems USize System.Platform.numBits",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Bitwise.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Bitwise.lean",
+    "definition_name": "toBitVec_and",
+    "has_proof": true
+  }
+}

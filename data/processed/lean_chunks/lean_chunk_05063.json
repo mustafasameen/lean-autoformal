@@ -1,0 +1,10 @@
+{
+  "content": "else\n        simp only [Nat.not_lt] at hb\n        rw [List.drop_eq_getElem_cons ha]\n        rw [(drop_eq_nil_iff (l := bs)).mpr (by omega), (drop_eq_nil_iff (l := bs)).mpr (by omega)]\n        simp only [zipWithAll_nil, map_drop, map_cons]\n        rw [getElem?_eq_getElem ha]\n        rw [getElem?_eq_none hb]\n    else\n      if hb : i < bs.length then\n        simp only [Nat.not_lt] at ha\n        rw [List.drop_eq_getElem_cons hb]\n        rw [(drop_eq_nil_iff (l := as)).mpr (by omega), (drop_eq_nil_iff (l := as)).mpr (by omega)]\n        simp only [nil_zipWithAll, map_drop, map_cons]\n        rw [getElem?_eq_getElem hb]\n        rw [getElem?_eq_none ha]\n      else\n        omega\n  \u00b7 simp only [size_toArray, Nat.not_lt] at h\n    rw [drop_eq_nil_of_le (by omega), drop_eq_nil_of_le (by omega)]\n    simp\n  termination_by max as.length bs.length - i\n  decreasing_by simp_wf; decreasing_trivial_pre_omega",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

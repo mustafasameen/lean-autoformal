@@ -1,0 +1,9 @@
+{
+  "content": "structure Alt where\n  mvarId    : MVarId\n  deriving Inhabited\nstructure Context where\n  elimInfo : ElimInfo\ntargets  : Array Expr\nstructure State where\nargPos    : Nat := 0\ntargetPos : Nat := 0\nmotive    : Option MVarId\n  f         : Expr\n  fType     : Expr\n  alts      : Array Alt := #[]\n  insts     : Array MVarId := #[]\nabbrev M := ReaderT Context $ StateRefT State TermElabM\nprivate def addNewArg (arg : Expr) : M Unit :=\n  modify fun s => { s with argPos := s.argPos+1, f := mkApp s.f arg, fType := s.fType.bindingBody!.instantiate1 arg }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Induction.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Induction.lean",
+    "definition_name": "Alt"
+  }
+}

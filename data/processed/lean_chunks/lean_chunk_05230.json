@@ -1,0 +1,10 @@
+{
+  "content": "| []     => init\n  | a :: l => f a (foldr f init l)\n@[simp] theorem foldr_nil : [].foldr f b = b := rfl\n@[simp] theorem foldr_cons (l : List \u03b1) : (a :: l).foldr f b = f a (l.foldr f b) := rfl\ndef reverseAux : List \u03b1 \u2192 List \u03b1 \u2192 List \u03b1\n  | [],   r => r\n  | a::l, r => reverseAux l (a::r)\n@[simp] theorem reverseAux_nil : reverseAux [] r = r := rfl\n@[simp] theorem reverseAux_cons : reverseAux (a::l) r = reverseAux l (a::r) := rfl\ndef reverse (as : List \u03b1) : List \u03b1 :=\n  reverseAux as []\n@[simp] theorem reverse_nil : reverse ([] : List \u03b1) = [] := rfl\ntheorem reverseAux_reverseAux (as bs cs : List \u03b1) : reverseAux (reverseAux as bs) cs = reverseAux bs (reverseAux (reverseAux as []) cs) := by\n  induction as generalizing bs cs with\n  | nil => rfl\n  | cons a as ih => simp [reverseAux, ih (a::bs), ih [a]]\nprotected def append : (xs ys : List \u03b1) \u2192 List \u03b1\n  | [],    bs => bs\n  | a::as, bs => a :: List.append as bs\ndef appendTR (as bs : List \u03b1) : List \u03b1 :=\n  reverseAux as.reverse bs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "map_cons",
+    "has_proof": true
+  }
+}

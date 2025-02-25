@@ -1,0 +1,9 @@
+{
+  "content": "@[inline, inherit_doc DTreeMap.getKeyGT?]\ndef getKeyGT? (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : Option \u03b1 :=\n  DTreeMap.getKeyGT? t.inner k\n@[inline, inherit_doc DTreeMap.getKeyLE?]\ndef getKeyLE? (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : Option \u03b1 :=\n  DTreeMap.getKeyLE? t.inner k\n@[inline, inherit_doc DTreeMap.getKeyLT?]\ndef getKeyLT? (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : Option \u03b1 :=\n  DTreeMap.getKeyLT? t.inner k\n@[inline, inherit_doc DTreeMap.getKeyGE!]\ndef getKeyGE! [Inhabited \u03b1] (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : \u03b1 :=\n  DTreeMap.getKeyGE! t.inner k\n@[inline, inherit_doc DTreeMap.getKeyGT!]\ndef getKeyGT! [Inhabited \u03b1] (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : \u03b1 :=\n  DTreeMap.getKeyGT! t.inner k\n@[inline, inherit_doc DTreeMap.getKeyLE!]\ndef getKeyLE! [Inhabited \u03b1] (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : \u03b1 :=\n  DTreeMap.getKeyLE! t.inner k\n@[inline, inherit_doc DTreeMap.getKeyLT!]\ndef getKeyLT! [Inhabited \u03b1] (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : \u03b1 :=\n  DTreeMap.getKeyLT! t.inner k\n@[inline, inherit_doc DTreeMap.getKeyGED]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Basic.lean",
+    "definition_name": "TreeMap"
+  }
+}

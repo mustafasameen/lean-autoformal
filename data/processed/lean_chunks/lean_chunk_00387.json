@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo (\u03b1 : Type) where\n  | mk : List (Bla \u03b1) \u2192 Foo \u03b1\n  | leaf : \u03b1 \u2192 Foo \u03b1\ninductive Bla (\u03b1 : Type) where\n  | nil : Bla \u03b1\n  | cons : Foo \u03b1 \u2192 Bla \u03b1 \u2192 Bla \u03b1\nend\nopen Lean\nopen Lean.Meta\ndef tst : MetaM Unit := do\n  let info \u2190 getConstInfoInduct `Test.Bla\n  trace[Meta.debug] \"nested: {info.isNested}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/deriving.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/deriving.lean",
+    "definition_name": "Foo"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Hom (M N : Comon_ C) where\n  hom : M.X \u27f6 N.X\n@[simp]\ndef id (M : Comon_ C) : Hom M M where\n  hom := \ud835\udfd9 M.X\n@[simp]\ndef comp {M N O : Comon_ C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "Hom"
+  }
+}

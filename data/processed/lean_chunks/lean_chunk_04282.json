@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_zero_of_gcd_eq_zero_right {m n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "eq_zero_of_gcd_eq_zero_right",
+    "has_proof": false
+  }
+}

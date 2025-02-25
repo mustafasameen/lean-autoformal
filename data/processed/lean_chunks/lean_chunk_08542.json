@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertMany_cons {l : List ((a : \u03b1) \u00d7 \u03b2 a)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_name": "insertMany_cons",
+    "has_proof": false
+  }
+}

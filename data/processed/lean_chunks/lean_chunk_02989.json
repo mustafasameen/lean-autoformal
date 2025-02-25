@@ -1,0 +1,9 @@
+{
+  "content": "r\ninstance : Repr Level.Data where\n  reprPrec v prec := Id.run do\n    let mut r := \"Level.mkData \" ++ toString v.hash\n    if v.depth != 0 then\n      r := r ++ \" (depth := \" ++ toString v.depth ++ \")\"\n    if v.hasMVar then\n      r := r ++ \" (hasMVar := \" ++ toString v.hasMVar ++ \")\"\n    if v.hasParam then\n      r := r ++ \" (hasParam := \" ++ toString v.hasParam ++ \")\"\n    Repr.addAppParen r prec\nopen Level\nabbrev LMVarId := LevelMVarId\ninstance : Repr LMVarId where\n  reprPrec n p := reprPrec n.name p\ndef LMVarIdSet := RBTree LMVarId (Name.quickCmp \u00b7.name \u00b7.name)\n  deriving Inhabited, EmptyCollection\ninstance : ForIn m LMVarIdSet LMVarId := inferInstanceAs (ForIn _ (RBTree ..) ..)\ndef LMVarIdMap (\u03b1 : Type) := RBMap LMVarId \u03b1 (Name.quickCmp \u00b7.name \u00b7.name)\ninstance : EmptyCollection (LMVarIdMap \u03b1) := inferInstanceAs (EmptyCollection (RBMap ..))\ninstance : ForIn m (LMVarIdMap \u03b1) (LMVarId \u00d7 \u03b1) := inferInstanceAs (ForIn _ (RBMap ..) ..)\ninstance : Inhabited (LMVarIdMap \u03b1) where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

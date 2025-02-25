@@ -1,0 +1,9 @@
+{
+  "content": "structure foo [\u2200 i, has_note (\u03b2 i)] : Type where\n  to_fun : \u2200 i, \u03b2 i\ninstance foo.has_note [\u2200 i, has_note (\u03b2 i)] : has_note (foo (\u03bb i => \u03b2 i)) where\n  note := { to_fun := \u03bb _ => \u2669 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/509.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/509.lean",
+    "definition_name": "foo"
+  }
+}

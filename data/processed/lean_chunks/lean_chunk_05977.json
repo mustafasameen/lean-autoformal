@@ -1,0 +1,10 @@
+{
+  "content": "theorem sublist_mergeSort\n    (trans : \u2200 (a b c : \u03b1), le a b \u2192 le b c \u2192 le a c)\n    (total : \u2200 (a b : \u03b1), le a b || le b a) :\n    \u2200 {ys : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_name": "sublist_mergeSort",
+    "has_proof": false
+  }
+}

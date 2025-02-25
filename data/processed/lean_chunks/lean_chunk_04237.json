@@ -1,0 +1,10 @@
+{
+  "content": "theorem adc_spec (x y : BitVec w) (c : Bool) :\n    adc x y c = (carry w x y c, x + y + setWidth w (ofBool c)) := by\n  simp only [adc]\n  apply iunfoldr_replace\n          (fun i => carry i x y c)\n          (x + y + setWidth w (ofBool c))\n          c\n  case init =>\n    simp [carry, Nat.mod_one]\n    cases c <;> rfl\n  case step =>\n    simp [adcb, Prod.mk.injEq, carry_succ, getElem_add_add_bool]\ntheorem add_eq_adc (w : Nat) (x y : BitVec w) : x + y = (adc x y false).snd := by\n  simp [adc_spec]\n@[simp] theorem add_not_self (x : BitVec w) : x + ~~~x = allOnes w := by\n  rw [add_eq_adc, adc, iunfoldr_replace (fun _ => false) (allOnes w)]\n  \u00b7 rfl\n  \u00b7 simp [adcb, atLeastTwo]\ntheorem add_eq_or_of_and_eq_zero {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "adc_spec",
+    "has_proof": true
+  }
+}

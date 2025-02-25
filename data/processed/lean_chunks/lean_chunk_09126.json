@@ -1,0 +1,10 @@
+{
+  "content": "theorem singleton_eq_insert {p : \u03b1 \u00d7 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/RawLemmas.lean",
+    "definition_name": "singleton_eq_insert",
+    "has_proof": false
+  }
+}

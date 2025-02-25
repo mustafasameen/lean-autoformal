@@ -1,0 +1,9 @@
+{
+  "content": "inductive FinInt: Nat \u2192 Type :=\n  | nil: FinInt 0\n  | next: Bool \u2192 FinInt n \u2192 FinInt (n+1)\nderiving DecidableEq\ndef zero (sz: Nat): FinInt sz :=\n  match sz with\n  | 0 => .nil\n  | sz+1 => .next false (zero sz)\ninductive Pair :=\n  | mk (sz: Nat) (lhs rhs: FinInt sz)\ndef makePair?: (n m: (sz: Nat) \u00d7 FinInt sz) \u2192 Option Pair\n  | \u27e8sz, lhs\u27e9, \u27e8sz', rhs\u27e9 =>\n      if EQ: true /\\ sz = sz' then\n            have rhs' : FinInt sz := by {\n                cases EQ;\n                case intro left right =>\n                simp [right];\n                exact rhs;\n            }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/andCasesOnBug.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/andCasesOnBug.lean",
+    "definition_name": "FinInt"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "\u2200 lit, \u00acMem lit c := by\n  intro lit hlit\n  simp only [maxLiteral, List.max?_eq_none_iff, List.map_eq_nil_iff] at h\n  simp only [h, not_mem_nil] at hlit\ndef maxLiteral (f : CNF Nat) : Option Nat :=\n  List.filterMap Clause.maxLiteral f |>.max?\ntheorem of_maxLiteral_eq_some' (f : CNF Nat) (h : f.maxLiteral = some maxLit) :\n    \u2200 clause, clause \u2208 f \u2192 clause.maxLiteral = some localMax \u2192 localMax \u2264 maxLit := by\n  intro clause hclause1 hclause2\n  simp [maxLiteral, List.max?_eq_some_iff'] at h\n  rcases h with \u27e8_, hclause3\u27e9\n  apply hclause3 localMax clause hclause1 hclause2\ntheorem of_maxLiteral_eq_some (f : CNF Nat) (h : f.maxLiteral = some maxLit) :\n    \u2200 lit, Mem lit f \u2192 lit \u2264 maxLit := by\n  intro lit hlit\n  dsimp [Mem] at hlit\n  rcases hlit with \u27e8clause, \u27e8hclause1, hclause2\u27e9\u27e9\n  rcases Clause.maxLiteral_eq_some_of_mem clause hclause2 with \u27e8localMax, hlocal\u27e9\n  have h1 := of_maxLiteral_eq_some' f h clause hclause1 hlocal\n  have h2 := Clause.of_maxLiteral_eq_some clause hlocal lit hclause2",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/RelabelFin.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/RelabelFin.lean",
+    "definition_name": "Clause",
+    "has_proof": true
+  }
+}

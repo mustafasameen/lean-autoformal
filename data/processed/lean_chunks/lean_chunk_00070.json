@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_eq_zero_of_lt (h : b < a) : a \u2260 0 := by\n  cases a\n  exact absurd h (Nat.not_lt_zero _)\n  apply Nat.noConfusion\nexample (a : Nat) : Nat := _\nexample (a : Nat) : Nat := sorry\nexample (a : sorry) : Nat := 0\nexample (a : Nat) : Nat := by\ntheorem Fin.eqq_of_val_eq {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_name": "not_eq_zero_of_lt",
+    "has_proof": true
+  }
+}

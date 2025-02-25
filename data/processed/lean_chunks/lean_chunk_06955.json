@@ -1,0 +1,9 @@
+{
+  "content": "| none => pure ()\n      runST (fun _ => visit |>.run usedInstIdxs) |>.2\n  mkInstanceCmdWith (assumingParamIdxs : IndexSet) : TermElabM Syntax := do\n    let indVal \u2190 getConstInfoInduct inductiveTypeName\n    let ctorVal \u2190 getConstInfoCtor ctorName\n    let mut indArgs := #[]\n    let mut binders := #[]\n    for i in [:indVal.numParams + indVal.numIndices] do\n      let arg := mkIdent (\u2190 mkFreshUserName `a)\n      indArgs := indArgs.push arg\n      let binder \u2190 `(bracketedBinderF| { $arg:ident })\n      binders := binders.push binder\n      if assumingParamIdxs.contains i then\n        let binder \u2190 `(bracketedBinderF| [Inhabited $arg:ident ])\n        binders := binders.push binder\n    let type \u2190 `(Inhabited (@$(mkIdent inductiveTypeName):ident $indArgs:ident*))\n    let mut ctorArgs := #[]\n    for _ in [:ctorVal.numParams] do\n      ctorArgs := ctorArgs.push (\u2190 `(_))\n    for _ in [:ctorVal.numFields] do\n      ctorArgs := ctorArgs.push (\u2190 ``(Inhabited.default))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

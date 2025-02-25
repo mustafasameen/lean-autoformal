@@ -1,0 +1,9 @@
+{
+  "content": "structure AddEquiv (A B : Type _) [Add A] [Add B] extends A \u2243 B, AddHom A B\nstructure MulEquiv (M N : Type _) [Mul M] [Mul N] extends M \u2243 N, M \u2192\u2099* N\ninfixl:25 \" \u2243* \" => MulEquiv\ninfixl:25 \" \u2243+ \" => AddEquiv\ndef AddEquiv.symm {M N : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "AddEquiv"
+  }
+}

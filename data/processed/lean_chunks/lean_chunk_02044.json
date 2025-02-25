@@ -1,0 +1,10 @@
+{
+  "content": "def foo (n : Nat) :=\n  1 + sum_below n (fun i _ => foo i)\ntermination_by n\ndecreasing_by simp [below_lt, *]\n#guard_msgs in\n#check foo.induct\nend GramSchmidt\nnamespace LetFun\ndef foo {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "match_non_tail_eq_true",
+    "has_proof": true
+  }
+}

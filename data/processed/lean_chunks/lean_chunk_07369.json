@@ -1,0 +1,10 @@
+{
+  "content": "theorem sat_iff_forall [Clause \u03b1 \u03b2] [Entails \u03b1 \u03c3] [Formula \u03b1 \u03b2 \u03c3] (p : \u03b1 \u2192 Bool) (f : \u03c3) :\n    p \u22a8 f \u2194 \u2200 c : \u03b2, c \u2208 toList f \u2192 p \u22a8 c := by\n  simp only [(\u00b7 \u22a8 \u00b7), formulaEntails_def p f]\n  simp only [List.all_eq_true, decide_eq_true_eq]\ntheorem limplies_insert [Clause \u03b1 \u03b2] [Entails \u03b1 \u03c3] [Formula \u03b1 \u03b2 \u03c3] {c : \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/CNF.lean",
+    "definition_name": "sat_iff_forall",
+    "has_proof": true
+  }
+}

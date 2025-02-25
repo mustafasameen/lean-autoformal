@@ -1,0 +1,10 @@
+{
+  "content": "theorem toArray_append (xs : Vector \u03b1 m) (ys : Vector \u03b1 n) :\n    (xs ++ ys).toArray = xs.toArray ++ ys.toArray := rfl\n@[simp] theorem toArray_drop (xs : Vector \u03b1 n) (i) :\n    (xs.drop i).toArray = xs.toArray.extract i xs.size := rfl\n@[simp] theorem toArray_empty : (#v[] : Vector \u03b1 0).toArray = #[] := rfl\n@[simp] theorem toArray_mkEmpty (cap) :\n    (Vector.mkEmpty (\u03b1 := \u03b1) cap).toArray = Array.mkEmpty cap := rfl\n@[simp] theorem toArray_eraseIdx (xs : Vector \u03b1 n) (i) (h) :\n    (xs.eraseIdx i h).toArray = xs.toArray.eraseIdx i (by simp [h]) := rfl\n@[simp] theorem toArray_eraseIdx! (xs : Vector \u03b1 n) (i) (hi : i < n) :\n    (xs.eraseIdx! i).toArray = xs.toArray.eraseIdx! i := by\n  cases xs; simp_all [Array.eraseIdx!]\n@[simp] theorem toArray_insertIdx (xs : Vector \u03b1 n) (i x) (h) :\n    (xs.insertIdx i x h).toArray = xs.toArray.insertIdx i x (by simp [h]) := rfl\n@[simp] theorem toArray_insertIdx! (xs : Vector \u03b1 n) (i x) (hi : i \u2264 n) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "toArray_append",
+    "has_proof": true
+  }
+}

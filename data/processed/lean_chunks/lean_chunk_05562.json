@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_mem_empty (p : \u03b1 \u2192 Prop) : \u00ac (\u2203 x, \u2203 _ : x \u2208 #v[], p x) := nofun\ntheorem forall_mem_empty (p : \u03b1 \u2192 Prop) : \u2200 (x) (_ : x \u2208 #v[]), p x := nofun\ntheorem exists_mem_push {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "exists_mem_empty",
+    "has_proof": false
+  }
+}

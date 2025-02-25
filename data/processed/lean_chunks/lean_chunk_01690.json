@@ -1,0 +1,10 @@
+{
+  "content": "class Preorder (\u03b1 : Type u) extends LE \u03b1 where\n  le_refl : \u2200 a : \u03b1, a \u2264 a\ntheorem le_refl [Preorder \u03b1] : \u2200 a : \u03b1, a \u2264 a :=\n  Preorder.le_refl\ntheorem le_of_eq [Preorder \u03b1] {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/skipAssignedInstances.lean",
+    "definition_name": "Preorder",
+    "has_proof": false
+  }
+}

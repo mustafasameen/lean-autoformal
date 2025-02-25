@@ -1,0 +1,9 @@
+{
+  "content": "structure Traverser where\n  cur     : Syntax\n  parents : Array Syntax\n  idxs    : Array Nat\nnamespace Traverser\ndef fromSyntax (stx : Syntax) : Traverser :=\n  \u27e8stx, #[], #[]\u27e9\ndef setCur (t : Traverser) (stx : Syntax) : Traverser :=\n  { t with cur := stx }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "Traverser"
+  }
+}

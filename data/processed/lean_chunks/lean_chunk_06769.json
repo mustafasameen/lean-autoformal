@@ -1,0 +1,10 @@
+{
+  "content": "def solveByElim (goals : List MVarId) (depth : Nat := 6) : MetaM PUnit := do\n  let cfg : SolveByElimConfig := { maxDepth := depth, exfalso := false, symm := true }\n  let \u27e8lemmas, ctx\u27e9 \u2190 mkAssumptionSet false false [] [] #[]\n  let [] \u2190 SolveByElim.solveByElim cfg lemmas ctx goals\n    | failure\ndef rwLemma (ctx : MetavarContext) (goal : MVarId) (target : Expr) (side : SideConditions := .solveByElim)\n    (lem : Expr \u2295 Name) (symm : Bool) (weight : Nat) : MetaM (Option RewriteResult) :=\n  withMCtx ctx do\n    let some expr \u2190 (match lem with\n    | .inl hyp => pure (some hyp)\n    | .inr lem => some <$> mkConstWithFreshMVarLevels lem <|> pure none)\n      | return none\n    trace[Tactic.rewrites] m!\"considering {if symm then \"\u2190 \" else \"\"}{expr}\"\n    let some result \u2190 some <$> goal.rewrite target expr symm <|> pure none\n      | return none\n    if result.mvarIds.isEmpty then\n      let mctx \u2190 getMCtx\n      let rfl? \u2190 dischargableWithRfl? mctx result.eNew",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "forwardWeight",
+    "has_proof": false
+  }
+}

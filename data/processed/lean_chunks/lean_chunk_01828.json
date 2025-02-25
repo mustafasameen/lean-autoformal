@@ -1,0 +1,9 @@
+{
+  "content": "def \u211d := Float\n  instance : SemiInner \u211d \u211d := \u27e8\u03bb x y : Float => x * y\u27e9\n  attribute [irreducible] \u211d\n  variable (x : \u211d)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/irreducibleIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/irreducibleIssue.lean",
+    "definition_name": "\u211d"
+  }
+}

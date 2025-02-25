@@ -1,0 +1,10 @@
+{
+  "content": "inductive Val where\n  | int  (i : Int)\n  | bool (b : Bool)\n  deriving DecidableEq, Repr\ninstance : Coe Bool Val where\n  coe b := .bool b\ninstance : OfNat Val n where\n  ofNat := .int n\ninductive BinOp where\n  | eq | and | lt | add | sub\n  deriving Repr\ninductive UnaryOp where\n  | not\n  deriving Repr\ninductive Expr where\n  | val (v : Val)\n  | var (x : Var)\n  | bin (lhs : Expr) (op : BinOp) (rhs : Expr)\n  | una (op : UnaryOp) (arg : Expr)\n  deriving Repr\n@[simp, grind =] def BinOp.eval : BinOp \u2192 Val \u2192 Val \u2192 Option Val\n  | .eq,  v\u2081,        v\u2082      => some (.bool (v\u2081 = v\u2082))\n  | .and, .bool b\u2081, .bool b\u2082 => some (.bool (b\u2081 && b\u2082))\n  | .lt,  .int i\u2081,  .int i\u2082  => some (.bool (i\u2081 < i\u2082))\n  | .add, .int i\u2081,  .int i\u2082  => some (.int (i\u2081 + i\u2082))\n  | .sub, .int i\u2081,  .int i\u2082  => some (.int (i\u2081 - i\u2082))\n  | _,    _,        _        => none\n@[simp, grind =] def UnaryOp.eval : UnaryOp \u2192 Val \u2192 Option Val\n  | .not, .bool b => some (.bool !b)\n  | _,    _       => none\ninductive Stmt where\n  | skip",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_constProp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_constProp.lean",
+    "definition_name": "Val",
+    "has_proof": true
+  }
+}

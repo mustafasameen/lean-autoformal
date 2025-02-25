@@ -1,0 +1,9 @@
+{
+  "content": "def p := 10\n#check p\nnamespace Foo\ndef p := true\n#check p\nend Foo\nend\ndef p := 10\n#check p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/799.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/799.lean",
+    "definition_name": "p"
+  }
+}

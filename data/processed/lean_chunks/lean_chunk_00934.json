@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_of_forall_le_of_dense [LinearOrder \u03b1] [DenselyOrdered \u03b1] {a\u2081 a\u2082 : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_mod_cast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_mod_cast.lean",
+    "definition_name": "le_of_forall_le_of_dense",
+    "has_proof": false
+  }
+}

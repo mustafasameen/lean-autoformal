@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_iff {p : Fin n \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Basic.lean",
+    "definition_name": "exists_iff",
+    "has_proof": false
+  }
+}

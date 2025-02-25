@@ -1,0 +1,9 @@
+{
+  "content": "structure ServerTask (\u03b1 : Type u) where\n  task : Task \u03b1\n  deriving Inhabited\ninstance : Coe (Task \u03b1) (ServerTask \u03b1) where\n  coe := .mk\nnamespace ServerTask\ndef pure (x : \u03b1) : ServerTask \u03b1 := Task.pure x\ndef get (t : ServerTask \u03b1) : \u03b1 := t.task.get\ndef mapCheap (f : \u03b1 \u2192 \u03b2) (t : ServerTask \u03b1) : ServerTask \u03b2 :=\n  t.task.map f (sync := true)\ndef mapCostly (f : \u03b1 \u2192 \u03b2) (t : ServerTask \u03b1) : ServerTask \u03b2 :=\n  t.task.map f (prio := .dedicated)\ndef bindCheap (t : ServerTask \u03b1) (f : \u03b1 \u2192 ServerTask \u03b2) : ServerTask \u03b2 :=\n  t.task.bind (f \u00b7 |>.task) (sync := true)\ndef bindCostly (t : ServerTask \u03b1) (f : \u03b1 \u2192 ServerTask \u03b2) : ServerTask \u03b2 :=\n  t.task.bind (f \u00b7 |>.task) (prio := .dedicated)\nnamespace BaseIO\ndef asTask (act : BaseIO \u03b1) : BaseIO (ServerTask \u03b1) :=\n  _root_.BaseIO.asTask (prio := .dedicated) act\ndef mapTaskCheap (f : \u03b1 \u2192 BaseIO \u03b2) (t : ServerTask \u03b1) : BaseIO (ServerTask \u03b2) :=\n  BaseIO.mapTask f t.task (sync := true)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/ServerTask.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/ServerTask.lean",
+    "definition_name": "ServerTask"
+  }
+}

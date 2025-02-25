@@ -1,0 +1,9 @@
+{
+  "content": "e\n    else\n      mkForall n newBinfo newDomain newBody\n  | _               => panic! \"forall expected\"\n@[implemented_by updateForall!Impl]\ndef updateForall! (e : Expr) (newBinfo : BinderInfo) (newDomain : Expr) (newBody : Expr) : Expr :=\n  match e with\n  | forallE n _ _ _ => mkForall n newBinfo newDomain newBody\n  | _               => panic! \"forall expected\"\n@[inline] def updateForallE! (e : Expr) (newDomain : Expr) (newBody : Expr) : Expr :=\n  match e with\n  | forallE n d b bi => updateForall! (forallE n d b bi) bi newDomain newBody\n  | _                => panic! \"forall expected\"\n@[inline] private unsafe def updateLambda!Impl (e : Expr) (newBinfo : BinderInfo) (newDomain : Expr) (newBody : Expr) : Expr :=\n  match e with\n  | lam n d b bi =>\n    if ptrEq d newDomain && ptrEq b newBody && bi == newBinfo then\n      e\n    else\n      mkLambda n newBinfo newDomain newBody\n  | _           => panic! \"lambda expected\"\n@[implemented_by updateLambda!Impl]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

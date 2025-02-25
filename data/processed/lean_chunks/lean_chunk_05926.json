@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_mul_of_tdiv_eq_left {a b c : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "eq_mul_of_tdiv_eq_left",
+    "has_proof": false
+  }
+}

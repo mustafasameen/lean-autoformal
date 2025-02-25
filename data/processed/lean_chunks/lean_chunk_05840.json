@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_testBit (x i : Nat) :\n    (x.testBit i).toNat = x / 2 ^ i % 2 := by\n  rw [Nat.testBit_to_div_mod]\n  rcases Nat.mod_two_eq_zero_or_one (x / 2^i) <;> simp_all\ntheorem ne_zero_implies_bit_true {x : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "toNat_testBit",
+    "has_proof": true
+  }
+}

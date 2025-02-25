@@ -1,0 +1,9 @@
+{
+  "content": "class SubNegMonoid (G : Type u) extends AddMonoid G, Neg G, Sub G where\n  protected sub := SubNegMonoid.sub'\n  protected zsmul : Int \u2192 G \u2192 G\ninstance SubNegMonoid.SMulInt {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "SubNegMonoid"
+  }
+}

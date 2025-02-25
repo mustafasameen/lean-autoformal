@@ -1,0 +1,9 @@
+{
+  "content": "structure field info\"\n          let proj \u2190 getFieldOrigin source field\n          let modifier := if isPrivateName proj then \"private \" else \"\"\n          let ftype \u2190 inferType (\u2190 mkProjection self field)\n          m := m ++ indentD (m!\"{modifier}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Print.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Print.lean",
+    "definition_name": "field"
+  }
+}

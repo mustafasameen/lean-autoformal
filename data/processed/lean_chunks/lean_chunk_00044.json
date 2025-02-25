@@ -1,0 +1,9 @@
+{
+  "content": "structure Bar (\u03b1 : Type) where\n  a : \u03b1\n  b : Nat \u2192 \u03b1\nstructure Baz (\u03b1 : Type) where\n  a : \u03b1 \u2192 \u03b1\n  c : Bool \u2192 \u03b1\n  d : Nat\nset_option structureDiamondWarning false in\nstructure Foo (\u03b1 : Type) extends Bar \u03b1, Baz \u03b1\nset_option structureDiamondWarning false in\nstructure Foo (\u03b1 : Type) extends Bar (\u03b1 \u2192 \u03b1), Baz \u03b1\n#print Foo\ndef f (x : Nat) : Foo Nat :=\n  { a := fun y => x + y\n    b := (\u00b7 + \u00b7)\n    c := fun _ => x\n    d := x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond1.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond1.lean",
+    "definition_name": "Bar"
+  }
+}

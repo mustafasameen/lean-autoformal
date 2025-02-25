@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEmpty_modifyKey (k : \u03b1) (f : \u03b2 \u2192 \u03b2) (l : List ((_ : \u03b1) \u00d7 \u03b2)) :\n    (modifyKey k f l).isEmpty = l.isEmpty := by\n  match l with\n  | [] => simp [modifyKey]\n  | a :: as =>\n    simp only [modifyKey, replaceEntry, cond_eq_if]\n    repeat' split <;> simp\ntheorem modifyKey_eq_alterKey (k : \u03b1) (f : \u03b2 \u2192 \u03b2) (l : List ((_ : \u03b1) \u00d7 \u03b2)) :\n    modifyKey k f l = alterKey k (\u00b7.map f) l := by\n  rw [modifyKey, alterKey, Option.map.eq_def]\n  split <;> next h =>\n    simp [h, insertEntry, containsKey_eq_isSome_getValue?, eraseKey_of_containsKey_eq_false]\ntheorem length_modifyKey (k : \u03b1) (f : \u03b2 \u2192 \u03b2) (l : List ((_ : \u03b1) \u00d7 \u03b2)) :\n    (modifyKey k f l).length = l.length := by\n  induction l\n  \u00b7 rfl\n  \u00b7 next ih =>\n    simp only [modifyKey]\n    split <;> next h => simp only [length_replaceEntry, List.length_cons]\ntheorem containsKey_modifyKey [EquivBEq \u03b1] (k k': \u03b1) (f : \u03b2 \u2192 \u03b2) (l : List ((_ : \u03b1) \u00d7 \u03b2)) :\n    containsKey k' (modifyKey k f l) = containsKey k' l := by\n  induction l",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "isEmpty_modifyKey",
+    "has_proof": true
+  }
+}

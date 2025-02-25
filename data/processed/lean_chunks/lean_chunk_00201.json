@@ -1,0 +1,9 @@
+{
+  "content": "structure Op (\u03b1 : Type _) where op : \u03b1 \u2192 \u03b1 \u2192 \u03b1\nvariable {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/435b.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/435b.lean",
+    "definition_name": "Op"
+  }
+}

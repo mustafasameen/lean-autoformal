@@ -1,0 +1,9 @@
+{
+  "content": "structure PatternVarDecl where\n  fvarId : FVarId\nprivate partial def withPatternVars {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_name": "PatternVarDecl"
+  }
+}

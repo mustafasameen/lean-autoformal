@@ -1,0 +1,10 @@
+{
+  "content": "rw [Nat.mod_eq_zero_of_dvd]\n      apply Nat.pow_dvd_pow 2 (by omega)\n    simp [Nat.mul_mod, hpow]\ntheorem twoPow_mul_eq_shiftLeft (x : BitVec w) (i : Nat) :\n    (twoPow w i) * x = x <<< i := by\n  rw [BitVec.mul_comm, mul_twoPow_eq_shiftLeft]\ntheorem twoPow_zero {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "and_twoPow",
+    "has_proof": true
+  }
+}

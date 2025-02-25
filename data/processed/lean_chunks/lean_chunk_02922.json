@@ -1,0 +1,9 @@
+{
+  "content": "private infoPromise : IO.Promise ConstantInfo\n  private extensionsPromise : IO.Promise (Array EnvExtensionState)\n  private checkedEnvPromise : IO.Promise Kernel.Environment\ndef addConstAsync (env : Environment) (constName : Name) (kind : ConstantKind) (reportExts := true) :\n    IO AddConstAsyncResult := do\n  assert! env.asyncMayContain constName\n  let sigPromise \u2190 IO.Promise.new\n  let infoPromise \u2190 IO.Promise.new\n  let extensionsPromise \u2190 IO.Promise.new\n  let checkedEnvPromise \u2190 IO.Promise.new\n  let fallbackVal := {\n    name := constName\n    levelParams := []\n    type := mkApp2 (mkConst ``sorryAx [0]) (mkSort 0) (mkConst ``true)\n  }\n  let fallbackInfo := match kind with\n    | .defn => .defnInfo { fallbackVal with\n      value := mkApp2 (mkConst ``sorryAx [0]) fallbackVal.type (mkConst ``true)\n      hints := .abbrev\n      safety := .safe\n    }\n    | .thm  => .thmInfo { fallbackVal with\n      value := mkApp2 (mkConst ``sorryAx [0]) fallbackVal.type (mkConst ``true)\n    }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

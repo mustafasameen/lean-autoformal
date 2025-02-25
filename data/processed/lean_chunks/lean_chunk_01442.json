@@ -1,0 +1,10 @@
+{
+  "content": "| .nil       => true\n  | .cons x xs => (p x) && (all' p xs)\ntheorem all_deforestation (p : \u03b1 \u2192 Bool) (xs : List \u03b1) : all p xs = all' p xs := by\n  induction xs with\n  | nil         => grind only [all, all', foldr, map]\n  | cons _ _ ih => grind only [all, all', foldr, map]\nend Functional\nend\nsection\nexample (h\u2081 : \u2200 p, p \u2227 p) (h\u2082 : (\u2200 p, p \u2227 p) \u2192 q = True) : q = True := by\n  grind\nend\nsection\nexample (a b : Nat) : a + b = b + a := by\n  have h := Nat.add_comm\n  grind\nexample (a : Nat) : (\u2200 x, x + 1 = 1 + x) \u2192 a + 1 = 1 + a :=\n  fun h => by grind\nexample (a : Nat) : (\u2200 x, x + 1 = 1 + x) \u2192 a + 1 = 1 + a := by\n  grind\nexample (a : Nat) : a + 1 = 1 + a := by\n  grind\nexample (a : Nat) : (\u2200 x, x + 1 = 1 + x) \u2192 a + 1 = 1 + a :=\n  fun _ => by grind\nvariable (h : \u2200 x, x + 1 = 1 + x) in\nexample (a : Nat) : a + 1 = 1 + a := by\n  grind\nvariable {h : \u2200 x, x + 1 = 1 + x}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/grind_regression.lean",
+    "definition_name": "append_nil",
+    "has_proof": true
+  }
+}

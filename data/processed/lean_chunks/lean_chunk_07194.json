@@ -1,0 +1,9 @@
+{
+  "content": "let fnName :=  \"lean_ctor_set_tag\"\n  let retty \u2190 LLVM.voidType llvmctx\n  let argtys := #[ \u2190 LLVM.voidPtrType llvmctx, \u2190 LLVM.i8Type llvmctx]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  let _ \u2190 LLVM.buildCall2 builder fnty fn  #[closure, i] retName\ndef toLLVMType (t : IRType) : M llvmctx (LLVM.LLVMType llvmctx) := do\n  match t with\n  | IRType.float      => LLVM.doubleTypeInContext llvmctx\n  | IRType.float32    => LLVM.floatTypeInContext llvmctx\n  | IRType.uint8      => LLVM.intTypeInContext llvmctx 8\n  | IRType.uint16     => LLVM.intTypeInContext llvmctx 16\n  | IRType.uint32     => LLVM.intTypeInContext llvmctx 32\n  | IRType.uint64     => LLVM.intTypeInContext llvmctx 64\n  | IRType.usize      => LLVM.size_tType llvmctx\n  | IRType.object     => do LLVM.pointerType (\u2190 LLVM.i8Type llvmctx)\n  | IRType.tobject    => do LLVM.pointerType (\u2190 LLVM.i8Type llvmctx)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

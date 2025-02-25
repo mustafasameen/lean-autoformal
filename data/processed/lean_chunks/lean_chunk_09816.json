@@ -1,0 +1,10 @@
+{
+  "content": "theorem distinct_keys_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.1.WF) :\n    m.1.toList.Pairwise (fun a b => (a.1 == b.1) = false) := by\n  simp_to_model using List.pairwise_fst_eq_false\nnamespace Const\nvariable {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_name": "distinct_keys_toList",
+    "has_proof": true
+  }
+}

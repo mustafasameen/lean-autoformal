@@ -1,0 +1,9 @@
+{
+  "content": "def Exists.forall := 1\ndef forall.congr := 1\nnotation \"Exists.forall\" => true\n#guard_msgs in #check Exists.forall",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4686.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4686.lean",
+    "definition_name": "Exists"
+  }
+}

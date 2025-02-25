@@ -1,0 +1,10 @@
+{
+  "content": "if seen.contains s then\n        continue\n      let rfl? \u2190 dischargableWithRfl? r.mctx r.result.eNew\n      if cfg.stopAtRfl then\n        if rfl? then\n          return #[r]\n        else\n          seen := seen.insert s ()\n          acc := acc.push r\n      else\n        seen := seen.insert s ()\n        acc := acc.push r\n  return acc",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Rewrites.lean",
+    "definition_name": "forwardWeight",
+    "has_proof": false
+  }
+}

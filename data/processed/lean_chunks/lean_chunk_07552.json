@@ -1,0 +1,9 @@
+{
+  "content": "if let some transition := findTransitionForTimestamp transitions tm\n    then .ok transition.createTimeZoneFromTransition\n    else .error \"cannot find local timezone.\"\nend Transition\nnamespace ZoneRules\ndef fixedOffsetZone (second : Second.Offset) (identifier : Option String := none) (abbreviation : Option String := none) : ZoneRules :=\n  let offset : Offset := { second }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/ZoneRules.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/ZoneRules.lean",
+    "definition_name": "LocalTimeType"
+  }
+}

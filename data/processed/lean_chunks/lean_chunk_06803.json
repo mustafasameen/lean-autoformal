@@ -1,0 +1,9 @@
+{
+  "content": "inductive families: add its indices as additional discriminants\"\n        for arg in e.getAppArgs, includeArg in argMask do\n          if includeArg then\n            newArgs := newArgs.push arg\n        let eNew := mkAppN altNew newArgs\n  proveSubgoalLoop (mvarId : MVarId) (forbidden : FVarIdSet) : MetaM Unit := do\n    trace[Meta.Match.matchEqs] \"proveSubgoalLoop\\n{mvarId}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/MatchEqs.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/MatchEqs.lean",
+    "definition_name": "families"
+  }
+}

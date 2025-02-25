@@ -1,0 +1,10 @@
+{
+  "content": "theorem coe_castAdd (m : Nat) (i : Fin n) : (castAdd m i : Nat) = i := rfl\n@[simp] theorem castAdd_zero : (castAdd 0 : Fin n \u2192 Fin (n + 0)) = Fin.cast rfl := rfl\ntheorem castAdd_lt {m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "coe_castAdd",
+    "has_proof": false
+  }
+}

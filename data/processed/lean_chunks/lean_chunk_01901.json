@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : g true true true = 1 := rfl\ntheorem ex2 : g true false true = 1 := rfl\ntheorem ex3 : g true false false = 2 := rfl\ntheorem ex4 : g false false false = 2 := rfl\ntheorem ex5 : g false true true = 3 := rfl\ntheorem f_eq (h : a = true \u2192 b = true \u2192 False) : f a b = 3 := by\n  simp (config := { iota := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def10.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def10.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

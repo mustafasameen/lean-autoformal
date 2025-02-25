@@ -1,0 +1,9 @@
+{
+  "content": "inductive Lex (r : \u03b1 \u2192 \u03b1 \u2192 Prop) : List \u03b1 \u2192 List \u03b1 \u2192 Prop\n  | cons {a l\u2081 l\u2082}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "Lex"
+  }
+}

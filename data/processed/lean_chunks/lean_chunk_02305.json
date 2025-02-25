@@ -1,0 +1,9 @@
+{
+  "content": "inductive Cmd\n  | init\n    (name    : String)\n    (subCmds : Array Cmd)\n    (flags   : Array Unit)\nopen Inhabited in\ninstance : Inhabited Cmd where\n  default := Cmd.init default default default\nnamespace Cmd\n  def name    : Cmd \u2192 String        | init v _ _ => v\n  def subCmds : Cmd \u2192 Array Cmd     | init _ v _ => v\n  def flags   : Cmd \u2192 Array Unit    | init _ _ v => v\n  def subCmd? (c : Cmd) (name : String)     : Option Cmd  := c.subCmds.find? (\u00b7.name = name)\n  def flag?   (c : Cmd) (longName : String) : Option Unit := c.flags.find? (\u00b7.longName = longName)\n  def hasFlag (c : Cmd) (longName : String) : Bool := c.flag? longName |>.isSome\n  def subCmdByFullName? (c : Cmd) (fullName : Array String) : Option Cmd := do\n    let mut c := c\n    guard <| c.name = fullName.get? 0\n    for subName in fullName[1:] do\n      c \u2190 c.subCmd? subName\n    return c\nend Cmd\nstructure Flag.Parsed where\n  longName : String\nabbrev FullCmdName := Array String\nstructure Cmd.Parsed where\n  name  : FullCmdName",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/305.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/305.lean",
+    "definition_name": "Cmd"
+  }
+}

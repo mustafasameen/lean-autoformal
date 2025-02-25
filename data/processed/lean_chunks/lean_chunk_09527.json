@@ -1,0 +1,10 @@
+{
+  "content": "theorem containsThenInsert_snd [TransCmp cmp] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Lemmas.lean",
+    "definition_name": "containsThenInsert_snd",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_pop (xs : Vector \u03b1 n) (i : Nat) :\n    xs.pop[i]? = if i < n - 1 then xs[i]? else none := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.getElem?_pop]\ntheorem back_pop {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

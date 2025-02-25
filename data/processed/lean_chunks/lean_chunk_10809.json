@@ -1,0 +1,9 @@
+{
+  "content": "setTrace (\u2190 computeTrace path)\n  return path\ndef inputTextFile (path : FilePath) : SpawnM (Job FilePath) := Job.async do\n  setTrace (\u2190 computeTrace (TextFilePath.mk path))\n  return path\n@[inline] def inputFile (path : FilePath) (text : Bool) : SpawnM (Job FilePath) :=\n  if text then inputTextFile path else inputBinFile path\n@[inline] def buildO\n  (oFile : FilePath) (srcJob : Job FilePath)\n  (weakArgs traceArgs : Array String := #[]) (compiler : FilePath := \"cc\")\n  (extraDepTrace : JobM _ := pure BuildTrace.nil)\n: SpawnM (Job FilePath) :=\n  srcJob.mapM fun srcFile => do\naddPlatformTrace\n    addPureTrace traceArgs\n    addTrace (\u2190 extraDepTrace)\n    buildFileUnlessUpToDate' oFile do\n      compileO oFile srcFile (weakArgs ++ traceArgs) compiler\n    return oFile\ndef buildLeanO\n  (oFile : FilePath) (srcJob : Job FilePath)\n  (weakArgs traceArgs : Array String := #[])\n: SpawnM (Job FilePath) :=\n  srcJob.mapM fun srcFile => do\n    addLeanTrace\n    addPureTrace traceArgs\naddPlatformTrace",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "platformTrace"
+  }
+}

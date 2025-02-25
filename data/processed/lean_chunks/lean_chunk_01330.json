@@ -1,0 +1,9 @@
+{
+  "content": "instance monadState.hasGetAt (\u03b2 : Type) (v : \u03b2) (\u03b1 : Type) (m : Type \u2192 Type) [Monad m] [MonadStateOf (Label v \u03b1) m] : HasGetAt v \u03b1 m :=\n{ getAt := do let a \u2190 getThe (Label v \u03b1); pure a.val }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/stateRef.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/stateRef.lean",
+    "definition_name": "monadState"
+  }
+}

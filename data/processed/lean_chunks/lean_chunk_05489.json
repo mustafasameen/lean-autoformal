@@ -1,0 +1,10 @@
+{
+  "content": "theorem byteIdx_zero : (0 : Pos).byteIdx = 0 := rfl\ntheorem byteIdx_mk (n : Nat) : byteIdx \u27e8n\u27e9 = n := rfl\n@[simp] theorem mk_zero : \u27e80\u27e9 = (0 : Pos) := rfl\n@[simp] theorem mk_byteIdx (p : Pos) : \u27e8p.byteIdx\u27e9 = p := rfl\ntheorem ext {i\u2081 i\u2082 : Pos}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "byteIdx_zero",
+    "has_proof": true
+  }
+}

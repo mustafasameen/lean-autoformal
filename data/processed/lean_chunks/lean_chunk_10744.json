@@ -1,0 +1,9 @@
+{
+  "content": "ccFlags := i.cFlags ++ getInternalCFlags sysroot\n      ccLinkStaticFlags := ccLinkFlags ++ i.linkStaticFlags\n      ccLinkSharedFlags := ccLinkFlags ++ i.linkSharedFlags\n    }\ndef findLeanCmdInstall? (lean := \"lean\") : BaseIO (Option LeanInstall) :=\n  OptionT.run do LeanInstall.get (\u2190 findLeanSysroot? lean)\ndef findLakeLeanJointHome? : BaseIO (Option FilePath) := do\n  if let .ok appPath \u2190 IO.appPath.toBaseIO then\n    if let some appDir := appPath.parent then\n      let leanExe := appDir / \"lean\" |>.addExtension FilePath.exeExtension\n      if (\u2190 leanExe.pathExists) then\n        return appDir.parent\n  return none\ndef lakeBuildHome? (lake : FilePath) : Option FilePath := do\n  (\u2190 (\u2190 (\u2190 lake.parent).parent).parent).parent\ndef getLakeInstall? (lake : FilePath) : BaseIO (Option LakeInstall) := do\n  let some home := lakeBuildHome? lake | return none\n  let lake : LakeInstall := {home, lake}\n  if (\u2190 lake.libDir / \"Lake.olean\" |>.pathExists) then\n    return lake\n  return none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/InstallPath.lean",
+    "definition_name": "findLeanSysroot"
+  }
+}

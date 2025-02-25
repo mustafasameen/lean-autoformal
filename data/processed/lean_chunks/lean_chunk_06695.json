@@ -1,0 +1,9 @@
+{
+  "content": "inductive Entry (\u03b1 : Type u) (\u03b2 : Type v) (\u03c3 : Type w) where\n  | entry (key : \u03b1) (val : \u03b2) : Entry \u03b1 \u03b2 \u03c3\n  | ref   (node : \u03c3) : Entry \u03b1 \u03b2 \u03c3\n  | null  : Entry \u03b1 \u03b2 \u03c3\ninstance {\u03b1 \u03b2 \u03c3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/PersistentHashMap.lean",
+    "definition_name": "Entry"
+  }
+}

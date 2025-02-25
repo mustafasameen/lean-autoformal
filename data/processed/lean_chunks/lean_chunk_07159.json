@@ -1,0 +1,9 @@
+{
+  "content": "@[implemented_by updateAltCodeImp] opaque AltCore.updateCode (alt : Alt) (c : Code) : Alt\nprivate unsafe def updateAltImp (alt : Alt) (ps' : Array Param) (k' : Code) : Alt :=\n  match alt with\n  | .alt ctorName ps k => if ptrEq k k' && ptrEq ps ps' then alt else .alt ctorName ps' k'\n  | _ => unreachable!\n@[implemented_by updateAltImp] opaque AltCore.updateAlt! (alt : Alt) (ps' : Array Param) (k' : Code) : Alt\n@[inline] private unsafe def updateAltsImp (c : Code) (alts : Array Alt) : Code :=\n  match c with\n  | .cases cs => if ptrEq cs.alts alts then c else .cases { cs with alts }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Basic.lean",
+    "definition_name": "CodeDecl"
+  }
+}

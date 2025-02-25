@@ -1,0 +1,9 @@
+{
+  "content": "| false => none\n    loop 0\n  | _, _ => none\nstructure SepArray (sep : String) where\n  elemsAndSeps : Array Syntax\n  elemsAndSeps : Array Syntax\nend Syntax\nunsafe def TSyntaxArray.rawImpl : TSyntaxArray ks \u2192 Array Syntax := unsafeCast\nunsafe def TSyntaxArray.mkImpl : Array Syntax \u2192 TSyntaxArray ks := unsafeCast\ndef SourceInfo.fromRef (ref : Syntax) (canonical := false) : SourceInfo :=\n  let noncanonical ref :=\n    match ref.getPos?, ref.getTailPos? with\n    | some pos, some tailPos => .synthetic pos tailPos\n    | _,        _            => .none\n  match canonical with\n  | true =>\n    match ref.getPos? true, ref.getTailPos? true with\n    | some pos, some tailPos => .synthetic pos tailPos true\n    | _,        _            => noncanonical ref\n  | false => noncanonical ref\ndef mkAtomFrom (src : Syntax) (val : String) (canonical := false) : Syntax :=\n  Syntax.atom (SourceInfo.fromRef src canonical) val\ninductive ParserDescr where\n  | unary  (name : Name) (p : ParserDescr)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Name"
+  }
+}

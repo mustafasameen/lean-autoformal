@@ -1,0 +1,9 @@
+{
+  "content": "optional (checkColGt \"indentation\" >> nonReservedSymbol \"monotonicity \" >>\n              checkColGt \"indented monotonicity proof\" >> termParser))\n@[builtin_doc] def decreasingBy := leading_parser\n  ppDedent ppLine >> \"decreasing_by \" >> Tactic.tacticSeqIndentGt\n@[builtin_doc] def suffix := leading_parser\n  optional (ppDedent ppLine >> (terminationBy? <|> terminationBy <|> partialFixpoint)) >> optional decreasingBy\nend Termination\nnamespace Term\n@[simp] bar := 1`.\n@[builtin_doc] def letRecDecl := leading_parser\n  optional Command.docComment >> optional \u00abattributes\u00bb >> letDecl >> Termination.suffix\n@[builtin_term_parser] def \u00abunsafe\u00bb := leading_parser:leadPrec \"unsafe \" >> termParser\n@[builtin_term_parser] def binrel_no_prop := leading_parser\n  \"binrel_no_prop% \" >> ident >> ppSpace >> termParser maxPrec >> ppSpace >> termParser maxPrec\n@[builtin_term_parser] def binop_lazy := leading_parser\n  \"binop_lazy% \" >> ident >> ppSpace >> termParser maxPrec >> ppSpace >> termParser maxPrec",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

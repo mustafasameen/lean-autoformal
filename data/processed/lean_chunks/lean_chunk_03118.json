@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofNat_shiftRight_eq_div_pow {x y : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_name": "ofNat_shiftRight_eq_div_pow",
+    "has_proof": false
+  }
+}

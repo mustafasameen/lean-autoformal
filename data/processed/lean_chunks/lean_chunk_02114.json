@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo: List \u03b1 \u2192 Type _\n  | mk (l): Foo l\ndef Foo.length: Foo l \u2192 Nat\n  | mk l => l.length\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/substWithoutExpectedType.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/substWithoutExpectedType.lean",
+    "definition_name": "Foo"
+  }
+}

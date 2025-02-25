@@ -1,0 +1,9 @@
+{
+  "content": "@[combinator_formatter sepBy1NoAntiquot] def sepBy1NoAntiquot.formatter := sepByNoAntiquot.formatter\n@[combinator_formatter withoutInfo] def withoutInfo.formatter (p : Formatter) : Formatter := p\n@[combinator_formatter checkWsBefore] def checkWsBefore.formatter : Formatter := do\n  let st \u2190 get\n  if st.leadWord != \"\" then\n    pushLine\n@[combinator_formatter checkPrec] def checkPrec.formatter : Formatter := pure ()\n@[combinator_formatter checkLhsPrec] def checkLhsPrec.formatter : Formatter := pure ()\n@[combinator_formatter setLhsPrec] def setLhsPrec.formatter : Formatter := pure ()\n@[combinator_formatter checkStackTop] def checkStackTop.formatter : Formatter := pure ()\n@[combinator_formatter checkNoWsBefore] def checkNoWsBefore.formatter : Formatter :=\n  modify fun st => { st with leadWord := \"\", leadWordIdent := false }\n@[combinator_formatter checkLinebreakBefore] def checkLinebreakBefore.formatter : Formatter := pure ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_name": "nonReservedSymbolNoAntiquot"
+  }
+}

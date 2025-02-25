@@ -1,0 +1,9 @@
+{
+  "content": "instance inhabitedOfNilTrace [NilTrace \u03b1] : Inhabited \u03b1 := \u27e8nilTrace\u27e9\nclass MixTrace.{u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Trace.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Trace.lean",
+    "definition_name": "inhabitedOfNilTrace"
+  }
+}

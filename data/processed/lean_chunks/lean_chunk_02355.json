@@ -1,0 +1,10 @@
+{
+  "content": "class ZeroHomClass (F : Type _) (M N : outParam (Type _)) [Zero M] [Zero N] [FunLike F M N] :\n    Prop where\n  map_zero : \u2200 f : F, f 0 = 0\nvariable [Zero M] [Zero N] [FunLike F M N]\ntheorem map_zero [ZeroHomClass F M N] (f : F) : f 0 = 0 :=\n  ZeroHomClass.map_zero f\nend Mathlib.Algebra.Group.Hom.Defs\nsection Mathlib.GroupTheory.GroupAction.Defs\nvariable {M A : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_name": "ZeroHomClass",
+    "has_proof": false
+  }
+}

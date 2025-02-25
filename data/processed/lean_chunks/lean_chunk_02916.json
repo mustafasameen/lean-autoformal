@@ -1,0 +1,9 @@
+{
+  "content": "c.sig.get\ndef toConstantInfo (c : AsyncConstantInfo) : ConstantInfo :=\n  c.constInfo.get\ndef ofConstantInfo (c : ConstantInfo) : AsyncConstantInfo where\n  name := c.name\n  kind := .ofConstantInfo c\n  sig := .pure c.toConstantVal\n  constInfo := .pure c\nend AsyncConstantInfo\nstructure AsyncContext where\n  declPrefix : Name\nderiving Nonempty\ndef AsyncContext.mayContain (ctx : AsyncContext) (n : Name) : Bool :=\n  ctx.declPrefix.isPrefixOf <| privateToUserName n.eraseMacroScopes\nstructure AsyncConst where\n  constInfo : AsyncConstantInfo\n  exts?     : Option (Task (Array EnvExtensionState))\n  private map : NameMap AsyncConst := {}\ndef AsyncConsts.findPrefix? (aconsts : AsyncConsts) (declName : Name) : Option AsyncConst :=\n  aconsts.normalizedTrie.findLongestPrefix? (privateToUserName declName.eraseMacroScopes)\nstructure Environment where\n  private mk ::\n  checkedWithoutAsync : Kernel.Environment\n  checked             : Task Kernel.Environment := .pure checkedWithoutAsync",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

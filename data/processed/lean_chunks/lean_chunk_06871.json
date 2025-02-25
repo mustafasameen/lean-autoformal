@@ -1,0 +1,10 @@
+{
+  "content": "thms.forM (ematchTheoremsExt.add \u00b7 attrKind)\n  else\n    throwError s!\"`{thmKind.toAttribute}` attribute can only be applied to equational theorems or function definitions\"\ndef EMatchTheorems.eraseDecl (s : EMatchTheorems) (declName : Name) : MetaM EMatchTheorems := do\n  let throwErr {\u03b1} : MetaM \u03b1 :=\n    throwError \"`{declName}` is not marked with the `[grind]` attribute\"\n  let info \u2190 getConstInfo declName\n  if !info.isTheorem then\n    if let some eqns \u2190 getEqnsFor? declName then\n       let s := ematchTheoremsExt.getState (\u2190 getEnv)\n       unless eqns.all fun eqn => s.contains (.decl eqn) do\n         throwErr\n       return eqns.foldl (init := s) fun s eqn => s.erase (.decl eqn)\n    else\n      throwErr\n  else\n    unless ematchTheoremsExt.getState (\u2190 getEnv) |>.contains (.decl declName) do\n      throwErr\n    return s.erase <| .decl declName\ndef addEMatchAttr (declName : Name) (attrKind : AttributeKind) (thmKind : EMatchTheoremKind) : MetaM Unit := do\n  if thmKind == .eqLhs then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance MonoidHom.instFunLike : FunLike (M \u2192* N) M N where\n  coe f := f.toFun\ninstance AddMonoidHom.instFunLike : FunLike (A \u2192+ B) A B where\n  coe f := f.toFun\ndef MonoidHomClass.toMonoidHom [FunLike F M N] [MonoidHomClass F M N] (f : F) : M \u2192* N :=\n  { (f : M \u2192\u2099* N), (f : OneHom M N) with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "ZeroHom"
+  }
+}

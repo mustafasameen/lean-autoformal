@@ -1,0 +1,9 @@
+{
+  "content": "inductive Con\n| nil\n| ext (\u0393 : Con) (n : Nat)\nvariable {Op : Con \u2192 Con \u2192 Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6789.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6789.lean",
+    "definition_name": "Con"
+  }
+}

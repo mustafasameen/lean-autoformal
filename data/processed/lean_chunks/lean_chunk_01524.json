@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo where\n  name  : String\n  val   : List Nat\n  lower : Nat := List.length val\n  inv   : val.length >= lower\n  flag  : Bool\n  deriving Repr\n#guard_msgs in\n#eval { name := \"Joe\", val := (List.range' 1 40).reverse, flag := true, inv := by decide : Foo }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingRepr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/derivingRepr.lean",
+    "definition_name": "Foo"
+  }
+}

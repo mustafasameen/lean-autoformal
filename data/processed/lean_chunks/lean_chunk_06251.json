@@ -1,0 +1,10 @@
+{
+  "content": "else if (\u2190 shouldGenerateEqnThms declName) then\n    for f in (\u2190 getEqnsFnsRef.get) do\n      if let some r \u2190 f declName then\n        registerEqnThms declName r\n        return some r\n  return none\ndef getEqnsFor? (declName : Name) : MetaM (Option (Array Name)) := withLCtx {} {} do\n  withOptions (eqnAffectingOptions.foldl fun os o => o.set os o.defValue) do\n    getEqnsFor?Core declName\ndef generateEagerEqns (declName : Name) : MetaM Unit := do\n  let opts \u2190 getOptions\n  if eqnAffectingOptions.any fun o => o.get opts != o.defValue then\n    let _ \u2190 getEqnsFor?Core declName\ndef GetUnfoldEqnFn := Name \u2192 MetaM (Option Name)\nprivate builtin_initialize getUnfoldEqnFnsRef : IO.Ref (List GetUnfoldEqnFn) \u2190 IO.mkRef []\ndef registerGetUnfoldEqnFn (f : GetUnfoldEqnFn) : IO Unit := do\n  unless (\u2190 initializing) do\n    throw (IO.userError \"failed to register equation getter, this kind of extension can only be registered during initialization\")\n  getUnfoldEqnFnsRef.modify (f :: \u00b7)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_name": "eqnThmSuffixBase",
+    "has_proof": false
+  }
+}

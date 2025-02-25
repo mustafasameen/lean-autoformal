@@ -1,0 +1,9 @@
+{
+  "content": "structure RecCallWithContext where\n  caller : Nat\n  callee : Nat\ndef RecCallWithContext.create (ref : Syntax) (caller : Nat) (params : Array Expr) (callee : Nat)\n    (args : Array Expr) : MetaM RecCallWithContext := do\n  return { ref, caller, params, callee, args, ctxt := (\u2190 SavedLocalContext.create) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_name": "RecCallWithContext"
+  }
+}

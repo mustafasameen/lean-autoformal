@@ -1,0 +1,10 @@
+{
+  "content": "theorem compl_iff (s : Set) (x : Nat) : s.compl x \u2194 \u00ac s x := Iff.rfl\n@[simp]\ntheorem singleton_iff {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3710.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3710.lean",
+    "definition_name": "compl_iff",
+    "has_proof": false
+  }
+}

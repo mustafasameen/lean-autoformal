@@ -1,0 +1,9 @@
+{
+  "content": "c \u2190 c.subCmd? subName\n    return c\nend Cmd\nstructure Flag.Parsed where\n  longName : String\nabbrev FullCmdName := Array String\nstructure Cmd.Parsed where\n  name  : FullCmdName\n  flags : Array Flag.Parsed\nnamespace Cmd.Parsed\n  def hasFlag (c : Cmd.Parsed) (longName : String) : Bool := false\nend Cmd.Parsed\ndef readSubCmds : Id FullCmdName := panic! \"\"\ndef readArgs : Id (Array Flag.Parsed) := panic! \"\"\ndef parse (c : Cmd) : Id Cmd.Parsed := do\n  let cmdName \u2190 readSubCmds\n  let flags \u2190 readArgs\n  let cmd := c.subCmdByFullName? cmdName |>.get!\n  let defaultedFlags : Array Flag.Parsed := #[]\n-- If we uncomment\n:= {\n    name           := cmdName,\n    flags          := flags\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/305.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/305.lean",
+    "definition_name": "Cmd"
+  }
+}

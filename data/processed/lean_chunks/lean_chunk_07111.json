@@ -1,0 +1,9 @@
+{
+  "content": "structure ToPull where\n  isFun : Bool\n  decl  : FunDecl\n  used  : FVarIdSet\n  deriving Inhabited\nabbrev PullM := StateRefT (List ToPull) CompilerM\ndef findFVarDirectDeps (fvarId : FVarId) : PullM (List ToPull) := do\n  let s \u2190 get\n  unless s.any fun info => info.used.contains fvarId do\n    return []\n  let (s\u2081, s\u2082) \u2190  go s [] []\n  set s\u2081\n  return s\u2082\nwhere\n  go (as keep dep : List ToPull) : CoreM (List ToPull \u00d7 List ToPull) := do\n    match as with\n    | [] => return (keep, dep)\n    | a :: as =>\n      if a.used.contains fvarId then\n        go as keep (a :: dep)\n      else\n        go as (a :: keep) dep\npartial def findFVarDepsFixpoint (todo : List ToPull) (acc : Array ToPull := #[]) : PullM (Array ToPull) := do\n  match todo with\n  | [] => return acc\n  | p :: ps =>\n    let psNew \u2190 findFVarDirectDeps p.decl.fvarId\n    findFVarDepsFixpoint (psNew ++ ps) (acc.push p)\npartial def findFVarDeps (fvarId : FVarId) : PullM (Array ToPull) := do\n  let ps \u2190 findFVarDirectDeps fvarId",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/PullFunDecls.lean",
+    "definition_name": "ToPull"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "rw [count_eq_countP]\n  apply boole_getElem_le_countP (\u00b7 == a)\nvariable [LawfulBEq \u03b1]\n@[simp] theorem count_cons_self (a : \u03b1) (l : List \u03b1) : count a (a :: l) = count a l + 1 := by\n  simp [count_cons]\n@[simp] theorem count_cons_of_ne (h : a \u2260 b) (l : List \u03b1) : count a (b :: l) = count a l := by\n  simp only [count_cons, cond_eq_if, beq_iff_eq]\n  split <;> simp_all\ntheorem count_singleton_self (a : \u03b1) : count a [a] = 1 := by simp\ntheorem count_concat_self (a : \u03b1) (l : List \u03b1) :\n    count a (concat l a) = (count a l) + 1 := by simp\n@[simp]\ntheorem count_pos_iff {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Count.lean",
+    "definition_name": "count_tail",
+    "has_proof": true
+  }
+}

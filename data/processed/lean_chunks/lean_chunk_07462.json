@@ -1,0 +1,10 @@
+{
+  "content": "inductive with \u27e8hsize, h1, _\u27e9\n  apply Exists.intro hsize\n  intro i b h p pf\n  simp only at h\n  specialize h1 p pf\n  simp only [( \u00b7 \u22a8 \u00b7), Bool.not_eq_true] at h1\n  specialize h1 i\n  have i_in_bounds :\n    i.1 < (rupHints.foldl (fun b => confirmRupHint f.clauses b) (f.assignments, [], false, false) 0 rupHints.size).1.size := by\n    let in_bounds_motive (_idx : Nat) (acc : Array Assignment \u00d7 CNF.Clause (PosFin n) \u00d7 Bool \u00d7 Bool) := acc.1.size = n\n    have in_bounds_base : in_bounds_motive 0 (f.assignments, [], false, false) := by\n      simp only [f_AssignmentsInvariant.1, in_bounds_motive]\n    have in_bounds_inductive (idx : Fin rupHints.size) (acc : Array Assignment \u00d7 CNF.Clause (PosFin n) \u00d7 Bool \u00d7 Bool)\n      (ih : in_bounds_motive idx.1 acc) : in_bounds_motive (idx.1 + 1) (confirmRupHint f.clauses acc rupHints[idx]) := by\n      have h := size_assignemnts_confirmRupHint f.clauses acc.1 acc.2.1 acc.2.2.1 acc.2.2.2 rupHints[idx]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_name": "with",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem relabel_id_map (decl : Decl \u03b1) : relabel id decl = decl := by\n  simp only [relabel, id_eq]\n  cases decl <;> rfl\ntheorem relabel_comp (decl : Decl \u03b1) (g : \u03b1 \u2192 \u03b2) (h : \u03b2 \u2192 \u03b3) :\n    relabel (h \u2218 g) decl = relabel h (relabel g decl) := by\n  cases decl <;> rfl\ntheorem relabel_const {decls : Array (Decl \u03b1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Relabel.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Relabel.lean",
+    "definition_name": "relabel_id_map",
+    "has_proof": true
+  }
+}

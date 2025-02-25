@@ -1,0 +1,10 @@
+{
+  "content": "theorem Char.val_eq_of_eq : \u2200 {c d : Char}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Char",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "hasFVarDiscr := true\n          break\n      unless hasFVarDiscr do\n        return Expr.FindStep.visit\n      if declNames.isEmpty then\n          return Expr.FindStep.found\n      if deepRecursiveSplit then\n          return Expr.FindStep.found\n      for i in [info.getFirstAltPos : info.getFirstAltPos + info.numAlts] do\n        let alt := args[i]!\n        if Option.isSome <| alt.find? fun e => declNames.any e.isAppOf && e.hasLooseBVars then\n          return Expr.FindStep.found\n      return Expr.FindStep.visit\n    else\n      let Expr.const declName .. := e.getAppFn | return Expr.FindStep.visit\n      if declName == ``WellFounded.fix || isBRecOnRecursor env declName then\n        return Expr.FindStep.done\n      else\n        return Expr.FindStep.visit\npartial def splitMatch? (mvarId : MVarId) (declNames : Array Name) : MetaM (Option (List MVarId)) := commitWhenSome? do\n  let target \u2190 mvarId.getType'\n  let rec go (badCases : ExprSet) : MetaM (Option (List MVarId)) := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/Eqns.lean",
+    "definition_name": "EqnInfoCore"
+  }
+}

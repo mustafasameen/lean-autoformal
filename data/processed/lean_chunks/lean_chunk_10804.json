@@ -1,0 +1,9 @@
+{
+  "content": "IO.FS.writeFile path (toJson data).pretty\n@[specialize] def checkHashUpToDate\n  [CheckExists \u03b9] [GetMTime \u03b9]\n  (info : \u03b9) (depTrace : BuildTrace) (depHash : Option Hash)\n  (oldTrace := depTrace.mtime)\n: JobM Bool := do\n  if depTrace.hash == depHash then\n    checkExists info\n  else if (\u2190 getIsOldMode) then\n    oldTrace.checkUpToDate info\n  else\n    return false\n@[specialize] def buildUnlessUpToDate?\n  [CheckExists \u03b9] [GetMTime \u03b9] (info : \u03b9)\n  (depTrace : BuildTrace) (traceFile : FilePath) (build : JobM PUnit)\n  (action : JobAction := .build) (oldTrace := depTrace.mtime)\n: JobM Bool := do\n  if (\u2190 traceFile.pathExists) then\n    if let some data \u2190 readTraceFile? traceFile then\n      if (\u2190 checkHashUpToDate info depTrace data.depHash oldTrace) then\n        updateAction .replay\n        data.log.replay\n        return true\n      else\n        go\n    else if (\u2190 getIsOldMode) && (\u2190 oldTrace.checkUpToDate info) then\n      return true\n    else\n      go\n  else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Common.lean",
+    "definition_name": "platformTrace"
+  }
+}

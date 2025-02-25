@@ -1,0 +1,10 @@
+{
+  "content": "theorem set_nil_zero : set [] 0 y = [y] := rfl\n@[simp] theorem set_nil_succ : set [] (i+1) y = 0 :: set [] i y := rfl\n@[simp] theorem set_cons_zero : set (x :: xs) 0 y = y :: xs := rfl\n@[simp] theorem set_cons_succ : set (x :: xs) (i+1) y = x :: set xs i y := rfl\ndef add (xs ys : IntList) : IntList :=\n  List.zipWithAll (fun x y => x.getD 0 + y.getD 0) xs ys\ninstance : Add IntList := \u27e8add\u27e9\ntheorem add_def (xs ys : IntList) :\n    xs + ys = List.zipWithAll (fun x y => x.getD 0 + y.getD 0) xs ys :=\n  rfl\n@[simp] theorem add_get (xs ys : IntList) (i : Nat) : (xs + ys).get i = xs.get i + ys.get i := by\n  simp only [get, add_def, List.getElem?_zipWithAll]\n  cases xs[i]? <;> cases ys[i]? <;> simp\n@[simp] theorem add_nil (xs : IntList) : xs + [] = xs := by simp [add_def]\n@[simp] theorem nil_add (xs : IntList) : [] + xs = xs := by simp [add_def]\n@[simp] theorem cons_add_cons (x) (xs : IntList) (y) (ys : IntList) :\n    (x :: xs) + (y :: ys) = (x + y) :: (xs + ys) := by simp [add_def]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/IntList.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/IntList.lean",
+    "definition_name": "set_nil_zero",
+    "has_proof": true
+  }
+}

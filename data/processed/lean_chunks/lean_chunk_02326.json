@@ -1,0 +1,9 @@
+{
+  "content": "def S' := S\ndef S'.x (s : S') : Nat := S.x s\nattribute [irreducible] S'\nvariable (s : S')\n#reduce' s.x",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue2975.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue2975.lean",
+    "definition_name": "S"
+  }
+}

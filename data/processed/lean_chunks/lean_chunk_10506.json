@@ -1,0 +1,10 @@
+{
+  "content": "theorem balanced_singleL (k v l rs rk rv rl rr) (hl : l.Balanced)\n    (hr : (Impl.inner rs rk rv rl rr).Balanced)\n    (hlr : BalanceLErasePrecond l.size rs \u2228 BalanceLErasePrecond rs l.size)\n    (hh : rs > delta * l.size)\n    (hx : rl.size < ratio * rr.size) :\n    (singleL k v l rk rv rl rr : Impl \u03b1 \u03b2).Balanced := by\n  tree_tac\ntheorem balanced_singleR (k v ls lk lv ll lr r) (hl : (Impl.inner ls lk lv ll lr).Balanced)\n    (hr : r.Balanced) (hlr : BalanceLErasePrecond ls r.size \u2228 BalanceLErasePrecond r.size ls)\n    (hh : ls > delta * r.size)\n    (hx : lr.size < ratio * ll.size) :\n    (singleR k v lk lv ll lr r : Impl \u03b1 \u03b2).Balanced := by\n  tree_tac\ntheorem balanced_doubleL (k v l rs rk rv rls rlk rlv rll rlr) (rr : Impl \u03b1 \u03b2) (hl : l.Balanced)\n    (hr : (Impl.inner rs rk rv (Impl.inner rls rlk rlv rll rlr) rr).Balanced)\n    (hlr : BalanceLErasePrecond l.size rs \u2228 BalanceLErasePrecond rs l.size)\n    (hh : rs > delta * l.size) (hx : \u00acrls < ratio * rr.size) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_name": "balanced_singleL",
+    "has_proof": true
+  }
+}

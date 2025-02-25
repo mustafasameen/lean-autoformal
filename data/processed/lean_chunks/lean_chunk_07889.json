@@ -1,0 +1,9 @@
+{
+  "content": "def empty [BEq \u03b1] [Hashable \u03b1] (capacity := 8) : HashSet \u03b1 :=\n  \u27e8HashMap.empty capacity\u27e9\ninstance [BEq \u03b1] [Hashable \u03b1] : EmptyCollection (HashSet \u03b1) where\n  emptyCollection := empty\ninstance [BEq \u03b1] [Hashable \u03b1] : Inhabited (HashSet \u03b1) where\n  default := \u2205\n@[inline] def insert (m : HashSet \u03b1) (a : \u03b1) : HashSet \u03b1 :=\n  \u27e8m.inner.insertIfNew a ()\u27e9\ninstance : Singleton \u03b1 (HashSet \u03b1) := \u27e8fun a => HashSet.empty.insert a\u27e9\ninstance : Insert \u03b1 (HashSet \u03b1) := \u27e8fun a s => s.insert a\u27e9\n@[inline] def containsThenInsert (m : HashSet \u03b1) (a : \u03b1) : Bool \u00d7 HashSet \u03b1 :=\n  let \u27e8replaced, r\u27e9 := m.inner.containsThenInsertIfNew a ()\n  \u27e8replaced, \u27e8r\u27e9\u27e9\n@[inline] def contains (m : HashSet \u03b1) (a : \u03b1) : Bool :=\n  m.inner.contains a\ninstance [BEq \u03b1] [Hashable \u03b1] : Membership \u03b1 (HashSet \u03b1) where\n  mem m a := a \u2208 m.inner\ninstance [BEq \u03b1] [Hashable \u03b1] {m : HashSet \u03b1} {a : \u03b1} : Decidable (a \u2208 m) :=\n  inferInstanceAs (Decidable (a \u2208 m.inner))\n@[inline] def size (m : HashSet \u03b1) : Nat :=\n  m.inner.size",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Basic.lean",
+    "definition_name": "empty"
+  }
+}

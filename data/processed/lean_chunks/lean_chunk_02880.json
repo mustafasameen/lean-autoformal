@@ -1,0 +1,9 @@
+{
+  "content": "structure StructureFieldInfo where\n  projFn     : Name\n  binderInfo : BinderInfo\n  autoParam? : Option Expr := none\n  deriving Inhabited, Repr\ndef StructureFieldInfo.lt (i\u2081 i\u2082 : StructureFieldInfo) : Bool :=\n  Name.quickLt i\u2081.fieldName i\u2082.fieldName\nstructure StructureParentInfo where\n  subobject  : Bool\nstructure StructureInfo where\n  fieldNames  : Array Name := #[]\n  parentInfo  : Array StructureParentInfo := #[]\n  deriving Inhabited\ndef StructureInfo.lt (i\u2081 i\u2082 : StructureInfo) : Bool :=\n  Name.quickLt i\u2081.structName i\u2082.structName\ndef StructureInfo.getProjFn? (info : StructureInfo) (i : Nat) : Option Name :=\n  if h : i < info.fieldNames.size then\n    let fieldName := info.fieldNames[i]\n    info.fieldInfo.binSearch { fieldName := fieldName, projFn := default, subobject? := none, binderInfo := default }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_name": "StructureFieldInfo"
+  }
+}

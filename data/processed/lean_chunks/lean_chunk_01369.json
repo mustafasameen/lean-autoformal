@@ -1,0 +1,9 @@
+{
+  "content": "structure Coords where\nx : Nat\ny : Nat\nderiving BEq\ninstance : ToString Coords where\n  toString := (\u03bb \u27e8x,y\u27e9 => String.join [\"Coords.mk \", toString x, \", \", toString y])\nstructure GameState where\nsize     : Coords\nposition : Coords\nwalls    : List Coords\ndeclare_syntax_cat game_cell\ndeclare_syntax_cat game_cell_sequence\ndeclare_syntax_cat game_row\ndeclare_syntax_cat horizontal_border\ndeclare_syntax_cat game_top_row\ndeclare_syntax_cat game_bottom_row\nsyntax \"\u2500\" : horizontal_border\nsyntax \"\\n\u250c\" horizontal_border* \"\u2510\\n\" : game_top_row\nsyntax \"\u2514\" horizontal_border* \"\u2518\\n\" : game_bottom_row\nsyntax \"\u2591\" : game_cell\nsyntax \"\u2593\" : game_cell\nsyntax \"@\" : game_cell\nsyntax \"\u2502\" game_cell* \"\u2502\\n\" : game_row\nsyntax:max game_top_row game_row* game_bottom_row : term\ninductive CellContents where\n  | empty  : CellContents\n  | wall   : CellContents\n  | player : CellContents\ndef update_state_with_row_aux : Nat \u2192 Nat \u2192 List CellContents \u2192 GameState \u2192 GameState",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_name": "Coords"
+  }
+}

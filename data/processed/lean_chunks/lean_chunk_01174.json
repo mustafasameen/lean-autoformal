@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : P (red o) := by simp [red]; fail\n#guard_msgs in\nrun_meta Lean.logInfo m!\"{\u2190 Lean.hasConst `red.eq_1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/eqnsReducible.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/eqnsReducible.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

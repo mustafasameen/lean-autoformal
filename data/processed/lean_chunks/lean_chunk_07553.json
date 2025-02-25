@@ -1,0 +1,9 @@
+{
+  "content": "inductive UTLocal\n  | ut\n  | local\n  deriving Repr, Inhabited\ninductive StdWall\n  | wall\n  | standard\n  deriving Repr, Inhabited\nstructure LocalTimeType where\n  gmtOffset : TimeZone.Offset\n  isDst : Bool\n  abbreviation : String\n  wall : StdWall\n  utLocal : UTLocal\n  identifier : String\n  deriving Repr, Inhabited\nnamespace LocalTimeType\ndef getTimeZone (time : LocalTimeType) : TimeZone :=\n  \u27e8time.gmtOffset, time.identifier, time.abbreviation, time.isDst\u27e9\nend LocalTimeType\nstructure Transition where\n  time : Second.Offset\n  localTimeType : LocalTimeType\n  deriving Repr, Inhabited\nstructure ZoneRules where\n  initialLocalTimeType : LocalTimeType\n  transitions : Array Transition\n  deriving Repr, Inhabited\nnamespace Transition\ndef createTimeZoneFromTransition (transition : Transition) : TimeZone :=\n  let name := transition.localTimeType.identifier\n  let offset := transition.localTimeType.gmtOffset\n  let abbreviation := transition.localTimeType.abbreviation",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/ZoneRules.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/ZoneRules.lean",
+    "definition_name": "UTLocal"
+  }
+}

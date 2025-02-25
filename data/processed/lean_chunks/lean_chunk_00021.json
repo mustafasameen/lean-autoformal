@@ -1,0 +1,9 @@
+{
+  "content": "inductive Solution\n  | unsat\n  | sat (assignment : Array Int)\n  deriving Inhabited\npartial def readSolution? (p : Problem) : Option Solution := Id.run <| do\n  if p.equations.any (fun _ eq => eq.coeffs.size \u2260 0) then\n    return none\n  if p.equations.any (fun _ eq => eq.const \u2260 0) then\n    return some Solution.unsat\n  let mut assignment : Array (Option Int) := mkArray p.nVars none\n  for i in [0:p.nVars] do\n    assignment := readSolution i assignment\n  return Solution.sat <| assignment.map (\u00b7.get!)\nwhere\n  readSolution (varIdx : Nat) (assignment : Array (Option Int)) : Array (Option Int) := Id.run <| do\n    match p.solvedEquations.find? varIdx with\n    | none =>\n      return assignment.set! varIdx (some 0)\n    | some eq =>\n      let mut assignment := assignment\n      let mut r := eq.const\n      for (i, coeff) in eq.coeffs do\n        if assignment[i]!.isNone then\n          assignment := readSolution i assignment\n        r := r + coeff*assignment[i]!.get!",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/liasolver.lean",
+    "definition_name": "Solution"
+  }
+}

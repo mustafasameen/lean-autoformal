@@ -1,0 +1,10 @@
+{
+  "content": "theorem fib50Eq : fib 50 = 12586269025 :=\n  rfl\ninductive type : Type\n  | A : type\n  | B  : type\ninductive val : type \u2192 Type\n  | cA : val type.A\n  | cB : val type.B\ninductive wrap : Type\n  | val : \u2200 {t : type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lean3_zulip_issues_1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lean3_zulip_issues_1.lean",
+    "definition_name": "fib50Eq",
+    "has_proof": false
+  }
+}

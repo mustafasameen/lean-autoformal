@@ -1,0 +1,9 @@
+{
+  "content": "structure ParamKind where\n  bInfo       : BinderInfo\n  isAutoParam : Bool := false\n  deriving Inhabited\ndef ParamKind.isRegularExplicit (param : ParamKind) : Bool :=\n  param.bInfo.isExplicit && !param.isAutoParam && param.defVal.isNone\ndef getParamKinds (f : Expr) (args : Array Expr) : MetaM (Array ParamKind) := do\n  try\n    let mut result : Array ParamKind := Array.mkEmpty args.size\n    let mut fnType \u2190 inferType f\n    let mut j := 0\n    for i in [0:args.size] do\n      unless fnType.isForall do\n        fnType \u2190 withTransparency .all <| whnf (fnType.instantiateRevRange j i args)\n        j := i\n      let .forallE n t b bi := fnType | failure\n      let defVal := t.getOptParamDefault? |>.map (\u00b7.instantiateRevRange j i args)\n      result := result.push { name := n, bInfo := bi, defVal, isAutoParam := t.isAutoParam }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Builtins.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Builtins.lean",
+    "definition_name": "ParamKind"
+  }
+}

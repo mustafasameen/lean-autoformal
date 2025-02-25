@@ -1,0 +1,10 @@
+{
+  "content": "def v1 := fact 10\ntheorem v1Eq : v1 = fact 10 :=\nEq.refl (fact 10)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/reduce2.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/reduce2.lean",
+    "definition_name": "v1",
+    "has_proof": false
+  }
+}

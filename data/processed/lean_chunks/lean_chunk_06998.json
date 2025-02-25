@@ -1,0 +1,9 @@
+{
+  "content": "inductive GuessLexRel | lt | eq | le | no_idea\nderiving Repr, DecidableEq\ninstance : ToString GuessLexRel where\n  toString | .lt => \"<\"\n           | .eq => \"=\"\n           | .le => \"\u2264\"\n           | .no_idea => \"?\"\ninstance : ToFormat GuessLexRel where\n  format r := toString r\ndef evalRecCall (decrTactic? : Option DecreasingBy) (callerMeasures calleeMeasures : Array BasicMeasure)\n  (rcc : RecCallWithContext) (callerMeasureIdx calleeMeasureIdx : Nat) : MetaM GuessLexRel := do\n  rcc.ctxt.run do\n    let callerMeasure := callerMeasures[callerMeasureIdx]!\n    let calleeMeasure := calleeMeasures[calleeMeasureIdx]!\n    let param := callerMeasure.natFn.beta rcc.params\n    let arg := calleeMeasure.natFn.beta rcc.args\n    trace[Elab.definition.wf] \"inspectRecCall: {rcc.caller}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_name": "GuessLexRel"
+  }
+}

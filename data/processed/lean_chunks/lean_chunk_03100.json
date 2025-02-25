@@ -1,0 +1,9 @@
+{
+  "content": "structure Output where\n  exitCode : UInt32\n  stdout   : String\n  stderr   : String\ndef output (args : SpawnArgs) : IO Output := do\n  let child \u2190 spawn { args with stdout := .piped, stderr := .piped, stdin := .null }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "Output"
+  }
+}

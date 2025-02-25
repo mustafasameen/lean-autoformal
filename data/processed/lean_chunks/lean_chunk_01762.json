@@ -1,0 +1,9 @@
+{
+  "content": "class HasCoerce (a : semiOutParam Type) (b : Type) :=\n(coerce : a \u2192 b)\ndef coerce {a b : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synth1.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synth1.lean",
+    "definition_name": "HasCoerce"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def optPrecedence := optional (atomic \u00abprecedence\u00bb)\nnamespace Syntax\n@[builtin_prec_parser] def numPrec := checkPrec maxPrec >> numLit\n@[builtin_syntax_parser] def paren           := leading_parser\n  \"(\" >> withoutPosition (many1 syntaxParser) >> \")\"\n@[builtin_syntax_parser] def cat             := leading_parser\n  ident >> optPrecedence\n@[builtin_syntax_parser] def unary           := leading_parser\n  ident >> checkNoWsBefore >> \"(\" >> withoutPosition (many1 syntaxParser) >> \")\"\n@[builtin_syntax_parser] def binary          := leading_parser\n  ident >> checkNoWsBefore >> \"(\" >> withoutPosition (many1 syntaxParser >> \", \" >> many1 syntaxParser) >> \")\"\n@[builtin_syntax_parser] def sepBy           := leading_parser\n  \"sepBy(\" >> withoutPosition (many1 syntaxParser >> \", \" >> strLit >>\n    optional (\", \" >> many1 syntaxParser) >> optional (\", \" >> nonReservedSymbol \"allowTrailingSep\")) >> \")\"\n@[builtin_syntax_parser] def sepBy1          := leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Syntax.lean",
+    "definition_name": "optPrecedence"
+  }
+}

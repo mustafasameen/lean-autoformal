@@ -1,0 +1,10 @@
+{
+  "content": "theorem Decidable.not_iff_iff_and_not_or_not_and [Decidable a] [Decidable b] :\n    (\u00ac (a \u2194 b)) \u2194 (a \u2227 \u00ac b) \u2228 ((\u00ac a) \u2227 b) :=\n  \u27e8fun e => if hb : b then\n    .inr \u27e8fun ha => e \u27e8fun _ => hb, fun _ => ha\u27e9, hb\u27e9\n  else\n    .inl \u27e8if ha : a then ha else False.elim (e \u27e8fun ha' => absurd ha' ha, fun hb' => absurd hb' hb\u27e9), hb\u27e9,\n  Or.rec (And.rec fun ha nb w => nb (w.mp ha)) (And.rec fun na hb w => na (w.mpr hb))\u27e9\ntheorem Decidable.and_not_or_not_and_of_not_iff [Decidable a] [Decidable b]\n    (h : \u00ac (a \u2194 b)) : a \u2227 \u00acb \u2228 \u00aca \u2227 b :=\n  Decidable.not_iff_iff_and_not_or_not_and.mp h\ntheorem Decidable.and_not_of_not_imp [Decidable a] (h : \u00ac(a \u2192 b)) : a \u2227 \u00acb :=\n  Decidable.not_imp_iff_and_not.mp h\ntheorem ite_disjunction {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Logic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Logic.lean",
+    "definition_name": "Decidable",
+    "has_proof": false
+  }
+}

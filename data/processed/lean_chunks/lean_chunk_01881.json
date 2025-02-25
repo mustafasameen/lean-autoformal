@@ -1,0 +1,10 @@
+{
+  "content": "theorem wk_comp_id_id {\u03c1: Wk m n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/837.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/837.lean",
+    "definition_name": "wk_comp_id_id",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let \u27e8\u27e8size, buckets\u27e9, hb\u27e9 := m\n  let \u27e8i, h\u27e9 := mkIdx buckets.size hb (hash a)\n  let bkt := buckets[i]\n  if bkt.contains a then\n    let buckets' := buckets.uset i .nil h\n    \u27e8\u27e8size - 1, buckets'.uset i (bkt.erase a) (by simpa [buckets'])\u27e9, by simpa [buckets']\u27e9\n  else\n    \u27e8\u27e8size, buckets\u27e9, hb\u27e9\n@[inline] def map {\u03b3 : \u03b1 \u2192 Type w} (f : (a : \u03b1) \u2192 \u03b2 a \u2192 \u03b3 a) (m : Raw\u2080 \u03b1 \u03b2) : Raw\u2080 \u03b1 \u03b3 :=\n  let \u27e8\u27e8size, buckets\u27e9, hb\u27e9 := m\n  let newBuckets := buckets.map (AssocList.map f)\n  \u27e8\u27e8size, newBuckets\u27e9, by simpa [newBuckets] using hb\u27e9\n@[inline] def insertMany {\u03c1 : Type w} [ForIn Id \u03c1 ((a : \u03b1) \u00d7 \u03b2 a)] [BEq \u03b1] [Hashable \u03b1]\n    (m : Raw\u2080 \u03b1 \u03b2) (l : \u03c1) : { m' : Raw\u2080 \u03b1 \u03b2 // \u2200 (P : Raw\u2080 \u03b1 \u03b2 \u2192 Prop),\n      (\u2200 {m'' a b}, P m'' \u2192 P (m''.insert a b)) \u2192 P m \u2192 P m' } := Id.run do\n  let mut r : { m' : Raw\u2080 \u03b1 \u03b2 // \u2200 (P : Raw\u2080 \u03b1 \u03b2 \u2192 Prop),\n    (\u2200 {m'' a b}, P m'' \u2192 P (m''.insert a b)) \u2192 P m \u2192 P m' } := \u27e8m, fun _ _ => id\u27e9\n  for \u27e8a, b\u27e9 in l do\n    r := \u27e8r.1.insert a b, fun _ h hm => h (r.2 _ h hm)\u27e9\n  return r\nsection",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/Defs.lean",
+    "definition_name": "empty"
+  }
+}

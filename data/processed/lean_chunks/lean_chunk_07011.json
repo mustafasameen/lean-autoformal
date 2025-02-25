@@ -1,0 +1,9 @@
+{
+  "content": "name\n    descr           := (if builtin then \"(builtin) \" else \"\") ++\n      \"Use to decorate methods for suggesting code actions. This is a low-level interface for making code actions.\"\n    applicationTime := .afterCompilation\n    add             := fun decl stx kind => do\n      Attribute.Builtin.ensureNoArgs stx\n      unless kind == AttributeKind.global do throwError \"invalid attribute '{name}', must be global\"\n      unless (\u2190 getConstInfo decl).type.isConstOf ``CodeActionProvider do\n        throwError \"invalid attribute '{name}', must be of type `Lean.Server.CodeActionProvider`\"\n      let env \u2190 getEnv\n      if builtin then\n        let h := mkConst decl\n        declareBuiltin decl <| mkApp2 (mkConst ``addBuiltinCodeActionProvider) (toExpr decl) h\n      else\n        setEnv <| codeActionProviderExt.addEntry env decl\n  }\n  mkAttr true `builtin_code_action_provider\n  mkAttr false `code_action_provider",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/CodeActions/Basic.lean",
+    "definition_name": "CodeActionProvider"
+  }
+}

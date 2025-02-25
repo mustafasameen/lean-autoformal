@@ -1,0 +1,10 @@
+{
+  "content": "theorem PProd.monotone_mk [PartialOrder \u03b1] [PartialOrder \u03b2] [PartialOrder \u03b3]\n    {f : \u03b3 \u2192 \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "PProd",
+    "has_proof": false
+  }
+}

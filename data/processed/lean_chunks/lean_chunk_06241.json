@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  motives : Array (Name \u00d7 Expr)\n  typeInfos : Array InductiveVal\n  belowNames : Array Name\n  headers : Array Expr\n  numParams : Nat\nstructure Variables where\n  target : Array Expr\n  indVal : Array Expr\n  params : Array Expr\n  args : Array Expr\n  motives : Array Expr\n  innerType : Expr\n  deriving Inhabited\nstructure BrecOnVariables where\n  params : Array FVarId\n  motives : Array FVarId\n  indices : Array FVarId\n  witness : FVarId\n  indHyps : Array FVarId\ndef mkContext (declName : Name) : MetaM Context := do\n  let indVal \u2190 getConstInfoInduct declName\n  let typeInfos \u2190 indVal.all.toArray.mapM getConstInfoInduct\n  let motiveTypes \u2190 typeInfos.mapM motiveType\n  let motives \u2190 motiveTypes.mapIdxM fun j motive =>\n    return (\u2190 motiveName motiveTypes j, motive)\n  let headers \u2190 typeInfos.mapM $ mkHeader motives indVal.numParams\n  return {\n    motives := motives\n    typeInfos := typeInfos\n    numParams := indVal.numParams\n    headers := headers",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/IndPredBelow.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/IndPredBelow.lean",
+    "definition_name": "Context"
+  }
+}

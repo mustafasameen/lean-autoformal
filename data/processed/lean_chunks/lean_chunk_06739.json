@@ -1,0 +1,9 @@
+{
+  "content": "structure CasesSubgoal extends InductionSubgoal where\n  ctorName : Name\nnamespace Cases\nstructure Context where\n  inductiveVal     : InductiveVal\n  casesOnVal       : DefinitionVal\n  nminors          : Nat := inductiveVal.ctors.length\n  majorDecl        : LocalDecl\n  majorTypeFn      : Expr\n  majorTypeArgs    : Array Expr\n  majorTypeIndices : Array Expr := majorTypeArgs.extract (majorTypeArgs.size - inductiveVal.numIndices) majorTypeArgs.size\nprivate def mkCasesContext? (majorFVarId : FVarId) : MetaM (Option Context) := do\n  let env \u2190 getEnv\n  if !env.contains `Eq || !env.contains `HEq then\n    pure none\n  else\n    let majorDecl \u2190 majorFVarId.getDecl\n    let majorType \u2190 whnf majorDecl.type\n    majorType.withApp fun f args => matchConstInduct f (fun _ => pure none) fun ival _ =>\n      if args.size != ival.numIndices + ival.numParams then pure none\n      else match env.find? (Name.mkStr ival.name \"casesOn\") with\n        | ConstantInfo.defnInfo cval =>\n          return some {",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_name": "CasesSubgoal"
+  }
+}

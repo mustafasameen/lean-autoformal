@@ -1,0 +1,10 @@
+{
+  "content": "def Env := String \u2192 Value\nnamespace Env\ndef set (x : String) (v : Value) (\u03c1 : Env) : Env :=\n  fun y => if x = y then v else \u03c1 y\ndef get (x : String) (\u03c1 : Env) : Value :=\n  \u03c1 x\ndef init (i : Value) : Env := fun _ => i\nend Env\n@[simp] theorem Env.get_init : (Env.init v).get x = v := by rfl\n@[simp] theorem Env.get_set_same {\u03c1 : Env} : (\u03c1.set x v).get x = v := by\n  simp [get, set]\n@[simp] theorem Env.get_set_different {\u03c1 : Env} : x \u2260 y \u2192 (\u03c1.set x v).get y = \u03c1.get y := by\n  intro",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/string_simprocs.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/string_simprocs.lean",
+    "definition_name": "Env",
+    "has_proof": true
+  }
+}

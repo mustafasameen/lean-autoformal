@@ -1,0 +1,10 @@
+{
+  "content": "theorem erase_eq_self_iff [LawfulBEq \u03b1] {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_name": "erase_eq_self_iff",
+    "has_proof": false
+  }
+}

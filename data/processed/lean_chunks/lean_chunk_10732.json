@@ -1,0 +1,9 @@
+{
+  "content": "def sharedLibPathEnvVar :=\n  if Platform.isWindows then\n    \"PATH\"\n  else if Platform.isOSX then\n    \"DYLD_LIBRARY_PATH\"\n  else\n    \"LD_LIBRARY_PATH\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/NativeLib.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/NativeLib.lean",
+    "definition_name": "sharedLibPathEnvVar"
+  }
+}

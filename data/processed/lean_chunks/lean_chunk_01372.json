@@ -1,0 +1,10 @@
+{
+  "content": "inductive Move where\n  | east  : Move\n  | west  : Move\n  | north : Move\n  | south : Move\n@[simp]\ndef make_move : GameState \u2192 Move \u2192 GameState\n| \u27e8s, \u27e8x,y\u27e9, w\u27e9, Move.east =>\n             if !w.elem \u27e8x+1, y\u27e9 \u2227 x + 1 \u2264 s.x\n             then \u27e8s, \u27e8x+1, y\u27e9, w\u27e9\n             else \u27e8s, \u27e8x,y\u27e9, w\u27e9\n| \u27e8s, \u27e8x,y\u27e9, w\u27e9, Move.west =>\n             if !w.elem \u27e8x-1, y\u27e9\n             then \u27e8s, \u27e8x-1, y\u27e9, w\u27e9\n             else \u27e8s, \u27e8x,y\u27e9, w\u27e9\n| \u27e8s, \u27e8x,y\u27e9, w\u27e9, Move.north =>\n             if !w.elem \u27e8x, y-1\u27e9\n             then \u27e8s, \u27e8x, y-1\u27e9, w\u27e9\n             else \u27e8s, \u27e8x,y\u27e9, w\u27e9\n| \u27e8s, \u27e8x,y\u27e9, w\u27e9, Move.south =>\n             if !w.elem \u27e8x, y + 1\u27e9 \u2227 y + 1 \u2264 s.y\n             then \u27e8s, \u27e8x, y+1\u27e9, w\u27e9\n             else \u27e8s, \u27e8x,y\u27e9, w\u27e9\ndef is_win : GameState \u2192 Prop\n| \u27e8\u27e8sx, sy\u27e9, \u27e8x,y\u27e9, w\u27e9 => x = 0 \u2228 y = 0 \u2228 x + 1 = sx \u2228 y + 1 = sy\ndef can_escape (state : GameState) : Prop :=\n  \u2203 (gs : List Move), is_win (List.foldl make_move state gs)\ntheorem can_still_escape (g : GameState) (m : Move) (hg : can_escape (make_move g m)) : can_escape g :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_name": "Move",
+    "has_proof": false
+  }
+}

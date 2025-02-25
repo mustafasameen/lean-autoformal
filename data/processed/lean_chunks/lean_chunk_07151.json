@@ -1,0 +1,9 @@
+{
+  "content": "let params \u2190 normParams decl.params\n    let value \u2190 normCodeImp decl.value\n    decl.update type params value\n  partial def normCodeImp (code : Code) : NormalizerM t Code := do\n    match code with\n    | .let decl k => return code.updateLet! (\u2190 normLetDecl decl) (\u2190 normCodeImp k)\n    | .fun decl k | .jp decl k => return code.updateFun! (\u2190 normFunDeclImp decl) (\u2190 normCodeImp k)\n    | .return fvarId => withNormFVarResult (\u2190 normFVar fvarId) fun fvarId => return code.updateReturn! fvarId\n    | .jmp fvarId args => withNormFVarResult (\u2190 normFVar fvarId) fun fvarId => return code.updateJmp! fvarId (\u2190 normArgs args)\n    | .unreach type => return code.updateUnreach! (\u2190 normExpr type)\n    | .cases c =>\n      let resultType \u2190 normExpr c.resultType\n      withNormFVarResult (\u2190 normFVar c.discr) fun discr => do\n        let alts \u2190 c.alts.mapMonoM fun alt =>\n          match alt with\n          | .alt _ params k => return alt.updateAlt! (\u2190 normParams params) (\u2190 normCodeImp k)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "mkFreshBinderName"
+  }
+}

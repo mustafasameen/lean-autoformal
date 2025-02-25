@@ -1,0 +1,9 @@
+{
+  "content": "inductive Vec2 (\u03b1 : Type u) (\u03b2 : Type v) : Nat \u2192 Type (max u v)\n| nil  : Vec2 \u03b1 \u03b2 0\n| cons : \u03b1 \u2192 \u03b2 \u2192 forall {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj2.lean",
+    "definition_name": "Vec2"
+  }
+}

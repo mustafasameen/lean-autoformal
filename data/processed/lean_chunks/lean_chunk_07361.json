@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote_blastDivSubtractShift_r (aig : AIG \u03b1) (assign : \u03b1 \u2192 Bool) (lhs rhs : BitVec w)\n    (falseRef trueRef : AIG.Ref aig) (n d : AIG.RefVec aig w) (wn wr : Nat)\n    (q r : AIG.RefVec aig w) (qbv rbv : BitVec w)\n    (hleft : \u2200 (idx : Nat) (hidx : idx < w), \u27e6aig, n.get idx hidx, assign\u27e7 = lhs.getLsbD idx)\n    (hright : \u2200 (idx : Nat) (hidx : idx < w), \u27e6aig, d.get idx hidx, assign\u27e7 = rhs.getLsbD idx)\n    (hr : \u2200 (idx : Nat) (hidx : idx < w), \u27e6aig, r.get idx hidx, assign\u27e7 = rbv.getLsbD idx)\n    (hfalse : \u27e6aig, falseRef, assign\u27e7 = false)\n      :\n    \u2200 (idx : Nat) (hidx : idx < w),\n      \u27e6\n        (blastDivSubtractShift aig falseRef trueRef n d wn wr q r).aig,\n        (blastDivSubtractShift aig falseRef trueRef n d wn wr q r).r.get idx hidx,\n        assign\n      \u27e7\n        =\n      (BitVec.divSubtractShift { n := lhs, d := rhs }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_name": "denote_blastDivSubtractShift_r",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "`(tactic|\n    (have h : $lhs = $rhs :=\n       by simp +arith at *; apply Nat.le_antisymm <;> assumption\n     try subst $lhs))\nattribute [local simp] Tree.insert\ntheorem Tree.forall_insert_of_forall\n        (h\u2081 : ForallTree p t) (h\u2082 : p key value)\n        : ForallTree p (t.insert key value) := by\n  induction h\u2081 with\n  | leaf => exact .node .leaf h\u2082 .leaf\n  | node hl hp hr ihl ihr =>\n    rename Nat => k\n    by_cases' key < k\n    . exact .node ihl hp hr\n    . by_cases' k < key\n      . exact .node hl hp ihr\n      . have_eq key k\n        exact .node hl h\u2082 hr\ntheorem Tree.bst_insert_of_bst\n        {t : Tree \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/bintree.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/doc/examples/bintree.lean",
+    "definition_name": "Tree",
+    "has_proof": true
+  }
+}

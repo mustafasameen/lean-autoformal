@@ -1,0 +1,10 @@
+{
+  "content": "theorem toList_filterMap' (f : \u03b1 \u2192 Option \u03b2) (xs : Array \u03b1) (w : stop = xs.size) :\n    (xs.filterMap f 0 stop).toList = xs.toList.filterMap f := by\n  subst w\n  dsimp only [filterMap, filterMapM]\n  rw [\u2190 foldlM_toList]\n  generalize xs.toList = xs\n  have this : \u2200 as : Array \u03b2, (Id.run (List.foldlM (m := Id) ?_ as xs)).toList =\n    as.toList ++ List.filterMap f xs := ?_\n  exact this #[]\n  induction xs\n  \u00b7 simp_all [Id.run]\n  \u00b7 simp_all [Id.run, List.filterMap_cons]\n    split <;> simp_all\ntheorem toList_filterMap (f : \u03b1 \u2192 Option \u03b2) (xs : Array \u03b1) :\n    (xs.filterMap f).toList = xs.toList.filterMap f := by\n  simp [toList_filterMap']\n@[simp] theorem _root_.List.filterMap_toArray' (f : \u03b1 \u2192 Option \u03b2) (l : List \u03b1) (h : stop = l.length) :\n    l.toArray.filterMap f 0 stop = (l.filterMap f).toArray := by\n  apply ext'\n  simp [h]\ntheorem _root_.List.filterMap_toArray (f : \u03b1 \u2192 Option \u03b2) (l : List \u03b1) :\n    l.toArray.filterMap f = (l.filterMap f).toArray := by\n  simp",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_filterMap",
+    "has_proof": true
+  }
+}

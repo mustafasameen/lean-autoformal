@@ -1,0 +1,9 @@
+{
+  "content": "instance semilatticeSup [\u2200 i, SemilatticeSup (\u03b1' i)] : SemilatticeSup (\u2200 i, \u03b1' i) where\n  le_sup_left _ _ _ := SemilatticeSup.le_sup_left _ _\n  le_sup_right _ _ _ := SemilatticeSup.le_sup_right _ _\n  sup_le _ _ _ ac bc i := SemilatticeSup.sup_le _ _ _ (ac i) (bc i)\ninstance semilatticeInf [\u2200 i, SemilatticeInf (\u03b1' i)] : SemilatticeInf (\u2200 i, \u03b1' i) where\n  inf_le_left _ _ _ := SemilatticeInf.inf_le_left _ _\n  inf_le_right _ _ _ := SemilatticeInf.inf_le_right _ _\n  le_inf _ _ _ ac bc i := SemilatticeInf.le_inf _ _ _ (ac i) (bc i)\ninstance lattice [\u2200 i, Lattice (\u03b1' i)] : Lattice (\u2200 i, \u03b1' i) :=\n{ Pi.semilatticeSup, Pi.semilatticeInf with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_name": "semilatticeSup"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Foo :=\n(flag : Bool   := false)\n(x    : UInt16 := 0)\n(z    : UInt32 := 0)\n(w    : UInt64 := 0)\n(h    : USize  := 0)\n(xs   : List Nat := [])\nset_option trace.compiler.ir.init true\ndef f (s : Foo) : Foo :=\n{ s with x := s.x + 1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ubscalar.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ubscalar.lean",
+    "definition_name": "Foo"
+  }
+}

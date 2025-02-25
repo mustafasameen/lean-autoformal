@@ -1,0 +1,9 @@
+{
+  "content": "structure SetupImportsResult where\n  opts : Options\n  plugins : Array System.FilePath := #[]\ndef reparseOptions (opts : Options) : IO Options := do\n  let mut opts := opts\n  let decls \u2190 getOptionDecls\n  for (name, val) in opts do\n    let .ofString val := val\n| continue\n    let weak := name.getRoot == `weak\n    if weak then\n      opts := opts.erase name\n    let name := name.replacePrefix `weak Name.anonymous\n    let some decl := decls.find? name\n      | unless weak do\n          throw <| .userError s!\"invalid -D parameter, unknown configuration option '{name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Lean.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Lean.lean",
+    "definition_name": "SetupImportsResult"
+  }
+}

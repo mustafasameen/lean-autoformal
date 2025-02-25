@@ -1,0 +1,9 @@
+{
+  "content": "structure OverflowInput (aig : AIG \u03b1) where\n  w : Nat\n  vec : AIG.BinaryRefVec aig w\n  cin : AIG.Ref aig\ndef mkOverflowBit (aig : AIG \u03b1) (input : OverflowInput aig) : AIG.Entrypoint \u03b1 :=\n  let \u27e8_, \u27e8lhs, rhs\u27e9, cin\u27e9 := input\n  go aig lhs rhs 0 cin\nwhere\n  go {w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Carry.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Carry.lean",
+    "definition_name": "OverflowInput"
+  }
+}

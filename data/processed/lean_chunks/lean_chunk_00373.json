@@ -1,0 +1,9 @@
+{
+  "content": "structure TokenConfig :=\n(\u00abprefix\u00bb : String)\n(lbp : Nat := 0)\nstructure FrontendConfig :=\n(filename : String)\n(input    : String)\n(FileMap : FileMap)\n@[inline] def try {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/flat_parser2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/flat_parser2.lean",
+    "definition_name": "TokenConfig"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "instance fails to reduce\n```lean\nopaque unknownProp : Prop\nopen scoped Classical in\nexample : unknownProp := by decide\n```\n## Properties and relations\nFor equality goals for types with decidable equality, usually `rfl` can be used in place of `decide`.\n```lean\nexample : 1 + 1 = 2 := by decide\nexample : 1 + 1 = 2 := by rfl\n```\n-/\nsyntax (name := decide) \"decide\" optConfig : tactic\nsyntax (name := nativeDecide) \"native_decide\" optConfig : tactic\nmacro_rules | `(tactic| trivial) => `(tactic| assumption)\nmacro_rules | `(tactic| trivial) => `(tactic| rfl)\nmacro_rules | `(tactic| trivial) => `(tactic| contradiction)\nmacro_rules | `(tactic| trivial) => `(tactic| decide)\nmacro_rules | `(tactic| trivial) => `(tactic| apply True.intro)\nmacro_rules | `(tactic| trivial) => `(tactic| apply And.intro <;> trivial)\nsyntax (name := omega) \"omega\" optConfig : tactic\nmacro \"bv_omega\" : tactic => `(tactic| (try simp only [bitvec_to_nat] at *) <;> omega)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Tactics.lean",
+    "definition_name": "fails",
+    "imports": "Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\", Std.Tactic.BVDecide`\""
+  }
+}

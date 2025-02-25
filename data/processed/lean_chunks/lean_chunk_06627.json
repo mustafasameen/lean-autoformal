@@ -1,0 +1,9 @@
+{
+  "content": "\"let \" >> optional \"mut \" >> letDecl\n@[builtin_doElem_parser] def doLetElse  := leading_parser\n  \"let \" >> optional \"mut \" >> termParser >> \" := \" >> termParser >>\n  checkColGt >> \" | \" >> doSeq\n@[builtin_doElem_parser] def doLetExpr  := leading_parser\n  \"let_expr \" >> matchExprPat >> \" := \" >> termParser >>\n  checkColGt >> \" | \" >> doSeq\n@[builtin_doElem_parser] def doLetMetaExpr  := leading_parser\n  \"let_expr \" >> matchExprPat >> \" \u2190 \" >> termParser >>\n  checkColGt >> \" | \" >> doSeq\n@[builtin_doElem_parser] def doLetRec   := leading_parser\n  group (\"let \" >> nonReservedSymbol \"rec \") >> letRecDecls\ndef doIdDecl   := leading_parser\n  atomic (ident >> optType >> ppSpace >> leftArrow) >>\n  doElemParser\ndef doPatDecl  := leading_parser\n  atomic (termParser >> ppSpace >> leftArrow) >>\n  doElemParser >> optional (checkColGt >> \" | \" >> doSeq)\n@[builtin_doElem_parser] def doLetArrow      := leading_parser\n  withPosition (\"let \" >> optional \"mut \" >> (doIdDecl <|> doPatDecl))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_name": "doSeqIndent"
+  }
+}

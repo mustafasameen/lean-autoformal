@@ -1,0 +1,10 @@
+{
+  "content": "theorem can_still_escape (g : GameState) (m : Move) (hg : can_escape (make_move g m)) : can_escape g :=\n have \u27e8pms, hpms\u27e9 := hg\n Exists.intro (m::pms) hpms\ntheorem step_west\n  {s: Coords}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_name": "can_still_escape",
+    "has_proof": false
+  }
+}

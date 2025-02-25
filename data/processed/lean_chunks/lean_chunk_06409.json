@@ -1,0 +1,9 @@
+{
+  "content": "for r in rs do\n    unless r.view.modifiers.isUnsafe == isUnsafe do\n      throwErrorAt r.view.ref \"invalid inductive type, cannot mix unsafe and safe declarations in a mutually inductive datatypes\"\nprivate def checkClass (rs : Array PreElabHeaderResult) : TermElabM Unit := do\n  if rs.size > 1 then\n    for r in rs do\n      if r.view.isClass then\n        throwErrorAt r.view.ref \"invalid inductive type, mutual classes are not supported\"\nprivate def checkNumParams (rs : Array PreElabHeaderResult) : TermElabM Nat := do\n  let numParams := rs[0]!.params.size\n  for r in rs do\n    unless r.params.size == numParams do\n      throwErrorAt r.view.ref \"invalid inductive type, number of parameters mismatch in mutually inductive datatypes\"\n  return numParams\nprivate def mkTypeFor (r : PreElabHeaderResult) : TermElabM Expr := do\n  withLCtx r.lctx r.localInsts do\n    mkForallFVars r.params r.type\ndef withExplicitToImplicit (xs : Array Expr) (k : TermElabM \u03b1) : TermElabM \u03b1 := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "declaration"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "termination_by stopPos.1 - i.1\n@[inline] def any (s : String) (p : Char \u2192 Bool) : Bool :=\n  anyAux s s.endPos p 0\n@[inline] def all (s : String) (p : Char \u2192 Bool) : Bool :=\n  !s.any (fun c => !p c)\n@[inline] def contains (s : String) (c : Char) : Bool :=\ns.any (fun a => a == c)\ntheorem utf8SetAux_of_gt (c' : Char) : \u2200 (cs : List Char) {i p : Pos}, i > p \u2192 utf8SetAux c' cs i p = cs\n  | [],    _, _, _ => rfl\n  | c::cs, i, p, h => by\n    rw [utf8SetAux, if_neg (mt (congrArg (\u00b7.1)) (Ne.symm <| Nat.ne_of_lt h)), utf8SetAux_of_gt c' cs]\n    exact Nat.lt_of_lt_of_le h (Nat.le_add_right ..)\ntheorem set_next_add (s : String) (i : Pos) (c : Char) (b\u2081 b\u2082)\n    (h : (s.next i).1 + b\u2081 = s.endPos.1 + b\u2082) :\n    ((s.set i c).next i).1 + b\u2081 = (s.set i c).endPos.1 + b\u2082 := by\n  simp [next, get, set, endPos, utf8ByteSize] at h \u22a2\n  rw [Nat.add_comm i.1, Nat.add_assoc] at h \u22a2\n  let rec foo : \u2200 cs a b\u2081 b\u2082,\n    (utf8GetAux cs a i).utf8Size + b\u2081 = utf8ByteSize.go cs + b\u2082 \u2192",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "toString",
+    "has_proof": true
+  }
+}

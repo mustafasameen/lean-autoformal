@@ -1,0 +1,9 @@
+{
+  "content": "structure AltVarNames where\nexplicit : Bool := false\n  varNames : List Name := []\n  deriving Inhabited\nprivate partial def finalize\n    (mvarId : MVarId) (givenNames : Array AltVarNames) (recursorInfo : RecursorInfo)\n    (reverted : Array FVarId) (major : Expr) (indices : Array Expr) (baseSubst : FVarSubst) (recursor : Expr)\n    : MetaM (Array InductionSubgoal) := do\n  let target \u2190 mvarId.getType\n  let initialArity := getTargetArity target\n  let recursorType \u2190 inferType recursor\n  let numMinors := recursorInfo.produceMotive.length\n  let rec loop (pos : Nat) (minorIdx : Nat) (recursor recursorType : Expr) (consumedMajor : Bool) (subgoals : Array InductionSubgoal) := do\n    let recursorType \u2190 whnfForall recursorType\n    if recursorType.isForall && pos < recursorInfo.numArgs then\n      if pos == recursorInfo.firstIndexPos then\n        let (recursor, recursorType) \u2190 indices.foldlM (init := (recursor, recursorType)) fun (recursor, recursorType) index => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Induction.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Induction.lean",
+    "definition_name": "AltVarNames"
+  }
+}

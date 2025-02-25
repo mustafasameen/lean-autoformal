@@ -1,0 +1,10 @@
+{
+  "content": "theorem get_mem : \u2200 (l : List \u03b1) n, get l n \u2208 l\n  | _ :: _, \u27e80, _\u27e9 => .head ..\n  | _ :: l, \u27e8_+1, _\u27e9 => .tail _ (get_mem l ..)\nset_option linter.deprecated false in\n@[deprecated mem_of_getElem? (since := \"2025-02-12\")]\ntheorem mem_of_get? {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "get_mem",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "if prop then\n      match stxBody with\n      | `(\u2200 $groups*, $stxBody) => `(\u2200 $group $groups*, $stxBody)\n      | _                       => `(\u2200 $group, $stxBody)\n    else\n      `($group:bracketedBinder \u2192 $stxBody)\n@[builtin_delab letE]\ndef delabLetE : Delab := do\n  let Expr.letE n t v b _ \u2190 getExpr | unreachable!\n  let n \u2190 getUnusedName n b\n  let stxV \u2190 descend v 1 delab\n  let (stxN, stxB) \u2190 withLetDecl n t v fun fvar => do\n    let b := b.instantiate1 fvar\n    return (\u2190 mkAnnotatedIdent n fvar, \u2190 descend b 2 delab)\n  if \u2190 getPPOption getPPLetVarTypes <||> getPPOption getPPAnalysisLetVarType then\n    let stxT \u2190 descend t 0 delab\n    `(let $stxN : $stxT := $stxV",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Builtins.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Delaborator/Builtins.lean",
+    "definition_name": "ppPiBinderNames"
+  }
+}

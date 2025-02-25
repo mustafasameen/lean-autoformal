@@ -1,0 +1,9 @@
+{
+  "content": "| []    => levelZero\n  | [u]   => u\n  | u::us => mkLevelMax' u (mkNaryMax us)\n@[specialize] def substParams (u : Level) (s : Name \u2192 Option Level) : Level :=\n  go u\nwhere\n  go (u : Level) : Level :=\n    match u with\n    | .zero       => u\n    | .succ v     => if u.hasParam then u.updateSucc! (go v) else u\n    | .max v\u2081 v\u2082  => if u.hasParam then u.updateMax! (go v\u2081) (go v\u2082) else u\n    | .imax v\u2081 v\u2082 => if u.hasParam then u.updateIMax! (go v\u2081) (go v\u2082) else u\n    | .param n    => match s n with\n      | some u' => u'\n      | none    => u\n    | u => u\ndef getParamSubst : List Name \u2192 List Level \u2192 Name \u2192 Option Level\n  | p::ps, u::us, p' => if p == p' then some u else getParamSubst ps us p'\n  | _,     _,     _  => none\ndef instantiateParams (u : Level) (paramNames : List Name) (vs : List Level) : Level :=\n  u.substParams (getParamSubst paramNames vs)\ndef geq (u v : Level) : Bool :=\n  go u.normalize v.normalize\nwhere\n  go (u v : Level) : Bool :=\n    u == v ||\n    let k := fun () =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

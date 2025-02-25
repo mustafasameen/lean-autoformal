@@ -1,0 +1,9 @@
+{
+  "content": "structure PersistentEnvExtensionDescr (\u03b1 \u03b2 \u03c3 : Type) where\n  name            : Name := by exact decl_name%\n  mkInitial       : IO \u03c3\n  addImportedFn   : Array (Array \u03b1) \u2192 ImportM \u03c3\n  addEntryFn      : \u03c3 \u2192 \u03b2 \u2192 \u03c3\n  exportEntriesFn : \u03c3 \u2192 Array \u03b1\n  statsFn         : \u03c3 \u2192 Format := fun _ => Format.nil\n  asyncMode       : EnvExtension.AsyncMode := .mainOnly\nunsafe def registerPersistentEnvExtensionUnsafe {\u03b1 \u03b2 \u03c3 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "PersistentEnvExtensionDescr"
+  }
+}

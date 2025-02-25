@@ -1,0 +1,10 @@
+{
+  "content": "instance funLike : FunLike (A \u2192\u2090[R] B) A B where\n  coe f := f.toFun\ninstance algHomClass : AlgHomClass (A \u2192\u2090[R] B) R A B where\n  map_add f := sorry\n  map_zero f := sorry\n  map_mul f := sorry\n  map_one f := sorry\n  commutes f := sorry\n@[ext]\ntheorem ext {\u03c6\u2081 \u03c6\u2082 : A \u2192\u2090[R] B}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "funLike",
+    "has_proof": false
+  }
+}

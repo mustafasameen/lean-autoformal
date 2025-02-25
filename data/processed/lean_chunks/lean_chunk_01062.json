@@ -1,0 +1,9 @@
+{
+  "content": "class SubNegMonoid (G : Type u) extends AddMonoid G, Neg G, Sub G where\n  sub := SubNegMonoid.sub'\n  sub_eq_add_neg : \u2200 a b : G, a - b = a + -b := by intros; rfl\n  zsmul : Int \u2192 G \u2192 G := zsmulRec\n  zsmul_zero' : \u2200 a : G, zsmul 0 a = 0 := by intros; rfl\n  zsmul_succ' (n : Nat) (a : G) : zsmul (Int.ofNat n.succ) a = a + zsmul (Int.ofNat n) a := by\n    intros; rfl\n  zsmul_neg' (n : Nat) (a : G) : zsmul (Int.negSucc n) a = -zsmul n.succ a := by intros; rfl\ninstance SubNegMonoid.SMulInt {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "SubNegMonoid"
+  }
+}

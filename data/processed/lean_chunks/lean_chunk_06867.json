@@ -1,0 +1,10 @@
+{
+  "content": "return r\n        return none\n    | .forallE _ d b _ =>\n      if (\u2190 pure e.isArrow <&&> isProp d <&&> isProp b) then\n        if let some d \u2190 visit? d then return d\n        visit? b\n      else\n        return none\n    | _ => return none\ndef mkEMatchTheoremWithKind?\n      (origin : Origin) (levelParams : Array Name) (proof : Expr) (kind : EMatchTheoremKind)\n      (groundPatterns := true) : MetaM (Option EMatchTheorem) := do\n  if kind == .eqLhs then\n    return (\u2190 mkEMatchEqTheoremCore origin levelParams proof (normalizePattern := true) (useLhs := true))\n  else if kind == .eqRhs then\n    return (\u2190 mkEMatchEqTheoremCore origin levelParams proof (normalizePattern := true) (useLhs := false))\n  else if kind == .eqBwd then\n    return (\u2190 mkEMatchEqBwdTheoremCore origin levelParams proof)\n  let type \u2190 inferType proof\n  withReducible <| forallTelescopeReducing type fun xs type => withDefault do\n    let searchPlaces \u2190 match kind with\n      | .fwd =>\n        let ps \u2190 getPropTypes xs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

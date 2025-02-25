@@ -1,0 +1,9 @@
+{
+  "content": "self.config.weakLeancArgs\n@[inline] def weakLinkArgs (self : Package) : Array String :=\n  self.config.weakLinkArgs\n@[inline] def rootDir (self : Package) : FilePath :=\n  self.srcDir\n@[inline] def nativeLibDir (self : Package) : FilePath :=\n  self.buildDir / self.config.nativeLibDir\n@[inline] def irDir (self : Package) : FilePath :=\n  self.buildDir / self.config.irDir\ndef isBuildableModule (mod : Name) (self : Package) : Bool :=\n  self.leanLibConfigs.any (fun lib => lib.isBuildableModule mod) ||\n  self.leanExeConfigs.any (fun exe => exe.root == mod)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_name": "defaultVersionTags"
+  }
+}

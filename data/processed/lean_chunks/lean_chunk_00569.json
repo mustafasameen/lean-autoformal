@@ -1,0 +1,10 @@
+{
+  "content": "theorem sizeof_lt_of_view_eq (h : Pos.view p\u2081 = PosView.succ p\u2082) : sizeOf p\u2082 < sizeOf p\u2081 := by\n  match p\u2081, p\u2082 with\n  | { pred := Nat.succ n }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/posView.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/posView.lean",
+    "definition_name": "sizeof_lt_of_view_eq",
+    "has_proof": true
+  }
+}

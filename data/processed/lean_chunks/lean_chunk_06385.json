@@ -1,0 +1,9 @@
+{
+  "content": "| .proj _ i b   =>\n    match (\u2190 Meta.project? b i) with\n    | some r => reduce structNames r\n    | none   => return e.updateProj! (\u2190 reduce structNames b)\n  | .app f .. =>\n    match (\u2190 withTransparency .all <| reduceProjOf? e structNames.contains) with\n    | some r => reduce structNames r\n    | none   =>\n      let f := f.getAppFn\n      let f' \u2190 reduce structNames f\n      if f'.isLambda then\n        let revArgs := e.getAppRevArgs\n        reduce structNames (f'.betaRev revArgs)\n      else\n        let args \u2190 e.getAppArgs.mapM (reduce structNames)\n        return mkAppN f' args\n  | .mdata _ b =>\n    let b \u2190 reduce structNames b\n    if (defaultMissing? e).isSome && !b.isMVar then\n      return b\n    else\n      return e.updateMData! b\n  | .mvar mvarId =>\n    match (\u2190 getExprMVarAssignment? mvarId) with\n    | some val => if val.isMVar then pure val else reduce structNames val\n    | none     => return e\n  | e => return e\nwhere\n  withReduceLCtx {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/StructInst.lean",
+    "definition_name": "Context"
+  }
+}

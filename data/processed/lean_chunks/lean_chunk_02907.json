@@ -1,0 +1,9 @@
+{
+  "content": "structure PersistentEnvExtensionState (\u03b1 : Type) (\u03c3 : Type) where\nimportedEntries : Array (Array \u03b1)\n  state : \u03c3\nstructure ImportM.Context where\n  env  : Environment\n  opts : Options\nabbrev ImportM := ReaderT Lean.ImportM.Context IO\nstructure PersistentEnvExtension (\u03b1 : Type) (\u03b2 : Type) (\u03c3 : Type) where\n  toEnvExtension  : EnvExtension (PersistentEnvExtensionState \u03b1 \u03c3)\n  name            : Name\n  addImportedFn   : Array (Array \u03b1) \u2192 ImportM \u03c3\n  addEntryFn      : \u03c3 \u2192 \u03b2 \u2192 \u03c3\n  exportEntriesFn : \u03c3 \u2192 Array \u03b1\n  statsFn         : \u03c3 \u2192 Format\ninstance {\u03b1 \u03c3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "PersistentEnvExtensionState"
+  }
+}

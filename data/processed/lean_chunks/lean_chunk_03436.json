@@ -1,0 +1,10 @@
+{
+  "content": "theorem toFin_val (x : $typeName) : x.toFin.val = x.toNat := rfl\n  @[deprecated toFin_val (since := \"2025-02-12\")]\n  theorem val_val_eq_toNat (x : $typeName) : x.toFin.val = x.toNat := rfl\n  @[simp] theorem toNat_toBitVec (x : $typeName) : x.toBitVec.toNat = x.toNat := rfl\n  @[simp] theorem toFin_toBitVec (x : $typeName) : x.toBitVec.toFin = x.toFin := rfl\n  @[deprecated toNat_toBitVec (since := \"2025-02-21\")]\n  theorem toNat_toBitVec_eq_toNat (x : $typeName) : x.toBitVec.toNat = x.toNat := rfl\n  @[simp] theorem ofBitVec_toBitVec : \u2200 (a : $typeName), ofBitVec a.toBitVec = a\n    | \u27e8_, _\u27e9 => rfl\n  @[deprecated ofBitVec_toBitVec (since := \"2025-02-21\")]\n  theorem ofBitVec_toBitVec_eq : \u2200 (a : $typeName), ofBitVec a.toBitVec = a :=\n    ofBitVec_toBitVec\n  @[deprecated ofBitVec_toBitVec_eq (since := \"2025-02-12\")]\n  theorem mk_toBitVec_eq : \u2200 (a : $typeName), ofBitVec a.toBitVec = a\n    | \u27e8_, _\u27e9 => rfl\n  theorem toBitVec_eq_of_lt {a : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/UInt/Lemmas.lean",
+    "definition_name": "toFin_val",
+    "has_proof": false
+  }
+}

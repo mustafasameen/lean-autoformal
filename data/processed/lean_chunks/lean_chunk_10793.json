@@ -1,0 +1,9 @@
+{
+  "content": "| .waiting =>\n      return (running, unfinished.push job)\n  let r \u2190 unfinished.foldlM pollJobs (#[], #[])\n  newJobs.foldlM pollJobs r\ndef sleep : MonitorM PUnit := do\n  let now \u2190 IO.monoMsNow\n  let lastUpdate := (\u2190 get).lastUpdate\n  let sleepTime : Nat := (\u2190 read).updateFrequency - (now - lastUpdate)\n  if sleepTime > 0 then\n    IO.sleep sleepTime.toUInt32\n  let now \u2190 IO.monoMsNow\n  modify fun s => {s with lastUpdate := now}\npartial def loop (unfinished : Array OpaqueJob) : MonitorM PUnit := do\n  let (running, unfinished) \u2190 poll unfinished\n  if h : 0 < unfinished.size then\n    renderProgress running unfinished h\n    sleep\n    loop unfinished\ndef main (init : Array OpaqueJob) : MonitorM PUnit := do\n  loop init\n  let resetCtrl \u2190 modifyGet fun s => (s.resetCtrl, {s with resetCtrl := \"\"})\n  unless resetCtrl.isEmpty do\n    print resetCtrl\n    flush\nend Monitor\ndef Workspace.runFetchM\n  (ws : Workspace) (build : FetchM \u03b1) (cfg : BuildConfig := {})\n: IO \u03b1 := do\n  let out \u2190 cfg.out.get",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_name": "Monitor"
+  }
+}

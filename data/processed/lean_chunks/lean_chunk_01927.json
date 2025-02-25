@@ -1,0 +1,9 @@
+{
+  "content": "structure Magma where\n  \u03b1   : Type u\n  mul : \u03b1 \u2192 \u03b1 \u2192 \u03b1\ninstance : CoeSort Magma (Type u) where\n  coe s := s.\u03b1\nabbrev mul {M : Magma}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_name": "Magma"
+  }
+}

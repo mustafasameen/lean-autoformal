@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_imp : ((\u2203 x, p x) \u2192 b) \u2194 \u2200 x, p x \u2192 b := forall_exists_index\ntheorem exists\u2082_imp {P : (x : \u03b1) \u2192 p x \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "exists_imp",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_cell_of_updateAtKey [Ord \u03b1] [TransOrd \u03b1] (l : Impl \u03b1 \u03b2) (hlb : l.Balanced)\n    (hlo : l.Ordered) (k : \u03b1)\n    (f : Cell \u03b1 \u03b2 (compare k) \u2192 Cell \u03b1 \u03b2 (compare k)) : \u2203 (l' : List ((a : \u03b1) \u00d7 \u03b2 a)),\n    l.toListModel.Perm ((l.toListModel.find? (compare k \u00b7.1 == .eq)).toList ++ l') \u2227\n    (l.updateCell k f hlb).impl.toListModel.Perm\n      ((f (List.findCell l.toListModel (compare k))).inner.toList ++ l') \u2227\n    (containsKey k l' = false) := by\n  refine \u27e8l.toListModel.filter (compare k \u00b7.1 == .gt) ++\n    l.toListModel.filter (compare k \u00b7.1 == .lt), ?_, ?_, ?_\u27e9\n  \u00b7 conv => lhs; rw [toListModel_eq_append (compare k) hlo]\n    simpa using List.perm_append_comm_assoc _ _ _\n  \u00b7 conv => lhs; rw [toListModel_updateCell hlb hlo]\n    simpa using List.perm_append_comm_assoc _ _ _\n  \u00b7 rw [containsKey_eq_false_iff_forall_mem_keys, keys_eq_map]\n    simp only [List.map_append, List.mem_append, List.mem_map, List.mem_filter, beq_iff_eq, beq_eq,\n      beq_eq_false_iff_ne, ne_eq]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_name": "exists_cell_of_updateAtKey",
+    "has_proof": true
+  }
+}

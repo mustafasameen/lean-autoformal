@@ -1,0 +1,9 @@
+{
+  "content": "return asyncConst.constInfo\n  else env.findNoAsync n |>.map .ofConstantInfo\ndef findConstVal? (env : Environment) (n : Name) : Option ConstantVal := do\n  if let some c := env.checkedWithoutAsync.constants.find?' n then\n    some c.toConstantVal\n  else if let some asyncConst := env.asyncConsts.find? n then\n    return asyncConst.constInfo.toConstantVal\n  else env.findNoAsync n |>.map (\u00b7.toConstantVal)\ndef find? (env : Environment) (n : Name) : Option ConstantInfo :=\n  if let some c := env.checkedWithoutAsync.constants.find?' n then\n    some c\n  else if let some asyncConst := env.asyncConsts.find? n then\n    return asyncConst.constInfo.toConstantInfo\n  else\n    env.findNoAsync n\ndef dbgFormatCheckedSyncState (env : Environment) : BaseIO String :=\n  return s!\"checked.get.constants.map\u2082: {repr <| env.checked.get.constants.map\u2082.toList.map (\u00b7.1)}\"\n  mainEnv : Environment\n  asyncEnv : Environment\n  private checkedEnvPromise : IO.Promise Kernel.Environment",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

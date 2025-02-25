@@ -1,0 +1,9 @@
+{
+  "content": "def date := date(\"1970-01-20\")\n#guard_msgs in\n#eval date + (12 : Day.Offset)\n#guard_msgs in\n#eval date - (12 : Day.Offset)\ndef datetime := datetime(\"2000-01-20T03:02:01\")\n#guard_msgs in\n#eval datetime + (1 : Hour.Offset)\n#guard_msgs in\n#eval datetime - (1 : Hour.Offset)\n#guard_msgs in\n#eval datetime + (10 : Minute.Offset)\n#guard_msgs in\n#eval datetime - (10 : Minute.Offset)\n#guard_msgs in\n#eval datetime + (60 : Second.Offset)\n#guard_msgs in\n#eval datetime - (60 : Second.Offset)\n#guard_msgs in\n#eval datetime + (1 : Day.Offset)\n#guard_msgs in\n#eval datetime - (1 : Day.Offset)\ndef time := time(\"13:02:01\")\n#guard_msgs in\n#eval time + (1 : Hour.Offset)\n#guard_msgs in\n#eval time - (1 : Hour.Offset)\n#guard_msgs in\n#eval time + (10 : Minute.Offset)\n#guard_msgs in\n#eval time - (10 : Minute.Offset)\n#guard_msgs in\n#eval time + (60 : Second.Offset)\n#guard_msgs in\n#eval time - (60 : Second.Offset)\ndef datetimetz := zoned(\"2000-01-20T06:02:01-03:00\")\n#guard_msgs in\n#eval datetimetz\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeClassOperations.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeClassOperations.lean",
+    "definition_name": "date"
+  }
+}

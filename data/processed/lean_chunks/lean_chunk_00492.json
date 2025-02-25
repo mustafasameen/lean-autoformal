@@ -1,0 +1,10 @@
+{
+  "content": "let config := config.replace \"inundation\" pkgName\n    let pkgDir := treeDir / pkgName\n    IO.FS.createDirAll pkgDir\n    IO.FS.writeFile (pkgDir / \"lakefile.lean\") config\n    depsConfig := depsConfig ++ s!\"require {pkgName} from \\\"{pkgName}\\\"\\n\"\n  IO.FS.writeFile (treeDir / \"lakefile.lean\") depsConfig\n  return 0\nscript mkBuild (args : List String) := do\n  let argc := args.length\n  let some layers := if h : argc > 0 then args[0].toNat? else some 40\n    | return 1\n  let some width  := if h : argc > 1 then args[1].toNat? else some 40\n    | return 1\n  let mkImportsFor (layer : Nat) := Id.run do\n    let mut out := \"\"\n    for idx in [:width] do\n      out := out ++ s!\"import {test}.{num2letters layer}{idx}\\n\"\n    return out\n  let mkImportsAt (layer : Nat) :=\n    if let .succ prev := layer then mkImportsFor prev else \"\"\n  let testDir := (\u2190 getWorkspace).dir / \"test\"\n  try\n    IO.FS.removeDirAll (testDir / test)\n  catch\n    | .noFileOrDirectory .. => pure ()\n    | e => throw e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/inundation/lakefile.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/bench/inundation/lakefile.lean",
+    "definition_name": "test",
+    "imports": "{test}.{num2letters layer}{idx}\\n\""
+  }
+}

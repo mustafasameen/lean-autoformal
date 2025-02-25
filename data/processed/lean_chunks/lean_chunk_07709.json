@@ -1,0 +1,10 @@
+{
+  "content": "theorem mkConstCached_miss_aig (aig : AIG \u03b1) (hcache : aig.cache.get? (.const val) = none) :\n    (aig.mkConstCached val).aig.decls = aig.decls.push (.const val) := by\n  simp only [mkConstCached]\n  split <;> simp_all\ntheorem mkConstCached_decl_eq (aig : AIG \u03b1) (val : Bool) (idx : Nat) {h : idx < aig.decls.size}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CachedLemmas.lean",
+    "definition_name": "mkConstCached_miss_aig",
+    "has_proof": true
+  }
+}

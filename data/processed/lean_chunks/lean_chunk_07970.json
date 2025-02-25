@@ -1,0 +1,10 @@
+{
+  "content": "theorem distinct_toList [EquivBEq \u03b1] [LawfulHashable \u03b1] (h : m.WF) :\n    m.toList.Pairwise (fun a b => (a == b) = false) :=\n  HashMap.Raw.distinct_keys h.1\nsection monadic\nvariable {m : Raw \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/RawLemmas.lean",
+    "definition_name": "distinct_toList",
+    "has_proof": false
+  }
+}

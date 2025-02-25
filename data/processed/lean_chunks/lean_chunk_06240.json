@@ -1,0 +1,9 @@
+{
+  "content": "go <| f'.betaRev revArgs\n        else if let some eNew \u2190 whnfDelayedAssigned? f' e then\n          go eNew\n        else\n          let e := if f == f' then e else e.updateFn f'\n          unless cfg.iota do return e\n          match (\u2190 reduceMatcher? e) with\n          | .reduced eNew => go eNew\n          | .partialApp   => pure e\n          | .stuck _      => pure e\n          | .notMatcher   =>\n            let .const cname lvls := f' | return e\n            let some cinfo := (\u2190 getEnv).find? cname | return e\n            match cinfo with\n            | .recInfo rec    => reduceRec rec lvls e.getAppArgs (fun _ => return e) (fun e => do recordUnfold cinfo.name",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/WHNF.lean",
+    "definition_name": "smartUnfoldingSuffix"
+  }
+}

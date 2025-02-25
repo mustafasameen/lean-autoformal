@@ -1,0 +1,10 @@
+{
+  "content": "theorem contains_eq_contains\u2098 [Ord \u03b1] (k : \u03b1) (l : Impl \u03b1 \u03b2) :\n    l.contains k = l.contains\u2098 k := by\n  simp only [contains\u2098]\n  induction l\n  \u00b7 simp only [contains, applyCell]\n    split <;> split <;> simp_all\n  \u00b7 simp [contains, applyCell]\ntheorem get?_eq_get?\u2098 [Ord \u03b1] [OrientedOrd \u03b1] [LawfulEqOrd \u03b1] (k : \u03b1) (l : Impl \u03b1 \u03b2) :\n    l.get? k = l.get?\u2098 k := by\n  simp only [get?\u2098]\n  induction l\n  \u00b7 simp only [applyCell, get?]\n    split <;> rename_i hcmp\u2081 <;> split <;> rename_i hcmp\u2082 <;> try (simp [hcmp\u2081] at hcmp\u2082; done)\n    all_goals simp_all [Cell.get?, Cell.ofEq]\n  \u00b7 simp [get?, applyCell]\ntheorem balanceL_eq_balance {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_name": "contains_eq_contains\u2098",
+    "has_proof": true
+  }
+}

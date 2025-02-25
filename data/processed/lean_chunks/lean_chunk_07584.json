@@ -1,0 +1,10 @@
+{
+  "content": "theorem projectLeftAssign_property : (projectLeftAssign assign) x = (assign <| .inl x) := by\n  simp [projectLeftAssign]\n@[simp]\ntheorem projectRightAssign_property :\n    (projectRightAssign assign) x hx = (assign <| .inr \u27e8x, hx\u27e9) := by\n  simp [projectRightAssign]\ndef cnfSatAssignment (aig : AIG Nat) (assign1 : Nat \u2192 Bool) : CNFVar aig \u2192 Bool :=\n  mixAssigns assign1 (fun idx => \u27e6aig, \u27e8idx.val, idx.isLt\u27e9, assign1\u27e7)\n@[simp]\ntheorem satAssignment_inl : (cnfSatAssignment aig assign1) (.inl x) = assign1 x := by\n  simp [cnfSatAssignment, mixAssigns]\n@[simp]\ntheorem satAssignment_inr :\n    (cnfSatAssignment aig assign1) (.inr x) = \u27e6aig, \u27e8x.val, x.isLt\u27e9, assign1\u27e7 := by\n  simp [cnfSatAssignment, mixAssigns]\nstructure Cache.Inv (cnf : CNF (CNFVar aig)) (marks : Array Bool) (hmarks : marks.size = aig.decls.size) : Prop where\n  hmark : \u2200 (lhs rhs : Nat) (linv rinv : Bool) (idx : Nat) (hbound : idx < aig.decls.size)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "projectLeftAssign_property",
+    "has_proof": true
+  }
+}

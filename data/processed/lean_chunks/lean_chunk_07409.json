@@ -1,0 +1,10 @@
+{
+  "content": "theorem assignmentsInvariant_insertRupUnits_of_assignmentsInvariant {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddSound.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddSound.lean",
+    "definition_name": "assignmentsInvariant_insertRupUnits_of_assignmentsInvariant",
+    "has_proof": false
+  }
+}

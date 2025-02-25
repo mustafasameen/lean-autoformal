@@ -1,0 +1,9 @@
+{
+  "content": "def bla! := 20\nsyntax \"bar!\" term:max : term\nscoped macro_rules | `(bar! $x) => `($x + 10)\nsection\nlocal macro_rules | `(bar! $x) => `($x + 20)\n#check bar! 10\nend\n#check bar! 10\nnamespace Bar\nscoped macro_rules | `(bar! $x) => `($x + 10)\n#check bar! 10\nend Bar\n#check bar! 10\nopen Bar\n#check bar! 10",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/scopedMacros.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/scopedMacros.lean",
+    "definition_name": "bla"
+  }
+}

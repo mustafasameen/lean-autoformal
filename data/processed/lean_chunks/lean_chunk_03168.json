@@ -1,0 +1,10 @@
+{
+  "content": "theorem and_not_not_of_not_or (h : \u00ac (p \u2228 q)) : \u00ac p \u2227 \u00ac q := not_or.mp h\ntheorem Decidable.or_not_not_of_not_and [Decidable p] [Decidable q]\n    (h : \u00ac (p \u2227 q)) : \u00ac p \u2228 \u00ac q :=\n  Decidable.not_and_iff_or_not.mp h\ntheorem Decidable.and_or_not_and_not_of_iff {p q : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Logic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Logic.lean",
+    "definition_name": "and_not_not_of_not_or",
+    "has_proof": false
+  }
+}

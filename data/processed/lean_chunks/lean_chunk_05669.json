@@ -1,0 +1,10 @@
+{
+  "content": "theorem foldl_add_const (xs : Array \u03b1) (a b : Nat) :\n    xs.foldl (fun x _ => x + a) b = b + a * xs.size := by\n  rcases xs with \u27e8xs\u27e9\n  simp\n@[simp] theorem foldr_add_const (xs : Array \u03b1) (a b : Nat) :\n    xs.foldr (fun _ x => x + a) b = b + a * xs.size := by\n  rcases xs with \u27e8xs\u27e9\n  simp\n@[simp] theorem leftpad_mk (n : Nat) (a : \u03b1) (xs : Array \u03b1) (h : xs.size = m) :\n    (Vector.mk xs h).leftpad n a = Vector.mk (Array.leftpad n a xs) (by simp [h]; omega) := by\n  simp [h]\n@[simp] theorem rightpad_mk (n : Nat) (a : \u03b1) (xs : Array \u03b1) (h : xs.size = m) :\n    (Vector.mk xs h).rightpad n a = Vector.mk (Array.rightpad n a xs) (by simp [h]; omega) := by\n  simp [h]\n@[simp] theorem pop_empty : (#v[] : Vector \u03b1 0).pop = #v[] := rfl\n@[simp] theorem pop_push (xs : Vector \u03b1 n) : (xs.push x).pop = xs := by simp [pop]\n@[simp] theorem getElem_pop {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "foldl_add_const",
+    "has_proof": true
+  }
+}

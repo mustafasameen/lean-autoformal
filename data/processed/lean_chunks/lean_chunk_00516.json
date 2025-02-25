@@ -1,0 +1,10 @@
+{
+  "content": "structure Bar where\n  foobar : Nat\nstructure Foo where\n  x : Bar\nexample (f : Foo) : Nat \u00d7 Nat :=\n  \u27e8f.x.foobar, f.x.f\u27e9\nexample (b : Bar) : Nat \u00d7 Nat :=\n  \u27e8b.foobar, b.f\u27e9\nstructure ContinuousSMul (M X : Type) : Prop where\nstructure ContinuousAdd (X : Type) : Prop where\ntheorem Prod.continuousSMul {M X Y : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/travellingCompletions.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/travellingCompletions.lean",
+    "definition_name": "Bar",
+    "has_proof": false
+  }
+}

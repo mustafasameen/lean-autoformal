@@ -1,0 +1,9 @@
+{
+  "content": "instance instHSMul [SMul \u03b1 \u03b2] : HSMul \u03b1 \u03b2 \u03b2 where\n  hSMul := SMul.smul\nclass Inv (\u03b1 : Type u) where\n  inv : \u03b1 \u2192 \u03b1\npostfix:max \"\u207b\u00b9\" => Inv.inv\nclass Semigroup (G : Type u) extends Mul G where\n  mul_assoc : \u2200 a b c : G, a * b * c = a * (b * c)\nclass AddSemigroup (G : Type u) extends Add G where\n  add_assoc : \u2200 a b c : G, a + b + c = a + (b + c)\nclass CommSemigroup (G : Type u) extends Semigroup G where\n  mul_comm : \u2200 a b : G, a * b = b * a\nclass AddCommSemigroup (G : Type u) extends AddSemigroup G where\n  add_comm : \u2200 a b : G, a + b = b + a\nclass MulOneClass (M : Type u) extends One M, Mul M where\n  one_mul : \u2200 a : M, 1 * a = a\n  mul_one : \u2200 a : M, a * 1 = a\nclass AddZeroClass (M : Type u) extends Zero M, Add M where\n  zero_add : \u2200 a : M, 0 + a = a\n  add_zero : \u2200 a : M, a + 0 = a\ndef npowRec [One M] [Mul M] : Nat \u2192 M \u2192 M\n  | 0, _ => 1\n  | n + 1, a => a * npowRec n a\ndef nsmulRec [Zero M] [Add M] : Nat \u2192 M \u2192 M\n  | 0, _ => 0\n  | n + 1, a => a + nsmulRec n a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "instHSMul"
+  }
+}

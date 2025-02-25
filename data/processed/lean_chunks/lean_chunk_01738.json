@@ -1,0 +1,10 @@
+{
+  "content": "OneHom M N, M \u2192\u2099* N\ninfixr:25 \" \u2192* \" => MonoidHom\nclass MonoidHomClass (F : Type _) (M N : outParam (Type _)) [MulOneClass M] [MulOneClass N] extends MulHomClass F M N, OneHomClass F M N\ninstance (F : Type _) (M N : outParam (Type _)) [MulOneClass M] [MulOneClass N] [MonoidHomClass F M N] : CoeTC F (M \u2192* N) :=\n  \u27e8fun f => {\n   toFun := f,\n   map_one' := map_one f,\n   map_mul' := map_mul f\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1907.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1907.lean",
+    "definition_name": "map_one",
+    "has_proof": false
+  }
+}

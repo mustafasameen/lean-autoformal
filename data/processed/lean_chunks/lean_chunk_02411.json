@@ -1,0 +1,10 @@
+{
+  "content": "open Lean Meta in\ndef checkProofs : MetaM Unit := do\n  let .thmInfo info1 \u2190 getConstInfo `ex1 | throwError \"unexpected\"\n  let .thmInfo info2 \u2190 getConstInfo `ex2 | throwError \"unexpected\"\n  unless info1.value == info2.value do\n    throwError \"unexpected values\"\n#eval checkProofs\nopen Lean Meta in\ndef showThmsOf (simpAttrName : Name) : MetaM Unit := do\n  let some simpExt \u2190 getSimpExtension? simpAttrName\n    | throwError \"`{simpAttrName}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/pkg/user_attr/UserAttr/Tst.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/pkg/user_attr/UserAttr/Tst.lean",
+    "definition_name": "f_eq",
+    "has_proof": true
+  }
+}

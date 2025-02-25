@@ -1,0 +1,9 @@
+{
+  "content": "(filter        : Name \u2192 Option \u03b1)\n    (maxAmount?    : Option Nat := none) : IO $ Array (\u03b1 \u00d7 Location) := do\n  let mut result := #[]\n  for (module, refs) in self.allRefs.toList do\n    let some path \u2190 srcSearchPath.findModuleWithExt \"lean\" module\n      | continue\n    let uri := System.Uri.pathToUri <| \u2190 IO.FS.realPath path\n    for (ident, info) in refs.toList do\n      let (RefIdent.const _ nameString, some \u27e8definitionRange, _\u27e9) := (ident, info.definition?)\n        | continue\n      let some a := filter nameString.toName\n        | continue\n      result := result.push (a, \u27e8uri, definitionRange\u27e9)\n      if let some maxAmount := maxAmount? then\n        if result.size >= maxAmount then\n          return result\n  return result\nend References\nend Lean.Server",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

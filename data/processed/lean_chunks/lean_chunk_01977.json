@@ -1,0 +1,9 @@
+{
+  "content": "instance\n  smul_comp : \u2200 (X Y Z : C) (r : R) (f : X \u27f6 Y) (g : Y \u27f6 Z), (r \u2022 f) \u226b g = r \u2022 f \u226b g\n  comp_smul : \u2200 (X Y Z : C) (f : X \u27f6 Y) (r : R) (g : Y \u27f6 Z), f \u226b (r \u2022 g) = r \u2022 f \u226b g\nattribute [instance] Linear.homModule\nend CategoryTheory\nend Mathlib.CategoryTheory.Linear.Basic\nnamespace CategoryTheory\nvariable {R : Type w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "smul_comp"
+  }
+}

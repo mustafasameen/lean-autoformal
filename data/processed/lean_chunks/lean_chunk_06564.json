@@ -1,0 +1,9 @@
+{
+  "content": "structure RefreshInfo where\n  lastRefreshTimestamp      : Nat\n  successiveRefreshAttempts : Nat\nstructure PartialHandlerInfo where\n  refreshMethod            : String\n  requestsInFlight         : Nat\n  pendingRefreshInfo?      : Option RefreshInfo\n  deriving Inhabited\nopen Widget in\nstructure WorkerContext where\n  chanOut               : Std.Channel JsonRpc.Message\n  maxDocVersionRef      : IO.Ref Int\n  freshRequestIdRef     : IO.Ref Int\n  stickyDiagnosticsRef : IO.Ref (Array InteractiveDiagnostic)\n  partialHandlersRef   : IO.Ref (RBMap String PartialHandlerInfo compare)\n  hLog                 : FS.Stream\n  initParams           : InitializeParams\n  processor            : Parser.InputContext \u2192 BaseIO Lean.Language.Lean.InitialSnapshot\n  clientHasWidgets     : Bool\n  cmdlineOpts          : Options\ndef WorkerContext.modifyGetPartialHandler (ctx : WorkerContext) (method : String)\n    (f : PartialHandlerInfo \u2192 \u03b1 \u00d7 PartialHandlerInfo) : BaseIO \u03b1 :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker.lean",
+    "definition_name": "RefreshInfo"
+  }
+}

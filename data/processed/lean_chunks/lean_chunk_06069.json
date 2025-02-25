@@ -1,0 +1,10 @@
+{
+  "content": "Pairwise (\u00b7 < \u00b7) (range' s n step) :=\n  match s, n, step, pos with\n  | _, 0, _, _ => Pairwise.nil\n  | s, n + 1, step, pos => by\n    simp only [range'_succ, pairwise_cons]\n    constructor\n    \u00b7 intros n m\n      rw [mem_range'] at m\n      omega\n    \u00b7 exact pairwise_lt_range' (s + step) n step pos\ntheorem pairwise_le_range' s n (step := 1) :\n    Pairwise (\u00b7 \u2264 \u00b7) (range' s n step) :=\n  match s, n, step with\n  | _, 0, _ => Pairwise.nil\n  | s, n + 1, step => by\n    simp only [range'_succ, pairwise_cons]\n    constructor\n    \u00b7 intros n m\n      rw [mem_range'] at m\n      omega\n    \u00b7 exact pairwise_le_range' (s + step) n step\ntheorem nodup_range' (s n : Nat) (step := 1) (h : 0 < step := by simp) : Nodup (range' s n step) :=\n  (pairwise_lt_range' s n step h).imp Nat.ne_of_lt\ntheorem map_sub_range' (a s n : Nat) (h : a \u2264 s) :\n    map (\u00b7 - a) (range' s n step) = range' (s - a) n step := by\n  conv => lhs; rw [\u2190 Nat.add_sub_cancel' h]\n  rw [\u2190 map_add_range', map_map, (?_ : _\u2218_ = _), map_id]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "mem_range",
+    "has_proof": true
+  }
+}

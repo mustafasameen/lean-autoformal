@@ -1,0 +1,9 @@
+{
+  "content": "structure Data where\n  index?   : Option Nat := none\n  lowlink? : Option Nat := none\n  onStack  : Bool       := false\nstructure State (\u03b1 : Type) where\n  stack     : List \u03b1 := []\n  nextIndex : Nat := 0\n  data      : Array Data := #[]\n  sccs      : List (List \u03b1) := []\ninductive Format where\n  | nil                 : Format\n  | line                : Format\n  | text                : String \u2192 Format\n  | nest (indent : Int) : Format \u2192 Format\n  | append              : Format \u2192 Format \u2192 Format\n  | group               : Format \u2192 Format\nclass MonadControl (m : Type u \u2192 Type v) (n : Type u \u2192 Type w) where\n  stM          : Type u \u2192 Type u\n  liftWith {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct2.lean",
+    "definition_name": "Data"
+  }
+}

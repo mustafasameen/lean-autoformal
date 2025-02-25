@@ -1,0 +1,10 @@
+{
+  "content": "theorem subNat_addNat (i : Fin n) (m : Nat) (h : m \u2264 addNat i m := le_coe_addNat m i) :\n    subNat m (addNat i m) h = i := Fin.ext <| Nat.add_sub_cancel i m\n@[simp] theorem natAdd_subNat_cast {i : Fin (n + m)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "subNat_addNat",
+    "has_proof": false
+  }
+}

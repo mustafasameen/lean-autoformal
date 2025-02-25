@@ -1,0 +1,9 @@
+{
+  "content": "class ToModule (\u03b1 : Type u) where\n  toModule : \u03b1 \u2192 Module\ninstance : ToModule Module := \u27e8id\u27e9\nprivate builtin_initialize builtinModulesRef : IO.Ref (RBMap UInt64 (Name \u00d7 Module) compare) \u2190\n  IO.mkRef \u2205\ndef addBuiltinModule (id : Name) (m : Module) : IO Unit :=\n  builtinModulesRef.modify (\u00b7.insert m.javascriptHash (id, m))\nprivate abbrev ModuleRegistry := SimplePersistentEnvExtension\n  (UInt64 \u00d7 Name \u00d7 Expr)\n  (RBMap UInt64 (Name \u00d7 Expr) compare)\nbuiltin_initialize moduleRegistry : ModuleRegistry \u2190\n  registerSimplePersistentEnvExtension {\n    addImportedFn := fun xss => xss.foldl (Array.foldl (fun s n => s.insert n.1 n.2)) \u2205\n    addEntryFn    := fun s n => s.insert n.1 n.2\n    toArrayFn     := fun es => es.toArray\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/UserWidget.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/UserWidget.lean",
+    "definition_name": "ToModule"
+  }
+}

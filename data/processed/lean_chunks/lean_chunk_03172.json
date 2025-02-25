@@ -1,0 +1,10 @@
+{
+  "content": "theorem smul_cons {i : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/IntList.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/IntList.lean",
+    "definition_name": "smul_cons",
+    "has_proof": false
+  }
+}

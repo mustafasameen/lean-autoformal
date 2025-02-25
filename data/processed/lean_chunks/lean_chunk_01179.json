@@ -1,0 +1,9 @@
+{
+  "content": "min_flush_size : Isize\n    split_size : Isize\n  structure betree.NodeIdCounter where\n    next_node_id : Isize\n  structure betree.BeTree where\n    params : betree.Params\n    node_id_cnt : betree.NodeIdCounter\n    root : betree.Node\n  def betree_utils.load_internal_node\n  :\n  Isize \u2192 State \u2192 Result (State \u00d7 (betree.List (Isize \u00d7 betree.Message))) :=\n  fun _ _ => .fail .panic\n  def betree_utils.store_internal_node\n    :\n    Isize \u2192 betree.List (Isize \u00d7 betree.Message) \u2192 State \u2192 Result (State\n      \u00d7 Unit) :=\n    fun _ _ _ => .fail .panic\n  def betree_utils.load_leaf_node\n    : Isize \u2192 State \u2192 Result (State \u00d7 (betree.List (Isize \u00d7 Isize))) :=\n    fun _ _ => .fail .panic\n  def betree_utils.store_leaf_node\n    : Isize \u2192 betree.List (Isize \u00d7 Isize) \u2192 State \u2192 Result (State \u00d7 Unit) :=\n    fun _ _ _ => .fail .panic\n  def betree.load_internal_node\n    (id : Isize) (st : State) :\n    Result (State \u00d7 (betree.List (Isize \u00d7 betree.Message)))\n    :=\n    betree_utils.load_internal_node id st",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partial_fixpoint_aeneas2.lean",
+    "definition_name": "betree"
+  }
+}

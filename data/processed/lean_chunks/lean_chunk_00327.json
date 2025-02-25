@@ -1,0 +1,9 @@
+{
+  "content": "structure Ctx where\n  s : String\ndef f (s : String) : ReaderT Ctx Id Unit :=\n  withReader (fun ctx => { ctx with s := s }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/unusedWarningAtStructUpdate.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/unusedWarningAtStructUpdate.lean",
+    "definition_name": "Ctx"
+  }
+}

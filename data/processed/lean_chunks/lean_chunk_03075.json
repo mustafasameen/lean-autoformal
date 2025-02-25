@@ -1,0 +1,9 @@
+{
+  "content": "def mkPatternWithRef (p : Expr) (stx : Syntax) : Expr :=\n  if patternWithRef? p |>.isSome then\n    p\n  else\n    mkMData (KVMap.empty.insert patternRefAnnotationKey (DataValue.ofSyntax stx)) p\ndef mkLHSGoalRaw (e : Expr) : Expr :=\n  mkAnnotation `_lhsGoal e\ndef mkFreshFVarId [Monad m] [MonadNameGenerator m] : m FVarId :=\n  return { name := (\u2190 mkFreshId) }\ndef mkFreshMVarId [Monad m] [MonadNameGenerator m] : m MVarId :=\n  return { name := (\u2190 mkFreshId) }\ndef mkFreshLMVarId [Monad m] [MonadNameGenerator m] : m LMVarId :=\n  return { name := (\u2190 mkFreshId) }\ndef mkOr (p q : Expr) : Expr := mkApp2 (mkConst ``Or) p q\ndef mkAndN : List Expr \u2192 Expr\n  | [] => mkConst ``True\n  | [p] => p\n  | p :: ps => mkAnd p (mkAndN ps)\ndef mkIff (p q : Expr) : Expr := mkApp2 (mkConst ``Iff) p q\ndef mkNatSucc (a : Expr) : Expr :=\n  mkApp (mkConst ``Nat.succ) a\ndef mkNatSub (a b : Expr) : Expr :=\n  mkApp2 natSubFn a b\ndef mkNatLE (a b : Expr) : Expr :=\n  mkApp2 natLEPred a b\nprivate def natEqPred : Expr :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

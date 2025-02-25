@@ -1,0 +1,9 @@
+{
+  "content": "structure ThreadWithCollideMaps extends ThreadWithMaps where\nprivate partial def collideThreads (thread : ThreadWithCollideMaps) (add : Thread) :\n    ThreadWithCollideMaps :=\n  StateT.run collideSamples thread |>.2\nwhere\n  collideSamples : StateM ThreadWithCollideMaps Unit := do\n    for oldSampleIdx in [0:add.samples.length] do\n      let oldStackIdx := add.samples.stack[oldSampleIdx]!\n      let stackIdx \u2190 collideStacks oldStackIdx\n      modify fun thread =>\n        if let some idx := thread.sampleMap[stackIdx]? then\n          let \u27e8\u27e8\u27e8t1, t2, t3, samples, t5, t6, t7, t8, t9, t10\u27e9, o2, o3, o4, o5\u27e9, o6\u27e9 := thread\n          let \u27e8s1, s2, weight, s3, s4, s5\u27e9 := samples\n          let weight := weight.set! idx <| weight[idx]! + add.samples.weight[oldSampleIdx]!\n          let samples := \u27e8s1, s2, weight, s3, s4, s5\u27e9\n          \u27e8\u27e8\u27e8t1, t2, t3, samples, t5, t6, t7, t8, t9, t10\u27e9, o2, o3, o4, o5\u27e9, o6\u27e9\n        else",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Profiler.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Profiler.lean",
+    "definition_name": "ThreadWithCollideMaps"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure PatternElabException where\n  ex          : Exception\npatternIdx  : Nat\npathToIndex : List Nat\nprivate partial def findDiscrRefinementPath (pattern : Expr) (expected : Expr) : OptionT MetaM (List Nat) := do\n  goType (\u2190 instantiateMVars (\u2190 inferType pattern)) expected\nwhere\n  checkCompatibleApps (t d : Expr) : OptionT MetaM Unit := do\n    guard d.isApp\n    guard <| t.getAppNumArgs == d.getAppNumArgs\n    let tFn := t.getAppFn\n    let dFn := d.getAppFn\n    guard <| tFn.isConst && dFn.isConst\n    guard (\u2190 isDefEq tFn dFn)\n  goType (t d : Expr) : OptionT MetaM (List Nat) := do\n    let t \u2190 whnf t\n    let d \u2190 whnf d\n    checkCompatibleApps t d\n    matchConstInduct t.getAppFn (fun _ => failure) fun info _ => do\n      let tArgs := t.getAppArgs\n      let dArgs := d.getAppArgs\n      for i in [:info.numParams] do\n        let tArg := tArgs[i]!\n        let dArg := dArgs[i]!\n        unless (\u2190 isDefEq tArg dArg) do\n          return i :: (\u2190 goType tArg dArg)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Match.lean",
+    "definition_name": "PatternElabException"
+  }
+}

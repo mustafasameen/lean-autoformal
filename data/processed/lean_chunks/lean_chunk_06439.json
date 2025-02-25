@@ -1,0 +1,9 @@
+{
+  "content": "concatWith ite doElems\n  partial def doUnlessToCode (doUnless : Syntax) (doElems : List Syntax) : M CodeBlock := withRef doUnless do\n    let cond  := doUnless[1]\n    let doSeq := doUnless[3]\n    let body \u2190 doSeqToCode (getDoSeqElems doSeq)\n    let unlessCode \u2190 liftMacroM <| mkUnless cond body\n    concatWith unlessCode doElems\n  partial def doForToCode (doFor : Syntax) (doElems : List Syntax) : M CodeBlock := do\n    let doForDecls := doFor[1].getSepArgs\n    if h : doForDecls.size > 1 then\n      let doForDecl := doForDecls[1]!\n      unless doForDecl[0].isNone do\n        throwErrorAt doForDecl[0] \"the proof annotation here has not been implemented yet\"\n      let y  := doForDecl[1]\n      let ys := doForDecl[3]\n      let doForDecls := doForDecls.eraseIdx 1\n      let body := doFor[3]\n      withFreshMacroScope do\n        let toStreamApp \u2190 withRef ys `(@toStream _ _ _ $ys)\n        let auxDo \u2190\n          `(do let mut s := $toStreamApp:term\n               for $doForDecls:doForDecl,* do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Catch"
+  }
+}

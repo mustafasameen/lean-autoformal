@@ -1,0 +1,10 @@
+{
+  "content": "theorem app_SubTermOf {t\u2081: Term L n (l+1)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1182.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1182.lean",
+    "definition_name": "app_SubTermOf",
+    "has_proof": false
+  }
+}

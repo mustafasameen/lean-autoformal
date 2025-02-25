@@ -1,0 +1,10 @@
+{
+  "content": "default := USize.ofNatLT 0 USize.size_pos\nabbrev Nat.isValidChar (n : Nat) : Prop :=\n  Or (LT.lt n 0xd800) (And (LT.lt 0xdfff n) (LT.lt n 0x110000))\nabbrev UInt32.isValidChar (n : UInt32) : Prop :=\n  n.toNat.isValidChar\nstructure Char where\n  valid : val.isValidChar\nprivate theorem isValidChar_UInt32 {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Nat",
+    "has_proof": false
+  }
+}

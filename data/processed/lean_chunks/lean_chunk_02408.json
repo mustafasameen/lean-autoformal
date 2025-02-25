@@ -1,0 +1,9 @@
+{
+  "content": "class Simple (\u03b1 : Type u) where\n  val : \u03b1\nopen Lean\nopen Lean.Elab\nopen Lean.Elab.Command\ndef mkSimpleHandler (declNames : Array Name) : CommandElabM Bool := do\n  dbg_trace \">> mkSimpleHandler {declNames}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/pkg/deriving/UserDeriving/Simple.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/pkg/deriving/UserDeriving/Simple.lean",
+    "definition_name": "Simple"
+  }
+}

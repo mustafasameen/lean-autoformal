@@ -1,0 +1,9 @@
+{
+  "content": "if env.constants.map\u2082.contains declName then\n    return env.header.mainModule\n  let modIdx \u2190 env.getModuleIdxFor? declName\n  env.allImportedModuleNames[modIdx]?\ndef identOf (ci : ContextInfo) (i : Info) : Option (RefIdent \u00d7 Bool) := do\n  match i with\n  | Info.ofTermInfo ti => match ti.expr with\n    | Expr.const n .. =>\n      some (RefIdent.const (\u2190 getModuleContainingDecl? ci.env n).toString n.toString, ti.isBinder)\n    | Expr.fvar id =>\n      some (RefIdent.fvar ci.env.header.mainModule.toString id.name.toString, ti.isBinder)\n    | _ => none\n  | Info.ofFieldInfo fi =>\n    some (RefIdent.const (\u2190 getModuleContainingDecl? ci.env fi.projName).toString fi.projName.toString, false)\n  | Info.ofOptionInfo oi =>\n    some (RefIdent.const (\u2190 getModuleContainingDecl? ci.env oi.declName).toString oi.declName.toString, false)\n  | _ => none\npartial def combineIdents (trees : Array InfoTree) (refs : Array Reference) : Array Reference := Id.run do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Vect (\u03b1 : Type u) (\u03b2 : Type v) : Nat \u2192 Nat \u2192 Type max u v where\n  | nil   : Vect \u03b1 \u03b2 0 0\n  | lst   : List (Array (Vect \u03b1 \u03b2 0 0)) \u2192 Vect \u03b1 \u03b2 0 0\n  | cons1 : {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/deriving.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/deriving.lean",
+    "definition_name": "Vect"
+  }
+}

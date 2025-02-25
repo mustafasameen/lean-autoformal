@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_eq (l : BitVec w) (i : Nat) :\n    l[i]? = if h : i < w then some l[i] else none := by\n  split <;> simp_all\n@[simp] theorem some_getElem_eq_getElem? (l : BitVec w) (i : Nat) (h : i < w) :\n    (some l[i] = l[i]?) \u2194 True := by\n  simp [h]\n@[simp] theorem getElem?_eq_some_getElem (l : BitVec w) (i : Nat) (h : i < w) :\n    (l[i]? = some l[i]) \u2194 True := by\n  simp [h]\ntheorem getElem_eq_iff {l : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

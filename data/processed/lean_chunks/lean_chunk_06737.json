@@ -1,0 +1,9 @@
+{
+  "content": "let indices := args.extract (args.size - val.numIndices) args.size\nlet IA := mkAppN f (args.extract 0 val.numParams)\n      let IAType \u2190 inferType IA\n      forallTelescopeReducing IAType fun newIndices _ => do\n      let newType := mkAppN IA newIndices\n      let varName \u2190 if let some varName := varName? then pure varName else mkFreshUserName `x\n      withLocalDeclD varName newType fun h' =>\n      withNewEqs indices newIndices fun newEqs newRefls => do\n      let (newEqType, newRefl) \u2190 mkEqAndProof e h'\n      let newRefls := newRefls.push newRefl\n      withLocalDeclD `h newEqType fun newEq => do\n      let newEqs := newEqs.push newEq\n      mvarId.assign (mkAppN (mkApp (mkAppN newMVar indices) e) newRefls)\n      let (indicesFVarIds, newMVarId) \u2190 newMVar.mvarId!.introNP newIndices.size\n      let (fvarId, newMVarId) \u2190 newMVarId.intro1P\n      return {\n        mvarId         := newMVarId,\n        indicesFVarIds := indicesFVarIds,\n        fvarId         := fvarId,",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Cases.lean",
+    "definition_name": "GeneralizeIndicesSubgoal"
+  }
+}

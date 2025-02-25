@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex3 (x y z : Nat) : f2 x y z = D.mk \u27e8x, y\u27e9 z :=\n  rfl\n#check { x := 0, y := 1, z := 2 : D }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/toFieldNameIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/toFieldNameIssue.lean",
+    "definition_name": "ex3",
+    "has_proof": false
+  }
+}

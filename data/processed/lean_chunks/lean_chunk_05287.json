@@ -1,0 +1,10 @@
+{
+  "content": "theorem drop_drop (i : Nat) : \u2200 (j) (l : List \u03b1), drop i (drop j l) = drop (j + i) l\n  | j, [] => by simp\n  | 0, l => by simp\n  | j + 1, a :: l =>\n    calc\n      drop i (drop (j + 1) (a :: l)) = drop i (drop j l) := rfl\n      _ = drop (j + i) l := drop_drop i j l\n      _ = drop ((j + 1) + i) (a :: l) := by rw [Nat.add_right_comm]; rfl\ntheorem drop_add_one_eq_tail_drop (l : List \u03b1) : l.drop (i + 1) = (l.drop i).tail := by\n  rw [\u2190 drop_drop, drop_one]\ntheorem take_drop : \u2200 (i j : Nat) (l : List \u03b1), take i (drop j l) = drop j (take (j + i) l)\n  | _, 0, _ => by simp\n  | _, _, [] => by simp\n  | _, _+1, _ :: _ => by simpa [Nat.succ_add, take_succ_cons, drop_succ_cons] using take_drop ..\n@[simp]\ntheorem tail_drop (l : List \u03b1) (i : Nat) : (l.drop i).tail = l.drop (i + 1) := by\n  induction l generalizing i with\n  | nil => simp\n  | cons hd tl hl =>\n    cases i\n    \u00b7 simp\n    \u00b7 simp [hl]\n@[simp]\ntheorem drop_tail (l : List \u03b1) (i : Nat) : l.tail.drop i = l.drop (i + 1) := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/TakeDrop.lean",
+    "definition_name": "drop_drop",
+    "has_proof": true
+  }
+}

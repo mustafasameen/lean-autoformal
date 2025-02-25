@@ -1,0 +1,10 @@
+{
+  "content": "let mut messages := messages\nlet mut stx := Syntax.missing\n  repeat\n    if inputCtx.input.atEnd pos then\n      stx := mkEOI pos\n      break\n    let pos' := pos\n    let p := andthenFn whitespace topLevelCommandParserFn\n    let s := p.run inputCtx pmctx (getTokenTable pmctx.env) { cache := initCacheForInput inputCtx.input, pos }\n    for (rpos, rstk, recovered) in s.recoveredErrors do\n      messages := messages.add <| mkErrorMessage inputCtx rpos rstk recovered\n    pos := s.pos\n    if recovering && !s.stxStack.isEmpty && s.stxStack.back.isAntiquot then\n      continue\n    match s.errorMsg with\n    | none =>\n      stx := s.stxStack.back\n      recovering := false\n      break\n    | some errorMsg =>\n      if pos == pos' then\n        pos := consumeInput inputCtx pmctx pos\n      let ignore := s.stxStack.isEmpty || s.stxStack.back.getPos?.isNone\n      unless recovering && ignore do\n        messages := messages.add <| mkErrorMessage inputCtx s.pos s.stxStack errorMsg\n      recovering := true",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_name": "header",
+    "imports": "|| s.isOfKind ``Command.eoi"
+  }
+}

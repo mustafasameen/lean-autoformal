@@ -1,0 +1,9 @@
+{
+  "content": "(same as\n(same as\nSee `lake help <command>` for more information on a specific command.\"\ndef newInitHelp :=\ns!\"If you are using Lake through Elan (which is standard), you can create a\npackage with a specific Lean version via the `+` option.\nThe initial configuration and starter files are based on the template:\n  std                   library and executable",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "usage"
+  }
+}

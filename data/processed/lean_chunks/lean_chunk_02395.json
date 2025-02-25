@@ -1,0 +1,9 @@
+{
+  "content": "class C (\u03b1 : Type) [Inhabited \u03b1] where\n  f (x : \u03b1 := default) : \u03b1\n#guard_msgs in #check fun (inst : C Nat) => @inst.f\n#guard_msgs in #check fun (inst : C Nat) => { inst with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5406.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5406.lean",
+    "definition_name": "C"
+  }
+}

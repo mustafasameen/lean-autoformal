@@ -1,0 +1,10 @@
+{
+  "content": "theorem emod_two_eq (x : Int) : x % 2 = 0 \u2228 x % 2 = 1 := by\n  have h\u2081 : 0 \u2264 x % 2 := Int.emod_nonneg x (by decide)\n  have h\u2082 : x % 2 < 2 := Int.emod_lt_of_pos x (by decide)\n  match x % 2, h\u2081, h\u2082 with\n  | 0, _, _ => simp\n  | 1, _, _ => simp\ntheorem add_emod_eq_add_emod_left {m n k : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "emod_two_eq",
+    "has_proof": true
+  }
+}

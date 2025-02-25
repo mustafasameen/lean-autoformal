@@ -1,0 +1,9 @@
+{
+  "content": "structure not defined in current module\"\n  modifyEnv fun env => structureExt.addEntry env { info with parentInfo }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_name": "not"
+  }
+}

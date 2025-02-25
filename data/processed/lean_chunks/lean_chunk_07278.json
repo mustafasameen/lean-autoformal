@@ -1,0 +1,10 @@
+{
+  "content": "theorem OrientedCmp.not_lt_of_isLE [OrientedCmp cmp] {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Classes/Ord.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Classes/Ord.lean",
+    "definition_name": "OrientedCmp",
+    "has_proof": false
+  }
+}

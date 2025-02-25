@@ -1,0 +1,9 @@
+{
+  "content": "let (terminal?, additionalAssignment) \u2190 parsePartialAssignment\n    let acc := acc ++ additionalAssignment\n    if terminal? then\n      return acc\n    else\n      go acc\n@[inline]\ndef parseHeader : Parser Unit := do\n  skipString \"s SATISFIABLE\"\n  skipNewline\ndef parse : Parser (Array (Bool \u00d7 Nat)) := do\n  parseHeader\n  parseLines\nend ModelParser\nopen Lean (CoreM)\ninductive TimedOut (\u03b1 : Type u) where\n  | success (x : \u03b1)\n  | timeout\npartial def runInterruptible (timeout : Nat) (args : IO.Process.SpawnArgs) :\n    CoreM (TimedOut IO.Process.Output) := do\n  let child \u2190 IO.Process.spawn { args with stdout := .piped, stderr := .piped, stdin := .null }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/External.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/External.lean",
+    "definition_name": "SolverResult"
+  }
+}

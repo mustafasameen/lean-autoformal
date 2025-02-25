@@ -1,0 +1,10 @@
+{
+  "content": "theorem monotone_const (c : \u03b2) : monotone (fun (_ : \u03b1) => c) :=\n  fun _ _ _ => PartialOrder.rel_refl\ntheorem monotone_id : monotone (fun (x : \u03b1) => x) :=\n  fun _ _ hxy => hxy\ntheorem monotone_compose\n    {\u03b3 : Sort w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "monotone_const",
+    "has_proof": false
+  }
+}

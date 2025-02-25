@@ -1,0 +1,9 @@
+{
+  "content": "structure HH (A B : Nat) where\n  toFun : Nat\n  prop : True\nset_option pp.explicit true\n#guard_msgs in\nexample {S T : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4339.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4339.lean",
+    "definition_name": "HH"
+  }
+}

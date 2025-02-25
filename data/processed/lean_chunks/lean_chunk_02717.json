@@ -1,0 +1,9 @@
+{
+  "content": "inductive True : Prop where\n  | intro : True\ninductive False : Prop\ninductive Empty : Type\nset_option bootstrap.inductiveCheckResultingUniverse false in\ninductive PEmpty : Sort u where\ndef Not (a : Prop) : Prop := a \u2192 False\n@[macro_inline] def False.elim {C : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "True"
+  }
+}

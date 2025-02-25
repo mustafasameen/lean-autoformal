@@ -1,0 +1,9 @@
+{
+  "content": "structure Vec2 where\n  (x y : Float)\ninstance : Add Vec2 :=\n  \u27e8\u03bb \u27e8x\u2081,x\u2082\u27e9 \u27e8y\u2081, y\u2082\u27e9 => \u27e8x\u2081+y\u2081, x\u2082+y\u2082\u27e9\u27e9\ninstance : HMul Float Vec2 Vec2 :=\n  \u27e8\u03bb s \u27e8x\u2081,x\u2082\u27e9 => \u27e8s*x\u2081, s*x\u2082\u27e9\u27e9\ndef NFloatArray (n : Nat) := {a : FloatArray // a.size = n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lcnfInferProjTypeIssue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lcnfInferProjTypeIssue.lean",
+    "definition_name": "Vec2"
+  }
+}

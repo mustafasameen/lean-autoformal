@@ -1,0 +1,9 @@
+{
+  "content": "withLCtx r.lctx r.localInsts do\n    mkForallFVars r.params r.type\ndef withExplicitToImplicit (xs : Array Expr) (k : TermElabM \u03b1) : TermElabM \u03b1 := do\n  let mut toImplicit := #[]\n  for x in xs do\n    if (\u2190 getFVarLocalDecl x).binderInfo.isExplicit then\n      toImplicit := toImplicit.push (x.fvarId!, BinderInfo.implicit)\n  withNewBinderInfos toImplicit k\nprivate def checkParamsAndResultType (type firstType : Expr) (numParams : Nat) : TermElabM Unit := do\n  try\n    forallTelescopeCompatible type firstType numParams fun _ type firstType =>\n    forallTelescopeReducing type fun _ type =>\n    forallTelescopeReducing firstType fun _ firstType => do\n      let type \u2190 whnfD type\n      match type with\n      | .sort .. =>\n        unless (\u2190 isDefEq firstType type) do\n          throwError \"resulting universe mismatch, given{indentExpr type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MutualInductive.lean",
+    "definition_name": "declaration"
+  }
+}

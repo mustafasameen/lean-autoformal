@@ -1,0 +1,9 @@
+{
+  "content": "def f := Id.run do\n  let \u27e8n\u27e9 \u2190 pure otherInhabited\n  return default + n\nexample : f = 42 := rfl\nopen Lean\ndef g : Syntax :=\n  let rec stx : Syntax := Unhygienic.run `(f 0 1)\n  let stx := stx\n  match stx with\n| `(f $_args*) => \u2039Syntax\u203a\n  | _ => default\nexample : g = g.stx := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1692.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1692.lean",
+    "definition_name": "f"
+  }
+}

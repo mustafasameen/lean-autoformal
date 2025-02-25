@@ -1,0 +1,9 @@
+{
+  "content": "_root_.BaseIO.asTask (prio := .dedicated) act\ndef mapTaskCheap (f : \u03b1 \u2192 BaseIO \u03b2) (t : ServerTask \u03b1) : BaseIO (ServerTask \u03b2) :=\n  BaseIO.mapTask f t.task (sync := true)\ndef mapTaskCostly (f : \u03b1 \u2192 BaseIO \u03b2) (t : ServerTask \u03b1) : BaseIO (ServerTask \u03b2) :=\n  BaseIO.mapTask f t.task (prio := .dedicated)\ndef bindTaskCheap (t : ServerTask \u03b1) (f : \u03b1 \u2192 BaseIO (ServerTask \u03b2)) : BaseIO (ServerTask \u03b2) :=\n  BaseIO.bindTask t.task (ServerTask.task <$> f \u00b7) (sync := true)\ndef bindTaskCostly (t : ServerTask \u03b1) (f : \u03b1 \u2192 BaseIO (ServerTask \u03b2)) : BaseIO (ServerTask \u03b2) :=\n  BaseIO.bindTask t.task (ServerTask.task <$> f \u00b7) (prio := .dedicated)\nend BaseIO\nnamespace EIO\ndef asTask (act : EIO \u03b5 \u03b1) : BaseIO (ServerTask (Except \u03b5 \u03b1)) :=\n  _root_.EIO.asTask (prio := .dedicated) act\ndef mapTaskCheap (f : \u03b1 \u2192 EIO \u03b5 \u03b2) (t : ServerTask \u03b1) : BaseIO (ServerTask (Except \u03b5 \u03b2)) :=\n  EIO.mapTask f t.task (sync := true)\ndef mapTaskCostly (f : \u03b1 \u2192 EIO \u03b5 \u03b2) (t : ServerTask \u03b1) : BaseIO (ServerTask (Except \u03b5 \u03b2)) :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/ServerTask.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/ServerTask.lean",
+    "definition_name": "ServerTask"
+  }
+}

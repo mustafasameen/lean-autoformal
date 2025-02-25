@@ -1,0 +1,10 @@
+{
+  "content": "theorem pi_lift_\u03c0_apply {C : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2283.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2283.lean",
+    "definition_name": "pi_lift_\u03c0_apply",
+    "has_proof": false
+  }
+}

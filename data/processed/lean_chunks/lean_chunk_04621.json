@@ -1,0 +1,10 @@
+{
+  "content": "def cdiv (a b : Int) : Int :=\n  -((-a)/b)\ndef cmod (a b : Int) : Int :=\n  -((-a)%b)\ntheorem cdiv_add_cmod (a b : Int) : b*(cdiv a b) + cmod a b = a := by\n  unfold cdiv cmod\n  have := Int.ediv_add_emod (-a) b\n  have := congrArg (Neg.neg) this\n  simp at this\n  conv => rhs; rw[\u2190 this]\n  rw [Int.neg_add, \u2190Int.neg_mul, Int.neg_mul_comm]\ntheorem cmod_gt_of_pos (a : Int) {b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

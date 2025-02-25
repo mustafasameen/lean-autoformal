@@ -1,0 +1,9 @@
+{
+  "content": "inductive Balanced : Impl \u03b1 \u03b2 \u2192 Prop where\n  | inner {sz k v l r}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balanced.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balanced.lean",
+    "definition_name": "Balanced"
+  }
+}

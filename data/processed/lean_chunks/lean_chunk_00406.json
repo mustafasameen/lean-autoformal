@@ -1,0 +1,9 @@
+{
+  "content": "def\n    simp only [q_sub1_eq, q_sub2_eq] at q_def\n    have \u27e8p_sub1_bound, \u27e8p_sub1_nt, p_sub1_pos\u27e9, p_def\u27e9 := p_def\n    have \u27e8q_sub1_bound, \u27e8q_sub1_nt, q_sub1_pos\u27e9, q_def\u27e9 := q_def\n    have ind1 := ind (Fin.mk p_sub1 (Nat.lt_trans p_sub1_bound i.isLt))\n                      p_sub1_bound\n                      (Fin.mk q_sub1 (Nat.lt_trans q_sub1_bound j.isLt))\n    rw [proof_get_to_getD (p i) p, proof_get_to_getD q_j q] at ind1\n    simp [ProofRecord.record_result] at ind1\n    split at p_def <",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_name": "simp"
+  }
+}

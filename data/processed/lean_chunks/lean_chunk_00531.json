@@ -1,0 +1,9 @@
+{
+  "content": "structure Bar where\nstructure Foo where\n  foo\u2081 : Nat\n  foo\u2082 : Nat\n  bar  : Bar\ndef mkFoo\u2081 : Foo := {\n  foo\u2081 := 1\n  foo\u2082 := 2\n  bar := \u27e8\u27e9\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/goTo.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/goTo.lean",
+    "definition_name": "Bar"
+  }
+}

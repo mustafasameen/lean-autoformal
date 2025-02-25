@@ -1,0 +1,10 @@
+{
+  "content": "inductive Ordering where\n  | lt | eq | gt\nderiving Inhabited, DecidableEq\nnamespace Ordering\n@[macro_inline] def \u00abthen\u00bb (a b : Ordering) : Ordering :=\n  match a with\n  | .eq => b\n  | a => a\ndef isEq : Ordering \u2192 Bool\n  | eq => true\n  | _ => false\ndef isNe : Ordering \u2192 Bool\n  | eq => false\n  | _ => true\ndef isLE : Ordering \u2192 Bool\n  | gt => false\n  | _ => true\ndef isLT : Ordering \u2192 Bool\n  | lt => true\n  | _ => false\ndef isGT : Ordering \u2192 Bool\n  | gt => true\n  | _ => false\ndef isGE : Ordering \u2192 Bool\n  | lt => false\n  | _ => true\nsection Lemmas\n@[simp]\ntheorem isLT_lt : lt.isLT := rfl\n@[simp]\ntheorem isLE_lt : lt.isLE := rfl\n@[simp]\ntheorem isEq_lt : lt.isEq = false := rfl\n@[simp]\ntheorem isNe_lt : lt.isNe = true := rfl\n@[simp]\ntheorem isGE_lt : lt.isGE = false := rfl\n@[simp]\ntheorem isGT_lt : lt.isGT = false := rfl\n@[simp]\ntheorem isLT_eq : eq.isLT = false := rfl\n@[simp]\ntheorem isLE_eq : eq.isLE := rfl\n@[simp]\ntheorem isEq_eq : eq.isEq := rfl\n@[simp]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_name": "Ordering",
+    "has_proof": false
+  }
+}

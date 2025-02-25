@@ -1,0 +1,9 @@
+{
+  "content": "def as := [-1, 2, 0, -3, 4]\n#guard as.map (fun a => ite (GE.ge a 0) [a] []) == [[], [2], [0], [], [4]]\n#guard as.map (fun a => ite (a \u2265 0) [a] []) = [[], [2], [0], [], [4]]\nexample : True :=\n  have : (0 == (1 : Nat)) = false := rfl\n  \u27e8\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/postponeBinRelIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/postponeBinRelIssue.lean",
+    "definition_name": "as"
+  }
+}

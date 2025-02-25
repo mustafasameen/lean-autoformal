@@ -1,0 +1,10 @@
+{
+  "content": "(xs.set! i x).toArray = xs.toArray.set! i x := rfl\n@[simp] theorem toArray_setIfInBounds (xs : Vector \u03b1 n) (i x) :\n    (xs.setIfInBounds i x).toArray = xs.toArray.setIfInBounds i x := rfl\n@[simp] theorem toArray_singleton (x : \u03b1) : (Vector.singleton x).toArray = #[x] := rfl\n@[simp] theorem toArray_swap (xs : Vector \u03b1 n) (i j) (hi hj) : (xs.swap i j).toArray =\n    xs.toArray.swap i j (by simp [hi, hj]) (by simp [hi, hj]) := rfl\n@[simp] theorem toArray_swapIfInBounds (xs : Vector \u03b1 n) (i j) :\n    (xs.swapIfInBounds i j).toArray = xs.toArray.swapIfInBounds i j := rfl\n@[simp] theorem toArray_swapAt (xs : Vector \u03b1 n) (i x h) :\n    ((xs.swapAt i x).fst, (xs.swapAt i x).snd.toArray) =\n      ((xs.toArray.swapAt i x (by simpa using h)).fst,\n        (xs.toArray.swapAt i x (by simpa using h)).snd) := rfl\n@[simp] theorem toArray_swapAt! (xs : Vector \u03b1 n) (i x) :\n    ((xs.swapAt! i x).fst, (xs.swapAt! i x).snd.toArray) =\n      ((xs.toArray.swapAt! i x).fst, (xs.toArray.swapAt! i x).snd) := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "toArray_append",
+    "has_proof": true
+  }
+}

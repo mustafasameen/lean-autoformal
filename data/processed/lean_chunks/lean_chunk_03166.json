@@ -1,0 +1,10 @@
+{
+  "content": "theorem dot_smul_left (xs ys : Coeffs) (i : Int) : dot (i * xs) ys = i * dot xs ys :=\n  IntList.dot_smul_left xs ys i\ntheorem dot_distrib_left (xs ys zs : Coeffs) : (xs + ys).dot zs = xs.dot zs + ys.dot zs :=\n  IntList.dot_distrib_left xs ys zs\ntheorem sub_eq_add_neg (xs ys : Coeffs) : xs - ys = xs + -ys :=\n  IntList.sub_eq_add_neg xs ys\ntheorem combo_eq_smul_add_smul (a : Int) (xs : Coeffs) (b : Int) (ys : Coeffs) :\n    combo a xs b ys = (a * xs) + (b * ys) :=\n  IntList.combo_eq_smul_add_smul a xs b ys\ntheorem gcd_dvd_dot_left (xs ys : Coeffs) : (gcd xs : Int) \u2223 dot xs ys :=\n  IntList.gcd_dvd_dot_left xs ys\ntheorem map_length {xs : Coeffs}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Coeffs.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Coeffs.lean",
+    "definition_name": "dot_smul_left",
+    "has_proof": false
+  }
+}

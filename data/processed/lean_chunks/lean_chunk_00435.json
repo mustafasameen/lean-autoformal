@@ -1,0 +1,9 @@
+{
+  "content": "instance FooToBar (\u03b1 : Type) [f : Foo \u03b1] : Bar \u03b1 :=\nmatch f.x with\n| () => {x:=()}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/leaky_tmp_metavars2.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/leaky_tmp_metavars2.lean",
+    "definition_name": "FooToBar"
+  }
+}

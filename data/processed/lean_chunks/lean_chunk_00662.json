@@ -1,0 +1,9 @@
+{
+  "content": "class AddSemigroup (G : Type u) extends Add G where\n  protected add_assoc : \u2200 a b c : G, a + b + c = a + (b + c)\nclass MulOneClass (M : Type u) extends One M, Mul M where\nclass AddZeroClass (M : Type u) extends Zero M, Add M where\n  protected zero_add : \u2200 a : M, 0 + a = a\n  protected add_zero : \u2200 a : M, a + 0 = a\nclass AddMonoid (M : Type u) extends AddSemigroup M, AddZeroClass M where\n  protected nsmul : Nat \u2192 M \u2192 M\ninstance AddMonoid.toNatSMul {M : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "AddSemigroup"
+  }
+}

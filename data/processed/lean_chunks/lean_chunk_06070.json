@@ -1,0 +1,10 @@
+{
+  "content": "map (\u00b7 - a) (range' s n step) = range' (s - a) n step := by\n  conv => lhs; rw [\u2190 Nat.add_sub_cancel' h]\n  rw [\u2190 map_add_range', map_map, (?_ : _\u2218_ = _), map_id]\n  funext x; apply Nat.add_sub_cancel_left\n@[simp] theorem range'_eq_singleton_iff {s n a : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "mem_range",
+    "has_proof": true
+  }
+}

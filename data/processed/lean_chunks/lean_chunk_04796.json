@@ -1,0 +1,10 @@
+{
+  "content": "theorem inl_getLeft : \u2200 (x : \u03b1 \u2295 \u03b2) (h : x.isLeft), inl (x.getLeft h) = x\n  | inl _, _ => rfl\n@[simp] theorem inr_getRight : \u2200 (x : \u03b1 \u2295 \u03b2) (h : x.isRight), inr (x.getRight h) = x\n  | inr _, _ => rfl\n@[simp] theorem getLeft?_eq_none_iff {x : \u03b1 \u2295 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Lemmas.lean",
+    "definition_name": "inl_getLeft",
+    "has_proof": false
+  }
+}

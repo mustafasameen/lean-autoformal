@@ -1,0 +1,9 @@
+{
+  "content": "class MonadLog (m : Type \u2192 Type) extends MonadFileMap m where\n  getFileName  : m String\n  logMessage   : Message \u2192 m Unit\nexport MonadLog (getFileName logMessage)\ninstance (m n) [MonadLift m n] [MonadLog m] : MonadLog n where\n  getRef      := liftM (MonadLog.getRef : m _)\n  getFileMap  := liftM (getFileMap : m _)\n  getFileName := liftM (getFileName : m _)\n  hasErrors   := liftM (MonadLog.hasErrors : m _)\n  logMessage  := fun msg => liftM (logMessage msg : m _ )\nvariable [Monad m] [MonadLog m] [AddMessageContext m] [MonadOptions m]\ndef getRefPos : m String.Pos := do\n  let ref \u2190 MonadLog.getRef\n  return ref.getPos?.getD 0\ndef getRefPosition : m Position := do\n  let fileMap \u2190 getFileMap\n  return fileMap.toPosition (\u2190 getRefPos)\ndef logAt (ref : Syntax) (msgData : MessageData) (severity : MessageSeverity := MessageSeverity.error) : m Unit :=\n  unless severity == .error && msgData.hasSyntheticSorry do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Log.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Log.lean",
+    "definition_name": "MonadLog"
+  }
+}

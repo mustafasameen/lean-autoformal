@@ -1,0 +1,9 @@
+{
+  "content": "def maze1 := \u250c\u2500\u2500\u2500\u2510\n             \u2502\u2593\u2593\u2593\u2502\n             \u2502\u2591@\u2593\u2502\n             \u2502\u2593\u2593\u2593\u2502\n             \u2514\u2500\u2500\u2500\u2518\ndef foo : can_escape maze1 := by\n  apply step_west\n  set_option trace.Meta.debug true in\n  simp (config := { decide := true })\n  out",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_name": "maze1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Problem where\n  numVars : Nat := 0\n  equalities : Std.HashSet Coeffs := \u2205\n  eliminations : List (Fact \u00d7 Nat \u00d7 Int) := []\n  proveFalse? : Option Proof := none\n  explanation? : Thunk String := \"\"\nnamespace Problem\ndef proveFalse {s x}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Omega/Core.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Omega/Core.lean",
+    "definition_name": "Problem"
+  }
+}

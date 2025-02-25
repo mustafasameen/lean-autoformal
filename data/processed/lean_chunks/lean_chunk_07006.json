@@ -1,0 +1,9 @@
+{
+  "content": "structure LakeSetupFileOutput where\n    spawnArgs : Process.SpawnArgs\n    exitCode  : UInt32\n    stdout    : String\n    stderr    : String\npartial def runLakeSetupFile\n    (m                 : DocumentMeta)\n    (lakePath filePath : System.FilePath)\n    (imports           : Array Import)\n    (handleStderr      : String \u2192 IO Unit)\n    : IO LakeSetupFileOutput := do\n  let mut args := #[\"setup-file\", filePath.toString] ++ imports.map (toString \u00b7.module)\n  if m.dependencyBuildMode matches .never then\nargs := args.push \"\n  let spawnArgs : Process.SpawnArgs := {\n    stdin  := Process.Stdio.null\n    stdout := Process.Stdio.piped\n    stderr := Process.Stdio.piped\n    cmd    := lakePath.toString\n    args\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/SetupFile.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/FileWorker/SetupFile.lean",
+    "definition_name": "LakeSetupFileOutput"
+  }
+}

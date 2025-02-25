@@ -1,0 +1,10 @@
+{
+  "content": "theorem lemma_with_gt_in_head (a : Nat) (h : P a) : 0 > a := by cases h; assumption\ntheorem lemma_with_false_in_head (a b : Nat) (_h1 : a < b) (h2 : P a) : False := by\n  apply Nat.not_lt_zero; cases h2; assumption\n#guard_msgs in\nexample (a : Nat) (h : P a) : a < 0 := by apply?\n#guard_msgs in\nexample : \u2200 P : Prop, \u00ac(P \u2194 \u00acP) := by apply?\ninductive Q : Nat \u2192 Prop\n  | gt_in_head {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/librarySearch.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/librarySearch.lean",
+    "definition_name": "lemma_with_gt_in_head",
+    "has_proof": true
+  }
+}

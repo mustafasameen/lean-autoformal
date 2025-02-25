@@ -1,0 +1,9 @@
+{
+  "content": "TermElabM (Option Expr) := do\n  match getDefaultFnForField? (\u2190 getEnv) structName fieldName with\n  | none => return none\n  | some defaultFn =>\n    let cinfo \u2190 getConstInfo defaultFn\n    let us \u2190 mkFreshLevelMVarsFor cinfo\n    go? (\u2190 instantiateValueLevelParams cinfo us)\nwhere\n  failed : TermElabM (Option Expr) := do\n    logWarning m!\"ignoring default value for field '{fieldName}' defined at '{.ofConstName structName}'\"\n    return none\n  go? (e : Expr) : TermElabM (Option Expr) := do\n    match e with\n    | Expr.lam n d b c =>\n      if c.isExplicit then\n        match fieldMap.find? n with\n        | none => failed\n        | some val =>\n          let valType \u2190 inferType val\n          if (\u2190 isDefEq valType d) then\n            go? (b.instantiate1 val)\n          else\n            failed\n      else\n        let arg \u2190 mkFreshExprMVar d\n        go? (b.instantiate1 arg)\n    | e =>\n      let r := if e.isAppOfArity ``id 2 then e.appArg! else e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

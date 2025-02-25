@@ -1,0 +1,9 @@
+{
+  "content": "structure A (\u03b1) extends BEq \u03b1, Hashable \u03b1 where\n  foo : HashMap \u03b1 Nat\ndef A.add (xs : A \u03b1) (x : \u03b1) : A \u03b1 :=\n  {xs with foo := xs.foo.insert x 5}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/hashmap-implicits.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/hashmap-implicits.lean",
+    "definition_name": "A"
+  }
+}

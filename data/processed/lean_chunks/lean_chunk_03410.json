@@ -1,0 +1,9 @@
+{
+  "content": "inductive FlatOrder.rel : (x y : FlatOrder b) \u2192 Prop where\n  | bot : rel b x\n  | refl : rel x x\ninstance FlatOrder.instOrder : PartialOrder (FlatOrder b) where\n  rel := rel\n  rel_refl := .refl\n  rel_trans {x y z : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "FlatOrder"
+  }
+}

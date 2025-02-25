@@ -1,0 +1,9 @@
+{
+  "content": "if E.size != nBinders then\n        throwError \"bad number of binders\"\n      set <| a.push (p, Expr.abstract s E)\n      return s\n    ) Pos.root e) #[]\n  if not (\u2190 liftM $ isDefEq e e') then\n    throwError \"\\n{e} \\nand \\n{e'} are different!\"\n  if subexprs.size != expectedLen then\n    for (p, s) in subexprs do\n      let ppt \u2190 PrettyPrinter.ppExpr s\n      dbg_trace s!\"{p}, {ppt}\\n\"\n    throwError \"expected size: {expectedLen}\\nactual size: {subexprs.size}\"\n  for (p, s) in subexprs do\n    viewSubexpr (fun fvars t => do\n      let t := Expr.abstract t fvars\n      let de \u2190 liftM $ isDefEq t s\n      if not de then\n        throwError \"\\n{t} \\nand \\n{s} are different!\"\n      return ()\n    ) p e\n    let e' \u2190 replaceSubexpr pure p e\n    if not (\u2190 liftM $ isDefEq e e') then\n      throwError \"\\n{e} \\nand \\n{e'} are different!\"\n#guard_msgs in\n#eval ((do\n  testTraversal traverseLambdaWithPos 1\n  testTraversal traverseChildrenWithPos 4\n  testTraversal traverseAll 103\n  return ())",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ExprLens.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ExprLens.lean",
+    "definition_name": "ExprTraversal"
+  }
+}

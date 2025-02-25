@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_zipIdx_iff_le_and_getElem?_sub {x : \u03b1 \u00d7 Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/MapIdx.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/MapIdx.lean",
+    "definition_name": "mem_zipIdx_iff_le_and_getElem",
+    "has_proof": false
+  }
+}

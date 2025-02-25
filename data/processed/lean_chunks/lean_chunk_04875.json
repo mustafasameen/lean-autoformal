@@ -1,0 +1,10 @@
+{
+  "content": "theorem getLast?_cons_cons : (a :: b :: l).getLast? = (b :: l).getLast? := by\n  simp [getLast?_cons]\ntheorem getLast?_concat (l : List \u03b1) : getLast? (l ++ [a]) = some a := by\n  simp [getLast?_eq_getElem?, Nat.succ_sub_succ]\ntheorem getLastD_concat (a b l) : @getLastD \u03b1 (l ++ [b]) a = b := by\n  rw [getLastD_eq_getLast?, getLast?_concat]; rfl\n@[simp] theorem length_tail (l : List \u03b1) : length (tail l) = length l - 1 := by cases l <;> rfl\ntheorem tail_eq_tailD (l) : @tail \u03b1 l = tailD l [] := by cases l <;> rfl\ntheorem tail_eq_tail? (l) : @tail \u03b1 l = (tail? l).getD [] := by simp [tail_eq_tailD]\ntheorem mem_of_mem_tail {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "getLast",
+    "has_proof": true
+  }
+}

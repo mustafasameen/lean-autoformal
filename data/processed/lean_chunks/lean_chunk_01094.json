@@ -1,0 +1,9 @@
+{
+  "content": "instance smulZeroClass [Zero M] [SMulZeroClass R M] : SMulZeroClass R (\u03b1 \u2192\u2080 M) where\n  smul a v := v.mapRange ((\u00b7 \u2022 \u00b7) a) sorry\nend Finsupp\nend Mathlib.Data.Finsupp.Basic\nsection Mathlib.Algebra.Algebra.Basic\nclass Algebra (R : Type u) (A : Type v) [CommSemiring R] [Semiring A] extends SMul R A,\n  R \u2192+* A where\ndef algebraMap (R : Type u) (A : Type v) [CommSemiring R] [Semiring A] [Algebra R A] : R \u2192+* A :=\n  Algebra.toRingHom\ndef RingHom.toAlgebra' {R S}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "smulZeroClass"
+  }
+}

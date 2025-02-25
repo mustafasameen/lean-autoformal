@@ -1,0 +1,9 @@
+{
+  "content": "def quot := leading_parser\n  \"`(\" >> withoutPosition (incQuotDepth (many1Unbox commandParser)) >> \")\"\n` defines a *module docstring* that can be displayed by documentation generation\ntools. The string is associated with the corresponding position in the file. It can be used\nmultiple times in the same file.\n-/\n@[builtin_command_parser]\ndef moduleDoc := leading_parser ppDedent <|\n\"\n`\n* a list of attributes `@[attr1, attr2]`\n* a visibility specifier, `private` or `protected`\n* `noncomputable`\n* `unsafe`\n* `partial` or `nonrec`\nAll modifiers are optional, and have to come in the listed order.\n`nestedDeclModifiers` is the same as `declModifiers`, but attributes are printed\non the same line as the declaration. It is used for declarations nested inside other syntax,\nsuch as inductive constructors, structure projections, and `let rec` / `where` definitions. -/\n@[builtin_doc] def declModifiers (inline : Bool) := leading_parser\n  optional docComment >>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "quot"
+  }
+}

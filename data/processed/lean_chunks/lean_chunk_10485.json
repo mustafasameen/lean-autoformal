@@ -1,0 +1,10 @@
+{
+  "content": "theorem balancedAtRoot_zero_zero : BalancedAtRoot 0 0 := by\n  simp only [BalancedAtRoot]; omega\n@[simp]\ntheorem balancedAtRoot_zero_one : BalancedAtRoot 0 1 := by\n  simp only [BalancedAtRoot]; omega\n@[simp]\ntheorem balancedAtRoot_one_zero : BalancedAtRoot 1 0 := by\n  simp only [BalancedAtRoot]; omega\n@[simp]\ntheorem balancedAtRoot_one_one : BalancedAtRoot 1 1 := by\n  simp only [BalancedAtRoot, delta]; omega\n@[simp]\ntheorem balancedAtRoot_two_one : BalancedAtRoot 2 1 := by\n  simp only [BalancedAtRoot, delta]; omega\n@[simp]\ntheorem balancedAtRoot_one_two : BalancedAtRoot 1 2 := by\n  simp only [BalancedAtRoot, delta]; omega\ntheorem balanced_one_leaf_leaf {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balanced.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balanced.lean",
+    "definition_name": "balancedAtRoot_zero_zero",
+    "has_proof": true
+  }
+}

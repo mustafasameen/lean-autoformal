@@ -1,0 +1,10 @@
+{
+  "content": "theorem forIn'_none [Monad m] (b : \u03b2) (f : (a : \u03b1) \u2192 a \u2208 none \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) :\n    forIn' none b f = pure b := by\n  rfl\n@[simp] theorem forIn'_some [Monad m] [LawfulMonad m] (a : \u03b1) (b : \u03b2) (f : (a' : \u03b1) \u2192 a' \u2208 some a \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) :\n    forIn' (some a) b f = bind (f a rfl b) (fun r => pure (ForInStep.value r)) := by\n  simp only [forIn', bind_pure_comp]\n  rw [map_eq_pure_bind]\n  congr\n  funext x\n  split <;> rfl\n@[simp] theorem forIn_none [Monad m] (b : \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) :\n    forIn none b f = pure b := by\n  rfl\n@[simp] theorem forIn_some [Monad m] [LawfulMonad m] (a : \u03b1) (b : \u03b2) (f : \u03b1 \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) :\n    forIn (some a) b f = bind (f a b) (fun r => pure (ForInStep.value r)) := by\n  simp only [forIn, forIn', bind_pure_comp]\n  rw [map_eq_pure_bind]\n  congr\n  funext x\n  split <;> rfl\n@[simp] theorem forIn'_toList [Monad m] (o : Option \u03b1) (b : \u03b2) (f : (a : \u03b1) \u2192 a \u2208 o.toList \u2192 \u03b2 \u2192 m (ForInStep \u03b2)) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/List.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/List.lean",
+    "definition_name": "forIn",
+    "has_proof": true
+  }
+}

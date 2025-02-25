@@ -1,0 +1,10 @@
+{
+  "content": "(h : \u2200 x y, f' (g x) (g y) = g (f x y)) :\n    (l.map g).foldl f' (g a) = g (l.foldl f a) := by\n  induction l generalizing a\n  \u00b7 simp\n  \u00b7 simp [*, h]\n@[deprecated foldl_map_hom (since := \"2025-01-20\")] abbrev foldl_map' := @foldl_map_hom\ntheorem foldr_map_hom (g : \u03b1 \u2192 \u03b2) (f : \u03b1 \u2192 \u03b1 \u2192 \u03b1) (f' : \u03b2 \u2192 \u03b2 \u2192 \u03b2) (a : \u03b1) (l : List \u03b1)\n    (h : \u2200 x y, f' (g x) (g y) = g (f x y)) :\n    (l.map g).foldr f' (g a) = g (l.foldr f a) := by\n  induction l generalizing a\n  \u00b7 simp\n  \u00b7 simp [*, h]\n@[deprecated foldr_map_hom (since := \"2025-01-20\")] abbrev foldr_map' := @foldr_map_hom\n@[simp] theorem foldrM_append [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (b) (l l' : List \u03b1) :\n    (l ++ l').foldrM f b = l'.foldrM f b >>= l.foldrM f := by\n  induction l <;> simp [*]\n@[simp] theorem foldl_append {\u03b2 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "reverse_flatten",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "constructor\n      \u00b7 rintro (hab | \u27e8hab, \u27e8h\u2081, h\u2082\u27e9 | \u27e8i, h\u2081, h\u2082, w\u2081, w\u2082\u27e9\u27e9)\n        \u00b7 exact .inr \u27e80, by simp [hab]\u27e9\n        \u00b7 exact .inl \u27e8\u27e8hab, h\u2081\u27e9, by simpa using h\u2082\u27e9\n        \u00b7 refine .inr \u27e8i + 1, by simp [h\u2081],\n            by simp [h\u2082], ?_, ?_\u27e9\n          \u00b7 intro j hj\n            cases j with\n            | zero => simp [hab]\n            | succ j =>\n              simp only [getElem_cons_succ]\n              rw [w\u2081]\n              simpa using hj\n          \u00b7 simpa using w\u2082\n      \u00b7 rintro (\u27e8\u27e8h\u2081, h\u2082\u27e9, h\u2083\u27e9 | \u27e8i, h\u2081, h\u2082, w\u2081, w\u2082\u27e9)\n        \u00b7 exact .inr \u27e8h\u2081, .inl \u27e8h\u2082, by simpa using h\u2083\u27e9\u27e9\n        \u00b7 cases i with\n          | zero =>\n            left\n            simpa using w\u2082\n          | succ i =>\n            right\n            refine \u27e8by simpa using w\u2081 0 (by simp), ?_\u27e9\n            right\n            refine \u27e8i, by simpa using h\u2081, by simpa using h\u2082, ?_, ?_\u27e9\n            \u00b7 intro j hj\n              simpa using w\u2081 (j + 1) (by simpa)\n            \u00b7 simpa using w\u2082",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lex.lean",
+    "definition_name": "lex_eq_true_iff_lex",
+    "has_proof": true
+  }
+}

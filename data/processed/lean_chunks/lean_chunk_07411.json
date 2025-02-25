@@ -1,0 +1,10 @@
+{
+  "content": "theorem reduce_fold_fn_preserves_induction_motive {c_arr : Array (Literal (PosFin n))}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddSound.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddSound.lean",
+    "definition_name": "reduce_fold_fn_preserves_induction_motive",
+    "has_proof": false
+  }
+}

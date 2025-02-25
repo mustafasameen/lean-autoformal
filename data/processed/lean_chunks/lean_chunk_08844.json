@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_erase [EquivBEq \u03b1] [LawfulHashable \u03b1] {k a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_name": "getElem_erase",
+    "has_proof": false
+  }
+}

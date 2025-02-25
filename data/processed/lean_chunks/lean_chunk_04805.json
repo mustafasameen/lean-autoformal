@@ -1,0 +1,10 @@
+{
+  "content": "theorem elim_comp_map {f\u2081 : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Sum/Lemmas.lean",
+    "definition_name": "elim_comp_map",
+    "has_proof": false
+  }
+}

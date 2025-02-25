@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_replicate : (replicate n a).map f = replicate n (f a) := by\n  ext1 n\n  simp only [getElem?_map, getElem?_replicate]\n  split <;> simp\ntheorem filter_replicate : (replicate n a).filter p = if p a then replicate n a else [] := by\n  cases n with\n  | zero => simp\n  | succ n =>\n    simp only [replicate_succ, filter_cons]\n    split <;> simp_all\n@[simp] theorem filter_replicate_of_pos (h : p a) : (replicate n a).filter p = replicate n a := by\n  simp [filter_replicate, h]\n@[simp] theorem filter_replicate_of_neg (h : \u00ac p a) : (replicate n a).filter p = [] := by\n  simp [filter_replicate, h]\ntheorem filterMap_replicate {f : \u03b1 \u2192 Option \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "map_replicate",
+    "has_proof": true
+  }
+}

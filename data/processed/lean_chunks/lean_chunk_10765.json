@@ -1,0 +1,9 @@
+{
+  "content": "dynlib                shared library (e.g., for `\nTARGET EXAMPLES:        build the ...\n  a                     default facet of target `a`\n  @a                    default target(s) of package `a`\n  +A                    Lean artifacts of module `A`\n  a/b                   default facet of target `b` of package `a`\n  a/+A:c                C file of module `A` of package `a`\n  :foo                  facet `foo` of the root package\nA bare `lake build` command will build the default target(s) of the root package.\nPackage dependencies are not updated during a build.\"\ndef helpQuery :=\n\"Build targets and output results\nUSAGE:\n  lake query [<targets>...]\nBuilds a set of targets, reporting progress on standard error and outputting\nthe results on standard out. Target results are output in the same order they\nare listed and end with a newline. If `\nJSON. Otherwise, they are printed as raw strings. Targets which do not have\noutput configured will be printed as an empty string or `null`.",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Help.lean",
+    "definition_name": "helpNew"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem neg_gcd {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Gcd.lean",
+    "definition_name": "neg_gcd",
+    "has_proof": false
+  }
+}

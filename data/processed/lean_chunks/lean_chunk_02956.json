@@ -1,0 +1,9 @@
+{
+  "content": "instance BEq for SourceInfo\npartial def structRangeEq : Syntax \u2192 Syntax \u2192 Bool\n  | .missing, .missing => true\n  | .node info k args, .node info' k' args' =>\n    info.getRange? == info'.getRange? && k == k' && args.isEqv args' structRangeEq\n  | .atom info val, .atom info' val' => info.getRange? == info'.getRange? && val == val'\n  | .ident info rawVal val preresolved, .ident info' rawVal' val' preresolved' =>\n    info.getRange? == info'.getRange? && rawVal == rawVal' && val == val' &&\n    preresolved == preresolved'\n  | _, _ => false\npartial def eqWithInfo : Syntax \u2192 Syntax \u2192 Bool\n  | .missing, .missing => true\n  | .node info k args, .node info' k' args' =>\n    info == info' && k == k' && args.isEqv args' eqWithInfo\n  | .atom info val, .atom info' val' => info == info' && val == val'\n  | .ident info rawVal val preresolved, .ident info' rawVal' val' preresolved' =>\n    info == info' && rawVal == rawVal' && val == val' && preresolved == preresolved'\n  | _, _ => false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "BEq"
+  }
+}

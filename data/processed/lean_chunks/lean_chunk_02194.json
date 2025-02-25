@@ -1,0 +1,9 @@
+{
+  "content": "class CompleteLattice (\u03b1 : Type _) extends Lattice \u03b1, CompleteSemilatticeSup \u03b1,\n  CompleteSemilatticeInf \u03b1, Top \u03b1, Bot \u03b1 where\n  protected le_top : \u2200 x : \u03b1, x \u2264 \u22a4\n  protected bot_le : \u2200 x : \u03b1, \u22a5 \u2264 x\ninstance (priority := 100) CompleteLattice.toOrderTop [h : CompleteLattice \u03b1] : OrderTop \u03b1 :=\n  { h with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3965_3.lean",
+    "definition_name": "CompleteLattice"
+  }
+}

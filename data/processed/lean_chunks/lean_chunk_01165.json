@@ -1,0 +1,9 @@
+{
+  "content": "def foo (x := 0) : Nat := x\nexample : foo x = x := by simp only [foo]\nexample : foo x = x := by rw [foo]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2939.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2939.lean",
+    "definition_name": "foo"
+  }
+}

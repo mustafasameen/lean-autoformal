@@ -1,0 +1,10 @@
+{
+  "content": "structure Subarray (\u03b1 : Type u)  where\n  array : Array \u03b1\n  start : Nat\n  stop : Nat\n  start_le_stop : start \u2264 stop\n  stop_le_array_size : stop \u2264 array.size\nnamespace Subarray\ndef size (s : Subarray \u03b1) : Nat :=\n  s.stop - s.start\ntheorem size_le_array_size {s : Subarray \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Subarray.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Subarray.lean",
+    "definition_name": "Subarray",
+    "has_proof": false
+  }
+}

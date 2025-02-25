@@ -1,0 +1,9 @@
+{
+  "content": "class Foo (\u03b1 : Type) : Type := (u : Unit := ())\nclass Bar (\u03b1 : Type) : Type := (u : Unit := ())\nclass Top : Type := (u : Unit := ())\ninstance FooAll (\u03b1 : Type) : Foo \u03b1 := {u:=()}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals1.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/typeclass_metas_internal_goals1.lean",
+    "definition_name": "Foo"
+  }
+}

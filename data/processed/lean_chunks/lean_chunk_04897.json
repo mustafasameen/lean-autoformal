@@ -1,0 +1,10 @@
+{
+  "content": "theorem map_filterMap_of_inv (f : \u03b1 \u2192 Option \u03b2) (g : \u03b2 \u2192 \u03b1) (H : \u2200 x : \u03b1, (f x).map g = some x)\n    (l : List \u03b1) : map g (filterMap f l) = l := by simp only [map_filterMap, H, filterMap_some, id]\ntheorem head_filterMap_of_eq_some {f : \u03b1 \u2192 Option \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "map_filterMap_of_inv",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance instRingHomClass (R S : Type) [Semiring R] [Semiring S] :\n    RingHomClass (R \u2192+* S) R S where\n  coe f := f.toFun\ndef RingHom.id (\u03b1 : Type) [Semiring \u03b1] : \u03b1 \u2192+* \u03b1 := by\n  refine { toFun := _root_.id.. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2461.lean",
+    "definition_name": "instRingHomClass"
+  }
+}

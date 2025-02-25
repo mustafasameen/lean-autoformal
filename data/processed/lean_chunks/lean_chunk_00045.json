@@ -1,0 +1,9 @@
+{
+  "content": "def A.x := 10\nnamespace B\nexport A (x)\ndef y := 20\n#check x\n#check y\nend B\n#check A.x\n#check B.x\n#check B.y\n#check x\n#check y\nopen B\n#check x\n#check y\nnamespace B\n#check x\n#check y\ndef z := 30\n#check z\nend B\n#check z",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/openExport.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/openExport.lean",
+    "definition_name": "A"
+  }
+}

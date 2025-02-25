@@ -1,0 +1,9 @@
+{
+  "content": "def as i := by\n    induction as generalizing i with\n    | nil => rfl\n    | cons a as ih =>\n      cases i with\n      | zero => rfl\n      | succ i => simpa using ih i\nend List\nnamespace Array\ninstance : GetElem (Array \u03b1) Nat \u03b1 fun xs i => i < xs.size where\n  getElem xs i h := xs.getInternal i h\ninstance : GetElem? (Array \u03b1) Nat \u03b1 fun xs i => i < xs.size where\n  getElem? xs i := decidableGetElem? xs i\n  getElem! xs i := xs.get!Internal i\ninstance : LawfulGetElem (Array \u03b1) Nat \u03b1 fun xs i => i < xs.size where\n  getElem?_def xs i h := by\n    simp only [getElem?, decidableGetElem?]\n    split <",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "as"
+  }
+}

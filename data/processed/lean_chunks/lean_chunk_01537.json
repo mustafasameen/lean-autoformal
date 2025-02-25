@@ -1,0 +1,9 @@
+{
+  "content": "structure Fn (E I : Sort u) := (exp : E) (imp : I)\ninstance (E I : Sort u) :  CoeFun (Fn E I) (fun _ => I) := {coe := fun K => K.imp}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/439.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/439.lean",
+    "definition_name": "Fn"
+  }
+}

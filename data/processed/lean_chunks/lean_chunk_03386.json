@@ -1,0 +1,10 @@
+{
+  "content": "theorem bot_le (x : \u03b1) : \u22a5 \u2291 x := by\n  apply csup_le\n  \u00b7 intro x y hx hy; contradiction\n  \u00b7 intro x hx; contradiction\nend CCPO\nsection monotone\nvariable {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "bot_le",
+    "has_proof": true
+  }
+}

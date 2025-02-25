@@ -1,0 +1,9 @@
+{
+  "content": "inductive CodeActionTriggerKind\n  | automatic\ninstance : ToJson CodeActionTriggerKind := \u27e8fun\n  | .invoked => 1\n  | .automatic => 2\n\u27e9\ninstance : FromJson CodeActionTriggerKind := \u27e8fun j => do\n  let n \u2190 j.getNat?\n  match n with\n    | 1 => return CodeActionTriggerKind.invoked\n    | 2 => return CodeActionTriggerKind.automatic\n    | n => throw s!\"Unexpected CodeActionTriggerKind {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/CodeActions.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/CodeActions.lean",
+    "definition_name": "CodeActionTriggerKind"
+  }
+}

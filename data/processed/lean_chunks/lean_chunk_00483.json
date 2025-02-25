@@ -1,0 +1,9 @@
+{
+  "content": "xx6  : Nat := 0\n  xx7  : Nat := 0\n  xx8  : Nat := 0\n  xx9  : Nat := 0\n  xx10 : Nat := 0\n  yy1  : Nat := 0\n  yy2  : Nat := 0\n  yy3  : Nat := 0\n  yy4  : Nat := 0\n  yy5  : Nat := 0\n  yy6  : Nat := 0\n  yy7  : Nat := 0\n  yy8  : Nat := 0\n  yy9  : Nat := 0\n  yy10 : Nat := 0\n  ww1  : Nat := 0\n  ww2  : Nat := 0\n  ww3  : Nat := 0\n  ww4  : Nat := 0\n  ww5  : Nat := 0\n  ww6  : Nat := 0\n  ww7  : Nat := 0\n  ww8  : Nat := 0\n  ww9  : Nat := 0\n  ww10 : Nat := 0\n@[noinline] def mkFoo (x : Nat) : Foo :=\n  { yy10 := x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/bigctor.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/bigctor.lean",
+    "definition_name": "Foo"
+  }
+}

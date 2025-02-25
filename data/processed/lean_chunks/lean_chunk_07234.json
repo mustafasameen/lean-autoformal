@@ -1,0 +1,9 @@
+{
+  "content": "structure CompilerState where\n  env : Environment\n  log : Log := #[]\nabbrev CompilerM := ReaderT Options (EStateM String CompilerState)\ndef log (entry : LogEntry) : CompilerM Unit :=\n  modify fun s => { s with log := s.log.push entry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_name": "CompilerState"
+  }
+}

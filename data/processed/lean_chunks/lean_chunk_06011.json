@@ -1,0 +1,10 @@
+{
+  "content": "ext1 i\n    rw [getElem?_append]\n    split\n    \u00b7 rw [getElem?_append]\n      split\n      \u00b7 rw [getElem?_take]; simp_all; omega\n      \u00b7 simp_all\n        have p : i = (i - k) + k := by omega\n        rw [p, w _ (by omega), getElem?_eq_getElem]\n        \u00b7 congr 2\n          omega\n        \u00b7 omega\n    \u00b7 rw [getElem?_drop]\n      congr\n      simp_all\n      omega\ntheorem suffix_iff_eq_append : l\u2081 <:+ l\u2082 \u2194 take (length l\u2082 - length l\u2081) l\u2082 ++ l\u2081 = l\u2082 :=\n  \u27e8by rintro \u27e8r, rfl\u27e9; simp only [length_append, Nat.add_sub_cancel_right, take_left], fun e =>\n    \u27e8_, e\u27e9\u27e9\ntheorem prefix_take_iff {xs ys : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Sublist.lean",
+    "definition_name": "isSuffix_iff",
+    "has_proof": true
+  }
+}

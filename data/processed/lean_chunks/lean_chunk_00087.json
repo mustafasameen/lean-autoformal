@@ -1,0 +1,10 @@
+{
+  "content": "theorem constApply {y : \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/813.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/813.lean",
+    "definition_name": "constApply",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem dropLast_nil : ([] : List \u03b1).dropLast = [] := rfl\n@[simp] theorem dropLast_single : [x].dropLast = [] := rfl\n@[simp] theorem dropLast_cons\u2082 :\n    (x::y::zs).dropLast = x :: (y::zs).dropLast := rfl\n@[simp] theorem length_dropLast_cons (a : \u03b1) (as : List \u03b1) : (a :: as).dropLast.length = as.length := by\n  match as with\n  | []       => rfl\n  | b::bs =>\n    have ih := length_dropLast_cons b bs\n    simp [dropLast, ih]\nprotected def Subset (l\u2081 l\u2082 : List \u03b1) := \u2200 \u2983a : \u03b1\u2984, a \u2208 l\u2081 \u2192 a \u2208 l\u2082\ninstance : HasSubset (List \u03b1) := \u27e8List.Subset\u27e9\ninstance [DecidableEq \u03b1] : DecidableRel (Subset : List \u03b1 \u2192 List \u03b1 \u2192 Prop) :=\n  fun _ _ => decidableBAll _ _\ninductive Sublist {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "dropLast_nil",
+    "has_proof": true
+  }
+}

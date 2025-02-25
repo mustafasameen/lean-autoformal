@@ -1,0 +1,10 @@
+{
+  "content": "MonadExceptOf.throw e\nabbrev tryCatchThe (\u03b5 : Type u) {m : Type v \u2192 Type w} [MonadExceptOf \u03b5 m] {\u03b1 : Type v} (x : m \u03b1) (handle : \u03b5 \u2192 m \u03b1) : m \u03b1 :=\n  MonadExceptOf.tryCatch x handle\n  throw {\u03b1 : Type v} : \u03b5 \u2192 m \u03b1\n  tryCatch {\u03b1 : Type v} : m \u03b1 \u2192 (\u03b5 \u2192 m \u03b1) \u2192 m \u03b1\n@[inline] protected def orElse [MonadExcept \u03b5 m] {\u03b1 : Type v} (t\u2081 : m \u03b1) (t\u2082 : Unit \u2192 m \u03b1) : m \u03b1 :=\n  tryCatch t\u2081 fun _ => t\u2082 ()\ninstance [MonadExcept \u03b5 m] {\u03b1 : Type v} : OrElse (m \u03b1) where\n  orElse := MonadExcept.orElse\nend MonadExcept\ndef ReaderT (\u03c1 : Type u) (m : Type u \u2192 Type v) (\u03b1 : Type u) : Type (max u v) :=\n  \u03c1 \u2192 m \u03b1\ninstance (\u03c1 : Type u) (m : Type u \u2192 Type v) (\u03b1 : Type u) [Inhabited (m \u03b1)] : Inhabited (ReaderT \u03c1 m \u03b1) where\n  default := fun _ => default\n@[always_inline, inline]\ndef ReaderT.run {\u03c1 : Type u} {m : Type u \u2192 Type v} {\u03b1 : Type u} (x : ReaderT \u03c1 m \u03b1) (r : \u03c1) : m \u03b1 :=\n  x r\nnamespace ReaderT\nsection\nvariable {\u03c1 : Type u} {m : Type u \u2192 Type v} {\u03b1 : Type u}\ninstance  : MonadLift m (ReaderT \u03c1 m) where",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

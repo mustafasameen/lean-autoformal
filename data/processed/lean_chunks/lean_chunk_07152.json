@@ -1,0 +1,9 @@
+{
+  "content": "let alts \u2190 c.alts.mapMonoM fun alt =>\n          match alt with\n          | .alt _ params k => return alt.updateAlt! (\u2190 normParams params) (\u2190 normCodeImp k)\n          | .default k => return alt.updateCode (\u2190 normCodeImp k)\n        return code.updateCases! resultType discr alts\nend\n@[inline] def normFunDecl [MonadLiftT CompilerM m] [Monad m] [MonadFVarSubst m t] (decl : FunDecl) : m FunDecl := do\n  normFunDeclImp (t := t) decl (\u2190 getSubst)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "mkFreshBinderName"
+  }
+}

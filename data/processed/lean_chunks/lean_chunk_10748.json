@@ -1,0 +1,9 @@
+{
+  "content": "let pkgNameStr := dotlessName pkgName\n  match tmp, lang with\n  | .std, .lean => stdLeanConfigFileContents pkgNameStr (escapeName! root) pkgNameStr.toLower\n  | .std, .toml => stdTomlConfigFileContents pkgNameStr root.toString pkgNameStr.toLower\n  | .lib, .lean => libLeanConfigFileContents pkgNameStr (escapeName! root)\n  | .lib, .toml => libTomlConfigFileContents pkgNameStr root.toString\n  | .exe, .lean => exeLeanConfigFileContents pkgNameStr pkgNameStr.toLower\n  | .exe, .toml => exeTomlConfigFileContents pkgNameStr pkgNameStr.toLower\n  | .math, .lean => mathLeanConfigFileContents pkgNameStr (escapeName! root)\n  | .math, .toml => mathTomlConfigFileContents pkgNameStr root.toString\ndef createLeanActionWorkflow (dir : FilePath) : LogIO PUnit := do\n  logVerbose \"creating lean-action CI workflow\"\n  let workflowDir := dir / \".github\" / \"workflows\"\n  let workflowFile := workflowDir / \"lean_action_ci.yml\"\n  if (\u2190 workflowFile.pathExists) then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Init.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/CLI/Init.lean",
+    "definition_name": "InitTemplate"
+  }
+}

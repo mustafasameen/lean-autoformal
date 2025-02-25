@@ -1,0 +1,10 @@
+{
+  "content": "neg := Int.neg\n@[extern \"lean_int_add\"]\nprotected def add (m n : @& Int) : Int :=\n  match m, n with\n  | ofNat m, ofNat n => ofNat (m + n)\n  | ofNat m, -[n +1] => subNatNat m (succ n)\n  | -[m +1], ofNat n => subNatNat n (succ m)\n  | -[m +1], -[n +1] => negSucc (succ (m + n))\ninstance : Add Int where\n  add := Int.add\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_int_mul\"]\nprotected def mul (m n : @& Int) : Int :=\n  match m, n with\n  | ofNat m, ofNat n => ofNat (m * n)\n  | ofNat m, -[n +1] => negOfNat (m * succ n)\n  | -[m +1], ofNat n => negOfNat (succ m * n)\n  | -[m +1], -[n +1] => ofNat (succ m * succ n)\ninstance : Mul Int where\n  mul := Int.mul\n@[extern \"lean_int_sub\"]\nprotected def sub (m n : @& Int) : Int := m + (- n)\ninstance : Sub Int where\n  sub := Int.sub\n  | mk (n : Nat) : NonNeg (ofNat n)\nprotected def lt (a b : Int) : Prop := (a + 1) \u2264 b\ninstance instLTInt : LT Int where\n  lt := Int.lt\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_int_dec_eq\"]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_name": "Int",
+    "has_proof": true
+  }
+}

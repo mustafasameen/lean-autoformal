@@ -1,0 +1,9 @@
+{
+  "content": "let unexpected := if e.unexpected == \"\" then [] else [e.unexpected]\n  let expected   := if e.expected == [] then [] else\n    let expected := e.expected.toArray.qsort (fun e e' => e < e')\n    let expected := expected.toList.eraseReps\n    [\"expected \" ++ expectedToString expected]\n  \"; \".intercalate $ unexpected ++ expected\ninstance : ToString Error where\n  toString := Error.toString\ndef merge (e\u2081 e\u2082 : Error) : Error :=\n  match e\u2082 with\n  | { unexpectedTk, unexpected := u, .. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Types.lean",
+    "definition_name": "InputContext"
+  }
+}

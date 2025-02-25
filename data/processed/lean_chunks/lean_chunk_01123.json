@@ -1,0 +1,9 @@
+{
+  "content": "instance : Mul c.Quotient := inferInstanceAs (Mul c.toCon.Quotient)\nend add_mul\nsection Zero\nvariable [AddZeroClass R] [Mul R] (c : RingCon R)\ninstance : Zero c.Quotient := inferInstanceAs (Zero c.toAddCon.Quotient)\nend Zero\nsection One\nvariable [Add R] [MulOneClass R] (c : RingCon R)\ninstance : One c.Quotient := inferInstanceAs (One c.toCon.Quotient)\nend One\nsection SMul\nvariable [Add R] [MulOneClass R] [SMul \u03b1 R] [IsScalarTower \u03b1 R R] (c : RingCon R)\ninstance : SMul \u03b1 c.Quotient := inferInstanceAs (SMul \u03b1 c.toCon.Quotient)\nend SMul\nsection NegSubZsmul\nvariable [AddGroup R] [Mul R] (c : RingCon R)\ninstance : Neg c.Quotient := inferInstanceAs (Neg c.toAddCon.Quotient)\ninstance : Sub c.Quotient := inferInstanceAs (Sub c.toAddCon.Quotient)\nend NegSubZsmul\nsection Pow\nvariable [Add R] [Monoid R] (c : RingCon R)\ninstance : Pow c.Quotient Nat := inferInstanceAs (Pow c.toCon.Quotient Nat)\nend Pow\ninstance [CommRing R] (c : RingCon R) : CommRing c.Quotient :=\n  sorry\nend Quotient\nend RingCon",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddMonoidAlgebra"
+  }
+}

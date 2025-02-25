@@ -1,0 +1,9 @@
+{
+  "content": "inductive Option (\u03b1 : Type u) where\n  | some (val : \u03b1) : Option \u03b1\nattribute [unbox] Option\nexport Option (none some)\ninstance {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Option"
+  }
+}

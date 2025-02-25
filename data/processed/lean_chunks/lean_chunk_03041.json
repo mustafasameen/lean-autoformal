@@ -1,0 +1,9 @@
+{
+  "content": "structure FVarId where\n  name : Name\n  deriving Inhabited, BEq, Hashable\ninstance : Repr FVarId where\n  reprPrec n p := reprPrec n.name p\ndef FVarIdSet := RBTree FVarId (Name.quickCmp \u00b7.name \u00b7.name)\n  deriving Inhabited, EmptyCollection\ninstance : ForIn m FVarIdSet FVarId := inferInstanceAs (ForIn _ (RBTree ..) ..)\ndef FVarIdSet.insert (s : FVarIdSet) (fvarId : FVarId) : FVarIdSet :=\n  RBTree.insert s fvarId\ndef FVarIdHashSet := Std.HashSet FVarId\n  deriving Inhabited, EmptyCollection\ndef FVarIdMap (\u03b1 : Type) := RBMap FVarId \u03b1 (Name.quickCmp \u00b7.name \u00b7.name)\ndef FVarIdMap.insert (s : FVarIdMap \u03b1) (fvarId : FVarId) (a : \u03b1) : FVarIdMap \u03b1 :=\n  RBMap.insert s fvarId a\ninstance : EmptyCollection (FVarIdMap \u03b1) := inferInstanceAs (EmptyCollection (RBMap ..))\ninstance : Inhabited (FVarIdMap \u03b1) where\n  default := {}\ninductive Expr where\n  | bvar (deBruijnIndex : Nat)\n  | fvar (fvarId : FVarId)\n  | mvar (mvarId : MVarId)\n  | sort (u : Level)\n  | const (declName : Name) (us : List Level)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

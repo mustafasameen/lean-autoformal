@@ -1,0 +1,9 @@
+{
+  "content": "def DocumentSelector := Array DocumentFilter\ninstance : FromJson DocumentSelector :=\n  \u27e8@fromJson? (Array DocumentFilter) _\u27e9\ninstance : ToJson DocumentSelector :=\n  \u27e8@toJson (Array DocumentFilter) _\u27e9\nstructure StaticRegistrationOptions where\n  id? : Option String := none\n  deriving ToJson, FromJson\nstructure TextDocumentRegistrationOptions where\n  documentSelector? : Option DocumentSelector := none\n  deriving ToJson, FromJson\ninductive MarkupKind where\n  | plaintext | markdown\n  deriving DecidableEq, Hashable\ninstance : FromJson MarkupKind := \u27e8fun\n  | str \"plaintext\" => Except.ok MarkupKind.plaintext\n  | str \"markdown\"  => Except.ok MarkupKind.markdown\n  | _               => throw \"unknown MarkupKind\"\u27e9\ninstance : ToJson MarkupKind := \u27e8fun\n  | MarkupKind.plaintext => str \"plaintext\"\n  | MarkupKind.markdown  => str \"markdown\"\u27e9\nstructure MarkupContent where\n  kind  : MarkupKind\n  value : String\n  deriving ToJson, FromJson, DecidableEq, Hashable\nabbrev ProgressToken := String",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/Basic.lean",
+    "definition_name": "DocumentSelector"
+  }
+}

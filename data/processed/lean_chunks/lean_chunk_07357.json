@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote_blastShiftConcat (aig : AIG \u03b1) (target : ShiftConcatInput aig w)\n  (assign : \u03b1 \u2192 Bool) :\n  \u2200 (idx : Nat) (hidx : idx < w),\n      \u27e6(blastShiftConcat aig target).aig, (blastShiftConcat aig target).vec.get idx hidx, assign\u27e7\n        =\n      if idx = 0 then\n        \u27e6aig, target.bit, assign\u27e7\n      else\n        \u27e6aig, target.lhs.get (idx - 1) (by omega), assign\u27e7\n      := by\n  intro idx hidx\n  unfold blastShiftConcat\n  have hidx_lt : idx < 1 + w := by omega\n  by_cases hidx_eq : idx = 0 <;> simp +arith [hidx_lt, hidx_eq, RefVec.get_append]\ntheorem denote_blastShiftConcat_eq_shiftConcat (aig : AIG \u03b1) (target : ShiftConcatInput aig w)\n  (x : BitVec w) (b : Bool) (assign : \u03b1 \u2192 Bool)\n  (hx : \u2200 idx hidx, \u27e6aig, target.lhs.get idx hidx, assign\u27e7 = x.getLsbD idx)\n  (hb : \u27e6aig, target.bit, assign\u27e7 = b) :\n  \u2200 (idx : Nat) (hidx : idx < w),\n      \u27e6(blastShiftConcat aig target).aig, (blastShiftConcat aig target).vec.get idx hidx, assign\u27e7\n        =",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Lemmas/Operations/Udiv.lean",
+    "definition_name": "denote_blastShiftConcat",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "Impl \u03b1 \u03b2 :=\n  if rl.size < ratio * rr.size then\n    singleL k v l rk rv rl rr\n  else\n    match rl with\n    | leaf => singleL k v l rk rv rl rr\n    | inner _ rlk rlv rll rlr => doubleL k v l rk rv rlk rlv rll rlr rr\ntheorem size_rotateL {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_name": "size_singleL",
+    "has_proof": true
+  }
+}

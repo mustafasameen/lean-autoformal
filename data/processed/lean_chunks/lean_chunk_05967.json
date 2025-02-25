@@ -1,0 +1,10 @@
+{
+  "content": "theorem emod_pos_of_not_dvd {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Bootstrap.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Bootstrap.lean",
+    "definition_name": "emod_pos_of_not_dvd",
+    "has_proof": false
+  }
+}

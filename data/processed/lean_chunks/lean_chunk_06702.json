@@ -1,0 +1,9 @@
+{
+  "content": "class MonadOptions (m : Type \u2192 Type) where\n  getOptions : m Options\nexport MonadOptions (getOptions)\ninstance [MonadLift m n] [MonadOptions m] : MonadOptions n where\n  getOptions := liftM (getOptions : m _)\nvariable [Monad m] [MonadOptions m]\ndef getBoolOption (k : Name) (defValue := false) : m Bool := do\n  let opts \u2190 getOptions\n  return opts.getBool k defValue\ndef getNatOption (k : Name) (defValue := 0) : m Nat := do\n  let opts \u2190 getOptions\n  return opts.getNat k defValue\nclass MonadWithOptions (m : Type \u2192 Type) where\n  withOptions (f : Options \u2192 Options) (x : m \u03b1) : m \u03b1\nexport MonadWithOptions (withOptions)\ninstance [MonadFunctor m n] [MonadWithOptions m] : MonadWithOptions n where\n  withOptions f x := monadMap (m := m) (withOptions f) x\ndef withInPattern [MonadWithOptions m] (x : m \u03b1) : m \u03b1 :=\n  withOptions (fun o => o.setBool `_inPattern true) x\ndef Options.getInPattern (o : Options) : Bool :=\n  o.getBool `_inPattern",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_name": "MonadOptions"
+  }
+}

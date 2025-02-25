@@ -1,0 +1,9 @@
+{
+  "content": "class CategoryStruct (C : Type u) :=\n  (Hom : C \u2192 C \u2192 Type v)\n  (id : \u2200 X, Hom X X)\n  (comp : \u2200 {X Y Z : C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1869.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1869.lean",
+    "definition_name": "CategoryStruct"
+  }
+}

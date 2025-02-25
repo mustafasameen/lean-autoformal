@@ -1,0 +1,9 @@
+{
+  "content": "let declName := mkDefaultFnOfProjFn fieldInfo.declName\n        let type \u2190 replaceIndFVars (\u2190 inferType fieldInfo.fvar)\n        let value \u2190 instantiateMVars (\u2190 replaceIndFVars value)\n        trace[Elab.structure] \"default value after 'replaceIndFVars': {indentExpr value}\"\n        unless value.hasMVar || value.hasSyntheticSorry do\nprivate def setSourceInstImplicit (type : Expr) : Expr :=\n  match type with\n  | .forallE _ d b _ =>\n    if b.isForall then\n      type.updateForallE! d (setSourceInstImplicit b)\n    else\n      type.updateForall! .instImplicit d b\n  | _ => unreachable!\nprivate partial def mkCoercionToCopiedParent (levelParams : List Name) (params : Array Expr) (view : StructView) (source : Expr) (parent : StructParentInfo) (parentType : Expr) : MetaM StructureParentInfo := do\n  let isProp \u2190 Meta.isProp parentType\n  let env \u2190 getEnv\n  let structName := view.declName\n  let sourceFieldNames := getStructureFieldsFlattened env structName",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

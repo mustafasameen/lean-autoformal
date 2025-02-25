@@ -1,0 +1,10 @@
+{
+  "content": "theorem hIterate_eq {P : Nat \u2192 Sort _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Iterate.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Iterate.lean",
+    "definition_name": "hIterate_eq",
+    "has_proof": false
+  }
+}

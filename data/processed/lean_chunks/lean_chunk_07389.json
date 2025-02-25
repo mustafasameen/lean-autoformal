@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_both_eq_both (b : Bool) : addAssignment b both = both := by\n  rw [addAssignment]\n  split <;> decide\ntheorem has_both (b : Bool) : hasAssignment b both = true := by\n  rw [hasAssignment]\n  split <;> decide\ntheorem has_add (assignment : Assignment) (b : Bool) :\n    hasAssignment b (addAssignment b assignment) := by\n  by_cases b <;> cases assignment <;> simp_all [hasAssignment, hasPosAssignment, addAssignment,\n    addPosAssignment, addNegAssignment, hasNegAssignment]\ntheorem not_hasPos_removePos (assignment : Assignment) :\n    \u00achasPosAssignment (removePosAssignment assignment) := by\n  cases assignment <;> simp [removePosAssignment, hasPosAssignment]\ntheorem not_hasNeg_removeNeg (assignment : Assignment) :\n    \u00achasNegAssignment (removeNegAssignment assignment) := by\n  cases assignment <;> simp [removeNegAssignment, hasNegAssignment]\ntheorem not_has_remove (assignment : Assignment) (b : Bool) :\n    \u00achasAssignment b (removeAssignment b assignment) := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_name": "add_both_eq_both",
+    "has_proof": true
+  }
+}

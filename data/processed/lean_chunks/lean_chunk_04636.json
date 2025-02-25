@@ -1,0 +1,10 @@
+{
+  "content": "simp at h\n    replace h := congrArg (Expr.denote ctx rhs + \u00b7) h\n    simp at h\n    rw [Int.add_comm, Int.sub_add_cancel] at h\n    rw [h]; clear h\n    intro h\n    conv at h => rhs; rw [\u2190 Int.zero_add (Expr.denote ctx rhs)]\n    rw [Int.add_le_add_iff_right] at h\n    replace h := Int.lt_of_lt_of_le h' h\n    contradiction\ntheorem le_eq_true (ctx : Context) (lhs rhs : Expr) : (lhs.sub rhs).norm.isValidLe \u2192 (lhs.denote ctx \u2264 rhs.denote ctx) = True := by\n  simp [Poly.isValidLe] <;> split <;> simp\n  next p k h =>\n    intro h'\n    replace h := congrArg (Poly.denote ctx) h\n    simp at h\n    replace h := congrArg (Expr.denote ctx rhs + \u00b7) h\n    simp at h\n    rw [Int.add_comm, Int.sub_add_cancel] at h\n    rw [h]; clear h; simp\n    conv => rhs; rw [\u2190 Int.zero_add (Expr.denote ctx rhs)]\n    rw [Int.add_le_add_iff_right]; assumption\nprivate theorem contra {a b k : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Linear.lean",
+    "definition_name": "norm_le_coeff_tight",
+    "has_proof": true
+  }
+}

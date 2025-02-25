@@ -1,0 +1,10 @@
+{
+  "content": "theorem zero_eta : (\u27e80, Nat.zero_lt_succ _\u27e9 : Fin (n + 1)) = 0 := rfl\ntheorem ne_of_val_ne {i j : Fin n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Basic.lean",
+    "definition_name": "zero_eta",
+    "has_proof": false
+  }
+}

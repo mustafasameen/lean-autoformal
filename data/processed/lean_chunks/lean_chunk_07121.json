@@ -1,0 +1,9 @@
+{
+  "content": "if n > maxValueDepth then\n    goBig n n\n  else\n    goSmall n\nwhere\n  goBig (orig : Nat) (curr : Nat) : Value :=\n    if orig - curr == maxValueDepth then\n      .top\n    else\n      .ctor ``Nat.succ #[goBig orig (curr - 1)]\n  goSmall : Nat \u2192 Value\n  | 0 => .ctor ``Nat.zero #[]\n  | n + 1 => .ctor ``Nat.succ #[goSmall n]\ndef ofLCNFLit : LCNF.LitValue \u2192 Value\n| .natVal n => ofNat n\n| .strVal .. => .top\npartial def proj : Value \u2192 Nat \u2192 Value\n| .ctor _ vs , i => vs.getD i bot\n| .choice vs, i => vs.foldl (fun r v => merge r (proj v i)) bot\n| v, _ => v\npartial def isLiteral : Value \u2192 Bool\n| .ctor _ vs => vs.all isLiteral\n| _ => false\npartial def getLiteral (v : Value) : CompilerM (Option ((Array CodeDecl) \u00d7 FVarId)) := do\n  if isLiteral v then\n    let literal \u2190 go v\n    return some literal\n  else\n    return none\nwhere\n  go : Value \u2192 CompilerM ((Array CodeDecl) \u00d7 FVarId)\n  | .ctor `Nat.zero #[] .. => do\n    let decl \u2190 mkAuxLetDecl <| .value <| .natVal <| 0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

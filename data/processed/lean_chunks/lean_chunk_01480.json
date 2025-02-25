@@ -1,0 +1,9 @@
+{
+  "content": "class OrderTop (\u03b1 : Type u) [LE \u03b1] extends Top \u03b1 where\n  le_top : \u2200 a : \u03b1, a \u2264 \u22a4\nclass OrderBot (\u03b1 : Type u) [LE \u03b1] extends Bot \u03b1 where\n  bot_le : \u2200 a : \u03b1, \u22a5 \u2264 a\nclass BoundedOrder (\u03b1 : Type u) [LE \u03b1] extends OrderTop \u03b1, OrderBot \u03b1\ninstance(priority := 100) CompleteLattice.toBoundedOrder  {\u03b1 : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1986.lean",
+    "definition_name": "OrderTop"
+  }
+}

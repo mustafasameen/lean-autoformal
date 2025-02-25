@@ -1,0 +1,9 @@
+{
+  "content": "structure References where\n  constDecls : Std.HashSet String.Range := .empty\n  fvarDefs : Std.HashMap String.Range FVarDefinition := .empty\n  fvarAliases : Std.HashMap FVarId FVarId := .empty\n  assignments : Array (PersistentHashMap MVarId Expr) := #[]\npartial def collectReferences (infoTrees : Array Elab.InfoTree) (cmdStxRange : String.Range) :\n    StateRefT References IO Unit := ReaderT.run (r := false) <| go infoTrees none\nwhere\n  go infoTrees ctx? := do\n    for tree in infoTrees do\n      tree.visitM' (ctx? := ctx?) (preNode := fun ci info children => do\n        let ignored \u2190 read\n        match info with\n        | .ofCustomInfo ti =>\n          if !linter.unusedVariables.analyzeTactics.get ci.options then\n            if let some bodyInfo := ti.value.get? Elab.Term.BodyInfo then\n              if let some value := bodyInfo.value? then\n                let (e, _) := instantiateMVarsCore ci.mctx value\n                modify fun s => { s with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/UnusedVariables.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Linter/UnusedVariables.lean",
+    "definition_name": "References"
+  }
+}

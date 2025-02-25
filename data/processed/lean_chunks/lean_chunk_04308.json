@@ -1,0 +1,10 @@
+{
+  "content": "theorem succ_sub_one (n) : succ n - 1 = n := rfl\nprotected theorem one_add_sub_one (n : Nat) : (1 + n) - 1 = n := Nat.add_sub_cancel_left 1 _\nprotected theorem sub_sub_self {n m : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "succ_sub_one",
+    "has_proof": false
+  }
+}

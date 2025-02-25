@@ -1,0 +1,9 @@
+{
+  "content": "structure RpcEncodablePacket where\n      $[($fieldIds : $fieldTys)]*\n      deriving FromJson, ToJson\n    variable $encInstBinders* in\n    instance : RpcEncodable (@$(mkCIdent indVal.name) $paramIds*) :=\n      { rpcEncode := enc, rpcDecode := dec }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_name": "RpcEncodablePacket"
+  }
+}

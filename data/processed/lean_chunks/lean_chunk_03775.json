@@ -1,0 +1,10 @@
+{
+  "content": "theorem getD_eq_getD_getElem? (xs : Array \u03b1) (i d) : xs.getD i d = xs[i]?.getD d := by\n  simp only [getD]; split <;> simp [getD_getElem?, *]\n@[deprecated getD_eq_getD_getElem? (since := \"2025-02-12\")] abbrev getD_eq_get? := @getD_eq_getD_getElem?\ntheorem getElem!_eq_getD [Inhabited \u03b1] (xs : Array \u03b1) : xs[i]! = xs.getD i default := by\n  rfl\nset_option linter.deprecated false in\n@[deprecated getElem!_eq_getD (since := \"2025-02-12\")]\ntheorem get!_eq_getD [Inhabited \u03b1] (xs : Array \u03b1) : xs.get! n = xs.getD n default := rfl\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]!` instead of `a.get! i`.\" (since := \"2025-02-12\")]\ntheorem get!_eq_getD_getElem? [Inhabited \u03b1] (xs : Array \u03b1) (i : Nat) :\n    xs.get! i = xs[i]?.getD default := by\n  by_cases p : i < xs.size <;>\n  simp [get!, getElem!_eq_getD, getD_eq_getD_getElem?, getD_getElem?, p]\nset_option linter.deprecated false in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "getD_eq_getD_getElem",
+    "has_proof": true
+  }
+}

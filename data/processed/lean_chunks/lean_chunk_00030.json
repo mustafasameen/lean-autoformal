@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (a b c : Nat) (h\u2081 : a = b) (h\u2082 : b = c) : a + b = 0 + c + b :=\n  calc  a + b  = b + b     := by rw [h\u2081]\n        _      = 0 + c + b := rfl\ntheorem ex4 (p : Nat \u2192 Prop) (a b : Nat) (h\u2081 : p a) (h\u2082 : p b) : p c :=\n  calc  p a := h\u2081\n        _   := h\u2082\ninfix:50 \" \u2245 \"  => HEq\ninstance {\u03b1 \u03b2 \u03b3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/calcErrors.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/calcErrors.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "definition to always be specialized\"\n    getParam := fun declName stx => do\n      let args := stx[1].getArgs\n      elabSpecArgs declName args |>.run'\n  }\ndef getSpecializationArgs? (env : Environment) (declName : Name) : Option (Array Nat) :=\n  specializeAttr.getParam? env declName\ndef hasSpecializeAttribute (env : Environment) (declName : Name) : Bool :=\n  getSpecializationArgs? env declName |>.isSome\ndef hasNospecializeAttribute (env : Environment) (declName : Name) : Bool :=\n  nospecializeAttr.hasTag env declName",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/Specialize.lean",
+    "definition_type": "definition",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/Specialize.lean",
+    "definition_name": "to"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance uprodSetoid (\u03b1 : Type u) : Setoid (\u03b1 \u00d7 \u03b1) where\n   r     := eqv\n   iseqv := is_equivalence\ndef UProd (\u03b1 : Type u) : Type u :=\n  Quotient (uprodSetoid \u03b1)\nnamespace UProd\n@[noinline] def myId := @id\ndef mk' {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/716.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/716.lean",
+    "definition_name": "uprodSetoid"
+  }
+}

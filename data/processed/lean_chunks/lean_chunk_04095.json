@@ -1,0 +1,10 @@
+{
+  "content": "theorem signExtend_eq_setWidth_of_msb_false {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "signExtend_eq_setWidth_of_msb_false",
+    "has_proof": false
+  }
+}

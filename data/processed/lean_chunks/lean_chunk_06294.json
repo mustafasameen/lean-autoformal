@@ -1,0 +1,9 @@
+{
+  "content": "structure Iterator (\u03b1 : Type) where\ndef ofList (l : List \u03b1) : MetaM (Meta.Iterator \u03b1) := do\n  let s \u2190 saveState\n  let ref \u2190 IO.mkRef l\n  let next := do\n    restoreState s\n    match \u2190 ref.get with\n    | [] =>\n      pure none\n    | r :: l =>\n      ref.set l\n      pure <| some (r, \u2190saveState)\n  pure { next }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Iterator.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Iterator.lean",
+    "definition_name": "Iterator"
+  }
+}

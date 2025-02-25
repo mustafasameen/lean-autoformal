@@ -1,0 +1,9 @@
+{
+  "content": "beq := beq'\nprivate partial def hash' : Json \u2192 UInt64\n  | null   => 11\n  | bool b => mixHash 13 <| hash b\n  | num n  => mixHash 17 <| hash n\n  | str s  => mixHash 19 <| hash s\n  | arr elems =>\n    mixHash 23 <| elems.foldl (init := 7) fun r a => mixHash r (hash' a)\n  | obj kvPairs =>\n    mixHash 29 <| kvPairs.fold (init := 7) fun r k v => mixHash r <| mixHash (hash k) (hash' v)\ninstance : Hashable Json where\n  hash := hash'\ndef mkObj (o : List (String \u00d7 Json)) : Json :=\n  obj <| Id.run do\n    let mut kvPairs := RBNode.leaf\n    for \u27e8k, v\u27e9 in o do\n      kvPairs := kvPairs.insert compare k v\n    kvPairs\ninstance : Coe Nat Json := \u27e8fun n => Json.num n\u27e9\ninstance : Coe Int Json := \u27e8fun n => Json.num n\u27e9\ninstance : Coe String Json := \u27e8Json.str\u27e9\ninstance : Coe Bool Json := \u27e8Json.bool\u27e9\ninstance : OfNat Json n := \u27e8Json.num n\u27e9\ndef isNull : Json -> Bool\n  | null => true\n  | _    => false\ndef getObj? : Json \u2192 Except String (RBNode String (fun _ => Json))\n  | obj kvs => return kvs",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_name": "Json"
+  }
+}

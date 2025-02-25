@@ -1,0 +1,9 @@
+{
+  "content": "forallBoundedTelescope indVal.type indVal.numParams fun xs _ => do\n    let mut binders := #[]\n    for h : i in [:xs.size] do\n      try\n        let x := xs[i]\n        let c \u2190 mkAppM className #[x]\n        if (\u2190 isTypeCorrect c) then\n          let argName := argNames[i]!\n          let binder : Syntax \u2190 `(instBinderF| [ $(mkCIdent className):ident $(mkIdent argName):ident ])\n          binders := binders.push binder\n      catch _ =>\n        pure ()\n    return binders\nstructure Context where\n  typeInfos   : Array InductiveVal\n  auxFunNames : Array Name\n  usePartial  : Bool\ndef mkContext (fnPrefix : String) (typeName : Name) : TermElabM Context := do\n  let indVal \u2190 getConstInfoInduct typeName\n  let mut typeInfos := #[]\n  for typeName in indVal.all do\n    typeInfos := typeInfos.push (\u2190 getConstInfoInduct typeName)\n  let mut auxFunNames := #[]\n  for typeName in indVal.all do\n    match typeName.eraseMacroScopes with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Util.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

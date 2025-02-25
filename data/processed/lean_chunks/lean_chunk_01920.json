@@ -1,0 +1,10 @@
+{
+  "content": "theorem inv_mul_cancel_left {G : Group}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_name": "inv_mul_cancel_left",
+    "has_proof": false
+  }
+}

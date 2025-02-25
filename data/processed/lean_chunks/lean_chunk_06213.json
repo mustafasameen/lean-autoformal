@@ -1,0 +1,9 @@
+{
+  "content": "def TrieIndex := Nat\nprivate structure Trie (\u03b1 : Type) where\n  node ::\n    star : TrieIndex\n    pending : Array (LazyEntry \u03b1) := #[]\n  deriving Inhabited\ninstance : EmptyCollection (Trie \u03b1) := \u27e8.node #[] 0 {} #[]\u27e9\nstructure LazyDiscrTree (\u03b1 : Type) where\n  roots : Std.HashMap LazyDiscrTree.Key LazyDiscrTree.TrieIndex := {}\nnamespace LazyDiscrTree\nopen Lean Elab Meta\ninstance : Inhabited (LazyDiscrTree \u03b1) where\n  default := {}\nopen Lean.Meta.DiscrTree (mkNoindexAnnotation hasNoindexAnnotation reduceDT)\nprivate def pushArgs (root : Bool) (todo : Array Expr) (e : Expr) :\n    MetaM (Key \u00d7 Array Expr) := do\n  if hasNoindexAnnotation e then\n    return (.star, todo)\n  else\n    let e \u2190 reduceDT e root\n    let fn := e.getAppFn\n    let push (k : Key) (nargs : Nat) (todo : Array Expr) : MetaM (Key \u00d7 Array Expr) := do\n      let info \u2190 getFunInfoNArgs fn nargs\n      let todo \u2190 MatchClone.pushArgsAux info.paramInfo (nargs-1) e todo\n      return (k, todo)\n    match fn with\n    | .lit v     =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/LazyDiscrTree.lean",
+    "definition_name": "TrieIndex"
+  }
+}

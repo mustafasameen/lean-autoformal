@@ -1,0 +1,9 @@
+{
+  "content": "structure Group extends Monoid where\n  inv : \u03b1 \u2192 \u03b1\n  mul_left_inv (a : \u03b1) : (inv a) * a = one\ninstance : CoeSort Group (Type u) where\n  coe s := s.\u03b1\nabbrev inv {G : Group}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/balg.lean",
+    "definition_name": "Group"
+  }
+}

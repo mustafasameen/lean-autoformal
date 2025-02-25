@@ -1,0 +1,10 @@
+{
+  "content": "theorem rec_eq_recCompiled : @Nat.rec = @Nat.recCompiled :=\n  funext fun _ => funext fun _ => funext fun succ => funext fun t =>\n    Nat.recOn t rfl (fun n ih => congrArg (succ n) ih)\n@[elab_as_elim, induction_eliminator]\nprotected abbrev recAux {motive : Nat \u2192 Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Basic.lean",
+    "definition_name": "rec_eq_recCompiled",
+    "has_proof": false
+  }
+}

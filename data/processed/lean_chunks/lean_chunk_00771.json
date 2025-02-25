@@ -1,0 +1,10 @@
+{
+  "content": "theorem transportStruct_whiskerLeft (e : C \u224c D) (X x x_1 : D) (f : x \u27f6 x_1) :\n  (transportStruct e).whiskerLeft X f = e.functor.map (e.inverse.obj X \u25c1 e.inverse.map f) := rfl\n@[simp] theorem transportStruct_rightUnitor (e : C \u224c D) (X : D) :\n  (transportStruct e).rightUnitor X =\n    e.functor.mapIso ((Iso.refl _ \u2297 (e.unitIso.app _).symm) \u226a\u226b \u03c1_ (e.inverse.obj X)) \u226a\u226b\n      e.counitIso.app _ := rfl\ndef transport (e : C \u224c D) : MonoidalCategory.{v\u2082}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "transportStruct_whiskerLeft",
+    "has_proof": false
+  }
+}

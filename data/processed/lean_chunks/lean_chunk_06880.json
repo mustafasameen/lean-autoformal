@@ -1,0 +1,9 @@
+{
+  "content": "structure Precheck.Context where\n  quotLCtx : NameSet\nabbrev PrecheckM := ReaderT Precheck.Context TermElabM\nabbrev Precheck  := Syntax \u2192 PrecheckM Unit\nprotected def withNewLocal (l : Name) (x : PrecheckM \u03b1) : PrecheckM \u03b1 :=\n  withReader (fun ctx => { ctx with quotLCtx := ctx.quotLCtx.insert l }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation/Precheck.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Quotation/Precheck.lean",
+    "definition_name": "Precheck"
+  }
+}

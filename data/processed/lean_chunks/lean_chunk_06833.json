@@ -1,0 +1,9 @@
+{
+  "content": "inductive CaseSplitStatus where\n  | resolved\n  | notReady\n  | ready (numCases : Nat) (isRec := false)\n  deriving Inhabited, BEq\nprivate def checkDisjunctStatus (e a b : Expr) : GoalM CaseSplitStatus := do\n  if (\u2190 isEqTrue e) then\n    if (\u2190 isEqTrue a <||> isEqTrue b) then\n      return .resolved\n    else\n      return .ready 2\n  else if (\u2190 isEqFalse e) then\n    return .resolved\n  else\n    return .notReady\nprivate def checkConjunctStatus (e a b : Expr) : GoalM CaseSplitStatus := do\n  if (\u2190 isEqTrue e) then\n    return .resolved\n  else if (\u2190 isEqFalse e) then\n    if (\u2190 isEqFalse a <||> isEqFalse b) then\n      return .resolved\n    else\n      return .ready 2\n  else\n    return .notReady\nprivate def checkIffStatus (e a b : Expr) : GoalM CaseSplitStatus := do\n  if (\u2190 isEqTrue e) then\n    if (\u2190 (isEqTrue a <&&> isEqTrue b) <||> (isEqFalse a <&&> isEqFalse b)) then\n      return .resolved\n    else\n      return .ready 2\n  else if (\u2190 isEqFalse e) then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Split.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Split.lean",
+    "definition_name": "CaseSplitStatus"
+  }
+}

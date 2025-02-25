@@ -1,0 +1,9 @@
+{
+  "content": "match type.headBeta with\n  | .forallE _ _ b _ => isArrowClass? b\n  | _ => isClass? type\npartial def getArrowArity (e : Expr) :=\n  match e.headBeta with\n  | .forallE _ _ b _ => getArrowArity b + 1\n  | _ => 0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Types.lean",
+    "definition_name": "erasedExpr"
+  }
+}

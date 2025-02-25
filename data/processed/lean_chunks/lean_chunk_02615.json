@@ -1,0 +1,10 @@
+{
+  "content": "theorem forall_congr' (h : \u2200 a, p a \u2194 q a) : (\u2200 a, p a) \u2194 \u2200 a, q a :=\n  \u27e8fun H a => (h a).1 (H a), fun H a => (h a).2 (H a)\u27e9\ntheorem exists_congr (h : \u2200 a, p a \u2194 q a) : (\u2203 a, p a) \u2194 \u2203 a, q a :=\n  \u27e8Exists.imp fun x => (h x).1, Exists.imp fun x => (h x).2\u27e9\nvariable {\u03b2 : \u03b1 \u2192 Sort _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "forall_congr",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure MyState : Type := (ts : List Term)\ndef emit (t : Term) : StateM MyState Unit := modify (\u03bb ms => \u27e8t::ms.ts\u27e9)\npartial def foo : MyState -> Term -> Term -> List Term\n| ms\u2080, t, u =>\n  let stateT : StateM MyState Unit := do {\n    match t with\n    | const _  => pure ()\n    | app _   => emit (const 1);\n    match t, u with\n    | app _,  app _   => emit (app [])\n    | _, _ => pure () ;\n    match t, u with\n    | app _,  app _   => emit (app [])\n    | _, _ => emit (const 2)\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/float_cases_bug.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/float_cases_bug.lean",
+    "definition_name": "MyState"
+  }
+}

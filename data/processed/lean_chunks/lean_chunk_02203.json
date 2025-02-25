@@ -1,0 +1,9 @@
+{
+  "content": "class PropClass (n : Nat) : Prop where\nopaque P1 (n : Nat) [PropClass n] : Prop\nclass TypeClass (n : Nat) : Type where\nopaque P2 (n : Nat) [TypeClass n] : Prop\n#guard_msgs in\nrun_meta\n  #[``foo, ``P1, ``P2].forM fun n => do\n    let e \u2190 mkConstWithLevelParams n\n    let some thm \u2190 mkCongrSimp? e (subsingletonInstImplicitRhs := false) | throwError \"no thm\"\n    let kinds \u2190 getCongrSimpKinds e (\u2190 getFunInfo e)\n    logInfo m!\"thm for {e}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue4394.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue4394.lean",
+    "definition_name": "PropClass"
+  }
+}

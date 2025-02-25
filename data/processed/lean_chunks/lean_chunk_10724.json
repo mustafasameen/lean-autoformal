@@ -1,0 +1,9 @@
+{
+  "content": "let ofVerE \u2190 elabTermEnsuringType (\u2190 ``(decodeVersion s!$v)) ofVerT?\n  let resT \u2190 mkAppM ``Except #[mkConst ``String, mkConst ``Expr]\n  let resE \u2190 mkAppM ``toResultExpr #[ofVerE]\n  match (\u2190 unsafe evalExpr (Except String Expr) resT resE) with\n  | .ok ver => return ver\n  | .error e => throwError e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Version.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Version.lean",
+    "definition_name": "ToolchainVer"
+  }
+}

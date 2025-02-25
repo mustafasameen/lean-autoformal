@@ -1,0 +1,10 @@
+{
+  "content": "theorem guard_eq_some [DecidablePred p] : guard p a = some b \u2194 a = b \u2227 p a :=\n  if h : p a then by simp [Option.guard, h] else by simp [Option.guard, h]\n@[simp] theorem guard_isSome [DecidablePred p] : (Option.guard p a).isSome \u2194 p a :=\n  if h : p a then by simp [Option.guard, h] else by simp [Option.guard, h]\n@[simp] theorem guard_eq_none [DecidablePred p] : Option.guard p a = none \u2194 \u00ac p a :=\n  if h : p a then by simp [Option.guard, h] else by simp [Option.guard, h]\n@[simp] theorem guard_pos [DecidablePred p] (h : p a) : Option.guard p a = some a := by\n  simp [Option.guard, h]\n@[congr] theorem guard_congr {f g : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "guard_eq_some",
+    "has_proof": true
+  }
+}

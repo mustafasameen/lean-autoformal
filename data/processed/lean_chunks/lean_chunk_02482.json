@@ -1,0 +1,9 @@
+{
+  "content": "structure NonScalar where\nval : Nat\ninductive PNonScalar : Type u where\n@[extern \"lean_strict_or\"] def strictOr  (b\u2081 b\u2082 : Bool) := b\u2081 || b\u2082\n@[extern \"lean_strict_and\"] def strictAnd (b\u2081 b\u2082 : Bool) := b\u2081 && b\u2082\n@[inline] def bne {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Core.lean",
+    "definition_name": "NonScalar"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "class Run (\u03b1: Type) where\n  run: \u03b1 \u2192 Nat\ninstance: Run T := \u27e8runT\u27e9\ndef x := T.mk \"PrettyLong\" (some <| .mk \"PrettyLong\" none)\ntheorem equivalent: Run.run x = Run.run x := by\n  apply Eq.refl (runT x)\nexample : Run.run x = Run.run x := by\n  simp (config := { decide := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyUnfoldingPerfIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/lazyUnfoldingPerfIssue.lean",
+    "definition_name": "Run",
+    "has_proof": true
+  }
+}

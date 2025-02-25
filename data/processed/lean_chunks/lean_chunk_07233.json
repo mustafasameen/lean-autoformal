@@ -1,0 +1,9 @@
+{
+  "content": "instr.setBody b\npartial def elimDead (assignment : Assignment) (d : Decl) : Decl :=\n  match d with\n  | .fdecl (body := b) .. => d.updateBody! <| elimDeadAux assignment b\n  | other => other\nend UnreachableBranches\nopen UnreachableBranches\ndef elimDeadBranches (decls : Array Decl) : CompilerM (Array Decl) := do\n  let s \u2190 get\n  let env := s.env\n  let assignments : Array Assignment := decls.map fun _ => {}\n  let funVals := mkPArray decls.size Value.bot\n  let ctx : InterpContext := { decls := decls, env := env }\n  let s : InterpState := { assignments := assignments, funVals := funVals }\n  let (_, s) := (inferMain ctx).run s\n  let funVals := s.funVals\n  let assignments := s.assignments\n  modify fun s =>\n    let env := decls.size.fold (init := s.env) fun i _ env =>\n      addFunctionSummary env decls[i].name funVals[i]!\n    { s with env := env }\n  return decls.mapIdx fun i decl => elimDead assignments[i]! decl\nend Lean.IR",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_name": "truncateMaxDepth"
+  }
+}

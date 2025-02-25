@@ -1,0 +1,10 @@
+{
+  "content": "theorem bind_pure [Monad m] [LawfulMonad m] (x : m \u03b1) : x >>= pure = x := by\n  show x >>= (fun a => pure (id a)) = x\n  rw [bind_pure_comp, id_map]\ntheorem map_eq_pure_bind [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 \u03b2) (x : m \u03b1) : f <$> x = x >>= fun a => pure (f a) := by\n  rw [\u2190 bind_pure_comp]\ntheorem seq_eq_bind_map {\u03b1 \u03b2 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Control/Lawful/Basic.lean",
+    "definition_name": "bind_pure",
+    "has_proof": true
+  }
+}

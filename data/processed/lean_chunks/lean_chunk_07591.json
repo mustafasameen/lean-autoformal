@@ -1,0 +1,10 @@
+{
+  "content": "theorem State.sat_def (assign : CNFVar aig \u2192 Bool) (state : State aig) :\n    state.Sat assign \u2194 state.cnf.Sat assign := by\n  rfl\ntheorem State.unsat_def (state : State aig) :\n    state.Unsat \u2194 state.cnf.Unsat := by\n  rfl\n@[simp]\ntheorem State.eval_eq : State.eval assign state = state.cnf.eval assign := by simp [State.eval]\n@[simp]\ntheorem State.sat_iff : State.Sat assign state \u2194 state.cnf.Sat assign := by simp [State.sat_def]\n@[simp]\ntheorem State.unsat_iff : State.Unsat state \u2194 state.cnf.Unsat := by simp [State.unsat_def]\nend toCNF\ndef toCNF (entry : Entrypoint Nat) : CNF Nat :=\n  let \u27e8state, _\u27e9 := go entry.aig entry.ref.gate entry.ref.hgate (toCNF.State.empty entry.aig)\n  let cnf : CNF (CNFVar entry.aig) := [(.inr \u27e8entry.ref.gate, entry.ref.hgate\u27e9, true)] :: state.cnf\n  cnf.relabel inj\nwhere\n  inj {aig : AIG Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "State",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Foo (\u03b1 : Type) (\u03b2 : Type)  where\n  val : Nat\n  a   : \u03b1\n  b   : \u03b2\n#guard_msgs in #eval valOf (s := { val := 10, a := true, b := false : Foo Bool Bool }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/missingExplicitWithForwardNamedDep.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/missingExplicitWithForwardNamedDep.lean",
+    "definition_name": "Foo"
+  }
+}

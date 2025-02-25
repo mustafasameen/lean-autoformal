@@ -1,0 +1,9 @@
+{
+  "content": "class AddGroup (A : Type u) extends Zero A where\n  gsmul : Int \u2192 A \u2192 A\n  gsmul_zero' : \u2200 a, gsmul 0 a = 0\nclass Ring (R : Type u) extends Zero R, AddGroup R\n#print Ring.mk\n#check {\n  zero := 0\n  gsmul := fun x n => x.toNat * n\n  gsmul_zero' := fun a => Nat.zero_mul _\n  : Ring Nat\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond9.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/diamond9.lean",
+    "definition_name": "AddGroup"
+  }
+}

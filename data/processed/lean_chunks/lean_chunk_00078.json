@@ -1,0 +1,10 @@
+{
+  "content": "variable (bar' : (x : Nat) \u2192 Nat)\nvariable {\u03b1 \u03b2} [inst : ToString \u03b1]\nend\n@[specialize]\ndef specializeDef (x : Nat) : Nat := 3\n@[implemented_by specializeDef]\ndef implementedByDef (x : Nat) : Nat :=\n  let y := 3\n  5\n@[extern \"test\"]\ndef externDef (x : Nat) : Nat :=\n  let y := 3\n  5\n@[extern \"test\"]\nopaque externConst (x : Nat) : Nat :=\n  let y := 3\n  5\nsection\nvariable {\u03b1 : Type}\nmacro \"useArg \" name:declId arg:ident : command => `(def $name ($arg : \u03b1) : \u03b1 := $arg)\nuseArg usedMacroVariable a\nmacro (name := doNotUse) \"doNotUseArg \" name:declId arg:ident : command =>\n  `(def $name ($arg : \u03b1) : Nat := 3)\ndoNotUseArg unusedMacroVariable b\n@[unused_variables_ignore_fn]\ndef ignoreDoNotUse : Lean.Linter.IgnoreFunction := fun _ stack _ => stack.matches [``doNotUse]\ndoNotUseArg unusedMacroVariable2 b\nend\nmacro \"ignoreArg \" id:declId sig:declSig : command => `(opaque $id $sig)\nignoreArg ignoredMacroVariable (x : UInt32) : UInt32\ntheorem not_eq_zero_of_lt (h : b < a) : a \u2260 0 := by\n  cases a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/linterUnusedVariables.lean",
+    "definition_name": "autoImplicitVariable",
+    "has_proof": true
+  }
+}

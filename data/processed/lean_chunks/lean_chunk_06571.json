@@ -1,0 +1,9 @@
+{
+  "content": "exist currently and likely it could at best be approximated by e.g. \"furthest `tokenFn` parse\". Thus\nwe remain at \"go up two commands\" at this point.\n-/\nset_option linter.missingDocs true\nnamespace Lean.Language.Lean\nopen Lean.Elab Command\nopen Lean.Parser\n  firstDiffPos? : Option String.Pos\nabbrev LeanProcessingM := LeanProcessingT BaseIO\ninstance : MonadLift LeanProcessingM (LeanProcessingT IO) where\n  monadLift := fun act ctx => act ctx\ninstance : MonadLift (ProcessingT m) (LeanProcessingT m) where\n  monadLift := fun act ctx => act ctx.toProcessingContext\ndef LeanProcessingM.run (act : LeanProcessingM \u03b1) (oldInputCtx? : Option InputContext) :\n    ProcessingM \u03b1 := do\n  let firstDiffPos? := oldInputCtx?.map (\u00b7.input.firstDiffPos (\u2190 read).input)\n  ReaderT.adapt ({ \u00b7 with firstDiffPos? }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Lean.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Lean.lean",
+    "definition_name": "and"
+  }
+}

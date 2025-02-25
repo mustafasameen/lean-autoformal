@@ -1,0 +1,10 @@
+{
+  "content": "skip_above_eq n m lem\ntheorem skip_lt: (k j: Nat) \u2192  skip k j < j + 2 :=\n    fun k j =>\n      if c : j < k then\n        let eqn := skip_below_eq k j c\n        by\n          rw [eqn]\n          apply Nat.le_step\n          apply Nat.le_refl\n          done\n      else\n        let eqn := skip_not_below_eq k j c\n        by\n          rw [eqn]\n          apply Nat.le_refl\n          done\ntheorem skip_le_succ {n k j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/smartUnfoldingBug.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/smartUnfoldingBug.lean",
+    "definition_name": "ProvedSkip",
+    "has_proof": true
+  }
+}

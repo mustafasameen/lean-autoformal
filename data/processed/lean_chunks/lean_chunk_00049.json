@@ -1,0 +1,9 @@
+{
+  "content": "inductive Foo : Bool \u2192 Type\n  | bar : Foo false\n  | baz : Foo false\ndef h2 {b : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match2.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match2.lean",
+    "definition_name": "Foo"
+  }
+}

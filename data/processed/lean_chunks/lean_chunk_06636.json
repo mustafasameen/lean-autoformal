@@ -1,0 +1,9 @@
+{
+  "content": "def tacticSeq := leading_parser\n  tacticSeqBracketed <|> tacticSeq1Indented\n@[builtin_doc] def tacticSeqIndentGt := withAntiquot (mkAntiquot \"tacticSeq\" ``tacticSeq) <| node ``tacticSeq <|\n  tacticSeqBracketed <|> (checkColGt \"indented tactic sequence\" >> tacticSeq1Indented)\ndef byTactic' := leading_parser\n  \"by \" >> Tactic.tacticSeqIndentGt\ndef optSemicolon (p : Parser) : Parser :=\n  ppDedent $ semicolonOrLinebreak >> ppLine >> p\n@[builtin_term_parser] def ident :=\n  checkPrec maxPrec >> Parser.ident\n@[builtin_term_parser] def num : Parser :=\n  checkPrec maxPrec >> numLit\n@[builtin_term_parser] def scientific : Parser :=\n  checkPrec maxPrec >> scientificLit\n@[builtin_term_parser] def str : Parser :=\n  checkPrec maxPrec >> strLit\n@[builtin_term_parser] def char : Parser :=\n  checkPrec maxPrec >> charLit\n@[builtin_term_parser] def sort := leading_parser\n  \"Sort\" >> optional (checkWsBefore \"\" >> checkPrec leadPrec >> checkColGt >> levelParser maxPrec)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

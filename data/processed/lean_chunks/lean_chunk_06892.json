@@ -1,0 +1,9 @@
+{
+  "content": "catch _ =>\n        return none\n    let (result?, s) \u2190 liftM (m := MetaM) <| Term.TermElabM.run runTac? ctx s\n    ref.set s\n    return result?\n  return (ref, disch)\ninductive Simp.DischargeWrapper where\n  | default\n  | custom (ref : IO.Ref Term.State) (discharge : Simp.Discharge)\ndef Simp.DischargeWrapper.with (w : Simp.DischargeWrapper) (x : Option Simp.Discharge \u2192 TacticM \u03b1) : TacticM \u03b1 := do\n  match w with\n  | default => x none\n  | custom ref d =>\n    ref.set (\u2190 getThe Term.State)\n    try\n      x d\n    finally\n      set (\u2190 ref.get)\ndef elabSimpConfig (optConfig : Syntax) (kind : SimpKind) : TacticM Meta.Simp.Config := do\n  match kind with\n  | .simp    => elabSimpConfigCore optConfig\n  | .simpAll => return (\u2190 elabSimpConfigCtxCore optConfig).toConfig\n  | .dsimp   => return { (\u2190 elabDSimpConfigCore optConfig) with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "SimpKind"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "match (\u2190 trySynthInstance instType) with\n          | LOption.some e =>\n            usedInstIdxs := collectUsedLocalsInsts usedInstIdxs localInst2Index e\n          | _ =>\n            trace[Elab.Deriving.inhabited] \"failed to generate instance using '{ctorName}' {if addHypotheses then \"(assuming parameters are inhabited)\" else \"\"} because of field with type{indentExpr (\u2190 inferType x)}\"\n            ok := false\n            break\n        if !ok then\n          return none\n        else\n          trace[Elab.Deriving.inhabited] \"inhabited instance using '{ctorName}' {if addHypotheses then \"(assuming parameters are inhabited)\" else \"\"} {usedInstIdxs.toList}\"\n          let cmd \u2190 mkInstanceCmdWith usedInstIdxs\n          trace[Elab.Deriving.inhabited] \"\\n{cmd}\"\n          return some cmd\nprivate def mkInhabitedInstance (declName : Name) : CommandElabM Unit := do\n  let indVal \u2190 getConstInfoInduct declName\n  let doIt (addHypotheses : Bool) : CommandElabM Bool := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Inhabited.lean",
+    "definition_name": "implicitBinderF"
+  }
+}

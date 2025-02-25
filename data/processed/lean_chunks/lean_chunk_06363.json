@@ -1,0 +1,9 @@
+{
+  "content": "structure BodyProcessedSnapshot extends Language.Snapshot where\n  value : Expr\nderiving Nonempty\ninstance : Language.ToSnapshotTree BodyProcessedSnapshot where\n  toSnapshotTree s := \u27e8s.toSnapshot, #[]\u27e9\n  view : DefViewElabHeaderData\n  tacStx? : Option Syntax\n  bodyStx : Syntax\nstructure DefParsed where\n  fullHeaderRef : Syntax\nstructure DefsParsedSnapshot extends Language.Snapshot where\n  headerRef     : Syntax\n  modifiers     : Modifiers\n  declId        : Syntax\n  binders       : Syntax\n  type?         : Option Syntax\n  value         : Syntax\n  headerSnap?   : Option (Language.SnapshotBundle (Option HeaderProcessedSnapshot)) := none\n  deriving?     : Option (Array Syntax) := none\n  deriving Inhabited\ndef DefView.isInstance (view : DefView) : Bool :=\n  view.modifiers.attrs.any fun attr => attr.name == `instance\nnamespace Command\nopen Meta\ndef mkDefViewOfAbbrev (modifiers : Modifiers) (stx : Syntax) : DefView :=\n  let (binders, type) := expandOptDeclSig stx[2]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/DefView.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/DefView.lean",
+    "definition_name": "BodyProcessedSnapshot"
+  }
+}

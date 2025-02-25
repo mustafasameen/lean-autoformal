@@ -1,0 +1,10 @@
+{
+  "content": "theorem erase_filter [LawfulBEq \u03b1] (f : \u03b1 \u2192 Bool) (xs : Array \u03b1) :\n    (filter f xs).erase a = filter f (xs.erase a) := by\n  rcases xs with \u27e8xs\u27e9\n  simpa using List.erase_filter f xs\ntheorem erase_append_left [LawfulBEq \u03b1] {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Erase.lean",
+    "definition_name": "erase_filter",
+    "has_proof": true
+  }
+}

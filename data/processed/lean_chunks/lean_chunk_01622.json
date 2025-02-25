@@ -1,0 +1,9 @@
+{
+  "content": "#guard_msgs in\n#eval time\u2084.format \"K KK KKK KKKK KKKKKK\"\n#guard_msgs in\n#eval time\u2084.format \"k kk kkk kkkk kkkkkk\"\n#guard_msgs in\n#eval time\u2084.format \"H HH HHH HHHH HHHHH\"\n#guard_msgs in\n#eval time\u2084.format \"m mm mmm mmmm mmmmm\"\n#guard_msgs in\n#eval time\u2084.format \"s ss sss ssss sssss\"\n#guard_msgs in\n#eval time\u2084.format \"S SS SSS SSSS SSSSS\"\n#guard_msgs in\n#eval time\u2084.format \"S SS SSS SSSS SSSSSSSSS\"\n#guard_msgs in\n#eval time\u2084.format \"A AA AAA AAAA AAAAAAAAA\"\n#guard_msgs in\n#eval time\u2084.format \"n nn nnn nnnn nnnnnnnnn\"\n#guard_msgs in\n#eval time\u2084.format \"N NN NNN NNNN NNNNNNNNN\"\n#guard_msgs in\n#eval date\u2084.format \"G GG GGG GGGG GGGGG\"\n#guard_msgs in\n#eval date\u2084.format \"yy yyyy yyyyyyyyy\"\n#guard_msgs in\n#eval date\u2084.format \"uu uuuu uuuuuuuuu\"\n#guard_msgs in\n#eval date\u2084.format \"D DD DDD\"\n#guard_msgs in\n#eval date\u2084.format \"M MM MMM MMMMM\"\n#guard_msgs in\n#eval date\u2084.format \"d dd ddd dddd ddddd\"\n#guard_msgs in\n#eval date\u2084.format \"M MM MMM MMMM MMMMM\"\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeFormats.lean",
+    "definition_name": "date\u2081"
+  }
+}

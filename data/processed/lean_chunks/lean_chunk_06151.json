@@ -1,0 +1,9 @@
+{
+  "content": "return\n  let traces \u2190 getResetTraces\n  if traces.isEmpty then\n    return\n  let mut pos2traces : Std.HashMap (String.Pos \u00d7 String.Pos) (Array MessageData) := \u2205\n  for traceElem in traces do\n    let ref := replaceRef traceElem.ref (\u2190 getRef)\n    let pos := ref.getPos?.getD 0\n    let endPos := ref.getTailPos?.getD pos\n    pos2traces := pos2traces.insert (pos, endPos) <| pos2traces.getD (pos, endPos) #[] |>.push traceElem.msg\n  let traces' := pos2traces.toArray.qsort fun ((a, _), _) ((b, _), _) => a < b\n  for ((pos, endPos), traceMsg) in traces' do\n    let data := .tagged `trace <| .joinSep traceMsg.toList \"\\n\"\n    logMessage <| Elab.mkMessageCore (\u2190 getFileName) (\u2190 getFileMap) data .information pos endPos\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Trace.lean",
+    "definition_name": "bombEmoji"
+  }
+}

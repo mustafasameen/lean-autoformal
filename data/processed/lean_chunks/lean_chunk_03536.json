@@ -1,0 +1,10 @@
+{
+  "content": "theorem cast_mk (h : n = m) (i : Nat) (hn : i < n) : Fin.cast h \u27e8i, hn\u27e9 = \u27e8i, h \u25b8 hn\u27e9 := rfl\n@[simp] theorem cast_refl (n : Nat) (h : n = n) : Fin.cast h = id := by\n  ext\n  simp\n@[simp] theorem cast_trans {k : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "cast_mk",
+    "has_proof": true
+  }
+}

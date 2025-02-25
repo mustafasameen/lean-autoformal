@@ -1,0 +1,9 @@
+{
+  "content": "| .lam _ t b _ =>\n      let d := (max t.data.approxDepth.toUInt32 b.data.approxDepth.toUInt32) + 1\n      mkDataForBinder (mixHash d.toUInt64 <| mixHash t.data.hash b.data.hash)\n        (max t.data.looseBVarRange.toNat (b.data.looseBVarRange.toNat - 1))\n        d\n        (t.data.hasFVar || b.data.hasFVar)\n        (t.data.hasExprMVar || b.data.hasExprMVar)\n        (t.data.hasLevelMVar || b.data.hasLevelMVar)\n        (t.data.hasLevelParam || b.data.hasLevelParam)\n    | .forallE _ t b _ =>\n      let d := (max t.data.approxDepth.toUInt32 b.data.approxDepth.toUInt32) + 1\n      mkDataForBinder (mixHash d.toUInt64 <| mixHash t.data.hash b.data.hash)\n        (max t.data.looseBVarRange.toNat (b.data.looseBVarRange.toNat - 1))\n        d\n        (t.data.hasFVar || b.data.hasFVar)\n        (t.data.hasExprMVar || b.data.hasExprMVar)\n        (t.data.hasLevelMVar || b.data.hasLevelMVar)\n        (t.data.hasLevelParam || b.data.hasLevelParam)\n    | .letE _ t v b _ =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEmpty_eq_false_iff_exists_contains_eq_true [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.isEmpty = false \u2194 \u2203 a, m.contains a = true :=\n  HashMap.isEmpty_eq_false_iff_exists_contains_eq_true\ntheorem isEmpty_eq_false_iff_exists_mem [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.isEmpty = false \u2194 \u2203 a, a \u2208 m :=\n  HashMap.isEmpty_eq_false_iff_exists_mem\ntheorem isEmpty_iff_forall_contains [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.isEmpty = true \u2194 \u2200 a, m.contains a = false :=\n  HashMap.isEmpty_iff_forall_contains\ntheorem isEmpty_iff_forall_not_mem [EquivBEq \u03b1] [LawfulHashable \u03b1] :\n    m.isEmpty = true \u2194 \u2200 a, \u00aca \u2208 m :=\n  HashMap.isEmpty_iff_forall_not_mem\n@[simp] theorem insert_eq_insert {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Lemmas.lean",
+    "definition_name": "isEmpty_eq_false_iff_exists_contains_eq_true",
+    "has_proof": false
+  }
+}

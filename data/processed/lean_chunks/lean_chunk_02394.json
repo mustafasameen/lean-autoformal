@@ -1,0 +1,9 @@
+{
+  "content": "structure A (\u03b1 : Type) where\n  x : \u03b1\nstructure B (\u03b1 \u03b2 : Type) extends A \u03b1 where\n  y : \u03b2\n#guard_msgs in #check fun (\u03b1 \u03b2) (b : B \u03b1 \u03b2) => @b.toA.x\nstructure I where\n  f : {_ : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5406.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/5406.lean",
+    "definition_name": "A"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem HashSetBucket.size_update {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/HashSet.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/HashSet.lean",
+    "definition_name": "HashSetBucket",
+    "has_proof": false
+  }
+}

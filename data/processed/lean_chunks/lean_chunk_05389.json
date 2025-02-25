@@ -1,0 +1,10 @@
+{
+  "content": "exact \u27e8h, [], \u27e8xs, rfl\u27e9, by simp\u27e9\n      \u00b7 rintro \u27e8-, \u27e8as, \u27e8\u27e8bs, h\u2081\u27e9, h\u2082\u27e9\u27e9\u27e9\n        cases as with\n        | nil => simp_all\n        | cons a as =>\n          specialize h\u2082 a (mem_cons_self _ _)\n          simp only [cons_append] at h\u2081\n          obtain \u27e8rfl, -\u27e9 := h\u2081\n          simp_all\n    \u00b7 simp only [ih, Bool.not_eq_eq_eq_not, Bool.not_true, exists_and_right, and_congr_right_iff]\n      intro pb\n      constructor\n      \u00b7 rintro \u27e8as, \u27e8\u27e8bs, rfl\u27e9, h\u2081\u27e9\u27e9\n        refine \u27e8x :: as, \u27e8\u27e8bs, rfl\u27e9, ?_\u27e9\u27e9\n        intro a m\n        simp at m\n        obtain (rfl|m) := m\n        \u00b7 exact h\n        \u00b7 exact h\u2081 a m\n      \u00b7 rintro \u27e8as, \u27e8bs, h\u2081\u27e9, h\u2082\u27e9\n        cases as with\n        | nil => simp_all\n        | cons a as =>\n          refine \u27e8as, \u27e8\u27e8bs, ?_\u27e9, fun a m => h\u2082 a (mem_cons_of_mem _ m)\u27e9\u27e9\n          cases h\u2081\n          simp\n@[deprecated find?_eq_some_iff_append (since := \"2024-11-06\")]\nabbrev find?_eq_some := @find?_eq_some_iff_append\n@[simp]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

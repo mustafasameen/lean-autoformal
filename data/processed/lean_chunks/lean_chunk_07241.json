@@ -1,0 +1,9 @@
+{
+  "content": "| tobject,        tobject        => true\n  | struct n\u2081 tys\u2081, struct n\u2082 tys\u2082 => n\u2081 == n\u2082 && Array.isEqv tys\u2081 tys\u2082 beq\n  | union n\u2081 tys\u2081,  union n\u2082 tys\u2082  => n\u2081 == n\u2082 && Array.isEqv tys\u2081 tys\u2082 beq\n  | _,              _              => false\ninstance : BEq IRType := \u27e8beq\u27e9\ndef isScalar : IRType \u2192 Bool\n  | float    => true\n  | float32  => true\n  | uint8    => true\n  | uint16   => true\n  | uint32   => true\n  | uint64   => true\n  | usize    => true\n  | _        => false\ndef isObj : IRType \u2192 Bool\n  | object  => true\n  | tobject => true\n  | _       => false\ndef isIrrelevant : IRType \u2192 Bool\n  | irrelevant => true\n  | _ => false\ndef isStruct : IRType \u2192 Bool\n  | struct _ _ => true\n  | _ => false\ndef isUnion : IRType \u2192 Bool\n  | union _ _ => true\n  | _ => false\nend IRType\ninductive Arg where\n  | var (id : VarId)\n  | irrelevant\n  deriving Inhabited\nprotected def Arg.beq : Arg \u2192 Arg \u2192 Bool\n  | var x,      var y      => x == y\n  | irrelevant, irrelevant => true\n  | _,          _          => false",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/Basic.lean",
+    "definition_name": "VarId"
+  }
+}

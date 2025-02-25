@@ -1,0 +1,10 @@
+{
+  "content": "theorem range'_eq_append_iff : range' s n = xs ++ ys \u2194 \u2203 k, k \u2264 n \u2227 xs = range' s k \u2227 ys = range' (s + k) (n - k) := by\n  simp [\u2190 toList_inj, List.range'_eq_append_iff]\n@[simp] theorem find?_range'_eq_some {s n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_name": "range",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "lemma found for {indentExpr tgt}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Symm.lean",
+    "definition_type": "lemma",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Symm.lean",
+    "definition_name": "found",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure BinaryRefVec (aig : AIG \u03b1) (len : Nat) where\n  lhs : RefVec aig len\n  rhs : RefVec aig len\nnamespace BinaryRefVec\n@[inline]\ndef cast {aig1 aig2 : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVec.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVec.lean",
+    "definition_name": "BinaryRefVec"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class MulOneClass (M : Type u) extends Mul M, One M where\nclass MulAction (\u03b1 : Type u) (\u03b2 : Type v) [MulOneClass \u03b1] extends SMul \u03b1 \u03b2 where\n  protected one_smul : \u2200 b : \u03b2, (1 : \u03b1) \u2022 b = b\n  mul_smul : \u2200 (x y : \u03b1) (b : \u03b2), (x * y) \u2022 b = x \u2022 y \u2022 b\nend Mathlib.Algebra.Group.Action.Defs\nsection Mathlib.Algebra.GroupWithZero.Action.Defs\nclass DistribMulAction (M : Type u) (A : Type v) [MulOneClass M] [AddMonoid A] extends MulAction M A where\n  smul_zero : \u2200 a : M, a \u2022 (0 : A) = 0\n  smul_add : \u2200 (a : M) (x y : A), a \u2022 (x + y) = a \u2022 x + a \u2022 y\nexport DistribMulAction (smul_zero smul_add)\nend Mathlib.Algebra.GroupWithZero.Action.Defs\nsection Mathlib.Algebra.Ring.Defs\nclass Semiring (\u03b1 : Type u) extends AddMonoid \u03b1, MulOneClass \u03b1 where\nend Mathlib.Algebra.Ring.Defs\nsection Mathlib.Algebra.Module.Defs\nclass Module (R : Type u) (M : Type v) [Semiring R] [AddMonoid M] extends\n  DistribMulAction R M where\n  protected add_smul : \u2200 (r s : R) (x : M), (r + s) \u2022 x = r \u2022 x + s \u2022 x",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "MulOneClass"
+  }
+}

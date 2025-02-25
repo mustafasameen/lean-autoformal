@@ -1,0 +1,9 @@
+{
+  "content": "def emitCtorSetArgs (builder : LLVM.Builder llvmctx)\n    (z : VarId) (ys : Array Arg) : M llvmctx Unit := do\n  ys.size.forM fun i _ => do\n    let zv \u2190 emitLhsVal builder z\n    let (_yty, yv) \u2190 emitArgVal builder ys[i]\n    let iv \u2190 constIntUnsigned i\n    callLeanCtorSet builder zv iv yv\n    emitLhsSlotStore builder z zv\n    pure ()\ndef emitCtor (builder : LLVM.Builder llvmctx)\n    (z : VarId) (c : CtorInfo) (ys : Array Arg) : M llvmctx Unit := do\n  let (_llvmty, slot) \u2190 emitLhsSlot_ z\n  if c.size == 0 && c.usize == 0 && c.ssize == 0 then do\n    let v \u2190 callLeanBox builder (\u2190 constIntSizeT c.cidx) \"lean_box_outv\"\n    let _ \u2190 LLVM.buildStore builder v slot\n  else do\n    let v \u2190 emitAllocCtor builder c\n    let _ \u2190 LLVM.buildStore builder v slot\n    emitCtorSetArgs builder z ys\ndef emitInc (builder : LLVM.Builder llvmctx)\n    (x : VarId) (n : Nat) (checkRef? : Bool) : M llvmctx Unit := do\n  let xv \u2190 emitLhsVal builder x\n  if n != 1\n  then do\n     let nv \u2190 constIntSizeT n",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

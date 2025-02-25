@@ -1,0 +1,10 @@
+{
+  "content": "simp only [iota_eq_reverse_range']\n  rw [reverse_eq_append_iff]\n  rw [range'_eq_append_iff]\n  simp only [reverse_eq_iff]\n  constructor\n  \u00b7 rintro \u27e8k, h, rfl, rfl\u27e9\n    simp; omega\n  \u00b7 rintro \u27e8k, h, rfl, rfl\u27e9\n    exact \u27e8k, by simp; omega\u27e9\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\")]\ntheorem pairwise_gt_iota (n : Nat) : Pairwise (\u00b7 > \u00b7) (iota n) := by\n  simpa only [iota_eq_reverse_range', pairwise_reverse] using pairwise_lt_range' 1 n\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\")]\ntheorem nodup_iota (n : Nat) : Nodup (iota n) :=\n  (pairwise_gt_iota n).imp Nat.ne_of_gt\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\"), simp]\ntheorem head?_iota (n : Nat) : (iota n).head? = if n = 0 then none else some n := by\n  cases n <;> simp\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\"), simp]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "iota_inj",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def getEntryGED (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1 \u00d7 \u03b2) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Const.getEntryGED t.inner k fallback\n@[inline, inherit_doc DTreeMap.Const.getEntryGTD]\ndef getEntryGTD (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1 \u00d7 \u03b2) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Const.getEntryGTD t.inner k fallback\n@[inline, inherit_doc DTreeMap.Const.getEntryLED]\ndef getEntryLED (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1 \u00d7 \u03b2) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Const.getEntryLED t.inner k fallback\n@[inline, inherit_doc DTreeMap.Const.getEntryLTD]\ndef getEntryLTD (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) (fallback : \u03b1 \u00d7 \u03b2) : (\u03b1 \u00d7 \u03b2) :=\n  DTreeMap.Const.getEntryLTD t.inner k fallback\n@[inline, inherit_doc DTreeMap.getKeyGE?]\ndef getKeyGE? (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : Option \u03b1 :=\n  DTreeMap.getKeyGE? t.inner k\n@[inline, inherit_doc DTreeMap.getKeyGT?]\ndef getKeyGT? (t : TreeMap \u03b1 \u03b2 cmp) (k : \u03b1) : Option \u03b1 :=\n  DTreeMap.getKeyGT? t.inner k\n@[inline, inherit_doc DTreeMap.getKeyLE?]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/TreeMap/Basic.lean",
+    "definition_name": "TreeMap"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (n m o : Nat) : n = m + 0 \u2192 m = o \u2192 m = o := by\n  intro (h\u2081 : n = m) h\u2082\n  rw [\u2190 h\u2081, \u2190 h\u2082]\n  assumption\n#guard_msgs in\nexample {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/induction1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/induction1.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

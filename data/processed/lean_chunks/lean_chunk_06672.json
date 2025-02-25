@@ -1,0 +1,9 @@
+{
+  "content": "let p := withAntiquotSpliceAndSuffix `sepBy p (symbol \"*\")\n  withPosition $ sepBy (checkColGe \"irrelevant\" >> p) sep (psep <|> checkColEq \"irrelevant\" >> checkLinebreakBefore >> pushNone) allowTrailingSep\n@[builtin_doc, inline] def sepBy1Indent (p : Parser) (sep : String) (psep : Parser := symbol sep) (allowTrailingSep : Bool := false) : Parser :=\n  let p := withAntiquotSpliceAndSuffix `sepBy p (symbol \"*\")\n  withPosition $ sepBy1 (checkColGe \"irrelevant\" >> p) sep (psep <|> checkColEq \"irrelevant\" >> checkLinebreakBefore >> pushNone) allowTrailingSep\nopen PrettyPrinter Syntax.MonadTraverser Formatter in\n@[combinator_formatter sepByIndent]\ndef sepByIndent.formatter (p : Formatter) (_sep : String) (pSep : Formatter) : Formatter := do\n  let stx \u2190 getCur\n  let hasNewlineSep := stx.getArgs.mapIdx (fun i n =>\n    i % 2 == 1 && n.matchesNull 0 && i != stx.getArgs.size - 1) |>.any id\n  visitArgs do\n    for i in (List.range stx.getArgs.size).reverse do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Extra.lean",
+    "definition_name": "identWithPartialTrailingDot"
+  }
+}

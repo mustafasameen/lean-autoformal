@@ -1,0 +1,9 @@
+{
+  "content": "structure A (\u03b1 : Type u) :=\n(f : (\u03b2 : Type u) \u2192 \u03b1 \u2192 \u03b2 \u2192 \u03b1)\nset_option pp.all true\nstructure B (\u03b1 : Type u) extends A \u03b1 :=\n(x : Nat)\n(f := fun \u03b2 a b => a)\n#check B.f._default\n#check { x := 10 : B Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct2.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct2.lean",
+    "definition_name": "A"
+  }
+}

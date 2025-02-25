@@ -1,0 +1,10 @@
+{
+  "content": "theorem set_set (a b : \u03b1) (xs : Array \u03b1) (i : Nat) (h : i < xs.size) :\n    (xs.set i a).set i b (by simpa using h) = xs.set i b := by\n  cases xs\n  simp\ntheorem mem_set (xs : Array \u03b1) (i : Nat) (h : i < xs.size) (a : \u03b1) :\n    a \u2208 xs.set i a := by\n  simp [mem_iff_getElem]\n  exact \u27e8i, (by simpa using h), by simp\u27e9\ntheorem mem_or_eq_of_mem_set\n    {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "set_set",
+    "has_proof": true
+  }
+}

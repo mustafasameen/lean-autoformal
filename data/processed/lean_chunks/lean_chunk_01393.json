@@ -1,0 +1,9 @@
+{
+  "content": "structure ZeroHom (M : Type _) (N : Type _) [Zero M] [Zero N] where\n  protected toFun : M \u2192 N\n  protected map_zero' : toFun 0 = 0\nclass ZeroHomClass (F : Type _) (M N : outParam (Type _)) [Zero M] [Zero N] [FunLike F M N] : Prop\n    where\n  map_zero : \u2200 f : F, f 0 = 0\nend Zero\nsection Add\nstructure AddHom (M : Type _) (N : Type _) [Add M] [Add N] where\n  protected toFun : M \u2192 N\n  protected map_add' : \u2200 x y, toFun (x + y) = toFun x + toFun y\nclass AddHomClass (F : Type _) (M N : outParam (Type _)) [Add M] [Add N] [FunLike F M N] : Prop where\n  map_add : \u2200 (f : F) (x y : M), f (x + y) = f x + f y\nend Add\nstructure AddMonoidHom (M : Type _) (N : Type _) [AddZeroClass M] [AddZeroClass N] extends\n  ZeroHom M N, AddHom M N\ninfixr:25 \" \u2192+ \" => AddMonoidHom\nclass AddMonoidHomClass (F M N : Type _) [AddZeroClass M] [AddZeroClass N] [FunLike F M N] : Prop\n  extends AddHomClass F M N, ZeroHomClass F M N\nsection One\nvariable [One M] [One N]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "ZeroHom"
+  }
+}

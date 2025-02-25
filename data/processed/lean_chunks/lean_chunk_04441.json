@@ -1,0 +1,10 @@
+{
+  "content": "theorem compare_ne_lt {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Compare.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Compare.lean",
+    "definition_name": "compare_ne_lt",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem slt_eq_ult (x y : BitVec w) :\n    x.slt y = (x.msb != y.msb).xor (x.ult y) := by\n  by_cases h : x.msb = y.msb\n  \u00b7 simp [h, slt_eq_ult_of_msb_eq]\n  \u00b7 have h' : x.msb != y.msb := by simp_all\n    simp [slt_eq_not_ult_of_msb_neq h, h']\ntheorem slt_eq_not_carry (x y : BitVec w) :\n    x.slt y = (x.msb == y.msb).xor (carry w x (~~~y) true) := by\n  simp only [slt_eq_ult, bne, ult_eq_not_carry]\n  cases x.msb == y.msb <;> simp\ntheorem sle_eq_not_slt (x y : BitVec w) : x.sle y = !y.slt x := by\n  simp only [BitVec.sle, BitVec.slt, \u2190 decide_not, decide_eq_decide]; omega\ntheorem sle_eq_carry (x y : BitVec w) :\n    x.sle y = !((x.msb == y.msb).xor (carry w y (~~~x) true)) := by\n  rw [sle_eq_not_slt, slt_eq_not_carry, beq_comm]\ndef mulRec (x y : BitVec w) (s : Nat) : BitVec w :=\n  let cur := if y.getLsbD s then (x <<< s) else 0\n  match s with\n  | 0 => cur\n  | s + 1 => mulRec x y s + cur\ntheorem mulRec_zero_eq (x y : BitVec w) :\n    mulRec x y 0 = if y.getLsbD 0 then x else 0 := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "slt_eq_ult",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "mul_comm := CommMonoid.mul_comm\ninstance [CommMonoid \u03b1] : MulComm \u03b1 where\n  mul_comm := CommSemigroup.mul_comm\nclass Inv (\u03b1 : Type u) where\n  inv : \u03b1 \u2192 \u03b1\npostfix:max \"\u207b\u00b9\" => Inv.inv\nclass Group (\u03b1 : Type u) extends Monoid \u03b1, Inv \u03b1 where\n  mul_left_inv (a : \u03b1) : a\u207b\u00b9 * a = 1\nexport Group (mul_left_inv)\nclass CommGroup (\u03b1 : Type u) extends Group \u03b1 where\n  mul_comm (a b : \u03b1) : a * b = b * a\ninstance [CommGroup \u03b1] : CommMonoid \u03b1 where\n  mul_comm := CommGroup.mul_comm\ninstance [CommGroup \u03b1] : MulComm \u03b1 where\n  mul_comm := CommGroup.mul_comm\ntheorem inv_mul_cancel_left [Group \u03b1] (a b : \u03b1) : a\u207b\u00b9 * (a * b) = b := by\n  rw [\u2190 mul_assoc, mul_left_inv, one_mul]\ntheorem inv_eq_of_mul_eq_one [Group \u03b1] {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/alg.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/alg.lean",
+    "definition_name": "Semigroup",
+    "has_proof": true
+  }
+}

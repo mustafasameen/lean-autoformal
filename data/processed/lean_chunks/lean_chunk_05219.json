@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEqv_nil_nil : isEqv ([] : List \u03b1) [] eqv = true := rfl\n@[simp] theorem isEqv_nil_cons : isEqv ([] : List \u03b1) (a::as) eqv = false := rfl\n@[simp] theorem isEqv_cons_nil : isEqv (a::as : List \u03b1) [] eqv = false := rfl\ntheorem isEqv_cons\u2082 : isEqv (a::as) (b::bs) eqv = (eqv a b && isEqv as bs eqv) := rfl\ninductive Lex (r : \u03b1 \u2192 \u03b1 \u2192 Prop) : List \u03b1 \u2192 List \u03b1 \u2192 Prop\n  | cons {a l\u2081 l\u2082}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "isEqv_nil_nil",
+    "has_proof": false
+  }
+}

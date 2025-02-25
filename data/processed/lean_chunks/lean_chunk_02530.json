@@ -1,0 +1,10 @@
+{
+  "content": "c[i]! = c[i]'h := by\n  have : Decidable (dom c i) := .isTrue h\n  simp [getElem!_def, getElem?_def, h]\ntheorem getElem!_neg [GetElem? cont idx elem dom] [LawfulGetElem cont idx elem dom]\n    [Inhabited elem] (c : cont) (i : idx) (h : \u00acdom c i) : c[i]! = default := by\n  have : Decidable (dom c i) := .isFalse h\n  simp [getElem!_def, getElem?_def, h]\n@[simp] theorem get_getElem? [GetElem? cont idx elem dom] [LawfulGetElem cont idx elem dom]\n    (c : cont) (i : idx) [Decidable (dom c i)] (h) :\n    c[i]?.get h = c[i]'(by simp only [getElem?_def] at h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

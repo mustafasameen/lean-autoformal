@@ -1,0 +1,10 @@
+{
+  "content": "theorem id_app (F : C \u2964 D) (X : C) : (\ud835\udfd9 F : F \u27f6 F).app X = \ud835\udfd9 (F.obj X) := rfl\n@[simp]\ntheorem comp_app {F G H : C \u2964 D}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4595_slowdown.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4595_slowdown.lean",
+    "definition_name": "id_app",
+    "has_proof": false
+  }
+}

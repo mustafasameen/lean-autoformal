@@ -1,0 +1,9 @@
+{
+  "content": "structure References where\n  workers : Std.HashMap Name (Nat \u00d7 Lsp.ModuleRefs)\nnamespace References\ndef addIlean (self : References) (path : System.FilePath) (ilean : Ilean) : References :=\n  { self with ileans := self.ileans.insert ilean.module (path, ilean.references) }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "References"
+  }
+}

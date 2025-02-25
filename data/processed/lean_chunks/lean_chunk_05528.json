@@ -1,0 +1,10 @@
+{
+  "content": "theorem count_mkVector_self (a : \u03b1) (n : Nat) : count a (mkVector n a) = n := by\n  simp only [mkVector_eq_mk_mkArray, count_cast, count_mk]\n  simp\ntheorem count_mkVector (a b : \u03b1) (n : Nat) : count a (mkVector n b) = if b == a then n else 0 := by\n  simp only [mkVector_eq_mk_mkArray, count_cast, count_mk]\n  simp [Array.count_mkArray]\ntheorem count_le_count_map [DecidableEq \u03b2] (xs : Vector \u03b1 n) (f : \u03b1 \u2192 \u03b2) (x : \u03b1) :\n    count x xs \u2264 count (f x) (map f xs) := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.count_le_count_map]\ntheorem count_flatMap {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Count.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Count.lean",
+    "definition_name": "count_mkVector_self",
+    "has_proof": true
+  }
+}

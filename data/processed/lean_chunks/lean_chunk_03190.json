@@ -1,0 +1,9 @@
+{
+  "content": "structure Queue (\u03b1 : Type u) where\n  eList : List \u03b1 := []\n  dList : List \u03b1 := []\nnamespace Queue\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Queue.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Queue.lean",
+    "definition_name": "Queue"
+  }
+}

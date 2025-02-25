@@ -1,0 +1,10 @@
+{
+  "content": "theorem comp_obj (F : C \u2964 D) (G : D \u2964 E) (X : C) : (F.comp G).obj X = G.obj (F.obj X) := rfl\ninfixr:80 \" \u22d9 \" => Functor.comp\ntheorem comp_map (F : C \u2964 D) (G : D \u2964 E) {X Y : C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_cat_adjunction.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_cat_adjunction.lean",
+    "definition_name": "comp_obj",
+    "has_proof": false
+  }
+}

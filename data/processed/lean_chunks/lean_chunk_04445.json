@@ -1,0 +1,10 @@
+{
+  "content": "theorem mod_mul_right_div_self (m n k : Nat) : m % (n * k) / n = m / n % k := by\n  rcases Nat.eq_zero_or_pos n with (rfl | hn); simp [mod_zero]\n  rcases Nat.eq_zero_or_pos k with (rfl | hk); simp [mod_zero]\n  conv => rhs; rw [\u2190 mod_add_div m (n * k)]\n  rw [Nat.mul_assoc, add_mul_div_left _ _ hn, add_mul_mod_self_left,\n    mod_eq_of_lt (Nat.div_lt_of_lt_mul (mod_lt _ (Nat.mul_pos hn hk)))]\ntheorem mod_mul_left_div_self (m n k : Nat) : m % (k * n) / n = m / n % k := by\n  rw [Nat.mul_comm k n, mod_mul_right_div_self]\n@[simp]\ntheorem mod_mul_right_mod (a b c : Nat) : a % (b * c) % b = a % b :=\n  Nat.mod_mod_of_dvd a (Nat.dvd_mul_right b c)\n@[simp]\ntheorem mod_mul_left_mod (a b c : Nat) : a % (b * c) % c = a % c :=\n  Nat.mod_mod_of_dvd a (Nat.mul_comm _ _ \u25b8 Nat.dvd_mul_left c b)\ntheorem mod_mul {a b x : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Mod.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Mod.lean",
+    "definition_name": "mod_mul_right_div_self",
+    "has_proof": true
+  }
+}

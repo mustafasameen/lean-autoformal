@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex3 : fact x > 0 := by\n  induction x with\n  | zero => decide\n  | succ x ih =>\n    simp [fact]\n    apply ih\ndef head [Inhabited \u03b1] : List \u03b1 \u2192 \u03b1\n  | []   => default\n  | a::_ => a\nexample [Inhabited \u03b1] (a : \u03b1) (as : List \u03b1) : head (a::as) = a :=\n  by simp [head]\ndef foo := 10\nexample (x : Nat) : foo + x = 10 + x := by\n  simp [foo]\n  done\ndef g (x : Nat) : Nat := Id.run <| do\n  let x := x\n  return x\nexample : g x = x := by\n  simp [g, bind, pure]\n  rfl\ndef f1 : StateM Nat Unit := do\n  modify fun x => g x\ndef f2 : StateM Nat Unit := do\n  let s \u2190 get\n  set <| g s\nexample : f1 = f2 := by\n  simp (config := {unfoldPartialApp := true}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simp_trace.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simp_trace.lean",
+    "definition_name": "ex3",
+    "has_proof": true
+  }
+}

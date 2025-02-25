@@ -1,0 +1,9 @@
+{
+  "content": "structure InteractiveGoals where\n  goals : Array InteractiveGoal\n  deriving RpcEncodable\ndef InteractiveGoals.append (l r : InteractiveGoals) : InteractiveGoals where\n  goals := l.goals ++ r.goals\ninstance : Append InteractiveGoals := \u27e8InteractiveGoals.append\u27e9\ninstance : EmptyCollection InteractiveGoals := \u27e8{goals := #[]}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveGoal.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Widget/InteractiveGoal.lean",
+    "definition_name": "InteractiveGoals"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_false_of_or_eq_false_right {a b : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Lemmas.lean",
+    "definition_name": "eq_false_of_or_eq_false_right",
+    "has_proof": false
+  }
+}

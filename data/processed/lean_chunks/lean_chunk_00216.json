@@ -1,0 +1,9 @@
+{
+  "content": "inductive Bigstep : Com \u00d7 State \u2192 State \u2192 Nat \u2192 Prop where\n  | skip {\u03c3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/unhygienic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/unhygienic.lean",
+    "definition_name": "Bigstep"
+  }
+}

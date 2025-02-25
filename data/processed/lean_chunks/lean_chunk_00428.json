@@ -1,0 +1,9 @@
+{
+  "content": "mkLetAux (mkAtom \"let\") lhs (mkAtom \":=\") val (mkAtom \"in\") body\n@[inline] def withLet {\u03b1 : Type} (n : SyntaxNode) (fn : Syntax \u2192 Syntax \u2192 Syntax \u2192 \u03b1) : \u03b1 :=\nwithArgs n $ \u03bb args, fn (args.get 1) (args.get 3) (args.get 5)\n@[inline] def updateLet (src : SyntaxNode) (lhs val body : Syntax) : Syntax :=\nupdateArgs src $ \u03bb args,\n  let args := args.set 1 lhs in\n  let args := args.set 3 val in\n  let args := args.set 5 body in\n  args\n@[inline] def mkLetLhsId (id : Syntax) (binders : Syntax) (type : Syntax) : Syntax :=\nSyntax.node letLhsIdKind [id, binders, type].toArray []\n@[inline] def withLetLhsId {\u03b1 : Type} (n : SyntaxNode) (fn : Syntax \u2192 Syntax \u2192 Syntax \u2192 \u03b1) : \u03b1 :=\nwithArgs n $ \u03bb args, fn (args.get 0) (args.get 1) (args.get 2)\n@[inline] def updateLhsId (src : SyntaxNode) (id binders type : Syntax) : Syntax :=\nupdateArgs src $ \u03bb args,\n  let args := args.set 0 id in\n  let args := args.set 1 binders in\n  let args := args.set 2 type in\n  args",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

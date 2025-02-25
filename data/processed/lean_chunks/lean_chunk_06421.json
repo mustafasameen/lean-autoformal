@@ -1,0 +1,9 @@
+{
+  "content": "| a :: as => withFreshMacroScope do\n        let rest \u2190 destruct as (\u2190 `(x)) body\n        `(let $a:ident := $x.1; let x := $x.2; $rest)\n      | _ => unreachable!\ndef annotate [Monad m] [MonadRef m] [MonadQuotation m] (ref : Syntax) (term : Syntax) : m Syntax :=\n  withRef term <| `(with_annotate_term $ref $term)\nnamespace ToTerm\ninductive Kind where\n  | regular\n  | forIn\n  | forInWithReturn\n  | nestedBC\n  | nestedPR\n  | nestedSBC\n  | nestedPRBC\ninstance : Inhabited Kind := \u27e8Kind.regular\u27e9\ndef Kind.isRegular : Kind \u2192 Bool\n  | .regular => true\n  | _        => false\nstructure Context where\n  returnType : Syntax\n  uvars      : Array Var\n  kind       : Kind\nabbrev M := ReaderT Context MacroM\ndef mkUVarTuple : M Syntax := do\n  let ctx \u2190 read\n  mkTuple ctx.uvars\ndef returnToTerm (val : Syntax) : M Syntax := do\n  let ctx \u2190 read\n  let u \u2190 mkUVarTuple\n  match ctx.kind with\n  | .regular         => if ctx.uvars.isEmpty then ``(Pure.pure $val) else ``(Pure.pure (MProd.mk $val $u))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "DoIfView"
+  }
+}

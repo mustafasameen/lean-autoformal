@@ -1,0 +1,10 @@
+{
+  "content": "simp [xz, p, andz, one_div_two, mod_eq_of_lt]\n@[local simp]\ntheorem testBit_add_one (x i : Nat) : testBit x (i + 1) = testBit (x/2) i := by\n  unfold testBit\n  simp [shiftRight_succ_inside]\ntheorem testBit_add (x i n : Nat) : testBit x (i + n) = testBit (x / 2 ^ n) i := by\n  revert x\n  induction n with\n  | zero => simp\n  | succ n ih =>\n    intro x\n    rw [\u2190 Nat.add_assoc, testBit_add_one, ih (x / 2),\n      Nat.pow_succ, Nat.div_div_eq_div_mul, Nat.mul_comm]\ntheorem testBit_div_two (x i : Nat) : testBit (x / 2) i = testBit x (i + 1) := by\n  simp\ntheorem testBit_div_two_pow (x i : Nat) : testBit (x / 2 ^ n) i = testBit x (i + n) :=\n  testBit_add .. |>.symm\ntheorem testBit_to_div_mod {x : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "zero_and",
+    "has_proof": true
+  }
+}

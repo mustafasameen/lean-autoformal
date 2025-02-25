@@ -1,0 +1,9 @@
+{
+  "content": "structure S :=\n(x y z : Nat := 0)\ndef f1 : S \u2192 S :=\nfun { x := x, ..}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match1.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/match1.lean",
+    "definition_name": "S"
+  }
+}

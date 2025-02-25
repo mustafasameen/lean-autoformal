@@ -1,0 +1,9 @@
+{
+  "content": "structure MkValueTypeClosureResult where\n  levelParams : Array Name\n  type        : Expr\n  value       : Expr\n  levelArgs   : Array Level\n  exprArgs    : Array Expr\ndef mkValueTypeClosureAux (type : Expr) (value : Expr) : ClosureM (Expr \u00d7 Expr) := do\n  resetZetaDeltaFVarIds\n  withTrackingZetaDelta do\n    let type  \u2190 collectExpr type\n    let value \u2190 collectExpr value\n    process\n    pure (type, value)\ndef mkValueTypeClosure (type : Expr) (value : Expr) (zetaDelta : Bool) : MetaM MkValueTypeClosureResult := do\n  let ((type, value), s) \u2190 ((mkValueTypeClosureAux type value).run { zetaDelta }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Closure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Closure.lean",
+    "definition_name": "MkValueTypeClosureResult"
+  }
+}

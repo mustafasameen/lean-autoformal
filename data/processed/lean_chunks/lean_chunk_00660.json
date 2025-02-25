@@ -1,0 +1,9 @@
+{
+  "content": "class SetLike (A : Type _) (B : outParam <| Type _) where\n  protected coe : A \u2192 Set B\nnamespace SetLike\nvariable {A : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "SetLike"
+  }
+}

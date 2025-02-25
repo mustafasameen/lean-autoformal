@@ -1,0 +1,10 @@
+{
+  "content": "theorem alterKey_append_of_containsKey_right_eq_false {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "alterKey_append_of_containsKey_right_eq_false",
+    "has_proof": false
+  }
+}

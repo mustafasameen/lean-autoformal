@@ -1,0 +1,9 @@
+{
+  "content": "let some (.const declName _ #[.fvar fvarId]) \u2190 findLetValue? fvarId | return none\n  unless declName == ofNatName do return none\n  let some natLit \u2190 getLit fvarId | return none\n  return ofNat natLit\ndef mkNatWrapperInstance [Inhabited \u03b1] (ofNat : Nat \u2192 \u03b1) (ofNatName : Name) (toNat : \u03b1 \u2192 Nat) : Literal \u03b1 where\n  getLit := (getLitAux \u00b7 ofNat ofNatName)\n  mkLit x := do\n    let helperId \u2190 mkAuxLit <| toNat x\n    return .const ofNatName [] #[.fvar helperId]\ninstance : Literal UInt8 := mkNatWrapperInstance UInt8.ofNat ``UInt8.ofNat UInt8.toNat\ninstance : Literal UInt16 := mkNatWrapperInstance UInt16.ofNat ``UInt16.ofNat UInt16.toNat\ninstance : Literal UInt32 := mkNatWrapperInstance UInt32.ofNat ``UInt32.ofNat UInt32.toNat\ninstance : Literal UInt64 := mkNatWrapperInstance UInt64.ofNat ``UInt64.ofNat UInt64.toNat\ninstance : Literal Char := mkNatWrapperInstance Char.ofNat ``Char.ofNat Char.toNat\nend Literals",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_name": "Literal"
+  }
+}

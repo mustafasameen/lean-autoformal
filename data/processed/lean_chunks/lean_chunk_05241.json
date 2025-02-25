@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_nil : ([] : List \u03b1).take i = [] := by cases i <;> rfl\n@[simp] theorem take_zero (l : List \u03b1) : l.take 0 = [] := rfl\n@[simp] theorem take_succ_cons : (a::as).take (i+1) = a :: as.take i := rfl\ndef drop : Nat \u2192 List \u03b1 \u2192 List \u03b1\n  | 0,   as     => as\n  | _+1, []    => []\n  | n+1, _::as => drop n as\n@[simp] theorem drop_nil : ([] : List \u03b1).drop i = [] := by\n  cases i <;> rfl\n@[simp] theorem drop_zero (l : List \u03b1) : l.drop 0 = l := rfl\n@[simp] theorem drop_succ_cons : (a :: l).drop (i + 1) = l.drop i := rfl\ntheorem drop_eq_nil_of_le {as : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "take_nil",
+    "has_proof": true
+  }
+}

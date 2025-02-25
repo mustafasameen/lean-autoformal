@@ -1,0 +1,10 @@
+{
+  "content": "split <;>\n    \u00b7 simp only [find?_cons]\n      split <;> simp_all\n@[simp] theorem find?_map (f : \u03b2 \u2192 \u03b1) (l : List \u03b2) : find? p (l.map f) = (l.find? (p \u2218 f)).map f := by\n  induction l with\n  | nil => simp\n  | cons x xs ih =>\n    simp only [map_cons, find?]\n    by_cases h : p (f x) <;> simp [h, ih]\n@[simp] theorem find?_append {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "get_find",
+    "has_proof": true
+  }
+}

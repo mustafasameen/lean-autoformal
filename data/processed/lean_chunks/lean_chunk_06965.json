@@ -1,0 +1,9 @@
+{
+  "content": "inductive PatternMatchState where\n  | all (subgoals : Array MVarId)\n  | occs (subgoals : Array (Nat \u00d7 MVarId)) (idx : Nat) (remaining : List (Nat \u00d7 Nat))\nnamespace PatternMatchState\ndef isReady : PatternMatchState \u2192 Bool\n  | .all _ => true\n  | .occs _ idx ((i, _) :: _) => idx == i\n  | _ => false\ndef accept (mvarId : MVarId) : PatternMatchState \u2192 PatternMatchState\n  | .all subgoals => .all (subgoals.push mvarId)\n  | .occs subgoals idx ((_, n) :: remaining) => .occs (subgoals.push (n, mvarId)) (idx + 1) remaining\n  | s => s\nend PatternMatchState\nprivate def pre (pattern : AbstractMVarsResult) (state : IO.Ref PatternMatchState) (e : Expr) : SimpM Simp.Step := do\n  if (\u2190 state.get).isDone then\n    return Simp.Step.done { expr := e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Conv/Pattern.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Conv/Pattern.lean",
+    "definition_name": "PatternMatchState"
+  }
+}

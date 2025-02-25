@@ -1,0 +1,10 @@
+{
+  "content": "inductive CongrArgKind where\n  | fixedNoParam\n  | eq\n  | cast\n  | heq\n  | subsingletonInst\n  deriving Inhabited, Repr, BEq\nstructure CongrTheorem where\n  type     : Expr\n  proof    : Expr\n  argKinds : Array CongrArgKind\nprivate def addPrimeToFVarUserNames (ys : Array Expr) (lctx : LocalContext) : LocalContext := Id.run do\n  let mut lctx := lctx\n  for y in ys do\n    let decl := lctx.getFVar! y\n    lctx := lctx.setUserName decl.fvarId (decl.userName.appendAfter \"'\")\n  return lctx\nprivate def setBinderInfosD (ys : Array Expr) (lctx : LocalContext) : LocalContext := Id.run do\n  let mut lctx := lctx\n  for y in ys do\n    let decl := lctx.getFVar! y\n    lctx := lctx.setBinderInfo decl.fvarId BinderInfo.default\n  return lctx\npartial def mkHCongrWithArity (f : Expr) (numArgs : Nat) : MetaM CongrTheorem := do\n  let fType \u2190 inferType f\n  forallBoundedTelescope fType numArgs (cleanupAnnotations := true) fun xs _ =>\n  forallBoundedTelescope fType numArgs (cleanupAnnotations := true) fun ys _ => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/CongrTheorems.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/CongrTheorems.lean",
+    "definition_name": "CongrArgKind",
+    "has_proof": true
+  }
+}

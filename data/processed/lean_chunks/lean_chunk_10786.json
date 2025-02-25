@@ -1,0 +1,9 @@
+{
+  "content": "structure MaterializedDep where\n  remoteUrl : String\n@[inline] def MaterializedDep.manifestFile? (self : MaterializedDep) :=\n  self.manifestEntry.manifestFile?\ndef Dependency.materialize\n  (dep : Dependency) (inherited : Bool)\n  (lakeEnv : Env) (wsDir relPkgsDir relParentDir : FilePath)\n: LogIO MaterializedDep := do\n  if let some src := dep.src? then\n    match src with\n    | .path dir =>\n      let relPkgDir := relParentDir / dir\n      return mkDep relPkgDir \"\" (.path relPkgDir)\n    | .git url inputRev? subDir? => do\n      let sname := dep.name.toString (escape := false)\n      let repoUrl := Git.filterUrl? url |>.getD \"\"\n      materializeGit sname (relPkgsDir / sname) url repoUrl inputRev? subDir?\n  else\n    if dep.scope.isEmpty then\n      error s!\"{dep.name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Materialize.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Load/Materialize.lean",
+    "definition_name": "MaterializedDep"
+  }
+}

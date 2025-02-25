@@ -1,0 +1,9 @@
+{
+  "content": "inductive RefcountKind where\n  | inc | dec\ninstance : ToString RefcountKind where\n  toString\n    | .inc => \"inc\"\n    | .dec => \"dec\"\ndef callLeanRefcountFn (builder : LLVM.Builder llvmctx)\n    (kind : RefcountKind) (checkRef? : Bool) (arg : LLVM.Value llvmctx)\n    (delta : Option (LLVM.Value llvmctx) := Option.none) : M llvmctx Unit := do\n  let fnName :=  s!\"lean_{kind}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "RefcountKind"
+  }
+}

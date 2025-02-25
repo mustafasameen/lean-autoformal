@@ -1,0 +1,9 @@
+{
+  "content": "let s \u2190 read\n    s.importData.modify (\u00b7.eraseImportsOf uri)\n    s.fileWorkersRef.modify (fun fileWorkers => fileWorkers.erase uri)\n    let some module \u2190 s.srcSearchPath.searchModuleNameOfUri uri\n      | return\n    s.references.modify fun refs => refs.removeWorkerRefs module\n  def log (msg : String) : ServerM Unit := do\n    let st \u2190 read\n    st.hLog.putStrLn msg\n    st.hLog.flush\n  def handleIleanInfoUpdate (fw : FileWorker) (params : LeanIleanInfoParams) : ServerM Unit := do\n    let s \u2190 read\n    let some module \u2190 s.srcSearchPath.searchModuleNameOfUri fw.doc.uri\n      | return\n    s.references.modify fun refs =>\n      refs.updateWorkerRefs module params.version params.references\n  def handleIleanInfoFinal (fw : FileWorker) (params : LeanIleanInfoParams) : ServerM Unit := do\n    let s \u2190 read\n    let some module \u2190 s.srcSearchPath.searchModuleNameOfUri fw.doc.uri\n      | return\n    s.references.modify fun refs =>\n      refs.finalizeWorkerRefs module params.version params.references",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Watchdog.lean",
+    "definition_name": "ServerContext"
+  }
+}

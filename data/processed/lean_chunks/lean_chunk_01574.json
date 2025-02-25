@@ -1,0 +1,9 @@
+{
+  "content": "inductive T3 where | mk : List T3 \u2192 List T3 \u2192 T3\n#guard_msgs in\nrun_meta\n  let indInfo \u2190 Lean.getConstInfoInduct ``T4\n  Lean.logInfo m!\"{indInfo.numNested}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue4684.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/issue4684.lean",
+    "definition_name": "T3"
+  }
+}

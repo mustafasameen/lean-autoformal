@@ -1,0 +1,10 @@
+{
+  "content": "theorem Perm.eqv (\u03b1) : Equivalence (@Perm \u03b1) := \u27e8.refl, .symm, .trans\u27e9\ninstance isSetoid (\u03b1) : Setoid (List \u03b1) := .mk Perm (Perm.eqv \u03b1)\ntheorem Perm.mem_iff {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_name": "Perm",
+    "has_proof": false
+  }
+}

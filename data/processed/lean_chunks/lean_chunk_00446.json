@@ -1,0 +1,9 @@
+{
+  "content": "structure A :=\n(x : Nat) (y : Nat)\nstructure B extends A :=\n(z : Nat := x + 1) (y := z + x)\n#print B.y._default\n#check { x := 1 : B }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/structInst.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/structInst.lean",
+    "definition_name": "A"
+  }
+}

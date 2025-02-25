@@ -1,0 +1,10 @@
+{
+  "content": "simp\ntheorem foldl_eq_foldlM (f : \u03b2 \u2192 \u03b1 \u2192 \u03b2) (b) (xs : Vector \u03b1 n) :\n    xs.foldl f b = xs.foldlM (m := Id) f b := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.foldl_eq_foldlM]\ntheorem foldr_eq_foldrM (f : \u03b1 \u2192 \u03b2 \u2192 \u03b2) (b) (xs : Vector \u03b1 n) :\n    xs.foldr f b = xs.foldrM (m := Id) f b := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.foldr_eq_foldrM]\n@[simp] theorem id_run_foldlM (f : \u03b2 \u2192 \u03b1 \u2192 Id \u03b2) (b) (xs : Vector \u03b1 n) :\n    Id.run (xs.foldlM f b) = xs.foldl f b := (foldl_eq_foldlM f b xs).symm\n@[simp] theorem id_run_foldrM (f : \u03b1 \u2192 \u03b2 \u2192 Id \u03b2) (b) (xs : Vector \u03b1 n) :\n    Id.run (xs.foldrM f b) = xs.foldr f b := (foldr_eq_foldrM f b xs).symm\n@[simp] theorem foldlM_reverse [Monad m] (xs : Vector \u03b1 n) (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b) :\n    xs.reverse.foldlM f b = xs.foldrM (fun x y => f y x) b := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.foldlM_reverse]\n@[simp] theorem foldrM_reverse [Monad m] (xs : Vector \u03b1 n) (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (b) :\n    xs.reverse.foldrM f b = xs.foldlM (fun x y => f y x) b := by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "reverse_mkVector",
+    "has_proof": true
+  }
+}

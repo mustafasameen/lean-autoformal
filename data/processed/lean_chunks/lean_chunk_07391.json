@@ -1,0 +1,10 @@
+{
+  "content": "theorem unassigned_of_has_neither (assignment : Assignment) (lacks_pos : \u00ac(hasPosAssignment assignment))\n  (lacks_neg : \u00ac(hasNegAssignment assignment)) :\n  assignment = unassigned := by\n  simp only [hasPosAssignment, Bool.not_eq_true] at lacks_pos\n  split at lacks_pos <;> simp_all +decide\ntheorem hasPos_addNeg (assignment : Assignment) :\n    hasPosAssignment (addNegAssignment assignment) = hasPosAssignment assignment := by\n  cases assignment <;> simp [hasPosAssignment, addNegAssignment]\ntheorem hasNeg_addPos (assignment : Assignment) :\n    hasNegAssignment (addPosAssignment assignment) = hasNegAssignment assignment := by\n  cases assignment <;> simp [hasNegAssignment, addPosAssignment]\ntheorem has_iff_has_add_complement (assignment : Assignment) (b : Bool) :\n    hasAssignment b assignment \u2194 hasAssignment b (addAssignment (\u00acb) assignment) := by\n  by_cases hb : b <;> simp [hb, hasAssignment, addAssignment, hasPos_addNeg, hasNeg_addPos]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_name": "add_both_eq_both",
+    "has_proof": true
+  }
+}

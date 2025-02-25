@@ -1,0 +1,10 @@
+{
+  "content": "theorem splitAt_go (i : Nat) (l acc : List \u03b1) :\n    splitAt.go l xs i acc =\n      if i < xs.length then (acc.reverse ++ xs.take i, xs.drop i) else (l, []) := by\n  induction xs generalizing i acc with\n  | nil => simp [splitAt.go]\n  | cons x xs ih =>\n    cases i with\n    | zero => simp [splitAt.go]\n    | succ i =>\n      rw [splitAt.go, take_succ_cons, drop_succ_cons, ih i (x :: acc),\n        reverse_cons, append_assoc, singleton_append, length_cons]\n      simp only [Nat.succ_lt_succ_iff]\nsection replace\nvariable [BEq \u03b1]\n@[simp] theorem replace_cons_self [LawfulBEq \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "dropLast_append_cons",
+    "has_proof": true
+  }
+}

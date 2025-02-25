@@ -1,0 +1,10 @@
+{
+  "content": "theorem as an extensionality theorem\"\n  add := fun declName stx kind => MetaM.run' do\n    let `(attr| ext $[(iff := false%$iffFalse?)]? $[(flat := false%$flatFalse?)]? $(prio)?) := stx\n      | throwError \"invalid syntax for 'ext' attribute\"\n    let iff := iffFalse?.isNone\n    let flat := flatFalse?.isNone\n    let mut declName := declName\n    if isStructure (\u2190 getEnv) declName then\n      declName \u2190 liftCommandElabM <| withRef stx <| realizeExtTheorem declName flat\n    else if let some stx := flatFalse? then\n      throwErrorAt stx \"unexpected 'flat' configuration on @[ext] theorem\"\n    let declTy := (\u2190 getConstInfo declName).type\n    let (_, _, declTy) \u2190 withDefault <| forallMetaTelescopeReducing declTy\n    let failNotEq := throwError \"\\\n      @[ext] attribute only applies to structures and to theorems proving 'x = y' where 'x' and 'y' are variables, \\\n      but this theorem proves{indentD declTy}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Ext.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Ext.lean",
+    "definition_name": "as",
+    "has_proof": false
+  }
+}

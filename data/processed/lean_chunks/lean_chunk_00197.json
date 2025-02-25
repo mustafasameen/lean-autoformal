@@ -1,0 +1,10 @@
+{
+  "content": "theorem foo (n : Nat) : n + n = 2*n := by\n  rw [Nat.mul_comm, Nat.mul_succ, Nat.mul_succ, Nat.mul_zero, Nat.zero_add]\nattribute [-simp] foo\ntheorem ex1 {a b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/eraseSimp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/eraseSimp.lean",
+    "definition_name": "foo",
+    "has_proof": true
+  }
+}

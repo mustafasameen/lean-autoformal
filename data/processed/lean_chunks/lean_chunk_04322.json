@@ -1,0 +1,10 @@
+{
+  "content": "theorem mul_ne_zero_iff : n * m \u2260 0 \u2194 n \u2260 0 \u2227 m \u2260 0 := by rw [ne_eq, mul_eq_zero, not_or]\nprotected theorem mul_ne_zero : n \u2260 0 \u2192 m \u2260 0 \u2192 n * m \u2260 0 := (Nat.mul_ne_zero_iff.2 \u27e8\u00b7,\u00b7\u27e9)\nprotected theorem ne_zero_of_mul_ne_zero_left (h : n * m \u2260 0) : n \u2260 0 :=\n  (Nat.mul_ne_zero_iff.1 h).1\nprotected theorem mul_left_cancel {n m k : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "mul_ne_zero_iff",
+    "has_proof": true
+  }
+}

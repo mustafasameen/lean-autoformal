@@ -1,0 +1,9 @@
+{
+  "content": "structure SavedLocalContext where\n  savedLocalContext : LocalContext\n  savedLocalInstances : LocalInstances\n  savedState : Meta.SavedState\ndef SavedLocalContext.run {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_name": "SavedLocalContext"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "range' s m ++ range' (s + m) n = range' s (m + n) := by simpa using range'_append s m n 1\ntheorem range'_concat (s n : Nat) : range' s (n + 1) step = range' s n step ++ #[s + step * n] := by\n  exact (range'_append s n 1 step).symm\ntheorem range'_1_concat (s n : Nat) : range' s (n + 1) = range' s n ++ #[s + n] := by\n  simp [range'_concat]\n@[simp] theorem mem_range'_1 : m \u2208 range' s n \u2194 s \u2264 m \u2227 m < s + n := by\n  simp [mem_range']; exact \u27e8\n    fun \u27e8i, h, e\u27e9 => e \u25b8 \u27e8Nat.le_add_right .., Nat.add_lt_add_left h _\u27e9,\n    fun \u27e8h\u2081, h\u2082\u27e9 => \u27e8m - s, Nat.sub_lt_left_of_lt_add h\u2081 h\u2082, (Nat.add_sub_cancel' h\u2081).symm\u27e9\u27e9\ntheorem map_sub_range' (a s n : Nat) (h : a \u2264 s) :\n    map (\u00b7 - a) (range' s n step) = range' (s - a) n step := by\n  conv => lhs; rw [\u2190 Nat.add_sub_cancel' h]\n  rw [\u2190 map_add_range', map_map, (?_ : _\u2218_ = _), map_id]\n  funext x; apply Nat.add_sub_cancel_left\n@[simp] theorem range'_eq_singleton_iff {s n a : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_name": "pop_range",
+    "has_proof": true
+  }
+}

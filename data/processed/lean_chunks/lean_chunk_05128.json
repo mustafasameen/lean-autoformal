@@ -1,0 +1,10 @@
+{
+  "content": "theorem filter_append_perm (p : \u03b1 \u2192 Bool) (l : List \u03b1) :\n    filter p l ++ filter (fun x => !p x) l ~ l := by\n  induction l with\n  | nil => rfl\n  | cons x l ih =>\n    by_cases h : p x <;> simp [h]\n    \u00b7 exact ih.cons x\n    \u00b7 exact Perm.trans (perm_append_comm.trans (perm_append_comm.cons _)) (ih.cons x)\ntheorem exists_perm_sublist {l\u2081 l\u2082 l\u2082' : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_name": "filter_append_perm",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem insertManyIfNewUnit_nil :\n    insertManyIfNewUnit m [] = m := by\n  simp [insertManyIfNewUnit, Id.run]\n@[simp]\ntheorem insertManyIfNewUnit_list_singleton {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_name": "insertManyIfNewUnit_nil",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem coe_cast (h : n = m) (i : Fin n) : (i.cast h : Nat) = i := rfl\n@[simp] theorem cast_zero [NeZero n] [NeZero m] (h : n = m) : Fin.cast h 0 = 0 := rfl\n@[simp] theorem cast_last {n' : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "coe_cast",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure EqnInfo extends EqnInfoCore where\n  declNames       : Array Name\n  declNameNonRec  : Name\n  fixedPrefixSize : Nat\n  argsPacker      : ArgsPacker\n  deriving Inhabited\nbuiltin_initialize eqnInfoExt : MapDeclarationExtension EqnInfo \u2190 mkMapDeclarationExtension\ndef registerEqnsInfo (preDefs : Array PreDefinition) (declNameNonRec : Name) (fixedPrefixSize : Nat)\n    (argsPacker : ArgsPacker) : MetaM Unit := do\n  preDefs.forM fun preDef => ensureEqnReservedNamesAvailable preDef.declName\n  unless preDefs.all fun p => p.kind.isTheorem do\n    unless (\u2190 preDefs.allM fun p => isProp p.type) do\n      let declNames := preDefs.map (\u00b7.declName)\n      modifyEnv fun env =>\n        preDefs.foldl (init := env) fun env preDef =>\n          eqnInfoExt.insert env preDef.declName { preDef with\n            declNames, declNameNonRec, fixedPrefixSize, argsPacker }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/Eqns.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/Eqns.lean",
+    "definition_name": "EqnInfo"
+  }
+}

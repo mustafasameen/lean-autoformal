@@ -1,0 +1,9 @@
+{
+  "content": "structure JsonNumber where\n  mantissa : Int\n  exponent : Nat\n  deriving DecidableEq, Hashable\nnamespace JsonNumber\nprotected def fromNat (n : Nat) : JsonNumber := \u27e8n, 0\u27e9\nprotected def fromInt (n : Int) : JsonNumber := \u27e8n, 0\u27e9\ninstance : Coe Nat JsonNumber := \u27e8JsonNumber.fromNat\u27e9\ninstance : Coe Int JsonNumber := \u27e8JsonNumber.fromInt\u27e9\ninstance : OfNat JsonNumber n := \u27e8JsonNumber.fromNat n\u27e9\nprivate partial def countDigits (n : Nat) : Nat :=\n  let rec loop (n digits : Nat) : Nat :=\n    if n \u2264 9 then\n      digits\n    else\n      loop (n/10) (digits+1)\n  loop n 1\nprotected def normalize : JsonNumber \u2192 Int \u00d7 Nat \u00d7 Int\n  | \u27e8m, e\u27e9 => Id.run do\n    if m = 0 then (0, 0, 0)\n    else\n      let sign : Int := if m > 0 then 1 else -1\n      let mut mAbs := m.natAbs\n      let nDigits := countDigits mAbs\n      for _ in [0:nDigits] do\n        if mAbs % 10 = 0 then\n          mAbs := mAbs / 10\n        else\n          break\n      (sign, mAbs, -(e : Int) + nDigits)\ndef lt (a b : JsonNumber) : Bool :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Json/Basic.lean",
+    "definition_name": "JsonNumber"
+  }
+}

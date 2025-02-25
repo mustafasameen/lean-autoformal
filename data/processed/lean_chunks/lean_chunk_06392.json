@@ -1,0 +1,9 @@
+{
+  "content": "structure Attribute where\n  kind  : AttributeKind := AttributeKind.global\n  name  : Name\n  stx   : Syntax := Syntax.missing\n  deriving Inhabited\ninstance : ToFormat Attribute where\n  format attr :=\n   let kindStr := match attr.kind with\n     | AttributeKind.global => \"\"\n     | AttributeKind.local  => \"local \"\n     | AttributeKind.scoped => \"scoped \"\n   Format.bracket \"@[\" f!\"{kindStr}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Attributes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Attributes.lean",
+    "definition_name": "Attribute"
+  }
+}

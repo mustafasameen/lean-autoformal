@@ -1,0 +1,10 @@
+{
+  "content": "structure ProvedSkip(n m: Nat) where\n  result : Nat\n  lt : m < n \u2192 result = m\n  ge : n \u2264 m \u2192 result = m + 1\ndef provedSkip (n m : Nat) : ProvedSkip n m :=\n  if c : m < n then\n    \u27e8m, fun _ => rfl, fun hyp => False.elim (Nat.lt_irrefl m (Nat.lt_of_lt_of_le c hyp))\u27e9\n  else\n    \u27e8m + 1, fun hyp => absurd hyp c, fun _ => rfl\u27e9\ndef skip: Nat \u2192 Nat \u2192 Nat :=\n  fun n m => (provedSkip n m).result\ntheorem skip_below_eq(n m : Nat) : m < n \u2192 (skip n m = m) :=\n  fun hyp => (provedSkip n m).lt hyp\ntheorem skip_above_eq(n m : Nat) : n \u2264 m \u2192 (skip n m = m + 1) :=\n  fun hyp => (provedSkip n m).ge hyp\ntheorem skip_not_below_eq(n m : Nat) : Not (m < n) \u2192 (skip n m = m + 1) :=\n  fun hyp =>\n    let lem : n \u2264 m :=\n      match Nat.lt_or_ge m n with\n      | Or.inl lt => absurd lt hyp\n      | Or.inr ge => ge\n    skip_above_eq n m lem\ntheorem skip_lt: (k j: Nat) \u2192  skip k j < j + 2 :=\n    fun k j =>\n      if c : j < k then\n        let eqn := skip_below_eq k j c\n        by\n          rw [eqn]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/smartUnfoldingBug.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/smartUnfoldingBug.lean",
+    "definition_name": "ProvedSkip",
+    "has_proof": true
+  }
+}

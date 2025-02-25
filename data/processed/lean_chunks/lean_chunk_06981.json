@@ -1,0 +1,10 @@
+{
+  "content": "lemma val\n        let type \u2190 inferType value\n        let hyp := { userName := .anonymous, type, value }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/Frontend/Normalize/Enums.lean",
+    "definition_type": "lemma",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/Frontend/Normalize/Enums.lean",
+    "definition_name": "val",
+    "has_proof": false
+  }
+}

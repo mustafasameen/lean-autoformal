@@ -1,0 +1,9 @@
+{
+  "content": "structure Point where\n  x : USize\n  y : UInt32\n@[noinline] def Point.right (p : Point) : Point :=\n  { p with x := p.x + 1 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/uset.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/compiler/uset.lean",
+    "definition_name": "Point"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem toInt_signExtend (x : BitVec w) :\n    (x.signExtend v).toInt = Int.bmod x.toNat (2^(min v w)) := by\n  by_cases hv : v \u2264 w\n  \u00b7 simp [toInt_signExtend_of_le hv, Nat.min_eq_left hv]\n  \u00b7 simp only [Nat.not_le] at hv\n    rw [toInt_signExtend_of_lt hv, Nat.min_eq_right (by omega), toInt_eq_toNat_bmod]\ntheorem getLsbD_rev (x : BitVec w) (i : Fin w) :\n    x.getLsbD i.rev = x.getMsbD i := by\n  simp only [getLsbD, Fin.val_rev, getMsbD, Fin.is_lt, decide_true, Bool.true_and]\n  congr 1\n  omega\ntheorem getElem_rev {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toInt_signExtend",
+    "has_proof": true
+  }
+}

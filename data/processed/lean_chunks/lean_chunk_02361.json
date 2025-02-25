@@ -1,0 +1,10 @@
+{
+  "content": "theorem f3.{u,v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/univParamIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/univParamIssue.lean",
+    "definition_name": "f3",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive SimpKind where\n  | simp\n  | simpAll\n  | dsimp\n  deriving Inhabited, BEq\ndef tacticToDischarge (tacticCode : Syntax) : TacticM (IO.Ref Term.State \u00d7 Simp.Discharge) := do\n  let tacticCode \u2190 `(tactic| try ($tacticCode:tacticSeq))\n  let ref \u2190 IO.mkRef (\u2190 getThe Term.State)\n  let ctx \u2190 readThe Term.Context\n  let disch : Simp.Discharge := fun e => do\n    let mvar \u2190 mkFreshExprSyntheticOpaqueMVar e `simp.discharger\n    let s \u2190 ref.get\n    let runTac? : TermElabM (Option Expr) :=\n      try\n        withoutModifyingStateWithInfoAndMessages do\n          Term.withSynthesize (postpone := .no) do\n            Term.runTactic (report := false) mvar.mvarId! tacticCode .term\n          let result \u2190 instantiateMVars mvar\n          if result.hasExprMVar then\n            return none\n          else\n            return some result\n      catch _ =>\n        return none\n    let (result?, s) \u2190 liftM (m := MetaM) <| Term.TermElabM.run runTac? ctx s\n    ref.set s\n    return result?\n  return (ref, disch)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Simp.lean",
+    "definition_name": "SimpKind"
+  }
+}

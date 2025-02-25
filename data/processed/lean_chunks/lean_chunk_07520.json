@@ -1,0 +1,9 @@
+{
+  "content": "def toHours (time : PlainTime) : Hour.Offset :=\n  time.hour.toOffset\ndef ofNanoseconds (nanos : Nanosecond.Offset) : PlainTime :=\n  have totalSeconds := nanos.ediv 1000000000\n  have remainingNanos := Bounded.LE.byEmod nanos.val 1000000000 (by decide)\n  have hours := Bounded.LE.byEmod (totalSeconds.val / 3600) 24 (by decide)\n  have minutes := (Bounded.LE.byEmod totalSeconds.val 3600 (by decide)).ediv 60 (by decide)\n  have seconds := Bounded.LE.byEmod totalSeconds.val 60 (by decide)\n  have seconds := seconds.expandTop (by decide)\n  let nanos := Bounded.LE.byEmod nanos.val 1000000000 (by decide)\n  PlainTime.mk hours minutes seconds nanos\n@[inline]\ndef ofMilliseconds (millis : Millisecond.Offset) : PlainTime :=\n  ofNanoseconds millis.toNanoseconds\n@[inline]\ndef ofSeconds (secs : Second.Offset) : PlainTime :=\n  ofNanoseconds secs.toNanoseconds\n@[inline]\ndef ofMinutes (secs : Minute.Offset) : PlainTime :=\n  ofNanoseconds secs.toNanoseconds\n@[inline]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/PlainTime.lean",
+    "definition_name": "PlainTime"
+  }
+}

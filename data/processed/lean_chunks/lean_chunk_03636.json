@@ -1,0 +1,10 @@
+{
+  "content": "theorem toList_eq_nil_iff (xs : Array \u03b1) : xs.toList = [] \u2194 xs = #[] := by\n  cases xs <;> simp\n@[simp] theorem mem_toList_iff (a : \u03b1) (xs : Array \u03b1) : a \u2208 xs.toList \u2194 a \u2208 xs := by\n  cases xs <;> simp\n@[simp] theorem length_toList {xs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "toList_eq_nil_iff",
+    "has_proof": true
+  }
+}

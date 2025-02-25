@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex7 (x : Nat) : (let y := x + 0; y + y) = x + x := by\n  simp\n@[simp] theorem impTrue (p : Sort u) : (p \u2192 True) = True :=\n  propext <| Iff.intro (fun _ => trivial) (fun _ _ => trivial)\ntheorem ex8 (y x : Nat) : y = 0 \u2192 x + y = 0 \u2192 x = 0 := by\n  simp (config := { contextual := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp4.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp4.lean",
+    "definition_name": "ex7",
+    "has_proof": true
+  }
+}

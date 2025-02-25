@@ -1,0 +1,9 @@
+{
+  "content": "structure ListZipper (\u03b1 : Type) :=\n(xs : List \u03b1) (bs : List \u03b1)\nvariable {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/zipper.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/zipper.lean",
+    "definition_name": "ListZipper"
+  }
+}

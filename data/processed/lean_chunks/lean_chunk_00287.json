@@ -1,0 +1,10 @@
+{
+  "content": "theorem elim_with_param (p : Bool) {motive : Nat \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/indUsingTerm.lean",
+    "definition_name": "elim_with_param",
+    "has_proof": false
+  }
+}

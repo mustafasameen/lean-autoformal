@@ -1,0 +1,10 @@
+{
+  "content": "simp [shrink]\n@[simp] theorem toList_shrink (xs : Array \u03b1) (i : Nat) : (xs.shrink i).toList = xs.toList.take i := by\n  apply List.ext_getElem <;> simp\n@[simp] theorem shrink_eq_take (xs : Array \u03b1) (i : Nat) : xs.shrink i = xs.take i := by\n  ext <;> simp\n@[deprecated \"Use `toList_map` or `List.map_toArray` to characterize `Array.map`.\" (since := \"2025-01-06\")]\ntheorem map_induction (xs : Array \u03b1) (f : \u03b1 \u2192 \u03b2) (motive : Nat \u2192 Prop) (h0 : motive 0)\n    (p : Fin xs.size \u2192 \u03b2 \u2192 Prop) (hs : \u2200 i, motive i.1 \u2192 p i (f xs[i]) \u2227 motive (i+1)) :\n    motive xs.size \u2227\n      \u2203 eq : (xs.map f).size = xs.size, \u2200 i h, p \u27e8i, h\u27e9 ((xs.map f)[i]) := by\n  have t := foldl_induction (as := xs) (\u03b2 := Array \u03b2)\n    (motive := fun i xs => motive i \u2227 xs.size = i \u2227 \u2200 i h2, p i xs[i.1])\n    (init := #[]) (f := fun acc a => acc.push (f a)) ?_ ?_\n  obtain \u27e8m, eq, w\u27e9 := t\n  \u00b7 refine \u27e8m, by simp, ?_\u27e9\n    intro i h\n    simp only [eq] at w\n    specialize w \u27e8i, h\u27e9 h\n    simpa using w\n  \u00b7 exact \u27e8h0, rfl, nofun\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "not_mem_nil",
+    "has_proof": true
+  }
+}

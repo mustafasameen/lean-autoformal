@@ -1,0 +1,9 @@
+{
+  "content": "self.config.keywords\n@[inline] def reservoir (self : Package) : Bool  :=\n  self.config.reservoir\n@[inline] def relLicenseFiles (self : Package) : Array FilePath  :=\n  self.config.licenseFiles\n@[inline] def relReadmeFile (self : Package) : FilePath  :=\n  self.config.readmeFile\n@[inline] def relLakeDir (_ : Package) : FilePath :=\n  defaultLakeDir\n@[inline] def relPkgsDir (self : Package) : FilePath :=\n  self.config.packagesDir\n@[inline] def configFile (self : Package) : FilePath :=\n  self.dir / self.relConfigFile\n@[inline] def buildDir (self : Package) : FilePath :=\n  self.dir / self.config.buildDir\n@[inline] def lintDriverArgs (self : Package) : Array String :=\n  self.config.lintDriverArgs\n@[inline] def platformIndependent (self : Package) : Option Bool :=\n  self.config.platformIndependent\n@[inline] def remoteUrl? (self : Package) : Option String :=\n  if self.remoteUrl.isEmpty then some self.remoteUrl else none\n@[inline] def buildArchiveFile (self : Package) : FilePath :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_name": "defaultVersionTags"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "hasAssignment b assignment \u2194 hasAssignment b (addAssignment (\u00acb) assignment) := by\n  by_cases hb : b <;> simp [hb, hasAssignment, addAssignment, hasPos_addNeg, hasNeg_addPos]\ntheorem addPos_addNeg_eq_both (assignment : Assignment) :\n    addPosAssignment (addNegAssignment assignment) = both := by\n  cases assignment <;> simp [addPosAssignment, addNegAssignment]\ntheorem addNeg_addPos_eq_both (assignment : Assignment) :\n    addNegAssignment (addPosAssignment assignment) = both := by\n  cases assignment <;> simp [addNegAssignment, addPosAssignment]\ninstance {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Assignment.lean",
+    "definition_name": "add_both_eq_both",
+    "has_proof": true
+  }
+}

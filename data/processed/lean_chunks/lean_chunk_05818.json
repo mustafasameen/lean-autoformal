@@ -1,0 +1,10 @@
+{
+  "content": "\u2190 Nat.add_sub_cancel (x*k) k, Nat.sub_le_sub_iff_right h.2, Nat.add_sub_cancel]\nprotected theorem div_div_eq_div_mul (m n k : Nat) : m / n / k = m / (n * k) := by\n  cases eq_zero_or_pos k with\n  | inl k0 => rw [k0, Nat.mul_zero, Nat.div_zero, Nat.div_zero] | inr kpos => ?_\n  cases eq_zero_or_pos n with\n  | inl n0 => rw [n0, Nat.zero_mul, Nat.div_zero, Nat.zero_div] | inr npos => ?_\n  apply Nat.le_antisymm\n  apply (le_div_iff_mul_le (Nat.mul_pos npos kpos)).2\n  rw [Nat.mul_comm n k, \u2190 Nat.mul_assoc]\n  apply (le_div_iff_mul_le npos).1\n  apply (le_div_iff_mul_le kpos).1\n  (apply Nat.le_refl)\n  apply (le_div_iff_mul_le kpos).2\n  apply (le_div_iff_mul_le npos).2\n  rw [Nat.mul_assoc, Nat.mul_comm n k]\n  apply (le_div_iff_mul_le (Nat.mul_pos kpos npos)).1\n  apply Nat.le_refl\ntheorem div_mul_le_self : \u2200 (m n : Nat), m / n * n \u2264 m\n  | m, 0   => by simp\n  | _, _+1 => (le_div_iff_mul_le (Nat.succ_pos _)).1 (Nat.le_refl _)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "div_one",
+    "has_proof": true
+  }
+}

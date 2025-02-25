@@ -1,0 +1,9 @@
+{
+  "content": "| .fvar ..,  .const mb b => .const mb b\n          | .const ma a, .fvar ..  => .const ma a\n          | .const ma a, .const .. => .const ma a\n      for id in \u00abclass\u00bb do\n        if id != bestRepresentative then\n          r := r.insert id bestRepresentative\n    return r\n  findCanonicalRepresentative (idMap : Std.HashMap RefIdent RefIdent) (id : RefIdent) : RefIdent := Id.run do\n    let mut canonicalRepresentative := id\n    while h : idMap.contains canonicalRepresentative do\n      canonicalRepresentative := idMap[canonicalRepresentative]\n    return canonicalRepresentative\n  buildIdMap posMap := Id.run <| StateT.run' (s := Std.HashMap.empty) do\n    for ref in refs do\n      let baseId := ref.ident\n      if let some id := posMap[ref.range]? then\n        insertIdMap id baseId\n    trees.forM (\u00b7.visitM' (postNode := fun ci info _ => do\n      if let .ofFVarAliasInfo ai := info then\n        let mod := ci.env.header.mainModule",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

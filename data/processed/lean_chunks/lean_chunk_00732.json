@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : (g [1, 2, 4, 5] |>.run' 0) = 4 :=\nrfl\ntheorem ex2 : (g [] |>.run' 0) = 1 :=\nrfl\ndef h (x : Nat) (y : Nat) : Nat := Id.run <| do\nlet mut x := x\nlet mut y := y\nif x > 0 then\n  let y' := x + 1\n  x := y'\nelse\n  y := y + 1\nreturn x + y\ntheorem ex3 (y : Nat) : h 0 y = 0 + (y + 1) :=\nrfl\ntheorem ex4 (y : Nat) : h 1 y = (1 + 1) + y :=\nrfl\ndef sumOdd (xs : List Nat) (threshold : Nat) : Nat := Id.run <| do\nlet mut sum := 0\nfor x in xs do\n  if x % 2 == 1 then\n    sum := sum + x\n  if sum > threshold then\n    break\n  unless x % 2 == 1 do\n    continue\n  dbg_trace \">> x: {x}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/doNotation2.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/doNotation2.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem mapM_append [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m \u03b2) {xs ys : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_name": "mapM_append",
+    "has_proof": false
+  }
+}

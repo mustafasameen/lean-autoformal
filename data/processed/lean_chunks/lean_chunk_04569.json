@@ -1,0 +1,10 @@
+{
+  "content": "theorem toList_attach (o : Option \u03b1) :\n    o.attach.toList = o.toList.attach.map fun \u27e8x, h\u27e9 => \u27e8x, by simpa using h\u27e9 := by\n  cases o <;> simp\n@[simp] theorem attach_toList (o : Option \u03b1) :\n    o.toList.attach = (o.attach.map fun \u27e8a, h\u27e9 => \u27e8a, by simpa using h\u27e9).toList := by\n  cases o <;> simp\ntheorem attach_map {o : Option \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Attach.lean",
+    "definition_name": "toList_attach",
+    "has_proof": true
+  }
+}

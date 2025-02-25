@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_emptyc : (\u2205 : HashMap \u03b1 \u03b2).size = 0 :=\n  DHashMap.size_emptyc\ntheorem isEmpty_eq_size_eq_zero : m.isEmpty = (m.size == 0) :=\n  DHashMap.isEmpty_eq_size_eq_zero\ntheorem size_insert [EquivBEq \u03b1] [LawfulHashable \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashMap/Lemmas.lean",
+    "definition_name": "size_emptyc",
+    "has_proof": false
+  }
+}

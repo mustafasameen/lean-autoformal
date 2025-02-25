@@ -1,0 +1,9 @@
+{
+  "content": "\u27e8previous, r\u27e9\nelse (false, m)\n@[inline] def get? [BEq \u03b1] [LawfulBEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) : Option (\u03b2 a) :=\n  if h : 0 < m.buckets.size then\n    Raw\u2080.get? \u27e8m, h\u27e9 a\nelse none\n@[inline] def contains [BEq \u03b1] [Hashable \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) : Bool :=\n  if h : 0 < m.buckets.size then\n    Raw\u2080.contains \u27e8m, h\u27e9 a\nelse false\ninstance [BEq \u03b1] [Hashable \u03b1] : Membership \u03b1 (Raw \u03b1 \u03b2) where\n  mem m a := m.contains a\ninstance [BEq \u03b1] [Hashable \u03b1] {m : Raw \u03b1 \u03b2} {a : \u03b1} : Decidable (a \u2208 m) :=\n  inferInstanceAs (Decidable (m.contains a))\n@[inline] def get [BEq \u03b1] [Hashable \u03b1] [LawfulBEq \u03b1] (m : Raw \u03b1 \u03b2) (a : \u03b1) (h : a \u2208 m) : \u03b2 a :=\n  Raw\u2080.get \u27e8m, by change dite .. = true at h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Raw.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Raw.lean",
+    "definition_name": "empty"
+  }
+}

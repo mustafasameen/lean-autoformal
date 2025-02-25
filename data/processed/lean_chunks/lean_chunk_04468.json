@@ -1,0 +1,10 @@
+{
+  "content": "theorem isSome_iff_ne_none : o.isSome \u2194 o \u2260 none := by\n  cases o <;> simp\ntheorem not_isSome_iff_eq_none : \u00aco.isSome \u2194 o = none := by\n  cases o <;> simp\ntheorem ne_none_iff_isSome : o \u2260 none \u2194 o.isSome := by cases o <;> simp\ntheorem ne_none_iff_exists : o \u2260 none \u2194 \u2203 x, some x = o := by cases o <;> simp\ntheorem ne_none_iff_exists' : o \u2260 none \u2194 \u2203 x, o = some x :=\n  ne_none_iff_exists.trans <| exists_congr fun _ => eq_comm\ntheorem bex_ne_none {p : Option \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "isSome_iff_ne_none",
+    "has_proof": true
+  }
+}

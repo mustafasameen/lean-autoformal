@@ -1,0 +1,9 @@
+{
+  "content": "let rec loop (body : Syntax) (i : Nat) (newBinders : Array Syntax) := do\n    if h : i < binders.size then\n      let binder := binders[i]\n      let processAsPattern : Unit \u2192 MacroM (Array Syntax \u00d7 Syntax \u00d7 Bool) := fun _ => do\n        let pattern := binder\n        let major \u2190 mkFreshIdent binder\n        let (binders, newBody, _) \u2190 loop body (i+1) (newBinders.push $ mkExplicitBinder major (mkHole binder))\n        let newBody \u2190 `(match $major:ident with | $pattern => $newBody)\n        pure (binders, newBody, true)\n      match binder.getKind with\n      | ``Lean.Parser.Term.implicitBinder\n      | ``Lean.Parser.Term.strictImplicitBinder\n      | ``Lean.Parser.Term.instBinder\n      | ``Lean.Parser.Term.explicitBinder\n      | ``Lean.Parser.Term.hole | `ident => loop body (i+1) (newBinders.push binder)\n      | ``Lean.Parser.Term.paren =>\n        let term := binder[1]\n        match (\u2190 getFunBinderIds? term) with\n        | some idents =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Binders.lean",
+    "definition_name": "whenever"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Group (G : Type u) extends DivInvMonoid G where\n  protected mul_left_inv : \u2200 a : G, a\u207b\u00b9 * a = 1\nclass AddGroup (A : Type u) extends SubNegMonoid A where\n  protected add_left_neg : \u2200 a : A, -a + a = 0\nclass AddCommGroup (G : Type u) extends AddGroup G, AddCommMonoid G\nclass CommGroup (G : Type u) extends Group G, CommMonoid G\nend Mathlib.Algebra.Group.Defs\nsection Mathlib.Algebra.GroupWithZero.Defs\nuniverse u\nvariable {G\u2080 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "Group"
+  }
+}

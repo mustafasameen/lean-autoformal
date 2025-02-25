@@ -1,0 +1,9 @@
+{
+  "content": "inductive O\n| int\n| real\n| bool\n| unit\nderiving Inhabited, BEq, Repr\ninductive Arrow : (_dom _cod : O) \u2192 Type\n  | id : {\u03b1 : O}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1279.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/1279.lean",
+    "definition_name": "O"
+  }
+}

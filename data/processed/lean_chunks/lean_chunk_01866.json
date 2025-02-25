@@ -1,0 +1,9 @@
+{
+  "content": "inductive IInterp {I}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3458_1.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3458_1.lean",
+    "definition_name": "IInterp"
+  }
+}

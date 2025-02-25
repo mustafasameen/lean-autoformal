@@ -1,0 +1,9 @@
+{
+  "content": "inductive CellContents where\n  | empty  : CellContents\n  | wall   : CellContents\n  | player : CellContents\ndef update_state_with_row_aux : Nat \u2192 Nat \u2192 List CellContents \u2192 GameState \u2192 GameState\n| currentRowNum, currentColNum, [], oldState => oldState\n| currentRowNum, currentColNum, cell::contents, oldState =>\n    let oldState' := update_state_with_row_aux currentRowNum (currentColNum+1) contents oldState\n    match cell with\n    | CellContents.empty => oldState'\n    | CellContents.wall => {oldState' .. with\n                            walls := \u27e8currentColNum,currentRowNum\u27e9::oldState'.walls}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/maze.lean",
+    "definition_name": "Coords"
+  }
+}

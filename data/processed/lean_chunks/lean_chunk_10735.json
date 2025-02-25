@@ -1,0 +1,9 @@
+{
+  "content": "defaultTargets : Array Name := #[]\n  defaultScripts : Array Script := #[]\n  testDriver : String := config.testDriver\nabbrev Package.name (self : Package) : Name :=\n  self.config.name\ninstance : ToText Package := \u27e8(\u00b7.name.toString)\u27e9\ninstance : ToJson Package := \u27e8(toJson \u00b7.name)\u27e9\nabbrev NPackage.name (_ : NPackage n) := n\nabbrev PostUpdateFn (pkgName : Name) := NPackage pkgName \u2192 LakeT LogIO PUnit\nstructure PostUpdateHook (pkgName : Name) where\n  fn : PostUpdateFn pkgName\n  deriving Inhabited\nhydrate_opaque_type OpaquePostUpdateHook PostUpdateHook name\nstructure PostUpdateHookDecl where\n  pkg : Name\n  fn : PostUpdateFn pkg\nnamespace Package\n@[inline] def versionTags (self : Package) : StrPat  :=\n  self.config.versionTags\n@[inline] def keywords (self : Package) : Array String  :=\n  self.config.keywords\n@[inline] def reservoir (self : Package) : Bool  :=\n  self.config.reservoir\n@[inline] def relLicenseFiles (self : Package) : Array FilePath  :=\n  self.config.licenseFiles",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Config/Package.lean",
+    "definition_name": "defaultVersionTags"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "instance : MixTrace BuildTrace := \u27e8mix\u27e9\n@[specialize] def checkAgainstHash [CheckExists i]\n(info : i) (hash : Hash) (self : BuildTrace) : BaseIO Bool :=\n  pure (hash == self.hash) <&&> checkExists info\n@[inline] def checkAgainstTime\n  [GetMTime i] (info : i) (self : BuildTrace)\n: BaseIO Bool := do\n  self.mtime.checkUpToDate info\n@[deprecated \"Should not be done manually, but as part of `buildUnlessUpToDate`.\"\n  (since := \"2024-06-14\"), specialize]\ndef checkAgainstFile\n  [CheckExists i] [GetMTime i]\n  (info : i) (traceFile : FilePath) (self : BuildTrace)\n: BaseIO Bool := do\n  if let some hash \u2190 Hash.load? traceFile then\n    self.checkAgainstHash info hash\n  else\n    self.checkAgainstTime info\n@[deprecated \"Should not be done manually, but as part of `buildUnlessUpToDate`.\" (since := \"2024-06-14\")]\ndef writeToFile (traceFile : FilePath) (self : BuildTrace) : IO PUnit := do\n  createParentDirs traceFile\n  IO.FS.writeFile traceFile self.hash.toString\nend BuildTrace",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Trace.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Trace.lean",
+    "definition_name": "MTime"
+  }
+}

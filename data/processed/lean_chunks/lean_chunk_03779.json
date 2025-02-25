@@ -1,0 +1,10 @@
+{
+  "content": "obtain \u27e8m, eq, w\u27e9 := t\n  \u00b7 refine \u27e8m, by simp, ?_\u27e9\n    intro i h\n    simp only [eq] at w\n    specialize w \u27e8i, h\u27e9 h\n    simpa using w\n  \u00b7 exact \u27e8h0, rfl, nofun\u27e9\n  \u00b7 intro i bs \u27e8m, \u27e8eq, w\u27e9\u27e9\n    refine \u27e8?_, ?_, ?_\u27e9\n    \u00b7 exact (hs _ m).2\n    \u00b7 simp_all\n    \u00b7 intro j h\n      simp at h \u22a2\n      by_cases h' : j < size bs\n      \u00b7 rw [getElem_push]\n        simp_all\n      \u00b7 rw [getElem_push, dif_neg h']\n        simp only [show j = i by omega]\n        exact (hs _ m).1\nset_option linter.deprecated false in\n@[deprecated \"Use `toList_map` or `List.map_toArray` to characterize `Array.map`.\" (since := \"2025-01-06\")]\ntheorem map_spec (xs : Array \u03b1) (f : \u03b1 \u2192 \u03b2) (p : Fin xs.size \u2192 \u03b2 \u2192 Prop)\n    (hs : \u2200 i, p i (f xs[i])) :\n    \u2203 eq : (xs.map f).size = xs.size, \u2200 i h, p \u27e8i, h\u27e9 ((xs.map f)[i]) := by\n  simpa using map_induction xs f (fun _ => True) trivial p (by simp_all)\ntheorem contains_def [DecidableEq \u03b1] {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Lemmas.lean",
+    "definition_name": "not_mem_nil",
+    "has_proof": true
+  }
+}

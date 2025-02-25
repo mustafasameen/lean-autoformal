@@ -1,0 +1,10 @@
+{
+  "content": "theorem sub_mod_add_mod_cancel (a b : Nat) [NeZero a] : a - b % a + b % a = a := by\n  rw [Nat.sub_add_cancel]\n  cases a with\n  | zero => simp_all\n  | succ a =>\n    exact Nat.le_of_lt (mod_lt b (zero_lt_succ a))\ntheorem mod_le (x y : Nat) : x % y \u2264 x := by\n  match Nat.lt_or_ge x y with\n  | Or.inl h\u2081 => rw [mod_eq_of_lt h\u2081]; apply Nat.le_refl\n  | Or.inr h\u2081 => match eq_zero_or_pos y with\n    | Or.inl h\u2082 => rw [h\u2082, Nat.mod_zero x]; apply Nat.le_refl\n    | Or.inr h\u2082 => exact Nat.le_trans (Nat.le_of_lt (mod_lt _ h\u2082)) h\u2081\n@[simp] theorem zero_mod (b : Nat) : 0 % b = 0 := by\n  rw [mod_eq]\n  have : \u00ac (0 < b \u2227 b = 0) := by\n    intro \u27e8h\u2081, h\u2082\u27e9\n    simp_all\n  simp [this]\n@[simp] theorem mod_self (n : Nat) : n % n = 0 := by\n  rw [mod_eq_sub_mod (Nat.le_refl _), Nat.sub_self, zero_mod]\ntheorem mod_one (x : Nat) : x % 1 = 0 := by\n  have h : x % 1 < 1 := mod_lt x (by decide)\n  have : (y : Nat) \u2192 y < 1 \u2192 y = 0 := by\n    intro y\n    cases y with\n    | zero   => intro _; rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "sub_mod_add_mod_cancel",
+    "has_proof": true
+  }
+}

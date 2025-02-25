@@ -1,0 +1,10 @@
+{
+  "content": "theorem toNat_add (x y : BitVec w) : (x + y).toNat = (x.toNat + y.toNat) % 2^w := rfl\n@[simp] theorem toFin_add (x y : BitVec w) : (x + y).toFin = toFin x + toFin y := rfl\n@[simp] theorem ofFin_add (x : Fin (2^n)) (y : BitVec n) :\n  .ofFin x + y = .ofFin (x + y.toFin) := rfl\n@[simp] theorem add_ofFin (x : BitVec n) (y : Fin (2^n)) :\n  x + .ofFin y = .ofFin (x.toFin + y) := rfl\ntheorem ofNat_add {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "toNat_add",
+    "has_proof": false
+  }
+}

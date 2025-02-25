@@ -1,0 +1,9 @@
+{
+  "content": "class HasCompl (\u03b1 : Type _) where\n  compl : \u03b1 \u2192 \u03b1\nexport HasCompl (compl)\npostfix:1024 \"\u1d9c\" => compl\nclass Sup (\u03b1 : Type _) where\n  sup : \u03b1 \u2192 \u03b1 \u2192 \u03b1\nclass Inf (\u03b1 : Type _) where\n  inf : \u03b1 \u2192 \u03b1 \u2192 \u03b1\ninfixl:68 \" \u2294 \" => Sup.sup\ninfixl:69 \" \u2293 \" => Inf.inf\nclass HImp (\u03b1 : Type _) where\n  himp : \u03b1 \u2192 \u03b1 \u2192 \u03b1\nclass HNot (\u03b1 : Type _) where\n  hnot : \u03b1 \u2192 \u03b1\nexport HImp (himp)\nexport HNot (hnot)\ninfixr:60 \" \u21e8 \" => himp\nprefix:72 \"\uffe2\" => hnot\nclass Top (\u03b1 : Type _) where\n  top : \u03b1\nclass Bot (\u03b1 : Type _) where\n  bot : \u03b1\nnotation \"\u22a4\" => Top.top\nnotation \"\u22a5\" => Bot.bot\nend Mathlib.Order.Notation\nsection Mathlib.Data.Set.Defs\nuniverse u v w\nnamespace Set\nvariable {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "HasCompl"
+  }
+}

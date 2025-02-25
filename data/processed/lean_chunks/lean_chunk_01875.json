@@ -1,0 +1,10 @@
+{
+  "content": "inductive Foo (n : Nat) : Type\n| foo (t: Foo n): Foo n\nnamespace Foo\n  inductive Bar: Foo n \u2192 Prop\n  theorem ex\u2081 {s: Foo n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1228.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1228.lean",
+    "definition_name": "Foo",
+    "has_proof": false
+  }
+}

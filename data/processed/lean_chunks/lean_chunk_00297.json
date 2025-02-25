@@ -1,0 +1,10 @@
+{
+  "content": "theorem foo (xs : List Nat) : (ns : List Nat) \u2192 P xs ns\n| []      => sorry\n| (n::ns) => by {\n  cases xs;\n  exact sorry;\n  exact sorry\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/collectDepsIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/collectDepsIssue.lean",
+    "definition_name": "foo",
+    "has_proof": true
+  }
+}

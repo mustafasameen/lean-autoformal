@@ -1,0 +1,9 @@
+{
+  "content": "| .cases c\u2081, .cases c\u2082 => eqCases c\u2081 c\u2082\n      | .jmp j\u2081 as\u2081, .jmp j\u2082 as\u2082 => j\u2081 == j\u2082 && as\u2081 == as\u2082\n      | .return r\u2081, .return r\u2082 => r\u2081 == r\u2082\n      | .unreach t\u2081, .unreach t\u2082 => t\u2081 == t\u2082\n      | _, _ => false\n  private unsafe def eqFunDecl (d\u2081 d\u2082 : FunDecl) : Bool :=\n    if ptrEq d\u2081 d\u2082 then\n      true\n    else\n      d\u2081.fvarId == d\u2082.fvarId && d\u2081.binderName == d\u2082.binderName &&\n      d\u2081.params == d\u2082.params && d\u2081.type == d\u2082.type &&\n      eqImp d\u2081.value d\u2082.value\n  private unsafe def eqCases (c\u2081 c\u2082 : Cases) : Bool :=\n    c\u2081.resultType == c\u2082.resultType && c\u2081.discr == c\u2082.discr &&\n    c\u2081.typeName == c\u2082.typeName && c\u2081.alts.isEqv c\u2082.alts eqAlt\n  private unsafe def eqAlt (a\u2081 a\u2082 : Alt) : Bool :=\n    match a\u2081, a\u2082 with\n    | .default k\u2081, .default k\u2082 => eqImp k\u2081 k\u2082\n    | .alt c\u2081 ps\u2081 k\u2081, .alt c\u2082 ps\u2082 k\u2082 => c\u2081 == c\u2082 && ps\u2081 == ps\u2082 && eqImp k\u2081 k\u2082\n    | _, _ => false\nend\n@[implemented_by eqImp] protected opaque Code.beq : Code \u2192 Code \u2192 Bool\ninstance : BEq Code where\n  beq := Code.beq",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Basic.lean",
+    "definition_name": "CodeDecl"
+  }
+}

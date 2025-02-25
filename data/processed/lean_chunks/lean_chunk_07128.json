@@ -1,0 +1,9 @@
+{
+  "content": "| .jmp fn args => do\n  let jp \u2190 getFunDecl fn\n  args.forM handleFunArg\n  interpFunCall jp args\n| .cases cs => do\n  let discrVal \u2190 findVarValue cs.discr\n  for alt in cs.alts do\n    match alt with\n    | .alt ctor params body =>\n      if let some argValues := discrVal.getCtorArgs ctor then\n        params.zip argValues |>.forM (fun (param, val) => updateVarAssignment param.fvarId val)\n      else\n        params.forM (updateVarAssignment \u00b7.fvarId .top)\n      interpCode body\n    | .default body => interpCode body\n| .return var => do\n  handleFunVar var\n  let val \u2190 findVarValue var\n  updateCurrFnSummary val\n| .unreach .. => return ()\nwhere\n  interpLetValue (letVal : LetValue) : InterpM Value := do\n    match letVal with\n    | .value val => return .ofLCNFLit val\n    | .proj _ idx struct => return (\u2190 findVarValue struct).proj idx\n    | .const declName _ args =>\n      let env \u2190 getEnv\n      args.forM handleFunArg\n      match (\u2190 getDecl? declName) with\n      | some decl =>",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/ElimDeadBranches.lean",
+    "definition_name": "maxValueDepth"
+  }
+}

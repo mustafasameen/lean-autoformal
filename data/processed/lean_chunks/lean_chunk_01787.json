@@ -1,0 +1,10 @@
+{
+  "content": "theorem MulOneClass.ext {M : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1711.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1711.lean",
+    "definition_name": "MulOneClass",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "protected def mul (m n : @& Int) : Int :=\n  match m, n with\n  | ofNat m, ofNat n => ofNat (m * n)\n  | ofNat m, -[n +1] => negOfNat (m * succ n)\n  | -[m +1], ofNat n => negOfNat (succ m * n)\n  | -[m +1], -[n +1] => ofNat (succ m * succ n)\ninstance : Mul Int where\n  mul := Int.mul\n@[extern \"lean_int_sub\"]\nprotected def sub (m n : @& Int) : Int := m + (- n)\ninstance : Sub Int where\n  sub := Int.sub\n  | mk (n : Nat) : NonNeg (ofNat n)\nprotected def lt (a b : Int) : Prop := (a + 1) \u2264 b\ninstance instLTInt : LT Int where\n  lt := Int.lt\nset_option bootstrap.genMatcherCode false in\n@[extern \"lean_int_dec_eq\"]\nprotected def decEq (a b : @& Int) : Decidable (a = b) :=\n  match a, b with\n  | ofNat a, ofNat b => match decEq a b with\n    | isTrue h  => isTrue  <| h \u25b8 rfl\n    | isFalse h => isFalse <| fun h' => Int.noConfusion h' (fun h' => absurd h' h)\n  | ofNat _, -[_ +1] => isFalse <| fun h => Int.noConfusion h\n  | -[_ +1], ofNat _ => isFalse <| fun h => Int.noConfusion h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Basic.lean",
+    "definition_name": "default_eq_zero",
+    "has_proof": true
+  }
+}

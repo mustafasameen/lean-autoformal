@@ -1,0 +1,9 @@
+{
+  "content": "class AddCommGroup (G : Type u) extends AddGroup G, AddCommMonoid G\nclass CommGroup (G : Type u) extends Group G, CommMonoid G\nend Mathlib.Algebra.Group.Defs\nsection Mathlib.Data.Pi.Algebra\nvariable {I : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "AddCommGroup"
+  }
+}

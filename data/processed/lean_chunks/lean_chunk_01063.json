@@ -1,0 +1,9 @@
+{
+  "content": "class NegZeroClass (G : Type _) extends Zero G, Neg G where\n  neg_zero : -(0 : G) = 0\nclass SubNegZeroMonoid (G : Type _) extends SubNegMonoid G, NegZeroClass G\nclass SubtractionMonoid (G : Type u) extends SubNegMonoid G, InvolutiveNeg G where\n  neg_add_rev (a b : G) : -(a + b) = -b + -a\n  neg_eq_of_add (a b : G) : a + b = 0 \u2192 -a = b\nclass Group (G : Type u) extends DivInvMonoid G where\n  mul_left_inv : \u2200 a : G, a\u207b\u00b9 * a = 1\nclass AddGroup (A : Type u) extends SubNegMonoid A where\n  add_left_neg : \u2200 a : A, -a + a = 0\ninstance (priority := 100) AddGroup.toSubtractionMonoid [AddGroup G] : SubtractionMonoid G :=\n  { neg_neg := sorry\n    neg_add_rev := sorry\n    neg_eq_of_add := sorry }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "NegZeroClass"
+  }
+}

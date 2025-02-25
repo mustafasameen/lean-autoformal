@@ -1,0 +1,10 @@
+{
+  "content": "theorem perm_append_singleton (a : \u03b1) (l : List \u03b1) : l ++ [a] ~ a :: l :=\n  perm_middle.trans <| by rw [append_nil]\ntheorem perm_append_comm : \u2200 {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Perm.lean",
+    "definition_name": "perm_append_singleton",
+    "has_proof": true
+  }
+}

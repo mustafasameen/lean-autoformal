@@ -1,0 +1,9 @@
+{
+  "content": "| .nestedBC        => unreachable!\n  | .nestedPR        => ``(Pure.pure (DoResultPR.\u00abreturn\u00bb $val $u))\n  | .nestedSBC       => ``(Pure.pure (DoResultSBC.\u00abpureReturn\u00bb $val $u))\n  | .nestedPRBC      => ``(Pure.pure (DoResultPRBC.\u00abreturn\u00bb $val $u))\ndef continueToTerm : M Syntax := do\n  let ctx \u2190 read\n  let u \u2190 mkUVarTuple\n  match ctx.kind with\n  | .regular         => unreachable!\n  | .forIn           => ``(Pure.pure (ForInStep.yield $u))\n  | .forInWithReturn => ``(Pure.pure (ForInStep.yield (MProd.mk none $u)))\n  | .nestedBC        => ``(Pure.pure (DoResultBC.\u00abcontinue\u00bb $u))\n  | .nestedPR        => unreachable!\n  | .nestedSBC       => ``(Pure.pure (DoResultSBC.\u00abcontinue\u00bb $u))\n  | .nestedPRBC      => ``(Pure.pure (DoResultPRBC.\u00abcontinue\u00bb $u))\ndef breakToTerm : M Syntax := do\n  let ctx \u2190 read\n  let u \u2190 mkUVarTuple\n  match ctx.kind with\n  | .regular         => unreachable!\n  | .forIn           => ``(Pure.pure (ForInStep.done $u))",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Do.lean",
+    "definition_name": "Kind"
+  }
+}

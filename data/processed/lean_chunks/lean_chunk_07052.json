@@ -1,0 +1,9 @@
+{
+  "content": "def matchAltTerm := Lean.Parser.Term.matchAlt (rhsParser := Lean.Parser.termParser)\ninstance : Coe (TSyntax ``matchAltTerm) (TSyntax ``Parser.Term.matchAlt) where coe s := \u27e8s\u27e9\nprivate def deriveInductiveInstance (indVal : InductiveVal) (params : Array Expr)\n    (encInstBinders : Array (TSyntax ``bracketedBinder)) : TermElabM Command := do\n  trace[Elab.Deriving.RpcEncodable] \"for inductive {indVal.name} with params {params}\"\n  let st \u2190 indVal.ctors.toArray.mapM fun ctorName => do\n    let ctorTy \u2190 instantiateForall (\u2190 getConstInfoCtor ctorName).type params\n    forallTelescopeReducing ctorTy fun argVars _ => do\n    let .str _ ctor := ctorName | throwError m!\"constructor name not a string: {ctorName}\"\n    let ctorId := mkIdent (.mkSimple ctor)\n    let fieldStxs \u2190 argVars.mapM fun arg => do\n      let name := (\u2190 getFVarLocalDecl arg).userName\n      `(bracketedBinderF| ($(mkIdent name) : Json))\n    let pktCtor \u2190 `(Parser.Command.ctor|\n      | $ctorId:ident $[$fieldStxs]* : RpcEncodablePacket)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_name": "matchAltTerm"
+  }
+}

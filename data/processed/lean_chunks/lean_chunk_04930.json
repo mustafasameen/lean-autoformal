@@ -1,0 +1,10 @@
+{
+  "content": "induction l <;> simp [*, foldr]\n@[simp] theorem id_run_foldlM (f : \u03b2 \u2192 \u03b1 \u2192 Id \u03b2) (b) (l : List \u03b1) :\n    Id.run (l.foldlM f b) = l.foldl f b := (foldl_eq_foldlM f b l).symm\n@[simp] theorem id_run_foldrM (f : \u03b1 \u2192 \u03b2 \u2192 Id \u03b2) (b) (l : List \u03b1) :\n    Id.run (l.foldrM f b) = l.foldr f b := (foldr_eq_foldrM f b l).symm\n@[simp] theorem foldlM_reverse [Monad m] (l : List \u03b1) (f : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (b) :\n    l.reverse.foldlM f b = l.foldrM (fun x y => f y x) b := rfl\n@[simp] theorem foldrM_reverse [Monad m] (l : List \u03b1) (f : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (b) :\n    l.reverse.foldrM f b = l.foldlM (fun x y => f y x) b :=\n  (foldlM_reverse ..).symm.trans <| by simp\n@[simp] theorem foldr_cons_eq_append' (l l' : List \u03b2) :\n    l.foldr cons l' = l ++ l' := by\n  induction l <;> simp [*]\n@[deprecated foldr_cons_eq_append (since := \"2024-08-22\")] abbrev foldr_self_append := @foldr_cons_eq_append\n@[simp] theorem foldl_flip_cons_eq_append (l : List \u03b1) (f : \u03b1 \u2192 \u03b2) (l' : List \u03b2) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "reverse_flatten",
+    "has_proof": true
+  }
+}

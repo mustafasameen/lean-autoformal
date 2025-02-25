@@ -1,0 +1,9 @@
+{
+  "content": "guard <| !oldSnap.hasTraces && !hasTraces\n                  return oldSnap\n                let oldCmds? := oldSnap?.map fun old =>\n                  if old.newStx.isOfKind nullKind then old.newStx.getArgs else #[old.newStx]\n                let cmdPromises \u2190 cmds.mapM fun _ => IO.Promise.new\n                snap.new.resolve <| .ofTyped {\n                  diagnostics := .empty\n                  macroDecl := decl\n                  newStx := stxNew\n                  newNextMacroScope := nextMacroScope\n                  hasTraces\n                  next := Array.zipWith (fun cmdPromise cmd =>\n                    { stx? := some cmd, task := cmdPromise.resultD default }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Command.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Command.lean",
+    "definition_name": "MacroExpandedSnapshot"
+  }
+}

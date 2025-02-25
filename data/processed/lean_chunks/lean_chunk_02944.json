@@ -1,0 +1,10 @@
+{
+  "content": "regions      := s.regions\n        moduleNames  := s.moduleNames\n        moduleData   := s.moduleData\n      }\n    }\n  }\n  env \u2190 setImportedEntries env s.moduleData\n  if leakEnv then\n    env \u2190 unsafe Runtime.markPersistent env\n  env \u2190 finalizePersistentExtensions env s.moduleData opts\n  if leakEnv then\n    env \u2190 unsafe Runtime.markPersistent env\n  pure env\n@[export lean_import_modules]\ndef importModules (imports : Array Import) (opts : Options) (trustLevel : UInt32 := 0)\n    (plugins : Array System.FilePath := #[]) (leakEnv := false)\n    : IO Environment := profileitIO \"import\" opts do\n  for imp in imports do\n    if imp.module matches .anonymous then\n      throw <| IO.userError \"import failed, trying to import module with anonymous name\"\n  withImporting do\n    plugins.forM Lean.loadPlugin\n    let (_, s) \u2190 importModulesCore imports |>.run\n    finalizeImport (leakEnv := leakEnv) s imports opts trustLevel",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

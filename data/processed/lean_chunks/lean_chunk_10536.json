@@ -1,0 +1,10 @@
+{
+  "content": "@[inline]\ndef containsThenInsertIfNew! [Ord \u03b1] (k : \u03b1) (v : \u03b2 k) (t : Impl \u03b1 \u03b2) :\n    Bool \u00d7 Impl \u03b1 \u03b2 :=\n  if t.contains k then (true, t) else (false, t.insert! k v)\n@[inline]\ndef getThenInsertIfNew?! [Ord \u03b1] [LawfulEqOrd \u03b1] (k : \u03b1) (v : \u03b2 k) (t : Impl \u03b1 \u03b2) :\n    Option (\u03b2 k) \u00d7 Impl \u03b1 \u03b2 :=\n  match t.get? k with\n  | none => (none, t.insertIfNew! k v)\n  | some b => (some b, t)\ndef erase! [Ord \u03b1] (k : \u03b1) (t : Impl \u03b1 \u03b2) : Impl \u03b1 \u03b2 :=\n  match t with\n  | leaf => .leaf\n  | inner _ k' v' l r =>\n    match compare k k' with\n    | .lt => balanceR! k' v' (erase! k l) r\n    | .gt => balanceL! k' v' l (erase! k r)\n    | .eq => glue! l r\n@[inline]\ndef eraseMany [Ord \u03b1] {\u03c1 : Type w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Operations.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Operations.lean",
+    "definition_name": "balanced_empty",
+    "has_proof": false
+  }
+}

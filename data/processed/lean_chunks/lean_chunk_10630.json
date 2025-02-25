@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_containsThenInsert_eq_size [Ord \u03b1] (t : Impl \u03b1 \u03b2) :\n    containsThenInsert.size t = t.size := by\n  induction t <;> rfl\ntheorem containsThenInsert_fst_eq_contains\u2098 [Ord \u03b1] [TransOrd \u03b1] (t : Impl \u03b1 \u03b2) (htb : t.Balanced)\n    (ho : t.Ordered) (a : \u03b1) (b : \u03b2 a) :\n    (t.containsThenInsert a b htb).1 = t.contains\u2098 a := by\n  simp [containsThenInsert, size_containsThenInsert_eq_size, size_eq_length, htb,\n    SizedBalancedTree.balanced_impl _, toListModel_insert htb ho |>.length_eq, length_insertEntry]\n  simp [contains\u2098_eq_containsKey ho]\n  split <;> simp_all\ntheorem ordered_containsThenInsert [Ord \u03b1] [TransOrd \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/WF/Lemmas.lean",
+    "definition_name": "size_containsThenInsert_eq_size",
+    "has_proof": true
+  }
+}

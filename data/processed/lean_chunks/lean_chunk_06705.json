@@ -1,0 +1,9 @@
+{
+  "content": "unless (\u2190 initializing) do\n    throw (IO.userError \"failed to register option, options can only be registered during initialization\")\n  let decls \u2190 optionDeclsRef.get\n  if decls.contains name then\n    throw $ IO.userError s!\"invalid option declaration '{name}', option already exists\"\n  optionDeclsRef.set $ decls.insert name decl\ndef getOptionDecls : IO OptionDecls := optionDeclsRef.get\n@[export lean_get_option_decls_array]\ndef getOptionDeclsArray : IO (Array (Name \u00d7 OptionDecl)) := do\n  let decls \u2190 getOptionDecls\n  pure $ decls.fold\n   (fun (r : Array (Name \u00d7 OptionDecl)) k v => r.push (k, v))\n   #[]\ndef getOptionDecl (name : Name) : IO OptionDecl := do\n  let decls \u2190 getOptionDecls\n  let (some decl) \u2190 pure (decls.find? name) | throw $ IO.userError s!\"unknown option '{name}'\"\n  pure decl\ndef getOptionDefaultValue (name : Name) : IO DataValue := do\n  let decl \u2190 getOptionDecl name\n  pure decl.defValue\ndef getOptionDescr (name : Name) : IO String := do\n  let decl \u2190 getOptionDecl name",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Options.lean",
+    "definition_name": "Options"
+  }
+}

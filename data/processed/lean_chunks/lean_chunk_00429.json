@@ -1,0 +1,9 @@
+{
+  "content": "updateArgs src $ \u03bb args,\n  let args := args.set 0 id in\n  let args := args.set 1 binders in\n  let args := args.set 2 type in\n  args\n@[inline] def mkLetLhsPattern (pattern : Syntax) : Syntax :=\nSyntax.node letLhsPatternKind [pattern].toArray []\n@[inline] def withLetLhsPattern {\u03b1 : Type} (n : SyntaxNode) (fn : Syntax \u2192 \u03b1) : \u03b1 :=\nwithArgs n $ \u03bb args, fn (args.get 0)\n@[inline] def withOptionSome {\u03b1 : Type} (n : SyntaxNode) (fn : Syntax \u2192 \u03b1) : \u03b1 :=\nwithArgs n $ \u03bb args, fn (args.get 0)\ndef Syntax.getNumChildren (n : Syntax) : Nat :=\nmatch n with\n| Syntax.node _ args _ := args.size\n| _                    := 0\ndef hole : Syntax := Syntax.node holeKind \u2205 []\ndef mkOptionSome (s : Syntax) := Syntax.node optionSomeKind [s].toArray []\nabbrev FrontendConfig := Bool\nabbrev Message        := String\nabbrev TransformM     := ReaderT FrontendConfig $ ExceptT Message Id\nabbrev Transformer    := SyntaxNode \u2192 TransformM (Option Syntax)\ndef noExpansion : TransformM (Option Syntax) := pure none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

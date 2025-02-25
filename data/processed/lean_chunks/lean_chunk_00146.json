@@ -1,0 +1,9 @@
+{
+  "content": "def foo.induct := 1\ndef foo : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => n\nend Nonrec\nnamespace Structural\ndef foo.induct := 1\ndef foo : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => foo n\nend Structural\nnamespace WF\ndef foo.induct := 1\ndef foo : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => foo n\ntermination_by n => n\nend WF\nnamespace Mutual1\ndef foo.induct := 1\nmutual\ndef foo : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => bar n\ntermination_by n => n\ndef bar : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => foo n\ntermination_by n => n\nend\nend Mutual1\nnamespace Mutual2\ndef bar.induct := 1\nmutual\ndef foo : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => bar n\ntermination_by n => n\ndef bar : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => foo n\ntermination_by n => n\nend\nend Mutual2\nnamespace Mutual3\ndef foo.mutual_induct := 1\nmutual\ndef foo : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => bar n\ntermination_by n => n\ndef bar : (n : Nat) \u2192 Nat\n  | 0 => 0\n  | n+1 => foo n\ntermination_by n => n\nend\nend Mutual3\nnamespace Nested\ndef foo : (n : Nat) \u2192 Nat",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/funind_reserved.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/funind_reserved.lean",
+    "definition_name": "foo"
+  }
+}

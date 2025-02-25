@@ -1,0 +1,9 @@
+{
+  "content": "inductive T : Type 1 :=\n| mkT : (forall {a : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funMatchIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funMatchIssue.lean",
+    "definition_name": "T"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure TZif where\n  v1 : TZifV1\n  v2 : Option TZifV2\n  deriving Repr, Inhabited\nprivate def toUInt32 (bs : ByteArray) : UInt32 :=\n  assert! bs.size == 4\n  (bs.get! 0).toUInt32 <<< 0x18 |||\n  (bs.get! 1).toUInt32 <<< 0x10 |||\n  (bs.get! 2).toUInt32 <<< 0x8  |||\n  (bs.get! 3).toUInt32\nprivate def toInt32 (bs : ByteArray) : Int32 :=\n  let n := toUInt32 bs |>.toNat\n  if n < (1 <<< 31)\n    then Int.ofNat n\n    else Int.negOfNat (UInt32.size - n)\nprivate def toInt64 (bs : ByteArray) : Int64 :=\n  let n := ByteArray.toUInt64BE! bs |>.toNat\n  if n < (1 <<< 63)\n    then Int.ofNat n\n    else Int.negOfNat (UInt64.size - n)\nprivate def manyN (n : Nat) (p : Parser \u03b1) : Parser (Array \u03b1) := do\n  let mut result := #[]\n  for _ in [0:n] do\n    let x \u2190 p\n    result := result.push x\n  return result\nprivate def pu64 : Parser UInt64 := ByteArray.toUInt64LE! <$> take 8\nprivate def pi64 : Parser Int64 := toInt64 <$> take 8\nprivate def pu32 : Parser UInt32 := toUInt32 <$> take 4",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/TzIf.lean",
+    "definition_name": "Header"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class One (\u03b1 : Type u) where\n  one : \u03b1\ninstance One.toOfNat1 {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1907.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1907.lean",
+    "definition_name": "One"
+  }
+}

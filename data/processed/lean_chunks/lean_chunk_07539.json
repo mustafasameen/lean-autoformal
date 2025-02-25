@@ -1,0 +1,9 @@
+{
+  "content": "| y (presentation : Year)\n  | u (presentation : Year)\n  | D (presentation : Number)\n  | MorL (presentation : Number \u2295 Text)\n  | d (presentation : Number)\n  | Qorq (presentation : Number \u2295 Text)\n  | w (presentation : Number)\n  | W (presentation : Number)\n  | E (presentation : Text)\n  | eorc (presentation : Number \u2295 Text)\n  | F (presentation : Number)\n  | a (presentation : Text)\n  | h (presentation : Number)\n  | K (presentation : Number)\n  | k (presentation : Number)\n  | H (presentation : Number)\n  | m (presentation : Number)\n  | s (presentation : Number)\n  | S (presentation : Fraction)\n  | A (presentation : Number)\n  | n (presentation : Number)\n  | N (presentation : Number)\n  | V\n  | z (presentation : ZoneName)\n  | O (presentation : OffsetO)\n  | X (presentation : OffsetX)\n  | x (presentation : OffsetX)\n  | Z (presentation : OffsetZ)\n  deriving Repr, Inhabited\nprivate def parseMod (constructor : \u03b1 \u2192 Modifier) (classify : Nat \u2192 Option \u03b1) (p : String) : Parser Modifier :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Format/Basic.lean",
+    "definition_name": "Text"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem range'_inj : range' s n = range' s' n' \u2194 n = n' \u2227 (n = 0 \u2228 s = s') := by\n  rw [\u2190 toList_inj]\n  simp [List.range'_inj]\ntheorem mem_range' {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Range.lean",
+    "definition_name": "range",
+    "has_proof": true
+  }
+}

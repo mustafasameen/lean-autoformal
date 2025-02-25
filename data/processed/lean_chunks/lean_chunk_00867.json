@@ -1,0 +1,9 @@
+{
+  "content": "structure S where\n  x : Bool\n  y : Nat\ndef S.Z (s : S) : Type :=\n  if s.x then Nat else Int\ndef S.z : (s : S) \u2192 s.Z\n  | s@{ x := true, .. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/501.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/501.lean",
+    "definition_name": "S"
+  }
+}

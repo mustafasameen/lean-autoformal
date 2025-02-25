@@ -1,0 +1,9 @@
+{
+  "content": "def baseIdent := mkIdent (Name.mkSimple \"base\")\ndef baseTypeIdent := mkIdent (Name.mkSimple \"Base\")\ndef init (type val : TSyntax `ident) (width : Nat) : MacroM (TSyntax `command) := do\n  let fieldsStx \u2190 mkFieldsStx type \"base_\" width\n  let vals := Array.mkArray width val\n  `(structure $baseTypeIdent where\n    $fieldsStx:structFields\n    def $baseIdent : $baseTypeIdent := \u27e8$vals,*\u27e9)\ndef mkStructAndInstStx (type val : TSyntax `ident) (width depth: Nat) : MacroM <| TSyntax `command := do\n  let init \u2190 init type val width\n  go val width depth #[init]\nwhere go (val : TSyntax `ident) (width depth : Nat) (cmds : Array <| TSyntax `command) :\n    MacroM <| TSyntax `command := do\n  match depth with\n  | 0 =>\n    let cmd : TSyntax `command := \u27e8mkNullNode cmds\u27e9\n    `($cmd:command)\n  | m+1 =>\n    let len := cmds.toList.length\n    let newTerm (s : String) := if len = 1 then baseTypeIdent else mkIdent' s (m+1)\n    let newTerm' (s : String) := if len = 1 then baseIdent else mkIdent' s (m+1)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInstFast.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInstFast.lean",
+    "definition_name": "baseIdent"
+  }
+}

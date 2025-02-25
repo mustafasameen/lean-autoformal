@@ -1,0 +1,10 @@
+{
+  "content": "builtin_initialize\n  registerReservedNameAction fun name => do\n    let .str p s := name | return false\n    unless (\u2190 getEnv).isSafeDefinition p do return false\n    if isEqnReservedNameSuffix s then\n      return (\u2190 MetaM.run' <| getEqnsFor? p).isSome\n    if s == unfoldThmSuffix then\n      return (\u2190 MetaM.run' <| getUnfoldEqnFor? p (nonRec := true)).isSome\n    return false\nend Lean.Meta",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_name": "eqnThmSuffixBase",
+    "has_proof": false
+  }
+}

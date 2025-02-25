@@ -1,0 +1,9 @@
+{
+  "content": "structure Contradiction.Config where\n  useDecide  : Bool := true\n  searchFuel : Nat  := 16\n  genDiseq : Bool := false\nprivate def nestedFalseElim (mvarId : MVarId) : MetaM Bool := do\n  let target \u2190 mvarId.getType\n  if let some falseElim := target.find? fun e => e.isAppOfArity ``False.elim 2 && !e.appArg!.hasLooseBVars then\n    let falseProof := falseElim.appArg!\n    mvarId.assign (\u2190 mkFalseElim (\u2190 mvarId.getType) falseProof)\n    return true\n  else\n    return false\nprivate def isElimEmptyInductiveCandidate (fvarId : FVarId) : MetaM Bool := do\n  let type \u2190 whnfD (\u2190 fvarId.getType)\n  matchConstInduct type.getAppFn (fun _ => pure false) fun info _ => do\n    return info.ctors.length == 0 || info.numIndices > 0\nnamespace ElimEmptyInductive\nabbrev M := StateRefT Nat MetaM\ninstance : MonadBacktrack SavedState M where\n  saveState      := Meta.saveState\n  restoreState s := s.restore\npartial def elim (mvarId : MVarId) (fvarId : FVarId) : M Bool := do\n  if (\u2190 get) == 0 then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Contradiction.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Contradiction.lean",
+    "definition_name": "Contradiction"
+  }
+}

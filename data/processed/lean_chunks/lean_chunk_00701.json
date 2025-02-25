@@ -1,0 +1,9 @@
+{
+  "content": "(M\u2082 : Type _) [AddCommMonoid M] [AddCommMonoid M\u2082] [SMul R M] [SMul R M\u2082] extends\n    AddMonoidHom M M\u2082\nnotation:25 M \" \u2192\u2097[\" R:25 \"] \" M\u2082:0 => LinearMap R M M\u2082\nnamespace LinearMap\nsection AddCommMonoid\nvariable [Mul R] [Mul S]\nsection\nvariable [AddCommMonoid M] [AddCommMonoid M\u2083]\nvariable [SMul R M] [SMul R M\u2083]\ninstance instFunLike : FunLike (M \u2192\u2097[R] M\u2083) M M\u2083 where\n  coe f := f.toFun\nend\nsection\nvariable [AddCommMonoid M] [AddCommMonoid M\u2081] [AddCommMonoid M\u2082] [AddCommMonoid M\u2083]\nvariable {module_M\u2081 : SMul R M\u2081} {module_M\u2082 : SMul R M\u2082} {module_M\u2083 : SMul R M\u2083}\nvariable (f : M\u2082 \u2192\u2097[R] M\u2083) (g : M\u2081 \u2192\u2097[R] M\u2082)\ndef comp : M\u2081 \u2192\u2097[R] M\u2083 where\n  toFun := f \u2218 g\nend\nend AddCommMonoid\nend LinearMap\nend Mathlib.Algebra.Module.LinearMap.Basic\nsection Mathlib.Algebra.Module.Submodule.Basic\nuniverse u v\nvariable {R : Type u} {M : Type v}\nstructure Submodule (R : Type u) (M : Type v) [Mul R] [AddCommMonoid M] [SMul R M] : Type v\n  extends AddSubmonoid M",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

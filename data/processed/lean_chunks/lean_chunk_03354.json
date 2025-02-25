@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_forall (p : \u03b1 \u2192 Prop) : (\u00ac\u2200 x, p x) = \u2203 x, \u00acp x := by simp\ntheorem not_exists (p : \u03b1 \u2192 Prop) : (\u00ac\u2203 x, p x) = \u2200 x, \u00acp x := by simp\ntheorem cond_eq_ite (c : Bool) (a b : \u03b1) : cond c a b = ite c a b := by\n  cases c <;> simp [*]\ntheorem Nat.lt_eq (a b : Nat) : (a < b) = (a + 1 \u2264 b) := by\n  simp [Nat.lt, LT.lt]\ntheorem Int.lt_eq (a b : Int) : (a < b) = (a + 1 \u2264 b) := by\n  simp [Int.lt, LT.lt]\ntheorem ge_eq [LE \u03b1] (a b : \u03b1) : (a \u2265 b) = (b \u2264 a) := rfl\ntheorem gt_eq [LT \u03b1] (a b : \u03b1) : (a > b) = (b < a) := rfl\ntheorem beq_eq_decide_eq {_ : BEq \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Norm.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Grind/Norm.lean",
+    "definition_name": "not_forall",
+    "has_proof": true
+  }
+}

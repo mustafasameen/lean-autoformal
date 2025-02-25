@@ -1,0 +1,9 @@
+{
+  "content": "| succ u   => getLevelOffset u\n  | u        => u\ndef toNat (lvl : Level) : Option Nat :=\n  match lvl.getLevelOffset with\n  | zero   => lvl.getOffset\n  | _      => none\n@[extern \"lean_level_eq\"]\nprotected opaque beq (a : @& Level) (b : @& Level) : Bool\ninstance : BEq Level := \u27e8Level.beq\u27e9\n  | mvar n\u2081, k\u2081, mvar n\u2082, k\u2082 => if n\u2081 == n\u2082 then k\u2081 < k\u2082 else Name.lt n\u2081.name n\u2082.name\n  | l\u2081, k\u2081, l\u2082, k\u2082 => if l\u2081 == l\u2082 then k\u2081 < k\u2082 else ctorToNat l\u2081 < ctorToNat l\u2082\ndef normLt (l\u2081 l\u2082 : Level) : Bool :=\n  normLtAux l\u2081 0 l\u2082 0\nprivate def isAlreadyNormalizedCheap : Level \u2192 Bool\n  | zero    => true\n  | param _ => true\n  | mvar _  => true\n  | succ u  => isAlreadyNormalizedCheap u\n  | _       => false\n@[specialize] private partial def getMaxArgsAux (normalize : Level \u2192 Level) : Level \u2192 Bool \u2192 Array Level \u2192 Array Level\n  | max l\u2081 l\u2082, alreadyNormalized, lvls => getMaxArgsAux normalize l\u2082 alreadyNormalized (getMaxArgsAux normalize l\u2081 alreadyNormalized lvls)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

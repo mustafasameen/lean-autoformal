@@ -1,0 +1,9 @@
+{
+  "content": "inductive Tree : Type\n  | node : List Tree \u2192 Tree\nmutual\ndef Tree.map (f : Tree \u2192 Tree) : Tree \u2192 Tree\n  | Tree.node ts => Tree.node (map_forest f ts)\ndef Tree.map_forest (f : Tree \u2192 Tree) (ts : List Tree) : List Tree :=\n  ts.attach.map (fun \u27e8t, _ht\u27e9 => Tree.map f t)\nend\n#guard_msgs in\n#check Tree.map.induct\n#guard_msgs in\n#check Tree.map_forest.induct\n#guard_msgs in\n#check Tree.map.mutual_induct\nend Tree\nnamespace DefaultArgument\ndef unary (fixed : Bool := false) (n : Nat := 0)  : Nat :=\n  match n with\n  | 0 => 0\n  | n+1 => unary fixed n\ntermination_by n\n#guard_msgs in\n#check unary.induct\ndef foo (fixed : Bool := false) (n : Nat) (m : Nat := 0) : Nat :=\n  match n with\n  | 0 => m\n  | n+1 => foo fixed n m\ntermination_by n\n#guard_msgs in\n#check foo.induct\nend DefaultArgument\nnamespace Nary\ndef foo : Nat \u2192 Nat \u2192 (k : Nat) \u2192 Fin k \u2192 Nat\n  | 0, _, _, _ => 0\n  | _, 0, _, _ => 0\n  | _, _, 0, _ => 0\n  | _, _, 1, _ => 0\n  | n+1, m+1, k+2, _ => foo n m (k+1) \u27e80, Nat.zero_lt_succ _\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "Tree"
+  }
+}

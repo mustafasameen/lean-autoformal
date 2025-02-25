@@ -1,0 +1,9 @@
+{
+  "content": "inductive Stmt (m : Type u \u2192 Type _) (\u03c9 : Type u) : (\u0393 \u0394 : List (Type u)) \u2192 (b c : Bool) \u2192 (\u03b1 : Type u) \u2192 Type _ where\n  | expr (e : \u0393 \u22a2 \u0394 \u22a2 m \u03b1) : Stmt m \u03c9 \u0393 \u0394 b c \u03b1\n  | bind (s\u2081 : Stmt m \u03c9 \u0393 \u0394 b c \u03b1) (s\u2082 : Stmt m \u03c9 (\u03b1 :: \u0393) \u0394 b c \u03b2) : Stmt m \u03c9 \u0393 \u0394 b c \u03b2\n  | letmut (e : \u0393 \u22a2 \u0394 \u22a2 \u03b1) (s : Stmt m \u03c9 \u0393 (\u03b1 :: \u0394) b c \u03b2) : Stmt m \u03c9 \u0393 \u0394 b c \u03b2\n  | ass (x : Fin \u0394.length) (e : \u0393 \u22a2 \u0394 \u22a2 \u0394.get x) : Stmt m \u03c9 \u0393 \u0394 b c PUnit\n  | ite (e : \u0393 \u22a2 \u0394 \u22a2 Bool) (s\u2081 s\u2082 : Stmt m \u03c9 \u0393 \u0394 b c \u03b1) : Stmt m \u03c9 \u0393 \u0394 b c \u03b1\n  | ret (e : \u0393 \u22a2 \u0394 \u22a2 \u03c9) : Stmt m \u03c9 \u0393 \u0394 b c \u03b1\n  | sfor (e : \u0393 \u22a2 \u0394 \u22a2 List \u03b1) (body : Stmt m \u03c9 (\u03b1 :: \u0393) \u0394 true true PUnit) : Stmt m \u03c9 \u0393 \u0394 b c PUnit\n  | sbreak : Stmt m \u03c9 \u0393 \u0394 true c \u03b1\n  | scont : Stmt m \u03c9 \u0393 \u0394 b true \u03b1\ninductive Res (\u03c9 \u03b1 : Type _) : (b c : Bool) \u2192 Type _ where\n  | val (a : \u03b1) : Res \u03c9 \u03b1 b c\n  | ret (o : \u03c9) : Res \u03c9 \u03b1 b c\n  | rbreak : Res \u03c9 \u03b1 true c\n  | rcont : Res \u03c9 \u03b1 b true\ninstance : Coe \u03b1 (Res \u03c9 \u03b1 b c) := \u27e8Res.val\u27e9\ninstance : Coe (Id \u03b1) (Res \u03c9 \u03b1 b c) := \u27e8Res.val\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wfEqnsIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/wfEqnsIssue.lean",
+    "definition_name": "Stmt"
+  }
+}

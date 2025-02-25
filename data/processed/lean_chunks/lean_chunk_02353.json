@@ -1,0 +1,9 @@
+{
+  "content": "class HSMul (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hSMul : \u03b1 \u2192 \u03b2 \u2192 \u03b3\nclass SMul (M : Type u) (\u03b1 : Type v) where\n  smul : M \u2192 \u03b1 \u2192 \u03b1\ninfixr:73 \" \u2022 \" => HSMul.hSMul\ninstance instHSMul {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_name": "HSMul"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem Primrec\u2082.comp {f : \u03b2 \u2192 \u03b3 \u2192 \u03c3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simproc_timeout.lean",
+    "definition_name": "Primrec\u2082",
+    "has_proof": false
+  }
+}

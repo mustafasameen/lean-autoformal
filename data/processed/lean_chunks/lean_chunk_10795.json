@@ -1,0 +1,9 @@
+{
+  "content": "| error \"top-level build failed\"\n    return a\n  else\n    print! out \"Some required builds logged failures:\\n\"\n    failures.forM (print! out s!\"- {\u00b7}\\n\")\n    flush out\n    error \"build failed\"\n@[inline] def runBuild\n  (build : FetchM (Job \u03b1)) (cfg : BuildConfig := {})\n: LakeT IO \u03b1 := do\n  (\u2190 getWorkspace).runBuild build cfg",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_name": "Monitor"
+  }
+}

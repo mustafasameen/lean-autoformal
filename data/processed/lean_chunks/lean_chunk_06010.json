@@ -1,0 +1,10 @@
+{
+  "content": "specialize w (l\u2081.length - 1 - i) (by omega)\n    have p : l\u2081.length - 1 - i + l\u2082.length - l\u2081.length = l\u2082.length - 1 - i := by omega\n    rw [p] at w\n    rw [w, getElem_reverse]\n    exact Nat.lt_of_lt_of_le h le\ntheorem isInfix_iff : l\u2081 <:+: l\u2082 \u2194\n    \u2203 k, l\u2081.length + k \u2264 l\u2082.length \u2227 \u2200 i (h : i < l\u2081.length), l\u2082[i + k]? = some l\u2081[i] := by\n  constructor\n  \u00b7 intro h\n    obtain \u27e8t, p, s\u27e9 := infix_iff_suffix_prefix.mp h\n    refine \u27e8t.length - l\u2081.length, by have := p.length_le; have := s.length_le; omega, ?_\u27e9\n    rw [isSuffix_iff] at p\n    obtain \u27e8p', p\u27e9 := p\n    rw [isPrefix_iff] at s\n    intro i h\n    rw [s _ (by omega)]\n    specialize p i (by omega)\n    rw [Nat.add_sub_assoc (by omega)] at p\n    rw [\u2190 getElem?_eq_getElem, p]\n  \u00b7 rintro \u27e8k, le, w\u27e9\n    refine \u27e8l\u2082.take k, l\u2082.drop (k + l\u2081.length), ?_\u27e9\n    ext1 i\n    rw [getElem?_append]\n    split\n    \u00b7 rw [getElem?_append]\n      split\n      \u00b7 rw [getElem?_take]; simp_all; omega\n      \u00b7 simp_all\n        have p : i = (i - k) + k := by omega",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Sublist.lean",
+    "definition_name": "isSuffix_iff",
+    "has_proof": true
+  }
+}

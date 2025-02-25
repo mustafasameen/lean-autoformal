@@ -1,0 +1,9 @@
+{
+  "content": "| .some fn => return fn\n  | .none => LLVM.addGlobal m name type\nend LLVM\nnamespace EmitLLVM\nstructure Context (llvmctx : LLVM.Context) where\n  env        : Environment\n  modName    : Name\n  jpMap      : JPParamsMap := {}\n  mainFn     : FunId := default\n  mainParams : Array Param := #[]\n  llvmmodule : LLVM.Module llvmctx\nstructure State (llvmctx : LLVM.Context) where\n  var2val : Std.HashMap VarId (LLVM.LLVMType llvmctx \u00d7 LLVM.Value llvmctx)\n  jp2bb   : Std.HashMap JoinPointId (LLVM.BasicBlock llvmctx)\nabbrev Error := String\nabbrev M (llvmctx : LLVM.Context) :=\n  StateRefT (State llvmctx) (ReaderT (Context llvmctx) (ExceptT Error IO))\ninstance : Inhabited (M llvmctx \u03b1) where\n  default := throw \"Error: inhabitant\"\ndef addVartoState (x : VarId) (v : LLVM.Value llvmctx) (ty : LLVM.LLVMType llvmctx) : M llvmctx Unit := do\nmodify (fun s => { s with var2val := s.var2val.insert x (ty, v) })\ndef addJpTostate (jp : JoinPointId) (bb : LLVM.BasicBlock llvmctx) : M llvmctx Unit :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

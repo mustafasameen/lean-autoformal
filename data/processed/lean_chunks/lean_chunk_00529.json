@@ -1,0 +1,9 @@
+{
+  "content": "def a :=\n    1\n  def b :=\n    a\nend\nend Bar\nend Foo\n#check #[\n  1,\n  2,\n  3\n]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/foldingRange.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/foldingRange.lean",
+    "definition_name": "a"
+  }
+}

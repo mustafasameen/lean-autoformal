@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem_swap_left (xs : Vector \u03b1 n) {i j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Lemmas.lean",
+    "definition_name": "getElem_swap_left",
+    "has_proof": false
+  }
+}

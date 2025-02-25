@@ -1,0 +1,9 @@
+{
+  "content": "for i in [0:10000] do\n    let i := Int.ofNat i - 999975\n    let date := PlainDate.ofDaysSinceUNIXEpoch (Day.Offset.ofInt i)\n    let num := date.toDaysSinceUNIXEpoch\n    if i \u2260 num.val then\n      res := res.push i\n  return res",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeLocalDateTime.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/timeLocalDateTime.lean",
+    "definition_name": "date\u2081"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "mkLevelMaxCore u v fun _ => d\n@[inline] private def mkLevelIMaxCore (u v : Level) (elseK : Unit \u2192 Level) : Level :=\n  if v.isNeverZero then mkLevelMax' u v\n  else if v.isZero then v\n  else if u.isZero then v\n  else if u == v then u\n  else elseK ()\n@[inline] private unsafe def updateSucc!Impl (lvl : Level) (newLvl : Level) : Level :=\n  match lvl with\n  | succ l => if ptrEq l newLvl then lvl else mkLevelSucc newLvl\n  | _      => panic! \"succ level expected\"\n@[implemented_by updateSucc!Impl]\ndef updateSucc! (lvl : Level) (newLvl : Level) : Level :=\n  match lvl with\n  | succ _ => mkLevelSucc newLvl\n  | _      => panic! \"succ level expected\"\n@[inline] private unsafe def updateMax!Impl (lvl : Level) (newLhs : Level) (newRhs : Level) : Level :=\n  match lvl with\n  | max lhs rhs => if ptrEq lhs newLhs && ptrEq rhs newRhs then simpLevelMax' newLhs newRhs lvl else mkLevelMax' newLhs newRhs\n  | _           => panic! \"max level expected\"\n@[implemented_by updateMax!Impl]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "instance monoidalCategoryOp : MonoidalCategory C\u1d52\u1d56 where\n  tensorObj X Y := op (unop X \u2297 unop Y)\n  whiskerLeft X _ _ f := (X.unop \u25c1 f.unop).op\n  whiskerRight f X := (f.unop \u25b7 X.unop).op\n  tensorHom f g := (f.unop \u2297 g.unop).op\n  tensorUnit := op (\ud835\udfd9_ C)\n  id_whiskerRight := sorry\n  rightUnitor X := (\u03c1_ (unop X)).symm.op\n@[simp] theorem op_whiskerLeft (X : C) {Y Z : C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "monoidalCategoryOp",
+    "has_proof": false
+  }
+}

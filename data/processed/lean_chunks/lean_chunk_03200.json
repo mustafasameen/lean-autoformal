@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_eq_of_eq_swap {o : Ordering}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Ord.lean",
+    "definition_name": "eq_eq_of_eq_swap",
+    "has_proof": false
+  }
+}

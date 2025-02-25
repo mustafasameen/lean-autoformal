@@ -1,0 +1,9 @@
+{
+  "content": "let fvar := fvars[i]\n      let decl \u2190 getFVarLocalDecl fvar\n      match (\u2190 isClassQuick? decl.type) with\n      | .none   => withNewLocalInstancesImp fvars (i+1) k\n      | .undef  =>\n        match (\u2190 isClassExpensive? decl.type) with\n        | none   => withNewLocalInstancesImp fvars (i+1) k\n        | some c => withNewLocalInstance c fvar <| withNewLocalInstancesImp fvars (i+1) k\n      | .some c => withNewLocalInstance c fvar <| withNewLocalInstancesImp fvars (i+1) k\n    else\n      k\n  private partial def forallTelescopeReducingAuxAux\n      (reducing          : Bool) (maxFVars? : Option Nat)\n      (type              : Expr)\n      (k                 : Array Expr \u2192 Expr \u2192 MetaM \u03b1) (cleanupAnnotations : Bool) : MetaM \u03b1 := do\n    let rec process (lctx : LocalContext) (fvars : Array Expr) (j : Nat) (type : Expr) : MetaM \u03b1 := do\n      match type with\n      | .forallE n d b bi =>\n        if fvarsSizeLtMaxFVars fvars maxFVars? then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Basic.lean",
+    "definition_name": "mkFreshTypeMVar"
+  }
+}

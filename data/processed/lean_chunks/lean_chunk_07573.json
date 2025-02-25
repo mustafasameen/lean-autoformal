@@ -1,0 +1,9 @@
+{
+  "content": "UnitVal.ofInt data\n@[inline]\ndef ofInt (data : Int) : Offset :=\n  UnitVal.ofInt data\nend Offset\nnamespace Ordinal\n@[inline]\ndef ofInt (data : Int) (h : 0 \u2264 data \u2227 data \u2264 999) : Ordinal :=\n  Bounded.LE.mk data h\n@[inline]\ndef ofNat (data : Nat) (h : data \u2264 999) : Ordinal :=\n  Bounded.LE.ofNat data h\n@[inline]\ndef ofFin (data : Fin 1000) : Ordinal :=\n  Bounded.LE.ofFin data\n@[inline]\ndef toOffset (ordinal : Ordinal) : Offset :=\n  UnitVal.ofInt ordinal.val\nend Ordinal\nend Millisecond\nend Time\nend Std",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Millisecond.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Time/Unit/Millisecond.lean",
+    "definition_name": "Ordinal"
+  }
+}

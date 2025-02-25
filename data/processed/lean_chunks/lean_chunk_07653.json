@@ -1,0 +1,10 @@
+{
+  "content": "theorem get_append (lhs : RefVec aig lw) (rhs : RefVec aig rw) (idx : Nat)\n    (hidx : idx < lw + rw) :\n    (lhs.append rhs).get idx hidx\n      =\n    if h : idx < lw then\n      lhs.get idx h\n    else\n      rhs.get (idx - lw) (by omega) := by\n  simp only [get, append]\n  split\n  \u00b7 simp [Ref.mk.injEq]\n    rw [Array.getElem_append_left]\n  \u00b7 simp only [Ref.mk.injEq]\n    rw [Array.getElem_append_right]\n    \u00b7 simp [lhs.hlen]\n    \u00b7 rw [lhs.hlen]\n      omega\n@[inline]\ndef getD (s : RefVec aig len) (idx : Nat) (alt : Ref aig) : Ref aig :=\n  if hidx : idx < len then\n    s.get idx hidx\n  else\n    alt\ntheorem get_in_bound (s : RefVec aig len) (idx : Nat) (alt : Ref aig) (hidx : idx < len) :\n    s.getD idx alt = s.get idx hidx := by\n  unfold getD\n  simp [hidx]\ntheorem get_out_bound (s : RefVec aig len) (idx : Nat) (alt : Ref aig) (hidx : len \u2264 idx) :\n    s.getD idx alt = alt := by\n  unfold getD\n  split\n  \u00b7 omega\n  \u00b7 rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVec.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/RefVec.lean",
+    "definition_name": "get_append",
+    "has_proof": true
+  }
+}

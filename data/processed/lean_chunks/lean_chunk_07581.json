@@ -1,0 +1,9 @@
+{
+  "content": "class Database (\u03b1 : Type) where\n  getZoneRules : \u03b1 \u2192 String \u2192 IO TimeZone.ZoneRules\n  getLocalZoneRules : \u03b1 \u2192 IO TimeZone.ZoneRules\nnamespace TimeZone\ndef convertWall : Bool \u2192 StdWall\n  | true => .standard\n  | false => .wall\ndef convertUt : Bool \u2192 UTLocal\n  | true => .ut\n  | false => .local\ndef convertLocalTimeType (index : Nat) (tz : TZif.TZifV1) (identifier : String) : Option LocalTimeType := do\n  let localType \u2190 tz.localTimeTypes[index]?\n  let offset := Offset.ofSeconds <| .ofInt localType.gmtOffset\n  let abbreviation \u2190 tz.abbreviations.getD index (offset.toIsoString true)\n  let wallflag := convertWall (tz.stdWallIndicators.getD index true)\n  let utLocal := convertUt (tz.utLocalIndicators.getD index true)\n  return {\n    gmtOffset := offset\n    isDst := localType.isDst\n    abbreviation\n    wall := wallflag\n    utLocal\n    identifier\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/Basic.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Database/Basic.lean",
+    "definition_name": "Database"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "class Tst (\u03b1 : Type u) extends Mul \u03b1 :=\n(comm : \u2200 (a b : \u03b1), a * b = b * a)\n#check @Tst.comm\n#check @Tst.toMul\ndef foo {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct1.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/struct1.lean",
+    "definition_name": "Tst"
+  }
+}

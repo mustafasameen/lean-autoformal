@@ -1,0 +1,10 @@
+{
+  "content": "theorem is_le (i : Fin (n + 1)) : i \u2264 n := Nat.le_of_lt_succ i.is_lt\n@[simp] theorem is_le' {a : Fin n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "is_le",
+    "has_proof": false
+  }
+}

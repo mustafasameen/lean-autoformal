@@ -1,0 +1,9 @@
+{
+  "content": "structure MatcherApp where\n  matcherName   : Name\n  matcherLevels : Array Level\n  uElimPos?     : Option Nat\n  discrInfos    : Array Match.DiscrInfo\n  params        : Array Expr\n  motive        : Expr\n  discrs        : Array Expr\n  altNumParams  : Array Nat\n  alts          : Array Expr\n  remaining     : Array Expr\ndef matchMatcherApp? [Monad m] [MonadEnv m] [MonadError m] (e : Expr) (alsoCasesOn := false) :\n    m (Option MatcherApp) := do\n  if let .const declName declLevels := e.getAppFn then\n    if let some info \u2190 getMatcherInfo? declName then\n      let args := e.getAppArgs\n      if args.size < info.arity then\n        return none\n      return some {\n        matcherName   := declName\n        matcherLevels := declLevels.toArray\n        uElimPos?     := info.uElimPos?\n        discrInfos    := info.discrInfos\n        params        := args.extract 0 info.numParams\n        motive        := args[info.getMotivePos]!",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/MatcherApp/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/MatcherApp/Basic.lean",
+    "definition_name": "MatcherApp"
+  }
+}

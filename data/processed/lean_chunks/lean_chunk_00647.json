@@ -1,0 +1,10 @@
+{
+  "content": "def x := 10\nend Foo\n#check Foo.x\nopen Foo\n#check x\ntheorem ex1 : x = Foo.x := rfl\nnamespace Foo\ndef f x y := x + y + 1\nscoped infix:70 \"~~\" => f\n#check 1 ~~ 2\ntheorem ex1 : x ~~ y = f x y := rfl\nend Foo\n#check 1 ~~ 2\ntheorem ex2 : x ~~ y = f x y := rfl\ntheorem ex3 : x ~~ y = Foo.f x y := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/scopedParsers2.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/scopedParsers2.lean",
+    "definition_name": "x",
+    "has_proof": false
+  }
+}

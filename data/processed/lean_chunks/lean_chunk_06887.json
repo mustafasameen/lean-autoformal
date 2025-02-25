@@ -1,0 +1,9 @@
+{
+  "content": "| _ => throwUnsupportedSyntax\n@[builtin_tactic Lean.Parser.Tactic.grindTrace] def evalGrindTrace : Tactic := fun stx => do\n  match stx with\n  | `(tactic| grind?%$tk $configStx:optConfig $[only%$only]?  $[ [$params:grindParam,*] ]? $[on_failure $fallback?]?) =>\n    let config \u2190 elabGrindConfig configStx\n    let config := { config with trace := true }\n    let trace \u2190 evalGrindCore stx config only params fallback?\n    let stx \u2190 mkGrindOnly configStx fallback? trace\n    Tactic.TryThis.addSuggestion tk stx (origSpan? := \u2190 getRef)\n  | _ => throwUnsupportedSyntax\nend Lean.Elab.Tactic",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/Grind.lean",
+    "definition_name": "grindOnlyPos"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem zip_eq_zipWith (as : Array \u03b1) (bs : Array \u03b2) : zip as bs = zipWith Prod.mk as bs := by\n  cases as\n  cases bs\n  simp [List.zip_eq_zipWith]\ntheorem zip_map (f : \u03b1 \u2192 \u03b3) (g : \u03b2 \u2192 \u03b4) (as : Array \u03b1) (bs : Array \u03b2) :\n    zip (as.map f) (bs.map g) = (zip as bs).map (Prod.map f g) := by\n  cases as\n  cases bs\n  simp [List.zip_map]\ntheorem zip_map_left (f : \u03b1 \u2192 \u03b3) (as : Array \u03b1) (bs : Array \u03b2) :\n    zip (as.map f) bs = (zip as bs).map (Prod.map f id) := by rw [\u2190 zip_map, map_id]\ntheorem zip_map_right (f : \u03b2 \u2192 \u03b3) (as : Array \u03b1) (bs : Array \u03b2) :\n    zip as (bs.map f) = (zip as bs).map (Prod.map id f) := by rw [\u2190 zip_map, map_id]\ntheorem zip_append {as bs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_name": "zip_eq_zipWith",
+    "has_proof": true
+  }
+}

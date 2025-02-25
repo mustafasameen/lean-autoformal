@@ -1,0 +1,9 @@
+{
+  "content": "Ansi.chalk color caption\n      else\n        caption\n    let resetCtrl \u2190 modifyGet fun s => (s.resetCtrl, {s with resetCtrl := \"\"})\n    print s!\"{resetCtrl}{caption}\\n\"\n    if hasOutput then\n      let outLv := if failed then .trace else outLv\n      log.replay (logger := .stream out outLv useAnsi)\n    flush\ndef poll (unfinished : Array OpaqueJob) : MonitorM (Array OpaqueJob \u00d7 Array OpaqueJob) := do\n  let newJobs \u2190 (\u2190 read).jobs.modifyGet ((\u00b7, #[]))\n  modify fun s => {s with totalJobs := s.totalJobs + newJobs.size}\n  let pollJobs := fun (running, unfinished) job => do\n    match (\u2190 IO.getTaskState job.task) with\n    | .finished =>\n      reportJob job\n      modify fun s => {s with jobNo := s.jobNo + 1}\n      return (running, unfinished)\n    | .running =>\n      return (running.push job, unfinished.push job)\n    | .waiting =>\n      return (running, unfinished.push job)\n  let r \u2190 unfinished.foldlM pollJobs (#[], #[])\n  newJobs.foldlM pollJobs r\ndef sleep : MonitorM PUnit := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Build/Run.lean",
+    "definition_name": "Monitor"
+  }
+}

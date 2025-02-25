@@ -1,0 +1,10 @@
+{
+  "content": "theorem div_gcd_pos_of_pos_left (b : Nat) (h : 0 < a) : 0 < a / a.gcd b :=\n  (Nat.le_div_iff_mul_le <| Nat.gcd_pos_of_pos_left _ h).2 (Nat.one_mul _ \u25b8 Nat.gcd_le_left _ h)\ntheorem div_gcd_pos_of_pos_right (a : Nat) (h : 0 < b) : 0 < b / a.gcd b :=\n  (Nat.le_div_iff_mul_le <| Nat.gcd_pos_of_pos_right _ h).2 (Nat.one_mul _ \u25b8 Nat.gcd_le_right _ h)\ntheorem eq_zero_of_gcd_eq_zero_left {m n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Gcd.lean",
+    "definition_name": "div_gcd_pos_of_pos_left",
+    "has_proof": false
+  }
+}

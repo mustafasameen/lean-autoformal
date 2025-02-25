@@ -1,0 +1,9 @@
+{
+  "content": "def tcSuccess :=\n[Bar.mk _, Foo.mk _, Bar.mk true]\nnoncomputable def tcFail :=\n[Rig.mk _, Foo.mk _]\n@[instance] axiom FooToRig : HasCoe (Foo true) (Rig true)\nnoncomputable def tcWait :=\n[Rig.mk _, Foo.mk _, Rig.mk true]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/typeclasses_with_emetavariables.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/typeclasses_with_emetavariables.lean",
+    "definition_name": "tcSuccess"
+  }
+}

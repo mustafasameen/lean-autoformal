@@ -1,0 +1,9 @@
+{
+  "content": "class inductive Decidable (p : Prop)\n  | isFalse (h : Not p) : Decidable p\n  | isTrue  (h : p) : Decidable p\n@[inline_if_reduce, nospecialize] def Decidable.decide (p : Prop) [h : Decidable p] : Bool :=\n  Decidable.casesOn (motive := fun _ => Bool) h (fun _ => false) (fun _ => true)\nexport Decidable (isTrue isFalse decide)\nabbrev DecidablePred {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Reformat/Input.lean",
+    "definition_name": "inductive"
+  }
+}

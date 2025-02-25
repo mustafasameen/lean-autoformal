@@ -1,0 +1,10 @@
+{
+  "content": "theorem get?_eq_some_iff : l.get? n = some a \u2194 \u2203 h, get l \u27e8n, h\u27e9 = a :=\n  \u27e8fun e =>\n    have : n < length l := Nat.gt_of_not_le fun hn => by cases get?_eq_none hn \u25b8 e\n    \u27e8this, by rwa [get?_eq_get this, Option.some.injEq] at e\u27e9,\n  fun \u27e8_, e\u27e9 => e \u25b8 get?_eq_get _\u27e9\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]?` instead.\" (since := \"2025-02-12\")]\ntheorem get?_eq_none_iff : l.get? n = none \u2194 length l \u2264 n :=\n  \u27e8fun e => Nat.ge_of_not_lt (fun h' => by cases e \u25b8 get?_eq_some_iff.2 \u27e8h', rfl\u27e9), get?_eq_none\u27e9\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]?` instead.\" (since := \"2025-02-12\"), simp]\ntheorem get?_eq_getElem? (l : List \u03b1) (i : Nat) : l.get? i = l[i]? := by\n  simp only [getElem?_def]; split\n  \u00b7 exact (get?_eq_get \u2039_\u203a)\n  \u00b7 exact (get?_eq_none_iff.2 <| Nat.not_lt.1 \u2039_\u203a)\n@[simp] theorem getElem!_eq_getElem?_getD [Inhabited \u03b1] (l : List \u03b1) (i : Nat) :\n    l[i]! = (l[i]?).getD (default : \u03b1) := by\n  simp only [getElem!_def]\n  match l[i]? with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "get",
+    "has_proof": true
+  }
+}

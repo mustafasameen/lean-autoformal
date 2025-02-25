@@ -1,0 +1,9 @@
+{
+  "content": "structure Offset where\n  ofSeconds ::\n  second : Second.Offset\n  deriving Repr\ninstance : Inhabited Offset where\n  default := \u27e80\u27e9\ninstance : BEq Offset where\n  beq x y := BEq.beq x.second y.second\nnamespace Offset\ndef toIsoString (offset : Offset) (colon : Bool) : String :=\n  let (sign, time) := if offset.second.val \u2265 0 then (\"+\", offset.second) else (\"-\", -offset.second)\n  let hour : Hour.Offset := time.ediv 3600\n  let minute := Int.ediv (Int.tmod time.val 3600) 60\n  let hourStr := if hour.val < 10 then s!\"0{hour.val}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Offset.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Zoned/Offset.lean",
+    "definition_name": "Offset"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem of_lex (w : Prod.Lex r s p q) : r p.fst q.fst \u2228 p.fst = q.fst \u2227 s p.snd q.snd :=\n  Prod.lex_def.mp w\ntheorem of_not_lex {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Omega/Int.lean",
+    "definition_name": "of_lex",
+    "has_proof": false
+  }
+}

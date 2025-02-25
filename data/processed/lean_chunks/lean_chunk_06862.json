@@ -1,0 +1,10 @@
+{
+  "content": "xs.filterMapM fun x => do\n    let type \u2190 inferType x\n    if (\u2190 isProp type) then return some type else return none\n  patterns  : Array Expr := #[]\n  done      : Bool := false\nprivate structure Collector.Context where\n  proof : Expr\n  xs    : Array Expr\nprivate def isPatternFnCandidate (f : Expr) : CollectorM Bool := do\n  match f with\n  | .const declName _ => return !isForbidden declName\n  | .fvar .. => return !(\u2190 read).xs.contains f\n  | _ => return false\nprivate def addNewPattern (p : Expr) : CollectorM Unit := do\n  trace[grind.ematch.pattern.search] \"found pattern: {ppPattern p}\"\n  let bvarsFound := (\u2190 getThe NormalizePattern.State).bvarsFound\n  let done := (\u2190 checkCoverage (\u2190 read).proof (\u2190 read).xs.size bvarsFound) matches .ok\n  if done then\n    trace[grind.ematch.pattern.search] \"found full coverage\"\n  modify fun s => { s with patterns := s.patterns.push p, done }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/EMatchTheorem.lean",
+    "definition_name": "forbiddenDeclNames",
+    "has_proof": true
+  }
+}

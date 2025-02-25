@@ -1,0 +1,10 @@
+{
+  "content": "cases h\u2081\n          simp\n@[deprecated find?_eq_some_iff_append (since := \"2024-11-06\")]\nabbrev find?_eq_some := @find?_eq_some_iff_append\n@[simp]\ntheorem find?_cons_eq_some : (a :: xs).find? p = some b \u2194 (p a \u2227 a = b) \u2228 (!p a \u2227 xs.find? p = some b) := by\n  rw [find?_cons]\n  split <;> simp_all\n@[simp] theorem find?_isSome {xs : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

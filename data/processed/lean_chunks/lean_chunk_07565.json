@@ -1,0 +1,9 @@
+{
+  "content": "def Ordinal := Bounded.LE 1 7\ninstance : OfNat Ordinal n :=\n  inferInstanceAs (OfNat (Bounded.LE 1 (1 + (6 : Nat))) n)\ndef ofOrdinal : Ordinal \u2192 Weekday\n  | 1 => .monday\n  | 2 => .tuesday\n  | 3 => .wednesday\n  | 4 => .thursday\n  | 5 => .friday\n  | 6 => .saturday\n  | 7 => .sunday\ndef toOrdinal : Weekday \u2192 Ordinal\n  | .monday => 1\n  | .tuesday => 2\n  | .wednesday => 3\n  | .thursday => 4\n  | .friday => 5\n  | .saturday => 6\n  | .sunday => 7\ndef toNat : Weekday \u2192 Nat\n  | .monday => 1\n  | .tuesday => 2\n  | .wednesday => 3\n  | .thursday => 4\n  | .friday => 5\n  | .saturday => 6\n  | .sunday => 7\ndef ofNat? : Nat \u2192 Option Weekday\n  | 1 => some .monday\n  | 2 => some .tuesday\n  | 3 => some .wednesday\n  | 4 => some .thursday\n  | 5 => some .friday\n  | 6 => some .saturday\n  | 7 => some .sunday\n  | _ => none\n@[inline]\ndef ofNat! (n : Nat) : Weekday :=\n  match ofNat? n with\n  | some res => res\n  | none => panic! \"invalid weekday\"\ndef next : Weekday \u2192 Weekday\n  | .monday => .tuesday",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Weekday.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Date/Unit/Weekday.lean",
+    "definition_name": "Ordinal"
+  }
+}

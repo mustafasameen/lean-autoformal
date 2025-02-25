@@ -1,0 +1,10 @@
+{
+  "content": "theorem getValue_modifyKey_self [EquivBEq \u03b1] {k : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "getValue_modifyKey_self",
+    "has_proof": false
+  }
+}

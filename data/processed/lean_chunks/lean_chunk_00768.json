@@ -1,0 +1,10 @@
+{
+  "content": "theorem op_whiskerLeft (X : C) {Y Z : C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "op_whiskerLeft",
+    "has_proof": false
+  }
+}

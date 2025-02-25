@@ -1,0 +1,9 @@
+{
+  "content": "else\n        lctx\n  let lctx :=\n    fieldInfos.foldl (init := lctx) fun (lctx : LocalContext) (info : StructFieldInfo) =>\nif info.isFromSubobject then lctx\n      else lctx.setBinderInfo info.fvar.fvarId! BinderInfo.default\n  let lctx \u2190\n    lctx.foldlM (init := {}) fun lctx ldecl => do\n     match ldecl with\n     | .cdecl _ fvarId userName type bi k =>\n       let type \u2190 replaceIndFVars type\n       return lctx.mkLocalDecl fvarId userName type bi k\n     | .ldecl _ fvarId userName type value nonDep k =>\n       let type \u2190 replaceIndFVars type\n       let value \u2190 replaceIndFVars value\n       return lctx.mkLetDecl fvarId userName type value nonDep k\n  withLCtx lctx (\u2190 getLocalInstances) do\n    fieldInfos.forM fun fieldInfo => do\n      if let some value := fieldInfo.value? then\n        let declName := mkDefaultFnOfProjFn fieldInfo.declName\n        let type \u2190 replaceIndFVars (\u2190 inferType fieldInfo.fvar)\n        let value \u2190 instantiateMVars (\u2190 replaceIndFVars value)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "(.app (.const ``Nat.instNeZeroSucc []) (mkNatLit (n-1))) r)\ninstance : ToExpr (BitVec n) where\n  toTypeExpr := .app (mkConst ``BitVec) (toExpr n)\n  toExpr a := mkApp2 (.const ``BitVec.ofNat []) (toExpr n) (toExpr a.toNat)\ninstance : ToExpr UInt8 where\n  toTypeExpr := mkConst ``UInt8\n  toExpr a :=\n    let r := mkRawNatLit a.toNat\n    mkApp3 (.const ``OfNat.ofNat [0]) (mkConst ``UInt8) r\n      (.app (.const ``UInt8.instOfNat []) r)\ninstance : ToExpr UInt16 where\n  toTypeExpr := mkConst ``UInt16\n  toExpr a :=\n    let r := mkRawNatLit a.toNat\n    mkApp3 (.const ``OfNat.ofNat [0]) (mkConst ``UInt16) r\n      (.app (.const ``UInt16.instOfNat []) r)\ninstance : ToExpr UInt32 where\n  toTypeExpr := mkConst ``UInt32\n  toExpr a :=\n    let r := mkRawNatLit a.toNat\n    mkApp3 (.const ``OfNat.ofNat [0]) (mkConst ``UInt32) r\n      (.app (.const ``UInt32.instOfNat []) r)\ninstance : ToExpr UInt64 where\n  toTypeExpr := mkConst ``UInt64\n  toExpr a :=\n    let r := mkRawNatLit a.toNat",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ToExpr.lean",
+    "definition_name": "ToExpr"
+  }
+}

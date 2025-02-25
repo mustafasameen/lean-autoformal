@@ -1,0 +1,10 @@
+{
+  "content": "theorem not_exists : (\u00ac\u2203 x, p x) \u2194 \u2200 x, \u00acp x := exists_imp\ntheorem forall_not_of_not_exists (h : \u00ac\u2203 x, p x) : \u2200 x, \u00acp x := not_exists.mp h\ntheorem not_exists_of_forall_not (h : \u2200 x, \u00acp x) : \u00ac\u2203 x, p x := not_exists.mpr h\ntheorem forall_and : (\u2200 x, p x \u2227 q x) \u2194 (\u2200 x, p x) \u2227 (\u2200 x, q x) :=\n  \u27e8fun h => \u27e8fun x => (h x).1, fun x => (h x).2\u27e9, fun \u27e8h\u2081, h\u2082\u27e9 x => \u27e8h\u2081 x, h\u2082 x\u27e9\u27e9\ntheorem exists_or : (\u2203 x, p x \u2228 q x) \u2194 (\u2203 x, p x) \u2228 \u2203 x, q x :=\n  \u27e8fun | \u27e8x, .inl h\u27e9 => .inl \u27e8x, h\u27e9 | \u27e8x, .inr h\u27e9 => .inr \u27e8x, h\u27e9,\n   fun | .inl \u27e8x, h\u27e9 => \u27e8x, .inl h\u27e9 | .inr \u27e8x, h\u27e9 => \u27e8x, .inr h\u27e9\u27e9\n@[simp] theorem exists_false : \u00ac(\u2203 _a : \u03b1, False) := fun \u27e8_, h\u27e9 => h\n@[simp] theorem forall_const (\u03b1 : Sort _) [i : Nonempty \u03b1] : (\u03b1 \u2192 b) \u2194 b :=\n  \u27e8i.elim, fun hb _ => hb\u27e9\ntheorem Exists.nonempty : (\u2203 x, p x) \u2192 Nonempty \u03b1 | \u27e8x, _\u27e9 => \u27e8x\u27e9\ntheorem not_forall_of_exists_not {p : \u03b1 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/PropLemmas.lean",
+    "definition_name": "not_exists",
+    "has_proof": false
+  }
+}

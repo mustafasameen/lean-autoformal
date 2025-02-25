@@ -1,0 +1,10 @@
+{
+  "content": "theorem getLast?_nil : @getLast? \u03b1 [] = none := rfl\ndef getLastD : (as : List \u03b1) \u2192 (fallback : \u03b1) \u2192 \u03b1\n  | [],   a\u2080 => a\u2080\n  | a::as, _ => getLast (a::as) (fun h => List.noConfusion h)\ntheorem getLastD_nil (a) : @getLastD \u03b1 [] a = a := rfl\ntheorem getLastD_cons (a b l) : @getLastD \u03b1 (b::l) a = getLastD l b := by cases l <;> rfl\ndef head : (as : List \u03b1) \u2192 as \u2260 [] \u2192 \u03b1\n  | a::_, _ => a\n@[simp] theorem head_cons : @head \u03b1 (a::l) h = a := rfl\ndef head? : List \u03b1 \u2192 Option \u03b1\n  | []   => none\n  | a::_ => some a\n@[simp] theorem head?_nil : @head? \u03b1 [] = none := rfl\n@[simp] theorem head?_cons : @head? \u03b1 (a::l) = some a := rfl\ndef headD : (as : List \u03b1) \u2192 (fallback : \u03b1) \u2192 \u03b1\n  | [],   fallback => fallback\n  | a::_, _  => a\n@[simp] theorem headD_nil : @headD \u03b1 [] d = d := rfl\n@[simp] theorem headD_cons : @headD \u03b1 (a::l) d = a := rfl\ndef tail : List \u03b1 \u2192 List \u03b1\n  | []    => []\n  | _::as => as\n@[simp] theorem tail_nil : @tail \u03b1 [] = [] := rfl\n@[simp] theorem tail_cons : @tail \u03b1 (a::as) = as := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "getLast",
+    "has_proof": true
+  }
+}

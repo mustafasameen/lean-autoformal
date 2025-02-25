@@ -1,0 +1,9 @@
+{
+  "content": "inductive InlayHintKind where\n  | type\n  | parameter\ninstance : FromJson InlayHintKind where\n  fromJson?\n    | 1 => .ok .type\n    | 2 => .ok .parameter\n    | j => .error s!\"unknown inlay hint kind {j}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "InlayHintKind"
+  }
+}

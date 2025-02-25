@@ -1,0 +1,9 @@
+{
+  "content": "inductive ReduceMode where\n  | reduce\n  | reduceSimpleOnly\n  | none\nprivate def config : ConfigWithKey :=\n  { transparency := .reducible, iota := false, proj := .no : Config }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ACLt.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/ACLt.lean",
+    "definition_name": "ReduceMode"
+  }
+}

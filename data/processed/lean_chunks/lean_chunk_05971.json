@@ -1,0 +1,10 @@
+{
+  "content": "rw [merge_stable, map_cons]\n      exact fun x' y' mx my => h x' y' mx (mem_cons_of_mem (j, y) my)\nattribute [local instance] boolRelToRel\ntheorem sorted_merge\n    (trans : \u2200 (a b c : \u03b1), le a b \u2192 le b c \u2192 le a c)\n    (total : \u2200 (a b : \u03b1), le a b || le b a)\n    (l\u2081 l\u2082 : List \u03b1) (h\u2081 : l\u2081.Pairwise le) (h\u2082 : l\u2082.Pairwise le) : (merge l\u2081 l\u2082 le).Pairwise le := by\n  induction l\u2081 generalizing l\u2082 with\n  | nil => simpa only [merge]\n  | cons x l\u2081 ih\u2081 =>\n    induction l\u2082 with\n    | nil => simpa only [merge]\n    | cons y l\u2082 ih\u2082 =>\n      simp only [merge]\n      split <;> rename_i h\n      \u00b7 apply Pairwise.cons\n        \u00b7 intro z m\n          rw [mem_merge, mem_cons] at m\n          rcases m with (m|rfl|m)\n          \u00b7 exact rel_of_pairwise_cons h\u2081 m\n          \u00b7 exact h\n          \u00b7 exact trans _ _ _ h (rel_of_pairwise_cons h\u2082 m)\n        \u00b7 exact ih\u2081 _ h\u2081.tail h\u2082\n      \u00b7 apply Pairwise.cons\n        \u00b7 intro z m\n          rw [mem_merge, mem_cons] at m\n          simp only [Bool.not_eq_true] at h",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_name": "mem_merge_left",
+    "has_proof": true
+  }
+}

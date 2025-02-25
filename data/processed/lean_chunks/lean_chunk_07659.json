@@ -1,0 +1,10 @@
+{
+  "content": "theorem denote.eq_of_isPrefix (entry : Entrypoint \u03b1) (newAIG : AIG \u03b1)\n      (hprefix : IsPrefix entry.aig.decls newAIG.decls) :\n    \u27e6newAIG, \u27e8entry.ref.gate, (by have := entry.ref.hgate; have := hprefix.size_le; omega)\u27e9, assign\u27e7\n      =\n    \u27e6entry, assign\u27e7\n    := by\n  unfold denote\n  apply denote.go_eq_of_isPrefix\n  assumption\nabbrev ExtendingEntrypoint (aig : AIG \u03b1) : Type :=\n  { entry : Entrypoint \u03b1 // aig.decls.size \u2264 entry.aig.decls.size }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/LawfulOperator.lean",
+    "definition_name": "denote",
+    "has_proof": true
+  }
+}

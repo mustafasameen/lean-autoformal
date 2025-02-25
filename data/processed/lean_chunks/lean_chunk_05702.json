@@ -1,0 +1,10 @@
+{
+  "content": "theorem mapM_congr [Monad m] {xs ys : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Monadic.lean",
+    "definition_name": "mapM_congr",
+    "has_proof": false
+  }
+}

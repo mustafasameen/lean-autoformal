@@ -1,0 +1,9 @@
+{
+  "content": "let rec loop (acc : ByteArray) : IO ByteArray := do\n    let buf \u2190 h.read 1024\n    if buf.isEmpty then\n      return acc\n    else\n      loop (acc ++ buf)\n  loop buf\npartial def Handle.readBinToEnd (h : Handle) : IO ByteArray := do\n  h.readBinToEndInto .empty\ndef Handle.readToEnd (h : Handle) : IO String := do\n  let data \u2190 h.readBinToEnd\n  match String.fromUTF8? data with\n  | some s => return s\n  | none => throw <| .userError s!\"Tried to read from handle containing non UTF-8 data.\"\npartial def lines (fname : FilePath) : IO (Array String) := do\n  let h \u2190 Handle.mk fname Mode.read\n  let rec read (lines : Array String) := do\n    let line \u2190 h.getLine\n    if line.length == 0 then\n      pure lines\n    else if line.back == '\\n' then\n      let line := line.dropRight 1\n      let line := if line.back == '\\r' then line.dropRight 1 else line\n      read <| lines.push line\n    else\n      pure <| lines.push line\n  read #[]\ndef writeBinFile (fname : FilePath) (content : ByteArray) : IO Unit := do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "TaskState"
+  }
+}

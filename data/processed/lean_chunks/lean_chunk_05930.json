@@ -1,0 +1,10 @@
+{
+  "content": "theorem tdiv_sign : \u2200 a b, a.tdiv (sign b) = a * sign b\n  | _, succ _ => by simp [sign, Int.mul_one]\n  | _, 0 => by simp [sign, Int.mul_zero]\n  | _, -[_+1] => by simp [sign, Int.mul_neg, Int.mul_one]\nprotected theorem sign_eq_tdiv_abs (a : Int) : sign a = a.tdiv (natAbs a) :=\n  if az : a = 0 then by simp [az] else\n    (Int.tdiv_eq_of_eq_mul_left (ofNat_ne_zero.2 <| natAbs_ne_zero.2 az)\n      (sign_mul_natAbs _).symm).symm\ntheorem ofNat_fmod (m n : Nat) : \u2191(m % n) = fmod m n := by\n  cases m <;> simp [fmod, Nat.succ_eq_add_one]\n@[simp] theorem fmod_one (a : Int) : a.fmod 1 = 0 := by\n  simp [fmod_def, Int.one_mul, Int.sub_self]\ntheorem fmod_eq_of_lt {a b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "tdiv_sign",
+    "has_proof": true
+  }
+}

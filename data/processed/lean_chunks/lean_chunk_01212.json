@@ -1,0 +1,9 @@
+{
+  "content": "inductive myList (\u03b1 : Type u)\n| nil  : myList \u03b1\n| cons : \u03b1 \u2192 myList \u03b1 \u2192 myList \u03b1\ninductive myPair (\u03b1 : Type u) (\u03b2 : Type v)\n| mk : \u03b1 \u2192 \u03b2 \u2192 myPair \u03b1 \u03b2\nmutual\nvariable (\u03b1 : Type u) (m : \u03b1 \u2192 Type v)\ninductive bla : Nat \u2192 Type (max u v)\n| mk\u2081 (n : Nat) : \u03b1 \u2192 boo n \u2192 bla (n+1)\n| mk\u2082 (a : \u03b1)   : m a \u2192 String \u2192 bla 0\ninductive boo : Nat \u2192 Type (max u v)\n| mk\u2083 (n : Nat) : bla n \u2192 bla (n+1) \u2192 boo (n+2)\nend\n#print bla\ninductive Term (\u03b1 : Type) (\u03b2 : Type)\n| var : \u03b1 \u2192 bla (Term \u03b1 \u03b2) (fun _ => Term \u03b1 \u03b2) 10 \u2192 Term \u03b1 \u03b2\n| foo (p : Nat \u2192 myPair (Term \u03b1 \u03b2) (myList $ Term \u03b1 \u03b2)) (n : \u03b2) : myList (myList $ Term \u03b1 \u03b2) \u2192 Term \u03b1 \u03b2\n#print Term\n#print Term.below\n#check @Term.casesOn\n#print Term.noConfusionType\n#print Term.noConfusion\ninductive arrow (\u03b1 \u03b2 : Type)\n| mk (s : Nat \u2192 myPair \u03b1 \u03b2) : arrow \u03b1 \u03b2\nmutual\ninductive tst1\n| mk : (arrow (myPair tst2 Bool) tst2) \u2192 tst1\ninductive tst2\n| mk : tst1 \u2192 tst2\nend\n#check @tst1.casesOn\n#check @tst2.casesOn\n#check @tst1.recOn\nnamespace test\ninductive Rbnode (\u03b1 : Type u)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/new_inductive.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/new_inductive.lean",
+    "definition_name": "myList"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem Pairwise.sublist : l\u2081 <+ l\u2082 \u2192 l\u2082.Pairwise R \u2192 l\u2081.Pairwise R\n  | .slnil, h => h\n  | .cons _ s, .cons _ h\u2082 => h\u2082.sublist s\n  | .cons\u2082 _ s, .cons h\u2081 h\u2082 => (h\u2082.sublist s).cons fun _ h => h\u2081 _ (s.subset h)\ntheorem Pairwise.imp {\u03b1 R S}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Pairwise.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Pairwise.lean",
+    "definition_name": "Pairwise",
+    "has_proof": false
+  }
+}

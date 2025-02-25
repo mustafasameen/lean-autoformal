@@ -1,0 +1,10 @@
+{
+  "content": "theorem getLsbD_sshiftRight (x : BitVec w) (s i : Nat) :\n    getLsbD (x.sshiftRight s) i =\n      (!decide (w \u2264 i) && if s + i < w then x.getLsbD (s + i) else x.msb) := by\n  rcases hmsb : x.msb with rfl | rfl\n  \u00b7 simp only [sshiftRight_eq_of_msb_false hmsb, getLsbD_ushiftRight, Bool.if_false_right]\n    by_cases hi : i \u2265 w\n    \u00b7 simp only [hi, decide_true, Bool.not_true, Bool.false_and]\n      apply getLsbD_ge\n      omega\n    \u00b7 simp only [hi, decide_false, Bool.not_false, Bool.true_and, Bool.iff_and_self,\n        decide_eq_true_eq]\n      intros hlsb\n      apply BitVec.lt_of_getLsbD hlsb\n  \u00b7 by_cases hi : i \u2265 w\n    \u00b7 simp [hi]\n    \u00b7 simp only [sshiftRight_eq_of_msb_true hmsb, getLsbD_not, getLsbD_ushiftRight, Bool.not_and,\n        Bool.not_not, hi, decide_false, Bool.not_false, Bool.if_true_right, Bool.true_and,\n        Bool.and_iff_right_iff_imp, Bool.or_eq_true, Bool.not_eq_true', decide_eq_false_iff_not,\n        Nat.not_lt, decide_eq_true_eq]\n      omega",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "getLsbD_sshiftRight",
+    "has_proof": true
+  }
+}

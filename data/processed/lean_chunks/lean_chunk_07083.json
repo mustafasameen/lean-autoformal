@@ -1,0 +1,9 @@
+{
+  "content": "inductive CompletionItemKind where\n  | text | method | function | constructor | field\n  | variable | class | interface | module | property\n  | unit | value | enum | keyword | snippet\n  | color | file | reference | folder | enumMember\n  | constant | struct | event | operator | typeParameter\n  deriving Inhabited, DecidableEq, Repr, Hashable\ninstance : ToJson CompletionItemKind where\n  toJson a := toJson (a.toCtorIdx + 1)\ninstance : FromJson CompletionItemKind where\n  fromJson? v := do\n    let i : Nat \u2190 fromJson? v\n    return CompletionItemKind.ofNat (i-1)\nstructure InsertReplaceEdit where\n  newText : String\n  insert  : Range\n  replace : Range\n  deriving FromJson, ToJson, BEq, Hashable\ninductive CompletionItemTag where\n  | deprecated\n  deriving Inhabited, DecidableEq, Repr, Hashable\ninstance : ToJson CompletionItemTag where\n  toJson t := toJson (t.toCtorIdx + 1)\ninstance : FromJson CompletionItemTag where\n  fromJson? v := do\n    let i : Nat \u2190 fromJson? v",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/Lsp/LanguageFeatures.lean",
+    "definition_name": "CompletionItemKind"
+  }
+}

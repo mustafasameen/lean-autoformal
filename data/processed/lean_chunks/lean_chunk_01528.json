@@ -1,0 +1,10 @@
+{
+  "content": "instance instFooNat : Foo Nat := \u27e8by infer_instance\u27e9\ndef kron (i j : \u03b1) [DecidableEq \u03b1] : Nat := if (i=j) then 1 else 0\ntheorem kron_right_mul (\u03b1 : Type) [foo : Foo \u03b1]  (i j : \u03b1) (x : Nat) : x * kron i j = kron i j * x := sorry\nexample {i j : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/kronRWIssue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/kronRWIssue.lean",
+    "definition_name": "instFooNat",
+    "has_proof": true
+  }
+}

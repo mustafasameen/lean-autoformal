@@ -1,0 +1,10 @@
+{
+  "content": "updateCell k (fun _ => .of k v) l h |>.impl\ndef erase\u2098 [Ord \u03b1] (k : \u03b1) (t : Impl \u03b1 \u03b2) (h : t.Balanced) : Impl \u03b1 \u03b2 :=\n  updateCell k (fun _ => .empty) t h |>.impl\ndef insertIfNew\u2098 [Ord \u03b1] (k : \u03b1) (v : \u03b2 k) (l : Impl \u03b1 \u03b2) (h : l.Balanced) : Impl \u03b1 \u03b2 :=\n  updateCell k (fun\n    | \u27e8.none, _\u27e9 => .of k v\n    | c => c) l h |>.impl\ndef alter\u2098 [Ord \u03b1] [OrientedOrd \u03b1] [LawfulEqOrd \u03b1] (k : \u03b1) (f : Option (\u03b2 k) \u2192 Option (\u03b2 k))\n    (t : Impl \u03b1 \u03b2) (h : t.Balanced) : Impl \u03b1 \u03b2 :=\n  updateCell k (\u00b7.alter f) t h |>.impl\nnamespace Const\nvariable {\u03b2 : Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Model.lean",
+    "definition_name": "applyCell_eq_applyPartition",
+    "has_proof": true
+  }
+}

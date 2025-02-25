@@ -1,0 +1,9 @@
+{
+  "content": "structure TacticContext where\n  exprDef : Name\n  certDef : Name\n  reflectionDef : Name\n  solver : System.FilePath\n  lratPath : System.FilePath\n  config : BVDecideConfig\ndef TacticContext.new (lratPath : System.FilePath) (config : BVDecideConfig) :\n    Lean.Elab.TermElabM TacticContext := do\n  let config :=\n    if System.Platform.isWindows then\n      { config with binaryProofs := false }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/Frontend/LRAT.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/BVDecide/Frontend/LRAT.lean",
+    "definition_name": "TacticContext"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem take_replicate (a : \u03b1) : \u2200 i n : Nat, take i (replicate n a) = replicate (min i n) a\n  | n, 0 => by simp [Nat.min_zero]\n  | 0, m => by simp [Nat.zero_min]\n  | succ n, succ m => by simp [replicate_succ, succ_min_succ, take_replicate]\n@[simp] theorem drop_replicate (a : \u03b1) : \u2200 i n : Nat, drop i (replicate n a) = replicate (n - i) a\n  | n, 0 => by simp\n  | 0, m => by simp\n  | succ n, succ m => by simp [replicate_succ, succ_sub_succ, drop_replicate]\ntheorem take_append_eq_append_take {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/TakeDrop.lean",
+    "definition_name": "take_replicate",
+    "has_proof": true
+  }
+}

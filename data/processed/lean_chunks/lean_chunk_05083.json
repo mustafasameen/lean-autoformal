@@ -1,0 +1,10 @@
+{
+  "content": "induction l generalizing init with\n  | nil => rfl\n  | cons a l ih =>\n    simp only [filterMap_cons, foldlM_cons]\n    cases f a <;> simp [ih]\ntheorem foldrM_filterMap [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 Option \u03b2) (g : \u03b2 \u2192 \u03b3 \u2192 m \u03b3) (l : List \u03b1) (init : \u03b3) :\n    (l.filterMap f).foldrM g init =\n      l.foldrM (fun x y => match f x with | some b => g b y | none => pure y) init := by\n  induction l generalizing init with\n  | nil => rfl\n  | cons a l ih =>\n    simp only [filterMap_cons, foldrM_cons]\n    cases f a <;> simp [ih]\ntheorem foldlM_filter [Monad m] [LawfulMonad m] (p : \u03b1 \u2192 Bool) (g : \u03b2 \u2192 \u03b1 \u2192 m \u03b2) (l : List \u03b1) (init : \u03b2) :\n    (l.filter p).foldlM g init =\n      l.foldlM (fun x y => if p y then g x y else pure x) init := by\n  induction l generalizing init with\n  | nil => rfl\n  | cons a l ih =>\n    simp only [filter_cons, foldlM_cons]\n    split <;> simp [ih]\ntheorem foldrM_filter [Monad m] [LawfulMonad m] (p : \u03b1 \u2192 Bool) (g : \u03b1 \u2192 \u03b2 \u2192 m \u03b2) (l : List \u03b1) (init : \u03b2) :",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Monadic.lean",
+    "definition_name": "filterMapM_nil",
+    "has_proof": true
+  }
+}

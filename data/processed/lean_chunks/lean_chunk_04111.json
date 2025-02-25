@@ -1,0 +1,10 @@
+{
+  "content": "ext i\n  simp [cons]\ntheorem cons_append (x : BitVec w\u2081) (y : BitVec w\u2082) (a : Bool) :\n    (cons a x) ++ y = (cons a (x ++ y)).cast (by omega) := by\n  apply eq_of_toNat_eq\n  simp only [toNat_append, toNat_cons, toNat_cast]\n  rw [Nat.shiftLeft_add, Nat.shiftLeft_or_distrib, Nat.or_assoc]\ntheorem cons_append_append (x : BitVec w\u2081) (y : BitVec w\u2082) (z : BitVec w\u2083) (a : Bool) :\n    (cons a x) ++ y ++ z = (cons a (x ++ y ++ z)).cast (by omega) := by\n  ext i h\n  simp only [cons, getElem_append, getElem_cast, getElem_ofBool, cast_cast, getLsbD_append, getLsbD_cast, getLsbD_ofBool]\n  by_cases h\u2080 : i < w\u2081 + w\u2082 + w\u2083\n  \u00b7 simp only [h\u2080, \u2193reduceIte]\n    by_cases h\u2081 : i < w\u2083\n    \u00b7 simp [h\u2081]\n    \u00b7 simp only [h\u2081, \u2193reduceIte]\n      by_cases h\u2082 : i - w\u2083 < w\u2082\n      \u00b7 simp [h\u2082]\n      \u00b7 simp [h\u2082, show i - w\u2083 - w\u2082 < w\u2081 by omega]\n  \u00b7 simp only [show \u00aci - w\u2083 - w\u2082 < w\u2081 by omega, \u2193reduceIte, show i - w\u2083 - w\u2082 - w\u2081 = 0 by omega,\n      decide_true, Bool.true_and, h\u2080, show i - (w\u2081 + w\u2082 + w\u2083) = 0 by omega]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "msb_cons",
+    "has_proof": true
+  }
+}

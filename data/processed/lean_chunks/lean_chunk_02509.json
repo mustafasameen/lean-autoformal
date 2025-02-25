@@ -1,0 +1,10 @@
+{
+  "content": "theorem getElem?_pos [GetElem? cont idx elem dom] [LawfulGetElem cont idx elem dom]\n    (c : cont) (i : idx) (h : dom c i) : c[i]? = some (c[i]'h) := by\n  have : Decidable (dom c i) := .isTrue h\n  rw [getElem?_def]\n  exact dif_pos h\ntheorem getElem?_neg [GetElem? cont idx elem dom] [LawfulGetElem cont idx elem dom]\n    (c : cont) (i : idx) (h : \u00acdom c i) : c[i]? = none := by\n  have : Decidable (dom c i) := .isFalse h\n  rw [getElem?_def]\n  exact dif_neg h\ntheorem getElem!_pos [GetElem? cont idx elem dom] [LawfulGetElem cont idx elem dom]\n    [Inhabited elem] (c : cont) (i : idx) (h : dom c i) :\n    c[i]! = c[i]'h := by\n  have : Decidable (dom c i) := .isTrue h\n  simp [getElem!_def, getElem?_def, h]\ntheorem getElem!_neg [GetElem? cont idx elem dom] [LawfulGetElem cont idx elem dom]\n    [Inhabited elem] (c : cont) (i : idx) (h : \u00acdom c i) : c[i]! = default := by\n  have : Decidable (dom c i) := .isFalse h\n  simp [getElem!_def, getElem?_def, h]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

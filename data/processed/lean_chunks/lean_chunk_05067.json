@@ -1,0 +1,10 @@
+{
+  "content": "l.toArray.setIfInBounds i a  = (l.set i a).toArray := by\n  apply ext'\n  simp only [setIfInBounds]\n  split\n  \u00b7 simp\n  \u00b7 simp_all [List.set_eq_of_length_le]\n@[simp] theorem toArray_replicate (n : Nat) (v : \u03b1) : (List.replicate n v).toArray = mkArray n v := rfl\ntheorem _root_.Array.mkArray_eq_toArray_replicate : mkArray n v = (List.replicate n v).toArray := by\n  simp\n@[simp] theorem flatMap_empty {\u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/ToArray.lean",
+    "definition_name": "isPrefixOfAux_toArray_succ",
+    "has_proof": true
+  }
+}

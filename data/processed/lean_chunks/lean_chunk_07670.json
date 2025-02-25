@@ -1,0 +1,9 @@
+{
+  "content": "structure Ref (aig : AIG \u03b1) where\n  gate : Nat\n  hgate : gate < aig.decls.size\n@[inline]\ndef Ref.cast {aig1 aig2 : AIG \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/Basic.lean",
+    "definition_name": "Ref"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Alt where\n  var?    : Option Ident\n  pvars   : List (Option Ident)\n  k       : Ident := \u27e8.missing\u27e9\nstructure ElseAlt where\n  rhs : Syntax\nopen Parser Term\ndef toElseAlt? (stx : Syntax) : Option ElseAlt :=\n  if !stx.isOfKind ``matchExprElseAlt then none else\n  some { rhs := stx[3] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MatchExpr.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/MatchExpr.lean",
+    "definition_name": "Alt"
+  }
+}

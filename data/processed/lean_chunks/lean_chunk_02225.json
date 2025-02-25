@@ -1,0 +1,9 @@
+{
+  "content": "inductive LE : Nat \u2192 Nat \u2192 Prop\n  | refl : LE n n\n  | succ : LE n m \u2192 LE n m.succ\ndef typeOf {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive_pred.lean",
+    "definition_name": "LE"
+  }
+}

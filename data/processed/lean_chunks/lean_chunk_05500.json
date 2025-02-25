@@ -1,0 +1,10 @@
+{
+  "content": "instance decidableLT (s\u2081 s\u2082 : @& String) : Decidable (s\u2081 < s\u2082) :=\n  List.decidableLT s\u2081.data s\u2082.data\n@[deprecated decidableLT (since := \"2024-12-13\")] abbrev decLt := @decidableLT\n@[reducible] protected def le (a b : String) : Prop := \u00ac b < a\ninstance : LE String :=\n  \u27e8String.le\u27e9\ninstance decLE (s\u2081 s\u2082 : String) : Decidable (s\u2081 \u2264 s\u2082) :=\n  inferInstanceAs (Decidable (Not _))\n@[extern \"lean_string_length\"]\ndef length : (@& String) \u2192 Nat\n  | \u27e8s\u27e9 => s.length\n@[extern \"lean_string_push\"]\ndef push : String \u2192 Char \u2192 String\n  | \u27e8s\u27e9, c => \u27e8s ++ [c]\u27e9\n@[extern \"lean_string_append\"]\ndef append : String \u2192 (@& String) \u2192 String\n  | \u27e8a\u27e9, \u27e8b\u27e9 => \u27e8a ++ b\u27e9\ndef toList (s : String) : List Char :=\n  s.data\n@[extern \"lean_string_is_valid_pos\"]\ndef Pos.isValid (s : @&String) (p : @& Pos) : Bool :=\n  go s.data 0\nwhere\n  go : List Char \u2192 Pos \u2192 Bool\n  | [],    i => i = p\n  | c::cs, i => if i = p then true else go cs (i + c)\ndef utf8GetAux : List Char \u2192 Pos \u2192 Pos \u2192 Char\n  | [],    _, _ => default",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "decidableLT",
+    "has_proof": true
+  }
+}

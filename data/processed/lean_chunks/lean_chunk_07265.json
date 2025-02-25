@@ -1,0 +1,9 @@
+{
+  "content": "let #[.fvar fvarId\u2081, .fvar fvarId\u2082] := args | return none\n  let some arg\u2081 \u2190 getLit fvarId\u2081 | return none\n  let some arg\u2082 \u2190 getLit fvarId\u2082 | return none\n  mkLit <| folder arg\u2081 arg\u2082\ndef Folder.mkBinaryDecisionProcedure [Literal \u03b1] [Literal \u03b2] {r : \u03b1 \u2192 \u03b2 \u2192 Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_name": "Literal"
+  }
+}

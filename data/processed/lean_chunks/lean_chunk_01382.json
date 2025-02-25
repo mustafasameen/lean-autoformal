@@ -1,0 +1,10 @@
+{
+  "content": "theorem test7 (n m k : Nat) (h : n + 1 = m + 1) : m = k \u2192 n = k :=\nby {\n  injection h with h\u2081;\n  subst h\u2081;\n  intro h\u2082;\n  exact h\u2082\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inj1.lean",
+    "definition_name": "test7",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "def Alg := \u03a3 (A : 0-Type), Algebra deg A.1\nend\nsection\n  variable {\u03b9 : Type u} {\u03c5 : Type v} {deg : Sum \u03b9 \u03c5 \u2192 Nat} (A : Alg deg)\n  def Alg.carrier := A.1.1\n  def Alg.op      := A.2.1\n  def Alg.rel     := A.2.2\n  def Alg.hset : hset A.carrier :=\n  zeroEqvSet.forward A.1.2\nend\nnamespace Precategory\n  inductive Arity : Type\n  | left | right | mul | bottom\n  def signature : Sum Arity \ud835\udfce \u2192 Nat\n  | Sum.inl Arity.mul     => 2\n  | Sum.inl Arity.left    => 1\n  | Sum.inl Arity.right   => 1\n  | Sum.inl Arity.bottom  => 0\nend Precategory\ndef Precategory : Type (u + 1) :=\nAlg.{0, 0, u, 0} Precategory.signature\nnamespace Precategory\n  variable (\ud835\udc9e : Precategory.{u})\n  def intro {\u03b1 : Type u} (H : hset \u03b1) (\u03bc : \u03b1 \u2192 \u03b1 \u2192 \u03b1)\n    (dom cod : \u03b1 \u2192 \u03b1) (bot : \u03b1) : Precategory.{u} :=\n  \u27e8zeroeqv H,\n   (\u03bb | Arity.mul     => \u03bb (a, b, _) => \u03bc a b\n      | Arity.left    => \u03bb (a, _) => dom a\n      | Arity.right   => \u03bb (a, _) => cod a\n      | Arity.bottom  => \u03bb _ => bot,\n    \u03bb z => nomatch z)\u27e9\n  def carrier := \ud835\udc9e.1.1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "Alg"
+  }
+}

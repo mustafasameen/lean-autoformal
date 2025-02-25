@@ -1,0 +1,10 @@
+{
+  "content": "hOrElse : \u03b1 \u2192 (Unit \u2192 \u03b2) \u2192 \u03b3\nclass HAndThen (\u03b1 : Type u) (\u03b2 : Type v) (\u03b3 : outParam (Type w)) where\n  hAndThen : \u03b1 \u2192 (Unit \u2192 \u03b2) \u2192 \u03b3\n  hAnd : \u03b1 \u2192 \u03b2 \u2192 \u03b3\n  hXor : \u03b1 \u2192 \u03b2 \u2192 \u03b3\n  hOr : \u03b1 \u2192 \u03b2 \u2192 \u03b3\n  hShiftLeft : \u03b1 \u2192 \u03b2 \u2192 \u03b3\n  hShiftRight : \u03b1 \u2192 \u03b2 \u2192 \u03b3\n  zero : \u03b1\n  add : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n  sub : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n  mul : \u03b1 \u2192 \u03b1 \u2192 \u03b1\nclass Neg (\u03b1 : Type u) where\n  neg : \u03b1 \u2192 \u03b1\n  div : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n  mod : \u03b1 \u2192 \u03b1 \u2192 \u03b1\n  dvd : \u03b1 \u2192 \u03b1 \u2192 Prop\nclass Pow (\u03b1 : Type u) (\u03b2 : Type v) where\nclass NatPow (\u03b1 : Type u) where\nclass HomogeneousPow (\u03b1 : Type u) where\nclass Append (\u03b1 : Type u) where\nclass OrElse (\u03b1 : Type u) where\nclass AndThen (\u03b1 : Type u) where\nclass AndOp (\u03b1 : Type u) where\nclass Xor (\u03b1 : Type u) where\nclass OrOp (\u03b1 : Type u) where\nclass Complement (\u03b1 : Type u) where\nclass ShiftLeft (\u03b1 : Type u) where\nclass ShiftRight (\u03b1 : Type u) where\nclass Membership (\u03b1 : outParam (Type u)) (\u03b3 : Type v) where\n@[extern \"lean_nat_add\"]\nprotected def Nat.add : (@& Nat) \u2192 (@& Nat) \u2192 Nat\n  | a, Nat.zero   => a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

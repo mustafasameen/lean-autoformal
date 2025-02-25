@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 have heqv : v\u2081 = v\u2082 := eq_of_not_blt_eq_true hltv hgtv; subst heqv\n        by_cases hltk : Nat.blt k\u2081 k\u2082 <;> simp [hltk]\n        \u00b7 apply ih\n          simp [denote_le] at h |-\n          have haux : k\u2081 * Var.denote ctx v\u2081 \u2264 k\u2082 * Var.denote ctx v\u2081 := Nat.mul_le_mul_right _ (Nat.le_of_lt (Nat.blt_eq.mp hltk))\n          rw [Nat.mul_sub_right_distrib, \u2190 Nat.add_assoc, \u2190 Nat.add_sub_assoc haux]\n          apply Nat.le_sub_of_add_le\n          simp [h]\n        \u00b7 by_cases hgtk : Nat.blt k\u2082 k\u2081 <;> simp [hgtk]\n          \u00b7 apply ih\n            simp [denote_le] at h |-\n            have haux : k\u2082 * Var.denote ctx v\u2081 \u2264 k\u2081 * Var.denote ctx v\u2081 := Nat.mul_le_mul_right _ (Nat.le_of_lt (Nat.blt_eq.mp hgtk))\n            rw [Nat.mul_sub_right_distrib, \u2190 Nat.add_assoc, \u2190 Nat.add_sub_assoc haux]\n            apply Nat.sub_le_of_le_add\n            simp [h]\n          \u00b7 have heqk : k\u2081 = k\u2082 := eq_of_not_blt_eq_true hltk hgtk; subst heqk\n            apply ih\n            simp [denote_le] at h |-",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

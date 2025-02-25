@@ -1,0 +1,10 @@
+{
+  "content": "theorem liftOrGet_eq_or_eq {f : \u03b1 \u2192 \u03b1 \u2192 \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "liftOrGet_eq_or_eq",
+    "has_proof": false
+  }
+}

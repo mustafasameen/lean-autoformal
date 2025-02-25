@@ -1,0 +1,9 @@
+{
+  "content": "inductive SplitPosition\n| target\n| hyp (fvarId: FVarId)\nprivate def getSplitCandidates (loc : Location) : TacticM (List (SplitPosition \u00d7 Expr)) :=\nmatch loc with\n| Location.wildcard => do\n   let candidates \u2190 (\u2190 getLCtx).getFVarIds.mapM\n     (fun fvarId \u21a6 do\n       let typ \u2190 instantiateMVars (\u2190 inferType (mkFVar fvarId))\n       return (SplitPosition.hyp fvarId, typ))\n   pure ((SplitPosition.target, \u2190 getMainTarget) :: candidates.toList)\n| Location.targets hyps tgt => do\n   let candidates \u2190 (\u2190 hyps.mapM getFVarId).mapM\n     (fun fvarId \u21a6 do\n       let typ \u2190 instantiateMVars (\u2190 inferType (mkFVar fvarId))\n       return (SplitPosition.hyp fvarId, typ))\n   if tgt\n   then return (SplitPosition.target, \u2190 getMainTarget) :: candidates.toList\n   else return candidates.toList\nprivate def findIfCondAt (loc : Location) : TacticM (Option (SplitPosition \u00d7 Expr)) := do\n  for (pos, e) in (\u2190 getSplitCandidates loc) do\n    if let some (cond, _) := findIfToSplit? e\n    then return some (pos, cond)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/splitIfIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/splitIfIssue.lean",
+    "definition_name": "SplitPosition"
+  }
+}

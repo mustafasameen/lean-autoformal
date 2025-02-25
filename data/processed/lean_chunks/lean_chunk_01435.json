@@ -1,0 +1,10 @@
+{
+  "content": "theorem get_cons_zero {as : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1302.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1302.lean",
+    "definition_name": "get_cons_zero",
+    "has_proof": false
+  }
+}

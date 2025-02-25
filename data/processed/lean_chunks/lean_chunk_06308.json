@@ -1,0 +1,9 @@
+{
+  "content": "structure field\"\n    let fieldModifiers \u2190 elabModifiers fieldBinder[0]\n    checkValidFieldModifier fieldModifiers\n    if fieldModifiers.isPrivate && structModifiers.isPrivate then\n      throwError \"invalid 'private' field in a 'private' structure\"\n    if fieldModifiers.isProtected && structModifiers.isPrivate then\n      throwError \"invalid 'protected' field in a 'private' structure\"\n    let (binders, type?, value?) \u2190\n      if binfo == BinderInfo.default then\n        let (binders, type?) := expandOptDeclSig fieldBinder[3]\n        let optBinderTacticDefault := fieldBinder[4]\n        if optBinderTacticDefault.isNone then\n          pure (binders, type?, none)\n        else if optBinderTacticDefault[0].getKind != ``Parser.Term.binderTactic then\n          pure (binders, type?, some optBinderTacticDefault[0][1])\n        else\n          let binderTactic := optBinderTacticDefault[0]\n          match type? with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "field"
+  }
+}

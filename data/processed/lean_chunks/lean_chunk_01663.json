@@ -1,0 +1,10 @@
+{
+  "content": "induction a with\n  | var i => rfl\n  | op a b ih\u2081 ih\u2082 => rw [flat_op, denote_concat, denote_op, denote_op, ih\u2081, ih\u2082]\ntheorem Expr.eq_of_flat (ctx : Context \u03b1) (a b : Expr) (h : flat a = flat b) : denote ctx a = denote ctx b := by\n  rw [\u2190 Expr.denote_flat _ a, \u2190 Expr.denote_flat _ b, h]\ntheorem test (x\u2081 x\u2082 x\u2083 x\u2084 : Nat) : (x\u2081 + x\u2082) + (x\u2083 + x\u2084) = x\u2081 + x\u2082 + x\u2083 + x\u2084 :=\n  Expr.eq_of_flat\n    { op    := Nat.add\n      assoc := Nat.add_assoc\n      unit  := Nat.zero\n      vars  := [x\u2081, x\u2082, x\u2083, x\u2084] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/flat_expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/flat_expr.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

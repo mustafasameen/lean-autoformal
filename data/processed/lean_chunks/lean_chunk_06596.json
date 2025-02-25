@@ -1,0 +1,10 @@
+{
+  "content": "@[builtin_command_parser] def \u00abin\u00bb  := trailing_parser\n  withOpen (ppDedent (\" in \" >> commandParser))\nadd_decl_doc oldDeclaration\n```\nThis is useful for auto-generated declarations\nfor which there is no place to write a docstring in the source code.\nParent projections in structures are an example of this:\n```\nstructure Triple (\u03b1 \u03b2 \u03b3 : Type) extends Prod \u03b1 \u03b2 where\n  thrd : \u03b3\n@[builtin_command_parser] def addDocString := leading_parser\n  docComment >> \"add_decl_doc \" >> ident\n@[builtin_command_parser] def \u00abregister_tactic_tag\u00bb := leading_parser\n  optional (docComment >> ppLine) >>\n  \"register_tactic_tag \" >> ident >> strLit\n@[builtin_command_parser] def \u00abtactic_extension\u00bb := leading_parser\n  optional (docComment >> ppLine) >>\n  \"tactic_extension \" >> ident\nrecommended_spelling \"and\" for \"\u2227\" in [And, \u00abterm_\u2227_\u00bb]\n```\nwill do the following:\n* Adds the sentence \"The recommended spelling of `\u2227` in identifiers is `and` (some additional info).\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

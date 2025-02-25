@@ -1,0 +1,9 @@
+{
+  "content": "structure Mon_ where\n  X : C\n  one : \ud835\udfd9_ C \u27f6 X\n  mul : X \u2297 X \u27f6 X\n  mul_one : (X \u25c1 one) \u226b mul = (\u03c1_ X).hom\nattribute [simp] Mon_.mul_one\nnamespace Mon_\n@[simp]\ndef trivial : Mon_ C where\n  X := \ud835\udfd9_ C\n  one := \ud835\udfd9 _\n  mul := sorry\n  mul_one := sorry\nvariable {C}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "Mon_"
+  }
+}

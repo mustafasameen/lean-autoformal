@@ -1,0 +1,10 @@
+{
+  "content": "theorem eval_and : eval .and = ((\u00b7 &&& \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_or : eval .or = ((\u00b7 ||| \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_xor : eval .xor = ((\u00b7 ^^^ \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_add : eval .add = ((\u00b7 + \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_mul : eval .mul = ((\u00b7 * \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_udiv : eval .udiv = ((\u00b7 / \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\n@[simp] theorem eval_umod : eval .umod = ((\u00b7 % \u00b7) : BitVec w \u2192 BitVec w \u2192 BitVec w) := by rfl\nend BVBinOp\ninductive BVUnOp where\n  | not\n  | shiftLeftConst (n : Nat)\n  | shiftRightConst (n : Nat)\n  | rotateLeft (n : Nat)\n  | rotateRight (n : Nat)\n  | arithShiftRightConst (n : Nat)\nnamespace BVUnOp\ndef toString : BVUnOp \u2192 String\n  | not => \"~\"\n  | shiftLeftConst n => s!\"<< {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Basic.lean",
+    "definition_name": "eval_and",
+    "has_proof": true
+  }
+}

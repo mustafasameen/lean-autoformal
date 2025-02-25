@@ -1,0 +1,10 @@
+{
+  "content": "theorem ext_iff {s\u2081 s\u2082 : String}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "ext_iff",
+    "has_proof": false
+  }
+}

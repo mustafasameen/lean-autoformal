@@ -1,0 +1,9 @@
+{
+  "content": "def SubExpr.Pos := Nat\nnamespace SubExpr.Pos\ndef maxChildren := 4\ndef typeCoord : Nat := maxChildren - 1\ndef asNat : Pos \u2192 Nat := id\ndef head (p : Pos) : Nat :=\n  if p.isRoot then panic! \"already at top\"\n  else p.asNat % maxChildren\ndef tail (p : Pos) : Pos :=\n  if p.isRoot then panic! \"already at top\"\n  else (p.asNat - p.head) / maxChildren\ndef push (p : Pos) (c : Nat) : Pos :=\n  if c >= maxChildren then panic! s!\"invalid coordinate {c}\"\n  else p.asNat * maxChildren + c\nvariable {\u03b1 : Type} [Inhabited \u03b1]\npartial def foldr  (f : Nat \u2192 \u03b1 \u2192 \u03b1) (p : Pos) (init : \u03b1) : \u03b1 :=\n  if p.isRoot then init else foldr f p.tail (f p.head init)\npartial def foldrM [Monad M] (f : Nat \u2192 \u03b1 \u2192 M \u03b1) (p : Pos) (init : \u03b1) : M \u03b1 :=\n  if p.isRoot then pure init else f p.head init >>= foldrM f p.tail\ndef depth (p : Pos) :=\n  p.foldr (init := 0) fun _ => Nat.succ\ndef ofArray (ps : Array Nat) : Pos :=\n  ps.foldl push root\ndef toArray (p : Pos) : Array Nat :=\n  foldl Array.push #[] p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/SubExpr.lean",
+    "definition_name": "SubExpr"
+  }
+}

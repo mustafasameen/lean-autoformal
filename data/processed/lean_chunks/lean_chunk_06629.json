@@ -1,0 +1,9 @@
+{
+  "content": "def doIfLetBind := leading_parser \" \u2190 \" >> termParser\ndef doIfLet     := leading_parser (withAnonymousAntiquot := false)\n  \"let \" >> termParser >> (doIfLetPure <|> doIfLetBind)\ndef doIfProp    := leading_parser (withAnonymousAntiquot := false)\n  optIdent >> termParser\ndef doIfCond    :=\n  withAntiquot (mkAntiquot \"doIfCond\" decl_name% (anonymous := false) (isPseudoKind := true)) <|\n    doIfLet <|> doIfProp\n@[builtin_doElem_parser] def doIf := leading_parser withResetCache <| withPositionAfterLinebreak <| ppRealGroup <|\n  ppRealFill (ppIndent (\"if \" >> doIfCond >> \" then\") >> ppSpace >> doSeq) >>\n  many (checkColGe \"'else if' in 'do' must be indented\" >>\n    group (ppDedent ppSpace >> ppRealFill (elseIf >> doIfCond >> \" then \" >> doSeq))) >>\n  optional (checkColGe \"'else' in 'do' must be indented\" >>\n    ppDedent ppSpace >> ppRealFill (\"else \" >> doSeq))\n@[builtin_doElem_parser] def doUnless := leading_parser\n  \"unless \" >> withForbidden \"do\" termParser >> \" do \" >> doSeq",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Do.lean",
+    "definition_name": "doSeqIndent"
+  }
+}

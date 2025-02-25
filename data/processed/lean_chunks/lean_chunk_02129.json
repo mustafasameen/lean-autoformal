@@ -1,0 +1,9 @@
+{
+  "content": "structure D'' extends A, C' where\n  c := a\ndef f'' (a b d e : Nat) : D'' :=\n  { a, b, d, e }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diamond3.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/diamond3.lean",
+    "definition_name": "D"
+  }
+}

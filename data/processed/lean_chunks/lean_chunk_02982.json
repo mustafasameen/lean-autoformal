@@ -1,0 +1,9 @@
+{
+  "content": "structure ParametricAttribute (\u03b1 : Type) where\n  attr : AttributeImpl\n  ext  : PersistentEnvExtension (Name \u00d7 \u03b1) (Name \u00d7 \u03b1) (NameMap \u03b1)\n  deriving Inhabited\nstructure ParametricAttributeImpl (\u03b1 : Type) extends AttributeImplCore where\n  getParam : Name \u2192 Syntax \u2192 AttrM \u03b1\n  afterSet : Name \u2192 \u03b1 \u2192 AttrM Unit := fun _ _ _ => pure ()\n  afterImport : Array (Array (Name \u00d7 \u03b1)) \u2192 ImportM Unit := fun _ => pure ()\ndef registerParametricAttribute (impl : ParametricAttributeImpl \u03b1) : IO (ParametricAttribute \u03b1) := do\n  let ext : PersistentEnvExtension (Name \u00d7 \u03b1) (Name \u00d7 \u03b1) (NameMap \u03b1) \u2190 registerPersistentEnvExtension {\n    name            := impl.ref\n    mkInitial       := pure {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Attributes.lean",
+    "definition_name": "ParametricAttribute"
+  }
+}

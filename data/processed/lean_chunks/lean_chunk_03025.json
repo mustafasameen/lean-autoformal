@@ -1,0 +1,9 @@
+{
+  "content": "| .bvar idx => mkData (mixHash 7 <| hash idx) (idx+1)\n    | .sort lvl => mkData (mixHash 11 <| hash lvl) 0 0 false false lvl.hasMVar lvl.hasParam\n    | .fvar fvarId => mkData (mixHash 13 <| hash fvarId) 0 0 true\n    | .mvar fvarId => mkData (mixHash 17 <| hash fvarId) 0 0 false true\n    | .mdata _m e =>\n      let d := e.data.approxDepth.toUInt32+1\n      mkData (mixHash d.toUInt64 <| e.data.hash) e.data.looseBVarRange.toNat d e.data.hasFVar e.data.hasExprMVar e.data.hasLevelMVar e.data.hasLevelParam\n    | .proj s i e =>\n      let d := e.data.approxDepth.toUInt32+1\n      mkData (mixHash d.toUInt64 <| mixHash (hash s) <| mixHash (hash i) e.data.hash)\n          e.data.looseBVarRange.toNat d e.data.hasFVar e.data.hasExprMVar e.data.hasLevelMVar e.data.hasLevelParam\n    | .app f a => mkAppData f.data a.data\n    | .lam _ t b _ =>\n      let d := (max t.data.approxDepth.toUInt32 b.data.approxDepth.toUInt32) + 1\n      mkDataForBinder (mixHash d.toUInt64 <| mixHash t.data.hash b.data.hash)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

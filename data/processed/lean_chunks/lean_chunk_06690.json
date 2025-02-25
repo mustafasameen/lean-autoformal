@@ -1,0 +1,9 @@
+{
+  "content": "end NameSSet\ndef NameHashSet := Std.HashSet Name\nnamespace NameHashSet\n@[inline] def empty : NameHashSet := Std.HashSet.empty\ninstance : EmptyCollection NameHashSet := \u27e8empty\u27e9\ninstance : Inhabited NameHashSet := \u27e8{}\u27e9\ndef insert (s : NameHashSet) (n : Name) := Std.HashSet.insert s n\ndef contains (s : NameHashSet) (n : Name) : Bool := Std.HashSet.contains s n",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/NameMap.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Data/NameMap.lean",
+    "definition_name": "NameSet"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (x z : Nat) : f (z := z) x = x + 1 + 2 - z :=\nrfl\ntheorem ex2 (x z : Nat) : f x (z := z) = x + 1 + 2 - z :=\nrfl\ntheorem ex3 (x y : Nat) : f x y = fun z => x + y + 2 - z :=\nrfl\ntheorem ex4 : f = (fun x z => x + 1 + 2 - z) :=\nrfl\ntheorem ex5 (x : Nat) : f x = fun z => x + 1 + 2 - z :=\nrfl\ntheorem ex6 (y : Nat) : f (y := 5) = fun x z => x + 5 + 2 - z :=\nrfl\ndef g {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partialApp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/partialApp.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

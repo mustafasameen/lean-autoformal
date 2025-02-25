@@ -1,0 +1,9 @@
+{
+  "content": "let rawName := ident.getId\n      let name    := rawName.eraseMacroScopes\n      unless name.isAtomic do\n        throwErrorAt ident \"invalid field name '{name.eraseMacroScopes}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "field"
+  }
+}

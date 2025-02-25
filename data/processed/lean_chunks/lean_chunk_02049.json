@@ -1,0 +1,9 @@
+{
+  "content": "termination_by i\n#guard_msgs in\n#check with_arg_refining_match2.induct\nset_option linter.unusedVariables false in\ndef with_other_match_tailrec : Nat \u2192 Nat\n  | 0 => 0\n  | n+1 =>\n    match n % 2 with\n    | 0 => with_other_match_tailrec n\n    | _ => with_other_match_tailrec n\ntermination_by n => n\n#guard_msgs in\n#check with_other_match_tailrec.induct\nset_option linter.unusedVariables false in\ndef with_mixed_match_tailrec : Nat \u2192 Nat \u2192 Nat \u2192 Nat \u2192 Nat := fun a b c d =>\n  match a, h: b, c % 2, h : d % 2 with\n  | 0, _, _, _ => 0\n  | a+1, x, y, z => with_mixed_match_tailrec a x y z\ntermination_by n => n\n#guard_msgs in\n#check with_mixed_match_tailrec.induct\nset_option linter.unusedVariables false in\ndef with_mixed_match_tailrec2 : Nat \u2192 Nat \u2192 Nat \u2192 Nat \u2192 Nat \u2192 Nat := fun n a b c d =>\n  match n with\n  | 0 => 0\n  | n+1 =>\n    match a, h: b, c % 2, h : d % 2 with\n    | 0, _, _, _ => 0\n    | a+1, x, y, z => with_mixed_match_tailrec2 n a x y z\ntermination_by n => n\n#guard_msgs in",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "Tree"
+  }
+}

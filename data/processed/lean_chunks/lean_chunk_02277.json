@@ -1,0 +1,10 @@
+{
+  "content": "theorem x_a : x.a = 37 := rfl\ndef y : B := { x with b := 37, w := by simp }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/zetaDeltaIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/zetaDeltaIssue.lean",
+    "definition_name": "x_a",
+    "has_proof": true
+  }
+}

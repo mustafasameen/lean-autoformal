@@ -1,0 +1,9 @@
+{
+  "content": "class A where\nclass B (n : Nat) where\nclass C where\ninstance test [B 10000] [C] : A where\ninstance Bsucc {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3996.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3996.lean",
+    "definition_name": "A"
+  }
+}

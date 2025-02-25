@@ -1,0 +1,10 @@
+{
+  "content": "theorem match_non_tail_eq_true (n : Nat) : match_non_tail n = true := by\n  induction n using match_non_tail.induct\n  case case1 n IH =>\n    unfold match_non_tail\n    split <;> dsimp at IH <;> simp [IH]\nend NonTailrecMatch\nnamespace AsPattern\ndef foo (n : Nat) :=\n  match n with\n  | 0 => 0\n  | x@(n+1) => x + foo n\ntermination_by n\n#guard_msgs in\n#check foo.induct\ndef bar (n : Nat) :=\n  1 +\n  match n with\n  | 0 => 0\n  | x@(n+1) => x + bar n\ntermination_by n\n#guard_msgs in\n#check bar.induct\nend AsPattern\nnamespace GramSchmidt\ndef below (n i : Nat) := i < n\n@[simp]\ndef below_lt (n i : Nat) (h : below n i) : i < n := h\ndef sum_below (n : Nat) (f : (i : Nat) \u2192 below n i \u2192 Nat) :=\n  match n with\n  | 0 => 0\n  | n+1 => sum_below n (fun i hi => f i (Nat.lt_succ_of_le (Nat.le_of_lt hi))) +\n          f n (Nat.lt_succ_self n)\ndef foo (n : Nat) :=\n  1 + sum_below n (fun i _ => foo i)\ntermination_by n\ndecreasing_by simp [below_lt, *]\n#guard_msgs in\n#check foo.induct\nend GramSchmidt\nnamespace LetFun",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/funind_tests.lean",
+    "definition_name": "match_non_tail_eq_true",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "structure A :=\n(x y : Nat)\nstructure B :=\n(z : Nat)\nstructure C extends A, B\ndef f (c : C) :=\nc.x + c.y + c.z\ntheorem ex1 : f {x := 10, y := 20, z := 30}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structNoBody.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structNoBody.lean",
+    "definition_name": "A",
+    "has_proof": false
+  }
+}

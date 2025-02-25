@@ -1,0 +1,9 @@
+{
+  "content": "class HasGetAt {\u03b2 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/stateRef.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/stateRef.lean",
+    "definition_name": "HasGetAt"
+  }
+}

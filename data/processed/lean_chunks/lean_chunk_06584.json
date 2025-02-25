@@ -1,0 +1,9 @@
+{
+  "content": "such as inductive constructors, structure projections, and `let rec` / `where` definitions. -/\n@[builtin_doc] def declModifiers (inline : Bool) := leading_parser\n  optional docComment >>\n  optional (Term.\u00abattributes\u00bb >> if inline then skip else ppDedent ppLine) >>\n  optional visibility >>\n  optional \u00abnoncomputable\u00bb >>\n  optional \u00abunsafe\u00bb >>\n  optional (\u00abpartial\u00bb <|> \u00abnonrec\u00bb)\ndef declSig := leading_parser\n  many (ppSpace >> (Term.binderIdent <|> Term.bracketedBinder)) >> Term.typeSpec\ndef declBody : Parser :=\n  lookahead (setExpected [] \"by\") >> termParser leadPrec <|>\n  termParser\nopen PrettyPrinter in\n@[combinator_parenthesizer declBody] def declBody.parenthesizer : Parenthesizer :=\n  Parenthesizer.categoryParser.parenthesizer `term 0\ndef declValSimple    := leading_parser\n  \" :=\" >> ppHardLineUnlessUngrouped >> declBody >> Termination.suffix >> optional Term.whereDecls\ndef declValEqns      := leading_parser\n  Term.matchAltsWhereDecls\ndef whereStructInst  := leading_parser",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "quot"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "let e \u2190 step e\n  match e.etaExpandedStrict? with\n  | some e => reduceUntilBadKey e\n  | none   => return e\nwhere\n  step (e : Expr) := do\n    let e \u2190 whnfCore e\n    match (\u2190 unfoldDefinition? e) with\n    | some e' => if isBadKey e'.getAppFn then return e else step e'\n    | none    => return e\nprivate def pushWildcards (n : Nat) (todo : Array Expr) : Array Expr :=\n  match n with\n  | 0   => todo\n  | n+1 => pushWildcards n (todo.push tmpStar)\nprivate def pushArgs (root : Bool) (todo : Array Expr) (e : Expr) (noIndexAtArgs : Bool) : MetaM (Key \u00d7 Array Expr) := do\n  if hasNoindexAnnotation e then\n    return (.star, todo)\n  else\n    let e \u2190 reduceDT e root\n    let fn := e.getAppFn\n    let push (k : Key) (nargs : Nat) (todo : Array Expr): MetaM (Key \u00d7 Array Expr) := do\n      let info \u2190 getFunInfoNArgs fn nargs\n      let todo \u2190 if noIndexAtArgs then\n        pure <| pushWildcards nargs todo\n      else\n        pushArgsAux info.paramInfo (nargs-1) e todo\n      return (k, todo)\n    match fn with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_name": "tmpStar"
+  }
+}

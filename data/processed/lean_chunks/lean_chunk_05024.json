@@ -1,0 +1,10 @@
+{
+  "content": "theorem get?_nil : @get? \u03b1 [] n = none := rfl\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]?` instead.\" (since := \"2025-02-12\"), simp]\ntheorem get?_cons_zero : @get? \u03b1 (a::l) 0 = some a := rfl\nset_option linter.deprecated false in\n@[deprecated \"Use `a[i]?` instead.\" (since := \"2025-02-12\"), simp]\ntheorem get?_cons_succ : @get? \u03b1 (a::l) (n+1) = get? l n := rfl\nset_option linter.deprecated false in\n@[deprecated \"Use `List.ext_getElem?`.\" (since := \"2025-02-12\")]\ntheorem ext_get? : \u2200 {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/BasicAux.lean",
+    "definition_name": "get",
+    "has_proof": false
+  }
+}

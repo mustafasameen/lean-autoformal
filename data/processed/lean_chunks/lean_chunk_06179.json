@@ -1,0 +1,9 @@
+{
+  "content": "def rawIdentNoAntiquot.parenthesizer := visitToken\n@[combinator_parenthesizer identEq] def identEq.parenthesizer (_id : Name) := visitToken\n@[combinator_parenthesizer nonReservedSymbolNoAntiquot] def nonReservedSymbolNoAntiquot.parenthesizer (_sym : String) (_includeIdent : Bool) := visitToken\n@[combinator_parenthesizer charLitNoAntiquot] def charLitNoAntiquot.parenthesizer := visitToken\n@[combinator_parenthesizer strLitNoAntiquot] def strLitNoAntiquot.parenthesizer := visitToken\n@[combinator_parenthesizer nameLitNoAntiquot] def nameLitNoAntiquot.parenthesizer := visitToken\n@[combinator_parenthesizer numLitNoAntiquot] def numLitNoAntiquot.parenthesizer := visitToken\n@[combinator_parenthesizer scientificLitNoAntiquot] def scientificLitNoAntiquot.parenthesizer := visitToken\n@[combinator_parenthesizer fieldIdx] def fieldIdx.parenthesizer := visitToken\n@[combinator_parenthesizer manyNoAntiquot]\ndef manyNoAntiquot.parenthesizer (p : Parenthesizer) : Parenthesizer := do\n  let stx \u2190 getCur",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_name": "rawIdentNoAntiquot"
+  }
+}

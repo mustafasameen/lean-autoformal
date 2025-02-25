@@ -1,0 +1,10 @@
+{
+  "content": "theorem add_zero (n : Nat) : n + 0 = n := by sorry\n@[simp]\ntheorem lt_add_iff_pos_left (a : Nat) {b : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2018.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/2018.lean",
+    "definition_name": "add_zero",
+    "has_proof": true
+  }
+}

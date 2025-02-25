@@ -1,0 +1,9 @@
+{
+  "content": "structure Opposite :=\n  op ::\n  unop : \u03b1\nnotation:max \u03b1 \"\u1d52\u1d56\" => Opposite \u03b1\nend Mathlib.Data.Opposite\nsection Mathlib.Combinatorics.Quiver.Basic\nopen Opposite\nuniverse v v\u2081 v\u2082 u u\u2081 u\u2082\nclass Quiver (V : Type u) where\n  Hom : V \u2192 V \u2192 Sort v\ninfixr:10 \" \u27f6 \" => Quiver.Hom\nstructure Prefunctor (V : Type u\u2081) [Quiver.{v\u2081}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4171.lean",
+    "definition_name": "Opposite"
+  }
+}

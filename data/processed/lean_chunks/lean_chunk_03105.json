@@ -1,0 +1,9 @@
+{
+  "content": "@[extern \"lean_io_remove_file\"] opaque removeFile (fname : @& FilePath) : IO Unit\n@[extern \"lean_io_rename\"] opaque rename (old new : @& FilePath) : IO Unit\n@[extern \"lean_io_create_tempfile\"] opaque createTempFile : IO (Handle \u00d7 FilePath)\n@[extern \"lean_io_create_tempdir\"] opaque createTempDir : IO FilePath\nend FS\n@[extern \"lean_io_getenv\"] opaque getEnv (var : @& String) : BaseIO (Option String)\n@[extern \"lean_io_app_path\"] opaque appPath : IO FilePath\n@[extern \"lean_io_current_dir\"] opaque currentDir : IO FilePath\nnamespace FS\n@[inline]\ndef withFile (fn : FilePath) (mode : Mode) (f : Handle \u2192 IO \u03b1) : IO \u03b1 :=\n  Handle.mk fn mode >>= f\ndef Handle.putStrLn (h : Handle) (s : String) : IO Unit :=\n  h.putStr (s.push '\\n')\npartial def Handle.readBinToEndInto (h : Handle) (buf : ByteArray) : IO ByteArray := do\n  let rec loop (acc : ByteArray) : IO ByteArray := do\n    let buf \u2190 h.read 1024\n    if buf.isEmpty then\n      return acc\n    else\n      loop (acc ++ buf)\n  loop buf",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/System/IO.lean",
+    "definition_name": "TaskState"
+  }
+}

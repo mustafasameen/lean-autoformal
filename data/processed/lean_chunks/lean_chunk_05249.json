@@ -1,0 +1,10 @@
+{
+  "content": "theorem erase_nil [BEq \u03b1] (a : \u03b1) : [].erase a = [] := rfl\ntheorem erase_cons [BEq \u03b1] (a b : \u03b1) (l : List \u03b1) :\n    (b :: l).erase a = if b == a then l else b :: l.erase a := by\n  simp only [List.erase]; split <;> simp_all\ndef eraseIdx : List \u03b1 \u2192 Nat \u2192 List \u03b1\n  | [],    _   => []\n  | _::as, 0   => as\n  | a::as, n+1 => a :: eraseIdx as n\n@[simp] theorem eraseIdx_nil : ([] : List \u03b1).eraseIdx i = [] := rfl\n@[simp] theorem eraseIdx_cons_zero : (a::as).eraseIdx 0 = as := rfl\n@[simp] theorem eraseIdx_cons_succ : (a::as).eraseIdx (i+1) = a :: as.eraseIdx i := rfl\ndef find? (p : \u03b1 \u2192 Bool) : List \u03b1 \u2192 Option \u03b1\n  | []    => none\n  | a::as => match p a with\n    | true  => some a\n    | false => find? p as\n@[simp] theorem find?_nil : ([] : List \u03b1).find? p = none := rfl\ntheorem find?_cons : (a::as).find? p = match p a with | true => some a | false => as.find? p :=\n  rfl\ndef findSome? (f : \u03b1 \u2192 Option \u03b2) : List \u03b1 \u2192 Option \u03b2\n  | []    => none\n  | a::as => match f a with\n    | some b => some b",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Basic.lean",
+    "definition_name": "erase_nil",
+    "has_proof": true
+  }
+}

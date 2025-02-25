@@ -1,0 +1,9 @@
+{
+  "content": "registerStructure view.declName fieldInfos\nwithSaveInfoContext do\n                for field in view.fields do\n                  if (\u2190 getEnv).contains field.declName then\n                    Term.addTermInfo' field.ref (\u2190 mkConstWithLevelParams field.declName) (isBinder := true)\n            finalize := fun levelParams params replaceIndFVars => do\n              let parentInfos \u2190 mkRemainingProjections levelParams params view parents fieldInfos\n              withSaveInfoContext do\n                for parent in parents do\n                  if parent.addTermInfo then\n                    Term.addTermInfo' parent.ref (\u2190 mkConstWithLevelParams parent.declName) (isBinder := true)\n              setStructureParents view.declName parentInfos\n              checkResolutionOrder view.declName\n              if view.isClass then\n                addParentInstances parentInfos\n              withLCtx lctx localInsts do\n                addDefaults params replaceIndFVars fieldInfos",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Structure.lean",
+    "definition_name": "defaultCtorName"
+  }
+}

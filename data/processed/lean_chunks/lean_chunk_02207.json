@@ -1,0 +1,9 @@
+{
+  "content": "def f := #[true].any id 0 USize.size\nexample : f = true := by native_decide\nexample : f = true := by simp (config := { decide := true }) [f, Array.any, Array.anyM, Array.anyM.loop]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1921.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1921.lean",
+    "definition_name": "f"
+  }
+}

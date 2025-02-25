@@ -1,0 +1,9 @@
+{
+  "content": "else\n      return rs\npartial def InfoTree.deepestNodes (p : ContextInfo \u2192 Info \u2192 PersistentArray InfoTree \u2192 Option \u03b1) (infoTree : InfoTree) : List \u03b1 :=\n  infoTree.deepestNodesM (m := Id) p\npartial def InfoTree.foldInfo (f : ContextInfo \u2192 Info \u2192 \u03b1 \u2192 \u03b1) (init : \u03b1) : InfoTree \u2192 \u03b1 :=\n  go none init\nwhere go ctx? a\n  | context ctx t => go (ctx.mergeIntoOuter? ctx?) a t\n  | node i ts =>\n    let a := match ctx? with\n      | none => a\n      | some ctx => f ctx i a\n    ts.foldl (init := a) (go <| i.updateContext? ctx?)\n  | hole _ => a\npartial def InfoTree.foldInfoM [Monad m] (f : ContextInfo \u2192 Info \u2192 \u03b1 \u2192 m \u03b1) (init : \u03b1) : InfoTree \u2192 m \u03b1 :=\n  go none init\nwhere go ctx? a\n  | context ctx t => go (ctx.mergeIntoOuter? ctx?) a t\n  | node i ts => do\n    let a \u2190 match ctx? with\n      | none => pure a\n      | some ctx => f ctx i a\n    ts.foldlM (init := a) (go <| i.updateContext? ctx?)\n  | hole _ => pure a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/InfoUtils.lean",
+    "definition_name": "InfoWithCtx"
+  }
+}

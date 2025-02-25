@@ -1,0 +1,9 @@
+{
+  "content": "def aux := [1, 2, 3].isEmpty\ndef tst8 : MetaM Unit := do\nprint \"\n  let t := mkConst `aux\n  let some t \u2190 unfoldDefinition? t | throwError \"unexpected\"\n  let some t \u2190 unfoldDefinition? t | throwError \"unexpected\"\n  print t\n  let t \u2190 whnfCore t\n  print t\n  pure ()\n#guard_msgs in\n#eval tst8\ndef tst9 : MetaM Unit := do\nprint \"\n  let defInsts \u2190 getDefaultInstances `OfNat\n  print (toString defInsts)\n  pure ()\n#guard_msgs in\n#eval tst9\nmutual\ninductive Foo (\u03b1 : Type) where\n  | mk : List (Bla \u03b1) \u2192 Foo \u03b1\n  | leaf : \u03b1 \u2192 Foo \u03b1\ninductive Bla (\u03b1 : Type) where\n  | nil : Bla \u03b1\n  | cons : Foo \u03b1 \u2192 Bla \u03b1 \u2192 Bla \u03b1\nend\ndef tst10 : MetaM Unit := do\n  assert! !(\u2190 getConstInfoInduct `List).isNested\n  assert! (\u2190 getConstInfoInduct `Bla).isNested\n  assert! (\u2190 getConstInfoInduct `Foo).isNested\n  assert! !(\u2190 getConstInfoInduct `Prod).isNested\n#guard_msgs in\n#eval tst10\ndef tst11 : MetaM Unit := do\nprint \"\n  withLocalDeclD `x (mkConst ``True) fun x =>\n  withLocalDeclD `y (mkConst ``True) fun y => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/meta7.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/meta7.lean",
+    "definition_name": "aux"
+  }
+}

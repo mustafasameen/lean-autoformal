@@ -1,0 +1,9 @@
+{
+  "content": "def markAuxRecursor (env : Environment) (declName : Name) : Environment :=\n  auxRecExt.tag env declName\n@[export lean_is_aux_recursor]\ndef isAuxRecursor (env : Environment) (declName : Name) : Bool :=\n  auxRecExt.isTagged env declName\n  || declName == ``Eq.ndrec\n  || declName == ``Eq.ndrecOn\ndef isAuxRecursorWithSuffix (env : Environment) (declName : Name) (suffix : String) : Bool :=\n  match declName with\n  | .str _ s => (s == suffix || s.startsWith s!\"{suffix}_\") && isAuxRecursor env declName\n  | _ => false\ndef isCasesOnRecursor (env : Environment) (declName : Name) : Bool :=\n  isAuxRecursorWithSuffix env declName casesOnSuffix\ndef isRecOnRecursor (env : Environment) (declName : Name) : Bool :=\n  isAuxRecursorWithSuffix env declName recOnSuffix\ndef isBRecOnRecursor (env : Environment) (declName : Name) : Bool :=\n  isAuxRecursorWithSuffix env declName brecOnSuffix\nbuiltin_initialize noConfusionExt : TagDeclarationExtension \u2190 mkTagDeclarationExtension",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/AuxRecursor.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/AuxRecursor.lean",
+    "definition_name": "casesOnSuffix"
+  }
+}

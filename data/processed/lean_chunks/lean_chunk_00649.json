@@ -1,0 +1,10 @@
+{
+  "content": "theorem surjective_Quotient_mk'' : Function.Surjective (Quotient.mk'' : \u03b1 \u2192 Quotient s\u2081) :=\n  Quot.exists_rep\nprotected def liftOn' (q : Quotient s\u2081) (f : \u03b1 \u2192 \u03c6) (h : \u2200 a b, @Setoid.r \u03b1 s\u2081 a b \u2192 f a = f b) :\n    \u03c6 :=\n  Quotient.liftOn q f h\nprotected def map' (f : \u03b1 \u2192 \u03b2) (h : (s\u2081.r \u21d2 s\u2082.r) f f) : Quotient s\u2081 \u2192 Quotient s\u2082 :=\n  (Quot.lift fun x \u21a6 Quot.mk _ (f x)) fun _ _ h\u2081 \u21a6 Quot.sound <| h h\u2081\nprotected def map\u2082' (f : \u03b1 \u2192 \u03b2 \u2192 \u03b3) (h : (s\u2081.r \u21d2 s\u2082.r \u21d2 s\u2083.r) f f) :\n    Quotient s\u2081 \u2192 Quotient s\u2082 \u2192 Quotient s\u2083 :=\n  Quotient.lift\u2082 (fun x y \u21a6 Quotient.mk _ (f x y)) fun _ _ _ _ h\u2081 h\u2082 \u21a6 Quot.sound <| h h\u2081 h\u2082\nend Quotient\nend Mathlib.Data.Quot\nsection Mathlib.Data.SetLike.Basic\nclass SetLike (A : Type _) (B : outParam <| Type _) where\n  protected coe : A \u2192 Set B\nnamespace SetLike\nvariable {A : Type _}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "surjective_Quotient_mk",
+    "has_proof": false
+  }
+}

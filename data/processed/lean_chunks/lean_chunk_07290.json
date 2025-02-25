@@ -1,0 +1,9 @@
+{
+  "content": "structure Rat where\n  private mk ::\n    num : Int\n    den : Nat := 1\n  deriving Inhabited, BEq, DecidableEq\ninstance : ToString Rat where\n  toString a := if a.den == 1 then toString a.num else s!\"{a.num}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Internal/Rat.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Internal/Rat.lean",
+    "definition_name": "Rat"
+  }
+}

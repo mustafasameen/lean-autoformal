@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_size_left_of_zip {i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Zip.lean",
+    "definition_name": "lt_size_left_of_zip",
+    "has_proof": false
+  }
+}

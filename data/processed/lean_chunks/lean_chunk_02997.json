@@ -1,0 +1,9 @@
+{
+  "content": "else\n    accMax result prev (extraK + prevK)\nprivate partial def skipExplicit (lvls : Array Level) (i : Nat) : Nat :=\n  if h : i < lvls.size then\n    let lvl := lvls[i]\n    if lvl.getLevelOffset.isZero then skipExplicit lvls (i+1) else i\n  else\n    i\nprivate partial def isExplicitSubsumedAux (lvls : Array Level) (maxExplicit : Nat) (i : Nat) : Bool :=\n  if h : i < lvls.size then\n    let lvl := lvls[i]\n    if lvl.getOffset \u2265 maxExplicit then true\n    else isExplicitSubsumedAux lvls maxExplicit (i+1)\n  else\n    false\ndef isEquiv (u v : Level) : Bool :=\n  u == v || u.normalize == v.normalize\n  | imax l\u2081 l\u2082 => return mkLevelMax (\u2190  dec l\u2081) (\u2190 dec l\u2082)\ndef mkLevelMax' (u v : Level) : Level :=\n  mkLevelMaxCore u v fun _ => mkLevelMax u v\ndef simpLevelMax' (u v : Level) (d : Level) : Level :=\n  mkLevelMaxCore u v fun _ => d\n@[inline] private def mkLevelIMaxCore (u v : Level) (elseK : Unit \u2192 Level) : Level :=\n  if v.isNeverZero then mkLevelMax' u v\n  else if v.isZero then v",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

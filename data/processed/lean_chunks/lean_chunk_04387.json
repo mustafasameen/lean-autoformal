@@ -1,0 +1,10 @@
+{
+  "content": "theorem Poly.denote_eq_cancel_eq (ctx : Context) (m\u2081 m\u2082 : Poly) : denote_eq ctx (cancel m\u2081 m\u2082) = denote_eq ctx (m\u2081, m\u2082) :=\n  propext <| Iff.intro (fun h => of_denote_eq_cancel h) (fun h => denote_eq_cancel h)\nattribute [local simp] Poly.denote_eq_cancel_eq\ntheorem Poly.denote_le_cancelAux (ctx : Context) (fuel : Nat) (m\u2081 m\u2082 r\u2081 r\u2082 : Poly)\n    (h : denote_le ctx (r\u2081.reverse ++ m\u2081, r\u2082.reverse ++ m\u2082)) : denote_le ctx (cancelAux fuel m\u2081 m\u2082 r\u2081 r\u2082) := by\n  induction fuel generalizing m\u2081 m\u2082 r\u2081 r\u2082 with\n  | zero => assumption\n  | succ fuel ih =>\n    simp\n    split <;> try (simp at h; assumption)\n    rename_i k\u2081 v\u2081 m\u2081 k\u2082 v\u2082 m\u2082\n    by_cases hltv : Nat.blt v\u2081 v\u2082 <;> simp [hltv]\n    \u00b7 apply ih; simp [denote_le] at h |-; assumption\n    \u00b7 by_cases hgtv : Nat.blt v\u2082 v\u2081 <;> simp [hgtv]\n      \u00b7 apply ih; simp [denote_le] at h |-; assumption\n      \u00b7 have heqv : v\u2081 = v\u2082 := eq_of_not_blt_eq_true hltv hgtv; subst heqv\n        by_cases hltk : Nat.blt k\u2081 k\u2082 <;> simp [hltk]\n        \u00b7 apply ih",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Linear.lean",
+    "definition_name": "Poly",
+    "has_proof": true
+  }
+}

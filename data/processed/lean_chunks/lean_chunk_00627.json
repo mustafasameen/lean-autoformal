@@ -1,0 +1,9 @@
+{
+  "content": "structure A1 where\n  x : Nat\nstructure A2 extends A1 where\n  y : Nat\nstructure A3 extends A1 where\n  z : Nat\nstructure A4 extends A2, A3 where\n  w : Nat\n#guard_msgs in #eval dumpStructInfo `A1\n#guard_msgs in #eval dumpStructInfo `A2\n#guard_msgs in #eval dumpStructInfo `A3\n#guard_msgs in #eval dumpStructInfo `A4\nabbrev AA1 := A1\nstructure A5 extends AA1 where\n  a : Nat\n#guard_msgs in #eval dumpStructInfo `A5\nsection\nelab \"Type*\" : term => do\n  let u \u2190 Lean.Meta.mkFreshLevelMVar\n  Lean.Elab.Term.levelMVarToParam (.sort (.succ u))\nvariable {F \u03b1 \u03b2 M N P G H : Type*}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structure.lean",
+    "definition_name": "A1"
+  }
+}

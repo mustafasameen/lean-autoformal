@@ -1,0 +1,9 @@
+{
+  "content": "structure expected\"\ndef getStructureCtor (env : Environment) (constName : Name) : ConstructorVal :=\n  match env.find? constName with\n  | some (.inductInfo { ctors := [ctorName], .. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Structure.lean",
+    "definition_name": "expected"
+  }
+}

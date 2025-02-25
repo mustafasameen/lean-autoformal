@@ -1,0 +1,10 @@
+{
+  "content": "n : Nat\n  lhs : AIG.RefVec aig w\n  rhs : AIG.RefVec aig n\n  pow : Nat\ndef twoPowShift (aig : AIG \u03b1) (target : TwoPowShiftTarget aig w) : AIG.RefVecEntry \u03b1 w :=\n  let \u27e8n, lhs, rhs, pow\u27e9 := target\n  if h : pow < n then\n    let res := blastShiftLeftConst aig \u27e8lhs, 2 ^ pow\u27e9\n    let aig := res.aig\n    let shifted := res.vec\n    have := AIG.LawfulVecOperator.le_size (f := blastShiftLeftConst) ..\n    let rhs := rhs.cast this\n    let lhs := lhs.cast this\n    AIG.RefVec.ite aig \u27e8rhs.get pow h, shifted, lhs\u27e9\n  else\n    \u27e8aig, lhs\u27e9\ninstance : AIG.LawfulVecOperator \u03b1 TwoPowShiftTarget twoPowShift where\n  le_size := by\n    intros\n    unfold twoPowShift\n    dsimp only\n    split\n    \u00b7 apply AIG.LawfulVecOperator.le_size_of_le_aig_size (f := AIG.RefVec.ite)\n      apply AIG.LawfulVecOperator.le_size (f := blastShiftLeftConst)\n    \u00b7 simp\n  decl_eq := by\n    intros\n    unfold twoPowShift\n    dsimp only\n    split\n    \u00b7 rw [AIG.LawfulVecOperator.decl_eq (f := AIG.RefVec.ite)]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftLeft.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftLeft.lean",
+    "definition_name": "blastShiftLeftConst",
+    "has_proof": true
+  }
+}

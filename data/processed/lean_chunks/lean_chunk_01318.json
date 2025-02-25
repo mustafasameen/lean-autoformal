@@ -1,0 +1,9 @@
+{
+  "content": "inductive Multiset (\u03b1: Type): Type\ndef Finset (\u03b1 : Type) := @Subtype (Multiset \u03b1) (\u03bb _ => True)\ndef Finset.insert (a : \u03b1): Finset \u03b1 \u2192 Finset \u03b1 := sorry\ndef Finset.empty : Finset \u03b1 :=  sorry\nstructure Foo (G: Fin 0) (m: Nat) where\n  n: Nat\n  f: Fin m\ninductive Bar {G: Fin 0}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/eqndrecEtaLCNFIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/eqndrecEtaLCNFIssue.lean",
+    "definition_name": "Multiset"
+  }
+}

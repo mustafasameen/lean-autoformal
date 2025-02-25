@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex6 : g x y z > 0 := by\n  simp [g]\n  split\n  next => decide\n  next => decide\n  next a b c h\u2081 h\u2082 => simp (config := { decide := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def10.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/def10.lean",
+    "definition_name": "ex6",
+    "has_proof": true
+  }
+}

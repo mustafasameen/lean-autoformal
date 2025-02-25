@@ -1,0 +1,10 @@
+{
+  "content": "\u00b7 exact hl\u2081.trans (l\u2082.suffix_cons _)\ntheorem infix_cons_iff : l\u2081 <:+: a :: l\u2082 \u2194 l\u2081 <+: a :: l\u2082 \u2228 l\u2081 <:+: l\u2082 := by\n  constructor\n  \u00b7 rintro \u27e8\u27e8hd, tl\u27e9, t, hl\u2083\u27e9\n    \u00b7 exact Or.inl \u27e8t, hl\u2083\u27e9\n    \u00b7 simp only [cons_append] at hl\u2083\n      injection hl\u2083 with _ hl\u2084\n      exact Or.inr \u27e8_, t, hl\u2084\u27e9\n  \u00b7 rintro (h | hl\u2081)\n    \u00b7 exact h.isInfix\n    \u00b7 exact infix_cons hl\u2081\ntheorem prefix_concat_iff {l\u2081 l\u2082 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "prefix_or_prefix_of_prefix",
+    "has_proof": true
+  }
+}

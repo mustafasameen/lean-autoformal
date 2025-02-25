@@ -1,0 +1,10 @@
+{
+  "content": "theorem pair_sublist_mergeSort\n    (trans : \u2200 (a b c : \u03b1), le a b \u2192 le b c \u2192 le a c)\n    (total : \u2200 (a b : \u03b1), le a b || le b a)\n    (hab : le a b) (h : [a, b] <+ l) : [a, b] <+ mergeSort l le :=\n  sublist_mergeSort trans total (pairwise_pair.mpr hab) h\n@[deprecated pair_sublist_mergeSort(since := \"2024-09-02\")]\nabbrev mergeSort_stable_pair := @pair_sublist_mergeSort\ntheorem map_merge {f : \u03b1 \u2192 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sort/Lemmas.lean",
+    "definition_name": "pair_sublist_mergeSort",
+    "has_proof": false
+  }
+}

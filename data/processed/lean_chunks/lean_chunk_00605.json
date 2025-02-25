@@ -1,0 +1,10 @@
+{
+  "content": "class OfNatSound (\u03b1 : Type u) [Add \u03b1] [(n : Nat) \u2192 OfNat \u03b1 n] : Prop where\n  ofNat_add (n m : Nat) : (OfNat.ofNat n : \u03b1) + OfNat.ofNat m = OfNat.ofNat (n+m)\nexport OfNatSound (ofNat_add)\ntheorem ex1 {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ofNatNormNum.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/ofNatNormNum.lean",
+    "definition_name": "OfNatSound",
+    "has_proof": false
+  }
+}

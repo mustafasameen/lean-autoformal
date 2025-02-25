@@ -1,0 +1,10 @@
+{
+  "content": "[Inhabited elem] (c : cont) (i : idx) (h : \u00acdom c i) : c[i]! = default := by\n  have : Decidable (dom c i) := .isFalse h\n  simp [getElem!_def, getElem?_def, h]\n@[simp] theorem get_getElem? [GetElem? cont idx elem dom] [LawfulGetElem cont idx elem dom]\n    (c : cont) (i : idx) [Decidable (dom c i)] (h) :\n    c[i]?.get h = c[i]'(by simp only [getElem?_def] at h; split at h <;> simp_all) := by\n  simp only [getElem?_def] at h \u22a2\n  split <;> simp_all\n@[simp] theorem getElem?_eq_none_iff [GetElem? cont idx elem dom] [LawfulGetElem cont idx elem dom]\n    (c : cont) (i : idx) [Decidable (dom c i)] : c[i]? = none \u2194 \u00acdom c i := by\n  simp only [getElem?_def]\n  split <;> simp_all\n@[deprecated getElem?_eq_none_iff (since := \"2025-02-17\")]\nabbrev getElem?_eq_none := @getElem?_eq_none_iff\n@[deprecated getElem?_eq_none (since := \"2024-12-11\")]\nabbrev isNone_getElem? := @getElem?_eq_none_iff\n@[simp] theorem isSome_getElem? [GetElem? cont idx elem dom] [LawfulGetElem cont idx elem dom]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/GetElem.lean",
+    "definition_name": "getElem",
+    "has_proof": true
+  }
+}

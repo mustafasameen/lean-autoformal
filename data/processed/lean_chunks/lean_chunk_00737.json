@@ -1,0 +1,9 @@
+{
+  "content": "inductive Vec (\u03b1 : Type u) : Nat \u2192 Type u\n  | nil  : Vec \u03b1 Nat.zero\n  | cons : \u03b1 \u2192 {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedInductiveIssue.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/nestedInductiveIssue.lean",
+    "definition_name": "Vec"
+  }
+}

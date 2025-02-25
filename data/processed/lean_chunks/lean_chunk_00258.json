@@ -1,0 +1,9 @@
+{
+  "content": "def foo := 10\ndef f (x : Nat) := x + x\nnamespace Bla\nprivate def foo := \"hello\"\n#check foo == \"world\"\nprivate def foo : Float := 1.0\nend Bla\n#check foo == 0\n#check Bla.foo\nnamespace Boo\ndef boo := 100\nnamespace Bla\nprivate def boo := \"hello\"\n#check boo == \"world\"\n#check boo ++ \"world\"\nend Bla\n#check Bla.boo == \"world\"\n#check boo == 100\nend Boo\n#check Boo.Bla.boo == \"world\"\n#check Boo.boo == 100\nprivate def Nat.mul10 (x : Nat) := x * 10\ndef x := 10\n#check x.mul10\ndef y := 10\nprivate def y := \"hello\"\nprivate def z := 10\ndef z := \"hello\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/private.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/private.lean",
+    "definition_name": "foo"
+  }
+}

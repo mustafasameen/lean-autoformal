@@ -1,0 +1,9 @@
+{
+  "content": "structure Var : Type := (name : String)\ninstance Var.nameCoe : HasCoe String Var := \u27e8Var.mk\u27e9\nstructure A : Type := (u : Unit)\nstructure B : Type := (u : Unit)\ndef a : A := A.mk ()\ndef b : B := B.mk ()\ndef Foo.chalk : A \u2192 List Var \u2192 Unit := \u03bb _ _ => ()\ndef Bar.chalk : B \u2192 Unit := \u03bb _ => ()\nopen Foo\nopen Bar\ninstance listCoe {\u03b1 \u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/overload_with_list_coercion.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/overload_with_list_coercion.lean",
+    "definition_name": "Var"
+  }
+}

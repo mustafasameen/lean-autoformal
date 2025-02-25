@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (a : \u03b1) : myid a = a := rfl\ndef cnst (b : \u03b2) : \u03b1 \u2192 \u03b2 := fun _ => b\ntheorem ex2 (b : \u03b2) (a : \u03b1) : cnst b a = b := rfl\ndef Vec (\u03b1 : Type) (n : Nat) := { a : Array \u03b1 // a.size = n }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/autoBoundImplicits1.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

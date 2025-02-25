@@ -1,0 +1,9 @@
+{
+  "content": "match (\u2190 synthInstance? d) with\n            | some inst =>\n              let recursor := mkApp recursor inst\n              let recursorType \u2190 getTypeBody mvarId recursorType inst\n              loop (pos+1) (minorIdx+1) recursor recursorType consumedMajor subgoals\n            | none => do\n              let mvar \u2190 mkFreshExprSyntheticOpaqueMVar d (tag ++ n)\n              let recursor := mkApp recursor mvar\n              let recursorType \u2190 getTypeBody mvarId recursorType mvar\n              loop (pos+1) (minorIdx+1) recursor recursorType consumedMajor (subgoals.push { mvarId := mvar.mvarId! }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Induction.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Induction.lean",
+    "definition_name": "AltVarNames"
+  }
+}

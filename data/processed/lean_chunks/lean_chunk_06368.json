@@ -1,0 +1,9 @@
+{
+  "content": "inductive RecKind where\n  | \u00abpartial\u00bb | \u00abnonrec\u00bb | default\n  deriving Inhabited\n  stx             : TSyntax ``Parser.Command.declModifiers := \u27e8.missing\u27e9\n  docString?      : Option String := none\n  visibility      : Visibility := Visibility.regular\n  isNoncomputable : Bool := false\n  recKind         : RecKind := RecKind.default\n  isUnsafe        : Bool := false\n  attrs           : Array Attribute := #[]\n  deriving Inhabited\ndef Modifiers.isPrivate : Modifiers \u2192 Bool\n  | { visibility := .private, .. }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/DeclModifiers.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/DeclModifiers.lean",
+    "definition_name": "RecKind"
+  }
+}

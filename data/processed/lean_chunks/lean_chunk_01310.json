@@ -1,0 +1,9 @@
+{
+  "content": "structure SubtypeLike3Double {\u03b1 \u03b2 \u03b3 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/PPTopDownAnalyze.lean",
+    "definition_name": "SubtypeLike3Double"
+  }
+}

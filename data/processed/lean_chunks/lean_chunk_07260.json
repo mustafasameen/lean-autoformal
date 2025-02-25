@@ -1,0 +1,9 @@
+{
+  "content": "class Literal (\u03b1 : Type) where\n  getLit : FVarId \u2192 CompilerM (Option \u03b1)\n  mkLit : \u03b1 \u2192 FolderM LetValue\nexport Literal (getLit mkLit)\ndef mkAuxLetDecl (e : LetValue) (prefixName := `_x) : FolderM FVarId := do\n  let decl \u2190 LCNF.mkAuxLetDecl e prefixName\n  modify fun s => s.push <| .let decl\n  return decl.fvarId\nsection Literals\ndef mkAuxLit [Literal \u03b1] (x : \u03b1) (prefixName := `_x) : FolderM FVarId := do\n  let lit \u2190 mkLit x\n  mkAuxLetDecl lit prefixName\npartial def getNatLit (fvarId : FVarId) : CompilerM (Option Nat) := do\n  let some (.value (.natVal n)) \u2190 findLetValue? fvarId | return none\n  return n\ndef mkNatLit (n : Nat) : FolderM LetValue :=\n  return .value (.natVal n)\ninstance : Literal Nat where\n  getLit := getNatLit\n  mkLit := mkNatLit\ndef getStringLit (fvarId : FVarId) : CompilerM (Option String) := do\n  let some (.value (.strVal s)) \u2190 findLetValue? fvarId | return none\n  return s\ndef mkStringLit (n : String) : FolderM LetValue :=\n  return .value (.strVal n)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/Simp/ConstantFold.lean",
+    "definition_name": "Literal"
+  }
+}

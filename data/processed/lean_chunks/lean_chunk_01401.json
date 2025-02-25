@@ -1,0 +1,9 @@
+{
+  "content": "structure IntermediateField extends Subalgebra K L where\n  inv_mem' : \u2200 x \u2208 carrier, x\u207b\u00b9 \u2208 carrier\nvariable {K L L'}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "IntermediateField"
+  }
+}

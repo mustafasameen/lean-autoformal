@@ -1,0 +1,9 @@
+{
+  "content": "inductive Ty where\n  | int\n  | bool\n@[reducible] def Ty.interp (ty : Ty) : Type :=\n  Ty.casesOn (motive := fun _ => Type) ty Int Bool\ndef test {a b c : Ty}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/stuckTC.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/stuckTC.lean",
+    "definition_name": "Ty"
+  }
+}

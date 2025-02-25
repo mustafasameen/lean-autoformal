@@ -1,0 +1,9 @@
+{
+  "content": "else if fName == ``OfNat.ofNat && e.getAppNumArgs == 3 then\n        loop (e.getArg! 1)\n      else if fName == ``Nat.zero && e.getAppNumArgs == 0 then\n        return 0\n      else\n        failure\n    | _ => failure\nprivate def isNatType (e : Expr) : MetaM Bool :=\n  return (\u2190 whnf e).isConstOf ``Nat\nprivate def isOffset (fName : Name) (e : Expr) : MetaM Bool := do\n  if fName == ``Nat.add && e.getAppNumArgs == 2 then\n    return isNumeral e.appArg!\n  else if fName == ``Add.add && e.getAppNumArgs == 4 then\n    if (\u2190 isNatType (e.getArg! 0)) then return isNumeral e.appArg! else return false\n  else if fName == ``HAdd.hAdd && e.getAppNumArgs == 6 then\n    if (\u2190 isNatType (e.getArg! 1)) then return isNumeral e.appArg! else return false\n  else\n    return fName == ``Nat.succ && e.getAppNumArgs == 1\nprivate def shouldAddAsStar (fName : Name) (e : Expr) : MetaM Bool := do\n  isOffset fName e\ndef mkNoindexAnnotation (e : Expr) : Expr :=\n  mkAnnotation `noindex e",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/DiscrTree.lean",
+    "definition_name": "tmpStar"
+  }
+}

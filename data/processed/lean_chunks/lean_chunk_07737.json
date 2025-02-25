@@ -1,0 +1,10 @@
+{
+  "content": "theorem unsat_relabel {f : CNF \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Relabel.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Relabel.lean",
+    "definition_name": "unsat_relabel",
+    "has_proof": false
+  }
+}

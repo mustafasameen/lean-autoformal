@@ -1,0 +1,10 @@
+{
+  "content": "theorem smul_zero [Zero A] [SMulZeroClass M A] (a : M) : a \u2022 (0 : A) = 0 :=\n  SMulZeroClass.smul_zero _\nend Mathlib.GroupTheory.GroupAction.Defs\nsection Mathlib.Algebra.SMulWithZero\nvariable (R M)\nclass SMulWithZero [Zero R] [Zero M] extends SMulZeroClass R M where\n@[simp]\ntheorem zero_smul {M}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/synthInstsIssue.lean",
+    "definition_name": "smul_zero",
+    "has_proof": false
+  }
+}

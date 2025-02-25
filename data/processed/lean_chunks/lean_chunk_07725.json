@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_of (h : (v, p) \u2208 c) : Mem v c := by\n  cases p\n  \u00b7 left; exact h\n  \u00b7 right; exact h\ntheorem eval_congr (a1 a2 : \u03b1 \u2192 Bool) (c : Clause \u03b1) (hw : \u2200 i, Mem i c \u2192 a1 i = a2 i) :\n    eval a1 c = eval a2 c := by\n  induction c\n  case nil => rfl\n  case cons i c ih =>\n    simp only [eval_cons]\n    rw [ih, hw]\n    \u00b7 rcases i with \u27e8b, (_|_)\u27e9 <;> simp [Mem]\n    \u00b7 intro j h\n      apply hw\n      rcases h with h | h\n      \u00b7 left\n        apply List.mem_cons_of_mem _ h\n      \u00b7 right\n        apply List.mem_cons_of_mem _ h\nend Clause\ndef Mem (v : \u03b1) (f : CNF \u03b1) : Prop := \u2203 c, c \u2208 f \u2227 c.Mem v\ninstance {v : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/CNF/Basic.lean",
+    "definition_name": "mem_of",
+    "has_proof": true
+  }
+}

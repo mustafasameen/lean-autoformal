@@ -1,0 +1,9 @@
+{
+  "content": "insertIdMap id baseId\n    trees.forM (\u00b7.visitM' (postNode := fun ci info _ => do\n      if let .ofFVarAliasInfo ai := info then\n        let mod := ci.env.header.mainModule\n        insertIdMap (.fvar mod.toString ai.id.name.toString) (.fvar mod.toString ai.baseId.name.toString)))\n    get\n  insertIdMap id baseId := do\n    let idMap \u2190 get\n    let id := findCanonicalRepresentative idMap id\n    let baseId := findCanonicalRepresentative idMap baseId\n    if baseId != id then\n      modify (\u00b7.insert id baseId)\ndef dedupReferences (refs : Array Reference) (allowSimultaneousBinderUse := false) : Array Reference := Id.run do\n  let mut refsByIdAndRange : Std.HashMap (RefIdent \u00d7 Option Bool \u00d7 Lsp.Range) Reference := Std.HashMap.empty\n  for ref in refs do\n    let isBinder := if allowSimultaneousBinderUse then some ref.isBinder else none\n    let key := (ref.ident, isBinder, ref.range)\n    refsByIdAndRange := match refsByIdAndRange[key]? with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/References.lean",
+    "definition_name": "ModuleRefs"
+  }
+}

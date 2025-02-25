@@ -1,0 +1,9 @@
+{
+  "content": "def objectFactory :=\n  StateFactory.mk {\n    Map := Std.HashMap, mkMap := (Std.HashMap.empty \u00b7), mapFind? := (\u00b7.get?), mapInsert := (\u00b7.insert)\n    Set := Std.HashSet, mkSet := (Std.HashSet.empty \u00b7), setFind? := (\u00b7.get?), setInsert := (\u00b7.insert)\n  }\ndef persistentObjectFactory :=\n  StateFactory.mk {\n    Map := PersistentHashMap, mkMap := fun _ => .empty, mapFind? := (\u00b7.find?), mapInsert := (\u00b7.insert)\n    Set := PersistentHashSet, mkSet := fun _ => .empty, setFind? := (\u00b7.find?), setInsert := (\u00b7.insert)\n  }\nabbrev ShareCommonT := _root_.ShareCommonT objectFactory\nabbrev PShareCommonT := _root_.ShareCommonT persistentObjectFactory\nabbrev ShareCommonM := ShareCommonT Id\nabbrev PShareCommonM := PShareCommonT Id\n@[specialize] def ShareCommonT.withShareCommon [Monad m] (a : \u03b1) : ShareCommonT m \u03b1 :=\n  modifyGet fun s => s.shareCommon a\n@[specialize] def PShareCommonT.withShareCommon [Monad m] (a : \u03b1) : PShareCommonT m \u03b1 :=\n  modifyGet fun s => s.shareCommon a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/ShareCommon.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/ShareCommon.lean",
+    "definition_name": "objectFactory"
+  }
+}

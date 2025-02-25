@@ -1,0 +1,10 @@
+{
+  "content": "unfold go at hgo\n  split at hgo\n  \u00b7 dsimp only at hgo\n    split at hgo\n    \u00b7 rw [\u2190 hgo]\n      intro idx h1 h2\n      rw [blastShiftLeftConst.go_decl_eq]\n      rw [AIG.LawfulOperator.decl_eq (f := AIG.mkConstCached)]\n      apply AIG.LawfulOperator.lt_size_of_lt_aig_size (f := AIG.mkConstCached)\n      assumption\n    \u00b7 rw [\u2190 hgo]\n      intro idx h1 h2\n      rw [blastShiftLeftConst.go_decl_eq]\n  \u00b7 simp [\u2190 hgo]\ntermination_by w - curr\ninstance : AIG.LawfulVecOperator \u03b1 AIG.ShiftTarget blastShiftLeftConst where\n  le_size := by\n    intros\n    unfold blastShiftLeftConst\n    apply blastShiftLeftConst.go_le_size\n  decl_eq := by\n    intros\n    unfold blastShiftLeftConst\n    apply blastShiftLeftConst.go_decl_eq\nnamespace blastShiftLeft\nstructure TwoPowShiftTarget (aig : AIG \u03b1) (w : Nat) where\n  n : Nat\n  lhs : AIG.RefVec aig w\n  rhs : AIG.RefVec aig n\n  pow : Nat\ndef twoPowShift (aig : AIG \u03b1) (target : TwoPowShiftTarget aig w) : AIG.RefVecEntry \u03b1 w :=\n  let \u27e8n, lhs, rhs, pow\u27e9 := target",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftLeft.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/Bitblast/BVExpr/Circuit/Impl/Operations/ShiftLeft.lean",
+    "definition_name": "blastShiftLeftConst",
+    "has_proof": true
+  }
+}

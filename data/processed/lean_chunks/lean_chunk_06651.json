@@ -1,0 +1,9 @@
+{
+  "content": "@[builtin_term_parser] def binop_lazy := leading_parser\n  \"binop_lazy% \" >> ident >> ppSpace >> termParser maxPrec >> ppSpace >> termParser maxPrec\n@[builtin_term_parser] def leftact := leading_parser\n  \"leftact% \" >> ident >> ppSpace >> termParser maxPrec >> ppSpace >> termParser maxPrec\n@[builtin_term_parser] def rightact := leading_parser\n  \"rightact% \" >> ident >> ppSpace >> termParser maxPrec >> ppSpace >> termParser maxPrec\n@[builtin_term_parser] def declName := leading_parser \"decl_name%\"\n@[builtin_term_parser] def withDeclName := leading_parser\n  \"with_decl_name% \" >> optional \"?\" >> ident >> ppSpace >> termParser\n@[builtin_term_parser] def typeOf := leading_parser\n  \"type_of% \" >> termParser maxPrec\n@[builtin_term_parser] def ensureTypeOf := leading_parser\n  \"ensure_type_of% \" >> termParser maxPrec >> strLit >> ppSpace >> termParser\n@[builtin_term_parser] def ensureExpectedType := leading_parser\n  \"ensure_expected_type% \" >> strLit >> ppSpace >> termParser maxPrec",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Term.lean",
+    "definition_name": "tacticSeq"
+  }
+}

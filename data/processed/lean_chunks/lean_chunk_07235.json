@@ -1,0 +1,9 @@
+{
+  "content": "inductive LogEntry where\n  | step (cls : Name) (decls : Array Decl)\n  | message (msg : Format)\nnamespace LogEntry\nprotected def fmt : LogEntry \u2192 Format\n  | step cls decls => Format.bracket \"[\" (format cls) \"]\" ++ decls.foldl (fun fmt decl => fmt ++ Format.line ++ format decl) Format.nil\n  | message msg    => msg\ninstance : ToFormat LogEntry := \u27e8LogEntry.fmt\u27e9\nend LogEntry\nabbrev Log := Array LogEntry\ndef Log.format (log : Log) : Format :=\n  log.foldl (init := Format.nil) fun fmt entry =>\n    f!\"{fmt}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/CompilerM.lean",
+    "definition_name": "LogEntry"
+  }
+}

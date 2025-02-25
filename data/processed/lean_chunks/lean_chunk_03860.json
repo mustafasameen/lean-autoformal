@@ -1,0 +1,10 @@
+{
+  "content": "def zip (as : Array \u03b1) (bs : Array \u03b2) : Array (\u03b1 \u00d7 \u03b2) :=\n  zipWith Prod.mk as bs\ndef zipWithAll (f : Option \u03b1 \u2192 Option \u03b2 \u2192 \u03b3) (as : Array \u03b1) (bs : Array \u03b2) : Array \u03b3 :=\n  go as bs 0 #[]\nwhere go (as : Array \u03b1) (bs : Array \u03b2) (i : Nat) (cs : Array \u03b3) :=\n  if i < max as.size bs.size then\n    let a := as[i]?\n    let b := bs[i]?\n    go as bs (i+1) (cs.push (f a b))\n  else\n    cs\n  termination_by max as.size bs.size - i\n  decreasing_by simp_wf; decreasing_trivial_pre_omega\ndef unzip (as : Array (\u03b1 \u00d7 \u03b2)) : Array \u03b1 \u00d7 Array \u03b2 :=\n  as.foldl (init := (#[], #[])) fun (as, bs) (a, b) => (as.push a, bs.push b)\n@[deprecated partition (since := \"2024-11-06\")]\ndef split (as : Array \u03b1) (p : \u03b1 \u2192 Bool) : Array \u03b1 \u00d7 Array \u03b1 :=\n  as.foldl (init := (#[], #[])) fun (as, bs) a =>\n    if p a then (as.push a, bs) else (as, bs.push a)\ndef leftpad (n : Nat) (a : \u03b1) (xs : Array \u03b1) : Array \u03b1 := mkArray (n - xs.size) a ++ xs\ndef rightpad (n : Nat) (a : \u03b1) (xs : Array \u03b1) : Array \u03b1 := xs ++ mkArray (n - xs.size) a",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Basic.lean",
+    "definition_name": "popWhile_empty",
+    "has_proof": true
+  }
+}

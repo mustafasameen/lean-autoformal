@@ -1,0 +1,10 @@
+{
+  "content": "class HasProp (A) where\n  toProp : A \u2192 Prop\ninstance : HasProp Nat where\n  toProp _ := True\nexample : HasProp.toProp 0 := by\n  simp [HasProp.toProp]\nexample (P Q : Prop) (h : P \u2194 Q) (p : P) : Q := by\n  simp [\u2190 h]\n  exact p\ntheorem my_thm' : a \u2194 a \u2227 a := my_thm.symm\nexample (P : Prop) : P \u2227 P \u2194 P := by simp only [\u2190 my_thm']\nexample {P : Prop}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simp_trace.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/simp_trace.lean",
+    "definition_name": "HasProp",
+    "has_proof": true
+  }
+}

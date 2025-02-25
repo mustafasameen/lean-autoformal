@@ -1,0 +1,9 @@
+{
+  "content": "inductive datatype\")\n      fun ival us => do\n        if let some e := expected? then unless ival.ctors.length == e do\n          throwTacticEx name goal\n            s!\"{name}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Apply.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Apply.lean",
+    "definition_name": "datatype"
+  }
+}

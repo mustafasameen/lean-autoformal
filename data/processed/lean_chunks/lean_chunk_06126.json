@@ -1,0 +1,9 @@
+{
+  "content": "structure CombinatorAttribute where\n  impl : AttributeImpl\n  ext  : SimplePersistentEnvExtension (Name \u00d7 Name) (NameMap Name)\n  deriving Inhabited\ndef registerCombinatorAttribute (name : Name) (descr : String) (ref : Name := by exact decl_name%)\n    : IO CombinatorAttribute := do\n  let ext : SimplePersistentEnvExtension (Name \u00d7 Name) (NameMap Name) \u2190 registerSimplePersistentEnvExtension {\n    name            := ref,\n    addImportedFn   := mkStateFromImportedEntries (fun s p => s.insert p.1 p.2) {}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ParserCompiler/Attribute.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/ParserCompiler/Attribute.lean",
+    "definition_name": "CombinatorAttribute"
+  }
+}

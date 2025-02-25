@@ -1,0 +1,10 @@
+{
+  "content": "match opt with\n  | some x => x\n  | none => dflt\n@[inline] protected def Option.map (f : \u03b1 \u2192 \u03b2) : Option \u03b1 \u2192 Option \u03b2\n  | some x => some (f x)\n  | none   => none\ninductive List (\u03b1 : Type u) where\n  | cons (head : \u03b1) (tail : List \u03b1) : List \u03b1\ninstance {\u03b1} : Inhabited (List \u03b1) where\n  default := List.nil\ndef List.length : List \u03b1 \u2192 Nat\n  | nil       => 0\n  | cons _ as => HAdd.hAdd (length as) 1\ndef List.lengthTR (as : List \u03b1) : Nat :=\n  lengthTRAux as 0\ndef List.get {\u03b1 : Type u} : (as : List \u03b1) \u2192 Fin as.length \u2192 \u03b1\n  | cons a _,  \u27e80, _\u27e9 => a\n  | cons _ as, \u27e8Nat.succ i, h\u27e9 => get as \u27e8i, Nat.le_of_succ_le_succ h\u27e9\ndef List.set : List \u03b1 \u2192 Nat \u2192 \u03b1 \u2192 List \u03b1\n  | cons _ as, 0,          b => cons b as\n  | cons a as, Nat.succ n, b => cons a (set as n b)\n  | nil,       _,          _ => nil\n@[specialize]\ndef List.foldl {\u03b1 : Type u} {\u03b2 : Type v} (f : \u03b1 \u2192 \u03b2 \u2192 \u03b1) : (init : \u03b1) \u2192 List \u03b2 \u2192 \u03b1\n  | a, nil      => a\n  | a, cons b l => foldl f (f a b) l\nstructure String where\n  mk ::\n  data : List Char",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

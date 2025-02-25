@@ -1,0 +1,10 @@
+{
+  "content": "theorem ofNat'_zero (n : Nat) [NeZero n] : Fin.ofNat' n 0 = 0 := rfl\n@[deprecated Fin.pos (since := \"2024-11-11\")]\ntheorem size_pos (i : Fin n) : 0 < n := i.pos\ntheorem mod_def (a m : Fin n) : a % m = Fin.mk (a % m) (Nat.lt_of_le_of_lt (Nat.mod_le _ _) a.2) :=\n  rfl\ntheorem mul_def (a b : Fin n) : a * b = Fin.mk ((a * b) % n) (Nat.mod_lt _ a.pos) := rfl\ntheorem sub_def (a b : Fin n) : a - b = Fin.mk (((n - b) + a) % n) (Nat.mod_lt _ a.pos) := rfl\ntheorem pos' : \u2200 [Nonempty (Fin n)], 0 < n | \u27e8i\u27e9 => i.pos\n@[deprecated pos' (since := \"2024-11-11\")] abbrev size_pos' := @pos'\n@[simp] theorem is_lt (a : Fin n) : (a : Nat) < n := a.2\ntheorem pos_iff_nonempty {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Fin/Lemmas.lean",
+    "definition_name": "ofNat",
+    "has_proof": false
+  }
+}

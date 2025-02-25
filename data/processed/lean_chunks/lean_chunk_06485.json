@@ -1,0 +1,9 @@
+{
+  "content": "let succeeded \u2190 synthesizeSyntheticMVar mvarId postponeOnError runTactics\n       if succeeded then markAsResolved mvarId\n       trace[Elab.postpone] if succeeded then format \"succeeded\" else format \"not ready yet\"\n       pure !succeeded\n    modify fun s => { s with pendingMVars := s.pendingMVars ++ remainingPendingMVars }\n    return numSyntheticMVars != remainingPendingMVars.length\n  partial def synthesizeSyntheticMVars (postpone := PostponeBehavior.yes) (ignoreStuckTC := false) : TermElabM Unit := do\n    let rec loop (_ : Unit) : TermElabM Unit := do\n      withRef (\u2190 getSomeSyntheticMVarsRef) <| withIncRecDepth do\n        unless (\u2190 get).pendingMVars.isEmpty do\n          if \u2190 synthesizeSyntheticMVarsStep (postponeOnError := false) (runTactics := false) then\n            loop ()\n          else if postpone != .yes then\n            if \u2190 withoutPostponing <| synthesizeSyntheticMVarsStep (postponeOnError := true) (runTactics := false) then\n              loop ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/SyntheticMVars.lean",
+    "definition_name": "reportStuckSyntheticMVars"
+  }
+}

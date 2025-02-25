@@ -1,0 +1,9 @@
+{
+  "content": "def yellow := Color.mk 255 255 0",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/653.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/653.lean",
+    "definition_name": "yellow"
+  }
+}

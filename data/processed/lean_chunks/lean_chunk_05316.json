@@ -1,0 +1,10 @@
+{
+  "content": "theorem zipIdx_succ (l : List \u03b1) (i : Nat) :\n    l.zipIdx (i + 1) = (l.zipIdx i).map (fun \u27e8a, i\u27e9 => (a, i + 1)) := by\n  induction l generalizing i with\n  | nil => rfl\n  | cons _ _ ih => simp only [zipIdx_cons, ih (i + 1), map_cons]\ntheorem zipIdx_eq_map_add (l : List \u03b1) (i : Nat) :\n    l.zipIdx i = l.zipIdx.map (fun \u27e8a, j\u27e9 => (a, i + j)) := by\n  induction l generalizing i with\n  | nil => rfl\n  | cons _ _ ih => simp [ih (i+1), zipIdx_succ, Nat.add_assoc, Nat.add_comm 1]\nsection\nset_option linter.deprecated false\n@[deprecated zipIdx_cons (since := \"2025-01-21\")]\ntheorem enum_cons : (a::as).enum = (0, a) :: as.enumFrom 1 := rfl\n@[deprecated zipIdx_cons (since := \"2025-01-21\")]\ntheorem enum_cons' (x : \u03b1) (xs : List \u03b1) :\n    enum (x :: xs) = (0, x) :: (enum xs).map (Prod.map (\u00b7 + 1) id) :=\n  enumFrom_cons' _ _ _\n@[deprecated \"These are now both `l.zipIdx 0`\" (since := \"2025-01-21\")]\ntheorem enum_eq_enumFrom {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Range.lean",
+    "definition_name": "zipIdx_succ",
+    "has_proof": true
+  }
+}

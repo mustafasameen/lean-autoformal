@@ -1,0 +1,9 @@
+{
+  "content": "return Pattern.val e\n      else if e.isFVar then\n        return Pattern.var e.fvarId!\n      else\n        let newE \u2190 whnf e\n        if newE != e then\n          toPattern newE\n        else matchConstCtor e.getAppFn (fun _ => throwError \"unexpected pattern{indentExpr e}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Match/Basic.lean",
+    "definition_name": "MatcherResult"
+  }
+}

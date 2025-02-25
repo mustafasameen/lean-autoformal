@@ -1,0 +1,9 @@
+{
+  "content": "def callLeanMkStringUncheckedFn (builder : LLVM.Builder llvmctx)\n    (strPtr nBytes nChars : LLVM.Value llvmctx) (name : String) : M llvmctx (LLVM.Value llvmctx) := do\n  let fnName :=  \"lean_mk_string_unchecked\"\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let argtys :=  #[\u2190 LLVM.voidPtrType llvmctx, \u2190 LLVM.size_tType llvmctx, \u2190 LLVM.size_tType llvmctx]\n  let fn \u2190 getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty fnName argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  LLVM.buildCall2 builder fnty fn #[strPtr, nBytes, nChars] name\ndef callLeanMkString (builder : LLVM.Builder llvmctx)\n    (strPtr : LLVM.Value llvmctx) (name : String) : M llvmctx (LLVM.Value llvmctx) := do\n  let retty \u2190 LLVM.voidPtrType llvmctx\n  let argtys :=  #[\u2190 LLVM.voidPtrType llvmctx]\n  let fn \u2190  getOrCreateFunctionPrototype (\u2190 getLLVMModule) retty \"lean_mk_string\" argtys\n  let fnty \u2190 LLVM.functionType retty argtys\n  LLVM.buildCall2 builder fnty fn #[strPtr] name",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

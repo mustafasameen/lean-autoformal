@@ -1,0 +1,9 @@
+{
+  "content": "quotient' : B \u2192 Type max u v\ndef HasQuotient.Quotient (A : outParam <| Type u) {B : Type v}\n    [HasQuotient A B] (b : B) : Type max u v :=\n  HasQuotient.quotient' b\nnotation:35 G \" \u29f8 \" H:34 => HasQuotient.Quotient G H\nend Mathlib.Algebra.Quotient\nsection Mathlib.GroupTheory.Coset\nvariable {\u03b1 : Type _}\nnamespace QuotientAddGroup\nvariable [AddGroup \u03b1] (s : AddSubgroup \u03b1)\ninstance : VAdd s.op \u03b1 := Submonoid.vadd s.op.toAddSubmonoid\ndef leftRel : Setoid \u03b1 :=\n  VAdd.orbitRel s.op \u03b1\ninstance instHasQuotientAddSubgroup : HasQuotient \u03b1 (AddSubgroup \u03b1) :=\n  \u27e8fun s => Quotient (leftRel s)\u27e9\nend QuotientAddGroup\nend Mathlib.GroupTheory.Coset\nsection Mathlib.Algebra.Module.LinearMap.Basic\nopen Function\nuniverse u u' v w x y z\nvariable {R R\u2081 R\u2082 R\u2083 k S M M\u2081 M\u2082 M\u2083 : Type _}\nstructure LinearMap (R : Type _) [Mul R] (M : Type _)\n    (M\u2082 : Type _) [AddCommMonoid M] [AddCommMonoid M\u2082] [SMul R M] [SMul R M\u2082] extends\n    AddMonoidHom M M\u2082\nnotation:25 M \" \u2192\u2097[\" R:25 \"] \" M\u2082:0 => LinearMap R M M\u2082",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/binop_binrel_perf_issue.lean",
+    "definition_name": "Quotient"
+  }
+}

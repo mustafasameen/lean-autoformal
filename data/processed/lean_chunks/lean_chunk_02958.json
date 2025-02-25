@@ -1,0 +1,9 @@
+{
+  "content": "def SourceInfo.getRange? (canonicalOnly := false) (info : SourceInfo) : Option String.Range :=\n  return \u27e8(\u2190 info.getPos? canonicalOnly), (\u2190 info.getTailPos? canonicalOnly)\u27e9\ndef SourceInfo.getRangeWithTrailing? (canonicalOnly := false) (info : SourceInfo) : Option String.Range :=\n  return \u27e8\u2190 info.getPos? canonicalOnly, \u2190 info.getTrailingTailPos? canonicalOnly\u27e9\ndef SourceInfo.nonCanonicalSynthetic : SourceInfo \u2192 SourceInfo\n  | SourceInfo.original _ pos _ endPos => SourceInfo.synthetic pos endPos false\n  | SourceInfo.synthetic pos endPos _  => SourceInfo.synthetic pos endPos false\n  | SourceInfo.none                    => SourceInfo.none\nderiving instance BEq for SourceInfo\npartial def structRangeEq : Syntax \u2192 Syntax \u2192 Bool\n  | .missing, .missing => true\n  | .node info k args, .node info' k' args' =>\n    info.getRange? == info'.getRange? && k == k' && args.isEqv args' structRangeEq\n  | .atom info val, .atom info' val' => info.getRange? == info'.getRange? && val == val'",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Syntax.lean",
+    "definition_name": "SourceInfo"
+  }
+}

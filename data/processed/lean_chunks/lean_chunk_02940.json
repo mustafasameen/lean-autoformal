@@ -1,0 +1,10 @@
+{
+  "content": "let constants  := kenv.constants.foldStage2 (fun cs _ c => cs.push c) #[]\n  return {\n    imports         := env.header.imports\n    extraConstNames := env.checked.get.extraConstNames.toArray\n    constNames, constants, entries\n  }\n@[export lean_write_module]\ndef writeModule (env : Environment) (fname : System.FilePath) : IO Unit := do\n  saveModuleData fname env.mainModule (\u2190 mkModuleData env)\ndef mkExtNameMap (startingAt : Nat) : IO (Std.HashMap Name Nat) := do\n  let descrs \u2190 persistentEnvExtensionsRef.get\n  let mut result := {}\n  for h : i in [startingAt : descrs.size] do\n    let descr := descrs[i]\n    result := result.insert descr.name i\n  return result\nprivate def setImportedEntries (env : Environment) (mods : Array ModuleData) (startingAt : Nat := 0) : IO Environment := do\n  let mut states := env.checkedWithoutAsync.extensions\n  let extDescrs \u2190 persistentEnvExtensionsRef.get\n  let extNameIdx \u2190 mkExtNameMap startingAt\n  for h : modIdx in [:mods.size] do\n    let mod := mods[modIdx]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "TagDeclarationExtension",
+    "imports": "failed, trying to import module with anonymous name\""
+  }
+}

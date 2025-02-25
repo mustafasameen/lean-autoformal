@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 : False :=\nby {\nassumption\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/auxDeclIssue.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/auxDeclIssue.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

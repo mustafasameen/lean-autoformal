@@ -1,0 +1,10 @@
+{
+  "content": "theorem zipIdx_succ (xs : Vector \u03b1 n) (i : Nat) :\n    xs.zipIdx (i + 1) = (xs.zipIdx i).map (fun \u27e8a, i\u27e9 => (a, i + 1)) := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp [Array.zipIdx_succ]\ntheorem zipIdx_eq_map_add (xs : Vector \u03b1 n) (i : Nat) :\n    xs.zipIdx i = xs.zipIdx.map (fun \u27e8a, j\u27e9 => (a, i + j)) := by\n  rcases xs with \u27e8xs, rfl\u27e9\n  simp only [zipIdx_mk, map_mk, eq_mk]\n  rw [Array.zipIdx_eq_map_add]\n@[simp]\ntheorem zipIdx_singleton (x : \u03b1) (k : Nat) : zipIdx #v[x] k = #v[(x, k)] :=\n  rfl\ntheorem mk_add_mem_zipIdx_iff_getElem? {k i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Range.lean",
+    "definition_name": "zipIdx_succ",
+    "has_proof": true
+  }
+}

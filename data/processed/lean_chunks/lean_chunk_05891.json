@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_ediv_add_one_mul_self (a : Int) {b : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/DivMod/Lemmas.lean",
+    "definition_name": "lt_ediv_add_one_mul_self",
+    "has_proof": false
+  }
+}

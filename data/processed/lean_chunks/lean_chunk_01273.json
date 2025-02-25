@@ -1,0 +1,9 @@
+{
+  "content": "structure A where\n(x : Nat) (y : Nat)\nstructure B extends A where\n(z : Nat := x + 1) (y := z + x)\n#guard_msgs in #check { x := 1 : C }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInst.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structInst.lean",
+    "definition_name": "A"
+  }
+}

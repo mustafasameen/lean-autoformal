@@ -1,0 +1,10 @@
+{
+  "content": "theorem Expr.eval_simplify (e : Expr) : e.simplify.eval \u03c3 = e.eval \u03c3 := by\n  induction e with\n    simp only [simplify, BinOp.simplify.eq_def, eval, UnaryOp.simplify.eq_def]\n  | bin lhs op rhs ih_lhs ih_rhs =>\n    simp [\u2190 ih_lhs, \u2190 ih_rhs]\n    split <;> simp [*]\n  | una op arg ih_arg =>\n    simp [\u2190 ih_arg]\n    split <;> simp [*]\n@[simp] def Stmt.simplify : Stmt \u2192 Stmt\n  | skip => skip\n  | assign x e => assign x e.simplify\n  | seq s\u2081 s\u2082 => seq s\u2081.simplify s\u2082.simplify\n  | ite c e t =>\n    match c.simplify with\n    | .val (.bool true) => e.simplify\n    | .val (.bool false) => t.simplify\n    | c' => ite c' e.simplify t.simplify\n  | .while c b =>\n    match c.simplify with\n    | .val (.bool false) => skip\n    | c' => .while c' b.simplify\ndef example3 := `[Stmt|\n  if (1 < 2 + 3) {\n    x := 3 + 1;\n    y := y + x;\n  }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Expr",
+    "has_proof": true
+  }
+}

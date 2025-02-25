@@ -1,0 +1,9 @@
+{
+  "content": "def DerivingHandler := (typeNames : Array Name) \u2192 CommandElabM Bool\ndef registerDerivingHandler (className : Name) (handler : DerivingHandler) : IO Unit := do\n  unless (\u2190 initializing) do\n    throw (IO.userError \"failed to register deriving handler, it can only be registered during initialization\")\n  derivingHandlersRef.modify fun m => match m.find? className with\n    | some handlers => m.insert className (handler :: handlers)\n    | none => m.insert className [handler]\ndef defaultHandler (className : Name) (typeNames : Array Name) : CommandElabM Unit := do\n  throwError \"default handlers have not been implemented yet, class: '{className}' types: {typeNames}\"\ndef applyDerivingHandlers (className : Name) (typeNames : Array Name) : CommandElabM Unit := do\n  withTraceNode `Elab.Deriving (fun _ => return m!\"running deriving handlers for '{className}'\") do\n    match (\u2190 derivingHandlersRef.get).find? className with\n    | some handlers =>\n      for handler in handlers do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Basic.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/Basic.lean",
+    "definition_name": "DerivingHandler"
+  }
+}

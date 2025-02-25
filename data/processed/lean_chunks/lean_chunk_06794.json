@@ -1,0 +1,9 @@
+{
+  "content": "(codeActionPrefix? := codeActionPrefix?)\ndef addTermSuggestions (ref : Syntax) (es : Array Expr)\n    (origSpan? : Option Syntax := none) (header : String := \"Try these:\")\n    (codeActionPrefix? : Option String := none) : MetaM Unit := do\n  addSuggestions ref (\u2190 es.mapM delabToRefinableSuggestion)\n    (origSpan? := origSpan?) (header := header) (codeActionPrefix? := codeActionPrefix?)\nopen Lean Elab Elab.Tactic PrettyPrinter Meta\ndef addRewriteSuggestion (ref : Syntax) (rules : List (Expr \u00d7 Bool))\n  (type? : Option Expr := none) (loc? : Option Expr := none)\n  (origSpan? : Option Syntax := none) :\n    TermElabM Unit := do\n  let rules_stx := TSepArray.ofElems <| \u2190 rules.toArray.mapM fun \u27e8e, symm\u27e9 => do\n    let t \u2190 delabToRefinableSyntax e\n    if symm then `(rwRule| \u2190 $t:term) else `(rwRule| $t:term)\n  let tac \u2190 do\n    let loc \u2190 loc?.mapM fun loc => do `(location| at $(\u2190 delab loc):term)\n    `(tactic| rw [$rules_stx,*] $(loc)?)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "SuggestionStyle"
+  }
+}

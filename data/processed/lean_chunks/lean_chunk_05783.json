@@ -1,0 +1,10 @@
+{
+  "content": "theorem find?_flatMap (xs : Vector \u03b1 n) (f : \u03b1 \u2192 Vector \u03b2 m) (p : \u03b2 \u2192 Bool) :\n    (xs.flatMap f).find? p = xs.findSome? (fun x => (f x).find? p) := by\n  cases xs\n  simp [Array.find?_flatMap, Array.flatMap_toArray]\ntheorem find?_flatMap_eq_none_iff {xs : Vector \u03b1 n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

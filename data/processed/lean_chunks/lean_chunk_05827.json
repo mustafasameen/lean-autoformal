@@ -1,0 +1,10 @@
+{
+  "content": "focus\n    show succ (pred (n * p - x)) \u2264 (succ (pred (p - x / n))) * n\n    rw [succ_pred_eq_of_pos (Nat.sub_pos_of_lt h\u2081),\nfun h => succ_pred_eq_of_pos (Nat.sub_pos_of_lt h)]\n    focus\n      rw [Nat.mul_sub_right_distrib, Nat.mul_comm]\n      exact Nat.sub_le_sub_left (div_mul_le_self ..) _\n    focus\n      rwa [div_lt_iff_lt_mul npos, Nat.mul_comm]\ntheorem mul_mod_mul_left (z x y : Nat) : (z * x) % (z * y) = z * (x % y) :=\n  if y0 : y = 0 then by\n    rw [y0, Nat.mul_zero, mod_zero, mod_zero]\n  else if z0 : z = 0 then by\n    rw [z0, Nat.zero_mul, Nat.zero_mul, Nat.zero_mul, mod_zero]\n  else by\n    induction x using Nat.strongRecOn with\n    | _ n IH =>\n      have y0 : y > 0 := Nat.pos_of_ne_zero y0\n      have z0 : z > 0 := Nat.pos_of_ne_zero z0\n      cases Nat.lt_or_ge n y with\n      | inl yn => rw [mod_eq_of_lt yn, mod_eq_of_lt (Nat.mul_lt_mul_of_pos_left yn z0)]\n      | inr yn =>\n        rw [mod_eq_sub_mod yn, mod_eq_sub_mod (Nat.mul_le_mul_left z yn),",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Div/Basic.lean",
+    "definition_name": "add_mod_right",
+    "has_proof": true
+  }
+}

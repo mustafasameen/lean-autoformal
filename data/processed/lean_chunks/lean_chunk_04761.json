@@ -1,0 +1,10 @@
+{
+  "content": "theorem exists_eq_neg_ofNat {a : Int}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "exists_eq_neg_ofNat",
+    "has_proof": false
+  }
+}

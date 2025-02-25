@@ -1,0 +1,10 @@
+{
+  "content": "theorem symm_apply_apply (e : A\u2081 \u2243\u2090[R] A\u2082) : \u2200 x, e.symm (e x) = x := sorry\nend Semiring\nend AlgEquiv\nend Mathlib.Algebra.Algebra.Equiv\nsection Mathlib.Algebra.Algebra.Subalgebra.Basic\nuniverse u u' v w\nprotected def range (\u03c6 : A \u2192\u2090[R] B) : Subalgebra R B :=\n  { \u03c6.toRingHom.rangeS with }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/3807.lean",
+    "definition_name": "symm_apply_apply",
+    "has_proof": false
+  }
+}

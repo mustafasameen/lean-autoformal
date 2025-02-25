@@ -1,0 +1,10 @@
+{
+  "content": "theorem mapM_eq_foldlM_push [Monad m] [LawfulMonad m] (f : \u03b1 \u2192 m \u03b2) (xs : Array \u03b1) :\n    mapM f xs = xs.foldlM (fun acc a => return (acc.push (\u2190 f a))) #[] := by\n  rcases xs with \u27e8xs\u27e9\n  simp only [List.mapM_toArray, bind_pure_comp, List.size_toArray, List.foldlM_toArray']\n  rw [List.mapM_eq_reverse_foldlM_cons]\n  simp only [bind_pure_comp, Functor.map_map]\n  suffices \u2200 (l), (fun l' => l'.reverse.toArray) <$> List.foldlM (fun acc a => (fun a => a :: acc) <$> f a) l xs =\n      List.foldlM (fun acc a => acc.push <$> f a) l.reverse.toArray xs by\n    exact this []\n  intro l\n  induction xs generalizing l with\n  | nil => simp\n  | cons a as ih =>\n    simp [ih, List.foldlM_cons]\n@[congr] theorem forM_congr [Monad m] {as bs : Array \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Monadic.lean",
+    "definition_name": "mapM_eq_foldlM_push",
+    "has_proof": true
+  }
+}

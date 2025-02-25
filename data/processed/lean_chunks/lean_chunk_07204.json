@@ -1,0 +1,9 @@
+{
+  "content": "| none       => emitFnDecl decl (!modDecls.contains n)\n  return ()\ndef emitLhsSlot_ (x : VarId) : M llvmctx (LLVM.LLVMType llvmctx \u00d7 LLVM.Value llvmctx) := do\n  let state \u2190 get\n  match state.var2val[x]? with\n  | .some v => return v\n  | .none => throw s!\"unable to find variable {x}\"\ndef emitLhsVal (builder : LLVM.Builder llvmctx)\n    (x : VarId) (name : String := \"\") : M llvmctx (LLVM.Value llvmctx) := do\n  let (xty, xslot) \u2190 emitLhsSlot_ x\n  LLVM.buildLoad2 builder xty xslot name\ndef emitLhsSlotStore (builder : LLVM.Builder llvmctx)\n    (x : VarId) (v : LLVM.Value llvmctx) : M llvmctx Unit := do\n  let (_, slot) \u2190 emitLhsSlot_ x\n  LLVM.buildStore builder v slot\ndef emitArgSlot_ (builder : LLVM.Builder llvmctx)\n    (x : Arg) : M llvmctx (LLVM.LLVMType llvmctx \u00d7 LLVM.Value llvmctx) := do\n  match x with\n  | Arg.var x => emitLhsSlot_ x\n  | _ => do\n    let slotty \u2190 LLVM.voidPtrType llvmctx\n    let slot \u2190 buildPrologueAlloca builder slotty \"irrelevant_slot\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive RCasesPatt : Type\n  | one (ref : Syntax) : Name \u2192 RCasesPatt\n  | explicit (ref : Syntax) : RCasesPatt \u2192 RCasesPatt\n  | tuple (ref : Syntax) : List\u03a0 RCasesPatt \u2192 RCasesPatt\npartial def name? : RCasesPatt \u2192 Option Name\n  | one _ `_    => none\n  | one _ `rfl  => none\n  | one _ n     => n\n  | paren _ p\n  | typed _ p _\n  | alts _ [p]  => p.name?\n  | _           => none\ndef asTuple : RCasesPatt \u2192 Bool \u00d7 List\u03a0 RCasesPatt\n  | paren _ p    => p.asTuple\n  | explicit _ p => (true, p.asTuple.2)\n  | tuple _ ps   => (false, ps)\n  | p            => (false, [p])\ndef asAlts : RCasesPatt \u2192 List\u03a3 RCasesPatt\n  | paren _ p => p.asAlts\n  | alts _ ps => ps\n  | p         => [p]\ndef tuple' : List\u03a0 RCasesPatt \u2192 RCasesPatt\n  | [p] => p\n  | ps  => tuple (ps.head?.map (\u00b7.ref) |>.getD .missing) ps\ndef alts' (ref : Syntax) : List\u03a3 RCasesPatt \u2192 RCasesPatt\n  | [p] => p\n  | ps  => alts ref ps\ndef tuple\u2081Core : List\u03a0 RCasesPatt \u2192 List\u03a0 RCasesPatt\n  | []         => []\n  | [tuple ref []] => [tuple ref []]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/RCases.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Tactic/RCases.lean",
+    "definition_name": "RCasesPatt"
+  }
+}

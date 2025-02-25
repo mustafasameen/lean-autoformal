@@ -1,0 +1,9 @@
+{
+  "content": "class AddComm (\u03b1 : Type u) [Add \u03b1] : Prop where\n    addComm : {a b : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/KyleAlgAbbrev.lean",
+    "definition_name": "AddComm"
+  }
+}

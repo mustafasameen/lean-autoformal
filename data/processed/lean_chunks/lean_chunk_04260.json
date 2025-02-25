@@ -1,0 +1,10 @@
+{
+  "content": "theorem two_mul_add_sub_lt_of_lt_of_lt_two (h : a < x) (hy : y < 2) :\n    2 * a + y - x < x := by omega\ntheorem lawful_divSubtractShift (qr : DivModState w) (h : qr.Poised args) :\n    DivModState.Lawful args (divSubtractShift args qr) := by\n  rcases args with \u27e8n, d\u27e9\n  simp only [divSubtractShift, decide_eq_true_eq]\n  have \u27e8\u27e8hrwn, hd, hrd, hr, hn, hrnd\u27e9, hwn_lt\u27e9 := h\n  have : d.toNat * (qr.q.toNat * 2) = d.toNat * qr.q.toNat * 2 := by rw [Nat.mul_assoc]\n  by_cases rltd : shiftConcat qr.r (n.getLsbD (qr.wn - 1)) < d\n  \u00b7 simp only [rltd, \u2193reduceIte]\n    constructor <;> try bv_omega\n    case pos.hrWidth => apply toNat_shiftConcat_lt_of_lt <;> omega\n    case pos.hqWidth => apply toNat_shiftConcat_lt_of_lt <;> omega\n    case pos.hdiv =>\n      simp [qr.toNat_shiftRight_sub_one_eq h, h.hdiv, this,\n        toNat_shiftConcat_eq_of_lt (qr.wr_lt_w h) h.hrWidth,\n        toNat_shiftConcat_eq_of_lt (qr.wr_lt_w h) h.hqWidth]\n      omega\n  \u00b7 simp only [rltd, \u2193reduceIte]\n    constructor <;> try bv_omega",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Bitblast.lean",
+    "definition_name": "two_mul_add_sub_lt_of_lt_of_lt_two",
+    "has_proof": true
+  }
+}

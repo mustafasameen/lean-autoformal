@@ -1,0 +1,10 @@
+{
+  "content": "theorem Stmt.constProp_sub (h\u2081 : (\u03c3\u2081, s) \u21d3 \u03c3\u2082) (h\u2082 : \u03c3\u2081' \u227c \u03c3\u2081) : (s.constProp \u03c3\u2081').2 \u227c \u03c3\u2082 := by\n  induction h\u2081 generalizing \u03c3\u2081' with simp\n  | skip => assumption\n  | assign heq =>\n    split <;> simp\n    next h =>\n      have heq' := Expr.eval_constProp_of_eq_of_sub heq h\u2082\n      rw [\u2190 Expr.eval_simplify, h] at heq'\n      simp at heq'\n      rw [heq']\n      apply State.update_le_update h\u2082\n    next h _ _ =>\n      exact State.erase_le_update h\u2082\n  | whileTrue heq h\u2083 h\u2084 ih\u2083 ih\u2084 =>\n    have ih\u2083 := ih\u2083 h\u2082\n    have ih\u2084 := ih\u2084 ih\u2083\n    simp [heq] at ih\u2084\n    exact ih\u2084\n  | whileFalse heq => apply State.bot_le\n  | ifTrue heq h ih =>\n    have ih := ih h\u2082\n    apply State.join_le_left_of ih\n  | ifFalse heq h ih =>\n    have ih := ih h\u2082\n    apply State.join_le_right_of ih\n  | seq h\u2083 h\u2084 ih\u2083 ih\u2084 => exact ih\u2084 (ih\u2083 h\u2082)\ntheorem Stmt.constProp_correct (h\u2081 : (\u03c3\u2081, s) \u21d3 \u03c3\u2082) (h\u2082 : \u03c3\u2081' \u227c \u03c3\u2081) : (\u03c3\u2081, (s.constProp \u03c3\u2081').1) \u21d3 \u03c3\u2082 := by\n  induction h\u2081 generalizing \u03c3\u2081' with simp_all\n  | skip => exact Bigstep.skip",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/constProp.lean",
+    "definition_name": "Stmt",
+    "has_proof": true
+  }
+}

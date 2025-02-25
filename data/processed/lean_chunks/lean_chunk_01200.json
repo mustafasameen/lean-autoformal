@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (x : Nat) : 2 * x = x + x :=\n  sorry\n@[simp] theorem ex2 (xs : List \u03b1) : xs ++ [] = xs :=\n  sorry\n@[simp] theorem ex3 (xs ys zs : List \u03b1) : (xs ++ ys) ++ zs = xs ++ (ys ++ zs) :=\n  sorry\n@[simp] theorem ex5 (p : Prop) : p \u2228 True :=\n  sorry\n@[simp] theorem ex4 (xs : List \u03b1) : \u00ac(x :: xs = []) :=\n  sorry\n@[simp] theorem ex6 (p q : Prop) : p \u2228 q \u2194 q \u2228 p:=\n  sorry\n@[simp high] theorem ex7 [Add \u03b1] (a b : \u03b1) : a + b = b + a :=\n  sorry\n@[simp\u2193] theorem ex8 [Add \u03b1] (p q : Prop) : (\u00ac (p \u2227 q)) = (\u00acp \u2228 \u00acq) :=\n  sorry\naxiom aux {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp1.lean",
+    "definition_name": "ex1",
+    "has_proof": false
+  }
+}

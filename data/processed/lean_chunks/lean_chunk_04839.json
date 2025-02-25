@@ -1,0 +1,10 @@
+{
+  "content": "theorem cons_ne_nil (a : \u03b1) (l : List \u03b1) : a :: l \u2260 [] := nofun\n@[simp]\ntheorem cons_ne_self (a : \u03b1) (l : List \u03b1) : a :: l \u2260 l := mt (congrArg length) (Nat.succ_ne_self _)\n@[simp] theorem ne_cons_self {a : \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "cons_ne_nil",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem toCNF.go_as_denote (aig : AIG Nat) (start) (h1) (assign1) :\n    ((\u27e6aig, \u27e8start, h1\u27e9, assign1\u27e7 && (go aig start h1 (.empty aig)).val.eval (cnfSatAssignment aig assign1)) = sat?)\n      \u2192\n    (\u27e6aig, \u27e8start, h1\u27e9, assign1\u27e7 = sat?) := by\n  have := go_as_denote' aig start h1 assign1\n  by_cases CNF.eval (cnfSatAssignment aig assign1) (go aig start h1 (State.empty aig)).val.cnf <;> simp_all\ntheorem toCNF.denote_as_go {assign : AIG.CNFVar aig \u2192 Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Sat/AIG/CNF.lean",
+    "definition_name": "toCNF",
+    "has_proof": true
+  }
+}

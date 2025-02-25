@@ -1,0 +1,9 @@
+{
+  "content": "let some label \u2190 matchDecl? ns id danglingDot declName\n          | return\n        modify fun\n          | none =>\n            some label\n          | some bestLabel =>\n            if label.isSuffixOf bestLabel then\n              some label\n            else\n              some bestLabel\n      let rec visitNamespaces (ns : Name) : StateT (Option Name) M Unit := do\n        let Name.str p .. := ns\n          | return ()\n        matchUsingNamespace ns\n        visitNamespaces p\n      visitNamespaces ctx.currNamespace\n      for openDecl in ctx.openDecls do\n        let OpenDecl.simple ns exs := openDecl\n          | pure ()\n        if exs.contains declName then\n          continue\n        matchUsingNamespace ns\n      matchUsingNamespace Name.anonymous\n    if let some bestLabel := bestMatch? then\n      addUnresolvedCompletionItem bestLabel (.const declName) (\u2190 getCompletionKindForDecl c)\n  RequestCancellation.check\n  let matchAlias (ns : Name) (alias : Name) : Bool :=",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "NameSetModPrivate"
+  }
+}

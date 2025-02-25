@@ -1,0 +1,10 @@
+{
+  "content": "instance instCCPOPi [\u2200 x, CCPO (\u03b2 x)] : CCPO (\u2200 x, \u03b2 x) where\n  csup := fun_csup\n  csup_spec := by\n    intro f c hc\n    constructor\n    next =>\n      intro hf g hg x\n      apply rel_trans _ (hf x); clear hf\n      apply le_csup (chain_apply hc x)\n      exact \u27e8g, hg, rfl\u27e9\n    next =>\n      intro h x\n      apply csup_le (chain_apply hc x)\n      intro y \u27e8z, hz, hyz\u27e9\n      subst y\n      apply h z hz\ndef admissible_apply [\u2200 x, CCPO (\u03b2 x)] (P : \u2200 x, \u03b2 x \u2192 Prop) (x : \u03b1)\n  (hadm : admissible (P x)) : admissible (fun (f : \u2200 x, \u03b2 x) => P x (f x)) := by\n  intro c hchain h\n  apply hadm _ (chain_apply hchain x)\n  rintro _ \u27e8f, hcf, rfl\u27e9\n  apply h _ hcf\ndef admissible_pi_apply [\u2200 x, CCPO (\u03b2 x)] (P : \u2200 x, \u03b2 x \u2192 Prop) (hadm : \u2200 x, admissible (P x)) :\n    admissible (fun (f : \u2200 x, \u03b2 x) => \u2200 x, P x (f x)) := by\n  apply admissible_pi\n  intro\n  apply admissible_apply\n  apply hadm\nend fun_order\nsection monotone_lemmas\ntheorem monotone_letFun\n    {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Internal/Order/Basic.lean",
+    "definition_name": "instCCPOPi",
+    "has_proof": true
+  }
+}

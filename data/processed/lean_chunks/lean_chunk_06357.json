@@ -1,0 +1,9 @@
+{
+  "content": "else\n    let curr := input.get' i h\n    let i    := input.next' i h\n    if curr == '-' then\n      if h : input.atEnd i then eoi s\n      else\n        let curr := input.get' i h\nif curr == '/' then\n          if nesting == 1 then s.next input i\n          else finishCommentBlock (nesting-1) input (s.next' input i h)\n        else\n          finishCommentBlock nesting input (s.next' input i h)\n    else if curr == '/' then\n      if h : input.atEnd i then eoi s\n      else\n        let curr := input.get' i h\n        if curr == '-' then finishCommentBlock (nesting+1) input (s.next' input i h)\n        else finishCommentBlock nesting input (s.setPos i)\n    else finishCommentBlock nesting input (s.setPos i)\nwhere\n  eoi s := s.mkError \"unterminated comment\"\n@[specialize] partial def takeUntil (p : Char \u2192 Bool) : Parser := fun input s =>\n  let i := s.pos\n  if h : input.atEnd i then s\n  else if p (input.get' i h) then s\n  else takeUntil p input (s.next' input i h)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/ParseImportsFast.lean",
+    "definition_name": "Parser"
+  }
+}

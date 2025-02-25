@@ -1,0 +1,10 @@
+{
+  "content": "theorem isEmpty_eq_size_eq_zero : m.1.isEmpty = (m.1.size == 0) := by\n  simp [Raw.isEmpty]\nvariable [BEq \u03b1] [Hashable \u03b1]\nscoped macro \"empty\" : tactic => `(tactic| { intros; simp_all [List.isEmpty_iff] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/RawLemmas.lean",
+    "definition_name": "isEmpty_eq_size_eq_zero",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure Histogram.Entry (\u03b1 : Type u) (lsize rsize : Nat) where\n  leftIndex : Option (Fin lsize)\n  rightCount : Nat\n  rightWF : rightCount = 0 \u2194 rightIndex = none\ndef Histogram.addLeft (histogram : Histogram \u03b1 lsize rsize) (index : Fin lsize) (val : \u03b1)\n    : Histogram \u03b1 lsize rsize :=\n  match histogram.get? val with\n  | none => histogram.insert val {\n      leftCount := 1, leftIndex := some index,\n      leftWF := by simp,\n      rightCount := 0, rightIndex := none\n      rightWF := by simp\n    }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Diff.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Util/Diff.lean",
+    "definition_name": "Histogram"
+  }
+}

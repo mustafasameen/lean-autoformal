@@ -1,0 +1,10 @@
+{
+  "content": "theorem liftOrGet_some_some {f}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Option/Lemmas.lean",
+    "definition_name": "liftOrGet_some_some",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "match asyncMode with\n  | .sync     => ext.getStateImpl env.checked.get.extensions\n  | .async    => panic! \"EnvExtension.getState: called on `async` extension, use `findStateAsync` \\\n    instead or pass `(asyncMode := .local)` to explicitly access local state\"\n  | _         => ext.getStateImpl env.checkedWithoutAsync.extensions\n@[implemented_by getStateUnsafe]\nopaque getState {\u03c3 : Type} [Inhabited \u03c3] (ext : EnvExtension \u03c3) (env : Environment)\n  (asyncMode := ext.asyncMode) : \u03c3\nend EnvExtension\ndef registerEnvExtension {\u03c3 : Type} (mkInitial : IO \u03c3)\n    (asyncMode : EnvExtension.AsyncMode := .mainOnly) : IO (EnvExtension \u03c3) := do\n  unless (\u2190 initializing) do\n    throw (IO.userError \"failed to register environment, extensions can only be registered during initialization\")\n  let exts \u2190 EnvExtension.envExtensionsRef.get\n  let idx := exts.size\n  let ext : EnvExtension \u03c3 := { idx, mkInitial, asyncMode }\n  EnvExtension.envExtensionsRef.modify fun exts => exts.push (unsafe unsafeCast ext)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Environment.lean",
+    "definition_name": "CompactedRegion"
+  }
+}

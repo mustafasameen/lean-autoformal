@@ -1,0 +1,9 @@
+{
+  "content": "structure Baz where\n  bar : Nat\n  bar' : Nat\ndef foo3 (baz : Baz) : Nat :=\n  baz.bar\ndef foo4 (bar : Nat) : Baz :=\n  { bar := bar, bar' := bar }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/highlight.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/interactive/highlight.lean",
+    "definition_name": "Baz"
+  }
+}

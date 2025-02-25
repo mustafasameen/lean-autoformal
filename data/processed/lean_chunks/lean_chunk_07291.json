@@ -1,0 +1,9 @@
+{
+  "content": "structure Duration where\n  second : Second.Offset\n  nano : Nanosecond.Span\n  proof : (second.val \u2265 0 \u2227 nano.val \u2265 0) \u2228 (second.val \u2264 0 \u2227 nano.val \u2264 0)\n  deriving Repr\ninstance : ToString Duration where\n  toString s :=\n    let (sign, secs, nanos) :=\n      if s.second.val > 0 then (\"\" ,s.second, s.nano.val)\n      else if s.second.val < 0 then (\"-\", -s.second, -s.nano.val)\n      else if s.nano.val < 0 then (\"-\", -s.second, -s.nano.val) else (\"\", s.second, s.nano.val)\n    sign ++ toString secs ++ (if s.nano.val == 0 then \"\" else \".\" ++ (leftPad 9 <| toString nanos)) ++ \"s\"\n  where\n    leftPad n s := \"\".pushn '0' (n - s.length) ++ s\ninstance : Repr Duration where\n  reprPrec s := reprPrec (toString s)\ninstance : BEq Duration where\n  beq x y := x.second == y.second && y.nano == x.nano\ninstance : Inhabited Duration where\n  default := \u27e80, Bounded.LE.mk 0 (by decide), by decide\u27e9\ninstance : OfNat Duration n where\n  ofNat := by\n    refine \u27e8.ofInt n, \u27e80, by decide\u27e9, ?_\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Duration.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Time/Duration.lean",
+    "definition_name": "Duration"
+  }
+}

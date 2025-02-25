@@ -1,0 +1,10 @@
+{
+  "content": "theorem IsInfix.eq_of_length (h : l\u2081 <:+: l\u2082) : l\u2081.length = l\u2082.length \u2192 l\u2081 = l\u2082 :=\n  h.sublist.eq_of_length\ntheorem IsInfix.eq_of_length_le (h : l\u2081 <:+: l\u2082) : l\u2082.length \u2264 l\u2081.length \u2192 l\u2081 = l\u2082 :=\n  h.sublist.eq_of_length_le\ntheorem IsPrefix.eq_of_length (h : l\u2081 <+: l\u2082) : l\u2081.length = l\u2082.length \u2192 l\u2081 = l\u2082 :=\n  h.sublist.eq_of_length\ntheorem IsPrefix.eq_of_length_le (h : l\u2081 <+: l\u2082) : l\u2082.length \u2264 l\u2081.length \u2192 l\u2081 = l\u2082 :=\n  h.sublist.eq_of_length_le\ntheorem IsSuffix.eq_of_length (h : l\u2081 <:+ l\u2082) : l\u2081.length = l\u2082.length \u2192 l\u2081 = l\u2082 :=\n  h.sublist.eq_of_length\ntheorem IsSuffix.eq_of_length_le (h : l\u2081 <:+ l\u2082) : l\u2082.length \u2264 l\u2081.length \u2192 l\u2081 = l\u2082 :=\n  h.sublist.eq_of_length_le\ntheorem prefix_of_prefix_length_le :\n    \u2200 {l\u2081 l\u2082 l\u2083 : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "IsInfix",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure and a declaration. If we again\ndelete the space after private, it becomes a syntactically correct structure with a single field\nprivateaxiom! So clearly, because of uses of atomic in the grammar, an edit can affect a command\nsyntax tree even across multiple tokens.\nWhat we did in Lean 3 was to always reparse the last command completely preceding the edit location.\nIf its syntax tree is unchanged, we preserve its data and reprocess all following commands only,\notherwise we reprocess it fully as well. This worked well but did seem a bit arbitrary given that\neven if it works for a grammar at some point, it can certainly be extended in ways that break the\nassumption.\nWith grammar changes in Lean 4, we found that the following example indeed breaks this assumption:\n```\nstructure Signature where\n<missing>`. If we insert an `s` after the `t`, the last\ncommand completely preceding the edit location is the partial command containing the docstring. Thus",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Lean.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Language/Lean.lean",
+    "definition_name": "and"
+  }
+}

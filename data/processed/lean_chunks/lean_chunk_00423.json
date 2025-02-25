@@ -1,0 +1,9 @@
+{
+  "content": "def unreachIsNodeAtom {\u03b1 : Type} {info val} (h : IsNode (Syntax.atom info val)) : \u03b1 := False.elim (notIsNodeAtom h)\ndef unreachIsNodeIdent {\u03b1 : Type} {info rawVal val preresolved scopes} (h : IsNode (Syntax.ident info rawVal val preresolved scopes)) : \u03b1 := False.elim (match h with end)\n@[inline] def toSyntaxNode {\u03b1 : Type} (s : Syntax) (base : \u03b1) (fn : SyntaxNode \u2192 \u03b1) : \u03b1 :=\nmatch s with\n| Syntax.node kind args scopes := fn \u27e8Syntax.node kind args scopes, IsNode.mk kind args scopes\u27e9\n| other := base\n@[inline] def toSyntaxNodeOf {\u03b1 : Type} (kind : SyntaxNodeKind) (s : Syntax) (base : \u03b1) (fn : SyntaxNode \u2192 \u03b1) : \u03b1 :=\nmatch s with\n| Syntax.node k args scopes :=\n  if k == kind then fn \u27e8Syntax.node kind args scopes, IsNode.mk kind args scopes\u27e9\n  else base\n| other := base\n@[inline] def mkAtom (val : String) : Syntax :=\nSyntax.atom none val\ndef mkOptionSomeKind : IO SyntaxNodeKind := nextKind `some\n@[init mkOptionSomeKind] constant optionSomeKind : SyntaxNodeKind := default _",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/lowtech_expander.lean",
+    "definition_name": "MacroScope"
+  }
+}

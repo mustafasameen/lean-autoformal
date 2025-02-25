@@ -1,0 +1,9 @@
+{
+  "content": "inductive Term : Cxt \u2192 Ty \u2192 Type\n  | var {g a}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/renaming.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/renaming.lean",
+    "definition_name": "Term"
+  }
+}

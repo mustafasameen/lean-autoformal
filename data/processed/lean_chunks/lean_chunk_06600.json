@@ -1,0 +1,10 @@
+{
+  "content": "@[builtin_term_parser] def \u00abset_option\u00bb := leading_parser:leadPrec\n  \"set_option \" >> identWithPartialTrailingDot >> ppSpace >> Command.optionValue >> \" in \" >> termParser\nend Term\nnamespace Tactic\n@[builtin_tactic_parser] def \u00abopen\u00bb := leading_parser:leadPrec\n  \"open \" >> Command.openDecl >> withOpenDecl (\" in \" >> tacticSeq)\n@[builtin_tactic_parser] def \u00abset_option\u00bb := leading_parser:leadPrec\n  \"set_option \" >> identWithPartialTrailingDot >> ppSpace >> Command.optionValue >> \" in \" >> tacticSeq\nend Tactic\nend Parser\nend Lean",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Command.lean",
+    "definition_name": "declVal",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem xor_assoc (x y z : BitVec w) :\n    x ^^^ y ^^^ z = x ^^^ (y ^^^ z) := by\n  ext i\n  simp [Bool.xor_assoc]\ninstance : Std.Associative (fun (x y : BitVec w) => x ^^^ y) := \u27e8BitVec.xor_assoc\u27e9\ntheorem xor_comm (x y : BitVec w) :\n    x ^^^ y = y ^^^ x := by\n  ext i\n  simp [Bool.xor_comm]\ninstance : Std.Commutative (fun (x y : BitVec w) => x ^^^ y) := \u27e8BitVec.xor_comm\u27e9\n@[simp] theorem xor_self {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "xor_assoc",
+    "has_proof": true
+  }
+}

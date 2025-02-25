@@ -1,0 +1,9 @@
+{
+  "content": "class inductive Dec (p : Prop) : Type\n| isTrue  (h : p)\n| isFalse (h : Not p)\ninstance tst : Dec True :=\nDec.isTrue True.intro\n#check tst\nvariable (\u03b2 : Type _)\ninductive T1\n| mk : \u03b2 \u2192 \u03b2 \u2192 T1\n#check @T1.mk\ninductive MyEq {\u03b1 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive1.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/inductive1.lean",
+    "definition_name": "inductive"
+  }
+}

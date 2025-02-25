@@ -1,0 +1,10 @@
+{
+  "content": "theorem monotone_const [Preorder \u03b1] [Preorder \u03b2] (b : \u03b2) : Monotone (fun a : \u03b1 => b) :=\n  fun _ => Preorder.le_refl b\ntheorem monotone_comp [Preorder \u03b1] [Preorder \u03b2] [Preorder \u03b3] {g : \u03b2 \u2192 \u03b3}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/monotone.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/monotone.lean",
+    "definition_name": "monotone_const",
+    "has_proof": false
+  }
+}

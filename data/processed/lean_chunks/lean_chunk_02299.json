@@ -1,0 +1,10 @@
+{
+  "content": "theorem fooEq (b : Bla) : foo b = b.optional? :=\nrfl\ndef Bla.isNat2? (b : Bla) : Option { x : Nat // optional? b = some x }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/match1.lean",
+    "definition_name": "fooEq",
+    "has_proof": false
+  }
+}

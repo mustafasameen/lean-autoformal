@@ -1,0 +1,10 @@
+{
+  "content": "theorem sign_ofNat_of_nonzero {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Int/Order.lean",
+    "definition_name": "sign_ofNat_of_nonzero",
+    "has_proof": false
+  }
+}

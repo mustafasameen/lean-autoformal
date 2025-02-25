@@ -1,0 +1,9 @@
+{
+  "content": "$[$ctors:ctor]*\n      deriving FromJson, ToJson\n    variable $encInstBinders* in\n    partial instance : RpcEncodable $typeId :=\n      { rpcEncode := enc, rpcDecode := dec }\n    where\n      enc x :=\n        have inst : RpcEncodable $typeId := { rpcEncode := enc, rpcDecode := dec }\n        match x with $[$encodes:matchAlt]*\n      dec j := do\n        have inst : RpcEncodable $typeId := { rpcEncode := enc, rpcDecode := dec }\n        let pkt : RpcEncodablePacket \u2190 fromJson? j\n        id <| match pkt with $[$decodes:matchAlt]*\n  )\nprivate def deriveInstance (declNames : Array Name) : CommandElabM Bool := do\n  let #[typeName] := declNames | return false\n  let indVal \u2190 getConstInfoInduct typeName\n  if indVal.all.length \u2260 1 then\n    throwError \"mutually inductive types are not supported\"\n  if indVal.numIndices \u2260 0 then\n    throwError \"indexed inductive families are not supported\"\n  elabCommand <| \u2190 liftTermElabM do\n    forallTelescopeReducing indVal.type fun params _ => do",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Rpc/Deriving.lean",
+    "definition_name": "matchAltTerm"
+  }
+}

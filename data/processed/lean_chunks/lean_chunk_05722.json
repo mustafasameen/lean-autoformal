@@ -1,0 +1,10 @@
+{
+  "content": "theorem back_ofFn {n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/OfFn.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Vector/OfFn.lean",
+    "definition_name": "back_ofFn",
+    "has_proof": false
+  }
+}

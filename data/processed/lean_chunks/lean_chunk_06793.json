@@ -1,0 +1,9 @@
+{
+  "content": "addSuggestion ref (\u2190 addExactSuggestionCore addSubgoalsMsg e)\n    (origSpan? := origSpan?) (codeActionPrefix? := codeActionPrefix?)\ndef addExactSuggestions (ref : Syntax) (es : Array Expr)\n    (origSpan? : Option Syntax := none) (addSubgoalsMsg := false)\n    (codeActionPrefix? : Option String := none) : MetaM Unit := do\n  let suggestions \u2190 es.mapM <| addExactSuggestionCore addSubgoalsMsg\n  addSuggestions ref suggestions (origSpan? := origSpan?) (codeActionPrefix? := codeActionPrefix?)\ndef addTermSuggestion (ref : Syntax) (e : Expr)\n    (origSpan? : Option Syntax := none) (header : String := \"Try this: \")\n    (codeActionPrefix? : Option String := none) : MetaM Unit := do\n  addSuggestion ref (\u2190 delabToRefinableSuggestion e) (origSpan? := origSpan?) (header := header)\n    (codeActionPrefix? := codeActionPrefix?)\ndef addTermSuggestions (ref : Syntax) (es : Array Expr)\n    (origSpan? : Option Syntax := none) (header : String := \"Try these:\")",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/TryThis.lean",
+    "definition_name": "SuggestionStyle"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "(hl : DistinctKeys l) (hc : containsKey k' (alterKey k f l)) :\n    getValue k' (alterKey k f l) hc =\n      if h : k == k' then\n        haveI hc' : (f (getValue? k l)).isSome := by rwa [containsKey_alterKey hl, if_pos h] at hc\n        (f (getValue? k l)).get hc'\n      else\n        haveI hc' : containsKey k' l := by rwa [containsKey_alterKey hl, if_neg h] at hc\n        getValue k' l hc' := by\n  have := getValue?_alterKey  k k' f l hl\n  rw [getValue?_eq_some_getValue hc] at this\n  split\n  \u00b7 next heq =>\n    apply Option.some_inj.mp\n    simp_all\n  \u00b7 next heq =>\n    apply Option.some_inj.mp\n    simp_all only [Bool.false_eq_true, ite_false]\n    rw [getValue?_eq_some_getValue]\ntheorem getValue_alterKey_self [EquivBEq \u03b1] (k : \u03b1) (f : Option \u03b2 \u2192 Option \u03b2)\n    (l : List ((_ : \u03b1) \u00d7 \u03b2)) (hl : DistinctKeys l) (hc : containsKey k (alterKey k f l)) :\n    haveI hc' : (f (getValue? k l)).isSome := by rwa [containsKey_alterKey hl, BEq.refl] at hc",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/Internal/List/Associative.lean",
+    "definition_name": "getValue",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| _           => panic! \"max level expected\"\n@[implemented_by updateMax!Impl]\ndef updateMax! (lvl : Level) (newLhs : Level) (newRhs : Level) : Level :=\n  match lvl with\n  | max _ _ => mkLevelMax' newLhs newRhs\n  | _       => panic! \"max level expected\"\n@[inline] private unsafe def updateIMax!Impl (lvl : Level) (newLhs : Level) (newRhs : Level) : Level :=\n  match lvl with\n  | imax lhs rhs => if ptrEq lhs newLhs && ptrEq rhs newRhs then simpLevelIMax' newLhs newRhs lvl else mkLevelIMax' newLhs newRhs\n  | _            => panic! \"imax level expected\"\n@[implemented_by updateIMax!Impl]\ndef updateIMax! (lvl : Level) (newLhs : Level) (newRhs : Level) : Level :=\n  match lvl with\n  | imax _ _ => mkLevelIMax' newLhs newRhs\n  | _        => panic! \"imax level expected\"\ndef mkNaryMax : List Level \u2192 Level\n  | []    => levelZero\n  | [u]   => u\n  | u::us => mkLevelMax' u (mkNaryMax us)\n@[specialize] def substParams (u : Level) (s : Name \u2192 Option Level) : Level :=\n  go u\nwhere",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "(x <<< i).getMsbD k = x.getMsbD (k + i) := by\n  simp only [getMsbD, getLsbD_shiftLeft]\n  by_cases h : w = 0\n  \u00b7 subst h; simp\n  have t : w - 1 - k < w := by omega\n  simp only [t]\n  simp only [decide_true, Nat.sub_sub, Bool.true_and, Nat.add_assoc]\n  by_cases h\u2081 : k < w <;> by_cases h\u2082 : w - (1 + k) < i <;> by_cases h\u2083 : k + i < w\n    <;> simp only [h\u2081, h\u2082, h\u2083, decide_false, h\u2082, decide_true, Bool.not_true, Bool.false_and, Bool.and_self,\n      Bool.true_and, Bool.false_eq, Bool.false_and, Bool.not_false]\n    <;> (first | apply getLsbD_ge | apply Eq.symm; apply getLsbD_ge)\n    <;> omega\ntheorem shiftLeftZeroExtend_eq {x : BitVec w}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "shiftLeft_xor_distrib",
+    "has_proof": true
+  }
+}

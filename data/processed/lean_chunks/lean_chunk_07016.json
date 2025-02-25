@@ -1,0 +1,9 @@
+{
+  "content": "structure\nsection Utils\n  private partial def containsSuccessiveCharacters (a b : String) : Bool :=\n    go \u27e80\u27e9 \u27e80\u27e9\n  where\n    go (aPos bPos : String.Pos) : Bool :=\n      if ha : a.atEnd aPos then\n        true\n      else if hb : b.atEnd bPos then\n        false\n      else\n        let ac := a.get' aPos ha\n        let bc := b.get' bPos hb\n        let bPos := b.next' bPos hb\n        if ac == bc then\n          let aPos := a.next' aPos ha\n          go aPos bPos\n        else\n          go aPos bPos\n  private def normPrivateName? (declName : Name) : MetaM (Option Name) := do\n    match privateToUserName? declName with\n    | none => return declName\n    | some userName =>\n      if mkPrivateName (\u2190 getEnv) userName == declName then\n        return userName\n      else\n        return none\n  private def matchDecl? (ns : Name) (id : Name) (danglingDot : Bool) (declName : Name) : MetaM (Option Name) := do\n    let some declName \u2190 normPrivateName? declName\n      | return none",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/Completion/CompletionCollectors.lean",
+    "definition_name": "section"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem forallRangeImplies'\n  (n i j : Nat)\n  (f  : \u2200(k:Nat), k < n \u2192 Bool)\n  (eq : i+j = n)\n  (p  : forallRange i n f = true)\n  (k  : Nat)\n  (lb : i \u2264 k)\n  (ub : k < n)\n  : f k ub = true := by\n  induction j generalizing i with\n  | zero =>\n    simp at eq\n    simp [eq] at lb\n    have pr := Nat.not_le_of_gt ub\n    contradiction\n  | succ j ind =>\n    have i_lt_n : i < n := Nat.le_trans (Nat.succ_le_succ lb) ub\n    unfold forallRange at p\n    simp [i_lt_n] at p\n    cases Nat.eq_or_lt_of_le lb with\n    | inl hEq =>\n      subst hEq\n      apply p.1\n    | inr hLt =>\n      have succ_i_add_j : succ i + j = n := by simp_arith [\u2190 eq]\n      apply ind (succ i) succ_i_add_j p.2 hLt\ntheorem forallRangeImplies (p:forallRange i n f = true) {j:Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/playground/pge.lean",
+    "definition_name": "forallRangeImplies",
+    "has_proof": true
+  }
+}

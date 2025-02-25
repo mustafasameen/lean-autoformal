@@ -1,0 +1,9 @@
+{
+  "content": "def ex4 :=\n[1, 2, 3].map $ fun x => x+1\ndef ex5 (xs : List String) :=\nxs.foldl (fun r x => r.push x) Array.empty\ninductive Expr\n| val : Nat \u2192 Expr\n| app : Expr \u2192 Expr \u2192 Expr\ninstance : HasCoe Nat Expr := \u27e8Expr.val\u27e9\ndef foo : Expr \u2192 Expr := fun e => e\ndef ex6 :=\nfoo 1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/issues1.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/issues1.lean",
+    "definition_name": "ex4"
+  }
+}

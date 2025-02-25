@@ -1,0 +1,10 @@
+{
+  "content": "theorem dropLast_prefix : \u2200 l : List \u03b1, l.dropLast <+: l\n  | [] => \u27e8nil, by rw [dropLast, List.append_nil]\u27e9\n  | a :: l => \u27e8_, dropLast_concat_getLast (cons_ne_nil a l)\u27e9\ntheorem dropLast_sublist (l : List \u03b1) : l.dropLast <+ l :=\n  (dropLast_prefix l).sublist\ntheorem dropLast_subset (l : List \u03b1) : l.dropLast \u2286 l :=\n  (dropLast_sublist l).subset\ntheorem tail_suffix (l : List \u03b1) : tail l <:+ l := by rw [\u2190 drop_one]; apply drop_suffix\ntheorem IsPrefix.map {\u03b2}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "dropLast_prefix",
+    "has_proof": true
+  }
+}

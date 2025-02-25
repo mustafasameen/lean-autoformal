@@ -1,0 +1,10 @@
+{
+  "content": "inductive with \u27e8h_size, h\u27e9\n    apply Array.ext\n    \u00b7 rw [h_size, hf.2]\n    \u00b7 intro i hi1 hi2\n      have i_lt_n : i < n := by omega\n      specialize h \u27e8i, i_lt_n\u27e9\n      rcases h with h | h | h\n      \u00b7 exact h.1\n      \u00b7 omega\n      \u00b7 omega\ntheorem formula_performRatCheck {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddResult.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddResult.lean",
+    "definition_name": "with",
+    "has_proof": true
+  }
+}

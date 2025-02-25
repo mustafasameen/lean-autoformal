@@ -1,0 +1,10 @@
+{
+  "content": "let fType \u2190 inferType f\n  forallBoundedTelescope fType numArgs (cleanupAnnotations := true) fun xs _ =>\n  forallBoundedTelescope fType numArgs (cleanupAnnotations := true) fun ys _ => do\n    if xs.size != numArgs then\n      throwError \"failed to generate hcongr theorem, insufficient number of arguments\"\n    else\n      let lctx := addPrimeToFVarUserNames ys (\u2190 getLCtx) |> setBinderInfosD ys |> setBinderInfosD xs\n      withLCtx lctx (\u2190 getLocalInstances) do\n      withNewEqs xs ys fun eqs argKinds => do\n        let mut hs := #[]\n        for x in xs, y in ys, eq in eqs do\n          hs := hs.push x |>.push y |>.push eq\n        let lhs := mkAppN f xs\n        let rhs := mkAppN f ys\n        let congrType \u2190 mkForallFVars hs (\u2190 mkHEq lhs rhs)\n        return {\n          type  := congrType\n          proof := (\u2190 mkProof congrType)\n          argKinds\n        }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/CongrTheorems.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/CongrTheorems.lean",
+    "definition_name": "CongrArgKind",
+    "has_proof": true
+  }
+}

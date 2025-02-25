@@ -1,0 +1,9 @@
+{
+  "content": "instance functorCategoryLinear : Linear R (C \u2964 D) where\n  homModule F G :=\n    {\n      smul := fun r \u03b1 \u21a6\n        { app := fun X \u21a6 r \u2022 \u03b1.app X\n          naturality := by\n            intros\n            rw [Linear.comp_smul, Linear.smul_comp, \u03b1.naturality] }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_type": "instance",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/linearCategory_perf_issue.lean",
+    "definition_name": "functorCategoryLinear"
+  }
+}

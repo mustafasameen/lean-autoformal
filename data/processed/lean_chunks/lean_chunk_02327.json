@@ -1,0 +1,10 @@
+{
+  "content": "theorem x_eq_y (x y : Bool) (hx : x = True) (hy : y = True) : x = y := by\n  bv_decide\nexample (z : BitVec 64) : True := by\n  let x : BitVec 64 := 10\n  let y : BitVec 64 := 20 + z\n  have : z + (2 * x) = y := by\n    bv_decide\n  exact True.intro\nexample :\n  \u00ac (0 \u2264 0 + 16#64 \u2227 0 \u2264 0 + 16#64 \u2227 (0 + 16#64 \u2264 0 \u2228 0 \u2265 0 + 16#64 \u2228 16#64 = 0 \u2228 16#64 = 0)) := by\n  bv_normalize\nexample (x y z : BitVec 8) (h1 : x = z \u2192 False) (h2 : x = y) (h3 : y = z) : False := by\n  bv_decide\ndef mem_subset (a1 a2 b1 b2 : BitVec 64) : Bool :=\n  (b2 - b1 = BitVec.ofNat 64 (2^64 - 1)) ||\n  ((a2 - b1 <= b2 - b1 && a1 - b1 <= a2 - b1))\ntheorem mem_subset_refl : mem_subset a1 a2 a1 a2 := by\n  unfold mem_subset\n  bv_normalize\nexample {x : BitVec 16}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_decide_rewriter.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/bv_decide_rewriter.lean",
+    "definition_name": "x_eq_y",
+    "has_proof": true
+  }
+}

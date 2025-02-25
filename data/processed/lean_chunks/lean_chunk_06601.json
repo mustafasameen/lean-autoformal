@@ -1,0 +1,9 @@
+{
+  "content": "structure ModuleParserState where\n  pos        : String.Pos := 0\n  recovering : Bool       := false\n  deriving Inhabited\nprivate partial def mkErrorMessage (c : InputContext) (pos : String.Pos) (stk : SyntaxStack) (e : Parser.Error) : Message := Id.run do\n  let mut pos := pos\n  let mut endPos? := none\n  let mut e := e\n  unless e.unexpectedTk.isMissing do\n    if let some r := e.unexpectedTk.getRange? then\n      pos := r.start\n      endPos? := some r.stop\n    let unexpected := match e.unexpectedTk with\n      | .ident .. => \"unexpected identifier\"\n      | .atom _ v => s!\"unexpected token '{v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Parser/Module.lean",
+    "definition_name": "ModuleParserState"
+  }
+}

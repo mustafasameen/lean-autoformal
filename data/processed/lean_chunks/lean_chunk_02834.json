@@ -1,0 +1,10 @@
+{
+  "content": "theorem PUnit.ext (x y : PUnit) : x = y := rfl\nprotected theorem Unit.ext (x y : Unit) : x = y := rfl\n@[ext] protected theorem Thunk.ext : {a b : Thunk \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Ext.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Ext.lean",
+    "definition_name": "PUnit",
+    "has_proof": false
+  }
+}

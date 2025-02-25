@@ -1,0 +1,9 @@
+{
+  "content": "structure Context where\n  options : Options\n  table   : Parser.TokenTable\nstructure State where\n  stxTrav  : Syntax.Traverser\n  leadWord : String := \"\"\n  isUngrouped : Bool := false\n  mustBeGrouped : Bool := true\n  stack    : Array Format := #[]\nend Formatter\nabbrev FormatterM := ReaderT Formatter.Context $ StateRefT Formatter.State CoreM\n@[inline] def FormatterM.orElse {\u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Formatter.lean",
+    "definition_name": "Context"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "exact Nat.sub_eq_zero_of_le (this \u25b8 Nat.le_add_right ..))\n@[specialize] def mapAux (f : Char \u2192 Char) (i : Pos) (s : String) : String :=\n  if h : s.atEnd i then s\n  else\n    let c := f (s.get i)\n    have := mapAux_lemma s i c h\n    let s := s.set i c\n    mapAux f (s.next i) s\ntermination_by s.endPos.1 - i.1\n@[inline] def map (f : Char \u2192 Char) (s : String) : String :=\n  mapAux f 0 s\n@[inline] def isNat (s : String) : Bool :=\n  !s.isEmpty && s.all (\u00b7.isDigit)\ndef toNat? (s : String) : Option Nat :=\n  if s.isNat then\n    some <| s.foldl (fun n c => n*10 + (c.toNat - '0'.toNat)) 0\n  else\n    none\ndef substrEq (s1 : String) (off1 : String.Pos) (s2 : String) (off2 : String.Pos) (sz : Nat) : Bool :=\n  off1.byteIdx + sz \u2264 s1.endPos.byteIdx && off2.byteIdx + sz \u2264 s2.endPos.byteIdx && loop off1 off2 { byteIdx := off1.byteIdx + sz }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/String/Basic.lean",
+    "definition_name": "set_next_add",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "inductive with \u27e8h1, h2\u27e9\n  constructor\n  \u00b7 intro h p\n    specialize h1 h p\n    rcases h1 with h1 | h1\n    \u00b7 apply Or.inl\n      intro pc\n      simp only [(\u00b7 \u22a8 \u00b7), Clause.eval, List.any_eq_true, Prod.exists, Bool.exists_bool] at pc\n      rcases pc with \u27e8i, \u27e8pc1, pc2\u27e9 | \u27e8pc1, pc2\u27e9\u27e9\n      \u00b7 simp only [Clause.toList, DefaultClause.toList] at pc1\n        rw [c_clause_rw] at pc1\n        have idx_exists : \u2203 idx : Fin c_arr.size, c_arr[idx] = (i, false) := by\n          rcases List.get_of_mem pc1 with \u27e8idx, hidx\u27e9\n          simp only [List.get_eq_getElem] at hidx\n          exact Exists.intro idx hidx\n        rcases idx_exists with \u27e8idx, hidx\u27e9\n        specialize h1 idx idx.2\n        rw [hidx] at h1\n        exact h1 <| of_decide_eq_true pc2\n      \u00b7 simp only [Clause.toList, DefaultClause.toList] at pc1\n        rw [c_clause_rw] at pc1\n        have idx_exists : \u2203 idx : Fin c_arr.size, c_arr[idx] = (i, true) := by\n          rcases List.get_of_mem pc1 with \u27e8idx, hidx\u27e9",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddSound.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RupAddSound.lean",
+    "definition_name": "with",
+    "has_proof": true
+  }
+}

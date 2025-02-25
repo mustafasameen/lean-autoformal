@@ -1,0 +1,10 @@
+{
+  "content": "theorem bitwise_lt_two_pow (left : x < 2^n) (right : y < 2^n) : (Nat.bitwise f x y) < 2^n := by\n  induction n generalizing x y with\n  | zero =>\n    simp only [eq_0_of_lt] at left right\n    unfold bitwise\n    simp [left, right]\n  | succ n hyp =>\n    unfold bitwise\n    if x_zero : x = 0 then\n      simp only [x_zero, if_pos]\n      by_cases p : f false true = true <;> simp [p, right]\n    else if y_zero : y = 0 then\n      simp only [x_zero, y_zero, if_neg, if_pos]\n      by_cases p : f true false = true <;> simp [p, left]\n    else\n      simp only [x_zero, y_zero, if_neg]\n      have hyp1 := hyp (div_two_le_of_lt_two left) (div_two_le_of_lt_two right)\n      by_cases p : f (decide (x % 2 = 1)) (decide (y % 2 = 1)) = true <;>\n        simp [p, Nat.pow_succ, mul_succ, Nat.add_assoc]\n      case pos =>\n        apply lt_of_succ_le\n        simp only [\u2190 Nat.succ_add]\n        apply Nat.add_le_add <;> exact hyp1\n      case neg =>\n        apply Nat.add_lt_add <;> exact hyp1",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Bitwise/Lemmas.lean",
+    "definition_name": "testBit_mod_two_pow",
+    "has_proof": true
+  }
+}

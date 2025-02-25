@@ -1,0 +1,9 @@
+{
+  "content": "let symmMCtx \u2190 getMCtx\n    let symmGoalCtx := (symmGoal, symmMCtx)\n    setMCtx coreMCtx\n    pure $ interleaveWith (coreGoalCtx, \u00b7) l1 (symmGoalCtx, \u00b7) l2\n  else\n    pure $ l1.map (coreGoalCtx, \u00b7)\nprivate def emoji (e : Except \u03b5 \u03b1) := if e.toBool then checkEmoji else crossEmoji\nprivate def librarySearchLemma (cfg : ApplyConfig) (act : List MVarId \u2192 MetaM (List MVarId))\n    (allowFailure : MVarId \u2192 MetaM Bool) (cand : Candidate)  : MetaM (List MVarId) := do\n  let ((goal, mctx), (name, mod)) := cand\n  let ppMod (mod : DeclMod) : MessageData :=\n        match mod with | .none => \"\" | .mp => \" with mp\" | .mpr => \" with mpr\"\n  withTraceNode `Tactic.librarySearch (return m!\"{emoji \u00b7} trying {name}{ppMod mod} \") do\n    setMCtx mctx\n    let lem \u2190 mkLibrarySearchLemma name mod\n    let newGoals \u2190 goal.apply lem cfg\n    try\n      act newGoals\n    catch _ =>\n      if \u2190 allowFailure goal then\n        pure newGoals\n      else\n        failure\ndef tryOnEach",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/LibrarySearch.lean",
+    "definition_name": "CandidateFinder"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "| IRType.usize      => LLVM.size_tType llvmctx\n  | IRType.object     => do LLVM.pointerType (\u2190 LLVM.i8Type llvmctx)\n  | IRType.tobject    => do LLVM.pointerType (\u2190 LLVM.i8Type llvmctx)\n  | IRType.irrelevant => do LLVM.pointerType (\u2190 LLVM.i8Type llvmctx)\n  | IRType.struct _ _ => panic! \"not implemented yet\"\n  | IRType.union _ _  => panic! \"not implemented yet\"\ndef throwInvalidExportName {\u03b1 : Type} (n : Name) : M llvmctx \u03b1 := do\n  throw s!\"invalid export name {n.toString}\"\ndef toCName (n : Name) : M llvmctx String := do\n  match getExportNameFor? (\u2190 getEnv) n with\n  | some (.str .anonymous s) => pure s\n  | some _                   => throwInvalidExportName n\n  | none                     => if n == `main then pure leanMainFn else pure n.mangle\ndef toCInitName (n : Name) : M llvmctx String := do\n  match getExportNameFor? (\u2190 getEnv) n with\n  | some (.str .anonymous s) => return \"_init_\" ++ s\n  | some _                   => throwInvalidExportName n",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/EmitLLVM.lean",
+    "definition_name": "leanMainFn"
+  }
+}

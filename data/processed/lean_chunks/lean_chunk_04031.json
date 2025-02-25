@@ -1,0 +1,10 @@
+{
+  "content": "theorem msb_setWidth (x : BitVec w) : (x.setWidth v).msb = (decide (0 < v) && x.getLsbD (v - 1)) := by\n  rw [msb_eq_getLsbD_last]\n  simp only [getLsbD_setWidth]\n  cases getLsbD x (v - 1) <;> simp; omega\ntheorem msb_setWidth' (x : BitVec w) (h : w \u2264 v) : (x.setWidth' h).msb = (decide (0 < v) && x.getLsbD (v - 1)) := by\n  rw [setWidth'_eq, msb_setWidth]\ntheorem msb_setWidth'' (x : BitVec w) : (x.setWidth (k + 1)).msb = x.getLsbD k := by\n  simp [BitVec.msb, getMsbD]\ntheorem setWidth_ofNat_one_eq_ofNat_one_of_lt {v w : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "msb_setWidth",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem size_singleL (k : \u03b1) (v : \u03b2 k) (l : Impl \u03b1 \u03b2) (rk : \u03b1) (rv : \u03b2 rk) (rl rr : Impl \u03b1 \u03b2) :\n    (singleL k v l rk rv rl rr).size = (bin k v l (bin rk rv rl rr)).size := by\n  simp only [singleL, size_bin]\n  ac_rfl\n@[Std.Internal.tree_tac]\ndef doubleL (k : \u03b1) (v : \u03b2 k) (l : Impl \u03b1 \u03b2) (rk : \u03b1) (rv : \u03b2 rk) (rlk : \u03b1) (rlv : \u03b2 rlk)\n    (rll rlr : Impl \u03b1 \u03b2) (rr : Impl \u03b1 \u03b2) : Impl \u03b1 \u03b2 :=\n  bin rlk rlv (bin k v l rll) (bin rk rv rlr rr)\ntheorem size_doubleL (k : \u03b1) (v : \u03b2 k) (l : Impl \u03b1 \u03b2) (rk : \u03b1) (rv : \u03b2 rk) (rlk : \u03b1) (rlv : \u03b2 rlk)\n    (rll rlr : Impl \u03b1 \u03b2) (rr : Impl \u03b1 \u03b2) :\n    (doubleL k v l rk rv rlk rlv rll rlr rr).size = (bin k v l (bin rk rv (bin rlk rlv rll rlr) rr)).size := by\n  simp only [doubleL, size_bin]\n  ac_rfl\ndef rotateL (k : \u03b1) (v : \u03b2 k) (l : Impl \u03b1 \u03b2) (rk : \u03b1) (rv : \u03b2 rk) (rl rr : Impl \u03b1 \u03b2) :\n    Impl \u03b1 \u03b2 :=\n  if rl.size < ratio * rr.size then\n    singleL k v l rk rv rl rr\n  else\n    match rl with\n    | leaf => singleL k v l rk rv rl rr",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DTreeMap/Internal/Balancing.lean",
+    "definition_name": "size_singleL",
+    "has_proof": true
+  }
+}

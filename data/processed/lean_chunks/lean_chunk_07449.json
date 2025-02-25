@@ -1,0 +1,10 @@
+{
+  "content": "theorem sat_of_confirmRupHint_of_insertRat_fold {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Tactic/BVDecide/LRAT/Internal/Formula/RatAddSound.lean",
+    "definition_name": "sat_of_confirmRupHint_of_insertRat_fold",
+    "has_proof": false
+  }
+}

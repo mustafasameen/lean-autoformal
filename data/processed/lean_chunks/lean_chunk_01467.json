@@ -1,0 +1,10 @@
+{
+  "content": "inductive Weekday where\n  | sunday    : Weekday\n  | monday    : Weekday\n  | tuesday   : Weekday\n  | wednesday : Weekday\n  | thursday  : Weekday\n  | friday    : Weekday\n  | saturday  : Weekday\ndef Weekday.next : Weekday -> Weekday :=\n  fun d => match d with\n    | sunday    => monday\n    | monday    => tuesday\n    | tuesday   => wednesday\n    | wednesday => thursday\n    | thursday  => friday\n    | friday    => saturday\n    | saturday  => sunday\ndef Weekday.previous : Weekday -> Weekday\n  | sunday    => saturday\n  | monday    => sunday\n  | tuesday   => monday\n  | wednesday => tuesday\n  | thursday  => wednesday\n  | friday    => thursday\n  | saturday  => friday\ntheorem Weekday.nextOfPrevious (d : Weekday) : next (previous d) = d := by\n  cases d\n  all_goals rfl\ntheorem Weekday.nextOfPrevious' (d : Weekday) : previous (next d) = d \u2227 next (previous d) = d := by\n  apply And.intro\n  cases d <;> rfl\n  cases d <;> rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/allGoals.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/allGoals.lean",
+    "definition_name": "Weekday",
+    "has_proof": true
+  }
+}

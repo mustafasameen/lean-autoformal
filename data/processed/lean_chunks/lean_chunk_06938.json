@@ -1,0 +1,9 @@
+{
+  "content": "inductive constructor matched\"))\n  `($auxTerm)\nwhere\n  mkAlts (indVal : InductiveVal) : TermElabM (Array Term) := do\n  let mut alts := #[]\n  for ctorName in indVal.ctors do\n    let ctorInfo \u2190 getConstInfoCtor ctorName\n    let alt \u2190 do forallTelescopeReducing ctorInfo.type fun xs _ => do\n        let mut binders   := #[]\n        let mut userNames := #[]\n        for i in [:ctorInfo.numFields] do\n          let x := xs[indVal.numParams + i]!\n          let localDecl \u2190 x.fvarId!.getDecl\n          if !localDecl.userName.hasMacroScopes then\n            userNames := userNames.push localDecl.userName\n          let a := mkIdent (\u2190 mkFreshUserName `a)\n          binders := binders.push (a, localDecl.type)\n        let fromJsonFuncId := mkIdent ctx.auxFunNames[0]!\n        let mkFromJson (idx : Nat) (type : Expr) : TermElabM (TSyntax ``doExpr) :=\n          if type.isAppOf indVal.name then `(Lean.Parser.Term.doExpr| $fromJsonFuncId:ident jsons[$(quote idx)]!)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/Deriving/FromToJson.lean",
+    "definition_name": "constructor"
+  }
+}

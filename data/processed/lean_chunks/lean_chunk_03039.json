@@ -1,0 +1,9 @@
+{
+  "content": "def Expr.Data := UInt64\ninstance: Inhabited Expr.Data :=\n  inferInstanceAs (Inhabited UInt64)\ndef Expr.Data.hash (c : Expr.Data) : UInt64 :=\n  c.toUInt32.toUInt64\ninstance : BEq Expr.Data where\n  beq (a b : UInt64) := a == b\ndef Expr.Data.approxDepth (c : Expr.Data) : UInt8 :=\n  ((c.shiftRight 32).land 255).toUInt8\ndef Expr.Data.looseBVarRange (c : Expr.Data) : UInt32 :=\n  (c.shiftRight 44).toUInt32\ndef Expr.Data.hasFVar (c : Expr.Data) : Bool :=\n  ((c.shiftRight 40).land 1) == 1\ndef Expr.Data.hasExprMVar (c : Expr.Data) : Bool :=\n  ((c.shiftRight 41).land 1) == 1\ndef Expr.Data.hasLevelMVar (c : Expr.Data) : Bool :=\n  ((c.shiftRight 42).land 1) == 1\ndef Expr.Data.hasLevelParam (c : Expr.Data) : Bool :=\n  ((c.shiftRight 43).land 1) == 1\n@[extern \"lean_uint8_to_uint64\"]\ndef BinderInfo.toUInt64 : BinderInfo \u2192 UInt64\n  | .default        => 0\n  | .implicit       => 1\n  | .strictImplicit => 2\n  | .instImplicit   => 3\ndef Expr.mkData",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Expr.lean",
+    "definition_name": "Expr"
+  }
+}

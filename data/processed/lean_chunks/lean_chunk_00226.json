@@ -1,0 +1,10 @@
+{
+  "content": "def foo! := 10\ntheorem ex2 : foo! = 10 := rfl\n#check foo!\nopen Foo\n#check foo! 20\ntheorem ex3 : foo! 10 = 11 := rfl\nnamespace Bla\nscoped syntax \"bla!\" term:max : term\nmacro_rules\n  | `(bla! $x) => `($x * 2)\ntheorem ex2 : bla! 3 = 6 := rfl\nend Bla\ndef bla! := 20\ntheorem ex4 : bla! = 20 := rfl",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/scopedTokens.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/scopedTokens.lean",
+    "definition_name": "foo",
+    "has_proof": false
+  }
+}

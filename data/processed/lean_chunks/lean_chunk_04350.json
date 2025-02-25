@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_two_pow_self : n < 2 ^ n :=\n  Nat.lt_pow_self Nat.one_lt_two\n@[simp]\nprotected theorem mod_two_pow_self : n % 2 ^ n = n :=\n  Nat.mod_eq_of_lt Nat.lt_two_pow_self\n@[simp]\ntheorem two_pow_pred_mul_two (h : 0 < w) :\n    2 ^ (w - 1) * 2 = 2 ^ w := by\n  simp [\u2190 Nat.pow_succ, Nat.sub_add_cancel h]\nprotected theorem eq_mul_of_div_eq_right {a b c : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Lemmas.lean",
+    "definition_name": "lt_two_pow_self",
+    "has_proof": true
+  }
+}

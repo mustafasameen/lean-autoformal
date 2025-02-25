@@ -1,0 +1,9 @@
+{
+  "content": "def bar := (fun _ : Foo => 0) Foo.foo",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/jason2.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/jason2.lean",
+    "definition_name": "bar"
+  }
+}

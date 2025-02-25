@@ -1,0 +1,10 @@
+{
+  "content": "theorem le_refl (x : BitVec n) : x \u2264 x := by\n  simp [le_def]\n@[simp] protected theorem lt_irrefl (x : BitVec n) : \u00acx < x := by\n  simp [lt_def]\nprotected theorem le_trans {x y z : BitVec n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "le_refl",
+    "has_proof": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "structure SyntaxModel where\n  Ctx : Type 1\n  Ty : Type 1\n  Tm : Type 1\n  EC : Ctx \u2192 Ctx \u2192 Type\n  ETy : Ty \u2192 Ty \u2192 Type\n  ETm : Tm \u2192 Tm \u2192 Type\n  getCtx : Ty \u2192 Ctx\n  getTy : Tm \u2192 Ty\n  interpCStep : CtxSyntaxLayer Ctx Ty EC getCtx \u2192 Ctx\n  interpTyStep : TySyntaxLayer Ctx Ty EC getCtx \u2192 Ty\n  interpTmStep : TmSyntaxLayer Ctx Ty Tm EC ETy getCtx getTy interpTyStep \u2192 Tm\nnamespace SetModel\n  def Ctx := Type\n  structure Ty where\n    ctx : Ctx\n    ty : ctx \u2192 Type\n  structure Tm where\n    ty : Ty\n    tm : \u2200 {\u0393}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/341.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/341.lean",
+    "definition_name": "SyntaxModel"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "content": "inductive Eq : \u03b1 \u2192 \u03b1 \u2192 Prop where\n  | refl (a : \u03b1) : Eq a a\n@[match_pattern] def rfl {\u03b1 : Sort u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Eq"
+  }
+}

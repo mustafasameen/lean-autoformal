@@ -1,0 +1,9 @@
+{
+  "content": "def floatLetIn (phase := Phase.base) (occurrence := 0) : Pass :=\n  .mkPerDeclaration `floatLetIn Decl.floatLetIn phase occurrence\nbuiltin_initialize\n  registerTraceClass `Compiler.floatLetIn (inherited := true)\nend Lean.Compiler.LCNF",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/FloatLetIn.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/FloatLetIn.lean",
+    "definition_name": "floatLetIn"
+  }
+}

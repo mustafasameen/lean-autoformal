@@ -1,0 +1,9 @@
+{
+  "content": "let fvarId \u2190 mkFreshFVarId\n  let binderName \u2190 ensureNotAnonymous binderName `_x\n  let decl := { fvarId, binderName, type, value }\n  modifyLCtx fun lctx => lctx.addLetDecl decl\n  return decl\ndef mkFunDecl (binderName : Name) (type : Expr) (params : Array Param) (value : Code) : CompilerM FunDecl := do\n  let fvarId \u2190 mkFreshFVarId\n  let binderName \u2190 ensureNotAnonymous binderName `_f\n  let funDecl := { fvarId, binderName, type, params, value }\n  modifyLCtx fun lctx => lctx.addFunDecl funDecl\n  return funDecl\ndef mkLetDeclErased : CompilerM LetDecl := do\n  mkLetDecl (\u2190 mkFreshBinderName `_x) erasedExpr .erased\ndef mkReturnErased : CompilerM Code := do\n  let auxDecl \u2190 mkLetDeclErased\n  return .let auxDecl (.return auxDecl.fvarId)\nprivate unsafe def updateParamImp (p : Param) (type : Expr) : CompilerM Param := do\n  if ptrEq type p.type then\n    return p\n  else\n    let p := { p with type }\n    modifyLCtx fun lctx => lctx.addParam p\n    return p",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/CompilerM.lean",
+    "definition_name": "mkFreshBinderName"
+  }
+}

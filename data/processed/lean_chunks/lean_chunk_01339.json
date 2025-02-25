@@ -1,0 +1,9 @@
+{
+  "content": "\u03a3 (f : A \u2192 B), biinv f\ninfix:25 \" \u2243 \" => Equiv\nnamespace Equiv\n  def forward {A : Type u} {B : Type v} (e : A \u2243 B) : A \u2192 B := e.fst\n  def left {A : Type u} {B : Type v} (e : A \u2243 B) : B \u2192 A := e.2.1.1\n  def right {A : Type u} {B : Type v} (e : A \u2243 B) : B \u2192 A := e.2.2.1\n  def leftForward {A : Type u} {B : Type v} (e : A \u2243 B) : e.left \u2218 e.forward ~ id := e.2.1.2\n  def forwardRight {A : Type u} {B : Type v} (e : A \u2243 B) : e.forward \u2218 e.right ~ id := e.2.2.2\n  def biinvTrans {A : Type u} {B : Type v} {C : Type w}\n    {f : A \u2192 B} {g : B \u2192 C} (e\u2081 : biinv f) (e\u2082 : biinv g) : biinv (g \u2218 f) :=\n  (\u27e8e\u2081.1.1 \u2218 e\u2082.1.1, \u03bb x => Id.map e\u2081.1.1 (e\u2082.1.2 (f x)) \u2b1d e\u2081.1.2 x\u27e9,\n   \u27e8e\u2081.2.1 \u2218 e\u2082.2.1, \u03bb x => Id.map g (e\u2081.2.2 (e\u2082.2.1 x)) \u2b1d e\u2082.2.2 x\u27e9)\n  def trans {A : Type u} {B : Type v} {C : Type w}\n    (f : A \u2243 B) (g : B \u2243 C) : A \u2243 C :=\n  \u27e8g.1 \u2218 f.1, biinvTrans f.2 g.2\u27e9\n  def ideqv (A : Type u) : A \u2243 A :=\n  \u27e8id, (\u27e8id, idp\u27e9, \u27e8id, idp\u27e9)\u27e9\nend Equiv",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/aStructPerfIssue.lean",
+    "definition_name": "propset"
+  }
+}

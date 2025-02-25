@@ -1,0 +1,10 @@
+{
+  "content": "theorem testBit_toNat (x : BitVec w) : x.toNat.testBit i = x.getLsbD i := rfl\ntheorem getMsb'_eq_getLsb' (x : BitVec w) (i : Fin w) :\n    x.getMsb' i = x.getLsb' \u27e8w - 1 - i, by omega\u27e9 := by\n  simp only [getMsb', getLsb']\ntheorem getMsb?_eq_getLsb? (x : BitVec w) (i : Nat) :\n    x.getMsb? i = if i < w then x.getLsb? (w - 1 - i) else none := by\n  simp only [getMsb?, getLsb?_eq_getElem?]\n  split <;> simp [getMsb'_eq_getLsb']\ntheorem getMsbD_eq_getLsbD (x : BitVec w) (i : Nat) : x.getMsbD i = (decide (i < w) && x.getLsbD (w - 1 - i)) := by\n  rw [getMsbD, getLsbD]\ntheorem getLsbD_eq_getMsbD (x : BitVec w) (i : Nat) : x.getLsbD i = (decide (i < w) && x.getMsbD (w - 1 - i)) := by\n  rw [getMsbD]\n  by_cases h\u2081 : i < w <;> by_cases h\u2082 : w - 1 - i < w <;>\n    simp only [h\u2081, h\u2082] <;> simp only [decide_true, decide_false, Bool.false_and, Bool.and_false, Bool.true_and, Bool.and_true]\n  \u00b7 congr\n    omega\n  all_goals\n    apply getLsbD_ge\n    omega",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/BitVec/Lemmas.lean",
+    "definition_name": "testBit_toNat",
+    "has_proof": true
+  }
+}

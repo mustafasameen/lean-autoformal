@@ -1,0 +1,9 @@
+{
+  "content": "def sepByNoAntiquot.parenthesizer (p pSep : Parenthesizer) : Parenthesizer := do\n  let stx \u2190 getCur\n  visitArgs <| (List.range stx.getArgs.size).reverse.forM fun i => if i % 2 == 0 then p else pSep\n@[combinator_parenthesizer sepBy1NoAntiquot] def sepBy1NoAntiquot.parenthesizer := sepByNoAntiquot.parenthesizer\n@[combinator_parenthesizer withPosition] def withPosition.parenthesizer (p : Parenthesizer) : Parenthesizer := do\n  modify fun st => { st with contPrec := none }\n  p\n@[combinator_parenthesizer withPositionAfterLinebreak] def withPositionAfterLinebreak.parenthesizer (p : Parenthesizer) : Parenthesizer :=\n  withPosition.parenthesizer p\n@[combinator_parenthesizer withoutInfo] def withoutInfo.parenthesizer (p : Parenthesizer) : Parenthesizer := p\n@[combinator_parenthesizer checkStackTop] def checkStackTop.parenthesizer : Parenthesizer := pure ()\n@[combinator_parenthesizer checkWsBefore] def checkWsBefore.parenthesizer : Parenthesizer := pure ()",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/PrettyPrinter/Parenthesizer.lean",
+    "definition_name": "rawIdentNoAntiquot"
+  }
+}

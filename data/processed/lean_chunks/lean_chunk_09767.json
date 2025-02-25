@@ -1,0 +1,10 @@
+{
+  "content": "theorem hashesTo_cons [BEq \u03b1] [Hashable \u03b1] {i : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/HashesTo.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/Internal/HashesTo.lean",
+    "definition_name": "hashesTo_cons",
+    "has_proof": false
+  }
+}

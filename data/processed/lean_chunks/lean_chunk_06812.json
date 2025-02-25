@@ -1,0 +1,9 @@
+{
+  "content": "inductive PreExpr\n| op (lhs rhs : PreExpr)\n| var (e : Expr)\n@[match_pattern] def bin (op l r : Expr) :=\n  Expr.app (Expr.app op l) r\ndef toACExpr (op l r : Expr) : MetaM (Array Expr \u00d7 ACExpr) := do\n  let (preExpr, vars) \u2190\n    toPreExpr (mkApp2 op l r)\n    |>.run Std.HashSet.empty\n  let vars := vars.toArray.insertionSort Expr.lt\n  let varMap := vars.foldl (fun xs x => xs.insert x xs.size) Std.HashMap.empty |>.get!\n  return (vars, toACExpr varMap preExpr)\n  where\n    toPreExpr : Expr \u2192 StateT ExprSet MetaM PreExpr\n    | e@(bin op\u2082 l r) => do\n      if \u2190isDefEq op op\u2082 then\n        return PreExpr.op (\u2190toPreExpr l) (\u2190toPreExpr r)\n      modify fun vars => vars.insert e\n      return PreExpr.var e\n    | e => do\n      modify fun vars => vars.insert e\n      return PreExpr.var e\n    toACExpr (varMap : Expr \u2192 Nat) : PreExpr \u2192 ACExpr\n    | PreExpr.op l r => Data.AC.Expr.op (toACExpr varMap l) (toACExpr varMap r)\n    | PreExpr.var x => Data.AC.Expr.var (varMap x)",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/AC/Main.lean",
+    "definition_name": "PreExpr"
+  }
+}

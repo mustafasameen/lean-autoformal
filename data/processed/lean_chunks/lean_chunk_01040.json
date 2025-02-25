@@ -1,0 +1,9 @@
+{
+  "content": "structure Bundled (c : Type u \u2192 Type v) : Type max (u + 1) v where\n  \u03b1 : Type u\n  str : c \u03b1 := by infer_instance\nset_option checkBinderAnnotations false in\ndef Bundled.of {c : Type u \u2192 Type v}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_cat_adjunction.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/6123_cat_adjunction.lean",
+    "definition_name": "Bundled"
+  }
+}

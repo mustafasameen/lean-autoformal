@@ -1,0 +1,9 @@
+{
+  "content": "inductive Op : (ishapes : List S) \u2192 (oshape : S) \u2192 Type\n  | binary : (shape : S) \u2192 Op [shape, shape] shape\n  | gemm   : {m n p : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1385.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/1385.lean",
+    "definition_name": "Op"
+  }
+}

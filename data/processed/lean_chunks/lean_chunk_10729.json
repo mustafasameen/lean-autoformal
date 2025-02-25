@@ -1,0 +1,9 @@
+{
+  "content": "inductive LogLevel\n| trace\n| info\n| warning\n| error\nderiving Inhabited, Repr, DecidableEq, Ord, ToJson, FromJson\ninstance : LT LogLevel := ltOfOrd\ninstance : LE LogLevel := leOfOrd\ninstance : Min LogLevel := minOfLe\ninstance : Max LogLevel := maxOfLe\ndef LogLevel.ansiColor : LogLevel \u2192 String\n| .trace | .info => \"34\"\n| .warning => \"33\"\n| .error => \"31\"\nprotected def LogLevel.ofString? (s : String) : Option LogLevel :=\n  match s.toLower with\n  | \"trace\" => some .trace\n  | \"info\" | \"information\" => some .info\n  | \"warn\" | \"warning\" => some .warning\n  | \"error\" => some .error\n  | _ => none\nprotected def LogLevel.toString : LogLevel \u2192 String\n| .trace => \"trace\"\n| .info => \"info\"\n| .warning => \"warning\"\n| .error => \"error\"\ninstance : ToString LogLevel := \u27e8LogLevel.toString\u27e9\nprotected def LogLevel.ofMessageSeverity : MessageSeverity \u2192 LogLevel\n| .information => .info\n| .warning => .warning\n| .error => .error\nprotected def LogLevel.toMessageSeverity : LogLevel \u2192 MessageSeverity",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Log.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/lake/Lake/Util/Log.lean",
+    "definition_name": "LogLevel"
+  }
+}

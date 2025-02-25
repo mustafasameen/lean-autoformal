@@ -1,0 +1,10 @@
+{
+  "content": "theorem eq_true_or_eq_false_self : \u2200(b : Bool), (b = true \u2228 b = false) \u2194 True := by decide\n@[simp] theorem eq_false_or_eq_true_self : \u2200(b : Bool), (b = false \u2228 b = true) \u2194 True := by decide\n@[simp] theorem or_iff_left_iff_imp  : \u2200 {a b : Bool}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Bool.lean",
+    "definition_name": "eq_true_or_eq_false_self",
+    "has_proof": true
+  }
+}

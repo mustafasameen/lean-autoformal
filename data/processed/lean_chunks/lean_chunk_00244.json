@@ -1,0 +1,9 @@
+{
+  "content": "true\ndef testUnescapeUnicode :=\n  assert! (unescapeUri \"%F0%9F%98%B5\") == \"\ud83d\ude35\"\n  assert! (unescapeUri \"br%C3%BCckner\") == \"br\u00fcckner\"\n  assert! (unescapeUri \"br%C3%BCckner\") == \"br\u00fcckner\"\n  assert! (unescapeUri \"\\u6f22%C3%BC\") == \"\\u6f22\\u00fc\"\n  true\ndef testUnescapeMixedCase :=\n  assert! (unescapeUri \"\\u00Ab\\u006A\") == \"\u00abj\"\n  true\ndef testShouldUnescape :=\n  let controls := String.mk ((List.range 31).map (fun c => Char.ofNat c))\n  let should_quote := String.join [controls,\n                      \"#%[]\",\n(Char.ofNat 127).toString]\n  assert! should_quote == unescapeUri (escapeUri should_quote)\n  true\ndef testWindowsDriveLetter :=\n  if System.Platform.isWindows then\n    assert! pathToUri (\"c:\" / \"temp\") == \"file:///c%3A/temp\"\n    true\n  else\n    true\ndef testWindowsDriveLetterRoundTrip :=\n  if System.Platform.isWindows then\n    let x : System.FilePath := \"c:\" / \"temp\" / \"test.lean\"\n    let r := pathToUri x\n    let result := if r == \"file:///c%3A/temp/test.lean\" then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/Uri.lean",
+    "definition_name": "testEscaping"
+  }
+}

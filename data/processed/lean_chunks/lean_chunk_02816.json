@@ -1,0 +1,10 @@
+{
+  "content": "(mkEmpty 1).push a\u2081\ndef Array.mkArray3 {\u03b1 : Type u} (a\u2081 a\u2082 a\u2083 : \u03b1) : Array \u03b1 :=\n  (((mkEmpty 3).push a\u2081).push a\u2082).push a\u2083\ndef Array.mkArray5 {\u03b1 : Type u} (a\u2081 a\u2082 a\u2083 a\u2084 a\u2085 : \u03b1) : Array \u03b1 :=\n  (((((mkEmpty 5).push a\u2081).push a\u2082).push a\u2083).push a\u2084).push a\u2085\ndef Array.mkArray7 {\u03b1 : Type u} (a\u2081 a\u2082 a\u2083 a\u2084 a\u2085 a\u2086 a\u2087 : \u03b1) : Array \u03b1 :=\n  (((((((mkEmpty 7).push a\u2081).push a\u2082).push a\u2083).push a\u2084).push a\u2085).push a\u2086).push a\u2087\nprotected def Array.appendCore {\u03b1 : Type u}  (as : Array \u03b1) (bs : Array \u03b1) : Array \u03b1 :=\n  let rec loop (i : Nat) (j : Nat) (as : Array \u03b1) : Array \u03b1 :=\n    dite (LT.lt j bs.size)\n      (fun hlt =>\n        match i with\n        | 0           => as\n        | Nat.succ i' => loop i' (hAdd j 1) (as.push (bs.getInternal j hlt)))\n      (fun _ => as)\n  loop bs.size 0 as\ndef Array.extract (as : Array \u03b1) (start : Nat := 0) (stop : Nat := as.size) : Array \u03b1 :=\n  let rec loop (i : Nat) (j : Nat) (bs : Array \u03b1) : Array \u03b1 :=\n    dite (LT.lt j as.size)\n      (fun hlt =>\n        match i with",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "NonemptyType",
+    "has_proof": true
+  }
+}

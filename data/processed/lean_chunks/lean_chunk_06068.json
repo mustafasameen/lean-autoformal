@@ -1,0 +1,10 @@
+{
+  "content": "theorem mem_range'_1 : m \u2208 range' s n \u2194 s \u2264 m \u2227 m < s + n := by\n  simp [mem_range']; exact \u27e8\n    fun \u27e8i, h, e\u27e9 => e \u25b8 \u27e8Nat.le_add_right .., Nat.add_lt_add_left h _\u27e9,\n    fun \u27e8h\u2081, h\u2082\u27e9 => \u27e8m - s, Nat.sub_lt_left_of_lt_add h\u2081 h\u2082, (Nat.add_sub_cancel' h\u2081).symm\u27e9\u27e9\ntheorem getLast?_range' (n : Nat) : (range' s n).getLast? = if n = 0 then none else some (s + n - 1) := by\n  induction n generalizing s with\n  | zero => simp\n  | succ n ih =>\n    rw [range'_succ, getLast?_cons, ih]\n    by_cases h : n = 0\n    \u00b7 rw [if_pos h]\n      simp [h]\n    \u00b7 rw [if_neg h]\n      simp\n      omega\n@[simp] theorem getLast_range' (n : Nat) (h) : (range' s n).getLast h = s + n - 1 := by\n  cases n with\n  | zero => simp at h\n  | succ n => simp [getLast?_range', getLast_eq_iff_getLast?_eq_some]\ntheorem pairwise_lt_range' s n (step := 1) (pos : 0 < step := by simp) :\n    Pairwise (\u00b7 < \u00b7) (range' s n step) :=\n  match s, n, step, pos with\n  | _, 0, _, _ => Pairwise.nil\n  | s, n + 1, step, pos => by",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "mem_range",
+    "has_proof": true
+  }
+}

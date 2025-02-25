@@ -1,0 +1,10 @@
+{
+  "content": "unless (\u2190 initializing) do\n    throw (IO.userError \"failed to register equation getter, this kind of extension can only be registered during initialization\")\n  getUnfoldEqnFnsRef.modify (f :: \u00b7)\ndef getUnfoldEqnFor? (declName : Name) (nonRec := false) : MetaM (Option Name) := withLCtx {} {} do\n  let env \u2190 getEnv\n  let unfoldName := Name.str declName unfoldThmSuffix\n  if env.contains unfoldName then\n    return some unfoldName\n  if (\u2190 shouldGenerateEqnThms declName) then\n    for f in (\u2190 getUnfoldEqnFnsRef.get) do\n      if let some r \u2190 f declName then\n        unless r == unfoldName do\n          throwError \"invalid unfold theorem name `{r}` has been generated expected `{unfoldName}`\"\n        return some r\n    if nonRec then\n      return (\u2190 mkSimpleEqThm declName)\n   return none\nbuiltin_initialize\n  registerReservedNameAction fun name => do\n    let .str p s := name | return false\n    unless (\u2190 getEnv).isSafeDefinition p do return false\n    if isEqnReservedNameSuffix s then",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Eqns.lean",
+    "definition_name": "eqnThmSuffixBase",
+    "has_proof": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "content": "theorem prefix_or_prefix_of_prefix (h\u2081 : l\u2081 <+: l\u2083) (h\u2082 : l\u2082 <+: l\u2083) : l\u2081 <+: l\u2082 \u2228 l\u2082 <+: l\u2081 :=\n  (Nat.le_total (length l\u2081) (length l\u2082)).imp (prefix_of_prefix_length_le h\u2081 h\u2082)\n    (prefix_of_prefix_length_le h\u2082 h\u2081)\ntheorem suffix_of_suffix_length_le\n    (h\u2081 : l\u2081 <:+ l\u2083) (h\u2082 : l\u2082 <:+ l\u2083) (ll : length l\u2081 \u2264 length l\u2082) : l\u2081 <:+ l\u2082 :=\n  reverse_prefix.1 <|\n    prefix_of_prefix_length_le (reverse_prefix.2 h\u2081) (reverse_prefix.2 h\u2082) (by simp [ll])\ntheorem suffix_or_suffix_of_suffix (h\u2081 : l\u2081 <:+ l\u2083) (h\u2082 : l\u2082 <:+ l\u2083) : l\u2081 <:+ l\u2082 \u2228 l\u2082 <:+ l\u2081 :=\n  (prefix_or_prefix_of_prefix (reverse_prefix.2 h\u2081) (reverse_prefix.2 h\u2082)).imp reverse_prefix.1\n    reverse_prefix.1\ntheorem prefix_cons_iff : l\u2081 <+: a :: l\u2082 \u2194 l\u2081 = [] \u2228 \u2203 t, l\u2081 = a :: t \u2227 t <+: l\u2082 := by\n  cases l\u2081 with\n  | nil => simp\n  | cons a' l\u2081 =>\n    constructor\n    \u00b7 rintro \u27e8t, h\u27e9\n      simp at h\n      obtain \u27e8rfl, rfl\u27e9 := h\n      exact Or.inr \u27e8l\u2081, rfl, prefix_append l\u2081 t\u27e9\n    \u00b7 rintro (h | \u27e8t, w, \u27e8s, h'\u27e9\u27e9)\n      \u00b7 simp [h]\n      \u00b7 simp only [w]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Sublist.lean",
+    "definition_name": "prefix_or_prefix_of_prefix",
+    "has_proof": true
+  }
+}

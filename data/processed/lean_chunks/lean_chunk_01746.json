@@ -1,0 +1,9 @@
+{
+  "content": "structure S where\n  carrier : Type\n  mul : carrier \u2192 carrier \u2192 carrier\ndef Nat.S : S where\n  carrier := Nat\n  mul := (\u00b7 * \u00b7)\ndef Int.S : S where\n  carrier := Int\n  mul := (\u00b7 * \u00b7)\nunif_hint (s : S) where\n  s =?= Nat.S \u22a2 s.carrier =?= Nat\nunif_hint (s : S) where\n  s =?= Int.S \u22a2 s.carrier =?= Int\ndef mul {s : S}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/unihint.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/unihint.lean",
+    "definition_name": "S"
+  }
+}

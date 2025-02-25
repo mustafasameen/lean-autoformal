@@ -1,0 +1,10 @@
+{
+  "content": "theorem zero_eq : zero = 0 := rfl\n@[simp] theorem neg_eq : neg  = -1 := rfl\n@[simp] theorem pos_eq : pos = 1 := rfl\ndef mul : Sign \u2192 Sign \u2192 Sign\n  | neg,  neg  => pos\n  | neg,  pos  => neg\n  | neg,  zero => zero\n  | zero, _    => zero\n  | pos,  s    => s\ninstance : Mul Sign where\n  mul a b := Sign.mul a b\ndef le : Sign \u2192 Sign \u2192 Bool\n  | neg,  _    => true\n  | zero, zero => true\n  | _,    pos  => true\n  | _,    _    => false\ninstance : LE Sign where\n  le a b := Sign.le a b\ninstance : DecidableRel (\u00b7 \u2264 \u00b7 : Sign \u2192 Sign \u2192 Prop) :=\n  fun a b => inferInstanceAs (Decidable (le a b = true))\ntheorem neg_bot {s : Sign}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/sign.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/sign.lean",
+    "definition_name": "zero_eq",
+    "has_proof": false
+  }
+}

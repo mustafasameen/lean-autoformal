@@ -1,0 +1,9 @@
+{
+  "content": "class Applicative (f : Type u \u2192 Type v) extends Functor f, Pure f, Seq f, SeqLeft f, SeqRight f where\n  map      := fun x y => Seq.seq (pure x) fun _ => y\n  seqLeft  := fun a b => Seq.seq (Functor.map (Function.const _) a) b\n  seqRight := fun a b => Seq.seq (Functor.map (Function.const _ id) a) b\nclass Monad (m : Type u \u2192 Type v) : Type (max (u+1) v) extends Applicative m, Bind m where\n  map      f x := bind x (Function.comp pure f)\n  seq      f x := bind f fun y => Functor.map y (x ())\n  seqLeft  x y := bind x fun a => bind (y ()) (fun _ => pure a)\n  seqRight x y := bind x fun _ => y ()\ninstance {\u03b1 : Type u}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Prelude.lean",
+    "definition_name": "Applicative"
+  }
+}

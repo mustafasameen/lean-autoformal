@@ -1,0 +1,10 @@
+{
+  "content": "theorem ex1 (x : Nat) (h : q x) : q x \u2227 q (f x) := by\n  simp [h]\ntheorem ex2 (x : Nat) : q (f x) \u2228 r (f x) := by\n  simp\n@[simp] axiom ax5 (x : Nat) : 0 + x = x\ntheorem ex3 (h : 0 + x = y) : f x = f y := by\n  simp at h\n  simp [h]\ntheorem ex4 (x y z : Nat) (h : (x, z).1 = y) : f x = f y := by\n  simp at h\n  simp [h]\ntheorem ex5\n    (f  : Nat \u2192 Nat \u2192 Nat)\n    (g  : Nat \u2192 Nat)\n    (h\u2081 : \u2200 x, f x x = x)\n    (h\u2082 : \u2200 x, g (g x) = x)\n    : f (g (g x)) (f x x) = x :=\n  by simp [h\u2081, h\u2082]\n@[simp] axiom ax6 (x : Nat) : x + 0 = x\ntheorem ex6\n  (f : Nat \u2192 Nat)\n  (x y : Nat)\n  : (fun (h : y = 0) => y + x) = (fun _ => x + 0) := by\n simp (config := { contextual := true }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp4.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/simp4.lean",
+    "definition_name": "ex1",
+    "has_proof": true
+  }
+}

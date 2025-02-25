@@ -1,0 +1,9 @@
+{
+  "content": "inductive MutualMeasure where\n  | func : Nat \u2192 MutualMeasure\npartial def generateCombinations? (numMeasures : Array Nat) (threshold : Nat := 32) :\n    Option (Array (Array Nat)) :=\n  (do goUniform 0; go 0 #[]) |>.run #[] |>.2\nwhere\n  goUniform (idx : Nat) : OptionT (StateM (Array (Array Nat))) Unit  := do\n    if numMeasures.all (idx < \u00b7) then\n      modify (\u00b7.push (Array.mkArray numMeasures.size idx))\n      goUniform (idx + 1)\n  go (fidx : Nat) : OptionT (ReaderT (Array Nat) (StateM (Array (Array Nat)))) Unit := do\n    if h : fidx < numMeasures.size then\n      let n := numMeasures[fidx]\n      for idx in [:n] do withReader (\u00b7.push idx) (go (fidx + 1))\n    else\n      let comb \u2190 read\n      unless comb.all (\u00b7 == comb[0]!) do\n        modify (\u00b7.push comb)\n      if (\u2190 get).size > threshold then\n        failure\ndef generateMeasures (numMeasures : Array Nat) : MetaM (Array MutualMeasure) := do\n  let some arg_measures := generateCombinations? numMeasures\n      | throwError \"Too many combinations\"",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_type": "inductive",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Elab/PreDefinition/WF/GuessLex.lean",
+    "definition_name": "MutualMeasure"
+  }
+}

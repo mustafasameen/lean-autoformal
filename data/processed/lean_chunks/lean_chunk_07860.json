@@ -1,0 +1,10 @@
+{
+  "content": "theorem get?_insertMany_list_of_not_mem_of_contains_eq_false\n    [EquivBEq \u03b1] [LawfulHashable \u03b1] {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/HashSet/Lemmas.lean",
+    "definition_name": "get",
+    "has_proof": false
+  }
+}

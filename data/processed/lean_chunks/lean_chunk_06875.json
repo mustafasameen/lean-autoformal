@@ -1,0 +1,9 @@
+{
+  "content": "def checkInvariants (expensive := false) : GoalM Unit := do\n  if grind.debug.get (\u2190 getOptions) then\n    for (_, node) in (\u2190 get).enodes do\n      checkParents node.self\n      if isSameExpr node.self node.root then\n        checkEqc node\n    if expensive then\n      checkPtrEqImpliesStructEq\n    Arith.checkInvariants\n  if expensive && grind.debug.proofs.get (\u2190 getOptions) then\n    checkProofs\ndef Goal.checkInvariants (goal : Goal) (expensive := false) : GrindM Unit :=\n  discard <| GoalM.run' goal <| Grind.checkInvariants expensive\nend Lean.Meta.Grind",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Inv.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Meta/Tactic/Grind/Inv.lean",
+    "definition_name": "checkInvariants"
+  }
+}

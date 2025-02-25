@@ -1,0 +1,10 @@
+{
+  "content": "theorem lt_of_mul_lt_mul_right {a b c : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Mod.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Nat/Mod.lean",
+    "definition_name": "lt_of_mul_lt_mul_right",
+    "has_proof": false
+  }
+}

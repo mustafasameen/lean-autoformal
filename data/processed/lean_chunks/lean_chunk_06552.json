@@ -1,0 +1,9 @@
+{
+  "content": "IO.mapTask f t.task (sync := true)\ndef mapTaskCostly (f : \u03b1 \u2192 IO \u03b2) (t : ServerTask \u03b1) : BaseIO (ServerTask (Except IO.Error \u03b2)) :=\n  IO.mapTask f t.task (prio := .dedicated)\ndef bindTaskCheap (t : ServerTask \u03b1) (f : \u03b1 \u2192 IO (ServerTask (Except IO.Error \u03b2))) : BaseIO (ServerTask (Except IO.Error \u03b2)) :=\n  IO.bindTask t.task (ServerTask.task <$> f \u00b7) (sync := true)\ndef bindTaskCostly (t : ServerTask \u03b1) (f : \u03b1 \u2192 IO (ServerTask (Except IO.Error \u03b2))) : BaseIO (ServerTask (Except IO.Error \u03b2)) :=\n  IO.bindTask t.task (ServerTask.task <$> f \u00b7) (prio := .dedicated)\nend IO\ndef hasFinished (t : ServerTask \u03b1) : BaseIO Bool :=\n  IO.hasFinished t.task\ndef waitAny (tasks : List (ServerTask \u03b1))\n    (h : tasks.length > 0 := by exact Nat.zero_lt_succ _) : BaseIO \u03b1 :=\n  let \u27e8tasks, h\u27e9 : { tasks : List (Task \u03b1) // tasks.length > 0 }",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/ServerTask.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Server/ServerTask.lean",
+    "definition_name": "ServerTask"
+  }
+}

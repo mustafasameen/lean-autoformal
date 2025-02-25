@@ -1,0 +1,9 @@
+{
+  "content": "class Algebra (R : Type u) (A : Type v) [CommSemiring R] [Semiring A] extends SMul R A,\n  R \u2192+* A where\ndef algebraMap (R : Type u) (A : Type v) [CommSemiring R] [Semiring A] [Algebra R A] : R \u2192+* A :=\n  Algebra.toRingHom\ndef RingHom.toAlgebra' {R S}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/structWithAlgTCSynth.lean",
+    "definition_name": "Algebra"
+  }
+}

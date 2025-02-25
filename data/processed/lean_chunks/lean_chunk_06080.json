@@ -1,0 +1,10 @@
+{
+  "content": "theorem getLast?_iota (n : Nat) : (iota n).getLast? = if n = 0 then none else some 1 := by\n  rw [getLast?_eq_head?_reverse]\n  simp [head?_range']\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\"), simp]\ntheorem getLast_iota (n : Nat) (h) : (iota n).getLast h = 1 := by\n  rw [getLast_eq_head_reverse]\n  simp\n@[deprecated \"Use `(List.range' 1 n).reverse` instead of `iota n`.\" (since := \"2025-01-20\")]\ntheorem find?_iota_eq_none {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Nat/Range.lean",
+    "definition_name": "iota_inj",
+    "has_proof": true
+  }
+}

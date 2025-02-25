@@ -1,0 +1,9 @@
+{
+  "content": "class Foo  (\u03b1 : Type) : Type := (x : Unit)\nclass Zoo  (\u03b1 : Type) : Type := (x : Unit)\nclass Bar  (\u03b1 : Type) : Type := (x : Unit)\nclass HasParam (\u03b1 : Type) [Bar \u03b1] : Type := (x : Unit)\ninstance FooToBar (\u03b1 : Type) [f : Foo \u03b1] : Bar \u03b1 :=\nmatch f.x with\n| () => {x:=()}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/leaky_tmp_metavars2.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/elabissues/leaky_tmp_metavars2.lean",
+    "definition_name": "Foo"
+  }
+}

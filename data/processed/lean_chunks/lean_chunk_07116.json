@@ -1,0 +1,9 @@
+{
+  "content": "class TraverseFVar (\u03b1 : Type) where\n  mapFVarM {m : Type \u2192 Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/FVarUtil.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/LCNF/FVarUtil.lean",
+    "definition_name": "TraverseFVar"
+  }
+}

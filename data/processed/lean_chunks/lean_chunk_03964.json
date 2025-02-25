@@ -1,0 +1,10 @@
+{
+  "content": "theorem find?_mkArray :\n    find? p (mkArray n a) = if n = 0 then none else if p a then some a else none := by\n  simp [\u2190 List.toArray_replicate, List.find?_replicate]\n@[simp] theorem find?_mkArray_of_length_pos (h : 0 < n) :\n    find? p (mkArray n a) = if p a then some a else none := by\n  simp [find?_mkArray, Nat.ne_of_gt h]\n@[simp] theorem find?_mkArray_of_pos (h : p a) :\n    find? p (mkArray n a) = if n = 0 then none else some a := by\n  simp [find?_mkArray, h]\n@[simp] theorem find?_mkArray_of_neg (h : \u00ac p a) : find? p (mkArray n a) = none := by\n  simp [find?_mkArray, h]\ntheorem find?_mkArray_eq_none_iff {n : Nat}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/Array/Find.lean",
+    "definition_name": "find",
+    "has_proof": true
+  }
+}

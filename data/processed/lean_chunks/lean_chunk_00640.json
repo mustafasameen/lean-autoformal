@@ -1,0 +1,9 @@
+{
+  "content": "structure S :=\n(x y z : Nat := 0)\ndef f1 : Nat \u00d7 Nat \u2192 S \u2192 Nat :=\nby {\n  intro (x, y);\n  intro \u27e8a, b, c\u27e9;\n  exact x+y+a\n}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/intromacro.lean",
+    "definition_type": "structure",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/intromacro.lean",
+    "definition_name": "S"
+  }
+}

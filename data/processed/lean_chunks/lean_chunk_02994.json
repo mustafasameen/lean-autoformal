@@ -1,0 +1,9 @@
+{
+  "content": "| succ ..      => true\n  | max l\u2081 l\u2082    => isNeverZero l\u2081 || isNeverZero l\u2082\n  | imax _  l\u2082   => isNeverZero l\u2082\ndef ofNat : Nat \u2192 Level\n  | 0   => levelZero\n  | n+1 => mkLevelSucc (ofNat n)\ninstance instOfNat (n : Nat) : OfNat Level n where\n  ofNat := ofNat n\ndef addOffsetAux : Nat \u2192 Level \u2192 Level\n  | 0,     u => u\n  | (n+1), u => addOffsetAux n (mkLevelSucc u)\ndef addOffset (u : Level) (n : Nat) : Level :=\n  u.addOffsetAux n\ndef isExplicit : Level \u2192 Bool\n  | zero     => true\n  | succ u   => !u.hasMVar && !u.hasParam && isExplicit u\n  | _        => false\ndef getOffsetAux : Level \u2192 Nat \u2192 Nat\n  | succ u  , r => getOffsetAux u (r+1)\n  | _,        r => r\ndef getOffset (lvl : Level) : Nat :=\n  getOffsetAux lvl 0\ndef getLevelOffset : Level \u2192 Level\n  | succ u   => getLevelOffset u\n  | u        => u\ndef toNat (lvl : Level) : Option Nat :=\n  match lvl.getLevelOffset with\n  | zero   => lvl.getOffset\n  | _      => none\n@[extern \"lean_level_eq\"]",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Level.lean",
+    "definition_name": "Level"
+  }
+}

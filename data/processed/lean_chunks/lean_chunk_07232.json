@@ -1,0 +1,9 @@
+{
+  "content": "partial def inferMain : M Unit := do\n  let modified \u2190 inferStep\n  if modified then inferMain else pure ()\npartial def elimDeadAux (assignment : Assignment) : FnBody \u2192 FnBody\n  | FnBody.vdecl x t e b  => FnBody.vdecl x t e (elimDeadAux assignment b)\n  | FnBody.jdecl j ys v b => FnBody.jdecl j ys (elimDeadAux assignment v) (elimDeadAux assignment b)\n  | FnBody.case tid x xType alts =>\n    let v := assignment.getD x bot\n    let alts := alts.map fun alt =>\n      match alt with\n      | Alt.ctor i b  => Alt.ctor i <| if containsCtor v i then elimDeadAux assignment b else FnBody.unreachable\n      | Alt.default b => Alt.default (elimDeadAux assignment b)\n    FnBody.case tid x xType alts\n  | e =>\n    if e.isTerminal then e\n    else\n      let (instr, b) := e.split\n      let b := elimDeadAux assignment b\n      instr.setBody b\npartial def elimDead (assignment : Assignment) (d : Decl) : Decl :=\n  match d with\n  | .fdecl (body := b) .. => d.updateBody! <| elimDeadAux assignment b\n  | other => other",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_type": "def",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Lean/Compiler/IR/ElimDeadBranches.lean",
+    "definition_name": "truncateMaxDepth"
+  }
+}

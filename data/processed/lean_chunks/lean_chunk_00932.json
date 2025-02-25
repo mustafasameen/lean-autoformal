@@ -1,0 +1,9 @@
+{
+  "content": "class Fintype (\u03b1 : Type u) where\nclass Preorder (\u03b1 : Type u) extends LT \u03b1, LE \u03b1 where\n  lt := fun a b => a \u2264 b \u2227 \u00acb \u2264 a\nstructure Mappish (dIn dOut : Type u) [Fintype dIn] [Fintype dOut] where\n  k : Nat\nvariable {dIn dOut dOut\u2082 : Type}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4203.lean",
+    "definition_type": "class",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/tests/lean/run/4203.lean",
+    "definition_name": "Fintype"
+  }
+}

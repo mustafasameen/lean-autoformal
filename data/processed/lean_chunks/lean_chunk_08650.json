@@ -1,0 +1,10 @@
+{
+  "content": "theorem getKey!_ofList_of_contains_eq_false [EquivBEq \u03b1] [LawfulHashable \u03b1] [Inhabited \u03b1]\n    {l : List (\u03b1 \u00d7 \u03b2)}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Std/Data/DHashMap/RawLemmas.lean",
+    "definition_name": "getKey",
+    "has_proof": false
+  }
+}

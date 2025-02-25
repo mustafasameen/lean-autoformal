@@ -1,0 +1,10 @@
+{
+  "content": "theorem set_set (a b : \u03b1) : \u2200 (l : List \u03b1) (i : Nat), (l.set i a).set i b = l.set i b\n  | [], _ => by simp\n  | _ :: _, 0 => by simp [set]\n  | _ :: _, _+1 => by simp [set, set_set]\ntheorem mem_set (l : List \u03b1) (i : Nat) (h : i < l.length) (a : \u03b1) :\n    a \u2208 l.set i a := by\n  simp [mem_iff_getElem]\n  exact \u27e8i, (by simpa using h), by simp\u27e9\ntheorem mem_or_eq_of_mem_set : \u2200 {l : List \u03b1}",
+  "metadata": {
+    "source": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_type": "theorem",
+    "parent_file": "/Users/mustafasameen/Documents/lean-autoformal/data/raw/lean4/src/Init/Data/List/Lemmas.lean",
+    "definition_name": "set_set",
+    "has_proof": true
+  }
+}
